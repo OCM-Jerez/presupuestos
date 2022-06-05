@@ -65,11 +65,11 @@
   &--rrss {
     display: flex;
     flex-direction: row;
-    .logoFacebook {
+    .OCM-logoFacebook {
       @include OCM-logo;
       background: url("./assets/img/facebook.svg") no-repeat center center;
     }
-    .logoTwitter {
+    .OCM-logoTwitter {
       @include OCM-logo;
       background: url("./assets/img/twitter.svg") no-repeat center center;
     }
