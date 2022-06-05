@@ -11,6 +11,7 @@ import { DataStoreService } from '../../services/dataStore.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 import { Subscription } from 'rxjs';
+import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 
 @Component({
   selector: 'app-graph-ingresos',
@@ -38,6 +39,7 @@ export class GraphIngresosComponent implements OnDestroy {
   private _subscription: Subscription;
 
   constructor(
+    private avalaibleYearsService: AvalaibleYearsService,
     private location: Location,
     private _dataStoreService: DataStoreService,
   ) {
@@ -110,19 +112,32 @@ export class GraphIngresosComponent implements OnDestroy {
 
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];
-    for (let index = 2015; index <= 2021; index++) {
+    // for (let index = 2021; index <= 2021; index++) {
+    //   const value = {
+    //     "year": index,
+    //     "Definitivas": yearsDefinitivas[index],
+    //     "RecaudacionNeta": yearsNetas[index]
+    //   }
+    //   // if (index === 2022) {
+    //   //   value.Definitivas = yearsIniciales[index]
+    //   //   value.RecaudacionNeta = yearsNetas[index - 1]
+    //   // }
+    //   this.data.push(value)
+    // }
+    // return this.data;
+
+
+    this.avalaibleYearsService.getYearsSelected().map(year => {
       const value = {
-        "year": index,
-        "Definitivas": yearsDefinitivas[index],
-        "RecaudacionNeta": yearsNetas[index]
+        "year": year,
+        "Definitivas": yearsDefinitivas[year],
+        "RecaudacionNeta": yearsNetas[year]
       }
-      // if (index === 2022) {
-      //   value.Definitivas = yearsIniciales[index]
-      //   value.RecaudacionNeta = yearsNetas[index - 1]
-      // }
       this.data.push(value)
     }
+    )
     return this.data;
+
   }
 
   private _showGraph(): void {
