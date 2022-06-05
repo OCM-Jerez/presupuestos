@@ -96,7 +96,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
       },
 
       columnDefs: this._columnDefs,
-      // groupDisplayType: "custom",
+      groupDisplayType: 'custom',
       groupIncludeTotalFooter: true,
       groupIncludeFooter: true,
       groupHeaderHeight: 25,
