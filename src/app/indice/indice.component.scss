@@ -87,7 +87,7 @@ insertamo sun seudo elemento con el mismo tamaño. */
 }
 
 // https://grid.layoutit.com/
-.containerNew {
+.OCM-containerNew {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1.5fr 2fr 0.3fr 0.3fr 0.3fr 0.3fr 1.5fr 1.5fr 2fr 0.5fr 0.5fr 0.5fr 0.5fr;
@@ -96,7 +96,7 @@ insertamo sun seudo elemento con el mismo tamaño. */
     border: 1px solid #000;
     grid-template-areas:
         ". . . . . espacio . . . . . ."
-        ". . . . Gastos Gastos Gastos Gastos . . . ."
+        ". . . . gastos gastos gastos gastos . . . ."
         ". . . . economicaIngreso economicaIngreso economicaIngreso economicaIngreso . . . ."
         ". . . . capitulo . . . . . . ."
         ". . . . . articulo . . . . . ."
@@ -111,28 +111,7 @@ insertamo sun seudo elemento con el mismo tamaño. */
         ". . . . . . . programa . . . subconcepto1";
 }
 
- 
-// @media only screen and (max-width: 2200px) {
-//     .containerNew { 
-//          display: grid;
-//    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
-//    grid-template-rows: 1.5fr 1.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 1.5fr 1.5fr 1fr ;
-//    gap: 0px 0px;
-//    grid-auto-flow: row;
-//    border: 1px solid #000;
-//    grid-template-areas:
-  
-//    ". . economicaIngreso economicaIngreso economicaIngreso economicaIngreso . ."
-//    ". . capitulo . . . . ."
-//    ". . articulo . . . . ."
-//    ". . . . . . concepto . . . . ."
-//    ". . . . . . . subconcepto . . . ."
-   
-//    }
-
-// }
-
-.Gastos {
+.OCM-gastos {
     grid-area: Gastos;
     // border: 1px solid #000;
     // background-color: aqua;
@@ -144,7 +123,7 @@ insertamo sun seudo elemento con el mismo tamaño. */
     color: aliceblue;
 }
 
-.economicaIngreso {
+.OCM-economicaIngreso {
     grid-area: economicaIngreso;
     border: 1px solid #000;
     border-radius: 0.6rem;
@@ -158,23 +137,23 @@ insertamo sun seudo elemento con el mismo tamaño. */
     margin-bottom: 10px;
 }
 
-.capitulo {
+.OCM-capitulo {
     grid-area: capitulo;
 }
 
-.articulo {
+.OCM-articulo {
     grid-area: articulo;
 }
 
-.concepto {
+.OCM-concepto {
     grid-area: concepto;
 }
 
-.subconcepto {
+.OCM-subconcepto {
     grid-area: subconcepto;
 }
 
-.ingresos {
+.OCM-ingresos {
     grid-area: ingresos;
     // border: 1px solid #000;
     // border: 1px solid #000;
@@ -188,7 +167,7 @@ insertamo sun seudo elemento con el mismo tamaño. */
 
 }
 
-.organica {
+.OCM-organica {
     grid-area: organica;
     border: 1px solid #000;
     border-radius: 0.6rem;
@@ -203,7 +182,7 @@ insertamo sun seudo elemento con el mismo tamaño. */
     margin-bottom: 10px;
 }
 
-.programas {
+.OCM-programas {
     grid-area: programas;
     border: 1px solid #000;
     border-radius: 0.6rem;
@@ -218,7 +197,7 @@ insertamo sun seudo elemento con el mismo tamaño. */
     margin-bottom: 10px;
 }
 
-.economica {
+.OCM-economica {
     grid-area: economica;
     border: 1px solid #000;
     border-radius: 0.6rem;
@@ -232,38 +211,38 @@ insertamo sun seudo elemento con el mismo tamaño. */
     margin-bottom: 10px;
 }
 
-.organico {
+.OCM-organico {
     grid-area: organico;
 }
 
-.area {
+.OCM-area {
     grid-area: area;
 }
 
-.politica {
+.OCM-politica {
     grid-area: politica;
 }
 
-.grupo {
+.OCM-grupo {
     grid-area: grupo;
 }
 
-.programa {
+.OCM-programa {
     grid-area: programa;
 }
 
-.capitulo1 {
+.OCM-capitulo1 {
     grid-area: capitulo1;
 }
 
-.articulo1 {
+.OCM-articulo1 {
     grid-area: articulo1;
 }
 
-.concepto1 {
+.OCM-concepto1 {
     grid-area: concepto1;
 }
 
-.subconcepto1 {
+.OCM-subconcepto1 {
     grid-area: subconcepto1;
 }
