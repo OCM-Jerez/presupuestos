@@ -1,0 +1,269 @@
+/* https://www.w3schools.com/cssref/css_selectors.asp */
+// https://fixu.cl/que-es-la-metodologia-bem-y-como-se-aplica-al-front-end/
+@import "/src/app/scss/variables";
+
+.OCM-indice {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    // height: calc(100vh - 125px);
+    background-color: #15202b;
+    height: 90vh;
+}
+
+/* Como CSS no tiene la propiedad background.opacity
+insertamo sun seudo elemento con el mismo tamaño. */
+// .OCM-indice::after {
+//   content: "";
+//   background: url("../../assets/img/textura.jpg");
+//   opacity: 0, 5;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   position: absolute;
+//   z-index: -1;
+// }
+
+.OCM-row {
+    &--add {
+        display: flex;
+        margin: 1rem;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+.OCM-no-bullets {
+    color: map-get($OCM-colors, claro);
+    list-style-type: none;
+    font-size: clamp(4rem, -1.275rem + 8.333vw, 2rem);
+    font-weight: 900;
+    margin-right: 2rem;
+    margin-bottom: 4rem;
+   
+}
+
+/* https://www.w3schools.com/bootstrap4/bootstrap_cards.asp */
+.OCM-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: clamp(10rem, 10rem, 20rem);
+    height: clamp(5rem, 5rem, 5rem);
+    justify-content: space-around;
+    text-justify: auto;
+    margin-bottom: 0.3rem;
+    // margin-top: 2rem;
+    border-radius: 0.6rem;
+    color: rgba(0, 0, 0, 0.87);
+    background: #262729;
+    box-shadow: 1rem 1rem 0.5rem 0px rgba(0, 0, 0, 0.75);
+    // margin-left: 2rem;
+    // margin-right: 2rem;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+    transition: box-shadow 0.3s;
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: clamp(10rem, 10rem, 20rem);
+        color: map-get($OCM-colors, claro);
+        font-weight: 700;
+        font-family: var(--fuente-principal);
+        // font-size: 1.4rem;
+        font-size: clamp(0.7rem, 1rem, 1.4rem);
+        // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
+        text-align: center;
+    }
+    &--empty {
+        width: 100%;
+    }
+    &:hover {
+        cursor: grab;
+        transform: scale(1.2);
+        box-shadow: 0 5px 15px rgba(238, 5, 24, 0.932);
+    }
+}
+
+// https://grid.layoutit.com/
+.containerNew {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1.5fr 2fr 0.3fr 0.3fr 0.3fr 0.3fr 1.5fr 1.5fr 2fr 0.5fr 0.5fr 0.5fr 0.5fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    border: 1px solid #000;
+    grid-template-areas:
+        ". . . . . espacio . . . . . ."
+        ". . . . Gastos Gastos Gastos Gastos . . . ."
+        ". . . . economicaIngreso economicaIngreso economicaIngreso economicaIngreso . . . ."
+        ". . . . capitulo . . . . . . ."
+        ". . . . . articulo . . . . . ."
+        ". . . . . . concepto . . . . ."
+        ". . . . . . . subconcepto . . . ."
+        ". . . . . espacio1 . . . . . ."
+        ". . . . ingresos ingresos ingresos ingresos . . . ."
+        "organica organica organica organica programas programas programas programas economica economica economica economica"
+        "organico . . . area . . . capitulo1 . . ."
+        ". . . . . politica . . . articulo1 . ."
+        ". . . . . . grupo . . . concepto1 ."
+        ". . . . . . . programa . . . subconcepto1";
+}
+
+ 
+// @media only screen and (max-width: 2200px) {
+//     .containerNew { 
+//          display: grid;
+//    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+//    grid-template-rows: 1.5fr 1.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 1.5fr 1.5fr 1fr ;
+//    gap: 0px 0px;
+//    grid-auto-flow: row;
+//    border: 1px solid #000;
+//    grid-template-areas:
+  
+//    ". . economicaIngreso economicaIngreso economicaIngreso economicaIngreso . ."
+//    ". . capitulo . . . . ."
+//    ". . articulo . . . . ."
+//    ". . . . . . concepto . . . . ."
+//    ". . . . . . . subconcepto . . . ."
+   
+//    }
+
+// }
+
+.Gastos {
+    grid-area: Gastos;
+    // border: 1px solid #000;
+    // background-color: aqua;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-size: 62px;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+.economicaIngreso {
+    grid-area: economicaIngreso;
+    border: 1px solid #000;
+    border-radius: 0.6rem;
+    background-color: rgb(38, 40, 34);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: aliceblue;
+    margin-bottom: 10px;
+}
+
+.capitulo {
+    grid-area: capitulo;
+}
+
+.articulo {
+    grid-area: articulo;
+}
+
+.concepto {
+    grid-area: concepto;
+}
+
+.subconcepto {
+    grid-area: subconcepto;
+}
+
+.ingresos {
+    grid-area: ingresos;
+    // border: 1px solid #000;
+    // border: 1px solid #000;
+    // background-color: aqua;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-size: 62px;
+    font-weight: bold;
+    color: aliceblue;
+
+}
+
+.organica {
+    grid-area: organica;
+    border: 1px solid #000;
+    border-radius: 0.6rem;
+    background-color: rgb(38, 40, 34);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-size: 30px;
+    // font-size: clamp(0.5rem,-1.275rem + 8.333vw, 2rem);
+    font-weight: bold;
+    color: aliceblue;
+    margin-bottom: 10px;
+}
+
+.programas {
+    grid-area: programas;
+    border: 1px solid #000;
+    border-radius: 0.6rem;
+    background-color: rgb(67, 77, 48);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-size: 30px;
+    //   font-size: clamp(0.2rem,1.5rem, 2rem);
+    font-weight: bold;
+    color: aliceblue;
+    margin-bottom: 10px;
+}
+
+.economica {
+    grid-area: economica;
+    border: 1px solid #000;
+    border-radius: 0.6rem;
+    background-color: rgb(38, 40, 34);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: aliceblue;
+    margin-bottom: 10px;
+}
+
+.organico {
+    grid-area: organico;
+}
+
+.area {
+    grid-area: area;
+}
+
+.politica {
+    grid-area: politica;
+}
+
+.grupo {
+    grid-area: grupo;
+}
+
+.programa {
+    grid-area: programa;
+}
+
+.capitulo1 {
+    grid-area: capitulo1;
+}
+
+.articulo1 {
+    grid-area: articulo1;
+}
+
+.concepto1 {
+    grid-area: concepto1;
+}
+
+.subconcepto1 {
+    grid-area: subconcepto1;
+}

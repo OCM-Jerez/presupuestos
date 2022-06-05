@@ -1,0 +1,11 @@
+<div class="graph" *ngIf="options">
+    <ag-charts-angular *ngIf="options" style="width: 700px; height: 300px" [options]="options"></ag-charts-angular>
+
+    <ag-grid-angular #agGrid style="width: 700px; height: 300px; padding-right: 20px; margin-left: 10px"
+        class="ag-theme-balham" [rowData]="data" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
+        rowSelection="multiple" [groupIncludeFooter]="true" [groupIncludeTotalFooter]="true"
+        [groupHeaderHeight]="groupHeaderHeight" [headerHeight]="headerHeight" [localeText]="localeText"
+        [suppressAggFuncInHeader]="true">
+    </ag-grid-angular>
+    <button class="btn btn-primary mt-4" type="button" (click)="volver()">Volver</button>
+</div>

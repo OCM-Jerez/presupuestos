@@ -1,0 +1,250 @@
+[
+  {
+    "codigo": 10,
+    "descripcion": "Órganos de gobierno y personal directivo."
+  },
+  {
+    "codigo": 11,
+    "descripcion": "Personal eventual."
+  },
+  {
+    "codigo": 12,
+    "descripcion": "Personal Funcionario."
+  },
+  {
+    "codigo": 13,
+    "descripcion": "Personal Laboral."
+  },
+  {
+    "codigo": 14,
+    "descripcion": "Otro personal."
+  },
+  {
+    "codigo": 15,
+    "descripcion": "Incentivos al rendimiento."
+  },
+  {
+    "codigo": 16,
+    "descripcion": "Cuotas, prestaciones y gastos sociales a cargo del empleador."
+  },
+  {
+    "codigo": 20,
+    "descripcion": "Arrendamientos y cánones."
+  },
+  {
+    "codigo": 21,
+    "descripcion": "Reparaciones, mantenimiento y conservación."
+  },
+  {
+    "codigo": 22,
+    "descripcion": "Material, suministros y otros."
+  },
+  {
+    "codigo": 23,
+    "descripcion": "Indemnizaciones por razón del servicio."
+  },
+  {
+    "codigo": 24,
+    "descripcion": "Gastos de publicaciones."
+  },
+  {
+    "codigo": 25,
+    "descripcion": "Trabajos realizados por administraciones públicas y otras entidades públicas."
+  },
+  {
+    "codigo": 26,
+    "descripcion": "Trabajos realizados por Instituciones sin fines de lucro."
+  },
+  {
+    "codigo": 30,
+    "descripcion": "De Deuda Pública en euros."
+  },
+  {
+    "codigo": 31,
+    "descripcion": "De préstamos y otras operaciones financieras en euros."
+  },
+  {
+    "codigo": 32,
+    "descripcion": "De deuda pública en moneda distinta del euro."
+  },
+  {
+    "codigo": 33,
+    "descripcion": "De préstamos y otras operaciones financieras en moneda distinta del euro."
+  },
+  {
+    "codigo": 34,
+    "descripcion": "De depósitos, fianzas y otros."
+  },
+  {
+    "codigo": 35,
+    "descripcion": "Intereses de demora y otros gastos financieros."
+  },
+  {
+    "codigo": 40,
+    "descripcion": "A la Administración General de la Entidad Local."
+  },
+  {
+    "codigo": 41,
+    "descripcion": "A Organismos Autónomos de la Entidad Local."
+  },
+  {
+    "codigo": 42,
+    "descripcion": "A la Administración del Estado."
+  },
+  {
+    "codigo": 43,
+    "descripcion": "A la Seguridad Social."
+  },
+  {
+    "codigo": 44,
+    "descripcion": "A entes públicos y sociedades mercantiles de la Entidad Local."
+  },
+  {
+    "codigo": 45,
+    "descripcion": "A Comunidades Autónomas."
+  },
+  {
+    "codigo": 46,
+    "descripcion": "A Entidades Locales."
+  },
+  {
+    "codigo": 47,
+    "descripcion": "A Empresas privadas."
+  },
+  {
+    "codigo": 48,
+    "descripcion": "A Familias e Instituciones sin fines de lucro."
+  },
+  {
+    "codigo": 49,
+    "descripcion": "Al exterior."
+  },
+  {
+    "codigo": 50,
+    "descripcion": "Dotación al Fondo de Contingencia de Ejecución Presupuestaria."
+  },
+  {
+    "codigo": 60,
+    "descripcion": "Inversión nueva en infraestructuras y bienes destinados al uso general."
+  },
+  {
+    "codigo": 61,
+    "descripcion": "Inversiones de reposición de infraestructuras y bienes destinados al uso general."
+  },
+  {
+    "codigo": 62,
+    "descripcion": "Inversión nueva asociada al funcionamiento operativo de los servicios."
+  },
+  {
+    "codigo": 63,
+    "descripcion": "Inversión de reposición asociada al funcionamiento operativo de los servicios."
+  },
+  {
+    "codigo": 64,
+    "descripcion": "Gastos en inversiones de carácter inmaterial."
+  },
+  {
+    "codigo": 65,
+    "descripcion": "Inversiones gestionadas para otros entes públicos."
+  },
+  {
+    "codigo": 68,
+    "descripcion": "Gastos en inversiones de bienes patrimoniales."
+  },
+  {
+    "codigo": 69,
+    "descripcion": "Inversiones en bienes comunales."
+  },
+  {
+    "codigo": 70,
+    "descripcion": "A la Administración General de la Entidad Local."
+  },
+  {
+    "codigo": 71,
+    "descripcion": "A Organismos Autónomos de la Entidad Local."
+  },
+  {
+    "codigo": 72,
+    "descripcion": "A la Administración del Estado."
+  },
+  {
+    "codigo": 73,
+    "descripcion": "A la Seguridad Social."
+  },
+  {
+    "codigo": 74,
+    "descripcion": "A entes públicos y sociedades mercantiles de la Entidad local."
+  },
+  {
+    "codigo": 75,
+    "descripcion": "A Comunidades Autónomas."
+  },
+  {
+    "codigo": 76,
+    "descripcion": "A Entidades Locales."
+  },
+  {
+    "codigo": 77,
+    "descripcion": "A empresas privadas."
+  },
+  {
+    "codigo": 78,
+    "descripcion": "A familias e instituciones sin fines de lucro."
+  },
+  {
+    "codigo": 79,
+    "descripcion": "Al exterior."
+  },
+  {
+    "codigo": 80,
+    "descripcion": "Adquisición de deuda del sector público."
+  },
+  {
+    "codigo": 81,
+    "descripcion": "Adquisición de Obligaciones y Bonos fuera del sector público."
+  },
+  {
+    "codigo": 82,
+    "descripcion": "Concesión préstamos al sector público."
+  },
+  {
+    "codigo": 83,
+    "descripcion": "Concesión de préstamos fuera del sector público."
+  },
+  {
+    "codigo": 84,
+    "descripcion": "Constitución de depósitos y fianzas."
+  },
+  {
+    "codigo": 85,
+    "descripcion": "Adquisición de acciones y participaciones del sector público."
+  },
+  {
+    "codigo": 86,
+    "descripcion": "Adquisición de acciones y participaciones fuera del sector público."
+  },
+  {
+    "codigo": 87,
+    "descripcion": "Aportaciones patrimoniales."
+  },
+  {
+    "codigo": 90,
+    "descripcion": "Amortización de Deuda Pública en euros."
+  },
+  {
+    "codigo": 91,
+    "descripcion": "Amortización de préstamos y de operaciones en euros."
+  },
+  {
+    "codigo": 92,
+    "descripcion": "Amortización de Deuda Pública en moneda distinta del euro."
+  },
+  {
+    "codigo": 93,
+    "descripcion": "Amortización de préstamos en moneda distinta del euro."
+  },
+  {
+    "codigo": 94,
+    "descripcion": "Devolución de depósitos y fianzas."
+  }
+]

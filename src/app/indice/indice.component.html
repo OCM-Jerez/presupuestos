@@ -1,0 +1,84 @@
+<div class="OCM-indice">
+    <hr style="color:white">
+
+    <app-checkbox></app-checkbox>
+
+    <div class="containerNew">
+        <div class="espacio">espacio</div>
+        <div class="Gastos">Ingresos</div>
+        <div class="economicaIngreso">Clasificación económica</div>
+        <div class="capitulo">
+            <div (click)="openTable('ingresosEconomicaCapitulos')" class="OCM-card">
+                <span class="OCM-card__title">Por capítulos</span>
+            </div>
+        </div>
+        <div class="articulo">
+            <div (click)="openTable('ingresosEconomicaArticulos')" class="OCM-card">
+                <span class="OCM-card__title">Por articulo</span>
+            </div>
+        </div>
+        <div class="concepto">
+            <div (click)="openTable('ingresosEconomicaConceptos')" class="OCM-card">
+                <span class="OCM-card__title">Por concepto</span>
+            </div>
+        </div>
+        <div (click)="openTable('ingresosEconomicaEconomicos')" class="subconcepto">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por económico</span>
+            </div>
+        </div>
+        <div class="espacio1">espacio</div>
+        <div class="ingresos">Gastos</div>
+        <div class="organica">Clasificación orgánica</div>
+        <div class="programas">Clasificación por programas</div>
+        <div class="economica">Clasificación económica</div>
+        <div class="organico">
+            <div (click)="openTable('gastosOrganicaOrganicos')" class="OCM-card">
+                <span class="OCM-card__title">Por orgánico</span>
+            </div>
+        </div>
+
+        <div class="area">
+            <div (click)="openTable('gastosProgramaAreas')" class="OCM-card">
+                <span class="OCM-card__title">Por área</span>
+            </div>
+        </div>
+        <div (click)="openTable('gastosProgramaPoliticas')" class="politica">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por política</span>
+            </div>
+        </div>
+        <div (click)="openTable('gastosProgramaGrupos')" class="grupo">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por grupo programas</span>
+            </div>
+        </div>
+        <div (click)="openTable('gastosProgramaProgramas')" class="programa">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por programa</span>
+            </div>
+        </div>
+        <div (click)="openTable('gastosEconomicaCapitulos')" class="capitulo1">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por capítulos</span>
+            </div>
+        </div>
+        <div (click)="openTable('gastosEconomicaArticulos')" class="articulo1">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por articulo</span>
+            </div>
+        </div>
+        <div (click)="openTable('gastosEconomicaConceptos')" class="concepto1">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por concepto</span>
+            </div>
+        </div>
+        <div (click)="openTable('gastosEconomicaEconomicos')" class="subconcepto1">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por económico</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>

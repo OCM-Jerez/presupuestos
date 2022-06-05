@@ -1,0 +1,11 @@
+<div>
+    <h4 class="OCM-text--cabecera">Comparativa ingresos liquidaciones {{
+        avalaibleYearsService.getAvalaibleYear() | async }}</h4>
+    <button id="showGraph" type="button" class="btn OCM-btnExpand" (click)="showGraph()">{{textButton}}</button>
+    <button type="button" *ngIf="hasGraphTree" class="btn OCM-btnExpand" (click)="showGraphTree()">Gráfico
+        arbol</button>
+
+    <ag-grid-angular #agGrid style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"
+        class="ag-theme-balham" [gridOptions]="gridOptions" (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+</div>

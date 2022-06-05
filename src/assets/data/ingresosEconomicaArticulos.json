@@ -1,0 +1,262 @@
+[
+  {
+    "codigo": 10,
+    "descripcion": "Impuesto sobre la Renta."
+  },
+  {
+    "codigo": 11,
+    "descripcion": "Impuestos sobre el capital."
+  },
+  {
+    "codigo": 13,
+    "descripcion": "Impuesto sobre las Actividades Económicas."
+  },
+  {
+    "codigo": 16,
+    "descripcion": "Recargos sobre impuestos directos del Estado y de la Comunidad Autónoma."
+  },
+  {
+    "codigo": 17,
+    "descripcion": "Recargos sobre impuestos directos de otros entes locales."
+  },
+  {
+    "codigo": 18,
+    "descripcion": "Impuestos directos extinguidos."
+  },
+  {
+    "codigo": 19,
+    "descripcion": "Otros impuestos directos."
+  },
+  {
+    "codigo": 21,
+    "descripcion": "Impuestos sobre el Valor Añadido."
+  },
+  {
+    "codigo": 22,
+    "descripcion": "Sobre consumos específicos."
+  },
+  {
+    "codigo": 26,
+    "descripcion": "Recargos sobre impuestos indirectos del Estado y de la Comunidad Autónoma."
+  },
+  {
+    "codigo": 27,
+    "descripcion": "Recargos sobre impuestos indirectos de otros entes locales."
+  },
+  {
+    "codigo": 28,
+    "descripcion": "Impuestos indirectos extinguidos."
+  },
+  {
+    "codigo": 29,
+    "descripcion": "Otros impuestos indirectos."
+  },
+  {
+    "codigo": 30,
+    "descripcion": "Tasas por la prestación de servicios públicos básicos."
+  },
+  {
+    "codigo": 31,
+    "descripcion": "Tasas por la prestación de servicios públicos de carácter social y preferente."
+  },
+  {
+    "codigo": 32,
+    "descripcion": "Tasas por la realización de actividades de competencia local."
+  },
+  {
+    "codigo": 33,
+    "descripcion": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local."
+  },
+  {
+    "codigo": 34,
+    "descripcion": "Precios públicos."
+  },
+  {
+    "codigo": 35,
+    "descripcion": "Contribuciones especiales."
+  },
+  {
+    "codigo": 36,
+    "descripcion": "Ventas."
+  },
+  {
+    "codigo": 38,
+    "descripcion": "Reintegros de operaciones corrientes."
+  },
+  {
+    "codigo": 39,
+    "descripcion": "Otros ingresos."
+  },
+  {
+    "codigo": 40,
+    "descripcion": "De la Administración General de la Entidad Local."
+  },
+  {
+    "codigo": 41,
+    "descripcion": "De Organismos Autónomos de la Entidad Local."
+  },
+  {
+    "codigo": 42,
+    "descripcion": "De la Administración del Estado."
+  },
+  {
+    "codigo": 43,
+    "descripcion": "De la Seguridad Social."
+  },
+  {
+    "codigo": 44,
+    "descripcion": "De entes públicos y sociedades mercantiles de la Entidad local."
+  },
+  {
+    "codigo": 45,
+    "descripcion": "De Comunidades Autónomas."
+  },
+  {
+    "codigo": 46,
+    "descripcion": "De Entidades Locales."
+  },
+  {
+    "codigo": 47,
+    "descripcion": "De Empresas privadas."
+  },
+  {
+    "codigo": 48,
+    "descripcion": "De familias e instituciones sin fines de lucro."
+  },
+  {
+    "codigo": 49,
+    "descripcion": "Del exterior."
+  },
+  {
+    "codigo": 50,
+    "descripcion": "Intereses de títulos y valores."
+  },
+  {
+    "codigo": 51,
+    "descripcion": "Intereses de anticipos y préstamos concedidos."
+  },
+  {
+    "codigo": 52,
+    "descripcion": "Intereses de depósitos."
+  },
+  {
+    "codigo": 53,
+    "descripcion": "Dividendos y participación beneficios."
+  },
+  {
+    "codigo": 54,
+    "descripcion": "Rentas de bienes inmuebles."
+  },
+  {
+    "codigo": 55,
+    "descripcion": "Productos de concesiones y aprovechamientos especiales."
+  },
+  {
+    "codigo": 59,
+    "descripcion": "Otros ingresos patrimoniales."
+  },
+  {
+    "codigo": 60,
+    "descripcion": "De terrenos."
+  },
+  {
+    "codigo": 61,
+    "descripcion": "De las demás inversiones reales."
+  },
+  {
+    "codigo": 68,
+    "descripcion": "Reintegros por operaciones de capital."
+  },
+  {
+    "codigo": 70,
+    "descripcion": "De la Administración General de la Entidad Local."
+  },
+  {
+    "codigo": 71,
+    "descripcion": "De Organismos Autónomos de la Entidad Local."
+  },
+  {
+    "codigo": 72,
+    "descripcion": "De la Administración del Estado."
+  },
+  {
+    "codigo": 73,
+    "descripcion": "De la Seguridad Social."
+  },
+  {
+    "codigo": 74,
+    "descripcion": "De entes públicos y sociedades mercantiles de la Entidad local."
+  },
+  {
+    "codigo": 75,
+    "descripcion": "De Comunidades Autónomas."
+  },
+  {
+    "codigo": 76,
+    "descripcion": "De Entidades Locales."
+  },
+  {
+    "codigo": 77,
+    "descripcion": "De empresas privadas."
+  },
+  {
+    "codigo": 78,
+    "descripcion": "De familias e instituciones sin fines de lucro."
+  },
+  {
+    "codigo": 79,
+    "descripcion": "Del exterior."
+  },
+  {
+    "codigo": 80,
+    "descripcion": "Enajenación de deuda del sector público."
+  },
+  {
+    "codigo": 81,
+    "descripcion": "Enajenación de obligaciones y bonos fuera del sector público."
+  },
+  {
+    "codigo": 82,
+    "descripcion": "Reintegro de préstamos y anticipos concedidos al sector público."
+  },
+  {
+    "codigo": 83,
+    "descripcion": "Reintegros de préstamos de fuera del sector público."
+  },
+  {
+    "codigo": 84,
+    "descripcion": "Devolución de depósitos y fianzas constituidos."
+  },
+  {
+    "codigo": 85,
+    "descripcion": "Enajenación de acciones y participaciones del sector público."
+  },
+  {
+    "codigo": 86,
+    "descripcion": "Enajenación de acciones y participaciones fuera del sector público."
+  },
+  {
+    "codigo": 87,
+    "descripcion": "Remanente de tesorería."
+  },
+  {
+    "codigo": 90,
+    "descripcion": "Emisión de Deuda Pública en euros."
+  },
+  {
+    "codigo": 91,
+    "descripcion": "Préstamos recibidos en euros."
+  },
+  {
+    "codigo": 92,
+    "descripcion": "Emisión de Deuda Pública en moneda distinta del euro."
+  },
+  {
+    "codigo": 93,
+    "descripcion": "Préstamos recibidos en moneda distinta del euro."
+  },
+  {
+    "codigo": 94,
+    "descripcion": "Depósitos y fianzas recibidos."
+  }
+]

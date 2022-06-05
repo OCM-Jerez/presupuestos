@@ -1,1 +1,448 @@
-/* You can add global styles to this file, and also import other style files */
+// Mis parciales.
+// https://www.udemy.com/course/advanced-css-and-scss/learn/lecture/8274478#overview
+@import "/src/app/scss/animations";
+@import "/src/app/scss/base";
+@import "/src/app/scss/functions";
+@import "/src/app/scss/mixins";
+@import "/src/app/scss/typography";
+@import "/src/app/scss/utilities";
+@import "/src/app/scss/variables";
+
+@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/legacy/ag-theme-balham-v22-compat.scss";
+
+// #region OCM
+.OCM-alert {
+  background-color: #d31f1f;
+  border-color: #1b0408;
+  color: #f4ecec;
+  margin-bottom: 20px;
+  padding: 0px 15px 0px 15px;
+  border: 1px solid #1b0408;
+  border-radius: 4px;
+
+  position: fixed;
+  max-width: 500px;
+  top: 85px;
+  left: 150px;
+}
+
+.OCM-app-root {
+  width: 98vw;
+  min-height: 100vh;
+  margin-left: 20px;
+  display: grid;
+  grid-template-rows: 40px auto 40px;
+}
+
+// https://javascript.plainenglish.io/5-steps-to-adding-a-sticky-footer-to-your-angular-11-application-6c185c2ed99f
+.OCM-navbarFooter {
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  background-color: map-get($OCM-colors, navBarBackground);
+  &--brand {
+    display: flex;
+    justify-content: space-between;
+    &--logo {
+      @include OCM-logo;
+      background: url("./assets/img/logoOCMyellow.svg") no-repeat center center;
+    }
+    &--text {
+      @include OCM-text;
+      font-size: 12px;
+    }
+  }
+  &--title {
+    @include OCM-text;
+    @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  }
+  &--rrss {
+    display: flex;
+    flex-direction: row;
+    .logoFacebook {
+      @include OCM-logo;
+      background: url("./assets/img/facebook.svg") no-repeat center center;
+    }
+    .logoTwitter {
+      @include OCM-logo;
+      background: url("./assets/img/twitter.svg") no-repeat center center;
+    }
+  }
+  &--homeEmpty {
+    display: flex;
+    flex-direction: row;
+    width: 246px;
+  }
+  &--home {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 246px;
+    .logoHome {
+      @include OCM-logo;
+      background: url("./assets/img/home.svg") no-repeat center center;
+      margin-right: 20px;
+    }
+  }
+  &--mail {
+    @include OCM-text;
+    text-decoration-style: none;
+    margin-right: 20px;
+    a:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.OCM-text {
+  &--cabecera {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 900;
+    margin-top: 1rem;
+    color: black;
+    font-family: var(--fuente-principal);
+    // https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+    font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem);
+    // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
+    text-align: center;
+  }
+  &--subtitulo {
+    text-align: center;
+    font-size: clamp(1rem, -0.875rem + 8.333vw, 1.5rem);
+  }
+
+  &--años {
+    color: map-get($OCM-colors, claro);
+    margin-bottom: 0.2rem;
+  }
+
+  &--ingresos {
+    color: map-get($OCM-colors, claro);
+  }
+
+  &--gastos {
+    color: map-get($OCM-colors, claro);
+  }
+
+  &--comparativas {
+    color: map-get($OCM-colors, claro);
+  }
+}
+
+.OCM-btnExpand {
+  margin-left: 20px;
+  margin-bottom: 5px;
+  font-size: 10px;
+  font-weight: bold;
+  color: aliceblue;
+  background-color: green;
+}
+
+.OCM-btnCollapse {
+  margin-left: 20px;
+  margin-bottom: 5px;
+  font-size: 10px;
+  font-weight: bold;
+  color: aliceblue;
+  background-color: rgb(201, 72, 72);
+}
+
+.OCM-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// #endregion
+/******** END  OCM *****************/
+
+// #region @media screen
+@media screen and (max-width: 6000px) {
+  .ag-cell-value {
+    font-size: 12px;
+  }
+
+  #home {
+    font-size: 16px;
+  }
+
+  #OCM-logo {
+    margin-top: 2px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .OCM-textoLogo {
+    margin-left: 2px;
+    font-size: 12px;
+  }
+
+  .OCM-titulo {
+    font-weight: 700 !important;
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 2000px) {
+  .ag-header-cell-text {
+    font-size: 12px;
+  }
+
+  .ag-cell-value {
+    font-size: 12px;
+  }
+
+  #home {
+    font-size: 14px;
+  }
+
+  #OCM-logo {
+    margin-top: 2px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .OCM-textoLogo {
+    margin-left: 2px;
+    font-size: 12px;
+  }
+
+  .OCM-titulo {
+    font-weight: 700 !important;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .ag-header-cell-text {
+    font-size: 10px;
+  }
+
+  .ag-cell-value {
+    font-size: 12px;
+  }
+
+  #home {
+    font-size: 14px;
+  }
+
+  #OCM-logo {
+    margin-top: 2px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .OCM-textoLogo {
+    margin-left: 2px;
+    font-size: 10px;
+  }
+
+  .OCM-titulo {
+    font-weight: 700 !important;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  // MD Samsung Note apaisado
+  .ag-header-cell-text {
+    font-size: 12px;
+  }
+
+  .ag-cell-value {
+    font-size: 10px;
+  }
+
+  #home {
+    font-size: 12px;
+  }
+
+  #OCM-logo {
+    margin-top: 2px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .OCM-textoLogo {
+    margin-left: 1px;
+    font-size: 8px;
+  }
+
+  .OCM-titulo {
+    font-weight: 600 !important;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .ag-header-cell-text {
+    font-size: 9px;
+  }
+
+  .ag-cell-value {
+    font-size: 8px;
+  }
+
+  #home {
+    font-size: 10px;
+  }
+
+  #OCM-logo {
+    margin-top: 2px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .OCM-textoLogo {
+    margin-left: 2px;
+    font-size: 8px;
+  }
+
+  .OCM-titulo {
+    font-weight: 500 !important;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .ag-header-cell-text {
+    font-size: 9px;
+  }
+
+  .ag-cell-value {
+    font-size: 5px;
+  }
+
+  .OCM-home {
+    font-size: 16px;
+    color: white;
+    margin-right: 40px;
+  }
+
+  #home {
+    font-size: 8px;
+  }
+
+  #OCM-logo {
+    margin-top: 2px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .OCM-textoLogo {
+    margin-left: 2px;
+    font-size: 6px;
+  }
+
+  .OCM-titulo {
+    font-weight: 400 !important;
+    font-size: 10px;
+  }
+}
+
+// #endregion
+/******** END  @media screen *****************/
+
+// #endregion
+/******** END Mis cosas *****************/
+
+// #region AG-Grid
+.ag-header-group-cell {
+  font-size: 20px;
+  color: green;
+}
+
+.ag-header-cell {
+  width: 20px;
+  // transform: rotate(90deg);
+  // margin-top: 10px;
+  /*Since we are rotating a span*/
+  display: inline-block;
+}
+
+// Sobreescribe lo definido en  /node_modules\ag-grid-community\src\styles\ag-grid.scss :365
+// .ag-header-cell-label {
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+//   color: green;
+//   font-family: Arial;
+//   font-size: 14px;
+//   font-weight: bold;
+//   /*Necessary to allow for text to grow vertically*/
+//   height: 100%;
+//   padding:0 !important;
+// }
+
+.ag-header-cell-label .ag-header-cell-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: green;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 12px;
+  /*Necessary to allow for text to grow vertically*/
+  height: 100%;
+  padding: 0 !important;
+}
+
+.ag-cell-label-container {
+  /*Necessary to allow for text to grow vertically*/
+  height: 100%;
+}
+
+.ag-pivot-off {
+  color: #8a6d3b;
+}
+
+.ag-pivot-on {
+  color: #1b6d85;
+  font-weight: bold;
+}
+
+.ag-pivot-off {
+  font-size: 50px;
+  color: red;
+}
+
+.ag-pivot-on {
+  font-size: 25px;
+  color: green;
+}
+.ag-floating-filter-body input {
+  height: 49px;
+}
+
+.ag-floating-filter-button {
+  margin-top: -49px;
+}
+
+.ag-floating-filter-button button {
+  height: 49px;
+}
+
+.ag-floating-filter-body input {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.ag-row-group-leaf-indent > .ag-group-value {
+  text-align-last: right;
+  width: 100%;
+}
+
+.ag-cell-value {
+  // overflow: hidden;
+  text-overflow: ellipsis;
+  color: black;
+}
+// #endregion
+/******** END ag-grid *****************/

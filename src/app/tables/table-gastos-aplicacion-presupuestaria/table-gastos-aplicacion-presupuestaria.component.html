@@ -1,0 +1,10 @@
+<div>
+    <h4 class="OCM-text--cabecera">Detalle programa {{
+        avalaibleYearsService.getAvalaibleYear() | async }}</h4>
+
+    <button type="button" class="btn OCM-btnExpand" (click)="volver()">volver</button>
+    <button type="button" class="btn OCM-btnExpand" (click)="showGraph()">Mostrar gráfico</button>
+    <ag-grid-angular #agGrid style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"
+        class="ag-theme-balham" [rowData]="rowData" [gridOptions]="gridOptions" (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+</div>
