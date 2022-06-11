@@ -11,7 +11,7 @@ export class AvalaibleYearsService {
     const min = Math.min(...this.yearsSelected);
     const max = Math.max(...this.yearsSelected);
     let message: string;
-    this.yearsSelected.length > 1 ? message = ` del año ${min} al ${max}` : message = `año ${min}`;
+    this.yearsSelected.length > 1 ? message = ` del año ${min} al ${max}` : message = ` año ${min}`;
     this.subject$.next(message);
   }
 
