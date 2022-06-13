@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { GridOptions, GridReadyEvent } from 'ag-grid-community/main';
+import { ColumnState, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 import { ColumnApi, GridApi } from "ag-grid-community/main";
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
@@ -139,6 +139,10 @@ export class TableIngresosComponent {
   onGridReady = (params: GridReadyEvent) => {
     this._gridApi = params.api;
     this._columnApi = params.columnApi;
+    var defaultSortModel: ColumnState[] = [
+      { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
+    ];
+    params.columnApi.applyColumnState({ state: defaultSortModel });
   }
 
   // TODO: Las colummnas disparan su altura

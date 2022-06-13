@@ -236,7 +236,7 @@ export class TableProgramaDetailsComponent {
 
   onGridReady(params: GridReadyEvent) {
     this._gridApi = params.api;
-    var defaultSortModel: ColumnState[] = [
+    const defaultSortModel: ColumnState[] = [
       { colId: 'DesEco', sort: 'asc', sortIndex: 0 },
     ];
     params.columnApi.applyColumnState({ state: defaultSortModel });

@@ -2,7 +2,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { GridOptions } from 'ag-grid-community/main';
+import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
@@ -26,6 +26,8 @@ export class TableGastosComponent implements OnInit {
   private _columnDefs: any[];
   private _dataTable: IDataTable;
   private _dataGraph: IDataGraph = {} as IDataGraph;
+  private _gridApi: GridApi;
+  private _columnApi: ColumnApi;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -36,6 +38,7 @@ export class TableGastosComponent implements OnInit {
 
   ) {
     this._dataTable = _dataStoreService.getDataTable;
+
     this._columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,
@@ -105,6 +108,16 @@ export class TableGastosComponent implements OnInit {
     } as GridOptions;
 
   }
+
+  onGridReady = (params: GridReadyEvent) => {
+    this._gridApi = params.api;
+    this._columnApi = params.columnApi;
+    const defaultSortModel: ColumnState[] = [
+      { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
+    ];
+    params.columnApi.applyColumnState({ state: defaultSortModel });
+  }
+
 
   ngOnInit(): void {
     // if (this._dataTable.dataPropertyTable.subHeaderName === 'Orgánico' || this._dataTable.dataPropertyTable.subHeaderName === 'Area de gasto') {
