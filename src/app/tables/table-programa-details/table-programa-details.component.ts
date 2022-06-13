@@ -34,12 +34,14 @@ export class TableProgramaDetailsComponent {
   public headerHeight = 54;
   public rowSelection = 'single';
   public isExpanded = true;
-  public dataIntermedio: any;
   public dataFinal: any;
-  public aplicacionesPresupuestarias: any;
   public gridOptions: GridOptions;
   private _gridApi: GridApi;
   private _dataTableGraph: IDataTable;
+
+  public dataIntermedio: any;
+  public aplicacionesPresupuestarias: any;
+
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -191,8 +193,8 @@ export class TableProgramaDetailsComponent {
 
     ];
 
-
-    this.demo().then(() => {
+    // this.createDataJimy().then(() => {
+    this.createDataOCM().then(() => {
       this.gridOptions = {
         defaultColDef: {
           width: 130,
@@ -216,7 +218,6 @@ export class TableProgramaDetailsComponent {
               '</div>',
           },
         },
-
         // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
         rowData: this.rowData,
         columnDefs: this.columnDefs,
@@ -224,12 +225,11 @@ export class TableProgramaDetailsComponent {
         groupIncludeTotalFooter: true,
         groupIncludeFooter: true,
         groupHeaderHeight: 25,
-        headerHeight: 36,
+        headerHeight: 54,
         suppressAggFuncInHeader: true,
         rowSelection: 'single',
         localeText: localeTextESPes,
         pagination: false,
-
       } as GridOptions;
     })
   }
@@ -242,11 +242,10 @@ export class TableProgramaDetailsComponent {
     params.columnApi.applyColumnState({ state: defaultSortModel });
   }
 
-  async demo(): Promise<void> {
+  async createDataOCM(): Promise<void> {
     this.rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
       .filter(x => x.CodPro == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     // console.log(this.rowData);
-    console.log(this.rowData);
 
     // Acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
     this.aplicacionesPresupuestarias = []
@@ -259,36 +258,35 @@ export class TableProgramaDetailsComponent {
     // console.log("years", years);
 
     // Creo array de aplicaciones presupuestarias existentes en programa seleccionado.
-    // this.rowData.forEach(item => {
-    //   item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
-    //   this.aplicacionesPresupuestarias.push(item.AplicacionPresupuestaria)
-    //   // this.aplicacionesPresupuestarias = [...new Set(this.aplicacionesPresupuestarias)];
-    // });
-    // this.aplicacionesPresupuestarias = [...new Set(this.aplicacionesPresupuestarias)];
+    this.rowData.map(item => {
+      item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
+      this.aplicacionesPresupuestarias.push(item.AplicacionPresupuestaria)
+      this.aplicacionesPresupuestarias = [...new Set(this.aplicacionesPresupuestarias)];
+    });
     // console.log("aplicacionesPresupuestarias", this.aplicacionesPresupuestarias);
 
     // Creo item para cada uno de los aplicaciones presupuestarias existentes en programa seleccionado.
-    this.rowData.forEach(item => {
-      item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
-      const yearsIniciales = accumulate('Iniciales', [item]);
-      const yearsModificaciones = accumulate('Modificaciones', [item]);
-      const yearsDefinitivas = accumulate('Definitivas', [item]);
-      const yearsGastosComprometidos = accumulate('GastosComprometidos', [item]);
-      const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', [item]);
-      const yearsPagos = accumulate('Pagos', [item]);
-      const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', [item]);
-      const yearsRemanenteCredito = accumulate('RemanenteCredito', [item]);
+    this.aplicacionesPresupuestarias.map(item => {
+      const dataIntermedio = this.rowData.filter(x => x.AplicacionPresupuestaria === item);
+      const yearsIniciales = accumulate('Iniciales', dataIntermedio);
+      const yearsModificaciones = accumulate('Modificaciones', dataIntermedio);
+      const yearsDefinitivas = accumulate('Definitivas', dataIntermedio);
+      const yearsGastosComprometidos = accumulate('GastosComprometidos', dataIntermedio);
+      const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', dataIntermedio);
+      const yearsPagos = accumulate('Pagos', dataIntermedio);
+      const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', dataIntermedio);
+      const yearsRemanenteCredito = accumulate('RemanenteCredito', dataIntermedio);
 
       const value = {
         "AplicacionPresupuestaria": item,
-        "CodOrg": item.CodOrg,
-        "CodPro": item.CodPro,
-        "CodEco": item.CodEco,
-        "CodCap": String(item.CodEco).charAt(0),
-        "DesOrg": item.DesOrg,
-        "DesPro": item.DesPro,
-        "DesCap": item.DesCap,
-        "DesEco": item.DesEco
+        "CodOrg": item.split('-')[0],
+        "CodPro": item.split('-')[1],
+        "CodEco": item.split('-')[2],
+        "CodCap": item.split('-')[2].charAt(0),
+        "DesOrg": dataIntermedio[0].DesOrg,
+        "DesPro": dataIntermedio[0].DesPro,
+        "DesCap": dataIntermedio[0].DesCap,
+        "DesEco": dataIntermedio[0].DesEco,
       }
 
       const years = this.avalaibleYearsService.getYearsSelected();
@@ -304,52 +302,72 @@ export class TableProgramaDetailsComponent {
       })
       this.dataFinal.push(value)
     });
+    this.rowData = this.dataFinal;
+    console.log(this.dataFinal);
 
-    // this.aplicacionesPresupuestarias.forEach(item => {
-    //   const dataIntermedio = this.rowData.filter(x => x.AplicacionPresupuestaria === item);
-    //   const yearsIniciales = accumulate('Iniciales', dataIntermedio);
-    //   const yearsModificaciones = accumulate('Modificaciones', dataIntermedio);
-    //   const yearsDefinitivas = accumulate('Definitivas', dataIntermedio);
-    //   const yearsGastosComprometidos = accumulate('GastosComprometidos', dataIntermedio);
-    //   const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', dataIntermedio);
-    //   const yearsPagos = accumulate('Pagos', dataIntermedio);
-    //   const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', dataIntermedio);
-    //   const yearsRemanenteCredito = accumulate('RemanenteCredito', dataIntermedio);
+    setTimeout(() => {
+      this.expandAll()
+    }, 10)
 
-    //   const value = {
-    //     "AplicacionPresupuestaria": item,
-    //     "CodOrg": item.split('-')[0],
-    //     "CodPro": item.split('-')[1],
-    //     "CodEco": item.split('-')[2],
-    //     "CodCap": item.split('-')[2].charAt(0),
-    //     "DesOrg": dataIntermedio[0].DesOrg,
-    //     "DesPro": dataIntermedio[0].DesPro,
-    //     "DesCap": dataIntermedio[0].DesCap,
-    //     "DesEco": dataIntermedio[0].DesEco,
-    //   }
+  }
 
-    //   const years = this.avalaibleYearsService.getYearsSelected();
-    //   years.forEach((year) => {
-    //     value[`Iniciales${year}`] = yearsIniciales[year];
-    //     value[`Modificaciones${year}`] = yearsModificaciones[year];
-    //     value[`Definitivas${year}`] = yearsDefinitivas[year];
-    //     value[`GastosComprometidos${year}`] = yearsGastosComprometidos[year];
-    //     value[`ObligacionesReconocidasNetas${year}`] = yearsObligacionesNetas[year];
-    //     value[`Pagos${year}`] = yearsPagos[year];
-    //     value[`ObligacionesPendientePago${year}`] = yearsObligacionesPendientes[year];
-    //     value[`RemanenteCredito${year}`] = yearsRemanenteCredito[year]
-    //   })
-    //   this.dataFinal.push(value)
-    // });
+  async createDataJimy(): Promise<void> {
+    this.rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
+      .filter(x => x.CodPro == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+
+    // Acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
+    // this.aplicacionesPresupuestarias = []
+    // this.dataIntermedio = [];
+    this.dataFinal = [];
+
+    // Creo item para cada uno de los aplicaciones presupuestarias existentes en programa seleccionado.
+    this.rowData.forEach(item => {
+      item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
+      const yearsIniciales = accumulate('Iniciales', [item]);
+      const yearsModificaciones = accumulate('Modificaciones', [item]);
+      const yearsDefinitivas = accumulate('Definitivas', [item]);
+      const yearsGastosComprometidos = accumulate('GastosComprometidos', [item]);
+      const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', [item]);
+      const yearsPagos = accumulate('Pagos', [item]);
+      const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', [item]);
+      const yearsRemanenteCredito = accumulate('RemanenteCredito', [item]);
+      const years = this.avalaibleYearsService.getYearsSelected();
+
+      const value = {
+        "AplicacionPresupuestaria": item.AplicacionPresupuestaria,
+        "CodOrg": String(item.CodOrg),
+        "CodPro": String(item.CodPro),
+        "CodEco": String(item.CodEco),
+        "CodCap": String(item.CodEco).charAt(0),
+        "DesOrg": item.DesOrg,
+        "DesPro": item.DesPro,
+        "DesCap": item.DesCap,
+        "DesEco": item.DesEco
+      }
+
+      years.forEach((year) => {
+        value[`Iniciales${year}`] = yearsIniciales[year];
+        value[`Modificaciones${year}`] = yearsModificaciones[year];
+        value[`Definitivas${year}`] = yearsDefinitivas[year];
+        value[`GastosComprometidos${year}`] = yearsGastosComprometidos[year];
+        value[`ObligacionesReconocidasNetas${year}`] = yearsObligacionesNetas[year];
+        value[`Pagos${year}`] = yearsPagos[year];
+        value[`ObligacionesPendientePago${year}`] = yearsObligacionesPendientes[year];
+        value[`RemanenteCredito${year}`] = yearsRemanenteCredito[year]
+      })
+      // console.log(value);
+      this.dataFinal.push(value)
+    });
+    console.log(this.dataFinal);
+
 
     this.rowData = [...this.dataFinal];
-    // this.gridOptions.rowData = this.rowData;
-    // this._gridApi.redrawRows()
     // Necesario debido a tiempo de vida componente.
     setTimeout(() => {
       this.expandAll()
     }, 10);
   }
+
   // TODO: Las colummnas disparan su altura
   headerHeightSetter() {
     // var padding = 20;
