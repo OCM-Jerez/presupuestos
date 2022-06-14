@@ -4,8 +4,8 @@ import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
-import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
-import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
+import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
+// import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
@@ -25,23 +25,12 @@ import { GridOptions, GridApi } from 'ag-grid-community/main';
 })
 export class TableProgramaDetailsComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  public gridColumnApi;
-  public columnDefs;
-  public defaultColDef;
-  public localeText;
-  public rowData: any;
-  public groupHeaderHeight = 25;
-  public headerHeight = 54;
-  public rowSelection = 'single';
-  public isExpanded = true;
-  public dataFinal: any;
   public gridOptions: GridOptions;
+  public isExpanded = true;
   private _gridApi: GridApi;
+  private _rowData: any;
+  private _columnDefs;
   private _dataTableGraph: IDataTable;
-
-  public dataIntermedio: any;
-  public aplicacionesPresupuestarias: any;
-
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -52,7 +41,7 @@ export class TableProgramaDetailsComponent {
     private _alertService: AlertService
   ) {
     this._dataTableGraph = dataStoreService.getDataTable;
-    this.columnDefs = [
+    this._columnDefs = [
       {
         headerName: this._dataTableGraph.dataPropertyTable.headerName,
         children: [
@@ -169,7 +158,7 @@ export class TableProgramaDetailsComponent {
           {
             headerName: 'Económico',
             field: 'DesEco',
-            width: 400,
+            width: 500,
             pinned: 'left',
             filter: true,
             cellRenderer: "",
@@ -219,8 +208,8 @@ export class TableProgramaDetailsComponent {
           },
         },
         // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
-        rowData: this.rowData,
-        columnDefs: this.columnDefs,
+        rowData: this._rowData,
+        columnDefs: this._columnDefs,
         groupDisplayType: 'custom',
         groupIncludeTotalFooter: true,
         groupIncludeFooter: true,
@@ -243,31 +232,31 @@ export class TableProgramaDetailsComponent {
   }
 
   async createDataOCM(): Promise<void> {
-    this.rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
+    this._rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
       .filter(x => x.CodPro == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    // console.log(this.rowData);
+    // console.log(this._rowData);
 
     // Acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
-    this.aplicacionesPresupuestarias = []
-    this.dataIntermedio = [];
-    this.dataFinal = [];
+    let aplicacionesPresupuestarias = []
+    // const dataIntermedio = [];
+    let dataFinal = [];
 
     //  Crear key para cada aplicación presupuestaria.
     const years = this.avalaibleYearsService.getYearsSelected()
-    const keys = []
+    // const keys = []
     // console.log("years", years);
 
     // Creo array de aplicaciones presupuestarias existentes en programa seleccionado.
-    this.rowData.map(item => {
+    this._rowData.map(item => {
       item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
-      this.aplicacionesPresupuestarias.push(item.AplicacionPresupuestaria)
-      this.aplicacionesPresupuestarias = [...new Set(this.aplicacionesPresupuestarias)];
+      aplicacionesPresupuestarias.push(item.AplicacionPresupuestaria)
+      aplicacionesPresupuestarias = [...new Set(aplicacionesPresupuestarias)];
     });
     // console.log("aplicacionesPresupuestarias", this.aplicacionesPresupuestarias);
 
     // Creo item para cada uno de los aplicaciones presupuestarias existentes en programa seleccionado.
-    this.aplicacionesPresupuestarias.map(item => {
-      const dataIntermedio = this.rowData.filter(x => x.AplicacionPresupuestaria === item);
+    aplicacionesPresupuestarias.map(item => {
+      const dataIntermedio = this._rowData.filter(x => x.AplicacionPresupuestaria === item);
       const yearsIniciales = accumulate('Iniciales', dataIntermedio);
       const yearsModificaciones = accumulate('Modificaciones', dataIntermedio);
       const yearsDefinitivas = accumulate('Definitivas', dataIntermedio);
@@ -300,10 +289,10 @@ export class TableProgramaDetailsComponent {
         value[`ObligacionesPendientePago${year}`] = yearsObligacionesPendientes[year];
         value[`RemanenteCredito${year}`] = yearsRemanenteCredito[year]
       })
-      this.dataFinal.push(value)
+      dataFinal.push(value)
     });
-    this.rowData = this.dataFinal;
-    console.log(this.dataFinal);
+    this._rowData = dataFinal;
+    console.log(dataFinal);
 
     setTimeout(() => {
       this.expandAll()
@@ -312,16 +301,17 @@ export class TableProgramaDetailsComponent {
   }
 
   async createDataJimy(): Promise<void> {
-    this.rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
+    let dataFinal = [];
+    this._rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
       .filter(x => x.CodPro == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
 
     // Acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
     // this.aplicacionesPresupuestarias = []
     // this.dataIntermedio = [];
-    this.dataFinal = [];
+    dataFinal = [];
 
     // Creo item para cada uno de los aplicaciones presupuestarias existentes en programa seleccionado.
-    this.rowData.forEach(item => {
+    this._rowData.forEach(item => {
       item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
       const yearsIniciales = accumulate('Iniciales', [item]);
       const yearsModificaciones = accumulate('Modificaciones', [item]);
@@ -356,12 +346,12 @@ export class TableProgramaDetailsComponent {
         value[`RemanenteCredito${year}`] = yearsRemanenteCredito[year]
       })
       // console.log(value);
-      this.dataFinal.push(value)
+      dataFinal.push(value)
     });
-    console.log(this.dataFinal);
+    console.log(dataFinal);
 
 
-    this.rowData = [...this.dataFinal];
+    this._rowData = [...dataFinal];
     // Necesario debido a tiempo de vida componente.
     setTimeout(() => {
       this.expandAll()
