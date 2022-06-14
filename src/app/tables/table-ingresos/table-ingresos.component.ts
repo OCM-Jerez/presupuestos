@@ -23,12 +23,12 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 export class TableIngresosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
-  textButton: string;
   public hasGraphTree = true;
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
   private _columnDefs: any[];
   private _dataTable: IDataTable;
+  textButton: string;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
