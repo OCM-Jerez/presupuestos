@@ -38,10 +38,13 @@ export class TableGastosComponent implements OnInit {
 
   ) {
     this._dataTable = _dataStoreService.getDataTable;
+    const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
+    this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder])
 
     this._columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,
+
         children: [
           {
             headerName: this._dataTable.dataPropertyTable.subHeaderName,
@@ -107,15 +110,24 @@ export class TableGastosComponent implements OnInit {
       pagination: false,
     } as GridOptions;
 
+    // setTimeout(() => {
+    //   this.gridOptions.columnApi.applyColumnState({
+    //     state: [
+    //       { colId: 'Orgánico', sort: 'asc', sortIndex: 0 }
+    //     ],
+    //     defaultState: { sort: null }
+    //   })
+    // }, 100);
+
   }
 
   onGridReady = (params: GridReadyEvent) => {
     this._gridApi = params.api;
     this._columnApi = params.columnApi;
-    const defaultSortModel: ColumnState[] = [
-      { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
-    ];
-    params.columnApi.applyColumnState({ state: defaultSortModel });
+    // const defaultSortModel: ColumnState[] = [
+    //   { colId: 'CodOrg', sort: 'asc', sortIndex: 0 },
+    // ];
+    // params.columnApi.applyColumnState({ state: defaultSortModel });
   }
 
 

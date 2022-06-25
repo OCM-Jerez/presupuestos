@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
+import { ColumnState, GridReadyEvent } from 'ag-grid-community';
+import { GridOptions, GridApi } from 'ag-grid-community/main';
+
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 // import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
@@ -15,8 +18,6 @@ import { AlertService } from '../../services/alert.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { accumulate } from '../../commons/util/util';
-import { ColumnState, GridReadyEvent } from 'ag-grid-community';
-import { GridOptions, GridApi } from 'ag-grid-community/main';
 
 @Component({
   selector: 'app-table-programa-details',
@@ -28,8 +29,8 @@ export class TableProgramaDetailsComponent {
   public gridOptions: GridOptions;
   public isExpanded = true;
   private _gridApi: GridApi;
-  private _rowData: any;
-  private _columnDefs;
+  private _rowData: any[any];
+  private _columnDefs: any[any];
   private _dataTableGraph: IDataTable;
 
   constructor(
@@ -182,7 +183,7 @@ export class TableProgramaDetailsComponent {
 
     ];
 
-    // this.createDataJimy().then(() => {
+    //this.createDataJimy().then(() => {
     this.createDataOCM().then(() => {
       this.gridOptions = {
         defaultColDef: {
@@ -250,9 +251,9 @@ export class TableProgramaDetailsComponent {
     this._rowData.map(item => {
       item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
       aplicacionesPresupuestarias.push(item.AplicacionPresupuestaria)
-      aplicacionesPresupuestarias = [...new Set(aplicacionesPresupuestarias)];
+      // aplicacionesPresupuestarias = [...new Set(aplicacionesPresupuestarias)];
     });
-    // console.log("aplicacionesPresupuestarias", this.aplicacionesPresupuestarias);
+    console.log("aplicacionesPresupuestarias", aplicacionesPresupuestarias);
 
     // Creo item para cada uno de los aplicaciones presupuestarias existentes en programa seleccionado.
     aplicacionesPresupuestarias.map(item => {
@@ -292,7 +293,8 @@ export class TableProgramaDetailsComponent {
       dataFinal.push(value)
     });
     this._rowData = dataFinal;
-    console.log(dataFinal);
+    console.log(typeof (this._rowData));
+    console.log(this._rowData);
 
     setTimeout(() => {
       this.expandAll()
