@@ -24,6 +24,18 @@ insertamo sun seudo elemento con el mismo tamaño. */
 //   z-index: -1;
 // }
 
+.OCM-comment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100 hw;
+    color: map-get($OCM-colors, claro);
+    font-weight: 700;
+    font-family: var(--fuente-principal);
+      font-size: clamp(0.7rem, 2rem, 2.4rem);
+      text-align: center;
+}
+
 .OCM-row {
     &--add {
         display: flex;
