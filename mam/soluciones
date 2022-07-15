@@ -1,0 +1,57 @@
+Para colapsar codigo entre dos lineas.
+// #region Etiqueta
+// #endregion
+
+- Al cambiar de get a import JSON hay que quitar | Async en el HTML
+
+    - Si uninstall '@ng-select/ng-select da problemas al compilar.
+
+
+this.avalaibleYearsService.getDataJson(true)
+    .then(data => {
+        console.log(
+            data
+                .filter(d => d.CodEco === 15100)
+                .reduce((anterior, actual) => anterior + actual.GastosComprometidos, 0)
+        );
+        console.log(data);
+        this.rowData = data;
+
+        const foo = data.filter(d => d.CodEco === 15100);
+        let gastos = 0;
+        foo.forEach(d => {
+            gastos += d.GastosComprometidos;
+        })
+        console.log(gastos);
+
+    })
+    .catch(error => {
+        console.error(error);
+    })
+    .finally(() => {
+        console.log('finally');
+    });
+
+
+await this.avalaibleYearsService.getYearDataJson('2020', true)
+    .then(data => {
+        // const total = (
+        //   data
+        //     .filter(d => d.CodEco === 15100)
+        //     .reduce((anterior, actual) => anterior + actual.ObligacionesReconocidasNetas, 0));
+        // console.log('Total 15100 =', total);
+        // this.rowData = data;
+        // const newJSON = this.rowData;
+        Object.entries(data).forEach(prop => this.result2020.push({
+            "CodEco": prop[1]['CodEco'],
+            "DesEco": prop[1]['DesEco'],
+            "ObligacionesReconocidasNetas2020": prop[1]['ObligacionesReconocidasNetas'],
+            "OPA2020": prop[1]['ObligacionesPendientePago']
+        }));
+    })
+    .catch(error => {
+        console.error(error);
+    })
+    .finally(() => {
+        console.log('finally');
+    });
