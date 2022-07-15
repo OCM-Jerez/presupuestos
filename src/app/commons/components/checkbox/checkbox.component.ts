@@ -31,10 +31,10 @@ export class CheckboxComponent implements OnInit {
       },
       {
         year: 2019,
-        checked: true,
+        checked: false,
       }, {
         year: 2020,
-        checked: true,
+        checked: false,
       }, {
         year: 2021,
         checked: true,
