@@ -108,14 +108,14 @@ insertamo sun seudo elemento con el mismo tamaño. */
     border: 1px solid #000;
     grid-template-areas:
         ". . . . . espacio . . . . . ."
-        ". . . . gastos gastos gastos gastos . . . ."
+        ". . . . ingresos ingresos ingresos ingresos . . . ."
         ". . . . economicaIngreso economicaIngreso economicaIngreso economicaIngreso . . . ."
         ". . . . capitulo . . . . . . ."
         ". . . . . articulo . . . . . ."
         ". . . . . . concepto . . . . ."
         ". . . . . . . subconcepto . . . ."
         ". . . . . espacio1 . . . . . ."
-        ". . . . ingresos ingresos ingresos ingresos . . . ."
+        ". . . . gastos gastos gastos gastos . . . ."
         "organica organica organica organica programas programas programas programas economica economica economica economica"
         "organico . . . area . . . capitulo1 . . ."
         ". . . . . politica . . . articulo1 . ."
@@ -124,7 +124,7 @@ insertamo sun seudo elemento con el mismo tamaño. */
 }
 
 .OCM-gastos {
-    grid-area: Gastos;
+    grid-area: gastos;
     // border: 1px solid #000;
     // background-color: aqua;
     display: grid;
