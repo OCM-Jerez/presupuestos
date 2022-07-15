@@ -103,7 +103,7 @@ export class TableIngresosComponent {
       groupIncludeTotalFooter: true,
       groupIncludeFooter: true,
       groupHeaderHeight: 25,
-      headerHeight: 36,
+      headerHeight: 40,
       suppressAggFuncInHeader: true,
       rowSelection: 'single',
       localeText: localeTextESPes,
@@ -159,12 +159,12 @@ export class TableIngresosComponent {
         headerName: 'Créditos',
         children: [
           {
-            headerName: 'Previsiones Iniciales',
+            headerName: 'Previsiones iniciales',
             field: `Iniciales${year}`,
             columnGroupShow: 'open'
           },
           {
-            headerName: 'Total Modificaciones',
+            headerName: 'Total modificaciones',
             field: `Modificaciones${year}`,
             columnGroupShow: 'open'
           },
@@ -195,7 +195,7 @@ export class TableIngresosComponent {
             columnGroupShow: 'open'
           },
           {
-            headerName: 'Reconocidos Netos',
+            headerName: 'Reconocidos netos',
             field: `DerechosReconocidosNetos${year}`,
             columnGroupShow: 'open'
           },
@@ -212,7 +212,7 @@ export class TableIngresosComponent {
         ]
       },
       {
-        headerName: 'Exceso/defecto previsión',
+        headerName: 'Exceso o defecto previsión',
         field: `DiferenciaPrevision${year}`,
       },
     ];
