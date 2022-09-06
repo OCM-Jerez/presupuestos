@@ -173,14 +173,14 @@ End Sub
         ⋅⋅⋅DesEco
 
 - Cambiar a tipo numero, 0 decimales, sin separador de miles, las columnas:
-CodOrg hay que convertir a num ero evitando el doble caracter 00, 01, 02 ....   Multiplicar por 1 y copiar como valor.
+CodOrg hay que convertir a numero evitando el doble caracter 00, 01, 02 ....   Multiplicar por 1 y copiar como valor.
 
         ⋅⋅⋅CodOrg
         ⋅⋅⋅CodPro
         ⋅⋅⋅CodEco
         ⋅⋅⋅CodCap
 
-- Extraer primer caracter de "Eco." en columna creada CodCap. =IZQUIERDA(D2;1)
+- Extraer primer caracter de "Eco." en columna creada CodCap. =IZQUIERDA(C2;1)
 - Abrir Tabla organicos 2020.xlsx
 - formula BUSCARV(VALOR(X)......;2;0). importante añadir VALOR()
 - Es importante que el ultimo valor sea 0 para que sea busqueda exacta y en caso de faltar algun valor en la tabla de #N/D
@@ -188,6 +188,8 @@ CodOrg hay que convertir a num ero evitando el doble caracter 00, 01, 02 ....   
 - Hacer lo mismo para DesCap, DesEco y DesPro abriendo sus correspondientes ficheros.
 
 - **HAY QUE UNIFICAR TODOS LOS NOMBRES IGUAL PARA PERMITIR UN SOLO PROYECTO DONDE SE SELECCIONE EL AÑO A MOSTRAR**.
+**IMPORTANTE QUE NO EXISTA FILAS INMOVILIZADAS, DE LO CONTRARIO AL INSERTAR Y DESPLAZAR HACIA ABAJO DESCOLOCA DATOS**.
+Lo mejor es copiar la fila de un fichero anterior.
     "CodOrg"
     "CodPro"
     "CodEco"
@@ -218,7 +220,7 @@ CodOrg hay que convertir a num ero evitando el doble caracter 00, 01, 02 ....   
 - Si no se hace como UTF-8 el json contendra simbolos extraños.  
 - Guardar como 2020LiqGas
 - En el CSV generado revisar todas las columnas numericas.
-- Revisar formato columna CodOrg debe ser numnerico sin decimales ni separación de miles.
+- Revisar formato columna CodOrg debe ser numerico sin decimales ni separación de miles.
 - 
 
 
@@ -226,6 +228,12 @@ CodOrg hay que convertir a num ero evitando el doble caracter 00, 01, 02 ....   
 
 **\*\***\*\*\***\*\*** INGRESOS **\*\*\*\***\*\*\*\***\*\*\*\***
 
+- Abrir Excel original
+- Guardar en carpeta OCM.
+- Guardar como xlsx (version más reciente de Excel)
+- Eliminar 2ª fila de cabecera, la que asigna letras a las columnas (a), (b) c=a+b ............
+**IMPORTANTE QUE NO EXISTA FILAS INMOVILIZADAS, DE LO CONTRARIO AL INSERTAR Y DESPLAZAR HACIA ABAJO DESCOLOCA DATOS**.
+- Eliminar fila totales.- 
 - Insertar 3 columnas a partir columan C.
 - Copiar primera fila Excel anterior.
 - Copiar formulas 3 nuevas columnas a partir columna B.
