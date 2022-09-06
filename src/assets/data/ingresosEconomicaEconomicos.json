@@ -1,714 +1,730 @@
 [
   {
-    "codigo": 10000,
-    "descripcion": "Impuestos sobre la Renta de las Personas Físicas."
+    "Eco": 10000,
+    "DesEco": "Impuestos sobre la Renta de las Personas Físicas."
   },
   {
-    "codigo": 11200,
-    "descripcion": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de Naturaleza Rústica."
+    "Eco": 11200,
+    "DesEco": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de Naturaleza Rústica."
   },
   {
-    "codigo": 11300,
-    "descripcion": "Impuesto sobre Bienes Inmuebles. Bienes inmuebles de Naturaleza Urbana."
+    "Eco": 11300,
+    "DesEco": "Impuesto sobre Bienes Inmuebles. Bienes inmuebles de Naturaleza Urbana."
   },
   {
-    "codigo": 11400,
-    "descripcion": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de características especiales."
+    "Eco": 11400,
+    "DesEco": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de características especiales."
   },
   {
-    "codigo": 11500,
-    "descripcion": "Impuesto sobre Vehículos de Tracción Mecánica."
+    "Eco": 11500,
+    "DesEco": "Impuesto sobre Vehículos de Tracción Mecánica."
   },
   {
-    "codigo": 11600,
-    "descripcion": "Impuesto sobre Incremento del Valor de los Terrenos de Naturaleza Urbana."
+    "Eco": 11600,
+    "DesEco": "Impuesto sobre Incremento del Valor de los Terrenos de Naturaleza Urbana."
   },
   {
-    "codigo": 13000,
-    "descripcion": "Impuesto sobre Actividades Económicas."
+    "Eco": 13000,
+    "DesEco": "Impuesto sobre Actividades Económicas."
   },
   {
-    "codigo": 13001,
-    "descripcion": "Distribución cuotas nacionales IAE"
+    "Eco": 13001,
+    "DesEco": "Distribución cuotas nacionales IAE"
   },
   {
-    "codigo": 13002,
-    "descripcion": "Distribución cuotas provinciales IAE"
+    "Eco": 13002,
+    "DesEco": "Distribución cuotas provinciales IAE"
   },
   {
-    "codigo": 21000,
-    "descripcion": "Impuesto sobre el Valor Añadido"
+    "Eco": 21000,
+    "DesEco": "Impuesto sobre el Valor Añadido"
   },
   {
-    "codigo": 22000,
-    "descripcion": "Impuestos sobre el alcohol y bebidas derivadas"
+    "Eco": 22000,
+    "DesEco": "Impuestos sobre el alcohol y bebidas derivadas"
   },
   {
-    "codigo": 22001,
-    "descripcion": "Impuesto sobre la cerveza"
+    "Eco": 22001,
+    "DesEco": "Impuesto sobre la cerveza"
   },
   {
-    "codigo": 22003,
-    "descripcion": "Impuestos sobre las labores del tabaco"
+    "Eco": 22003,
+    "DesEco": "Impuestos sobre las labores del tabaco"
   },
   {
-    "codigo": 22004,
-    "descripcion": "Impuestos sobre hidrocarburos"
+    "Eco": 22004,
+    "DesEco": "Impuestos sobre hidrocarburos"
   },
   {
-    "codigo": 22006,
-    "descripcion": "Impuestos sobre productos intermedios"
+    "Eco": 22006,
+    "DesEco": "Impuestos sobre productos intermedios"
   },
   {
-    "codigo": 29000,
-    "descripcion": "Impuestos sobre construcciones, instalaciones y obras"
+    "Eco": 29000,
+    "DesEco": "Impuestos sobre construcciones, instalaciones y obras"
   },
   {
-    "codigo": 29100,
-    "descripcion": "Impuestos sobre gastos suntuarios cotos de caza y pesca"
+    "Eco": 29100,
+    "DesEco": "Impuestos sobre gastos suntuarios cotos de caza y pesca"
   },
   {
-    "codigo": 30000,
-    "descripcion": "Tasas por servicio de"
+    "Eco": 30000,
+    "DesEco": "Tasas por servicio de"
   },
   {
-    "codigo": 30001,
-    "descripcion": "Servicio de abastecimiento de agua ELA Torrecera"
+    "Eco": 30001,
+    "DesEco": "Servicio de abastecimiento de agua ELA Torrecera"
   },
   {
-    "codigo": 30100,
-    "descripcion": "Tasas por servicio de alcantarillado"
+    "Eco": 30100,
+    "DesEco": "Tasas por servicio de alcantarillado"
   },
   {
-    "codigo": 30200,
-    "descripcion": "Tasas por servicio recogida de basura"
+    "Eco": 30200,
+    "DesEco": "Tasas por servicio recogida de basura"
   },
   {
-    "codigo": 30300,
-    "descripcion": "Tasas servicio de tratamiento de"
+    "Eco": 30300,
+    "DesEco": "Tasas servicio de tratamiento de"
   },
   {
-    "codigo": 30901,
-    "descripcion": "Tasas prestación servicios cementerio municipal"
+    "Eco": 30901,
+    "DesEco": "Tasas prestación servicios cementerio municipal"
   },
   {
-    "codigo": 30902,
-    "descripcion": "Tasas extinción de incendios y salvamentos"
+    "Eco": 30902,
+    "DesEco": "Tasas extinción de incendios y salvamentos"
   },
   {
-    "codigo": 30903,
-    "descripcion": "Tasas servicios especiales de vigilancia, control prot."
+    "Eco": 30903,
+    "DesEco": "Tasas servicios especiales de vigilancia, control prot."
   },
   {
-    "codigo": 32100,
-    "descripcion": "Tasas licencias urbanísticas"
+    "Eco": 32100,
+    "DesEco": "Tasas licencias urbanísticas"
   },
   {
-    "codigo": 32201,
-    "descripcion": "Tasas licencias de aperturas"
+    "Eco": 32201,
+    "DesEco": "Tasas licencias de aperturas"
   },
   {
-    "codigo": 32500,
-    "descripcion": "Tasas por expedición de documentos"
+    "Eco": 32500,
+    "DesEco": "Tasas por expedición de documentos"
   },
   {
-    "codigo": 32600,
-    "descripcion": "Tasas retirada de vehículos"
+    "Eco": 32600,
+    "DesEco": "Tasas retirada de vehículos"
   },
   {
-    "codigo": 32901,
-    "descripcion": "Tasas por celebración de matrimonios civiles"
+    "Eco": 32901,
+    "DesEco": "Tasas por celebración de matrimonios civiles"
   },
   {
-    "codigo": 33000,
-    "descripcion": "Tasas de estacionamiento de vehículos"
+    "Eco": 33000,
+    "DesEco": "Tasas de estacionamiento de vehículos"
   },
   {
-    "codigo": 33100,
-    "descripcion": "Tasa por entrada de vehículos"
+    "Eco": 33100,
+    "DesEco": "Tasa por entrada de vehículos"
   },
   {
-    "codigo": 33204,
-    "descripcion": "Tasa utilización superficies y servicios estación autobús"
+    "Eco": 33204,
+    "DesEco": "Tasa utilización superficies y servicios estación autobús"
   },
   {
-    "codigo": 33401,
-    "descripcion": "Ingresos por canalizaciones vía pública"
+    "Eco": 33401,
+    "DesEco": "Ingresos por canalizaciones vía pública"
   },
   {
-    "codigo": 34402,
-    "descripcion": "Taquillas fiestas bulerias"
+    "Eco": 34402,
+    "DesEco": "Taquillas fiestas bulerias"
   },
   {
-    "codigo": 33501,
-    "descripcion": "Tasas ocupación vía pública gestionada por urbanismo"
+    "Eco": 33501,
+    "DesEco": "Tasas ocupación vía pública gestionada por urbanismo"
   },
   {
-    "codigo": 33601,
-    "descripcion": "Tasas por alteración o interrupción del tráfico"
+    "Eco": 33601,
+    "DesEco": "Tasas por alteración o interrupción del tráfico"
   },
   {
-    "codigo": 33701,
-    "descripcion": "Tasas ocupación suelo, vuelo o subsuelo por empresas"
+    "Eco": 33701,
+    "DesEco": "Tasas ocupación suelo, vuelo o subsuelo por empresas"
   },
   {
-    "codigo": 33800,
-    "descripcion": "Compensación de Telefónica de España S.A."
+    "Eco": 33800,
+    "DesEco": "Compensación de Telefónica de España S.A."
   },
   {
-    "codigo": 33901,
-    "descripcion": "Tasas licencias autotaxi y vehículos de alquiler"
+    "Eco": 33901,
+    "DesEco": "Tasas licencias autotaxi y vehículos de alquiler"
   },
   {
-    "codigo": 33902,
-    "descripcion": "Tasas utilización puestos en mercado de abastos"
+    "Eco": 33902,
+    "DesEco": "Tasas utilización puestos en mercado de abastos"
   },
   {
-    "codigo": 33903,
-    "descripcion": "Tasas ocupación con mercancias, materiales de construcción"
+    "Eco": 33903,
+    "DesEco": "Tasas ocupación con mercancias, materiales de construcción"
   },
   {
-    "codigo": 33904,
-    "descripcion": "Tasas ocupación con kioscos"
+    "Eco": 33904,
+    "DesEco": "Tasas ocupación con kioscos"
   },
   {
-    "codigo": 33905,
-    "descripcion": "Tasas fijación anuncios y publicidad en el dominio público local"
+    "Eco": 33905,
+    "DesEco": "Tasas fijación anuncios y publicidad en el dominio público local"
   },
   {
-    "codigo": 33906,
-    "descripcion": "Tasas por ocupación con puestos, barracas, etc."
+    "Eco": 33906,
+    "DesEco": "Tasas por ocupación con puestos, barracas, etc."
   },
   {
-    "codigo": 33907,
-    "descripcion": "Tasas por instalación fijas, puestos, espectáculos, etc."
+    "Eco": 33907,
+    "DesEco": "Tasas por instalación fijas, puestos, espectáculos, etc."
   },
   {
-    "codigo": 33908,
-    "descripcion": "Ocupación vía pública con mesas y sillas"
+    "Eco": 33908,
+    "DesEco": "Ocupación vía pública con mesas y sillas"
   },
   {
-    "codigo": 34101,
-    "descripcion": "Precios públicos servicio ayuda a domicilio"
+    "Eco": 34101,
+    "DesEco": "Precios públicos servicio ayuda a domicilio"
   },
   {
-    "codigo": 34201,
-    "descripcion": "Precios públicos matrículas Escuela de música"
+    "Eco": 34201,
+    "DesEco": "Precios públicos matrículas Escuela de música"
   },
   {
-    "codigo": 34202,
-    "descripcion": "Servicios actividades de mayores"
+    "Eco": 34202,
+    "DesEco": "Servicios actividades de mayores"
   },
   {
-    "codigo": 34301,
-    "descripcion": "Precios públicos utilización de instalaciones deportivas"
+    "Eco": 34301,
+    "DesEco": "Precios públicos utilización de instalaciones deportivas"
   },
   {
-    "codigo": 34302,
-    "descripcion": "Precios públicos matrículas competiciones hípicas"
+    "Eco": 34302,
+    "DesEco": "Precios públicos matrículas competiciones hípicas"
   },
   {
-    "codigo": 34303,
-    "descripcion": "Inscripciones deportivas"
+    "Eco": 34303,
+    "DesEco": "Inscripciones deportivas"
   },
   {
-    "codigo": 34403,
-    "descripcion": "Precios públicos por ventas de entradas Museo Arqueológico"
+    "Eco": 34403,
+    "DesEco": "Precios públicos por ventas de entradas Museo Arqueológico"
   },
   {
-    "codigo": 34404,
-    "descripcion": "Precios públicos por entradas al conjunto monumental El Alcázar"
+    "Eco": 34404,
+    "DesEco": "Precios públicos por entradas al conjunto monumental El Alcázar"
   },
   {
-    "codigo": 34405,
-    "descripcion": "Precios públicos venta de entradas pruebas hípicas"
+    "Eco": 34405,
+    "DesEco": "Precios públicos venta de entradas pruebas hípicas"
   },
   {
-    "codigo": 34407,
-    "descripcion": "Taquilla Sala Compañía"
+    "Eco": 34407,
+    "DesEco": "Taquilla Sala Compañía"
   },
   {
-    "codigo": 34409,
-    "descripcion": "Precios públicos entrada en Claustros Santo Domingo"
+    "Eco": 34409,
+    "DesEco": "Precios públicos entrada en Claustros Santo Domingo"
   },
   {
-    "codigo": 34410,
-    "descripcion": "Precios públicos venta de entradas Zoológico"
+    "Eco": 34410,
+    "DesEco": "Precios públicos venta de entradas Zoológico"
   },
   {
-    "codigo": 34902,
-    "descripcion": "Serv. Inspección Sanitaria Análisis"
+    "Eco": 34902,
+    "DesEco": "Serv. Inspección Sanitaria Análisis"
   },
   {
-    "codigo": 34903,
-    "descripcion": "Precios públicos servicios de sanidad preventiva, desinfección, etc."
+    "Eco": 34903,
+    "DesEco": "Precios públicos servicios de sanidad preventiva, desinfección, etc."
   },
   {
-    "codigo": 34905,
-    "descripcion": "Celebración eventos privados Alcázar, P. Villavicencio, S. Com"
+    "Eco": 34905,
+    "DesEco": "Celebración eventos privados Alcázar, P. Villavicencio, S. Com"
   },
   {
-    "codigo": 34906,
-    "descripcion": "Centros Sociales"
+    "Eco": 34906,
+    "DesEco": "Centros Sociales"
   },
   {
-    "codigo": 34907,
-    "descripcion": "Celebración eventos Claustros de Santo Domingo"
+    "Eco": 34907,
+    "DesEco": "Celebración eventos Claustros de Santo Domingo"
   },
   {
-    "codigo": 34908,
-    "descripcion": "Precios públicos servicio mantenimiento animales incautados"
+    "Eco": 34908,
+    "DesEco": "Precios públicos servicio mantenimiento animales incautados"
   },
   {
-    "codigo": 34909,
-    "descripcion": "Precios públicos servicios informáticos y telecomunicaciones"
+    "Eco": 34909,
+    "DesEco": "Precios públicos servicios informáticos y telecomunicaciones"
   },
   {
-    "codigo": 34910,
-    "descripcion": "Prestación de servicio recaudación"
+    "Eco": 34910,
+    "DesEco": "Prestación de servicio recaudación"
   },
   {
-    "codigo": 34911,
-    "descripcion": "P.P. Servicio recogida animales"
+    "Eco": 34911,
+    "DesEco": "Precios públicos Servicio recogida animales"
   },
   {
-    "codigo": 36001,
-    "descripcion": "Ventas de libros"
+    "Eco": 34912,
+    "DesEco": "Precios públicos publicidad Onda Jerez"
   },
   {
-    "codigo": 36002,
-    "descripcion": "Fotocopias"
+    "Eco": 36001,
+    "DesEco": "Ventas de libros"
   },
   {
-    "codigo": 36003,
-    "descripcion": "Ventas objetos Museo Arqueológico"
+    "Eco": 36002,
+    "DesEco": "Fotocopias"
   },
   {
-    "codigo": 36400,
-    "descripcion": "Venta por máquinas expendedoras"
+    "Eco": 36003,
+    "DesEco": "Ventas objetos Museo Arqueológico"
   },
   {
-    "codigo": 38000,
-    "descripcion": "Reintegro avales"
+    "Eco": 36400,
+    "DesEco": "Venta por máquinas expendedoras"
   },
   {
-    "codigo": 38001,
-    "descripcion": "Ejecución de aval incumplimiento contrato obras"
+    "Eco": 38000,
+    "DesEco": "Reintegro avales"
   },
   {
-    "codigo": 38801,
-    "descripcion": "Ejecución de aval incumplimiento contrato obras"
+    "Eco": 38001,
+    "DesEco": "Ejecución de aval incumplimiento contrato obras"
   },
   {
-    "codigo": 38900,
-    "descripcion": "Otros reintegros de operaciones corrientes"
+    "Eco": 38801,
+    "DesEco": "Ejecución de aval incumplimiento contrato obras"
   },
   {
-    "codigo": 38901,
-    "descripcion": "Anuncios a cargo de particulares"
+    "Eco": 38002,
+    "DesEco": "Incautación de fianzas"
   },
   {
-    "codigo": 38902,
-    "descripcion": "Obras e instalaciones a cargo de particulares"
+    "Eco": 38900,
+    "DesEco": "Otros reintegros de operaciones corrientes"
   },
   {
-    "codigo": 39100,
-    "descripcion": "Multas por infracciones urbanísticas"
+    "Eco": 38901,
+    "DesEco": "Anuncios a cargo de particulares"
   },
   {
-    "codigo": 39110,
-    "descripcion": "Multas por infracciones tributarias y análogas"
+    "Eco": 38902,
+    "DesEco": "Obras e instalaciones a cargo de particulares"
   },
   {
-    "codigo": 39120,
-    "descripcion": "Multas por infracciones de la Ordenanza de circulación"
+    "Eco": 39100,
+    "DesEco": "Multas por infracciones urbanísticas"
   },
   {
-    "codigo": 39190,
-    "descripcion": "Otras multas y sanciones"
+    "Eco": 39110,
+    "DesEco": "Multas por infracciones tributarias y análogas"
   },
   {
-    "codigo": 39191,
-    "descripcion": "Multas de ordenanzas municipales"
+    "Eco": 39120,
+    "DesEco": "Multas por infracciones de la Ordenanza de circulación"
   },
   {
-    "codigo": 39192,
-    "descripcion": "Sanción salud pública"
+    "Eco": 39190,
+    "DesEco": "Otras multas y sanciones"
   },
   {
-    "codigo": 39211,
-    "descripcion": "Recargo de apremio"
+    "Eco": 39191,
+    "DesEco": "Multas de ordenanzas municipales"
   },
   {
-    "codigo": 39300,
-    "descripcion": "Intereses de demora"
+    "Eco": 39192,
+    "DesEco": "Sanción salud pública"
   },
   {
-    "codigo": 39610,
-    "descripcion": "Cuotas de urbanización"
+    "Eco": 39211,
+    "DesEco": "Recargo de apremio"
   },
   {
-    "codigo": 39690,
-    "descripcion": "Convenios urbanísticos"
+    "Eco": 39300,
+    "DesEco": "Intereses de demora"
   },
   {
-    "codigo": 39710,
-    "descripcion": "Otros ingresos por aprovechamientos urbanísticos"
+    "Eco": 39610,
+    "DesEco": "Cuotas de urbanización"
   },
   {
-    "codigo": 39900,
-    "descripcion": "Otros ingresos diversos destinados PMS"
+    "Eco": 39690,
+    "DesEco": "Convenios urbanísticos"
   },
   {
-    "codigo": 39901,
-    "descripcion": "Ingresos diversos"
+    "Eco": 39710,
+    "DesEco": "Otros ingresos por aprovechamientos urbanísticos"
   },
   {
-    "codigo": 39902,
-    "descripcion": "Imprevistos"
+    "Eco": 39900,
+    "DesEco": "Otros ingresos diversos destinados PMS"
   },
   {
-    "codigo": 39903,
-    "descripcion": "Recursos telefonos"
+    "Eco": 39901,
+    "DesEco": "Ingresos diversos"
   },
   {
-    "codigo": 39904,
-    "descripcion": "Ingresos extraordinarios derivados"
+    "Eco": 39902,
+    "DesEco": "Imprevistos"
   },
   {
-    "codigo": 39907,
-    "descripcion": "Ingresos de fincas no urbanizables"
+    "Eco": 39903,
+    "DesEco": "Recursos telefonos"
   },
   {
-    "codigo": 39909,
-    "descripcion": "Indennización por CIA"
+    "Eco": 39904,
+    "DesEco": "Ingresos extraordinarios derivados"
   },
   {
-    "codigo": 39911,
-    "descripcion": "Ingresos costas judiciales"
+    "Eco": 39907,
+    "DesEco": "Ingresos de fincas no urbanizables"
   },
   {
-    "codigo": 39913,
-    "descripcion": "Ingresos por publicidad a cargo de particulares"
+    "Eco": 39909,
+    "DesEco": "Indennización por CIA"
   },
   {
-    "codigo": 39916,
-    "descripcion": "Aprovechamiento urbanístico PMS"
+    "Eco": 39911,
+    "DesEco": "Ingresos costas judiciales"
   },
   {
-    "codigo": 39918,
-    "descripcion": "Ingresos por ejecución obras a cargo particulares"
+    "Eco": 39912,
+    "DesEco": "Costas contratos defensa y respresentacion juridica"
   },
   {
-    "codigo": 39919,
-    "descripcion": "Indemnizaciones en bienes y derechos"
+    "Eco": 39913,
+    "DesEco": "Ingresos por publicidad a cargo de particulares"
   },
   {
-    "codigo": 39920,
-    "descripcion": "Servicio recogida residuos"
+    "Eco": 39916,
+    "DesEco": "Aprovechamiento urbanístico PMS"
   },
   {
-    "codigo": 39921,
-    "descripcion": "Otros ingresos diversos AJEMSA"
+    "Eco": 39918,
+    "DesEco": "Ingresos por ejecución obras a cargo particulares"
   },
   {
-    "codigo": 39922,
-    "descripcion": "Ingresos por multas coercitivas"
+    "Eco": 39919,
+    "DesEco": "Indemnizaciones en bienes y derechos"
   },
   {
-    "codigo": 42001,
-    "descripcion": "Otras transferencias del Estado déficit autobuses"
+    "Eco": 39920,
+    "DesEco": "Servicio recogida residuos"
   },
   {
-    "codigo": 42007,
-    "descripcion": "Otros ingresos Administración General del Estado"
+    "Eco": 39921,
+    "DesEco": "Otros ingresos diversos AJEMSA"
   },
   {
-    "codigo": 42009,
-    "descripcion": "Subvención Ministerio de Sanidad Plan Nacional sobre drogas"
+    "Eco": 39922,
+    "DesEco": "Ingresos por multas coercitivas"
   },
   {
-    "codigo": 42010,
-    "descripcion": "Fondo complementario de financiación"
+    "Eco": 39923,
+    "DesEco": "Otros ingresos diversos por ventas"
   },
   {
-    "codigo": 42020,
-    "descripcion": "Compensación por beneficios fiscales"
+    "Eco": 42001,
+    "DesEco": "Otras transferencias del Estado déficit autobuses"
   },
   {
-    "codigo": 42090,
-    "descripcion": "Otras transferencias corrientes de la Administración General"
+    "Eco": 42007,
+    "DesEco": "Otros ingresos Administración General del Estado"
   },
   {
-    "codigo": 42094,
-    "descripcion": "Conv. prestaciones básicas servicios sociales comunitarios"
+    "Eco": 42009,
+    "DesEco": "Subvención Ministerio de Sanidad Plan Nacional sobre drogas"
   },
   {
-    "codigo": 42101,
-    "descripcion": "Transferencias Instituto Nacional de Estadística"
+    "Eco": 42010,
+    "DesEco": "Fondo complementario de financiación"
   },
   {
-    "codigo": 42107,
-    "descripcion": "Subvención IMSERSO"
+    "Eco": 42020,
+    "DesEco": "Compensación por beneficios fiscales"
   },
   {
-    "codigo": 42122,
-    "descripcion": "De Organismo Autónomo Programas Educativos Europeos"
+    "Eco": 42090,
+    "DesEco": "Otras transferencias corrientes de la Administración General"
   },
   {
-    "codigo": 42124,
-    "descripcion": "De Organismos Autónomos y agencias estatales"
+    "Eco": 42094,
+    "DesEco": "Conv. prestaciones básicas servicios sociales comunitarios"
   },
   {
-    "codigo": 42190,
-    "descripcion": "De otros Organismos Autónomos y agencias"
+    "Eco": 42101,
+    "DesEco": "Transferencias Instituto Nacional de Estadística"
   },
   {
-    "codigo": 42201,
-    "descripcion": "De fundaciones estatales"
+    "Eco": 42107,
+    "DesEco": "Subvención IMSERSO"
   },
   {
-    "codigo": 44100,
-    "descripcion": "De sociedades mercantiles"
+    "Eco": 42122,
+    "DesEco": "De Organismo Autónomo Programas Educativos Europeos"
   },
   {
-    "codigo": 45000,
-    "descripcion": "Participacion en los tributos de la Comunidad Autónoma"
+    "Eco": 42124,
+    "DesEco": "De Organismos Autónomos y agencias estatales"
   },
   {
-    "codigo": 45002,
-    "descripcion": "Transferencias en materia de servicios sociales y políticas de igualdad"
+    "Eco": 42190,
+    "DesEco": "De otros Organismos Autónomos y agencias"
   },
   {
-    "codigo": 45030,
-    "descripcion": "Transferencias corrientes en cumplimiento de convenios suscritos"
+    "Eco": 42201,
+    "DesEco": "De fundaciones estatales"
   },
   {
-    "codigo": 45050,
-    "descripcion": "Transferencias corrientes"
+    "Eco": 44100,
+    "DesEco": "De sociedades mercantiles"
   },
   {
-    "codigo": 45060,
-    "descripcion": "Otras transferencias corrientes en cumplimiento de convenios"
+    "Eco": 45000,
+    "DesEco": "Participacion en los tributos de la Comunidad Autónoma"
   },
   {
-    "codigo": 45080,
-    "descripcion": "Otras subvenciones corrientes de la Administración General del Estado"
+    "Eco": 45002,
+    "DesEco": "Transferencias en materia de servicios sociales y políticas de igualdad"
   },
   {
-    "codigo": 45100,
-    "descripcion": "Instituto Andaluz de la Mujer"
+    "Eco": 45030,
+    "DesEco": "Transferencias corrientes en cumplimiento de convenios suscritos"
   },
   {
-    "codigo": 45101,
-    "descripcion": "De FAISEM Fundación Andaluza"
+    "Eco": 45050,
+    "DesEco": "Transferencias corrientes"
   },
   {
-    "codigo": 45103,
-    "descripcion": "De la Agencia Andaluza de Instituciones Culturales"
+    "Eco": 45060,
+    "DesEco": "Otras transferencias corrientes en cumplimiento de convenios"
   },
   {
-    "codigo": 45106,
-    "descripcion": "Subvenciones Instituto Andaluz de la Juventud"
+    "Eco": 45080,
+    "DesEco": "Otras subvenciones corrientes de la Administración General del Estado"
   },
   {
-    "codigo": 45107,
-    "descripcion": "Subvenciones Servicio Andaluz de Empleo"
+    "Eco": 45100,
+    "DesEco": "Instituto Andaluz de la Mujer"
   },
   {
-    "codigo": 45108,
-    "descripcion": "Agencia de Servicios Sociales y Dependencia de Andalucía"
+    "Eco": 45101,
+    "DesEco": "De FAISEM Fundación Andaluza"
   },
   {
-    "codigo": 46117,
-    "descripcion": "Diputación Provincial de Cádiz"
+    "Eco": 45103,
+    "DesEco": "De la Agencia Andaluza de Instituciones Culturales"
   },
   {
-    "codigo": 46600,
-    "descripcion": "De otras entidades que agrupen municipios"
+    "Eco": 45106,
+    "DesEco": "Subvenciones Instituto Andaluz de la Juventud"
   },
   {
-    "codigo": 46800,
-    "descripcion": "De entidades locales autonomas"
+    "Eco": 45107,
+    "DesEco": "Subvenciones Servicio Andaluz de Empleo"
   },
   {
-    "codigo": 47000,
-    "descripcion": "De empresas privadas"
+    "Eco": 45108,
+    "DesEco": "Agencia de Servicios Sociales y Dependencia de Andalucía"
   },
   {
-    "codigo": 48000,
-    "descripcion": "Transferencias a Instituciones sin animo de lucro"
+    "Eco": 46117,
+    "DesEco": "Diputación Provincial de Cádiz"
   },
   {
-    "codigo": 49000,
-    "descripcion": "Transferencias de La Unión europea"
+    "Eco": 46600,
+    "DesEco": "De otras entidades que agrupen municipios"
   },
   {
-    "codigo": 51100,
-    "descripcion": "Intereses de préstamos concedios a Organ. Autónomos y a"
+    "Eco": 46800,
+    "DesEco": "De entidades locales autonomas"
   },
   {
-    "codigo": 51400,
-    "descripcion": "Intereses de préstamos concedidos a sociedades mercantiles,E"
+    "Eco": 47000,
+    "DesEco": "De empresas privadas"
   },
   {
-    "codigo": 52000,
-    "descripcion": "Intereses de depósito"
+    "Eco": 48000,
+    "DesEco": "Transferencias a Instituciones sin animo de lucro"
   },
   {
-    "codigo": 53410,
-    "descripcion": "De sociedades y entidades no dependientes de la entidades locales"
+    "Eco": 49000,
+    "DesEco": "Transferencias de La Unión europea"
   },
   {
-    "codigo": 54100,
-    "descripcion": "Arrendamientos de fincas urbanas"
+    "Eco": 51100,
+    "DesEco": "Intereses de préstamos concedios a Organ. Autónomos y a"
   },
   {
-    "codigo": 55000,
-    "descripcion": "Concesiones administrativas"
+    "Eco": 51400,
+    "DesEco": "Intereses de préstamos concedidos a sociedades mercantiles,E"
   },
   {
-    "codigo": 55903,
-    "descripcion": "Vallas publicitarias"
+    "Eco": 52000,
+    "DesEco": "Intereses de depósito"
   },
   {
-    "codigo": 59000,
-    "descripcion": "Patrocinio y publicidad Deportes"
+    "Eco": 53410,
+    "DesEco": "De sociedades y entidades no dependientes de la entidades locales"
   },
   {
-    "codigo": 59002,
-    "descripcion": "Patrocinio eventos de fiestas"
+    "Eco": 54100,
+    "DesEco": "Arrendamientos de fincas urbanas"
   },
   {
-    "codigo": 59003,
-    "descripcion": "Patrocinio y publicidad zoo"
+    "Eco": 55000,
+    "DesEco": "Concesiones administrativas"
   },
   {
-    "codigo": 59005,
-    "descripcion": "Patrocinio y publicidad"
+    "Eco": 55903,
+    "DesEco": "Vallas publicitarias"
   },
   {
-    "codigo": 59900,
-    "descripcion": "Otros ingresos patrimoniales"
+    "Eco": 59000,
+    "DesEco": "Patrocinio y publicidad Deportes"
   },
   {
-    "codigo": 59901,
-    "descripcion": "Patrocinio actos culturales"
+    "Eco": 59002,
+    "DesEco": "Patrocinio eventos de fiestas"
   },
   {
-    "codigo": 59902,
-    "descripcion": "Patrocinio eventos fiestas"
+    "Eco": 59003,
+    "DesEco": "Patrocinio y publicidad zoo"
   },
   {
-    "codigo": 59906,
-    "descripcion": "Sponsorización eventos de Fomento"
+    "Eco": 59005,
+    "DesEco": "Patrocinio y publicidad"
   },
   {
-    "codigo": 59908,
-    "descripcion": "Ingresos publicidad TV y radio"
+    "Eco": 59900,
+    "DesEco": "Otros ingresos patrimoniales"
   },
   {
-    "codigo": 60000,
-    "descripcion": "Venta de solares (No PMS)"
+    "Eco": 59901,
+    "DesEco": "Patrocinio actos culturales"
   },
   {
-    "codigo": 60300,
-    "descripcion": "Enajenaciones PMS"
+    "Eco": 59902,
+    "DesEco": "Patrocinio eventos fiestas"
   },
   {
-    "codigo": 61000,
-    "descripcion": "De las demás inversiones reales"
+    "Eco": 59906,
+    "DesEco": "Sponsorización eventos de Fomento"
   },
   {
-    "codigo": 61900,
-    "descripcion": "De otras inversiones reales elementos de transporte"
+    "Eco": 59908,
+    "DesEco": "Ingresos publicidad TV y radio"
   },
   {
-    "codigo": 72000,
-    "descripcion": "Transferencias capital Administración General del Estado"
+    "Eco": 60000,
+    "DesEco": "Venta de solares (No PMS)"
   },
   {
-    "codigo": 72112,
-    "descripcion": "Instituto de la Juventud"
+    "Eco": 60300,
+    "DesEco": "Enajenaciones PMS"
   },
   {
-    "codigo": 72190,
-    "descripcion": "De otros Organismos Autónomos y agencias"
+    "Eco": 61000,
+    "DesEco": "De las demás inversiones reales"
   },
   {
-    "codigo": 75012,
-    "descripcion": "Transferencias de capital"
+    "Eco": 61900,
+    "DesEco": "De otras inversiones reales elementos de transporte"
   },
   {
-    "codigo": 75030,
-    "descripcion": "Transferencias de capital en cumplimiento de convenios suscritos"
+    "Eco": 72000,
+    "DesEco": "Transferencias capital Administración General del Estado"
   },
   {
-    "codigo": 75060,
-    "descripcion": "Otras transferencias de capital en cumplimiento de convenios"
+    "Eco": 72112,
+    "DesEco": "Instituto de la Juventud"
   },
   {
-    "codigo": 75080,
-    "descripcion": "Otras transferencias de capital de la Administración General del Estado"
+    "Eco": 72190,
+    "DesEco": "De otros Organismos Autónomos y agencias"
   },
   {
-    "codigo": 75100,
-    "descripcion": "Transferencias capital Organismos Autónomos y Agencias CCAA"
+    "Eco": 75012,
+    "DesEco": "Transferencias de capital"
   },
   {
-    "codigo": 76100,
-    "descripcion": "Transferencia de capital de Diputación Provincial de Cádiz"
+    "Eco": 75030,
+    "DesEco": "Transferencias de capital en cumplimiento de convenios suscritos"
   },
   {
-    "codigo": 76117,
-    "descripcion": "De Diputaciones, Consejos o Cabildos"
+    "Eco": 75060,
+    "DesEco": "Otras transferencias de capital en cumplimiento de convenios"
   },
   {
-    "codigo": 76800,
-    "descripcion": "De Entidades Locales Menores"
+    "Eco": 75080,
+    "DesEco": "Otras transferencias de capital de la Administración General del Estado"
   },
   {
-    "codigo": 77000,
-    "descripcion": "De empresas privadas"
+    "Eco": 75100,
+    "DesEco": "Transferencias capital Organismos Autónomos y Agencias CCAA"
   },
   {
-    "codigo": 78000,
-    "descripcion": "De familias e instituciones sin animo de lucro"
+    "Eco": 76100,
+    "DesEco": "Transferencia de capital de Diputación Provincial de Cádiz"
   },
   {
-    "codigo": 78001,
-    "descripcion": "De la Asociación para el desarrollo rural de la campiña de Jerez"
+    "Eco": 76117,
+    "DesEco": "De Diputaciones, Consejos o Cabildos"
   },
   {
-    "codigo": 79007,
-    "descripcion": "Del Fondo Social Europeo"
+    "Eco": 76800,
+    "DesEco": "De Entidades Locales Menores"
   },
   {
-    "codigo": 82120,
-    "descripcion": "De Entidades locales"
+    "Eco": 77000,
+    "DesEco": "De empresas privadas"
   },
   {
-    "codigo": 83001,
-    "descripcion": "Reintegro de anticipos al personal a corto plazo"
+    "Eco": 78000,
+    "DesEco": "De familias e instituciones sin animo de lucro"
   },
   {
-    "codigo": 83101,
-    "descripcion": "Reintegro de anticipos al personal a largo plazo"
+    "Eco": 78001,
+    "DesEco": "De la Asociación para el desarrollo rural de la campiña de Jerez"
   },
   {
-    "codigo": 87010,
-    "descripcion": "Para gastos con financiación afectada"
+    "Eco": 79007,
+    "DesEco": "Del Fondo Social Europeo"
   },
   {
-    "codigo": 91100,
-    "descripcion": "Préstamos recibidos a largo plazo de entes del sector público"
+    "Eco": 82120,
+    "DesEco": "De Entidades locales"
   },
   {
-    "codigo": 91101,
-    "descripcion": "Préstamo Fondo Ordenación sentencias judiciales firmes"
+    "Eco": 83001,
+    "DesEco": "Reintegro de anticipos al personal a corto plazo"
   },
   {
-    "codigo": 91301,
-    "descripcion": "Prestamos recibidos a largo plazo de entes fuera del sector público"
+    "Eco": 83101,
+    "DesEco": "Reintegro de anticipos al personal a largo plazo"
+  },
+  {
+    "Eco": 87010,
+    "DesEco": "Para gastos con financiación afectada"
+  },
+  {
+    "Eco": 91100,
+    "DesEco": "Préstamos recibidos a largo plazo de entes del sector público"
+  },
+  {
+    "Eco": 91101,
+    "DesEco": "Préstamo Fondo Ordenación sentencias judiciales firmes"
+  },
+  {
+    "Eco": 91301,
+    "DesEco": "Prestamos recibidos a largo plazo de entes fuera del sector público"
   }
 ]

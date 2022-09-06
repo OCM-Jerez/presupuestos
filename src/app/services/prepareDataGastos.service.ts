@@ -101,14 +101,22 @@ export class PrepareDataGastosService {
         break;
       case 'gastosEconomicaArticulos':
         result.map(item => {
-          item.CodEco = Math.floor((item.CodEco / 1000));
-          item.DesEco = gastosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
+          if (item.CodEco > 0) {
+            item.CodEco = Math.floor((item.CodEco / 1000));
+            item.DesEco = gastosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
+          } else {
+            console.log(item);
+          }
         });
         break;
       case 'gastosEconomicaConceptos':
         result.map(item => {
-          item.CodEco = Math.floor((item.CodEco / 100));
-          item.DesEco = gastosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodEco).descripcion;
+          if (item.CodEco > 0) {
+            item.CodEco = Math.floor((item.CodEco / 100));
+            item.DesEco = gastosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodEco).descripcion;
+          } else {
+            console.log(item);
+          }
         });
         break;
     }

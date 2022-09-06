@@ -8,12 +8,12 @@
     "Iniciales": 2375286,
     "Modificaciones": 0,
     "Definitivas": 2375286,
-    "DerechosReconocidos": 2817376,
-    "DerechosReconocidosNetos": 1743904,
+    "DerechosReconocidos": 1491472,
+    "DerechosReconocidosNetos": 1247082,
     "DerechosCancelados": 5026,
-    "RecaudacionNeta": 1738878,
-    "DerechosPendienteCobro": 1078498,
-    "DiferenciaPrevision": 442090
+    "RecaudacionNeta": 1242056,
+    "DerechosPendienteCobro": 249416,
+    "DiferenciaPrevision": -883814
   },
   {
     "CodEco": 11200,
@@ -24,12 +24,12 @@
     "Iniciales": 3005900,
     "Modificaciones": 0,
     "Definitivas": 3005900,
-    "DerechosReconocidos": 2577106,
-    "DerechosReconocidosNetos": 38843,
+    "DerechosReconocidos": 2577516,
+    "DerechosReconocidosNetos": 13259,
     "DerechosCancelados": 9356,
-    "RecaudacionNeta": 29487,
-    "DerechosPendienteCobro": 2547619,
-    "DiferenciaPrevision": -428794
+    "RecaudacionNeta": 3903,
+    "DerechosPendienteCobro": 2573613,
+    "DiferenciaPrevision": -428384
   },
   {
     "CodEco": 11300,
@@ -40,12 +40,12 @@
     "Iniciales": 46762300,
     "Modificaciones": 0,
     "Definitivas": 46762300,
-    "DerechosReconocidos": 46215166,
-    "DerechosReconocidosNetos": 8015561,
-    "DerechosCancelados": 252093,
-    "RecaudacionNeta": 7763468,
-    "DerechosPendienteCobro": 38451698,
-    "DiferenciaPrevision": -547134
+    "DerechosReconocidos": 46451688,
+    "DerechosReconocidosNetos": 2753226,
+    "DerechosCancelados": 115353,
+    "RecaudacionNeta": 2637873,
+    "DerechosPendienteCobro": 43813814,
+    "DiferenciaPrevision": -310612
   },
   {
     "CodEco": 11400,
@@ -56,12 +56,12 @@
     "Iniciales": 1276800,
     "Modificaciones": 0,
     "Definitivas": 1276800,
-    "DerechosReconocidos": 1259103,
-    "DerechosReconocidosNetos": 342625,
+    "DerechosReconocidos": 1262874,
+    "DerechosReconocidosNetos": 16252,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 342625,
-    "DerechosPendienteCobro": 916478,
-    "DiferenciaPrevision": -17697
+    "RecaudacionNeta": 16252,
+    "DerechosPendienteCobro": 1246621,
+    "DiferenciaPrevision": -13927
   },
   {
     "CodEco": 11500,
@@ -72,12 +72,12 @@
     "Iniciales": 10715000,
     "Modificaciones": 0,
     "Definitivas": 10715000,
-    "DerechosReconocidos": 10732900,
-    "DerechosReconocidosNetos": 3863668,
-    "DerechosCancelados": 9039,
-    "RecaudacionNeta": 3854629,
-    "DerechosPendienteCobro": 6878271,
-    "DiferenciaPrevision": 17900
+    "DerechosReconocidos": 10717484,
+    "DerechosReconocidosNetos": 1400610,
+    "DerechosCancelados": 6869,
+    "RecaudacionNeta": 1393742,
+    "DerechosPendienteCobro": 9323742,
+    "DiferenciaPrevision": 2484
   },
   {
     "CodEco": 11600,
@@ -88,12 +88,12 @@
     "Iniciales": 11541500,
     "Modificaciones": 0,
     "Definitivas": 11541500,
-    "DerechosReconocidos": 1926386,
-    "DerechosReconocidosNetos": 2859619,
-    "DerechosCancelados": 1674757,
-    "RecaudacionNeta": 1184862,
-    "DerechosPendienteCobro": 741525,
-    "DiferenciaPrevision": -9615114
+    "DerechosReconocidos": 2044603,
+    "DerechosReconocidosNetos": 2008215,
+    "DerechosCancelados": 748015,
+    "RecaudacionNeta": 1260200,
+    "DerechosPendienteCobro": 784403,
+    "DiferenciaPrevision": -9496897
   },
   {
     "CodEco": 13000,
@@ -104,12 +104,12 @@
     "Iniciales": 9370000,
     "Modificaciones": 0,
     "Definitivas": 9370000,
-    "DerechosReconocidos": 7395475,
-    "DerechosReconocidosNetos": 1617651,
+    "DerechosReconocidos": 7425010,
+    "DerechosReconocidosNetos": 613352,
     "DerechosCancelados": 151502,
-    "RecaudacionNeta": 1466150,
-    "DerechosPendienteCobro": 5929325,
-    "DiferenciaPrevision": -1974525
+    "RecaudacionNeta": 461850,
+    "DerechosPendienteCobro": 6963160,
+    "DiferenciaPrevision": -1944990
   },
   {
     "CodEco": 13001,
@@ -152,12 +152,12 @@
     "Iniciales": 3690949,
     "Modificaciones": 0,
     "Definitivas": 3690949,
-    "DerechosReconocidos": 2953760,
-    "DerechosReconocidosNetos": 2621781,
+    "DerechosReconocidos": 2260860,
+    "DerechosReconocidosNetos": 1938528,
     "DerechosCancelados": 24117,
-    "RecaudacionNeta": 2597663,
-    "DerechosPendienteCobro": 356097,
-    "DiferenciaPrevision": -737189
+    "RecaudacionNeta": 1914410,
+    "DerechosPendienteCobro": 346450,
+    "DiferenciaPrevision": -1430089
   },
   {
     "CodEco": 22000,
@@ -168,12 +168,12 @@
     "Iniciales": 51149,
     "Modificaciones": 0,
     "Definitivas": 51149,
-    "DerechosReconocidos": 33956,
-    "DerechosReconocidosNetos": 29763,
+    "DerechosReconocidos": 25440,
+    "DerechosReconocidosNetos": 21290,
     "DerechosCancelados": 108,
-    "RecaudacionNeta": 29655,
-    "DerechosPendienteCobro": 4301,
-    "DiferenciaPrevision": -17193
+    "RecaudacionNeta": 21182,
+    "DerechosPendienteCobro": 4258,
+    "DiferenciaPrevision": -25709
   },
   {
     "CodEco": 22001,
@@ -184,12 +184,12 @@
     "Iniciales": 19641,
     "Modificaciones": 0,
     "Definitivas": 19641,
-    "DerechosReconocidos": 14638,
-    "DerechosReconocidosNetos": 12809,
+    "DerechosReconocidos": 10979,
+    "DerechosReconocidosNetos": 9149,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 12809,
+    "RecaudacionNeta": 9149,
     "DerechosPendienteCobro": 1830,
-    "DiferenciaPrevision": -5003
+    "DiferenciaPrevision": -8662
   },
   {
     "CodEco": 22003,
@@ -200,12 +200,12 @@
     "Iniciales": 215671,
     "Modificaciones": 0,
     "Definitivas": 215671,
-    "DerechosReconocidos": 170665,
-    "DerechosReconocidosNetos": 126386,
+    "DerechosReconocidos": 108331,
+    "DerechosReconocidosNetos": 90276,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 126386,
-    "DerechosPendienteCobro": 44279,
-    "DiferenciaPrevision": -45006
+    "RecaudacionNeta": 90276,
+    "DerechosPendienteCobro": 18055,
+    "DiferenciaPrevision": -107340
   },
   {
     "CodEco": 22004,
@@ -216,12 +216,12 @@
     "Iniciales": 562436,
     "Modificaciones": 0,
     "Definitivas": 562436,
-    "DerechosReconocidos": 482833,
-    "DerechosReconocidosNetos": 422689,
+    "DerechosReconocidos": 362014,
+    "DerechosReconocidosNetos": 302047,
     "DerechosCancelados": 442,
-    "RecaudacionNeta": 422247,
-    "DerechosPendienteCobro": 60586,
-    "DiferenciaPrevision": -79603
+    "RecaudacionNeta": 301605,
+    "DerechosPendienteCobro": 60409,
+    "DiferenciaPrevision": -200422
   },
   {
     "CodEco": 22006,
@@ -232,12 +232,12 @@
     "Iniciales": 1283,
     "Modificaciones": 0,
     "Definitivas": 1283,
-    "DerechosReconocidos": 803,
-    "DerechosReconocidosNetos": 702,
+    "DerechosReconocidos": 602,
+    "DerechosReconocidosNetos": 502,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 702,
+    "RecaudacionNeta": 502,
     "DerechosPendienteCobro": 100,
-    "DiferenciaPrevision": -481
+    "DiferenciaPrevision": -681
   },
   {
     "CodEco": 29000,
@@ -248,12 +248,12 @@
     "Iniciales": 7833340,
     "Modificaciones": 0,
     "Definitivas": 7833340,
-    "DerechosReconocidos": 5581154,
-    "DerechosReconocidosNetos": 900266,
-    "DerechosCancelados": 5272,
-    "RecaudacionNeta": 894994,
-    "DerechosPendienteCobro": 4686160,
-    "DiferenciaPrevision": -2252186
+    "DerechosReconocidos": 4791982,
+    "DerechosReconocidosNetos": 487599,
+    "DerechosCancelados": 4626,
+    "RecaudacionNeta": 482973,
+    "DerechosPendienteCobro": 4309009,
+    "DiferenciaPrevision": -3041358
   },
   {
     "CodEco": 29100,
@@ -265,10 +265,10 @@
     "Modificaciones": 0,
     "Definitivas": 22400,
     "DerechosReconocidos": 26383,
-    "DerechosReconocidosNetos": 20391,
+    "DerechosReconocidosNetos": 17427,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 20391,
-    "DerechosPendienteCobro": 5992,
+    "RecaudacionNeta": 17427,
+    "DerechosPendienteCobro": 8956,
     "DiferenciaPrevision": 3983
   },
   {
@@ -296,12 +296,12 @@
     "Iniciales": 17419800,
     "Modificaciones": 0,
     "Definitivas": 17419800,
-    "DerechosReconocidos": 10210377,
-    "DerechosReconocidosNetos": 8176134,
-    "DerechosCancelados": 305925,
-    "RecaudacionNeta": 7870209,
-    "DerechosPendienteCobro": 2340168,
-    "DiferenciaPrevision": -7209423
+    "DerechosReconocidos": 8502472,
+    "DerechosReconocidosNetos": 6887374,
+    "DerechosCancelados": 263818,
+    "RecaudacionNeta": 6623556,
+    "DerechosPendienteCobro": 1878916,
+    "DiferenciaPrevision": -8917328
   },
   {
     "CodEco": 30901,
@@ -312,12 +312,12 @@
     "Iniciales": 505100,
     "Modificaciones": 0,
     "Definitivas": 505100,
-    "DerechosReconocidos": 363709,
-    "DerechosReconocidosNetos": 331571,
+    "DerechosReconocidos": 286025,
+    "DerechosReconocidosNetos": 245375,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 331571,
-    "DerechosPendienteCobro": 32138,
-    "DiferenciaPrevision": -141391
+    "RecaudacionNeta": 245375,
+    "DerechosPendienteCobro": 40651,
+    "DiferenciaPrevision": -219075
   },
   {
     "CodEco": 30902,
@@ -328,12 +328,12 @@
     "Iniciales": 40600,
     "Modificaciones": 0,
     "Definitivas": 40600,
-    "DerechosReconocidos": 2620,
-    "DerechosReconocidosNetos": 1166,
+    "DerechosReconocidos": 2289,
+    "DerechosReconocidosNetos": 463,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 1166,
-    "DerechosPendienteCobro": 1454,
-    "DiferenciaPrevision": -37980
+    "RecaudacionNeta": 463,
+    "DerechosPendienteCobro": 1826,
+    "DiferenciaPrevision": -38311
   },
   {
     "CodEco": 30903,
@@ -360,12 +360,12 @@
     "Iniciales": 2962742,
     "Modificaciones": 0,
     "Definitivas": 2962742,
-    "DerechosReconocidos": 2386726,
-    "DerechosReconocidosNetos": 1595536,
-    "DerechosCancelados": 16894,
-    "RecaudacionNeta": 1578642,
-    "DerechosPendienteCobro": 808084,
-    "DiferenciaPrevision": -576016
+    "DerechosReconocidos": 1851842,
+    "DerechosReconocidosNetos": 1015501,
+    "DerechosCancelados": 13760,
+    "RecaudacionNeta": 1001741,
+    "DerechosPendienteCobro": 850101,
+    "DiferenciaPrevision": -1110900
   },
   {
     "CodEco": 32201,
@@ -376,12 +376,12 @@
     "Iniciales": 308000,
     "Modificaciones": 0,
     "Definitivas": 308000,
-    "DerechosReconocidos": 181855,
-    "DerechosReconocidosNetos": 115667,
-    "DerechosCancelados": 14681,
-    "RecaudacionNeta": 100986,
-    "DerechosPendienteCobro": 80869,
-    "DiferenciaPrevision": -126145
+    "DerechosReconocidos": 144479,
+    "DerechosReconocidosNetos": 80487,
+    "DerechosCancelados": 9595,
+    "RecaudacionNeta": 70891,
+    "DerechosPendienteCobro": 73587,
+    "DiferenciaPrevision": -163521
   },
   {
     "CodEco": 32500,
@@ -392,12 +392,12 @@
     "Iniciales": 88100,
     "Modificaciones": 0,
     "Definitivas": 88100,
-    "DerechosReconocidos": 82164,
-    "DerechosReconocidosNetos": 61788,
-    "DerechosCancelados": 1008,
-    "RecaudacionNeta": 60780,
-    "DerechosPendienteCobro": 21384,
-    "DiferenciaPrevision": -5936
+    "DerechosReconocidos": 63917,
+    "DerechosReconocidosNetos": 47082,
+    "DerechosCancelados": 961,
+    "RecaudacionNeta": 46121,
+    "DerechosPendienteCobro": 17796,
+    "DiferenciaPrevision": -24183
   },
   {
     "CodEco": 32600,
@@ -424,12 +424,12 @@
     "Iniciales": 18700,
     "Modificaciones": 0,
     "Definitivas": 18700,
-    "DerechosReconocidos": 9550,
-    "DerechosReconocidosNetos": 8780,
+    "DerechosReconocidos": 7900,
+    "DerechosReconocidosNetos": 6680,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 8780,
-    "DerechosPendienteCobro": 770,
-    "DiferenciaPrevision": -9150
+    "RecaudacionNeta": 6680,
+    "DerechosPendienteCobro": 1220,
+    "DiferenciaPrevision": -10800
   },
   {
     "CodEco": 33000,
@@ -440,12 +440,12 @@
     "Iniciales": 118000,
     "Modificaciones": 0,
     "Definitivas": 118000,
-    "DerechosReconocidos": 115352,
-    "DerechosReconocidosNetos": 118173,
+    "DerechosReconocidos": 113276,
+    "DerechosReconocidosNetos": 116097,
     "DerechosCancelados": 2822,
-    "RecaudacionNeta": 115352,
+    "RecaudacionNeta": 113276,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -2648
+    "DiferenciaPrevision": -4724
   },
   {
     "CodEco": 33100,
@@ -456,12 +456,12 @@
     "Iniciales": 1963400,
     "Modificaciones": 0,
     "Definitivas": 1963400,
-    "DerechosReconocidos": 1806132,
-    "DerechosReconocidosNetos": 267921,
-    "DerechosCancelados": 223,
-    "RecaudacionNeta": 267698,
-    "DerechosPendienteCobro": 1538434,
-    "DiferenciaPrevision": -157268
+    "DerechosReconocidos": 1800842,
+    "DerechosReconocidosNetos": 110053,
+    "DerechosCancelados": 205,
+    "RecaudacionNeta": 109848,
+    "DerechosPendienteCobro": 1690994,
+    "DiferenciaPrevision": -162558
   },
   {
     "CodEco": 33204,
@@ -472,12 +472,12 @@
     "Iniciales": 224400,
     "Modificaciones": 0,
     "Definitivas": 224400,
-    "DerechosReconocidos": 90394,
-    "DerechosReconocidosNetos": 42019,
+    "DerechosReconocidos": 74676,
+    "DerechosReconocidosNetos": 27605,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 42019,
-    "DerechosPendienteCobro": 48375,
-    "DiferenciaPrevision": -134006
+    "RecaudacionNeta": 27605,
+    "DerechosPendienteCobro": 47071,
+    "DiferenciaPrevision": -149724
   },
   {
     "CodEco": 33401,
@@ -488,12 +488,12 @@
     "Iniciales": 367100,
     "Modificaciones": 0,
     "Definitivas": 367100,
-    "DerechosReconocidos": 364245,
-    "DerechosReconocidosNetos": 251515,
+    "DerechosReconocidos": 289258,
+    "DerechosReconocidosNetos": 125138,
     "DerechosCancelados": 7839,
-    "RecaudacionNeta": 243677,
-    "DerechosPendienteCobro": 120568,
-    "DiferenciaPrevision": -2855
+    "RecaudacionNeta": 117300,
+    "DerechosPendienteCobro": 171958,
+    "DiferenciaPrevision": -77842
   },
   {
     "CodEco": 33501,
@@ -504,12 +504,12 @@
     "Iniciales": 1400,
     "Modificaciones": 0,
     "Definitivas": 1400,
-    "DerechosReconocidos": 459,
-    "DerechosReconocidosNetos": 459,
+    "DerechosReconocidos": 0,
+    "DerechosReconocidosNetos": 0,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 459,
+    "RecaudacionNeta": 0,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -941
+    "DiferenciaPrevision": -1400
   },
   {
     "CodEco": 33601,
@@ -520,12 +520,12 @@
     "Iniciales": 9600,
     "Modificaciones": 0,
     "Definitivas": 9600,
-    "DerechosReconocidos": 15724,
-    "DerechosReconocidosNetos": 10509,
+    "DerechosReconocidos": 7917,
+    "DerechosReconocidosNetos": 3847,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 10509,
-    "DerechosPendienteCobro": 5215,
-    "DiferenciaPrevision": 6124
+    "RecaudacionNeta": 3847,
+    "DerechosPendienteCobro": 4070,
+    "DiferenciaPrevision": -1683
   },
   {
     "CodEco": 33701,
@@ -536,12 +536,12 @@
     "Iniciales": 1469300,
     "Modificaciones": 0,
     "Definitivas": 1469300,
-    "DerechosReconocidos": 1294165,
-    "DerechosReconocidosNetos": 737483,
+    "DerechosReconocidos": 969134,
+    "DerechosReconocidosNetos": 545667,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 737483,
-    "DerechosPendienteCobro": 556681,
-    "DiferenciaPrevision": -175135
+    "RecaudacionNeta": 545667,
+    "DerechosPendienteCobro": 423467,
+    "DiferenciaPrevision": -500166
   },
   {
     "CodEco": 33800,
@@ -552,12 +552,12 @@
     "Iniciales": 332500,
     "Modificaciones": 0,
     "Definitivas": 332500,
-    "DerechosReconocidos": 240687,
+    "DerechosReconocidos": 158535,
     "DerechosReconocidosNetos": 158535,
     "DerechosCancelados": 0,
     "RecaudacionNeta": 158535,
-    "DerechosPendienteCobro": 82152,
-    "DiferenciaPrevision": -91813
+    "DerechosPendienteCobro": 0,
+    "DiferenciaPrevision": -173965
   },
   {
     "CodEco": 33901,
@@ -568,12 +568,12 @@
     "Iniciales": 5000,
     "Modificaciones": 0,
     "Definitivas": 5000,
-    "DerechosReconocidos": 2462,
-    "DerechosReconocidosNetos": 2462,
+    "DerechosReconocidos": 1641,
+    "DerechosReconocidosNetos": 821,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 2462,
-    "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -2538
+    "RecaudacionNeta": 821,
+    "DerechosPendienteCobro": 821,
+    "DiferenciaPrevision": -3359
   },
   {
     "CodEco": 33902,
@@ -585,10 +585,10 @@
     "Modificaciones": 0,
     "Definitivas": 144000,
     "DerechosReconocidos": 127890,
-    "DerechosReconocidosNetos": 40397,
+    "DerechosReconocidosNetos": 25652,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 40397,
-    "DerechosPendienteCobro": 87493,
+    "RecaudacionNeta": 25652,
+    "DerechosPendienteCobro": 102239,
     "DiferenciaPrevision": -16110
   },
   {
@@ -600,12 +600,12 @@
     "Iniciales": 68500,
     "Modificaciones": 0,
     "Definitivas": 68500,
-    "DerechosReconocidos": 35702,
-    "DerechosReconocidosNetos": 25254,
+    "DerechosReconocidos": 25834,
+    "DerechosReconocidosNetos": 17761,
     "DerechosCancelados": 19,
-    "RecaudacionNeta": 25235,
-    "DerechosPendienteCobro": 10467,
-    "DiferenciaPrevision": -32798
+    "RecaudacionNeta": 17742,
+    "DerechosPendienteCobro": 8092,
+    "DiferenciaPrevision": -42666
   },
   {
     "CodEco": 33904,
@@ -617,10 +617,10 @@
     "Modificaciones": 0,
     "Definitivas": 23300,
     "DerechosReconocidos": 18597,
-    "DerechosReconocidosNetos": 3927,
+    "DerechosReconocidosNetos": 672,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 3927,
-    "DerechosPendienteCobro": 14670,
+    "RecaudacionNeta": 672,
+    "DerechosPendienteCobro": 17925,
     "DiferenciaPrevision": -4703
   },
   {
@@ -632,12 +632,12 @@
     "Iniciales": 22600,
     "Modificaciones": 0,
     "Definitivas": 22600,
-    "DerechosReconocidos": 53804,
-    "DerechosReconocidosNetos": 43493,
+    "DerechosReconocidos": 52608,
+    "DerechosReconocidosNetos": 37399,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 43493,
-    "DerechosPendienteCobro": 10311,
-    "DiferenciaPrevision": 31204
+    "RecaudacionNeta": 37399,
+    "DerechosPendienteCobro": 15210,
+    "DiferenciaPrevision": 30008
   },
   {
     "CodEco": 33906,
@@ -648,12 +648,12 @@
     "Iniciales": 475000,
     "Modificaciones": 0,
     "Definitivas": 475000,
-    "DerechosReconocidos": 454242,
-    "DerechosReconocidosNetos": 437027,
+    "DerechosReconocidos": 452761,
+    "DerechosReconocidosNetos": 419013,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 437027,
-    "DerechosPendienteCobro": 17215,
-    "DiferenciaPrevision": -20758
+    "RecaudacionNeta": 419013,
+    "DerechosPendienteCobro": 33748,
+    "DiferenciaPrevision": -22239
   },
   {
     "CodEco": 33907,
@@ -664,12 +664,12 @@
     "Iniciales": 998900,
     "Modificaciones": 0,
     "Definitivas": 998900,
-    "DerechosReconocidos": 854407,
-    "DerechosReconocidosNetos": 627261,
-    "DerechosCancelados": 10031,
-    "RecaudacionNeta": 617230,
-    "DerechosPendienteCobro": 237177,
-    "DiferenciaPrevision": -144493
+    "DerechosReconocidos": 853427,
+    "DerechosReconocidosNetos": 606972,
+    "DerechosCancelados": 7982,
+    "RecaudacionNeta": 598991,
+    "DerechosPendienteCobro": 254436,
+    "DiferenciaPrevision": -145473
   },
   {
     "CodEco": 33908,
@@ -680,12 +680,12 @@
     "Iniciales": 290300,
     "Modificaciones": 0,
     "Definitivas": 290300,
-    "DerechosReconocidos": 132495,
-    "DerechosReconocidosNetos": 86302,
+    "DerechosReconocidos": 121937,
+    "DerechosReconocidosNetos": 72601,
     "DerechosCancelados": 983,
-    "RecaudacionNeta": 85318,
-    "DerechosPendienteCobro": 47177,
-    "DiferenciaPrevision": -157805
+    "RecaudacionNeta": 71618,
+    "DerechosPendienteCobro": 50319,
+    "DiferenciaPrevision": -168363
   },
   {
     "CodEco": 34101,
@@ -712,12 +712,12 @@
     "Iniciales": 36200,
     "Modificaciones": 0,
     "Definitivas": 36200,
-    "DerechosReconocidos": 14014,
-    "DerechosReconocidosNetos": 14014,
+    "DerechosReconocidos": 10900,
+    "DerechosReconocidosNetos": 10900,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 14014,
+    "RecaudacionNeta": 10900,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -22186
+    "DiferenciaPrevision": -25300
   },
   {
     "CodEco": 34202,
@@ -728,12 +728,12 @@
     "Iniciales": 22700,
     "Modificaciones": 0,
     "Definitivas": 22700,
-    "DerechosReconocidos": 16779,
-    "DerechosReconocidosNetos": 12467,
+    "DerechosReconocidos": 16758,
+    "DerechosReconocidosNetos": 4242,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 12467,
-    "DerechosPendienteCobro": 4312,
-    "DiferenciaPrevision": -5921
+    "RecaudacionNeta": 4242,
+    "DerechosPendienteCobro": 12516,
+    "DiferenciaPrevision": -5942
   },
   {
     "CodEco": 34301,
@@ -744,12 +744,12 @@
     "Iniciales": 288400,
     "Modificaciones": 0,
     "Definitivas": 288400,
-    "DerechosReconocidos": 76738,
-    "DerechosReconocidosNetos": 77198,
+    "DerechosReconocidos": 67071,
+    "DerechosReconocidosNetos": 67532,
     "DerechosCancelados": 460,
-    "RecaudacionNeta": 76738,
+    "RecaudacionNeta": 67071,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -211662
+    "DiferenciaPrevision": -221329
   },
   {
     "CodEco": 34302,
@@ -792,12 +792,12 @@
     "Iniciales": 11200,
     "Modificaciones": 0,
     "Definitivas": 11200,
-    "DerechosReconocidos": 5102,
-    "DerechosReconocidosNetos": 5102,
+    "DerechosReconocidos": 3343,
+    "DerechosReconocidosNetos": 3343,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 5102,
+    "RecaudacionNeta": 3343,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -6098
+    "DiferenciaPrevision": -7857
   },
   {
     "CodEco": 34404,
@@ -808,12 +808,12 @@
     "Iniciales": 200700,
     "Modificaciones": 0,
     "Definitivas": 200700,
-    "DerechosReconocidos": 124651,
-    "DerechosReconocidosNetos": 124651,
+    "DerechosReconocidos": 87965,
+    "DerechosReconocidosNetos": 87965,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 124651,
+    "RecaudacionNeta": 87965,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -76049
+    "DiferenciaPrevision": -112735
   },
   {
     "CodEco": 34405,
@@ -840,12 +840,12 @@
     "Iniciales": 668000,
     "Modificaciones": 0,
     "Definitivas": 668000,
-    "DerechosReconocidos": 470897,
-    "DerechosReconocidosNetos": 470949,
+    "DerechosReconocidos": 402543,
+    "DerechosReconocidosNetos": 402595,
     "DerechosCancelados": 52,
-    "RecaudacionNeta": 470897,
+    "RecaudacionNeta": 402543,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -197103
+    "DiferenciaPrevision": -265457
   },
   {
     "CodEco": 34903,
@@ -856,12 +856,12 @@
     "Iniciales": 11900,
     "Modificaciones": 0,
     "Definitivas": 11900,
-    "DerechosReconocidos": 4135,
-    "DerechosReconocidosNetos": 4135,
+    "DerechosReconocidos": 3370,
+    "DerechosReconocidosNetos": 3370,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 4135,
+    "RecaudacionNeta": 3370,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -7765
+    "DiferenciaPrevision": -8530
   },
   {
     "CodEco": 34905,
@@ -872,12 +872,12 @@
     "Iniciales": 7800,
     "Modificaciones": 0,
     "Definitivas": 7800,
-    "DerechosReconocidos": 4215,
-    "DerechosReconocidosNetos": 4215,
+    "DerechosReconocidos": 3719,
+    "DerechosReconocidosNetos": 3719,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 4215,
+    "RecaudacionNeta": 3719,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -3585
+    "DiferenciaPrevision": -4081
   },
   {
     "CodEco": 34906,
@@ -904,12 +904,12 @@
     "Iniciales": 300,
     "Modificaciones": 0,
     "Definitivas": 300,
-    "DerechosReconocidos": 9174,
-    "DerechosReconocidosNetos": 9174,
+    "DerechosReconocidos": 9091,
+    "DerechosReconocidosNetos": 9091,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 9174,
+    "RecaudacionNeta": 9091,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": 8874
+    "DiferenciaPrevision": 8791
   },
   {
     "CodEco": 34908,
@@ -936,12 +936,12 @@
     "Iniciales": 249700,
     "Modificaciones": 0,
     "Definitivas": 249700,
-    "DerechosReconocidos": 161646,
-    "DerechosReconocidosNetos": 59277,
+    "DerechosReconocidos": 119228,
+    "DerechosReconocidosNetos": 39643,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 59277,
-    "DerechosPendienteCobro": 102370,
-    "DiferenciaPrevision": -88054
+    "RecaudacionNeta": 39643,
+    "DerechosPendienteCobro": 79586,
+    "DiferenciaPrevision": -130472
   },
   {
     "CodEco": 34910,
@@ -968,12 +968,12 @@
     "Iniciales": 0,
     "Modificaciones": 0,
     "Definitivas": 0,
-    "DerechosReconocidos": 7110,
-    "DerechosReconocidosNetos": 4505,
+    "DerechosReconocidos": 6510,
+    "DerechosReconocidosNetos": 3905,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 4505,
+    "RecaudacionNeta": 3905,
     "DerechosPendienteCobro": 2605,
-    "DiferenciaPrevision": 7110
+    "DiferenciaPrevision": 6510
   },
   {
     "CodEco": 36002,
@@ -1000,12 +1000,12 @@
     "Iniciales": 1300,
     "Modificaciones": 0,
     "Definitivas": 1300,
-    "DerechosReconocidos": 264,
-    "DerechosReconocidosNetos": 182,
+    "DerechosReconocidos": 248,
+    "DerechosReconocidosNetos": 165,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 182,
+    "RecaudacionNeta": 165,
     "DerechosPendienteCobro": 83,
-    "DiferenciaPrevision": -1036
+    "DiferenciaPrevision": -1052
   },
   {
     "CodEco": 36400,
@@ -1032,12 +1032,12 @@
     "Iniciales": 50800,
     "Modificaciones": 0,
     "Definitivas": 50800,
-    "DerechosReconocidos": 6327,
-    "DerechosReconocidosNetos": 6327,
+    "DerechosReconocidos": 7765,
+    "DerechosReconocidosNetos": 7765,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 6327,
+    "RecaudacionNeta": 7765,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -44473
+    "DiferenciaPrevision": -43035
   },
   {
     "CodEco": 38001,
@@ -1056,22 +1056,6 @@
     "DiferenciaPrevision": 0
   },
   {
-    "CodEco": 38002,
-    "DesEco": "Incautación de fianzas",
-    "DescripcionAyto": "Incautación de fianzas",
-    "CodCap": 3,
-    "DesCap": "Tasas, precios públicos y otros ingresos",
-    "Iniciales": 0,
-    "Modificaciones": 0,
-    "Definitivas": 0,
-    "DerechosReconocidos": 764,
-    "DerechosReconocidosNetos": 764,
-    "DerechosCancelados": 0,
-    "RecaudacionNeta": 764,
-    "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": 764
-  },
-  {
     "CodEco": 38900,
     "DesEco": "Otros reintegros de operaciones corrientes",
     "DescripcionAyto": "Otros reintegros de operaciones corrientes",
@@ -1080,12 +1064,12 @@
     "Iniciales": 267800,
     "Modificaciones": 0,
     "Definitivas": 267800,
-    "DerechosReconocidos": 428595,
-    "DerechosReconocidosNetos": 428595,
+    "DerechosReconocidos": 59121,
+    "DerechosReconocidosNetos": 59121,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 428595,
+    "RecaudacionNeta": 59121,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": 160795
+    "DiferenciaPrevision": -208679
   },
   {
     "CodEco": 38901,
@@ -1128,12 +1112,12 @@
     "Iniciales": 67900,
     "Modificaciones": 0,
     "Definitivas": 67900,
-    "DerechosReconocidos": 294804,
-    "DerechosReconocidosNetos": 18795,
+    "DerechosReconocidos": 289611,
+    "DerechosReconocidosNetos": 12977,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 18795,
-    "DerechosPendienteCobro": 276009,
-    "DiferenciaPrevision": 226904
+    "RecaudacionNeta": 12977,
+    "DerechosPendienteCobro": 276635,
+    "DiferenciaPrevision": 221711
   },
   {
     "CodEco": 39110,
@@ -1144,12 +1128,12 @@
     "Iniciales": 1327100,
     "Modificaciones": 0,
     "Definitivas": 1327100,
-    "DerechosReconocidos": 176723,
-    "DerechosReconocidosNetos": 123987,
+    "DerechosReconocidos": 176614,
+    "DerechosReconocidosNetos": 123255,
     "DerechosCancelados": 33024,
-    "RecaudacionNeta": 90963,
-    "DerechosPendienteCobro": 85760,
-    "DiferenciaPrevision": -1150377
+    "RecaudacionNeta": 90231,
+    "DerechosPendienteCobro": 86383,
+    "DiferenciaPrevision": -1150486
   },
   {
     "CodEco": 39120,
@@ -1160,12 +1144,12 @@
     "Iniciales": 2460500,
     "Modificaciones": 0,
     "Definitivas": 2460500,
-    "DerechosReconocidos": 27605,
-    "DerechosReconocidosNetos": 27653,
+    "DerechosReconocidos": 15449,
+    "DerechosReconocidosNetos": 15139,
     "DerechosCancelados": 1541,
-    "RecaudacionNeta": 26112,
-    "DerechosPendienteCobro": 1493,
-    "DiferenciaPrevision": -2432895
+    "RecaudacionNeta": 13599,
+    "DerechosPendienteCobro": 1850,
+    "DiferenciaPrevision": -2445051
   },
   {
     "CodEco": 39190,
@@ -1177,10 +1161,10 @@
     "Modificaciones": 0,
     "Definitivas": 0,
     "DerechosReconocidos": 6000,
-    "DerechosReconocidosNetos": 6000,
+    "DerechosReconocidosNetos": 1000,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 6000,
-    "DerechosPendienteCobro": 0,
+    "RecaudacionNeta": 1000,
+    "DerechosPendienteCobro": 5000,
     "DiferenciaPrevision": 6000
   },
   {
@@ -1192,12 +1176,12 @@
     "Iniciales": 6400,
     "Modificaciones": 0,
     "Definitivas": 6400,
-    "DerechosReconocidos": -103,
-    "DerechosReconocidosNetos": 200,
+    "DerechosReconocidos": -303,
+    "DerechosReconocidosNetos": 0,
     "DerechosCancelados": 303,
-    "RecaudacionNeta": -103,
+    "RecaudacionNeta": -303,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -6503
+    "DiferenciaPrevision": -6703
   },
   {
     "CodEco": 39192,
@@ -1224,12 +1208,12 @@
     "Iniciales": 1406900,
     "Modificaciones": 0,
     "Definitivas": 1406900,
-    "DerechosReconocidos": 955861,
-    "DerechosReconocidosNetos": 963788,
-    "DerechosCancelados": 7927,
-    "RecaudacionNeta": 955861,
-    "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -451039
+    "DerechosReconocidos": 681497,
+    "DerechosReconocidosNetos": 688589,
+    "DerechosCancelados": 7103,
+    "RecaudacionNeta": 681486,
+    "DerechosPendienteCobro": 11,
+    "DiferenciaPrevision": -725403
   },
   {
     "CodEco": 39300,
@@ -1240,12 +1224,12 @@
     "Iniciales": 889200,
     "Modificaciones": 0,
     "Definitivas": 889200,
-    "DerechosReconocidos": 782996,
-    "DerechosReconocidosNetos": 787351,
-    "DerechosCancelados": 4355,
-    "RecaudacionNeta": 782996,
-    "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -106204
+    "DerechosReconocidos": 426349,
+    "DerechosReconocidosNetos": 430322,
+    "DerechosCancelados": 4019,
+    "RecaudacionNeta": 426303,
+    "DerechosPendienteCobro": 47,
+    "DiferenciaPrevision": -462851
   },
   {
     "CodEco": 39610,
@@ -1256,12 +1240,12 @@
     "Iniciales": 416200,
     "Modificaciones": 0,
     "Definitivas": 416200,
-    "DerechosReconocidos": 319099,
-    "DerechosReconocidosNetos": 20368,
+    "DerechosReconocidos": 6836,
+    "DerechosReconocidosNetos": 3230,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 20368,
-    "DerechosPendienteCobro": 298730,
-    "DiferenciaPrevision": -97101
+    "RecaudacionNeta": 3230,
+    "DerechosPendienteCobro": 3607,
+    "DiferenciaPrevision": -409364
   },
   {
     "CodEco": 39690,
@@ -1288,12 +1272,12 @@
     "Iniciales": 145600,
     "Modificaciones": 0,
     "Definitivas": 145600,
-    "DerechosReconocidos": 346983,
-    "DerechosReconocidosNetos": 238594,
+    "DerechosReconocidos": 317794,
+    "DerechosReconocidosNetos": 197736,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 238594,
-    "DerechosPendienteCobro": 108389,
-    "DiferenciaPrevision": 201383
+    "RecaudacionNeta": 197736,
+    "DerechosPendienteCobro": 120057,
+    "DiferenciaPrevision": 172194
   },
   {
     "CodEco": 39901,
@@ -1304,12 +1288,12 @@
     "Iniciales": 61500,
     "Modificaciones": 0,
     "Definitivas": 61500,
-    "DerechosReconocidos": 40226,
-    "DerechosReconocidosNetos": 10804,
+    "DerechosReconocidos": 37127,
+    "DerechosReconocidosNetos": 6526,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 10804,
-    "DerechosPendienteCobro": 29422,
-    "DiferenciaPrevision": -21274
+    "RecaudacionNeta": 6526,
+    "DerechosPendienteCobro": 30601,
+    "DiferenciaPrevision": -24373
   },
   {
     "CodEco": 39902,
@@ -1320,12 +1304,12 @@
     "Iniciales": 800,
     "Modificaciones": 0,
     "Definitivas": 800,
-    "DerechosReconocidos": 4681,
-    "DerechosReconocidosNetos": 4681,
+    "DerechosReconocidos": 644,
+    "DerechosReconocidosNetos": 644,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 4681,
+    "RecaudacionNeta": 644,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": 3881
+    "DiferenciaPrevision": -156
   },
   {
     "CodEco": 39907,
@@ -1337,10 +1321,10 @@
     "Modificaciones": 0,
     "Definitivas": 66600,
     "DerechosReconocidos": 403208,
-    "DerechosReconocidosNetos": 403208,
+    "DerechosReconocidosNetos": 211461,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 403208,
-    "DerechosPendienteCobro": 0,
+    "RecaudacionNeta": 211461,
+    "DerechosPendienteCobro": 191747,
     "DiferenciaPrevision": 336608
   },
   {
@@ -1352,12 +1336,12 @@
     "Iniciales": 319300,
     "Modificaciones": 0,
     "Definitivas": 319300,
-    "DerechosReconocidos": 275617,
-    "DerechosReconocidosNetos": 221306,
+    "DerechosReconocidos": 278691,
+    "DerechosReconocidosNetos": 97780,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 221306,
-    "DerechosPendienteCobro": 54311,
-    "DiferenciaPrevision": -43683
+    "RecaudacionNeta": 97780,
+    "DerechosPendienteCobro": 180911,
+    "DiferenciaPrevision": -40609
   },
   {
     "CodEco": 39912,
@@ -1416,12 +1400,12 @@
     "Iniciales": 18400,
     "Modificaciones": 0,
     "Definitivas": 18400,
-    "DerechosReconocidos": 11843,
-    "DerechosReconocidosNetos": 11688,
+    "DerechosReconocidos": 11095,
+    "DerechosReconocidosNetos": 10630,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 11688,
-    "DerechosPendienteCobro": 155,
-    "DiferenciaPrevision": -6557
+    "RecaudacionNeta": 10630,
+    "DerechosPendienteCobro": 465,
+    "DiferenciaPrevision": -7305
   },
   {
     "CodEco": 39919,
@@ -1432,12 +1416,12 @@
     "Iniciales": 103200,
     "Modificaciones": 0,
     "Definitivas": 103200,
-    "DerechosReconocidos": 35453,
-    "DerechosReconocidosNetos": 35453,
+    "DerechosReconocidos": 28589,
+    "DerechosReconocidosNetos": 28589,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 35453,
+    "RecaudacionNeta": 28589,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -67747
+    "DiferenciaPrevision": -74611
   },
   {
     "CodEco": 39920,
@@ -1448,12 +1432,12 @@
     "Iniciales": 823800,
     "Modificaciones": 0,
     "Definitivas": 823800,
-    "DerechosReconocidos": 521998,
-    "DerechosReconocidosNetos": 379215,
+    "DerechosReconocidos": 237427,
+    "DerechosReconocidosNetos": 219823,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 379215,
-    "DerechosPendienteCobro": 142783,
-    "DiferenciaPrevision": -301802
+    "RecaudacionNeta": 219823,
+    "DerechosPendienteCobro": 17604,
+    "DiferenciaPrevision": -586373
   },
   {
     "CodEco": 39921,
@@ -1528,12 +1512,12 @@
     "Iniciales": 45688742,
     "Modificaciones": 0,
     "Definitivas": 45688742,
-    "DerechosReconocidos": 36632442,
-    "DerechosReconocidosNetos": 32282493,
+    "DerechosReconocidos": 27711921,
+    "DerechosReconocidosNetos": 23435514,
     "DerechosCancelados": 183853,
-    "RecaudacionNeta": 32098640,
-    "DerechosPendienteCobro": 4533802,
-    "DiferenciaPrevision": -9056300
+    "RecaudacionNeta": 23251661,
+    "DerechosPendienteCobro": 4460260,
+    "DiferenciaPrevision": -17976821
   },
   {
     "CodEco": 42020,
@@ -1624,12 +1608,12 @@
     "Iniciales": 9345968,
     "Modificaciones": 0,
     "Definitivas": 9345968,
-    "DerechosReconocidos": 4618005,
-    "DerechosReconocidosNetos": 4618005,
+    "DerechosReconocidos": 2309002,
+    "DerechosReconocidosNetos": 2309002,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 4618005,
+    "RecaudacionNeta": 2309002,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -4727963
+    "DiferenciaPrevision": -7036966
   },
   {
     "CodEco": 45002,
@@ -1640,12 +1624,12 @@
     "Iniciales": 11658473,
     "Modificaciones": 1618375,
     "Definitivas": 13276848,
-    "DerechosReconocidos": 8474666,
-    "DerechosReconocidosNetos": 11028489,
+    "DerechosReconocidos": 6830979,
+    "DerechosReconocidosNetos": 9384801,
     "DerechosCancelados": 2553823,
-    "RecaudacionNeta": 8474666,
+    "RecaudacionNeta": 6830979,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -4802182
+    "DiferenciaPrevision": -6445869
   },
   {
     "CodEco": 45030,
@@ -1656,12 +1640,12 @@
     "Iniciales": 166000,
     "Modificaciones": 0,
     "Definitivas": 166000,
-    "DerechosReconocidos": 234150,
-    "DerechosReconocidosNetos": 217575,
+    "DerechosReconocidos": 84888,
+    "DerechosReconocidosNetos": 84888,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 217575,
-    "DerechosPendienteCobro": 16575,
-    "DiferenciaPrevision": 68150
+    "RecaudacionNeta": 84888,
+    "DerechosPendienteCobro": 0,
+    "DiferenciaPrevision": -81112
   },
   {
     "CodEco": 45050,
@@ -1704,12 +1688,12 @@
     "Iniciales": 0,
     "Modificaciones": 3272,
     "Definitivas": 3272,
-    "DerechosReconocidos": 7402,
-    "DerechosReconocidosNetos": 7402,
+    "DerechosReconocidos": 3272,
+    "DerechosReconocidosNetos": 3272,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 7402,
+    "RecaudacionNeta": 3272,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": 4130
+    "DiferenciaPrevision": 0
   },
   {
     "CodEco": 45100,
@@ -1896,12 +1880,12 @@
     "Iniciales": 83000,
     "Modificaciones": 0,
     "Definitivas": 83000,
-    "DerechosReconocidos": 28438,
-    "DerechosReconocidosNetos": 17981,
+    "DerechosReconocidos": 17455,
+    "DerechosReconocidosNetos": 7122,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 17981,
-    "DerechosPendienteCobro": 10458,
-    "DiferenciaPrevision": -54562
+    "RecaudacionNeta": 7122,
+    "DerechosPendienteCobro": 10334,
+    "DiferenciaPrevision": -65545
   },
   {
     "CodEco": 55000,
@@ -1912,12 +1896,12 @@
     "Iniciales": 1192400,
     "Modificaciones": 0,
     "Definitivas": 1192400,
-    "DerechosReconocidos": 534042,
-    "DerechosReconocidosNetos": 246591,
+    "DerechosReconocidos": 223530,
+    "DerechosReconocidosNetos": 93681,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 246591,
-    "DerechosPendienteCobro": 287452,
-    "DiferenciaPrevision": -658358
+    "RecaudacionNeta": 93681,
+    "DerechosPendienteCobro": 129849,
+    "DiferenciaPrevision": -968870
   },
   {
     "CodEco": 55903,
@@ -1961,10 +1945,10 @@
     "Modificaciones": 0,
     "Definitivas": 81700,
     "DerechosReconocidos": 129224,
-    "DerechosReconocidosNetos": 65839,
+    "DerechosReconocidosNetos": 5744,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 65839,
-    "DerechosPendienteCobro": 63385,
+    "RecaudacionNeta": 5744,
+    "DerechosPendienteCobro": 123480,
     "DiferenciaPrevision": 47524
   },
   {
@@ -1992,12 +1976,12 @@
     "Iniciales": 850000,
     "Modificaciones": 812800,
     "Definitivas": 1662800,
-    "DerechosReconocidos": 803871,
-    "DerechosReconocidosNetos": 753871,
+    "DerechosReconocidos": 57376,
+    "DerechosReconocidosNetos": 7376,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 753871,
+    "RecaudacionNeta": 7376,
     "DerechosPendienteCobro": 50000,
-    "DiferenciaPrevision": -858929
+    "DiferenciaPrevision": -1605424
   },
   {
     "CodEco": 60300,
@@ -2024,12 +2008,12 @@
     "Iniciales": 4507741,
     "Modificaciones": 9289015,
     "Definitivas": 13796756,
-    "DerechosReconocidos": 666771,
-    "DerechosReconocidosNetos": 666771,
+    "DerechosReconocidos": 270496,
+    "DerechosReconocidosNetos": 270496,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 666771,
+    "RecaudacionNeta": 270496,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -13129985
+    "DiferenciaPrevision": -13526260
   },
   {
     "CodEco": 75030,
@@ -2169,10 +2153,10 @@
     "Modificaciones": 0,
     "Definitivas": 380000,
     "DerechosReconocidos": 105420,
-    "DerechosReconocidosNetos": 11548,
+    "DerechosReconocidosNetos": 0,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 11548,
-    "DerechosPendienteCobro": 93872,
+    "RecaudacionNeta": 0,
+    "DerechosPendienteCobro": 105420,
     "DiferenciaPrevision": -274580
   },
   {
@@ -2182,14 +2166,14 @@
     "CodCap": 8,
     "DesCap": "Activos financieros",
     "Iniciales": 0,
-    "Modificaciones": 70850165,
-    "Definitivas": 70850165,
+    "Modificaciones": 70559160,
+    "Definitivas": 70559160,
     "DerechosReconocidos": 0,
     "DerechosReconocidosNetos": 0,
     "DerechosCancelados": 0,
     "RecaudacionNeta": 0,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": -70850165
+    "DiferenciaPrevision": -70559160
   },
   {
     "CodEco": 91100,
@@ -2200,12 +2184,12 @@
     "Iniciales": 11726685,
     "Modificaciones": 0,
     "Definitivas": 11726685,
-    "DerechosReconocidos": 13531281,
-    "DerechosReconocidosNetos": 13531281,
+    "DerechosReconocidos": 11625597,
+    "DerechosReconocidosNetos": 11625597,
     "DerechosCancelados": 0,
-    "RecaudacionNeta": 13531281,
+    "RecaudacionNeta": 11625597,
     "DerechosPendienteCobro": 0,
-    "DiferenciaPrevision": 1804596
+    "DiferenciaPrevision": -101088
   },
   {
     "CodEco": 91101,

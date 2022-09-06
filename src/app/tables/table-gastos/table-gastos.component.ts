@@ -174,18 +174,18 @@ export class TableGastosComponent implements OnInit {
             headerName: 'Obligaciones reconocidas netas',
             field: `ObligacionesReconocidasNetas${year}`,
             width: 135,
-            columnGroupShow: 'close'
+            columnGroupShow: 'open'
           },
           {
             headerName: 'Pagos',
             field: `Pagos${year}`,
-            columnGroupShow: 'open'
+            columnGroupShow: 'close'
           },
           {
-            headerName: 'Obligaciones pendientes de pago al 31 diciembre',
+            headerName: 'Obligaciones pendientes de pago al final periodo',
             field: `ObligacionesPendientePago${year}`,
             width: 120,
-            columnGroupShow: 'open'
+            columnGroupShow: 'close'
           },
         ]
       },
