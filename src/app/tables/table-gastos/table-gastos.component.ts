@@ -23,6 +23,7 @@ export class TableGastosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
   public hasGraphTree = true;
+  public hasProgramaDetails = true;
   private _columnDefs: any[];
   private _dataTable: IDataTable;
   private _dataGraph: IDataGraph = {} as IDataGraph;
@@ -35,11 +36,13 @@ export class TableGastosComponent implements OnInit {
     private _dataStoreService: DataStoreService,
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
     private _alertService: AlertService
-
   ) {
     this._dataTable = _dataStoreService.getDataTable;
     const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
-    this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder])
+    this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder]);
+
+    console.log(this._dataTable.clasificationType);
+    if (this._dataTable.clasificationType === 'gastosOrganicaOrganicos') { this.hasProgramaDetails = false };
 
     this._columnDefs = [
       {

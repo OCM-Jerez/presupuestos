@@ -4,7 +4,8 @@
     <button type="button" class="btn OCM-btnExpand" (click)="showGraph()">Mostrar gráfico</button>
     <button type="button" *ngIf="hasGraphTree" class="btn OCM-btnExpand" (click)="showGraphTree()">Gráfico
         arbol</button>
-    <button type="button" class="btn OCM-btnExpand" (click)="showProgramaDetails()">Detalle programa</button>
+    <button type="button" *ngIf="hasProgramaDetails" class="btn OCM-btnExpand" (click)="showProgramaDetails()">Detalle
+        programa</button>
     <ag-grid-angular #agGrid style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"
         class="ag-theme-balham" [gridOptions]="gridOptions">
     </ag-grid-angular>
