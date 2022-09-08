@@ -234,6 +234,7 @@ export class TableGastosComponent implements OnInit {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      // Para que de tiempo a ver el efecto pulsado del button
       setTimeout(() => this._router.navigateByUrl("/tableEconomicoDetails"), 50);
 
     } else {
