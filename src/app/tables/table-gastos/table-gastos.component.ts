@@ -43,8 +43,7 @@ export class TableGastosComponent implements OnInit {
     const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
     this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder]);
 
-    console.log(this._dataTable.clasificationType);
-
+    // console.log(this._dataTable.clasificationType);
     if (this._dataTable.clasificationType === 'gastosProgramaProgramas') { this.hasProgramaDetails = true };
     if (this._dataTable.clasificationType === 'gastosEconomicaEconomicos') { this.hasEconomicoDetails = true };
 
