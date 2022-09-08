@@ -1,5 +1,5 @@
 <div>
-    <h4 class="OCM-text--cabecera">{{
+    <h4 class="OCM-text--cabecera"> {{
         avalaibleYearsService.getAvalaibleYear() | async }}</h4>
     <!-- <button type="button" class="btn OCM-btnExpand" (click)="showGraph()">Mostrar gráfico</button> -->
     <!-- <button type="button" *ngIf="hasGraphTree" class="btn OCM-btnExpand" (click)="showGraphTree()">Gráfico
@@ -21,10 +21,22 @@
         <span class="content">Gráfico arbol</span>
     </button>
 
+    <button type="button" *ngIf="hasProgramaDetails" (click)="showProgramaDetails()" class="btn-54">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Detalle programa</span>
+    </button>
+
     <button type="button" *ngIf="hasEconomicoDetails" (click)="showEconomicoDetails()" class="btn-54">
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content">Detalle económico</span>
+    </button>
+
+    <button type="button" class="btn-54" (click)="volver()">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Volver</span>
     </button>
 
     <ag-grid-angular #agGrid style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"

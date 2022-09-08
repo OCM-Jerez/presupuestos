@@ -250,4 +250,10 @@ export class TableGastosComponent implements OnInit {
     }, 50);
   }
 
+  volver() {
+    // Para que de tiempo a ver el efecto pulsado del button
+    console.log('volver');
+    setTimeout(() => this._router.navigateByUrl("/home"), 50);
+  }
+
 }

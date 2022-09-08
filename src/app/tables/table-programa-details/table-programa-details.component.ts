@@ -437,7 +437,7 @@ export class TableProgramaDetailsComponent {
     this.isExpanded = false;
   }
 
-  showEconomicoDetails() {
+  showAplicacionPresupuestaria() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       const aplicacionPresupuestaria = selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
