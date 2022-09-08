@@ -245,7 +245,8 @@ export class TableEconomicoDetailsComponent {
   }
 
   volver() {
-    this._location.back();
+    // Para que de tiempo a ver el efecto pulsado del button
+    setTimeout(() => this._location.back(), 50);
   }
 
 }

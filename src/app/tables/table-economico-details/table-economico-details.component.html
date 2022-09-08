@@ -2,12 +2,31 @@
     <h4 style="font-size:20px; text-align: center;">Detalle económico {{ dataStoreService.selectedCodeRowFirstLevel}}.
         {{
         avalaibleYearsService.getAvalaibleYear() | async }}</h4>
-    <button *ngIf="!isExpanded" type="button" class="btn OCM-btnExpand" (click)="expandAll()"> Expandir todo </button>
+    <!-- <button *ngIf="!isExpanded" type="button" class="btn OCM-btnExpand" (click)="expandAll()"> Expandir todo </button>
     <button *ngIf="isExpanded" type="button" class="btn OCM-btnCollapse" (click)="collapseAll()"> Colapsar todo
     </button>
-    <button type="button" class="btn OCM-btnExpand" (click)="volver()">volver</button>
+    <button type="button" class="btn OCM-btnExpand" (click)="volver()">volver</button> -->
     <!-- <button type="button" class="btn OCM-btnExpand" (click)="showEconomicoDetails()">Detalle aplicación
         presupuestaria</button> -->
+
+    <button *ngIf="!isExpanded" type="button" class="btn-54" (click)="expandAll()">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Expandir todo</span>
+    </button>
+
+    <button *ngIf="isExpanded" type="button" class="btn-54" (click)="collapseAll()">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Colapsar todo</span>
+    </button>
+
+    <button type="button" class="btn-54" (click)="volver()">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Volver</span>
+    </button>
+
     <ag-grid-angular #agGrid style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"
         class="ag-theme-balham" [gridOptions]="gridOptions" (gridReady)="onGridReady($event)">
     </ag-grid-angular>
