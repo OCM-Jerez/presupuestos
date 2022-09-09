@@ -15,7 +15,7 @@ import { AlertService } from '../../services/alert.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
-import { PrepareDataEconomicoDetailsService } from '../../services/prepareDataEconomicoDetails.service';
+import { PrepareDataGastosDetailsService } from '../../services/prepareDataGastosDetails.service';
 
 @Component({
   selector: 'app-table-gastos-capitulos-details',
@@ -26,7 +26,7 @@ import { PrepareDataEconomicoDetailsService } from '../../services/prepareDataEc
 export class TableGastosCapitulosDetailsComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
-  public isExpanded = true;
+  public isExpanded = false;
   private _gridApi: GridApi;
   private _rowData: any[any];
   private _columnDefs: any[any];
@@ -35,10 +35,8 @@ export class TableGastosCapitulosDetailsComponent {
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
-    private _router: Router,
-    private _prepareDataCapituloDetailsService: PrepareDataEconomicoDetailsService,
+    private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
     private _location: Location,
-    private _alertService: AlertService
   ) {
     this._dataTableGraph = dataStoreService.getDataTable;
     this._columnDefs = [
@@ -155,13 +153,13 @@ export class TableGastosCapitulosDetailsComponent {
 
   async createDataOCM(): Promise<void> {
     console.log(this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    this._rowData = (await this._prepareDataCapituloDetailsService.getDataAllYear())
+    this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
       .filter(x => x.CodCap == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     console.log(this._rowData);
 
-    setTimeout(() => {
-      this.expandAll()
-    }, 10)
+    // setTimeout(() => {
+    //   this.expandAll()
+    // }, 10)
 
   }
 

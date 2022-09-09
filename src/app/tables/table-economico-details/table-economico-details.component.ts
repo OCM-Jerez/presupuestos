@@ -17,7 +17,7 @@ import { AlertService } from '../../services/alert.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { accumulate } from '../../commons/util/util';
-import { PrepareDataEconomicoDetailsService } from '../../services/prepareDataEconomicoDetails.service';
+import { PrepareDataGastosDetailsService } from '../../services/prepareDataGastosDetails.service';
 
 @Component({
   selector: 'app-table-economico-details',
@@ -37,7 +37,7 @@ export class TableEconomicoDetailsComponent {
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
     private _router: Router,
-    private _prepareDataEconomicoDetailsService: PrepareDataEconomicoDetailsService,
+    private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
     private _location: Location,
     private _alertService: AlertService
   ) {
@@ -156,8 +156,7 @@ export class TableEconomicoDetailsComponent {
 
   async createDataOCM(): Promise<void> {
     console.log(this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-
-    this._rowData = (await this._prepareDataEconomicoDetailsService.getDataAllYear())
+    this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
       .filter(x => x.CodEco == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     console.log(this._rowData);
 

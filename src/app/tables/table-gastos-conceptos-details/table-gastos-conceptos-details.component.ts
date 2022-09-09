@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -8,11 +7,9 @@ import { GridOptions, GridApi } from 'ag-grid-community/main';
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
-// import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
-import { AlertService } from '../../services/alert.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
@@ -23,10 +20,11 @@ import { PrepareDataGastosDetailsService } from '../../services/prepareDataGasto
   templateUrl: './table-gastos-conceptos-details.component.html',
   styleUrls: ['./table-gastos-conceptos-details.component.scss']
 })
+
 export class TableGastosConceptosDetailsComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
-  public isExpanded = true;
+  public isExpanded = false;
   private _gridApi: GridApi;
   private _rowData: any[any];
   private _columnDefs: any[any];
@@ -35,10 +33,8 @@ export class TableGastosConceptosDetailsComponent {
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
-    private _router: Router,
     private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
     private _location: Location,
-    private _alertService: AlertService
   ) {
     this._dataTableGraph = dataStoreService.getDataTable;
     this._columnDefs = [
@@ -155,24 +151,9 @@ export class TableGastosConceptosDetailsComponent {
 
   async createDataOCM(): Promise<void> {
     console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-
-    this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear())
-    // this._rowData.map(item => {
-    //   item.CodEco = Math.floor((item.CodEco / 100));
-    // });
+    this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
+      .filter(x => x.CodEco == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     console.log(this._rowData);
-
-    this._rowData = await this._rowData.filter(x => {
-      // if (Math.floor((x.CodEco / 100)) == +this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]) {
-      //   console.log(Math.floor((x.CodEco / 100)));
-      // }
-      if (x.CodEco == +this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]) {
-        console.log(x.CodEco);
-      }
-      x.CodEco == +this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
-    });
-    console.log(this._rowData);
-
   }
 
 
