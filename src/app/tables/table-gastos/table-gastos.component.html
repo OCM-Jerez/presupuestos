@@ -33,6 +33,11 @@
         <span class="content">Detalle capítulo</span>
     </button>
 
+    <button type="button" *ngIf="hasConceptoDetails" (click)="showConceptoDetails()" class="btn-54">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Detalle concepto</span>
+    </button>
 
     <button type="button" *ngIf="hasEconomicoDetails" (click)="showEconomicoDetails()" class="btn-54">
         <span class="shadow"></span>
