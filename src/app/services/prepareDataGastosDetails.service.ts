@@ -3,6 +3,7 @@ import { AvalaibleYearsService } from './avalaibleYears.service';
 import { asynForEach } from '../commons/util/util';
 
 import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
+import gastosProgramaPoliticas from '../../assets/data/gastosProgramaPoliticas.json';
 
 import gastosEconomicaArticulos from '../../assets/data/gastosEconomicaArticulos.json';
 import gastosEconomicaConceptos from '../../assets/data/gastosEconomicaConceptos.json';
@@ -78,8 +79,6 @@ export class PrepareDataGastosDetailsService {
       });
     })
 
-
-
     switch (tipoClasificacion) {
       case 'gastosProgramaAreas':
         console.log('gastosProgramaAreas');
@@ -88,6 +87,13 @@ export class PrepareDataGastosDetailsService {
           console.log(item.CodPro, item.CodAre);
 
           item.DesAre = gastosProgramaAreas.find((area) => area.codigo === item.CodAre).descripcion;
+        });
+        break;
+      case 'gastosProgramaPoliticas':
+        console.log('gastosProgramaPoliticas');
+        result.map(item => {
+          item.CodPol = Math.floor((item.CodPro / 1000));
+          item.DesPol = gastosProgramaPoliticas.find((politica) => politica.codigo === item.CodPol).descripcion;
         });
         break;
       case 'gastosEconomicaArticulos':
