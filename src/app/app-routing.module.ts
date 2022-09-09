@@ -10,6 +10,8 @@ const routes: Routes = [
   { path: 'tableGastos', loadChildren: () => import('./tables/table-gastos/table-gastos.module').then((m) => m.TableGastosModule) },
   { path: 'tableAplicacionPresupuestaria', loadChildren: () => import('./tables/table-gastos-aplicacion-presupuestaria/table-gastos-aplicacion-presupuestaria.module').then((m) => m.TableGastosAplicacionPresupuestariaModule) },
 
+  { path: 'tableOrganicoDetails', loadChildren: () => import('./tables/table-gastos-organicos-details/table-gastos-organicos-details.module').then((m) => m.TableGastosOrganicosDetailsModule) },
+
   { path: 'tableAreaDetails', loadChildren: () => import('./tables/table-gastos-areas-details/table-gastos-areas-details.module').then((m) => m.TableGastosAreasDetailsModule) },
   { path: 'tablePoliticaDetails', loadChildren: () => import('./tables/table-gastos-politicas-details/table-gastos-politicas-details.module').then((m) => m.TableGastosPoliticasDetailsModule) },
   { path: 'tableGrupoProgramaDetails', loadChildren: () => import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.module').then((m) => m.TableGastosGruposprogramasDetailsModule) },

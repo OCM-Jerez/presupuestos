@@ -24,6 +24,8 @@ export class TableGastosComponent implements OnInit {
   public gridOptions: GridOptions;
   public hasGraphTree = true;
 
+  public hasOrganicoDetails = false;
+
   public hasAreaDetails = false;
   public hasPoliticaDetails = false;
   public hasGrupoProgramaDetails = false;
@@ -53,6 +55,8 @@ export class TableGastosComponent implements OnInit {
     this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder]);
 
     console.log(this._dataTable.clasificationType);
+    if (this._dataTable.clasificationType === 'gastosOrganicaOrganicos') { this.hasOrganicoDetails = true };
+
     if (this._dataTable.clasificationType === 'gastosProgramaAreas') { this.hasAreaDetails = true };
     if (this._dataTable.clasificationType === 'gastosProgramaPoliticas') { this.hasPoliticaDetails = true };
     if (this._dataTable.clasificationType === 'gastosProgramaGrupos') { this.hasGrupoProgramaDetails = true };
@@ -236,6 +240,15 @@ export class TableGastosComponent implements OnInit {
     }
   }
 
+  showOrganicoDetails() {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      this._router.navigateByUrl("/tableOrganicoDetails")
+    } else {
+      this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
+    }
+  }
 
   showAreaDetails() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
