@@ -4,6 +4,7 @@ import { asynForEach } from '../commons/util/util';
 
 import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
 import gastosProgramaPoliticas from '../../assets/data/gastosProgramaPoliticas.json';
+import gastosProgramaGrupos from '../../assets/data/gastosProgramaGruposProgramas.json';
 
 import gastosEconomicaArticulos from '../../assets/data/gastosEconomicaArticulos.json';
 import gastosEconomicaConceptos from '../../assets/data/gastosEconomicaConceptos.json';
@@ -84,8 +85,6 @@ export class PrepareDataGastosDetailsService {
         console.log('gastosProgramaAreas');
         result.map(item => {
           item.CodAre = Math.floor((item.CodPro / 10000));
-          console.log(item.CodPro, item.CodAre);
-
           item.DesAre = gastosProgramaAreas.find((area) => area.codigo === item.CodAre).descripcion;
         });
         break;
@@ -96,6 +95,14 @@ export class PrepareDataGastosDetailsService {
           item.DesPol = gastosProgramaPoliticas.find((politica) => politica.codigo === item.CodPol).descripcion;
         });
         break;
+      case 'gastosProgramaGrupos':
+        console.log('gastosProgramaGrupos');
+        result.map(item => {
+          item.CodGru = Math.floor((item.CodPro / 100));
+          item.DesGru = gastosProgramaGrupos.find((grupo) => grupo.codigo === item.CodGru).descripcion;
+        });
+        break;
+
       case 'gastosEconomicaArticulos':
         console.log('gastosEconomicaArticulos');
         result.map(item => {

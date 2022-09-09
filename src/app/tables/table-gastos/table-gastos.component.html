@@ -33,6 +33,12 @@
         <span class="content">Detalle política</span>
     </button>
 
+    <button type="button" *ngIf="hasGrupoProgramaDetails" (click)="showGrupoProgramaDetails()" class="btn-54">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Detalle grupo programas</span>
+    </button>
+
     <button type="button" *ngIf="hasProgramaDetails" (click)="showProgramaDetails()" class="btn-54">
         <span class="shadow"></span>
         <span class="depth"></span>

@@ -26,6 +26,7 @@ export class TableGastosComponent implements OnInit {
 
   public hasAreaDetails = false;
   public hasPoliticaDetails = false;
+  public hasGrupoProgramaDetails = false;
   public hasProgramaDetails = false;
 
   public hasCapituloDetails = false;
@@ -54,6 +55,7 @@ export class TableGastosComponent implements OnInit {
     console.log(this._dataTable.clasificationType);
     if (this._dataTable.clasificationType === 'gastosProgramaAreas') { this.hasAreaDetails = true };
     if (this._dataTable.clasificationType === 'gastosProgramaPoliticas') { this.hasPoliticaDetails = true };
+    if (this._dataTable.clasificationType === 'gastosProgramaGrupos') { this.hasGrupoProgramaDetails = true };
     if (this._dataTable.clasificationType === 'gastosProgramaProgramas') { this.hasProgramaDetails = true };
 
     if (this._dataTable.clasificationType === 'gastosEconomicaCapitulos') { this.hasCapituloDetails = true };
@@ -250,6 +252,16 @@ export class TableGastosComponent implements OnInit {
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
       this._router.navigateByUrl("/tablePoliticaDetails")
+    } else {
+      this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
+    }
+  }
+
+  showGrupoProgramaDetails() {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      this._router.navigateByUrl("/tableGrupoProgramaDetails")
     } else {
       this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }

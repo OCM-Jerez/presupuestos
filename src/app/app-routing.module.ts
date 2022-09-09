@@ -12,6 +12,7 @@ const routes: Routes = [
 
   { path: 'tableAreaDetails', loadChildren: () => import('./tables/table-gastos-areas-details/table-gastos-areas-details.module').then((m) => m.TableGastosAreasDetailsModule) },
   { path: 'tablePoliticaDetails', loadChildren: () => import('./tables/table-gastos-politicas-details/table-gastos-politicas-details.module').then((m) => m.TableGastosPoliticasDetailsModule) },
+  { path: 'tableGrupoProgramaDetails', loadChildren: () => import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.module').then((m) => m.TableGastosGruposprogramasDetailsModule) },
   { path: 'tableProgramaDetails', loadChildren: () => import('./tables/table-programa-details/table-programa-details.module').then((m) => m.TableProgramaDetailsModule) },
 
   { path: 'tableCapituloDetails', loadChildren: () => import('./tables/table-gastos-capitulos-details/table-gastos-capitulos-details.module').then((m) => m.TableGastosCapitulosDetailsModule) },
