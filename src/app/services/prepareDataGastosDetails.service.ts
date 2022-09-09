@@ -89,8 +89,8 @@ export class PrepareDataGastosDetailsService {
       case 'gastosEconomicaConceptos':
         console.log('gastosEconomicaConceptos');
         result.map(item => {
-          item.CodEco = Math.floor((item.CodEco / 100));
-          item.DesEco = gastosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodEco).descripcion;
+          item.CodCon = Math.floor((item.CodEco / 100));
+          item.DesCon = gastosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodCon).descripcion;
         });
         break;
     }

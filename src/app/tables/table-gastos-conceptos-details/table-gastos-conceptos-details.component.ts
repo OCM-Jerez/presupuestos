@@ -152,7 +152,7 @@ export class TableGastosConceptosDetailsComponent {
   async createDataOCM(): Promise<void> {
     console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
-      .filter(x => x.CodEco == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+      .filter(x => x.CodCon == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     console.log(this._rowData);
   }
 
