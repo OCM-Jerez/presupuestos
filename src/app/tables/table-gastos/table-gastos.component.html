@@ -21,6 +21,12 @@
         <span class="content">Gráfico arbol</span>
     </button>
 
+    <button type="button" *ngIf="hasAreaDetails" (click)="showAreaDetails()" class="btn-54">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Detalle area</span>
+    </button>
+
     <button type="button" *ngIf="hasProgramaDetails" (click)="showProgramaDetails()" class="btn-54">
         <span class="shadow"></span>
         <span class="depth"></span>

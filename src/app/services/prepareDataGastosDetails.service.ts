@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AvalaibleYearsService } from './avalaibleYears.service';
 import { asynForEach } from '../commons/util/util';
 
+import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
+
 import gastosEconomicaArticulos from '../../assets/data/gastosEconomicaArticulos.json';
 import gastosEconomicaConceptos from '../../assets/data/gastosEconomicaConceptos.json';
 
@@ -79,6 +81,15 @@ export class PrepareDataGastosDetailsService {
 
 
     switch (tipoClasificacion) {
+      case 'gastosProgramaAreas':
+        console.log('gastosProgramaAreas');
+        result.map(item => {
+          item.CodAre = Math.floor((item.CodPro / 10000));
+          console.log(item.CodPro, item.CodAre);
+
+          item.DesAre = gastosProgramaAreas.find((area) => area.codigo === item.CodAre).descripcion;
+        });
+        break;
       case 'gastosEconomicaArticulos':
         console.log('gastosEconomicaArticulos');
         result.map(item => {

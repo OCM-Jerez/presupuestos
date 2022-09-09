@@ -23,7 +23,10 @@ export class TableGastosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
   public hasGraphTree = true;
+
+  public hasAreaDetails = false;
   public hasProgramaDetails = false;
+
   public hasCapituloDetails = false;
   public hasArticuloDetails = false;
   public hasConceptoDetails = false;
@@ -48,6 +51,7 @@ export class TableGastosComponent implements OnInit {
     this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder]);
 
     console.log(this._dataTable.clasificationType);
+    if (this._dataTable.clasificationType === 'gastosProgramaAreas') { this.hasAreaDetails = true };
     if (this._dataTable.clasificationType === 'gastosProgramaProgramas') { this.hasProgramaDetails = true };
     if (this._dataTable.clasificationType === 'gastosEconomicaCapitulos') { this.hasCapituloDetails = true };
     if (this._dataTable.clasificationType === 'gastosEconomicaArticulos') { this.hasArticuloDetails = true };
@@ -222,6 +226,17 @@ export class TableGastosComponent implements OnInit {
           }
         );
       })
+    } else {
+      this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
+    }
+  }
+
+
+  showAreaDetails() {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      this._router.navigateByUrl("/tableAreaDetails")
     } else {
       this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }
