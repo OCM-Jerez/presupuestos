@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { AvalaibleYearsService } from './avalaibleYears.service';
 import { asynForEach } from '../commons/util/util';
 
+import gastosEconomicaArticulos from '../../assets/data/gastosEconomicaArticulos.json';
+import gastosEconomicaConceptos from '../../assets/data/gastosEconomicaConceptos.json';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,18 +16,18 @@ export class PrepareDataGastosDetailsService {
   ) { }
 
   // Itera por cada uno de los años disponibles para gastos
-  async getDataAllYear(): Promise<any[]> {
+  async getDataAllYear(tipoClasificacion: string): Promise<any[]> {
     let rowData = [];
     const years = this._avalaibleYearsService.getYearsSelected();
 
     await asynForEach(years, async (year: number) => {
-      const dataGas = await this.getDataYear(year);
+      const dataGas = await this.getDataYear(year, tipoClasificacion);
       rowData = rowData.concat(...dataGas);
     });
     return rowData;
   }
 
-  async getDataYear(year: number) {
+  async getDataYear(year: number, tipoClasificacion: string) {
     const result = [];
 
     this.dataGasto = {
@@ -36,6 +39,8 @@ export class PrepareDataGastosDetailsService {
       DesCap: `DesCap`,
       CodEco: `CodEco`,
       DesEco: `DesEco`,
+      // CodArt: `CodArt`,
+      // DesArt: `DesArt`,
       Iniciales: `Iniciales${year}`,
       Modificaciones: `Modificaciones${year}`,
       Definitivas: `Definitivas${year}`,
@@ -57,6 +62,8 @@ export class PrepareDataGastosDetailsService {
           [this.dataGasto.DesCap]: currentValue[1][this.dataGasto.DesCap],
           [this.dataGasto.CodEco]: currentValue[1][this.dataGasto.CodEco],
           [this.dataGasto.DesEco]: currentValue[1][this.dataGasto.DesEco],
+          // [this.dataGasto.CodArt]: currentValue[1][Math.floor((this.dataGasto.CodEco / 1000))],
+          // [this.dataGasto.DesArt]: currentValue[1][gastosEconomicaArticulos.find((articulo) => articulo.codigo === currentValue[1][Math.floor((this.dataGasto.CodEco / 1000))]).descripcion],
           [this.dataGasto.Iniciales]: currentValue[1]['Iniciales'],
           [this.dataGasto.Modificaciones]: currentValue[1]['Modificaciones'],
           [this.dataGasto.Definitivas]: currentValue[1]['Definitivas'],
@@ -69,14 +76,30 @@ export class PrepareDataGastosDetailsService {
       });
     })
 
-    result.map(item => {
-      item.CodEco = Math.floor((item.CodEco / 100));
-    });
+
+
+    switch (tipoClasificacion) {
+      case 'gastosEconomicaArticulos':
+        console.log('gastosEconomicaArticulos');
+        result.map(item => {
+          item.CodArt = Math.floor((item.CodEco / 1000));
+          item.DesArt = gastosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodArt).descripcion;
+        });
+        break;
+      case 'gastosEconomicaConceptos':
+        console.log('gastosEconomicaConceptos');
+        result.map(item => {
+          item.CodEco = Math.floor((item.CodEco / 100));
+          item.DesEco = gastosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodEco).descripcion;
+        });
+        break;
+    }
 
     console.log(result);
     return result;
   }
 
+  // Seleciona datos del año que se pasa como parametro
   async getYearDataJson(year: number) {
     const data = await import(`../../assets/data/${year}LiqGas.json`);
     return data.default;
