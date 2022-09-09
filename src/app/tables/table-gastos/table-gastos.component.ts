@@ -24,7 +24,9 @@ export class TableGastosComponent implements OnInit {
   public gridOptions: GridOptions;
   public hasGraphTree = true;
   public hasProgramaDetails = false;
+  public hasCapituloDetails = false;
   public hasEconomicoDetails = false;
+
 
   private _columnDefs: any[];
   private _dataTable: IDataTable;
@@ -43,8 +45,9 @@ export class TableGastosComponent implements OnInit {
     const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
     this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder]);
 
-    // console.log(this._dataTable.clasificationType);
+    console.log(this._dataTable.clasificationType);
     if (this._dataTable.clasificationType === 'gastosProgramaProgramas') { this.hasProgramaDetails = true };
+    if (this._dataTable.clasificationType === 'gastosEconomicaCapitulos') { this.hasCapituloDetails = true };
     if (this._dataTable.clasificationType === 'gastosEconomicaEconomicos') { this.hasEconomicoDetails = true };
 
     this._columnDefs = [
@@ -225,6 +228,18 @@ export class TableGastosComponent implements OnInit {
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
       this._router.navigateByUrl("/tableProgramaDetails")
+    } else {
+      this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
+    }
+  }
+
+  showCapituloDetails() {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      // Para que de tiempo a ver el efecto pulsado del button
+      setTimeout(() => this._router.navigateByUrl("/tableCapituloDetails"), 50);
+
     } else {
       this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }

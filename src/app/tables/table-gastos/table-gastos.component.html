@@ -27,6 +27,13 @@
         <span class="content">Detalle programa</span>
     </button>
 
+    <button type="button" *ngIf="hasCapituloDetails" (click)="showCapituloDetails()" class="btn-54">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Detalle capítulo</span>
+    </button>
+
+
     <button type="button" *ngIf="hasEconomicoDetails" (click)="showEconomicoDetails()" class="btn-54">
         <span class="shadow"></span>
         <span class="depth"></span>
