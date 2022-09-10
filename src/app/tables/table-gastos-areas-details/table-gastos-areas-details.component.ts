@@ -210,4 +210,5 @@ export class TableGastosAreasDetailsComponent {
       this._alertService.showAlert(`Selecciona programa`);
     }
   }
+
 }
