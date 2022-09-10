@@ -5,7 +5,7 @@ import { ColumnState, GridReadyEvent } from 'ag-grid-community';
 import { GridOptions, GridApi } from 'ag-grid-community/main';
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
-// import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
+import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
@@ -95,7 +95,7 @@ export class TableGastosGruposprogramasDetailsComponent {
           resizable: true,
           filter: true,
           aggFunc: 'sum',
-          // cellRenderer: CellRendererOCM,
+          cellRenderer: CellRendererOCM,
           headerComponentParams: {
             template:
               '<div class="ag-cell-label-container" role="presentation">' +
