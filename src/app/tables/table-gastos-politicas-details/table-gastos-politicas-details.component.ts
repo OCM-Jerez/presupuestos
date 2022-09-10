@@ -14,6 +14,8 @@ import { DataStoreService } from '../../services/dataStore.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { PrepareDataGastosDetailsService } from '../../services/prepareDataGastosDetails.service';
+import { Router } from '@angular/router';
+import { AlertService } from '../../services/alert.service';
 
 @Component({
   selector: 'app-table-gastos-politicas-details',
@@ -31,6 +33,8 @@ export class TableGastosPoliticasDetailsComponent {
   private _dataTableGraph: IDataTable;
 
   constructor(
+    private _router: Router,
+    private _alertService: AlertService,
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
     private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
@@ -209,9 +213,14 @@ export class TableGastosPoliticasDetailsComponent {
     this.isExpanded = false;
   }
 
-  volver() {
-    // Para que de tiempo a ver el efecto pulsado del button
-    setTimeout(() => this._location.back(), 50);
+  showProgramaDetails() {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this.dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      this._router.navigateByUrl("/tableProgramaDetails")
+    } else {
+      this._alertService.showAlert(`Selecciona programa`);
+    }
   }
 
 }
