@@ -8,10 +8,10 @@ import { GridOptions, GridApi } from 'ag-grid-community/main';
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
-// import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
+
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
 import { AlertService } from '../../services/alert.service';
 
@@ -24,6 +24,7 @@ import { accumulate } from '../../commons/util/util';
   templateUrl: './table-programa-details.component.html',
   styleUrls: ['./table-programa-details.component.scss']
 })
+
 export class TableProgramaDetailsComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
@@ -183,7 +184,6 @@ export class TableProgramaDetailsComponent {
 
     ];
 
-    //this.createDataJimy().then(() => {
     this.createDataOCM().then(() => {
       this.gridOptions = {
         defaultColDef: {
@@ -208,6 +208,7 @@ export class TableProgramaDetailsComponent {
               '</div>',
           },
         },
+
         // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
         rowData: this._rowData,
         columnDefs: this._columnDefs,
@@ -235,7 +236,6 @@ export class TableProgramaDetailsComponent {
   async createDataOCM(): Promise<void> {
     this._rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
       .filter(x => x.CodPro == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    // console.log(this._rowData);
 
     // Acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
     let aplicacionesPresupuestarias = []
@@ -358,14 +358,6 @@ export class TableProgramaDetailsComponent {
     setTimeout(() => {
       this.expandAll()
     }, 10);
-  }
-
-  // TODO: Las colummnas disparan su altura
-  headerHeightSetter() {
-    // var padding = 20;
-    // var height = headerHeightGetter() + padding;
-    // this._gridApi.setHeaderHeight(height);
-    // this._gridApi.resetRowHeights();
   }
 
   createColumnsChildren(year: number) {

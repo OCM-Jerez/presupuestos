@@ -7,7 +7,6 @@ import { GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
-import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
@@ -122,14 +121,6 @@ export class TableGastosAplicacionPresupuestariaComponent {
     });
     this.data.push(value)
     this.rowData = this.data;
-  }
-
-  // TODO: Las colummnas disparan su altura
-  headerHeightSetter() {
-    // var padding = 20;
-    // var height = headerHeightGetter() + padding;
-    // this._gridApi.setHeaderHeight(height);
-    // this._gridApi.resetRowHeights();
   }
 
   createColumnsChildren(year: number) {

@@ -2,7 +2,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
+import { ColumnApi, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
@@ -296,7 +296,6 @@ export class TableGastosComponent implements OnInit {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
       // Para que de tiempo a ver el efecto pulsado del button
       setTimeout(() => this._router.navigateByUrl("/tableCapituloDetails"), 50);
-
     } else {
       this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }
@@ -306,9 +305,7 @@ export class TableGastosComponent implements OnInit {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      // Para que de tiempo a ver el efecto pulsado del button
       setTimeout(() => this._router.navigateByUrl("/tableArticuloDetails"), 50);
-
     } else {
       this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }
@@ -318,9 +315,7 @@ export class TableGastosComponent implements OnInit {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      // Para que de tiempo a ver el efecto pulsado del button
       setTimeout(() => this._router.navigateByUrl("/tableConceptoDetails"), 50);
-
     } else {
       this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }
@@ -330,16 +325,13 @@ export class TableGastosComponent implements OnInit {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      // Para que de tiempo a ver el efecto pulsado del button
       setTimeout(() => this._router.navigateByUrl("/tableEconomicoDetails"), 50);
-
     } else {
       this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }
   }
 
   showGraphTree() {
-    // console.log(this._dataTable.rowData);
     this._prepareDataGraphTreeService.prepareDataGraphTree(this._dataTable.rowData);
     setTimeout(() => {
       this._router.navigateByUrl("/graphTree")
@@ -347,7 +339,6 @@ export class TableGastosComponent implements OnInit {
   }
 
   volver() {
-    // Para que de tiempo a ver el efecto pulsado del button
     setTimeout(() => this._router.navigateByUrl("/home"), 50);
   }
 

@@ -20,6 +20,7 @@ import { PrepareDataGastosDetailsService } from '../../services/prepareDataGasto
   templateUrl: './table-gastos-areas-details.component.html',
   styleUrls: ['./table-gastos-areas-details.component.scss']
 })
+
 export class TableGastosAreasDetailsComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
@@ -72,21 +73,6 @@ export class TableGastosAreasDetailsComponent {
               }
             }
           },
-          // {
-          //   headerName: 'Programa',
-          //   field: 'DesPro',
-          //   width: 500,
-          //   pinned: 'left',
-          //   filter: true,
-          //   cellRenderer: "",
-          //   valueGetter: params => {
-          //     if (params.data) {
-          //       return params.data.CodPro + ' - ' + params.data.DesPro;
-          //     } else {
-          //       return null;
-          //     }
-          //   },
-          // },
         ]
       },
 
@@ -99,7 +85,6 @@ export class TableGastosAreasDetailsComponent {
 
     ];
 
-    //this.createDataJimy().then(() => {
     this.createDataOCM().then(() => {
       this.gridOptions = {
         defaultColDef: {
@@ -124,6 +109,7 @@ export class TableGastosAreasDetailsComponent {
               '</div>',
           },
         },
+
         // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
         rowData: this._rowData,
         columnDefs: this._columnDefs,
@@ -152,16 +138,6 @@ export class TableGastosAreasDetailsComponent {
     console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
       .filter(x => x.CodAre == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    console.log(this._rowData);
-  }
-
-
-  // TODO: Las colummnas disparan su altura
-  headerHeightSetter() {
-    // var padding = 20;
-    // var height = headerHeightGetter() + padding;
-    // this._gridApi.setHeaderHeight(height);
-    // this._gridApi.resetRowHeights();
   }
 
   createColumnsChildren(year: number) {

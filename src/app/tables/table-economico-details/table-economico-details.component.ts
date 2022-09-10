@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -8,15 +7,12 @@ import { GridOptions, GridApi } from 'ag-grid-community/main';
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
-// import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
-import { AlertService } from '../../services/alert.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
-import { accumulate } from '../../commons/util/util';
 import { PrepareDataGastosDetailsService } from '../../services/prepareDataGastosDetails.service';
 
 @Component({
@@ -24,6 +20,7 @@ import { PrepareDataGastosDetailsService } from '../../services/prepareDataGasto
   templateUrl: './table-economico-details.component.html',
   styleUrls: ['./table-economico-details.component.scss']
 })
+
 export class TableEconomicoDetailsComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
@@ -36,10 +33,8 @@ export class TableEconomicoDetailsComponent {
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
-    private _router: Router,
     private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
     private _location: Location,
-    private _alertService: AlertService
   ) {
     this._dataTableGraph = dataStoreService.getDataTable;
     this._columnDefs = [
@@ -105,7 +100,6 @@ export class TableEconomicoDetailsComponent {
 
     ];
 
-    //this.createDataJimy().then(() => {
     this.createDataOCM().then(() => {
       this.gridOptions = {
         defaultColDef: {
@@ -130,6 +124,7 @@ export class TableEconomicoDetailsComponent {
               '</div>',
           },
         },
+
         // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
         rowData: this._rowData,
         columnDefs: this._columnDefs,
@@ -155,23 +150,14 @@ export class TableEconomicoDetailsComponent {
   }
 
   async createDataOCM(): Promise<void> {
-    console.log(this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    // console.log(this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
       .filter(x => x.CodEco == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    console.log(this._rowData);
 
     setTimeout(() => {
       this.expandAll()
     }, 10)
 
-  }
-
-  // TODO: Las colummnas disparan su altura
-  headerHeightSetter() {
-    // var padding = 20;
-    // var height = headerHeightGetter() + padding;
-    // this._gridApi.setHeaderHeight(height);
-    // this._gridApi.resetRowHeights();
   }
 
   createColumnsChildren(year: number) {

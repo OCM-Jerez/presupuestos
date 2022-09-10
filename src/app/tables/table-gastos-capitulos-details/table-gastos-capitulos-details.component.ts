@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -11,7 +10,6 @@ import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
-import { AlertService } from '../../services/alert.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
@@ -102,7 +100,6 @@ export class TableGastosCapitulosDetailsComponent {
 
     ];
 
-    //this.createDataJimy().then(() => {
     this.createDataOCM().then(() => {
       this.gridOptions = {
         defaultColDef: {
@@ -127,6 +124,7 @@ export class TableGastosCapitulosDetailsComponent {
               '</div>',
           },
         },
+
         // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
         rowData: this._rowData,
         columnDefs: this._columnDefs,
@@ -152,23 +150,9 @@ export class TableGastosCapitulosDetailsComponent {
   }
 
   async createDataOCM(): Promise<void> {
-    console.log(this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    // console.log(this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
       .filter(x => x.CodCap == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    console.log(this._rowData);
-
-    // setTimeout(() => {
-    //   this.expandAll()
-    // }, 10)
-
-  }
-
-  // TODO: Las colummnas disparan su altura
-  headerHeightSetter() {
-    // var padding = 20;
-    // var height = headerHeightGetter() + padding;
-    // this._gridApi.setHeaderHeight(height);
-    // this._gridApi.resetRowHeights();
   }
 
   createColumnsChildren(year: number) {

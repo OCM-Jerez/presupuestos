@@ -100,7 +100,6 @@ export class TableGastosConceptosDetailsComponent {
 
     ];
 
-    //this.createDataJimy().then(() => {
     this.createDataOCM().then(() => {
       this.gridOptions = {
         defaultColDef: {
@@ -125,6 +124,7 @@ export class TableGastosConceptosDetailsComponent {
               '</div>',
           },
         },
+
         // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
         rowData: this._rowData,
         columnDefs: this._columnDefs,
@@ -150,19 +150,9 @@ export class TableGastosConceptosDetailsComponent {
   }
 
   async createDataOCM(): Promise<void> {
-    console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    // console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
       .filter(x => x.CodCon == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    console.log(this._rowData);
-  }
-
-
-  // TODO: Las colummnas disparan su altura
-  headerHeightSetter() {
-    // var padding = 20;
-    // var height = headerHeightGetter() + padding;
-    // this._gridApi.setHeaderHeight(height);
-    // this._gridApi.resetRowHeights();
   }
 
   createColumnsChildren(year: number) {
