@@ -613,7 +613,7 @@
   },
   {
     "codigo": 23000,
-    "descripcion": "Dietas miembros de los organos de gobierno"
+    "descripcion": "Dietas miembros de los órganos de gobierno"
   },
   {
     "codigo": 23010,
@@ -625,11 +625,11 @@
   },
   {
     "codigo": 23100,
-    "descripcion": "Locomocion de miembros organos gobierno"
+    "descripcion": "Locomoción de miembros órganos gobierno"
   },
   {
     "codigo": 23110,
-    "descripcion": "Dietas del personal directivo"
+    "descripcion": "Locomoción del personal directivo"
   },
   {
     "codigo": 23120,
