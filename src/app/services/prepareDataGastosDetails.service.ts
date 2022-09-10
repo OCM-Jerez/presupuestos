@@ -82,36 +82,30 @@ export class PrepareDataGastosDetailsService {
 
     switch (tipoClasificacion) {
       case 'gastosProgramaAreas':
-        console.log('gastosProgramaAreas');
         result.map(item => {
           item.CodAre = Math.floor((item.CodPro / 10000));
           item.DesAre = gastosProgramaAreas.find((area) => area.codigo === item.CodAre).descripcion;
         });
         break;
       case 'gastosProgramaPoliticas':
-        console.log('gastosProgramaPoliticas');
         result.map(item => {
           item.CodPol = Math.floor((item.CodPro / 1000));
           item.DesPol = gastosProgramaPoliticas.find((politica) => politica.codigo === item.CodPol).descripcion;
         });
         break;
       case 'gastosProgramaGrupos':
-        console.log('gastosProgramaGrupos');
         result.map(item => {
           item.CodGru = Math.floor((item.CodPro / 100));
           item.DesGru = gastosProgramaGrupos.find((grupo) => grupo.codigo === item.CodGru).descripcion;
         });
         break;
-
       case 'gastosEconomicaArticulos':
-        console.log('gastosEconomicaArticulos');
         result.map(item => {
           item.CodArt = Math.floor((item.CodEco / 1000));
           item.DesArt = gastosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodArt).descripcion;
         });
         break;
       case 'gastosEconomicaConceptos':
-        console.log('gastosEconomicaConceptos');
         result.map(item => {
           item.CodCon = Math.floor((item.CodEco / 100));
           item.DesCon = gastosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodCon).descripcion;
@@ -119,7 +113,7 @@ export class PrepareDataGastosDetailsService {
         break;
     }
 
-    console.log(result);
+    // console.log(result);
     return result;
   }
 
