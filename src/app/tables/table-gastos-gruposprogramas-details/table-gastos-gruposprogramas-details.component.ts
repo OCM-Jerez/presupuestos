@@ -1,12 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnState, GridReadyEvent } from 'ag-grid-community';
 import { GridOptions, GridApi } from 'ag-grid-community/main';
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
-import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
+// import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
@@ -14,6 +13,8 @@ import { DataStoreService } from '../../services/dataStore.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { PrepareDataGastosDetailsService } from '../../services/prepareDataGastosDetails.service';
+import { Router } from '@angular/router';
+import { AlertService } from '../../services/alert.service';
 
 @Component({
   selector: 'app-table-gastos-gruposprogramas-details',
@@ -31,10 +32,11 @@ export class TableGastosGruposprogramasDetailsComponent {
   private _dataTableGraph: IDataTable;
 
   constructor(
+    private _router: Router,
+    private _alertService: AlertService,
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
     private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
-    private _location: Location,
   ) {
     this._dataTableGraph = dataStoreService.getDataTable;
     this._columnDefs = [
@@ -93,7 +95,7 @@ export class TableGastosGruposprogramasDetailsComponent {
           resizable: true,
           filter: true,
           aggFunc: 'sum',
-          cellRenderer: CellRendererOCM,
+          // cellRenderer: CellRendererOCM,
           headerComponentParams: {
             template:
               '<div class="ag-cell-label-container" role="presentation">' +
@@ -209,9 +211,14 @@ export class TableGastosGruposprogramasDetailsComponent {
     this.isExpanded = false;
   }
 
-  volver() {
-    // Para que de tiempo a ver el efecto pulsado del button
-    setTimeout(() => this._location.back(), 50);
+  showProgramaDetails() {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this.dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      this._router.navigateByUrl("/tableProgramaDetails")
+    } else {
+      this._alertService.showAlert(`Selecciona programa`);
+    }
   }
 
 }
