@@ -50,7 +50,7 @@ export class TableGastosOrganicosDetailsComponent {
             width: 500,
             pinned: 'left',
             columnGroupShow: 'close',
-            cellRenderer: 'agGroupCellRenderer',
+            // cellRenderer: 'agGroupCellRenderer',
             valueGetter: params => {
               if (params.data) {
                 return params.data.CodPro + ' - ' + params.data.DesPro;
