@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-// import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnState, GridReadyEvent } from 'ag-grid-community';
@@ -14,6 +13,8 @@ import { DataStoreService } from '../../services/dataStore.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { PrepareDataGastosDetailsService } from '../../services/prepareDataGastosDetails.service';
+import { Router } from '@angular/router';
+import { AlertService } from '../../services/alert.service';
 
 @Component({
   selector: 'app-table-gastos-organicos-details',
@@ -33,6 +34,8 @@ export class TableGastosOrganicosDetailsComponent {
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
+    private _router: Router,
+    private _alertService: AlertService,
     private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
     // private _location: Location,
   ) {
@@ -50,28 +53,19 @@ export class TableGastosOrganicosDetailsComponent {
             width: 500,
             pinned: 'left',
             columnGroupShow: 'close',
-            // cellRenderer: 'agGroupCellRenderer',
-            valueGetter: params => {
-              if (params.data) {
-                return params.data.CodPro + ' - ' + params.data.DesPro;
-              } else {
-                return null;
+            cellRenderer: params => {
+              switch (params.node.level) {
+                case 0:  // Cada una de las lineas
+                  return `<span style="text-align: left"> ${params.value}</span>`;
+                case -1: // Total general
+                  return '<span style="text-align: right; color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general</span>';
+                default:
+                  return 'SIN FORMATO';
               }
             },
-            cellRendererParams: {
-              suppressCount: true,
-              innerRenderer: params => params.node.group ? `<span style="color: black; font-size: 12px; margin-left: 0px;">${params.value}</span>` : null,
-              footerValueGetter(params) {
-                switch (params.node.level) {
-                  case 0:  // Total programa.
-                    return `<span style="color: red; font-size: 14px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
-                  case -1: // Total general.
-                    return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
-                  default:
-                    return 'SIN FORMATO';
-                }
-              }
-            }
+            valueGetter: params => {
+              return `${params.data.CodPro + ' - ' + params.data.DesPro}`;
+            },
           },
         ]
       },
@@ -209,9 +203,14 @@ export class TableGastosOrganicosDetailsComponent {
     this.isExpanded = false;
   }
 
-  // volver() {
-  //   // Para que de tiempo a ver el efecto pulsado del button
-  //   setTimeout(() => this._location.back(), 50);
-  // }
+  showProgramaDetails() {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this.dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      this._router.navigateByUrl("/tableProgramaDetails")
+    } else {
+      this._alertService.showAlert(`Selecciona programa`);
+    }
+  }
 
 }

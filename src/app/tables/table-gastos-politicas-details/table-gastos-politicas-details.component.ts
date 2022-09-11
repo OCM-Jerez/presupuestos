@@ -54,28 +54,19 @@ export class TableGastosPoliticasDetailsComponent {
             width: 500,
             pinned: 'left',
             columnGroupShow: 'close',
-            cellRenderer: 'agGroupCellRenderer',
-            valueGetter: params => {
-              if (params.data) {
-                return params.data.CodPro + ' - ' + params.data.DesPro;
-              } else {
-                return null;
+            cellRenderer: params => {
+              switch (params.node.level) {
+                case 0:  // Cada una de las lineas
+                  return `<span style="text-align: left"> ${params.value}</span>`;
+                case -1: // Total general
+                  return '<span style="text-align: right; color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general</span>';
+                default:
+                  return 'SIN FORMATO';
               }
             },
-            cellRendererParams: {
-              suppressCount: true,
-              innerRenderer: params => params.node.group ? `<span style="color: black; font-size: 12px; margin-left: 0px;">${params.value}</span>` : null,
-              footerValueGetter(params) {
-                switch (params.node.level) {
-                  case 0:  // Total programa.
-                    return `<span style="color: red; font-size: 14px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
-                  case -1: // Total general.
-                    return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
-                  default:
-                    return 'SIN FORMATO';
-                }
-              }
-            }
+            valueGetter: params => {
+              return `${params.data.CodPro + ' - ' + params.data.DesPro}`;
+            },
           },
         ]
       },
