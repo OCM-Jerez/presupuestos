@@ -13,6 +13,8 @@ import { DataStoreService } from '../../services/dataStore.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { PrepareDataGastosDetailsService } from '../../services/prepareDataGastosDetails.service';
+import { Router } from '@angular/router';
+import { AlertService } from '../../services/alert.service';
 
 @Component({
   selector: 'app-table-economico-details',
@@ -32,6 +34,8 @@ export class TableEconomicoDetailsComponent {
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
+    private _router: Router,
+    private _alertService: AlertService,
     private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
   ) {
     this._dataTableGraph = dataStoreService.getDataTable;
@@ -40,51 +44,49 @@ export class TableEconomicoDetailsComponent {
         headerName: this._dataTableGraph.dataPropertyTable.headerName,
         children: [
           {
-            headerName: 'Económico',
-            field: 'DesEco',
+            headerName: 'Programa',
+            field: 'DesPro',
             rowGroup: true,
-            showRowGroup: 'DesEco',
+            showRowGroup: 'DesPro',
             filter: true,
             width: 500,
             pinned: 'left',
             columnGroupShow: 'close',
-            cellRenderer: 'agGroupCellRenderer',
-            valueGetter: params => {
-              if (params.data) {
-                return params.data.CodEco + ' - ' + params.data.DesEco;
-              } else {
-                return null;
+            cellRenderer: params => {
+              switch (params.node.level) {
+                case 0:  // Cada una de las lineas
+                  return `<span style="text-align: left"> ${params.value}</span>`;
+                case -1: // Total general
+                  return '<span style="text-align: right; color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general</span>';
+                default:
+                  return 'SIN FORMATO';
               }
             },
-            cellRendererParams: {
-              suppressCount: true,
-              innerRenderer: params => params.node.group ? `<span style="color: black; font-size: 12px; margin-left: 0px;">${params.value}</span>` : null,
-              footerValueGetter(params) {
-                switch (params.node.level) {
-                  case 0:  // Total programa.
-                    return `<span style="color: red; font-size: 14px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
-                  case -1: // Total general.
-                    return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
-                  default:
-                    return 'SIN FORMATO';
-                }
-              }
-            }
-          },
-          {
-            headerName: 'Programa',
-            field: 'DesPro',
-            width: 500,
-            pinned: 'left',
-            filter: true,
-            cellRenderer: "",
             valueGetter: params => {
-              if (params.data) {
-                return params.data.CodPro + ' - ' + params.data.DesPro;
-              } else {
-                return null;
-              }
+              return `${params.data.CodPro + ' - ' + params.data.DesPro}`;
             },
+
+            // valueGetter: params => {
+            //   if (params.data) {
+            //     return params.data.CodPro + ' - ' + params.data.DesPro;
+            //   } else {
+            //     return null;
+            //   }
+            // },
+            // cellRendererParams: {
+            //   suppressCount: true,
+            //   innerRenderer: params => params.node.group ? `<span style="color: black; font-size: 12px; margin-left: 0px;">${params.value}</span>` : null,
+            //   footerValueGetter(params) {
+            //     switch (params.node.level) {
+            //       case 0:  // Total programa.
+            //         return `<span style="color: red; font-size: 14px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
+            //       case -1: // Total general.
+            //         return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
+            //       default:
+            //         return 'SIN FORMATO';
+            //     }
+            //   }
+            // }
           },
         ]
       },
@@ -148,13 +150,13 @@ export class TableEconomicoDetailsComponent {
   }
 
   async createDataOCM(): Promise<void> {
-    // console.log(this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    console.log(this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
       .filter(x => x.CodEco == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
 
-    setTimeout(() => {
-      this.expandAll()
-    }, 10)
+    // setTimeout(() => {
+    //   this.expandAll()
+    // }, 10)
 
   }
 
@@ -217,14 +219,24 @@ export class TableEconomicoDetailsComponent {
     ];
   }
 
-  expandAll() {
-    this._gridApi.expandAll();
-    this.isExpanded = true;
+  showProgramaDetails() {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this.dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      this._router.navigateByUrl("/tableProgramaDetails")
+    } else {
+      this._alertService.showAlert(`Selecciona programa`);
+    }
   }
 
-  collapseAll() {
-    this._gridApi.collapseAll();
-    this.isExpanded = false;
-  }
+  // expandAll() {
+  //   this._gridApi.expandAll();
+  //   this.isExpanded = true;
+  // }
+
+  // collapseAll() {
+  //   this._gridApi.collapseAll();
+  //   this.isExpanded = false;
+  // }
 
 }
