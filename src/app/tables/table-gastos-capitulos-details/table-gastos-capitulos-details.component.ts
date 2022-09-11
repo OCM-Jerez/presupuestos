@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnState, GridReadyEvent } from 'ag-grid-community';
@@ -34,7 +33,6 @@ export class TableGastosCapitulosDetailsComponent {
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
     private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
-    private _location: Location,
   ) {
     this._dataTableGraph = dataStoreService.getDataTable;
     this._columnDefs = [
@@ -150,7 +148,6 @@ export class TableGastosCapitulosDetailsComponent {
   }
 
   async createDataOCM(): Promise<void> {
-    // console.log(this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
       .filter(x => x.CodCap == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
   }
@@ -222,11 +219,6 @@ export class TableGastosCapitulosDetailsComponent {
   collapseAll() {
     this._gridApi.collapseAll();
     this.isExpanded = false;
-  }
-
-  volver() {
-    // Para que de tiempo a ver el efecto pulsado del button
-    setTimeout(() => this._location.back(), 50);
   }
 
 }
