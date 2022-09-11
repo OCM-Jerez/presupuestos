@@ -54,6 +54,8 @@ export class TableGastosComponent implements OnInit {
     const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
     this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder]);
 
+    this._dataStoreService.IsDetails = false;
+
     console.log(this._dataTable.clasificationType);
     if (this._dataTable.clasificationType === 'gastosOrganicaOrganicos') { this.hasOrganicoDetails = true };
 

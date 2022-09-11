@@ -128,8 +128,11 @@ export class TableGastosConceptosDetailsComponent {
   }
 
   async createDataOCM(): Promise<void> {
+    let concepto = +this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
+    // Detecto si vuelve de detalle o no.
+    concepto = this.dataStoreService.IsDetails ? (concepto / 100) : concepto
     this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
-      .filter(x => x.CodCon == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+      .filter(x => x.CodCon == concepto);
   }
 
   createColumnsChildren(year: number) {

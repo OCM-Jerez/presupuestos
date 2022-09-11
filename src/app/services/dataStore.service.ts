@@ -15,6 +15,7 @@ export class DataStoreService {
   private _dataGraphTree: any[];
   private _graphTitle: string;
   private _selectedCodeRowFirstLevel: string;
+  private _IsDetails: boolean;
 
   get getDataTable(): IDataTable {
     return this._data
@@ -66,6 +67,14 @@ export class DataStoreService {
 
   get selectedCodeRowFirstLevel(): string {
     return this._selectedCodeRowFirstLevel
+  }
+
+  set IsDetails(state: boolean) {
+    this._IsDetails = state;
+  }
+
+  get IsDetails(): boolean {
+    return this._IsDetails
   }
 
   setData(data: IDataGraph) {

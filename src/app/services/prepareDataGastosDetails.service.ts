@@ -8,6 +8,7 @@ import gastosProgramaGrupos from '../../assets/data/gastosProgramaGruposPrograma
 
 import gastosEconomicaArticulos from '../../assets/data/gastosEconomicaArticulos.json';
 import gastosEconomicaConceptos from '../../assets/data/gastosEconomicaConceptos.json';
+import { DataStoreService } from './dataStore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class PrepareDataGastosDetailsService {
 
   constructor(
     private _avalaibleYearsService: AvalaibleYearsService,
+    public dataStoreService: DataStoreService,
   ) { }
 
   // Itera por cada uno de los años disponibles para gastos
@@ -106,6 +108,7 @@ export class PrepareDataGastosDetailsService {
         });
         break;
       case 'gastosEconomicaConceptos':
+        this.dataStoreService.IsDetails = true;
         result.map(item => {
           item.CodCon = Math.floor((item.CodEco / 100));
           item.DesCon = gastosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodCon).descripcion;
