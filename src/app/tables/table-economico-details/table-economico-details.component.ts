@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnState, GridReadyEvent } from 'ag-grid-community';
@@ -34,7 +33,6 @@ export class TableEconomicoDetailsComponent {
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
     private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
-    private _location: Location,
   ) {
     this._dataTableGraph = dataStoreService.getDataTable;
     this._columnDefs = [
@@ -227,11 +225,6 @@ export class TableEconomicoDetailsComponent {
   collapseAll() {
     this._gridApi.collapseAll();
     this.isExpanded = false;
-  }
-
-  volver() {
-    // Para que de tiempo a ver el efecto pulsado del button
-    setTimeout(() => this._location.back(), 50);
   }
 
 }
