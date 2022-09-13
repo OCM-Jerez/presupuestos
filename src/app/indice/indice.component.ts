@@ -52,6 +52,7 @@ export class IndiceComponent {
     this._dataStoreService.dataGraph = sendDataGraph;
 
     if (isIncome) {
+      this._dataStoreService.IsDetails = false;
       this._router.navigateByUrl('/tableIngresos')
     } else {
       this._router.navigateByUrl('/tableGastos')

@@ -15,6 +15,9 @@ import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree
 import { AlertService } from '../../services/alert.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
+import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
+
+import { getClasificacion } from '../../tables/data-table';
 
 @Component({
   selector: 'app-compara-ing',
@@ -35,14 +38,41 @@ export class TableIngresosComponent {
     private _router: Router,
     private _dataStoreService: DataStoreService,
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
-    private _alertService: AlertService
+    private _alertService: AlertService,
+    private _prepareDataIngresosService: PrepareDataIngresosService
   ) {
 
-    this._dataTable = _dataStoreService.getDataTable;
+
+    // let concepto = +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
+    // this._dataStoreService.IsDetails
+    //   ? this.prepareData()
+    //   : this._dataTable = _dataStoreService.getDataTable
+
+    if (this._dataStoreService.IsDetails) {
+      // this.prepareData()
+      // this._dataTable.dataPropertyTable = _dataStoreService.getDataTable.dataPropertyTable
+      console.log('IsDetail', this._dataStoreService.IsDetails);
+      this.setDataTable();
+      this._dataTable = this._dataStoreService.getDataTable
+      this._dataTable.dataPropertyTable.headerName = 'Clasificado por Económico';
+      this._dataTable.dataPropertyTable.subHeaderName = 'Económico';
+      this._dataTable.dataPropertyTable.sufijo = 'Eco';
+      this._dataTable.dataPropertyTable.codField = 'CodEco';
+      this._dataTable.dataPropertyTable.desField = 'DesEco';
+      this._dataTable.dataPropertyTable.width = 400;
+      this._dataTable = _dataStoreService.getDataTable
+      console.log('Despues dataPropertyTable', this._dataTable);
+    } else {
+      this._dataTable = _dataStoreService.getDataTable
+      console.log('IsDetail', this._dataStoreService.IsDetails);
+      console.log('Despues dataPropertyTable', this._dataTable)
+    }
+
     this.textButton = `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName} para mostrar gráfico`;
 
     this._columnDefs = [
       {
+
         headerName: this._dataTable.dataPropertyTable.headerName,
         children: [
           {
@@ -71,6 +101,7 @@ export class TableIngresosComponent {
       })
 
     ]
+    console.log(this._dataTable.rowData);
 
     this.gridOptions = {
       defaultColDef: {
@@ -97,6 +128,7 @@ export class TableIngresosComponent {
       },
 
       // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
+
       rowData: this._dataTable.rowData,
       columnDefs: this._columnDefs,
       groupDisplayType: 'custom',
@@ -241,6 +273,50 @@ export class TableIngresosComponent {
       this._router.navigateByUrl("/graphTree")
     }, 50);
   }
+
+  async prepareData() {
+    let rowData: any[];
+    rowData = await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaCapitulos', 'eco');
+    this._dataTable.rowData = rowData;
+  }
+
+  showEconomicoDetails() {
+    this._dataStoreService.IsDetails = true;
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      // this._router.navigateByUrl("/tableIngresos")
+      this.reloadCurrentRoute()
+    } else {
+      this._alertService.showAlert(`Selecciona económico`);
+    }
+  }
+
+  reloadCurrentRoute() {
+    console.log('reloadCurrentRoute()');
+    console.log('Antes', this._dataTable);
+    // this.openTable()
+    let currentUrl = this._router.url;
+    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this._router.navigate([currentUrl]);
+    });
+  }
+
+  async setDataTable(): Promise<void> {
+    const dataPropertyTable = getClasificacion('ingresosEconomicaCapitulos');
+    let rowData: any[];
+    rowData = await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos', 'Eco');
+
+    const sendDataTable: IDataTable = {
+      dataPropertyTable,
+      clasificationType: 'ingresosEconomicaCapitulos',
+      rowData
+    }
+    // console.log(sendDataTable);
+    this._dataStoreService.setDataTable = sendDataTable;
+    this._dataTable = this._dataStoreService.getDataTable
+  }
+
 
 }
 
