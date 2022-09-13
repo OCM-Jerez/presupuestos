@@ -42,7 +42,6 @@ export class TableIngresosComponent {
     private _prepareDataIngresosService: PrepareDataIngresosService
   ) {
 
-
     // let concepto = +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
     // this._dataStoreService.IsDetails
     //   ? this.prepareData()
@@ -52,7 +51,20 @@ export class TableIngresosComponent {
       // this.prepareData()
       // this._dataTable.dataPropertyTable = _dataStoreService.getDataTable.dataPropertyTable
       console.log('IsDetail', this._dataStoreService.IsDetails);
-      this.setDataTable();
+      // async () => await this.setDataTable()
+      // const promise = await this.setDataTable();
+      // this.esperar();
+      // this.setDataTable().then(() => {
+      //   this._dataTable = this._dataStoreService.getDataTable
+      //   this._dataTable.dataPropertyTable.headerName = 'Clasificado por Económico';
+      //   this._dataTable.dataPropertyTable.subHeaderName = 'Económico';
+      //   this._dataTable.dataPropertyTable.sufijo = 'Eco';
+      //   this._dataTable.dataPropertyTable.codField = 'CodEco';
+      //   this._dataTable.dataPropertyTable.desField = 'DesEco';
+      //   this._dataTable.dataPropertyTable.width = 400;
+      //   this._dataTable = _dataStoreService.getDataTable
+      // })
+      this.setDataTable()
       this._dataTable = this._dataStoreService.getDataTable
       this._dataTable.dataPropertyTable.headerName = 'Clasificado por Económico';
       this._dataTable.dataPropertyTable.subHeaderName = 'Económico';
@@ -65,7 +77,7 @@ export class TableIngresosComponent {
     } else {
       this._dataTable = _dataStoreService.getDataTable
       console.log('IsDetail', this._dataStoreService.IsDetails);
-      console.log('Despues dataPropertyTable', this._dataTable)
+      console.log('Despues dataPropertyTable', this._dataTable.rowData[0])
     }
 
     this.textButton = `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName} para mostrar gráfico`;
@@ -101,7 +113,7 @@ export class TableIngresosComponent {
       })
 
     ]
-    console.log(this._dataTable.rowData);
+    // console.log(this._dataTable.rowData);
 
     this.gridOptions = {
       defaultColDef: {
@@ -293,9 +305,8 @@ export class TableIngresosComponent {
   }
 
   reloadCurrentRoute() {
-    console.log('reloadCurrentRoute()');
-    console.log('Antes', this._dataTable);
-    // this.openTable()
+    // console.log('reloadCurrentRoute()');
+    // console.log('Antes', this._dataTable);
     let currentUrl = this._router.url;
     this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this._router.navigate([currentUrl]);
@@ -307,6 +318,15 @@ export class TableIngresosComponent {
     let rowData: any[];
     rowData = await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos', 'Eco');
 
+    // rowData.map(item => {
+    //   item.CodCap = Math.floor((item.CodEco / 10000));
+    // });
+    rowData.map(item => item.CodCap = Math.floor((item.CodEco / 10000)));
+    console.log('Despues map()', rowData);
+
+    rowData = rowData
+      .filter(x => x.CodCap == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+
     const sendDataTable: IDataTable = {
       dataPropertyTable,
       clasificationType: 'ingresosEconomicaCapitulos',
@@ -315,6 +335,14 @@ export class TableIngresosComponent {
     // console.log(sendDataTable);
     this._dataStoreService.setDataTable = sendDataTable;
     this._dataTable = this._dataStoreService.getDataTable
+    console.log('Despues setDataTable()', this._dataTable);
+  }
+
+  async esperar() {
+    setTimeout(() => {
+      console.log('Esperando');
+
+    }, 5000)
   }
 
 
