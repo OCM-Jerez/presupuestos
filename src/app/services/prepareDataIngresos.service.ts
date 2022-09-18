@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 
+import ingresosEconomicaCapitulos from '../../assets/data/ingresosEconomicaCapitulos.json';
 import ingresosEconomicaArticulos from '../../assets/data/ingresosEconomicaArticulos.json';
 import ingresosEconomicaConceptos from '../../assets/data/ingresosEconomicaConceptos.json';
-import ingresosEconomicaCapitulos from '../../assets/data/ingresosEconomicaCapitulos.json';
+import ingresosEconomicaEconomicos from '../../assets/data/ingresosEconomicaEconomicos.json';
 
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { IDataIngreso } from '../commons/interfaces/dataIngreso.interface';
@@ -97,7 +98,12 @@ export class PrepareDataIngresosService {
         });
         break;
     }
-    // console.log(result);
+
+    result.map(item => {
+      item.DesEco = ingresosEconomicaEconomicos.find((economico) => economico.Eco === item.CodEco).DesEco;
+    });
+
+    console.log(result);
     return result;
   }
 
