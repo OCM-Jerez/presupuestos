@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import ingresosEconomicaArticulos from '../../assets/data/ingresosEconomicaArticulos.json';
 import ingresosEconomicaConceptos from '../../assets/data/ingresosEconomicaConceptos.json';
+import ingresosEconomicaCapitulos from '../../assets/data/ingresosEconomicaCapitulos.json';
 
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { IDataIngreso } from '../commons/interfaces/dataIngreso.interface';
@@ -41,8 +42,6 @@ export class PrepareDataIngresosService {
     this.dataIngreso = {
       CodEco: `CodEco`,
       DesEco: `DesEco`,
-      CodCap: `CodCap`,
-      DesCap: `DesCap`,
       Iniciales: `Iniciales${year}`,
       Modificaciones: `Modificaciones${year}`,
       Definitivas: `Definitivas${year}`,
@@ -60,8 +59,6 @@ export class PrepareDataIngresosService {
         result.push({
           [this.dataIngreso.CodEco]: currentValue[1][this.dataIngreso.CodEco],
           [this.dataIngreso.DesEco]: currentValue[1][this.dataIngreso.DesEco],
-          [this.dataIngreso.CodCap]: currentValue[1][this.dataIngreso.CodCap],
-          [this.dataIngreso.DesCap]: currentValue[1][this.dataIngreso.DesCap],
           [this.dataIngreso.Iniciales]: currentValue[1]['Iniciales'],
           [this.dataIngreso.Modificaciones]: currentValue[1]['Modificaciones'],
           [this.dataIngreso.Definitivas]: currentValue[1]['Definitivas'],
@@ -81,6 +78,12 @@ export class PrepareDataIngresosService {
     // console.log(this._dataTableGraph.dataPropertyTable.sufijo);
 
     switch (tipoClasificacion) {
+      case 'ingresosEconomicaCapitulos':
+        result.map(item => {
+          item.CodCap = Math.floor((item.CodEco / 10000));
+          item.DesCap = ingresosEconomicaCapitulos.find((capitulo) => capitulo.codigo === item.CodCap).descripcion;
+        });
+        break;
       case 'ingresosEconomicaArticulos':
         result.map(item => {
           item.CodEco = Math.floor((item.CodEco / 1000));
