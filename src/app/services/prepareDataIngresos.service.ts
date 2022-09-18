@@ -42,7 +42,6 @@ export class PrepareDataIngresosService {
     const result = [];
     this.dataIngreso = {
       CodEco: `CodEco`,
-      DesEco: `DesEco`,
       Iniciales: `Iniciales${year}`,
       Modificaciones: `Modificaciones${year}`,
       Definitivas: `Definitivas${year}`,
@@ -59,7 +58,6 @@ export class PrepareDataIngresosService {
       Object.entries(data).forEach((currentValue) => {
         result.push({
           [this.dataIngreso.CodEco]: currentValue[1][this.dataIngreso.CodEco],
-          [this.dataIngreso.DesEco]: currentValue[1][this.dataIngreso.DesEco],
           [this.dataIngreso.Iniciales]: currentValue[1]['Iniciales'],
           [this.dataIngreso.Modificaciones]: currentValue[1]['Modificaciones'],
           [this.dataIngreso.Definitivas]: currentValue[1]['Definitivas'],
@@ -97,12 +95,12 @@ export class PrepareDataIngresosService {
           item.DesEco = ingresosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodEco).descripcion;
         });
         break;
+      case 'ingresosEconomicaEconomicos':
+        result.map(item => {
+          item.DesEco = ingresosEconomicaEconomicos.find((economico) => economico.codigo === item.CodEco).descripcion;
+        });
+        break;
     }
-
-    result.map(item => {
-      item.DesEco = ingresosEconomicaEconomicos.find((economico) => economico.Eco === item.CodEco).DesEco;
-    });
-
     console.log(result);
     return result;
   }
