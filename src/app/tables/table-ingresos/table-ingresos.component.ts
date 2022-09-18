@@ -73,7 +73,7 @@ export class TableIngresosComponent {
       this._dataTable.dataPropertyTable.desField = 'DesEco';
       this._dataTable.dataPropertyTable.width = 400;
       this._dataTable = _dataStoreService.getDataTable
-      console.log('Despues dataPropertyTable', this._dataTable);
+      // console.log('Despues dataPropertyTable', this._dataTable);
     } else {
       this._dataTable = _dataStoreService.getDataTable
       console.log('IsDetail', this._dataStoreService.IsDetails);
@@ -113,7 +113,6 @@ export class TableIngresosComponent {
       })
 
     ]
-    console.log('Antes gridOptions', this._dataTable.rowData);
 
     this.gridOptions = {
       defaultColDef: {
@@ -288,7 +287,7 @@ export class TableIngresosComponent {
 
   async prepareData() {
     let rowData: any[];
-    rowData = await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaCapitulos', 'eco');
+    rowData = await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaCapitulos');
     this._dataTable.rowData = rowData;
   }
 
@@ -297,7 +296,6 @@ export class TableIngresosComponent {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      // this._router.navigateByUrl("/tableIngresos")
       this.reloadCurrentRoute()
     } else {
       this._alertService.showAlert(`Selecciona económico`);
@@ -316,22 +314,25 @@ export class TableIngresosComponent {
   async setDataTable(): Promise<void> {
     const dataPropertyTable = getClasificacion('ingresosEconomicaCapitulos');
     let rowData: any[];
-    rowData = (await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos', 'Eco'));
+    rowData = (await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos'))
+      .filter(item => item.CodCap === +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]
+      );
+
     console.log('Despues getDataAllYear()', rowData);
 
-    rowData.map(item => {
-      item.CodCap = Math.floor((item.CodEco / 10000));
-      return item;
-    });
-    console.log('Despues map()', rowData);
+    // rowData.map(item => {
+    //   item.CodCap = Math.floor((item.CodEco / 10000));
+    //   return item;
+    // });
+    // console.log('Despues map()', rowData);
 
     // rowData
     // .filter(item => item.CodCap === this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     // console.log('Despues filter()', rowData);
 
-    let r = rowData.filter(item => item.CodCap === +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    console.log('r Despues filter()', r);
-    rowData = r
+    // let r = rowData.filter(item => item.CodCap === +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    // console.log('r Despues filter()', r);
+    // rowData = r
 
     const sendDataTable: IDataTable = {
       dataPropertyTable,

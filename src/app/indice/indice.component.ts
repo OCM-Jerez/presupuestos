@@ -30,7 +30,7 @@ export class IndiceComponent {
     const dataPropertyGraph = getClasificacionGraph(tipoClasificacion);
     let rowData: any[];
     if (isIncome) {
-      rowData = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion, dataPropertyTable.sufijo);
+      rowData = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion);
     } else {
       rowData = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion, dataPropertyTable.sufijo);
     }

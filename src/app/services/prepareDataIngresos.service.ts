@@ -24,23 +24,25 @@ export class PrepareDataIngresosService {
   ) { }
 
   // Itera por cada uno de los años disponibles para ingresos
-  async getDataAllYear(tipoClasificacion: string, sufijo?: string): Promise<any[]> {
+  async getDataAllYear(tipoClasificacion: string): Promise<any[]> {
     let rowData = [];
     const years = this._avalaibleYearsService.getYearsSelected();
 
     await asynForEach(years, async (year: number) => {
-      const dataIng = await this.getDataYear(year, tipoClasificacion, sufijo);
+      const dataIng = await this.getDataYear(year, tipoClasificacion);
       rowData = rowData.concat(...dataIng);
     });
     return rowData;
   }
 
   // Selecciona datos ingresos de un año
-  async getDataYear(year: number, tipoClasificacion: string, sufijo: string) {
+  async getDataYear(year: number, tipoClasificacion: string) {
     const result = [];
     this.dataIngreso = {
-      cod: `Cod${sufijo}`,
-      des: `Des${sufijo}`,
+      CodEco: `CodEco`,
+      DesEco: `DesEco`,
+      CodCap: `CodCap`,
+      DesCap: `DesCap`,
       Iniciales: `Iniciales${year}`,
       Modificaciones: `Modificaciones${year}`,
       Definitivas: `Definitivas${year}`,
@@ -56,8 +58,10 @@ export class PrepareDataIngresosService {
     await this.getYearDataJson(year).then(data => {
       Object.entries(data).forEach((currentValue) => {
         result.push({
-          [this.dataIngreso.cod]: currentValue[1][this.dataIngreso.cod],
-          [this.dataIngreso.des]: currentValue[1][this.dataIngreso.des],
+          [this.dataIngreso.CodEco]: currentValue[1][this.dataIngreso.CodEco],
+          [this.dataIngreso.DesEco]: currentValue[1][this.dataIngreso.DesEco],
+          [this.dataIngreso.CodCap]: currentValue[1][this.dataIngreso.CodCap],
+          [this.dataIngreso.DesCap]: currentValue[1][this.dataIngreso.DesCap],
           [this.dataIngreso.Iniciales]: currentValue[1]['Iniciales'],
           [this.dataIngreso.Modificaciones]: currentValue[1]['Modificaciones'],
           [this.dataIngreso.Definitivas]: currentValue[1]['Definitivas'],
@@ -90,6 +94,7 @@ export class PrepareDataIngresosService {
         });
         break;
     }
+    // console.log(result);
     return result;
   }
 

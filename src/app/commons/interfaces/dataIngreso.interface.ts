@@ -1,6 +1,8 @@
 export interface IDataIngreso {
-    cod: string,
-    des: string,
+    CodEco: string,
+    DesEco: string,
+    CodCap: string,
+    DesCap: string,
     Iniciales: string,
     Modificaciones: string,
     Definitivas: string,
