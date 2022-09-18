@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColumnState, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
+import { ColumnState, FilterManager, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 import { ColumnApi, GridApi } from "ag-grid-community/main";
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
@@ -77,7 +77,7 @@ export class TableIngresosComponent {
     } else {
       this._dataTable = _dataStoreService.getDataTable
       console.log('IsDetail', this._dataStoreService.IsDetails);
-      console.log('Despues dataPropertyTable', this._dataTable.rowData[0])
+      console.log('Datos con IsDetail = false', this._dataTable.rowData)
     }
 
     this.textButton = `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName} para mostrar gráfico`;
@@ -113,7 +113,7 @@ export class TableIngresosComponent {
       })
 
     ]
-    // console.log(this._dataTable.rowData);
+    console.log('Antes gridOptions', this._dataTable.rowData);
 
     this.gridOptions = {
       defaultColDef: {
@@ -316,16 +316,22 @@ export class TableIngresosComponent {
   async setDataTable(): Promise<void> {
     const dataPropertyTable = getClasificacion('ingresosEconomicaCapitulos');
     let rowData: any[];
-    rowData = await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos', 'Eco');
+    rowData = (await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos', 'Eco'));
+    console.log('Despues getDataAllYear()', rowData);
 
-    // rowData.map(item => {
-    //   item.CodCap = Math.floor((item.CodEco / 10000));
-    // });
-    rowData.map(item => item.CodCap = Math.floor((item.CodEco / 10000)));
+    rowData.map(item => {
+      item.CodCap = Math.floor((item.CodEco / 10000));
+      return item;
+    });
     console.log('Despues map()', rowData);
 
-    rowData = rowData
-      .filter(x => x.CodCap == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    // rowData
+    // .filter(item => item.CodCap === this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    // console.log('Despues filter()', rowData);
+
+    let r = rowData.filter(item => item.CodCap === +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    console.log('r Despues filter()', r);
+    rowData = r
 
     const sendDataTable: IDataTable = {
       dataPropertyTable,
@@ -333,18 +339,24 @@ export class TableIngresosComponent {
       rowData
     }
     // console.log(sendDataTable);
+    // await this.esperar();
     this._dataStoreService.setDataTable = sendDataTable;
     this._dataTable = this._dataStoreService.getDataTable
     console.log('Despues setDataTable()', this._dataTable);
   }
 
-  async esperar() {
-    setTimeout(() => {
-      console.log('Esperando');
+  // async filtrar(datos) {
+  //   console.log(datos.filter(item => {
+  //     item.CodCap === +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
+  //     // return { ...item }
+  //   }));
+  // }
 
-    }, 5000)
-  }
-
+  // async esperar() {
+  //   setTimeout(() => {
+  //     console.log('Esperando');
+  //   }, 5000)
+  // }
 
 }
 
