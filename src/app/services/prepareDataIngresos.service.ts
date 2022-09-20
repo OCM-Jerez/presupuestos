@@ -97,6 +97,8 @@ export class PrepareDataIngresosService {
         break;
       case 'ingresosEconomicaEconomicos':
         result.map(item => {
+          item.CodCap = Math.floor((item.CodEco / 10000));
+          item.DesCap = ingresosEconomicaCapitulos.find((capitulo) => capitulo.codigo === item.CodCap).descripcion
           item.DesEco = ingresosEconomicaEconomicos.find((economico) => economico.codigo === item.CodEco).descripcion;
         });
         break;

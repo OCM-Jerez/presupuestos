@@ -317,7 +317,6 @@ export class TableIngresosComponent {
     rowData = (await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos'))
       .filter(item => item.CodCap === +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]
       );
-
     console.log('Despues getDataAllYear()', rowData);
 
     // rowData.map(item => {
