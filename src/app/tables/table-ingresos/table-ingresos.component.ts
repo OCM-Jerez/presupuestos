@@ -1,8 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColumnState, FilterManager, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
+import { ColumnState, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 import { ColumnApi, GridApi } from "ag-grid-community/main";
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
@@ -41,30 +41,14 @@ export class TableIngresosComponent {
     private _alertService: AlertService,
     private _prepareDataIngresosService: PrepareDataIngresosService
   ) {
+    this._loadPropertyTable();
+  }
 
-    // let concepto = +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
-    // this._dataStoreService.IsDetails
-    //   ? this.prepareData()
-    //   : this._dataTable = _dataStoreService.getDataTable
 
+  private async _loadPropertyTable() {
     if (this._dataStoreService.IsDetails) {
-      // this.prepareData()
-      // this._dataTable.dataPropertyTable = _dataStoreService.getDataTable.dataPropertyTable
-      console.log('IsDetail', this._dataStoreService.IsDetails);
-      // async () => await this.setDataTable()
-      // const promise = await this.setDataTable();
-      // this.esperar();
-      // this.setDataTable().then(() => {
-      //   this._dataTable = this._dataStoreService.getDataTable
-      //   this._dataTable.dataPropertyTable.headerName = 'Clasificado por Económico';
-      //   this._dataTable.dataPropertyTable.subHeaderName = 'Económico';
-      //   this._dataTable.dataPropertyTable.sufijo = 'Eco';
-      //   this._dataTable.dataPropertyTable.codField = 'CodEco';
-      //   this._dataTable.dataPropertyTable.desField = 'DesEco';
-      //   this._dataTable.dataPropertyTable.width = 400;
-      //   this._dataTable = _dataStoreService.getDataTable
-      // })
-      this.setDataTable()
+      // console.log('IsDetail', this._dataStoreService.IsDetails);
+      await this.setDataTable()
       this._dataTable = this._dataStoreService.getDataTable
       this._dataTable.dataPropertyTable.headerName = 'Clasificado por Económico';
       this._dataTable.dataPropertyTable.subHeaderName = 'Económico';
@@ -72,19 +56,19 @@ export class TableIngresosComponent {
       this._dataTable.dataPropertyTable.codField = 'CodEco';
       this._dataTable.dataPropertyTable.desField = 'DesEco';
       this._dataTable.dataPropertyTable.width = 400;
-      this._dataTable = _dataStoreService.getDataTable
+      this._dataTable = this._dataStoreService.getDataTable
       // console.log('Despues dataPropertyTable', this._dataTable);
     } else {
-      this._dataTable = _dataStoreService.getDataTable
-      console.log('IsDetail', this._dataStoreService.IsDetails);
-      console.log('Datos con IsDetail = false', this._dataTable.rowData)
+      this._dataTable = this._dataStoreService.getDataTable;
+      this._dataTable.dataPropertyTable.codField = 'CodCap';
+      this._dataTable.dataPropertyTable.codField = 'CodCap';
+      this._dataTable.dataPropertyTable.desField = 'DesCap';
+      // console.log('IsDetail', this._dataStoreService.IsDetails);
+      // console.log('Datos con IsDetail = false', this._dataTable.rowData)
     }
-
-    this.textButton = `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName} para mostrar gráfico`;
 
     this._columnDefs = [
       {
-
         headerName: this._dataTable.dataPropertyTable.headerName,
         children: [
           {
@@ -105,7 +89,7 @@ export class TableIngresosComponent {
         ]
       },
 
-      ...avalaibleYearsService.getYearsSelected().map(year => {
+      ...this.avalaibleYearsService.getYearsSelected().map(year => {
         return {
           headerName: year,
           children: this.createColumnsChildren(year),
@@ -139,7 +123,6 @@ export class TableIngresosComponent {
       },
 
       // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
-
       rowData: this._dataTable.rowData,
       columnDefs: this._columnDefs,
       groupDisplayType: 'custom',
@@ -158,24 +141,13 @@ export class TableIngresosComponent {
         this.textButton = "Mostrar gráfico";
         // this.showGraph();
       }
-      // onRowClicked: function (event) {
-      //   // https://michelestieven.medium.com/angular-derived-values-from-forms-with-rxjs-48760807ed1e
-      //   console.log('a row was clicked');
-      //   this.textButton = "Mostrar gráfico";
 
-      //   //document.querySelector('#showGraph')!.innerHTML = `${this.textButton}`;
-      //   console.log(this.textButton);
-      //   //this.showGraph()
-      // },
-      // onColumnResized: function (event) { console.log('a column was resized'); },
-
-      // CALLBACKS
-      // isScrollLag: function () { return false; }
-      // getRowHeight: (params) => 25
 
     } as GridOptions;
-  }
 
+    this.textButton = `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName} para mostrar gráfico`;
+
+  }
   // Store the api for later use.
   // No lo uso en este componente pero si quisiese hacer alguna llamada a las API
   // este codigo es necesario.
@@ -317,22 +289,7 @@ export class TableIngresosComponent {
     rowData = (await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos'))
       .filter(item => item.CodCap === +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]
       );
-    console.log('Despues getDataAllYear()', rowData);
-
-    // rowData.map(item => {
-    //   item.CodCap = Math.floor((item.CodEco / 10000));
-    //   return item;
-    // });
-    // console.log('Despues map()', rowData);
-
-    // rowData
-    // .filter(item => item.CodCap === this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    // console.log('Despues filter()', rowData);
-
-    // let r = rowData.filter(item => item.CodCap === +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    // console.log('r Despues filter()', r);
-    // rowData = r
-
+    // console.log('Despues getDataAllYear()', rowData);
     const sendDataTable: IDataTable = {
       dataPropertyTable,
       clasificationType: 'ingresosEconomicaCapitulos',
@@ -342,21 +299,8 @@ export class TableIngresosComponent {
     // await this.esperar();
     this._dataStoreService.setDataTable = sendDataTable;
     this._dataTable = this._dataStoreService.getDataTable
-    console.log('Despues setDataTable()', this._dataTable);
+    // console.log('Despues setDataTable()', this._dataTable);
   }
-
-  // async filtrar(datos) {
-  //   console.log(datos.filter(item => {
-  //     item.CodCap === +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
-  //     // return { ...item }
-  //   }));
-  // }
-
-  // async esperar() {
-  //   setTimeout(() => {
-  //     console.log('Esperando');
-  //   }, 5000)
-  // }
 
 }
 
