@@ -14,14 +14,14 @@ export class AvalaibleYearsService {
 
     if (this.yearsSelected.length > 1) {
       if (max === 2022) {
-        message = `Liquidaciones ${min} al ${max} (Datos 2022 = ejecución al 01/09/2022)`
+        message = `Liquidaciones ${min} al ${max} (Datos 2022 = ejecución al 30/09/2022)`
       } else {
         message = `Liquidaciones  ${min} al ${max}`
       }
     }
     else {
       if (max === 2022) {
-        message = `${max} ejecución al 01/09/2022`
+        message = `${max} ejecución al 30/09/2022`
       } else {
         message = `Liquidación ${min}`
       }

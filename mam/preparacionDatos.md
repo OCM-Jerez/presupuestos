@@ -158,11 +158,6 @@ End Sub
     - Facturas consumen disp. Pend. Contabilizar
     - Gastado en Fase Definitiva
     
-- Renombrar
-
-        ⋅⋅⋅Org. -> CodOrg
-        ⋅⋅⋅Pro. -> CodPro
-        ⋅⋅⋅Eco. -> CodEco
 
 - Añadir columnas:
 
@@ -171,6 +166,9 @@ End Sub
         ⋅⋅⋅DesOrg
         ⋅⋅⋅DesPro
         ⋅⋅⋅DesEco
+
+- Copiar cabecera de fichero anterior. ES IMPORTANTE QUE COINCIDAN LAS COLUMNAS.
+  DE LO CONTRARIO DESPLAZARA LOS VALORES SI FALTA ALGUNA.
 
 - Cambiar a tipo numero, 0 decimales, sin separador de miles, las columnas:
 CodOrg hay que convertir a numero evitando el doble caracter 00, 01, 02 ....   Multiplicar por 1 y copiar como valor.
