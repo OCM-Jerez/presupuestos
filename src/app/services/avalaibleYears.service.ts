@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 // https://stackoverflow.com/questions/54476526/how-to-reload-the-header-component-when-the-variable-value-changes-via-service/54476754
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AvalaibleYearsService {
@@ -14,14 +15,14 @@ export class AvalaibleYearsService {
 
     if (this.yearsSelected.length > 1) {
       if (max === 2022) {
-        message = `Liquidaciones ${min} al ${max} (Datos 2022 = ejecución al 30/09/2022)`
+        message = `Liquidaciones ${min} al ${max} (Datos 2022 = ejecución al ${environment.liqDate})`
       } else {
         message = `Liquidaciones  ${min} al ${max}`
       }
     }
     else {
       if (max === 2022) {
-        message = `${max} ejecución al 30/09/2022`
+        message = `${max} ejecución al ${environment.liqDate}`
       } else {
         message = `Liquidación ${min}`
       }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 import { DataStoreService } from '../services/dataStore.service';
 import { PrepareDataIngresosService } from '../services/prepareDataIngresos.service';
@@ -17,6 +18,7 @@ import { getClasificacionGraph } from '../graphs/data-graph';
   styleUrls: ['./indice.component.scss']
 })
 export class IndiceComponent {
+  public liqDate = environment.liqDate;
   constructor(
     private _router: Router,
     private _dataStoreService: DataStoreService,
