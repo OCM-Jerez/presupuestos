@@ -405,7 +405,7 @@ export class TableProgramaDetailsComponent {
             columnGroupShow: 'close'
           },
           {
-            headerName: 'Obligaciones pendientes de pago al 31 diciembre',
+            headerName: 'Obligaciones pendientes de pago al final periodo',
             field: `ObligacionesPendientePago${year}`,
             width: 120,
             columnGroupShow: 'close'

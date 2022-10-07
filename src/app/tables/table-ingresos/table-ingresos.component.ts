@@ -220,7 +220,7 @@ export class TableIngresosComponent {
             columnGroupShow: 'close'
           },
           {
-            headerName: 'Pendientes de cobro al 31 diciembre',
+            headerName: 'Pendientes de cobro al final del periodo',
             field: `DerechosPendienteCobro${year}`,
             columnGroupShow: 'open'
           },
