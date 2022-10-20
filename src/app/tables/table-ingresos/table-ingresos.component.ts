@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -18,6 +18,8 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 
 import { getClasificacion } from '../../tables/data-table';
+import { TableIngresosService } from '../../services/table-ingresos.service';
+import { CLASIFICATION_TYPE } from '../../commons/util/util';
 
 @Component({
   selector: 'app-compara-ing',
@@ -39,33 +41,34 @@ export class TableIngresosComponent {
     private _dataStoreService: DataStoreService,
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
     private _alertService: AlertService,
-    private _prepareDataIngresosService: PrepareDataIngresosService
+    private _prepareDataIngresosService: PrepareDataIngresosService,
+    private _tableIngresosService: TableIngresosService
+
   ) {
     this._loadPropertyTable();
   }
 
-
   private async _loadPropertyTable() {
-    if (this._dataStoreService.IsDetails) {
-      // console.log('IsDetail', this._dataStoreService.IsDetails);
-      await this.setDataTable()
-      this._dataTable = this._dataStoreService.getDataTable
-      this._dataTable.dataPropertyTable.headerName = 'Clasificado por Económico';
-      this._dataTable.dataPropertyTable.subHeaderName = 'Económico';
-      this._dataTable.dataPropertyTable.sufijo = 'Eco';
-      this._dataTable.dataPropertyTable.codField = 'CodEco';
-      this._dataTable.dataPropertyTable.desField = 'DesEco';
-      this._dataTable.dataPropertyTable.width = 400;
-      this._dataTable = this._dataStoreService.getDataTable
-      // console.log('Despues dataPropertyTable', this._dataTable);
-    } else {
-      this._dataTable = this._dataStoreService.getDataTable;
-      this._dataTable.dataPropertyTable.codField = 'CodCap';
-      this._dataTable.dataPropertyTable.codField = 'CodCap';
-      this._dataTable.dataPropertyTable.desField = 'DesCap';
-      // console.log('IsDetail', this._dataStoreService.IsDetails);
-      // console.log('Datos con IsDetail = false', this._dataTable.rowData)
-    }
+    // if (this._dataStoreService.IsDetails) {
+    //   // console.log('IsDetail', this._dataStoreService.IsDetails);
+    //   await this.setDataTable()
+    this._dataTable = this._dataStoreService.getDataTable
+    //   this._dataTable.dataPropertyTable.headerName = 'Clasificado por Económico';
+    //   this._dataTable.dataPropertyTable.subHeaderName = 'Económico';
+    //   this._dataTable.dataPropertyTable.sufijo = 'Eco';
+    //   this._dataTable.dataPropertyTable.codField = 'CodEco';
+    //   this._dataTable.dataPropertyTable.desField = 'DesEco';
+    //   this._dataTable.dataPropertyTable.width = 400;
+    //   this._dataTable = this._dataStoreService.getDataTable
+    //   // console.log('Despues dataPropertyTable', this._dataTable);
+    // } else {
+    //   this._dataTable = this._dataStoreService.getDataTable;
+    //   this._dataTable.dataPropertyTable.codField = 'CodCap';
+    //   this._dataTable.dataPropertyTable.codField = 'CodCap';
+    //   this._dataTable.dataPropertyTable.desField = 'DesCap';
+    //   // console.log('IsDetail', this._dataStoreService.IsDetails);
+    //   // console.log('Datos con IsDetail = false', this._dataTable.rowData)
+    // }
 
     this._columnDefs = [
       {
@@ -257,17 +260,38 @@ export class TableIngresosComponent {
     }, 50);
   }
 
-  async prepareData() {
-    let rowData: any[];
-    rowData = await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaCapitulos');
-    this._dataTable.rowData = rowData;
-  }
+  // async prepareData() {
+  //   let rowData: any[];
+  //   rowData = await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaCapitulos');
+  //   this._dataTable.rowData = rowData;
+  // }
 
-  showEconomicoDetails() {
+  async showEconomicoDetails() {
     this._dataStoreService.IsDetails = true;
+
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      console.log(this._dataStoreService.getDataTable);
+
+      let typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaEconomicos'; //this._dataStoreService.getDataTable.clasificationType;
+
+      let attribute = 'CodEco';
+      if (this._dataStoreService.getDataTable.clasificationType === 'ingresosEconomicaCapitulos') {
+        attribute = 'CodCap';
+      }
+      const useStarWitch = this._dataStoreService.getDataTable.clasificationType === 'ingresosEconomicaArticulos';
+
+      if (this._dataStoreService.getDataTable.clasificationType === 'ingresosEconomicaArticulos') {
+        typeClasification = 'ingresosEconomicaEconomicos';
+        attribute = 'CodEco';
+      }
+
+      await this._tableIngresosService.loadDataForTypeClasification(
+        typeClasification,
+        true,
+        { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
+
       this.reloadCurrentRoute()
     } else {
       this._alertService.showAlert(`Selecciona económico`);

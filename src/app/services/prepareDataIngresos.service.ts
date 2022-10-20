@@ -85,8 +85,10 @@ export class PrepareDataIngresosService {
         break;
       case 'ingresosEconomicaArticulos':
         result.map(item => {
-          item.CodEco = Math.floor((item.CodEco / 1000));
-          item.DesEco = ingresosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
+          item.CodArt = Math.floor((item.CodEco / 1000));
+          // item.CodEco;
+          item.DesArt = ingresosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodArt).descripcion;
+          // item.DesEco = ingresosEconomicaEconomicos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
         });
         break;
       case 'ingresosEconomicaConceptos':

@@ -1,6 +1,8 @@
+import { CLASIFICATION_TYPE } from "../util/util";
+
 export interface IDataTable {
     dataPropertyTable: IDataProperty;
-    clasificationType: string;
+    clasificationType: CLASIFICATION_TYPE;
     rowData: any[]
 }
 

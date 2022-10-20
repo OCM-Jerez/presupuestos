@@ -1,4 +1,5 @@
 import { IDataProperty } from "../commons/interfaces/dataTable.interface";
+import { CLASIFICATION_TYPE } from "../commons/util/util";
 
 const CLASIFICATION = {
     ingresosEconomicaCapitulos: {
@@ -13,8 +14,8 @@ const CLASIFICATION = {
         sufijo: 'Eco',
         headerName: 'Clasificado por articulo',
         subHeaderName: 'Articulo',
-        codField: 'CodEco',
-        desField: 'DesEco',
+        codField: 'CodArt',
+        desField: 'DesArt',
         width: 550,
     },
     ingresosEconomicaConceptos: {
@@ -107,6 +108,6 @@ const CLASIFICATION = {
     },
 }
 
-export const getClasificacion = (tipo: string): IDataProperty => {
-    return CLASIFICATION[tipo];
+export const getClasificacion = (tipo: CLASIFICATION_TYPE): IDataProperty => {
+    return CLASIFICATION[tipo.toString()];
 }
