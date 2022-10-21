@@ -19,4 +19,17 @@ export async function asynForEach(array: Array<number>, callback: Function) {
     }
 }
 
-export type CLASIFICATION_TYPE = 'ingresosEconomicaCapitulos' | 'ingresosEconomicaArticulos' | 'ingresosEconomicaConceptos' | 'ingresosEconomicaEconomicos' | 'gastosOrganicaOrganicos' | 'gastosProgramaAreas' | 'gastosProgramaPoliticas' | 'gastosProgramaGrupos' | 'gastosProgramaProgramas' | 'gastosEconomicaCapitulos' | 'gastosEconomicaArticulos' | 'gastosEconomicaConceptos' | 'gastosEconomicaEconomicos';
+export type CLASIFICATION_TYPE =
+    'ingresosEconomicaCapitulos'
+    | 'ingresosEconomicaArticulos'
+    | 'ingresosEconomicaConceptos'
+    | 'ingresosEconomicaEconomicos'
+    | 'gastosOrganicaOrganicos'
+    | 'gastosProgramaAreas'
+    | 'gastosProgramaPoliticas'
+    | 'gastosProgramaGrupos'
+    | 'gastosProgramaProgramas'
+    | 'gastosEconomicaCapitulos'
+    | 'gastosEconomicaArticulos'
+    | 'gastosEconomicaConceptos'
+    | 'gastosEconomicaEconomicos';
