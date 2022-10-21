@@ -22,8 +22,8 @@ const CLASIFICATION = {
         sufijo: 'Eco',
         headerName: 'Clasificado por concepto',
         subHeaderName: 'Concepto',
-        codField: 'CodEco',
-        desField: 'DesEco',
+        codField: 'CodCon',
+        desField: 'DesCon',
         width: 660,
     },
     ingresosEconomicaEconomicos: {

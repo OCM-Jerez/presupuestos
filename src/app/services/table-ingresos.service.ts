@@ -16,10 +16,13 @@ export class TableIngresosService {
         private _prepareDataIngresosService: PrepareDataIngresosService,
         private _prepareDataGastosService: PrepareDataGastosService,
         private _dataStoreService: DataStoreService,
-
     ) { }
 
-    async loadDataForTypeClasification(tipoClasificacion: CLASIFICATION_TYPE, isIncome: boolean, filter?: { valueFilter: string, attribute: string, useStarWitch?: boolean }): Promise<void> {
+    async loadDataForTypeClasification(
+        isIncome: boolean,
+        tipoClasificacion?: CLASIFICATION_TYPE,
+        filter?: { valueFilter: string, attribute: string, useStarWitch?: boolean }
+    ): Promise<void> {
         const dataPropertyTable = getClasificacion(tipoClasificacion);
         const dataPropertyGraph = getClasificacionGraph(tipoClasificacion);
         let rowData: any[];
@@ -30,7 +33,6 @@ export class TableIngresosService {
         }
 
         if (filter) {
-
             rowData = filter.useStarWitch ? rowData.filter(item => item[filter.attribute].toString().startsWith(filter.valueFilter))
                 : rowData.filter(item => item[filter.attribute] == filter.valueFilter);
         }

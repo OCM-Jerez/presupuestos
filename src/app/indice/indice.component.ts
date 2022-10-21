@@ -56,7 +56,7 @@ export class IndiceComponent {
     // this._dataStoreService.setDataTable = sendDataTable;
     // this._dataStoreService.dataGraph = sendDataGraph;
 
-    await this._tableIngresosService.loadDataForTypeClasification(tipoClasificacion, isIncome);
+    await this._tableIngresosService.loadDataForTypeClasification(isIncome, tipoClasificacion,);
 
     if (isIncome) {
       this._dataStoreService.IsDetails = false;
