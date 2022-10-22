@@ -49,27 +49,7 @@ export class TableIngresosComponent {
   }
 
   private async _loadPropertyTable() {
-    // if (this._dataStoreService.IsDetails) {
-    //   // console.log('IsDetail', this._dataStoreService.IsDetails);
-    //   await this.setDataTable()
     this._dataTable = this._dataStoreService.getDataTable
-    //   this._dataTable.dataPropertyTable.headerName = 'Clasificado por Económico';
-    //   this._dataTable.dataPropertyTable.subHeaderName = 'Económico';
-    //   this._dataTable.dataPropertyTable.sufijo = 'Eco';
-    //   this._dataTable.dataPropertyTable.codField = 'CodEco';
-    //   this._dataTable.dataPropertyTable.desField = 'DesEco';
-    //   this._dataTable.dataPropertyTable.width = 400;
-    //   this._dataTable = this._dataStoreService.getDataTable
-    //   // console.log('Despues dataPropertyTable', this._dataTable);
-    // } else {
-    //   this._dataTable = this._dataStoreService.getDataTable;
-    //   this._dataTable.dataPropertyTable.codField = 'CodCap';
-    //   this._dataTable.dataPropertyTable.codField = 'CodCap';
-    //   this._dataTable.dataPropertyTable.desField = 'DesCap';
-    //   // console.log('IsDetail', this._dataStoreService.IsDetails);
-    //   // console.log('Datos con IsDetail = false', this._dataTable.rowData)
-    // }
-
     this._columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,
@@ -260,12 +240,6 @@ export class TableIngresosComponent {
     }, 50);
   }
 
-  // async prepareData() {
-  //   let rowData: any[];
-  //   rowData = await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaCapitulos');
-  //   this._dataTable.rowData = rowData;
-  // }
-
   async showEconomicoDetails() {
     this._dataStoreService.IsDetails = true;
 
@@ -316,8 +290,6 @@ export class TableIngresosComponent {
   }
 
   reloadCurrentRoute() {
-    // console.log('reloadCurrentRoute()');
-    // console.log('Antes', this._dataTable);
     let currentUrl = this._router.url;
     this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this._router.navigate([currentUrl]);
@@ -330,17 +302,13 @@ export class TableIngresosComponent {
     rowData = (await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos'))
       .filter(item => item.CodCap === +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]
       );
-    // console.log('Despues getDataAllYear()', rowData);
     const sendDataTable: IDataTable = {
       dataPropertyTable,
       clasificationType: 'ingresosEconomicaCapitulos',
       rowData
     }
-    // console.log(sendDataTable);
-    // await this.esperar();
     this._dataStoreService.setDataTable = sendDataTable;
     this._dataTable = this._dataStoreService.getDataTable
-    // console.log('Despues setDataTable()', this._dataTable);
   }
 
 }
