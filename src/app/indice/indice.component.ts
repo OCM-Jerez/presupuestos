@@ -31,31 +31,6 @@ export class IndiceComponent {
 
   async openTable(tipoClasificacion: CLASIFICATION_TYPE): Promise<void> {
     const isIncome = tipoClasificacion.startsWith('ingresos');
-    // const dataPropertyTable = getClasificacion(tipoClasificacion);
-    // const dataPropertyGraph = getClasificacionGraph(tipoClasificacion);
-    // let rowData: any[];
-    // if (isIncome) {
-    //   rowData = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion);
-    // } else {
-    //   rowData = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion, dataPropertyTable.sufijo);
-    // }
-
-    // const sendDataTable: IDataTable = {
-    //   dataPropertyTable,
-    //   clasificationType: tipoClasificacion,
-    //   rowData
-    // }
-
-    // const sendDataGraph: IDataGraph = {
-    //   clasificationType: tipoClasificacion,
-    //   rowData,
-    //   graphTitle: dataPropertyGraph.graphTitle,
-    //   graphSubTitle: ''
-    // }
-    // // Uso el setter
-    // this._dataStoreService.setDataTable = sendDataTable;
-    // this._dataStoreService.dataGraph = sendDataGraph;
-
     await this._tableIngresosService.loadDataForTypeClasification(isIncome, tipoClasificacion,);
 
     if (isIncome) {
