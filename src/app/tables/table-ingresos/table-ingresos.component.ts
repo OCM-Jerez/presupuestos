@@ -18,7 +18,7 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 
 import { getClasificacion } from '../../tables/data-table';
-import { TableService } from '../../services/table-ingresos.service';
+import { TableService } from '../../services/table.service';
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
 
 @Component({
