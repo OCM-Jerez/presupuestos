@@ -13,6 +13,7 @@ import { environment } from '../../environments/environment';
 })
 export class IndiceComponent {
   public liqDate = environment.liqDate;
+  // https://stackoverflow.com/questions/69549927/how-to-pass-enum-value-in-angular-template-as-an-input
   constructor(
     private _router: Router,
     private _tableService: TableService
