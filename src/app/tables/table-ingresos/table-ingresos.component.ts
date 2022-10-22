@@ -17,7 +17,7 @@ import { AlertService } from '../../services/alert.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 
-import { getClasificacion } from '../../tables/data-table';
+// import { getClasificacion } from '../../tables/data-table';
 import { TableService } from '../../services/table.service';
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
 
@@ -267,20 +267,20 @@ export class TableIngresosComponent {
     });
   }
 
-  async setDataTable(): Promise<void> {
-    const dataPropertyTable = getClasificacion('ingresosEconomicaCapitulos');
-    let rowData: any[];
-    rowData = (await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos'))
-      .filter(item => item.CodCap === +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]
-      );
-    const sendDataTable: IDataTable = {
-      dataPropertyTable,
-      clasificationType: 'ingresosEconomicaCapitulos',
-      rowData
-    }
-    this._dataStoreService.setDataTable = sendDataTable;
-    this._dataTable = this._dataStoreService.getDataTable
-  }
+  // async setDataTable(): Promise<void> {
+  //   const dataPropertyTable = getClasificacion('ingresosEconomicaCapitulos');
+  //   let rowData: any[];
+  //   rowData = (await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos'))
+  //     .filter(item => item.CodCap === +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]
+  //     );
+  //   const sendDataTable: IDataTable = {
+  //     dataPropertyTable,
+  //     clasificationType: 'ingresosEconomicaCapitulos',
+  //     rowData
+  //   }
+  //   this._dataStoreService.setDataTable = sendDataTable;
+  //   this._dataTable = this._dataStoreService.getDataTable
+  // }
 
 }
 
