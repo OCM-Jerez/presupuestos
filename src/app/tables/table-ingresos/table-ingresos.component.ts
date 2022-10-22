@@ -242,47 +242,18 @@ export class TableIngresosComponent {
 
   async showEconomicoDetails() {
     this._dataStoreService.IsDetails = true;
-
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
 
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      // console.log(this._dataStoreService.getDataTable);
-
       let typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaEconomicos';
-      //this._dataStoreService.getDataTable.clasificationType;
-      let useStarWitch: boolean;
-      let attribute: string;
-
-      if (this._dataStoreService.getDataTable.clasificationType === 'ingresosEconomicaCapitulos') {
-        // typeClasification = 'ingresosEconomicaEconomicos';
-        attribute = 'CodCap';
-        useStarWitch = false;
-      }
-
-      if (this._dataStoreService.getDataTable.clasificationType === 'ingresosEconomicaArticulos') {
-        // typeClasification = 'ingresosEconomicaEconomicos';
-        attribute = 'CodEco';
-        useStarWitch = true;
-      }
-
-      if (this._dataStoreService.getDataTable.clasificationType === 'ingresosEconomicaConceptos') {
-        // typeClasification = 'ingresosEconomicaEconomicos';
-        attribute = 'CodEco';
-        useStarWitch = true;
-      }
-
-      if (this._dataStoreService.getDataTable.clasificationType === 'ingresosEconomicaEconomicos') {
-        // typeClasification = 'ingresosEconomicaEconomicos';
-        attribute = 'CodEco';
-        useStarWitch = false;
-      }
+      let useStarWitch: boolean = this._dataTable.dataPropertyTable.useStarWitch;
+      let attribute: string = this._dataTable.dataPropertyTable.attribute;
 
       await this._tableService.loadDataForTypeClasification(
         true,
         typeClasification,
         { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
-
       this.reloadCurrentRoute()
     } else {
       this._alertService.showAlert(`Selecciona económico`);

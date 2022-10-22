@@ -9,7 +9,8 @@ const CLASIFICATION = {
         codField: 'CodCap',
         desField: 'DesCap',
         width: 250,
-
+        attribute: 'CodCap',
+        useStarWitch: false,
     },
     ingresosEconomicaArticulos: {
         sufijo: 'Eco',
@@ -18,6 +19,8 @@ const CLASIFICATION = {
         codField: 'CodArt',
         desField: 'DesArt',
         width: 550,
+        attribute: 'CodEco',
+        useStarWitch: true,
     },
     ingresosEconomicaConceptos: {
         sufijo: 'Eco',
@@ -26,6 +29,8 @@ const CLASIFICATION = {
         codField: 'CodCon',
         desField: 'DesCon',
         width: 660,
+        attribute: 'CodEco',
+        useStarWitch: true,
     },
     ingresosEconomicaEconomicos: {
         sufijo: 'Eco',
@@ -34,6 +39,8 @@ const CLASIFICATION = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 550,
+        attribute: 'CodEco',
+        useStarWitch: false,
     },
     gastosOrganicaOrganicos: {
         sufijo: 'Org',

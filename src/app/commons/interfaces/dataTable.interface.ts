@@ -14,4 +14,6 @@ export interface IDataProperty {
     desField: string;
     width: number;
     graphTitle: string;
+    attribute: string;
+    useStarWitch: boolean;
 }
