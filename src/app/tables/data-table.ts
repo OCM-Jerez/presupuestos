@@ -9,6 +9,7 @@ const CLASIFICATION = {
         codField: 'CodCap',
         desField: 'DesCap',
         width: 250,
+
     },
     ingresosEconomicaArticulos: {
         sufijo: 'Eco',

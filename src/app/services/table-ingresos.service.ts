@@ -11,7 +11,7 @@ import { CLASIFICATION_TYPE } from '../commons/util/util';
 @Injectable({
     providedIn: 'root'
 })
-export class TableIngresosService {
+export class TableService {
     constructor(
         private _prepareDataIngresosService: PrepareDataIngresosService,
         private _prepareDataGastosService: PrepareDataGastosService,

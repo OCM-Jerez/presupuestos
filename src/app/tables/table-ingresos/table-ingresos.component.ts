@@ -18,7 +18,7 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 
 import { getClasificacion } from '../../tables/data-table';
-import { TableIngresosService } from '../../services/table-ingresos.service';
+import { TableService } from '../../services/table-ingresos.service';
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
 
 @Component({
@@ -42,7 +42,7 @@ export class TableIngresosComponent {
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
     private _alertService: AlertService,
     private _prepareDataIngresosService: PrepareDataIngresosService,
-    private _tableIngresosService: TableIngresosService
+    private _tableService: TableService
 
   ) {
     this._loadPropertyTable();
@@ -278,7 +278,7 @@ export class TableIngresosComponent {
         useStarWitch = false;
       }
 
-      await this._tableIngresosService.loadDataForTypeClasification(
+      await this._tableService.loadDataForTypeClasification(
         true,
         typeClasification,
         { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
