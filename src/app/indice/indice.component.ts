@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-
-import { DataStoreService } from '../services/dataStore.service';
 import { TableService } from '../services/table-ingresos.service';
 
 import { CLASIFICATION_TYPE } from '../commons/util/util';
@@ -17,7 +15,6 @@ export class IndiceComponent {
   public liqDate = environment.liqDate;
   constructor(
     private _router: Router,
-    private _dataStoreService: DataStoreService,
     private _tableService: TableService
   ) { }
 
@@ -26,7 +23,6 @@ export class IndiceComponent {
     await this._tableService.loadDataForTypeClasification(isIncome, tipoClasificacion,);
 
     if (isIncome) {
-      this._dataStoreService.IsDetails = false;
       this._router.navigateByUrl('/tableIngresos')
     } else {
       this._router.navigateByUrl('/tableGastos')

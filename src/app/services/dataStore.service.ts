@@ -15,7 +15,7 @@ export class DataStoreService {
   private _dataGraphTree: any[];
   private _graphTitle: string;
   private _selectedCodeRowFirstLevel: string;
-  private _IsDetails: boolean;
+  private _IsDetails = false;
 
   get getDataTable(): IDataTable {
     return this._data
