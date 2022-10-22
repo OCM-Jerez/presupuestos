@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    localStorage.removeItem("selected_years");
     this._alertService.alert$.subscribe((res) => {
       this.message = res.message;
       this.showAlert = true;

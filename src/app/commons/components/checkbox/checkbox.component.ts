@@ -22,25 +22,34 @@ export class CheckboxComponent implements OnInit {
       {
         year: 2016,
         checked: false,
-      }, {
+      },
+      {
         year: 2017,
         checked: false,
-      }, {
+      },
+      {
         year: 2018,
         checked: false,
       },
       {
         year: 2019,
         checked: false,
-      }, {
+      },
+      {
         year: 2020,
         checked: false,
-      }, {
+      },
+      {
         year: 2021,
         checked: false,
-      }, {
+      },
+      {
         year: 2022,
         checked: true,
+      },
+      {
+        year: 'Todos',
+        checked: false,
       },
     ]
     this.getSelectedItem();
@@ -54,11 +63,27 @@ export class CheckboxComponent implements OnInit {
   }
 
   private getSelectedItem(tipo?: string) {
-    const years = this.result.map((year) => year.year);
-    this._avalaibleYearsService.setAvalaibleYear(years);
+    if (localStorage.getItem('selected_years') === null) {
+      const selectedYears = this.result.map((year) => year.year);
+      localStorage.setItem("selected_years", JSON.stringify(selectedYears)); //store years selected
+    }
+
+    const storedSelectedYears = JSON.parse(localStorage.getItem("selected_years")); //get them back
+    // actualizo años seleccionados
+    for (let i = 0; i < storedSelectedYears.length; i++) {
+      for (let j = 0; j < this.years.length; j++) {
+        if (storedSelectedYears[i] === this.years[j].year) {
+          this.years[j].checked = true
+        }
+      }
+    }
+
+    this._avalaibleYearsService.setAvalaibleYear(storedSelectedYears);
   }
 
   changeCheckbox(event: Event) {
+    const selectedYears = this.result.map((year) => year.year);
+    localStorage.setItem("selected_years", JSON.stringify(selectedYears)); //store years selected
     this.getSelectedItem();
   }
 
