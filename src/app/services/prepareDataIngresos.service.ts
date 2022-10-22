@@ -107,7 +107,7 @@ export class PrepareDataIngresosService {
         });
         break;
     }
-    console.log(result);
+    // console.log(result);
     return result;
   }
 
