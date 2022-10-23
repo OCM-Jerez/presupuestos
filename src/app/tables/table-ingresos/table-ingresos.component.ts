@@ -15,9 +15,7 @@ import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree
 import { AlertService } from '../../services/alert.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
-// import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 
-// import { getClasificacion } from '../../tables/data-table';
 import { TableService } from '../../services/table.service';
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
 
@@ -41,9 +39,7 @@ export class TableIngresosComponent {
     private _dataStoreService: DataStoreService,
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
     private _alertService: AlertService,
-    // private _prepareDataIngresosService: PrepareDataIngresosService,
     private _tableService: TableService
-
   ) {
     this._loadPropertyTable();
   }
@@ -231,7 +227,6 @@ export class TableIngresosComponent {
   }
 
   showGraphTree() {
-    // console.log(this._dataTable.rowData);
     this._prepareDataGraphTreeService.prepareDataGraphTree(this._dataTable.rowData);
     setTimeout(() => {
       this._router.navigateByUrl("/graphTree")
@@ -242,7 +237,6 @@ export class TableIngresosComponent {
     this._dataStoreService.IsDetails = true;
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
-
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
       let typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaEconomicos';
       let useStarWitch: boolean = this._dataTable.dataPropertyTable.useStarWitch;
@@ -264,21 +258,6 @@ export class TableIngresosComponent {
       this._router.navigate([currentUrl]);
     });
   }
-
-  // async setDataTable(): Promise<void> {
-  //   const dataPropertyTable = getClasificacion('ingresosEconomicaCapitulos');
-  //   let rowData: any[];
-  //   rowData = (await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos'))
-  //     .filter(item => item.CodCap === +this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]
-  //     );
-  //   const sendDataTable: IDataTable = {
-  //     dataPropertyTable,
-  //     clasificationType: 'ingresosEconomicaCapitulos',
-  //     rowData
-  //   }
-  //   this._dataStoreService.setDataTable = sendDataTable;
-  //   this._dataTable = this._dataStoreService.getDataTable
-  // }
 
 }
 
