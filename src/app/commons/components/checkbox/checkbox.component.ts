@@ -65,7 +65,6 @@ export class CheckboxComponent implements OnInit {
 
   private getSelectedItem(tipo?: string) {
     if (localStorage.getItem('selected_years') === null) {
-
       const selectedYears = this.result.map((year) => year.year);
       localStorage.setItem("selected_years", JSON.stringify(selectedYears)); //store years selected
     }
@@ -84,23 +83,23 @@ export class CheckboxComponent implements OnInit {
   }
 
   changeCheckbox(event: Event) {
-    // if (this.years[8].checked === true) {
-    //   this.years[8].year = 'Ninguno'
-    //   for (let j = 0; j < this.years.length - 1; j++) {
-    //     this.years[j].checked = true
-    //   }
-    //   // this.years.map((element, index) => {
-    //   //   console.log(element, index);
-    //   //   if (index < this.years.length) { element[index].checked = true }
-    //   // })
-    // }
-    // else {
-    //   this.years[8].year = 'Todos'
-    //   for (let j = 0; j < this.years.length; j++) {
-    //     this.years[j].checked = false
-    //   }
-    // }
-    // this.years[8].checked = false
+    if (this.years[8].checked === true) {
+      this.years[8].year = 'Ninguno'
+      for (let j = 0; j < this.years.length - 1; j++) {
+        this.years[j].checked = true
+      }
+      // this.years.map((element, index) => {
+      //   console.log(element, index);
+      //   if (index < this.years.length) { element[index].checked = true }
+      // })
+    }
+    else {
+      this.years[8].year = 'Todos'
+      for (let j = 0; j < this.years.length; j++) {
+        this.years[j].checked = false
+      }
+    }
+    this.years[8].checked = false
     const selectedYears = this.result.map((year) => year.year);
     localStorage.setItem("selected_years", JSON.stringify(selectedYears)); //store years selected
     this.getSelectedItem();
