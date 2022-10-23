@@ -1,16 +1,43 @@
 <div>
     <h4 class="OCM-text--cabecera">Comparativa ingresos {{
         avalaibleYearsService.getAvalaibleYear() | async }}</h4>
-    <button id="showGraph" type="button" class="OCM-btnExpand" (click)="showGraph()">{{textButton}}</button>
+
+    <!-- <button id="showGraph" type="button" class="OCM-btnExpand" (click)="showGraph()">{{textButton}}</button>
 
     <button type="button" *ngIf="hasGraphTree" class="OCM-btnExpand" (click)="showGraphTree()">Gráfico
-        arbol</button>
+        arbol</button> -->
+
+    <button id="showGraph" type="button" (click)="showGraph()" class="btn-54">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">{{textButton}}</span>
+    </button>
+
+    <button type="button" *ngIf="hasGraphTree" class="OCM-btnExpand" (click)="showGraphTree()" class="btn-54">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Gráfico arbol</span>
+    </button>
 
     <button type="button" (click)="showEconomicoDetails()" class="btn-54">
         <span class="shadow"></span>
         <span class="depth"></span>
-        <span class="content">Detalle económico</span>
+        <span class="content">Por artículo</span>
     </button>
+
+    <button type="button" (click)="showEconomicoDetails()" class="btn-54">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Por concepto</span>
+    </button>
+
+    <button type="button" (click)="showEconomicoDetails()" class="btn-54">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Por económico</span>
+    </button>
+
+
 
     <ag-grid-angular #agGrid style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"
         class="ag-theme-balham" [gridOptions]="gridOptions" (gridReady)="onGridReady($event)">

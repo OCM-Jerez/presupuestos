@@ -15,7 +15,7 @@ import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree
 import { AlertService } from '../../services/alert.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
-import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
+// import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 
 // import { getClasificacion } from '../../tables/data-table';
 import { TableService } from '../../services/table.service';
@@ -29,11 +29,11 @@ export class TableIngresosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
   public hasGraphTree = true;
+  public textButton: string;
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
   private _columnDefs: any[];
   private _dataTable: IDataTable;
-  textButton: string;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -41,7 +41,7 @@ export class TableIngresosComponent {
     private _dataStoreService: DataStoreService,
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
     private _alertService: AlertService,
-    private _prepareDataIngresosService: PrepareDataIngresosService,
+    // private _prepareDataIngresosService: PrepareDataIngresosService,
     private _tableService: TableService
 
   ) {
@@ -124,11 +124,9 @@ export class TableIngresosComponent {
         this.textButton = "Mostrar gráfico";
         // this.showGraph();
       }
-
-
     } as GridOptions;
 
-    this.textButton = `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName} para mostrar gráfico`;
+    this.textButton = `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`;
 
   }
   // Store the api for later use.
