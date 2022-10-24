@@ -25,6 +25,7 @@ export class TableService {
     ): Promise<void> {
         const dataPropertyTable = getClasificacion(tipoClasificacion);
         const dataPropertyGraph = getClasificacionGraph(tipoClasificacion);
+
         let rowData: any[];
         if (isIncome) {
             rowData = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion);
