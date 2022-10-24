@@ -234,25 +234,6 @@ export class TableIngresosComponent {
     }, 50);
   }
 
-  async porEconomico() {
-    this._dataStoreService.IsDetails = true;
-    const selectedRows = this.agGrid.api.getSelectedNodes();
-    if (selectedRows.length > 0) {
-      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      let typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaEconomicos';
-      let useStarWitch: boolean = this._dataTable.dataPropertyTable.useStarWitch;
-      let attribute: string = this._dataTable.dataPropertyTable.attribute;
-
-      await this._tableService.loadDataForTypeClasification(
-        true,
-        typeClasification,
-        { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
-      this.reloadCurrentRoute()
-    } else {
-      this._alertService.showAlert(`Selecciona económico`);
-    }
-  }
-
   async porArticulo() {
     this._dataStoreService.IsDetails = true;
     const selectedRows = this.agGrid.api.getSelectedNodes();
@@ -270,6 +251,45 @@ export class TableIngresosComponent {
       this.reloadCurrentRoute()
     } else {
       this._alertService.showAlert(`Selecciona artículo`);
+    }
+  }
+
+  async porConcepto() {
+    this._dataStoreService.IsDetails = true;
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      const typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaConceptos';
+      const dataPropertyTable = getClasificacion(typeClasification);
+      const useStarWitch: boolean = dataPropertyTable.useStarWitch;
+      const attribute: string = dataPropertyTable.attribute;
+
+      await this._tableService.loadDataForTypeClasification(
+        true,
+        typeClasification,
+        { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
+      this.reloadCurrentRoute()
+    } else {
+      this._alertService.showAlert(`Selecciona artículo`);
+    }
+  }
+
+  async porEconomico() {
+    this._dataStoreService.IsDetails = true;
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      let typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaEconomicos';
+      let useStarWitch: boolean = this._dataTable.dataPropertyTable.useStarWitch;
+      let attribute: string = this._dataTable.dataPropertyTable.attribute;
+
+      await this._tableService.loadDataForTypeClasification(
+        true,
+        typeClasification,
+        { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
+      this.reloadCurrentRoute()
+    } else {
+      this._alertService.showAlert(`Selecciona económico`);
     }
   }
 
