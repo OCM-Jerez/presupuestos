@@ -301,6 +301,15 @@ export class TableIngresosComponent {
     });
   }
 
+  async volver() {
+    let typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaCapitulos';
+    await this._tableService.loadDataForTypeClasification(
+      true,
+      typeClasification,
+    );
+    this.reloadCurrentRoute()
+  }
+
 }
 
 

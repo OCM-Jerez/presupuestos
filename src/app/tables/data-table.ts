@@ -1,5 +1,6 @@
 import { IDataProperty } from "../commons/interfaces/dataTable.interface";
 import { CLASIFICATION_TYPE } from "../commons/util/util";
+// import { TIPO_CLASIFICACION } from "../commons/enums/tiposClasificacion.enum";
 
 const CLASIFICATION = {
     ingresosEconomicaCapitulos: {
