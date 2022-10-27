@@ -46,7 +46,7 @@ export class CheckboxComponent implements OnInit {
       },
       {
         year: 2022,
-        checked: true,
+        checked: false,
       },
       {
         year: 'Todos',
@@ -65,8 +65,10 @@ export class CheckboxComponent implements OnInit {
 
   private getSelectedItem(tipo?: string) {
     if (localStorage.getItem('selected_years') === null) {
+      this.years[7].checked = true // por defecto selecciona último año disponible
       const selectedYears = this.result;
       localStorage.setItem("selected_years", JSON.stringify(selectedYears)); //store years selected
+
       const yearSelecteds = selectedYears.map((year) => year.year);
       this._avalaibleYearsService.generateMessage(yearSelecteds);
       return;
@@ -75,7 +77,9 @@ export class CheckboxComponent implements OnInit {
     const storedSelectedYears = JSON.parse(localStorage.getItem("selected_years")) as { year: number, checked: boolean }[]; //get them back
     // actualizo años seleccionados
     this.years.filter((year) => storedSelectedYears.find((yearFind) => yearFind.year === year.year)).forEach((yearFilter) => yearFilter.checked = true);
-
+    if (this.years.filter.length < 0) {
+      this.years[7].checked = true
+    }
     // for (let i = 0; i < storedSelectedYears.length; i++) {
     //   for (let j = 0; j < this.years.length; j++) {
     //     if (storedSelectedYears[i] === this.years[j].year) {
