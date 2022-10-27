@@ -1,4 +1,3 @@
-import { leadingComment } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
 
@@ -56,19 +55,19 @@ export class CheckboxComponent implements OnInit {
     this.getSelectedItem();
   }
 
-  get result(): {
-    year: number,
-    checked: boolean,
-  }[] {
-    return this.years.filter(item => item.checked);
-  }
+  // get result(): {
+  //   year: number,
+  //   checked: boolean,
+  // }[] {
+  //   return this.years.filter(item => item.checked);
+  // }
 
   private getSelectedItem(tipo?: string) {
     if (localStorage.getItem('selected_years') === null) {
       this.years[7].checked = true // por defecto selecciona último año disponible
-      const selectedYears = this.result;
+      // const selectedYears = this.result;
+      const selectedYears = this.years.filter(item => item.checked);
       localStorage.setItem("selected_years", JSON.stringify(selectedYears)); //store years selected
-
       const yearSelecteds = selectedYears.map((year) => year.year);
       this._avalaibleYearsService.generateMessage(yearSelecteds);
       return;
@@ -80,54 +79,22 @@ export class CheckboxComponent implements OnInit {
     if (this.years.filter.length < 0) {
       this.years[7].checked = true
     }
-    // for (let i = 0; i < storedSelectedYears.length; i++) {
-    //   for (let j = 0; j < this.years.length; j++) {
-    //     if (storedSelectedYears[i] === this.years[j].year) {
-    //       this.years[j].checked = true
-    //     }
-    //   }
-    // }
     const yearSelecteds = storedSelectedYears.map((year) => year.year);
     this._avalaibleYearsService.generateMessage(yearSelecteds);
   }
 
   changeCheckbox(yearSelected: { year: number, checked: boolean }) {
-
     if (yearSelected.year === this.years[8].year) {
       const isAll = this.years[8].checked === true;
       this.years[8].year = isAll ? 'Ninguno' : 'Todos';
       this.years.forEach((year) => year.checked = isAll);
     }
-
-
-
-    // if (this.years[8].checked === true) {
-    //   this.years.forEach((year) => year.checked = true);
-    //   this.years[8].year = 'Ninguno';
-
-    // for (let j = 0; j < this.years.length - 1; j++) {
-    //   this.years[j].checked = true
-    // }
-    // this.years.map((element, index) => {
-    //   console.log(element, index);
-    //   if (index < this.years.length) { element[index].checked = true }
-    // })
-    // }
-    // else {
-    //   this.years[8].year = 'Todos';
-    //   this.years.forEach((year) => year.checked = false);
-
-    //   for (let j = 0; j < this.years.length; j++) {
-    //     this.years[j].checked = false
-    //   }
-    // }
     this.years[8].checked = false
-    const selectedYears = this.result;
+    // const selectedYears = this.result;
+    const selectedYears = this.years.filter(item => item.checked);
     localStorage.setItem("selected_years", JSON.stringify(selectedYears)); //store years selected
-
     const yearSelecteds = selectedYears.map((year) => year.year);
     this._avalaibleYearsService.generateMessage(yearSelecteds);
-    //this.getSelectedItem();
   }
 
 }
