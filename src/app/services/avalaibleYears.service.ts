@@ -7,7 +7,17 @@ import { environment } from '../../environments/environment';
 export class AvalaibleYearsService {
   public subject$ = new BehaviorSubject<string>('2021');
   public yearsSelected: number[] = [];
-  public setAvalaibleYear(yearSelected: number[]): void {
+  private _message = '';
+
+  public set message(message: string) {
+    this._message = message;
+  }
+
+  public get message(): string {
+    return this._message;
+  }
+
+  generateMessage(yearSelected: number[]) {
     this.yearsSelected = yearSelected;
     const min = Math.min(...this.yearsSelected);
     const max = Math.max(...this.yearsSelected);
@@ -27,14 +37,8 @@ export class AvalaibleYearsService {
         message = `Liquidación ${min}`
       }
     };
-    ;
-    // max === 2022 ? message = `Del año ${min} al ${max} (Datos del 2022 = ejecución al 01/09/2022)` : message = `Año ${min} (Datos del 2022 = ejecución al 01/09/2022)`;
-    // this.yearsSelected.length === 1 && max === 2022 ? message = ` Comparativa liquidaciones del año ${min} al ${max} Los datos del 2022 corresponden a la ejecucion al día 01/09/2022` : message = `  ejecucion al día 01/09/2022`;
-    // this.yearsSelected.length > 1 && max === 2022 ? message = ` Comparativa liquidaciones del año ${min} al ${max} Los datos del 2022 corresponden a la ejecucion al día 01/09/2022` : message = `  ejecucion al día 01/09/2022`;
-    // this.yearsSelected.length > 1 && max !== 2022 ? message = ` Comparativa liquidaciones del año ${min} al ${max}` : message = ` liquidación año ${min}`;
-    // max === 2022 ? message = ` Ejecución al 01/09/2022` : message = `Comparativa liquidaciones del año ${min} al ${max}. Los datos del 2022 corresponden a la ejecucion al día 01/09/2022`;
-    // max != 2022 ? message = `Comparativa liquidaciones del año ${min} al ${max}` : message = `Comparativa liquidaciones del año ${min} al ${max}`;
-    this.subject$.next(message);
+
+    this.message = message;
   }
 
   public getAvalaibleYear() {

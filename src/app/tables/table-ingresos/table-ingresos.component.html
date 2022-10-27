@@ -1,6 +1,6 @@
 <div>
     <h4 class="OCM-text--cabecera">Comparativa ingresos {{
-        avalaibleYearsService.getAvalaibleYear() | async }}</h4>
+        messageYears }}</h4>
 
     <button id="showGraph" type="button" (click)="showGraph()" class="btn-54">
         <span class="shadow"></span>
@@ -30,6 +30,12 @@
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content">Por económico</span>
+    </button>
+
+    <button type="button" class="btn-54" onclick="history.back()">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Volver</span>
     </button>
 
     <ag-grid-angular #agGrid style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"

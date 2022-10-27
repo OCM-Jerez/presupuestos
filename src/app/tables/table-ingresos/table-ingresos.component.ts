@@ -44,6 +44,7 @@ export class TableIngresosComponent {
   ) {
     this._loadPropertyTable();
   }
+  messageYears = this.avalaibleYearsService.message;
 
   private async _loadPropertyTable() {
     this._dataTable = this._dataStoreService.getDataTable

@@ -4,8 +4,7 @@
     <legend class="checkbox-group-legend">Selecciona años a mostrar</legend>
     <div class="checkbox">
         <label *ngFor="let item of years">
-            <input type="checkbox" class="checkbox-input" [(ngModel)]="item.checked"
-                (change)="changeCheckbox($event)" />
+            <input type="checkbox" class="checkbox-input" [(ngModel)]="item.checked" (change)="changeCheckbox(item)" />
             <span class="checkbox-tile">
                 <span class="checkbox-label">{{item.year}}</span>
             </span>

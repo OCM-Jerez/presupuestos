@@ -65,44 +65,65 @@ export class CheckboxComponent implements OnInit {
 
   private getSelectedItem(tipo?: string) {
     if (localStorage.getItem('selected_years') === null) {
-      const selectedYears = this.result.map((year) => year.year);
+      const selectedYears = this.result;
       localStorage.setItem("selected_years", JSON.stringify(selectedYears)); //store years selected
+      const yearSelecteds = selectedYears.map((year) => year.year);
+      this._avalaibleYearsService.generateMessage(yearSelecteds);
+      return;
     }
 
-    const storedSelectedYears = JSON.parse(localStorage.getItem("selected_years")); //get them back
+    const storedSelectedYears = JSON.parse(localStorage.getItem("selected_years")) as { year: number, checked: boolean }[]; //get them back
     // actualizo años seleccionados
-    for (let i = 0; i < storedSelectedYears.length; i++) {
-      for (let j = 0; j < this.years.length; j++) {
-        if (storedSelectedYears[i] === this.years[j].year) {
-          this.years[j].checked = true
-        }
-      }
-    }
+    this.years.filter((year) => storedSelectedYears.find((yearFind) => yearFind.year === year.year)).forEach((yearFilter) => yearFilter.checked = true);
 
-    this._avalaibleYearsService.setAvalaibleYear(storedSelectedYears);
+    // for (let i = 0; i < storedSelectedYears.length; i++) {
+    //   for (let j = 0; j < this.years.length; j++) {
+    //     if (storedSelectedYears[i] === this.years[j].year) {
+    //       this.years[j].checked = true
+    //     }
+    //   }
+    // }
+    const yearSelecteds = storedSelectedYears.map((year) => year.year);
+    this._avalaibleYearsService.generateMessage(yearSelecteds);
   }
 
-  changeCheckbox(event: Event) {
-    if (this.years[8].checked === true) {
-      this.years[8].year = 'Ninguno'
-      for (let j = 0; j < this.years.length - 1; j++) {
-        this.years[j].checked = true
-      }
-      // this.years.map((element, index) => {
-      //   console.log(element, index);
-      //   if (index < this.years.length) { element[index].checked = true }
-      // })
+  changeCheckbox(yearSelected: { year: number, checked: boolean }) {
+
+    if (yearSelected.year === this.years[8].year) {
+      const isAll = this.years[8].checked === true;
+      this.years[8].year = isAll ? 'Ninguno' : 'Todos';
+      this.years.forEach((year) => year.checked = isAll);
     }
-    else {
-      this.years[8].year = 'Todos'
-      for (let j = 0; j < this.years.length; j++) {
-        this.years[j].checked = false
-      }
-    }
+
+
+
+    // if (this.years[8].checked === true) {
+    //   this.years.forEach((year) => year.checked = true);
+    //   this.years[8].year = 'Ninguno';
+
+    // for (let j = 0; j < this.years.length - 1; j++) {
+    //   this.years[j].checked = true
+    // }
+    // this.years.map((element, index) => {
+    //   console.log(element, index);
+    //   if (index < this.years.length) { element[index].checked = true }
+    // })
+    // }
+    // else {
+    //   this.years[8].year = 'Todos';
+    //   this.years.forEach((year) => year.checked = false);
+
+    //   for (let j = 0; j < this.years.length; j++) {
+    //     this.years[j].checked = false
+    //   }
+    // }
     this.years[8].checked = false
-    const selectedYears = this.result.map((year) => year.year);
+    const selectedYears = this.result;
     localStorage.setItem("selected_years", JSON.stringify(selectedYears)); //store years selected
-    this.getSelectedItem();
+
+    const yearSelecteds = selectedYears.map((year) => year.year);
+    this._avalaibleYearsService.generateMessage(yearSelecteds);
+    //this.getSelectedItem();
   }
 
 }
