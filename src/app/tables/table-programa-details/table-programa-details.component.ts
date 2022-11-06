@@ -225,6 +225,8 @@ export class TableProgramaDetailsComponent {
     })
   }
 
+  messageYears = this.avalaibleYearsService.message;
+
   onGridReady(params: GridReadyEvent) {
     this._gridApi = params.api;
     const defaultSortModel: ColumnState[] = [
