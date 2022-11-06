@@ -139,6 +139,7 @@ End Sub
 
 
 # Partiendo Excel publicado por el Ayuntamiento
+- Crear carpeta OCM como subcarpeta de los datos a tratar.
 - Abrir Excel original
 - Guardar en carpeta OCM.
 - Guardar como xlsx (version más reciente de Excel)
@@ -157,7 +158,7 @@ End Sub
     - % de Realizacion del Presupuesto
     - Facturas consumen disp. Pend. Contabilizar
     - Gastado en Fase Definitiva
-    
+   
 
 - Añadir columnas:
 
