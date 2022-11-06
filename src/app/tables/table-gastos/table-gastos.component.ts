@@ -149,6 +149,8 @@ export class TableGastosComponent implements OnInit {
 
   }
 
+  messageYears = this.avalaibleYearsService.message;
+
   onGridReady = (params: GridReadyEvent) => {
     this._gridApi = params.api;
     this._columnApi = params.columnApi;
