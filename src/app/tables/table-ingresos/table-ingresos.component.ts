@@ -174,7 +174,7 @@ export class TableIngresosComponent {
         headerName: 'Derechos',
         children: [
           {
-            headerName: 'Reconocidos',
+            headerName: 'Reconocidos netos',
             field: `DerechosReconocidos${year}`,
             columnGroupShow: 'open'
           },
@@ -189,7 +189,7 @@ export class TableIngresosComponent {
             columnGroupShow: 'open'
           },
           {
-            headerName: 'Reconocidos netos',
+            headerName: 'Recaudados',
             field: `DerechosReconocidosNetos${year}`,
             columnGroupShow: 'open'
           },
