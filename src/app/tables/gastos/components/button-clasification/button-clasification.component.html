@@ -1,0 +1,22 @@
+<div>
+    <h4 class="OCM-text--cabecera">Comparativa gastos {{
+        messageYears }}</h4>
+
+    <button type="button" (click)="showGraph()" class="btn-54">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Mostrar gráfico</span>
+    </button>
+
+    <button type="button" *ngFor="let button of buttons" class="btn-54" (click)="click(button)">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">{{button.name}} </span>
+    </button>
+
+    <button type="button" class="btn-54" (click)="volver()">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Volver</span>
+    </button>
+</div>

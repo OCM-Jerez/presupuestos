@@ -31,4 +31,10 @@ export class IndiceComponent {
 
   }
 
+  async newGastos() {
+    await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos',);
+
+    this._router.navigateByUrl('/newGastos')
+  }
+
 }

@@ -4,7 +4,7 @@ import { PrepareDataGastosService } from './prepareDataGastos.service';
 import { DataStoreService } from './dataStore.service';
 import { getClasificacion } from '../tables/data-table';
 import { getClasificacionGraph } from '../graphs/data-graph';
-import { IDataTable } from '../commons/interfaces/dataTable.interface';
+import { IDataProperty, IDataTable } from '../commons/interfaces/dataTable.interface';
 import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
 import { CLASIFICATION_TYPE } from '../commons/util/util';
 
@@ -23,7 +23,7 @@ export class TableService {
         tipoClasificacion?: CLASIFICATION_TYPE,
         filter?: { valueFilter: string, attribute: string, useStarWitch?: boolean }
     ): Promise<void> {
-        const dataPropertyTable = getClasificacion(tipoClasificacion);
+        const dataPropertyTable = getClasificacion(tipoClasificacion) as IDataProperty;
         const dataPropertyGraph = getClasificacionGraph(tipoClasificacion);
 
         let rowData: any[];

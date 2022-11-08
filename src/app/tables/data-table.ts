@@ -1,8 +1,14 @@
-import { IDataProperty } from "../commons/interfaces/dataTable.interface";
+import { IDataProperty } from '../commons/interfaces/dataTable.interface';
 import { CLASIFICATION_TYPE } from "../commons/util/util";
+import { IButtonClasification } from "./gastos/model/components.interface";
 // import { TIPO_CLASIFICACION } from "../commons/enums/tiposClasificacion.enum";
+export interface IClasification extends Omit<IDataProperty, 'graphTitle' | 'attribute' | 'useStarWitch'> {
+    attribute?: string,
+    useStarWitch?: boolean,
+    buttons?: IButtonClasification[]
+}
 
-const CLASIFICATION = {
+const CLASIFICATION: { [key: string]: IClasification } = {
     ingresosEconomicaCapitulos: {
         sufijo: 'Cap',
         headerName: 'Clasificado por capítulo',
@@ -50,6 +56,11 @@ const CLASIFICATION = {
         codField: 'CodOrg',
         desField: 'DesOrg',
         width: 250,
+        attribute: 'CodPro',
+        useStarWitch: true,
+        buttons: [
+            { name: 'Gráfico arbol', clasificationType: 'gastosOrganicaOrganicos' }, { name: 'Detalle orgánico', clasificationType: 'gastosOrganicaOrganicos' }
+        ]
     },
     gastosProgramaAreas: {
         sufijo: 'Pro',
@@ -82,6 +93,8 @@ const CLASIFICATION = {
         codField: 'CodPro',
         desField: 'DesPro',
         width: 550,
+        attribute: 'CodPro',
+        useStarWitch: true,
     },
     gastosEconomicaCapitulos: {
         sufijo: 'Cap',
@@ -117,6 +130,6 @@ const CLASIFICATION = {
     },
 }
 
-export const getClasificacion = (tipo: CLASIFICATION_TYPE): IDataProperty => {
+export const getClasificacion = (tipo: CLASIFICATION_TYPE): IClasification => {
     return CLASIFICATION[tipo.toString()];
 }
