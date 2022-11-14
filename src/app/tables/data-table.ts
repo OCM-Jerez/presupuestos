@@ -57,7 +57,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         desField: 'DesOrg',
         width: 250,
         attribute: 'CodPro',
-        useStarWitch: true,
+        useStarWitch: false,
         buttons: [
             { name: 'Gráfico arbol', clasificationType: 'gastosOrganicaOrganicos' }, { name: 'Detalle orgánico', clasificationType: 'gastosOrganicaOrganicos' }
         ]
@@ -94,7 +94,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         desField: 'DesPro',
         width: 550,
         attribute: 'CodPro',
-        useStarWitch: true,
+        useStarWitch: false,
     },
     gastosEconomicaCapitulos: {
         sufijo: 'Cap',
