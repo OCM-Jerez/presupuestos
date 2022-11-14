@@ -17,7 +17,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         desField: 'DesCap',
         width: 250,
         attribute: 'CodCap',
-        useStarWitch: false,
+        useStarWitch: true,
     },
     ingresosEconomicaArticulos: {
         sufijo: 'Eco',
