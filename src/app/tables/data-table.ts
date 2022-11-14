@@ -47,7 +47,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         desField: 'DesEco',
         width: 550,
         attribute: 'CodEco',
-        useStarWitch: false,
+        useStarWitch: true,
     },
     gastosOrganicaOrganicos: {
         sufijo: 'Org',
