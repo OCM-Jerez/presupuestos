@@ -98,6 +98,50 @@ insertamo sun seudo elemento con el mismo tamaño. */
     }
 }
 
+.OCM-card1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: clamp(20rem, 210rem, 40rem);
+    height: clamp(10rem, 10rem, 10rem);
+    justify-content: space-around;
+    text-justify: auto;
+    margin-bottom: 0.3rem;
+    // margin-top: 2rem;
+    border-radius: 0.6rem;
+    color: rgba(0, 0, 0, 0.87);
+    background: #262729;
+    box-shadow: 1rem 1rem 0.5rem 0px rgba(0, 0, 0, 0.75);
+    // margin-left: 2rem;
+    // margin-right: 2rem;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+    transition: box-shadow 0.3s;
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // width: clamp(20rem, 20rem, 40rem);
+        color: map-get($OCM-colors, claro);
+        font-weight: 700;
+        font-family: var(--fuente-principal);
+        // font-size: 1.4rem;
+        font-size: clamp(2.8rem, 4rem, 5.6rem);
+        // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
+        text-align: center;
+    }
+    &--empty {
+        width: 100%;
+    }
+    &:hover {
+        cursor: grab;
+        transform: scale(1.2);
+        box-shadow: 0 5px 15px rgba(238, 5, 24, 0.932);
+    }
+}
+
+
+
 // https://grid.layoutit.com/
 .OCM-containerNew {
     display: grid;
