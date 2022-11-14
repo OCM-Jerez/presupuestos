@@ -59,7 +59,14 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         attribute: 'CodPro',
         useStarWitch: false,
         buttons: [
-            { name: 'Gráfico arbol', clasificationType: 'gastosOrganicaOrganicos' }, { name: 'Detalle orgánico', clasificationType: 'gastosOrganicaOrganicos' }
+            {
+                name: 'Gráfico arbol',
+                clasificationType: 'gastosOrganicaOrganicos'
+            },
+            {
+                name: 'Detalle orgánico',
+                clasificationType: 'gastosOrganicaOrganicos'
+            }
         ]
     },
     gastosProgramaAreas: {
