@@ -1,30 +1,34 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ColumnApi, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 import { DataStoreService } from '../../../../services/dataStore.service';
 import { CellRendererOCM, CellRendererOCMtext } from '../../../../ag-grid/CellRendererOCM';
 import { AvalaibleYearsService } from '../../../../services/avalaibleYears.service';
 import localeTextESPes from '../../../../../assets/data/localeTextESPes.json';
 import { AgGridAngular } from 'ag-grid-angular';
+import { PrepareDataGastosDetailsService } from '../../../../services/prepareDataGastosDetails.service';
 
 @Component({
   selector: 'app-table-gastos',
   templateUrl: './table-gastos.component.html',
   styleUrls: ['./table-gastos.component.scss']
 })
-export class TableGastosComponent implements OnInit, OnDestroy {
+export class TableGastosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 
   private _columnDefs: any[];
   gridOptions: GridOptions;
   selectedCodeRowFirstLevel = '';
+  private _rowData: any[any];
 
-  constructor(private _dataStoreService: DataStoreService,
+  constructor(
+    private _dataStoreService: DataStoreService,
     private avalaibleYearsService: AvalaibleYearsService,
+    private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
   ) { }
-  ngOnDestroy(): void {
-    console.log('-----------ngOnDestroy-----------');
 
-  }
+  // ngOnDestroy(): void {
+  //   console.log('-----------ngOnDestroy-----------');
+  // }
 
   private _dataTable = this._dataStoreService.getDataTable;
 
@@ -66,49 +70,62 @@ export class TableGastosComponent implements OnInit, OnDestroy {
 
     ];
 
-    this.gridOptions = {
-      defaultColDef: {
-        width: 130,
-        sortable: true,
-        resizable: true,
-        filter: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM,
-        headerComponentParams: {
-          template:
-            '<div class="ag-cell-label-container" role="presentation">' +
-            '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
-            '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
-            '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
-            '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
-            '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
-            '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
-            '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
-            '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
-            '  </div>' +
-            '</div>',
+    this.createDataOCM().then(() => {
+      this.gridOptions = {
+        defaultColDef: {
+          width: 130,
+          sortable: true,
+          resizable: true,
+          filter: true,
+          aggFunc: 'sum',
+          cellRenderer: CellRendererOCM,
+          headerComponentParams: {
+            template:
+              '<div class="ag-cell-label-container" role="presentation">' +
+              '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
+              '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
+              '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
+              '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
+              '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
+              '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
+              '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
+              '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
+              '  </div>' +
+              '</div>',
+          },
         },
-      },
-      rowData: this._dataTable.rowData,
-      columnDefs: this._columnDefs,
-      // groupSuppressAutoColumn: true,
-      groupDisplayType: 'custom',
-      groupIncludeTotalFooter: true,
-      groupIncludeFooter: true,
-      groupHeaderHeight: 25,
-      headerHeight: 54,
-      suppressAggFuncInHeader: true,
-      rowSelection: 'single',
-      localeText: localeTextESPes,
-      pagination: false,
-      onRowClicked: () => {
-        const selectedRows = this.agGrid.api.getSelectedNodes();
-        if (selectedRows.length > 0) {
-          this.selectedCodeRowFirstLevel = selectedRows[0].key;
+        // rowData: this._dataTable.rowData,
+        rowData: this._rowData,
+        columnDefs: this._columnDefs,
+        // groupSuppressAutoColumn: true,
+        groupDisplayType: 'custom',
+        groupIncludeTotalFooter: true,
+        groupIncludeFooter: true,
+        groupHeaderHeight: 25,
+        headerHeight: 54,
+        suppressAggFuncInHeader: true,
+        rowSelection: 'single',
+        localeText: localeTextESPes,
+        pagination: false,
+        onRowClicked: () => {
+          const selectedRows = this.agGrid.api.getSelectedNodes();
+          if (selectedRows.length > 0) {
+            this.selectedCodeRowFirstLevel = selectedRows[0].key;
+          }
+          // this.showGraph();
         }
-        // this.showGraph();
-      }
-    } as GridOptions;
+      } as GridOptions;
+    })
+  }
+
+  async createDataOCM(): Promise<void> {
+    // console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    // this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this._dataStoreService.getDataTable.clasificationType))
+    this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear('gastosProgramaProgramas'))
+      // .filter(x => x.CodOrg == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+      .filter(x => x.CodOrg === 24);
+
+    console.log(this._rowData);
   }
 
   private _createColumnsChildren(year: number) {
