@@ -235,64 +235,94 @@ export class TableIngresosComponent {
     }, 50);
   }
 
-  async porArticulo() {
+  async detalle(typeClasification: CLASIFICATION_TYPE) {
     this._dataStoreService.IsDetails = true;
     const selectedRows = this.agGrid.api.getSelectedNodes();
+    const dataPropertyTable = getClasificacion(typeClasification);
+
+
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      const typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaArticulos';
-      const dataPropertyTable = getClasificacion(typeClasification);
       const useStarWitch: boolean = dataPropertyTable.useStarWitch;
       const attribute: string = dataPropertyTable.attribute;
-
       await this._tableService.loadDataForTypeClasification(
         true,
         typeClasification,
         { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
-      this.reloadCurrentRoute()
+      // this.reloadCurrentRoute()
     } else {
-      this._alertService.showAlert(`Selecciona artículo`);
-    }
-  }
-
-  async porConcepto() {
-    this._dataStoreService.IsDetails = true;
-    const selectedRows = this.agGrid.api.getSelectedNodes();
-    if (selectedRows.length > 0) {
-      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      const typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaConceptos';
-      const dataPropertyTable = getClasificacion(typeClasification);
-      const useStarWitch: boolean = dataPropertyTable.useStarWitch;
-      const attribute: string = dataPropertyTable.attribute;
-
       await this._tableService.loadDataForTypeClasification(
         true,
-        typeClasification,
-        { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
-      this.reloadCurrentRoute()
-    } else {
-      this._alertService.showAlert(`Selecciona artículo`);
+        typeClasification);
+      // this._alertService.showAlert(`Selecciona artículo`);
     }
+    this.reloadCurrentRoute()
+
   }
 
-  async porEconomico() {
-    this._dataStoreService.IsDetails = true;
-    const selectedRows = this.agGrid.api.getSelectedNodes();
-    if (selectedRows.length > 0) {
-      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      let typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaEconomicos';
-      let useStarWitch: boolean = this._dataTable.dataPropertyTable.useStarWitch;
-      let attribute: string = this._dataTable.dataPropertyTable.attribute;
+  // async porArticulo() {
+  //   this._dataStoreService.IsDetails = true;
+  //   const selectedRows = this.agGrid.api.getSelectedNodes();
+  //   const typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaArticulos';
+  //   const dataPropertyTable = getClasificacion(typeClasification);
 
-      await this._tableService.loadDataForTypeClasification(
-        true,
-        typeClasification,
-        { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
-      this.reloadCurrentRoute()
-    } else {
-      this._alertService.showAlert(`Selecciona económico`);
-    }
-  }
+  //   if (selectedRows.length > 0) {
+  //     this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+  //     const useStarWitch: boolean = dataPropertyTable.useStarWitch;
+  //     const attribute: string = dataPropertyTable.attribute;
+  //     await this._tableService.loadDataForTypeClasification(
+  //       true,
+  //       typeClasification,
+  //       { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
+  //     this.reloadCurrentRoute()
+  //   } else {
+  //     await this._tableService.loadDataForTypeClasification(
+  //       true,
+  //       typeClasification);
+  //     this.reloadCurrentRoute()
+  //     // this._alertService.showAlert(`Selecciona artículo`);
+  //   }
+  // }
+
+  // async porConcepto() {
+  //   this._dataStoreService.IsDetails = true;
+  //   const selectedRows = this.agGrid.api.getSelectedNodes();
+
+  //   if (selectedRows.length > 0) {
+  //     this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+  //     const typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaConceptos';
+  //     const dataPropertyTable = getClasificacion(typeClasification);
+  //     const useStarWitch: boolean = dataPropertyTable.useStarWitch;
+  //     const attribute: string = dataPropertyTable.attribute;
+
+  //     await this._tableService.loadDataForTypeClasification(
+  //       true,
+  //       typeClasification,
+  //       { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
+  //     this.reloadCurrentRoute()
+  //   } else {
+  //     this._alertService.showAlert(`Selecciona artículo`);
+  //   }
+  // }
+
+  // async porEconomico() {
+  //   this._dataStoreService.IsDetails = true;
+  //   const selectedRows = this.agGrid.api.getSelectedNodes();
+  //   if (selectedRows.length > 0) {
+  //     this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+  //     let typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaEconomicos';
+  //     let useStarWitch: boolean = this._dataTable.dataPropertyTable.useStarWitch;
+  //     let attribute: string = this._dataTable.dataPropertyTable.attribute;
+
+  //     await this._tableService.loadDataForTypeClasification(
+  //       true,
+  //       typeClasification,
+  //       { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
+  //     this.reloadCurrentRoute()
+  //   } else {
+  //     this._alertService.showAlert(`Selecciona económico`);
+  //   }
+  // }
 
   reloadCurrentRoute() {
     let currentUrl = this._router.url;
