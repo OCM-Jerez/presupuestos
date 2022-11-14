@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { AvalaibleYearsService } from './avalaibleYears.service';
-import { asynForEach } from '../commons/util/util';
 
 import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
 import gastosProgramaPoliticas from '../../assets/data/gastosProgramaPoliticas.json';
 import gastosProgramaGrupos from '../../assets/data/gastosProgramaGruposProgramas.json';
-
 import gastosEconomicaArticulos from '../../assets/data/gastosEconomicaArticulos.json';
 import gastosEconomicaConceptos from '../../assets/data/gastosEconomicaConceptos.json';
+
+import { AvalaibleYearsService } from './avalaibleYears.service';
+
+import { asynForEach } from '../commons/util/util';
+
 import { DataStoreService } from './dataStore.service';
 
 @Injectable({
@@ -33,6 +35,7 @@ export class PrepareDataGastosDetailsService {
     return rowData;
   }
 
+  // Selecciona datos gastos de un año
   async getDataYear(year: number, tipoClasificacion: string) {
     const result = [];
 
@@ -95,28 +98,43 @@ export class PrepareDataGastosDetailsService {
           item.DesPol = gastosProgramaPoliticas.find((politica) => politica.codigo === item.CodPol).descripcion;
         });
         break;
+
+
+
+
       case 'gastosProgramaGrupos':
         result.map(item => {
           item.CodGru = Math.floor((item.CodPro / 100));
           item.DesGru = gastosProgramaGrupos.find((grupo) => grupo.codigo === item.CodGru).descripcion;
         });
         break;
+
+
+
+
       case 'gastosEconomicaArticulos':
         result.map(item => {
           item.CodArt = Math.floor((item.CodEco / 1000));
           item.DesArt = gastosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodArt).descripcion;
         });
         break;
+
+
+
+
       case 'gastosEconomicaConceptos':
         this.dataStoreService.IsDetails = true;
         result.map(item => {
           item.CodCon = Math.floor((item.CodEco / 100));
           item.DesCon = gastosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodCon).descripcion;
         });
+
+
+
         break;
     }
 
-    // console.log(result);
+    console.log(result);
     return result;
   }
 
