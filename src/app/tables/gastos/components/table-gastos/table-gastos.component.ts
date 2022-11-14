@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ColumnApi, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 import { DataStoreService } from '../../../../services/dataStore.service';
-import { CellRendererOCM, CellRendererOCMtext } from '../../../../ag-grid/CellRendererOCM';
 import { AvalaibleYearsService } from '../../../../services/avalaibleYears.service';
-import localeTextESPes from '../../../../../assets/data/localeTextESPes.json';
-import { AgGridAngular } from 'ag-grid-angular';
 import { PrepareDataGastosDetailsService } from '../../../../services/prepareDataGastosDetails.service';
+
+import { AgGridAngular } from 'ag-grid-angular';
+import { GridOptions } from 'ag-grid-community/main';
+import { CellRendererOCM, CellRendererOCMtext } from '../../../../ag-grid/CellRendererOCM';
+import localeTextESPes from '../../../../../assets/data/localeTextESPes.json';
 
 @Component({
   selector: 'app-table-gastos',
@@ -16,26 +17,21 @@ export class TableGastosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 
   private _columnDefs: any[];
+  private _rowData: any[any];
   gridOptions: GridOptions;
   selectedCodeRowFirstLevel = '';
-  private _rowData: any[any];
 
   constructor(
     private _dataStoreService: DataStoreService,
-    private avalaibleYearsService: AvalaibleYearsService,
+    private _avalaibleYearsService: AvalaibleYearsService,
     private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
   ) { }
-
-  // ngOnDestroy(): void {
-  //   console.log('-----------ngOnDestroy-----------');
-  // }
 
   private _dataTable = this._dataStoreService.getDataTable;
 
   ngOnInit(): void {
     this._loadTable();
   }
-
 
   private _loadTable() {
     this._columnDefs = [
@@ -61,7 +57,7 @@ export class TableGastosComponent implements OnInit {
         ]
       },
 
-      ...this.avalaibleYearsService.getYearsSelected().map(year => {
+      ...this._avalaibleYearsService.getYearsSelected().map(year => {
         return {
           headerName: year,
           children: this._createColumnsChildren(year),
@@ -94,10 +90,8 @@ export class TableGastosComponent implements OnInit {
               '</div>',
           },
         },
-        // rowData: this._dataTable.rowData,
         rowData: this._rowData,
         columnDefs: this._columnDefs,
-        // groupSuppressAutoColumn: true,
         groupDisplayType: 'custom',
         groupIncludeTotalFooter: true,
         groupIncludeFooter: true,
@@ -112,7 +106,6 @@ export class TableGastosComponent implements OnInit {
           if (selectedRows.length > 0) {
             this.selectedCodeRowFirstLevel = selectedRows[0].key;
           }
-          // this.showGraph();
         }
       } as GridOptions;
     })
@@ -122,10 +115,9 @@ export class TableGastosComponent implements OnInit {
     // console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     // this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this._dataStoreService.getDataTable.clasificationType))
     this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear('gastosProgramaProgramas'))
-      // .filter(x => x.CodOrg == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-      .filter(x => x.CodOrg === 24);
-
-    console.log(this._rowData);
+    // .filter(x => x.CodOrg == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    // .filter(x => x.CodOrg === 24);
+    // console.log(this._rowData);
   }
 
   private _createColumnsChildren(year: number) {
