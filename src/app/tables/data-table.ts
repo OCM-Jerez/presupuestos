@@ -81,24 +81,24 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         buttons: [
             {
                 name: 'Gráfico arbol',
-                clasificationType: 'gastosOrganicaOrganicos'
+                clasificationType: 'gastosProgramaAreas'
             },
             {
                 name: 'Por áreas',
-                clasificationType: 'gastosOrganicaOrganicos'
+                clasificationType: 'gastosProgramaAreas'
             }
             ,
             {
                 name: 'Por política',
-                clasificationType: 'gastosOrganicaOrganicos'
+                clasificationType: 'gastosProgramaPoliticas'
             },
             {
                 name: 'Por grupo programas',
-                clasificationType: 'gastosOrganicaOrganicos'
+                clasificationType: 'gastosProgramaGrupos'
             },
             {
                 name: 'Por programa',
-                clasificationType: 'gastosOrganicaOrganicos'
+                clasificationType: 'gastosProgramaProgramas'
             }
         ]
 
@@ -140,24 +140,24 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         buttons: [
             {
                 name: 'Gráfico arbol',
-                clasificationType: 'gastosOrganicaOrganicos'
+                clasificationType: 'gastosEconomicaCapitulos'
             },
             {
                 name: 'Por capítulo gasto',
-                clasificationType: 'gastosOrganicaOrganicos'
+                clasificationType: 'gastosEconomicaCapitulos'
             }
             ,
             {
                 name: 'Por artículo',
-                clasificationType: 'gastosOrganicaOrganicos'
+                clasificationType: 'gastosEconomicaArticulos'
             },
             {
                 name: 'Por concepto',
-                clasificationType: 'gastosOrganicaOrganicos'
+                clasificationType: 'gastosEconomicaConceptos'
             },
             {
                 name: 'Por económico',
-                clasificationType: 'gastosOrganicaOrganicos'
+                clasificationType: 'gastosEconomicaEconomicos'
             }
         ]
     },
