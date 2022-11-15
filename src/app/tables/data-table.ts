@@ -135,7 +135,31 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Capítulo',
         codField: 'CodCap',
         desField: 'DesCap',
-        width: 250,
+        width: 250, attribute: 'CodPro',
+        useStarWitch: false,
+        buttons: [
+            {
+                name: 'Gráfico arbol',
+                clasificationType: 'gastosOrganicaOrganicos'
+            },
+            {
+                name: 'Por capítulo gasto',
+                clasificationType: 'gastosOrganicaOrganicos'
+            }
+            ,
+            {
+                name: 'Por artículo',
+                clasificationType: 'gastosOrganicaOrganicos'
+            },
+            {
+                name: 'Por concepto',
+                clasificationType: 'gastosOrganicaOrganicos'
+            },
+            {
+                name: 'Por económico',
+                clasificationType: 'gastosOrganicaOrganicos'
+            }
+        ]
     },
     gastosEconomicaArticulos: {
         sufijo: 'Eco',
