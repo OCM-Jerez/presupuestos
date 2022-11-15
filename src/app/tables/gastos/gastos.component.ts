@@ -17,9 +17,10 @@ export class GastosComponent {
 
   constructor(
     private _dataStoreService: DataStoreService,
-    private _tableService: TableService) { }
+    private _tableService: TableService
+  ) { }
 
-  buttons = getClasificacion('gastosOrganicaOrganicos').buttons;
+  buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
   showTable = true;
 
   clickButton(button: IButtonClasification): void {
