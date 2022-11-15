@@ -76,6 +76,32 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         codField: 'CodPro',
         desField: 'DesPro',
         width: 550,
+        attribute: 'CodPro',
+        useStarWitch: false,
+        buttons: [
+            {
+                name: 'Gráfico arbol',
+                clasificationType: 'gastosOrganicaOrganicos'
+            },
+            {
+                name: 'Por áreas',
+                clasificationType: 'gastosOrganicaOrganicos'
+            }
+            ,
+            {
+                name: 'Por política',
+                clasificationType: 'gastosOrganicaOrganicos'
+            },
+            {
+                name: 'Por grupo programas',
+                clasificationType: 'gastosOrganicaOrganicos'
+            },
+            {
+                name: 'Por programa',
+                clasificationType: 'gastosOrganicaOrganicos'
+            }
+        ]
+
     },
     gastosProgramaPoliticas: {
         sufijo: 'Pro',
