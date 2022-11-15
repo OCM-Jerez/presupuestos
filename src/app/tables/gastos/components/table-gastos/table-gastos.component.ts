@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnApi, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
@@ -30,6 +31,7 @@ export class TableGastosComponent implements OnInit {
   private _columnApi: ColumnApi;
 
   constructor(
+    private _router: Router,
     private _dataStoreService: DataStoreService,
     private _avalaibleYearsService: AvalaibleYearsService,
     // private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
@@ -201,6 +203,10 @@ export class TableGastosComponent implements OnInit {
         field: `RemanenteCredito${year}`,
       },
     ];
+  }
+
+  async home() {
+    setTimeout(() => this._router.navigateByUrl("/home"), 50);
   }
 
 }
