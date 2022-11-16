@@ -86,8 +86,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por áreas',
                 clasificationType: 'gastosProgramaAreas'
-            }
-            ,
+            },
             {
                 name: 'Por política',
                 clasificationType: 'gastosProgramaPoliticas'
@@ -120,8 +119,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por áreas',
                 clasificationType: 'gastosProgramaAreas'
-            }
-            ,
+            },
             {
                 name: 'Por política',
                 clasificationType: 'gastosProgramaPoliticas'
@@ -153,8 +151,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por áreas',
                 clasificationType: 'gastosProgramaAreas'
-            }
-            ,
+            },
             {
                 name: 'Por política',
                 clasificationType: 'gastosProgramaPoliticas'
@@ -186,8 +183,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por áreas',
                 clasificationType: 'gastosProgramaAreas'
-            }
-            ,
+            },
             {
                 name: 'Por política',
                 clasificationType: 'gastosProgramaPoliticas'
@@ -208,7 +204,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Capítulo',
         codField: 'CodCap',
         desField: 'DesCap',
-        width: 250, attribute: 'CodPro',
+        width: 250,
+        attribute: 'CodPro',
         useStarWitch: false,
         buttons: [
             {
@@ -218,8 +215,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por capítulo gasto',
                 clasificationType: 'gastosEconomicaCapitulos'
-            }
-            ,
+            },
             {
                 name: 'Por artículo',
                 clasificationType: 'gastosEconomicaArticulos'
@@ -241,6 +237,31 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 550,
+        attribute: 'CodPro',
+        useStarWitch: false,
+        buttons: [
+            {
+                name: 'Gráfico arbol',
+                clasificationType: 'gastosEconomicaCapitulos'
+            },
+            {
+                name: 'Por capítulo gasto',
+                clasificationType: 'gastosEconomicaCapitulos'
+            },
+            {
+                name: 'Por artículo',
+                clasificationType: 'gastosEconomicaArticulos'
+            },
+            {
+                name: 'Por concepto',
+                clasificationType: 'gastosEconomicaConceptos'
+            },
+            {
+                name: 'Por económico',
+                clasificationType: 'gastosEconomicaEconomicos'
+            }
+        ]
+
     },
     gastosEconomicaConceptos: {
         sufijo: 'Eco',
@@ -249,6 +270,30 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 550,
+        attribute: 'CodPro',
+        useStarWitch: false,
+        buttons: [
+            {
+                name: 'Gráfico arbol',
+                clasificationType: 'gastosEconomicaCapitulos'
+            },
+            {
+                name: 'Por capítulo gasto',
+                clasificationType: 'gastosEconomicaCapitulos'
+            },
+            {
+                name: 'Por artículo',
+                clasificationType: 'gastosEconomicaArticulos'
+            },
+            {
+                name: 'Por concepto',
+                clasificationType: 'gastosEconomicaConceptos'
+            },
+            {
+                name: 'Por económico',
+                clasificationType: 'gastosEconomicaEconomicos'
+            }
+        ]
     },
     gastosEconomicaEconomicos: {
         sufijo: 'Eco',
@@ -257,6 +302,30 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 550,
+        attribute: 'CodPro',
+        useStarWitch: false,
+        buttons: [
+            {
+                name: 'Gráfico arbol',
+                clasificationType: 'gastosEconomicaCapitulos'
+            },
+            {
+                name: 'Por capítulo gasto',
+                clasificationType: 'gastosEconomicaCapitulos'
+            },
+            {
+                name: 'Por artículo',
+                clasificationType: 'gastosEconomicaArticulos'
+            },
+            {
+                name: 'Por concepto',
+                clasificationType: 'gastosEconomicaConceptos'
+            },
+            {
+                name: 'Por económico',
+                clasificationType: 'gastosEconomicaEconomicos'
+            }
+        ]
     },
 }
 
