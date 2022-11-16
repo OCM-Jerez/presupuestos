@@ -110,6 +110,31 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         codField: 'CodPro',
         desField: 'DesPro',
         width: 550,
+        attribute: 'CodPro',
+        useStarWitch: false,
+        buttons: [
+            {
+                name: 'Gráfico arbol',
+                clasificationType: 'gastosProgramaAreas'
+            },
+            {
+                name: 'Por áreas',
+                clasificationType: 'gastosProgramaAreas'
+            }
+            ,
+            {
+                name: 'Por política',
+                clasificationType: 'gastosProgramaPoliticas'
+            },
+            {
+                name: 'Por grupo programas',
+                clasificationType: 'gastosProgramaGrupos'
+            },
+            {
+                name: 'Por programa',
+                clasificationType: 'gastosProgramaProgramas'
+            }
+        ]
     },
     gastosProgramaGrupos: {
         sufijo: 'Pro',
@@ -118,6 +143,31 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         codField: 'CodPro',
         desField: 'DesPro',
         width: 550,
+        attribute: 'CodPro',
+        useStarWitch: false,
+        buttons: [
+            {
+                name: 'Gráfico arbol',
+                clasificationType: 'gastosProgramaAreas'
+            },
+            {
+                name: 'Por áreas',
+                clasificationType: 'gastosProgramaAreas'
+            }
+            ,
+            {
+                name: 'Por política',
+                clasificationType: 'gastosProgramaPoliticas'
+            },
+            {
+                name: 'Por grupo programas',
+                clasificationType: 'gastosProgramaGrupos'
+            },
+            {
+                name: 'Por programa',
+                clasificationType: 'gastosProgramaProgramas'
+            }
+        ]
     },
     gastosProgramaProgramas: {
         sufijo: 'Pro',
@@ -128,6 +178,29 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         attribute: 'CodPro',
         useStarWitch: false,
+        buttons: [
+            {
+                name: 'Gráfico arbol',
+                clasificationType: 'gastosProgramaAreas'
+            },
+            {
+                name: 'Por áreas',
+                clasificationType: 'gastosProgramaAreas'
+            }
+            ,
+            {
+                name: 'Por política',
+                clasificationType: 'gastosProgramaPoliticas'
+            },
+            {
+                name: 'Por grupo programas',
+                clasificationType: 'gastosProgramaGrupos'
+            },
+            {
+                name: 'Por programa',
+                clasificationType: 'gastosProgramaProgramas'
+            }
+        ]
     },
     gastosEconomicaCapitulos: {
         sufijo: 'Cap',
