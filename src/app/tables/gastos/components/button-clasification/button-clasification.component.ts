@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 import { AvalaibleYearsService } from '../../../../services/avalaibleYears.service';
 import { IButtonClasification } from '../../model/components.interface';
 
@@ -21,7 +20,8 @@ export class ButtonClasificationComponent implements OnInit {
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
-    private _router: Router,) { }
+    private _router: Router
+  ) { }
   messageYears = this.avalaibleYearsService.message;
 
   ngOnInit(): void {
