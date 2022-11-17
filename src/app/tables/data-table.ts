@@ -77,7 +77,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         desField: 'DesPro',
         width: 550,
         attribute: 'CodPro',
-        useStarWitch: false,
+        useStarWitch: true,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -110,7 +110,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         desField: 'DesPro',
         width: 550,
         attribute: 'CodPro',
-        useStarWitch: false,
+        useStarWitch: true,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -142,7 +142,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         desField: 'DesPro',
         width: 550,
         attribute: 'CodPro',
-        useStarWitch: false,
+        useStarWitch: true,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -174,7 +174,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         desField: 'DesPro',
         width: 550,
         attribute: 'CodPro',
-        useStarWitch: false,
+        useStarWitch: true,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -205,8 +205,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         codField: 'CodCap',
         desField: 'DesCap',
         width: 250,
-        attribute: 'CodPro',
-        useStarWitch: false,
+        attribute: 'CodEco',
+        useStarWitch: true,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -237,8 +237,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 550,
-        attribute: 'CodPro',
-        useStarWitch: false,
+        attribute: 'CodEco',
+        useStarWitch: true,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -270,8 +270,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 550,
-        attribute: 'CodPro',
-        useStarWitch: false,
+        attribute: 'CodEco',
+        useStarWitch: true,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -302,8 +302,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 550,
-        attribute: 'CodPro',
-        useStarWitch: false,
+        attribute: 'CodEco',
+        useStarWitch: true,
         buttons: [
             {
                 name: 'Gráfico arbol',
