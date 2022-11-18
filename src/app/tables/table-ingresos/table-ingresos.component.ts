@@ -333,12 +333,6 @@ export class TableIngresosComponent {
 
   async home() {
     setTimeout(() => this._router.navigateByUrl("/home"), 50);
-    // let typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaCapitulos';
-    // await this._tableService.loadDataForTypeClasification(
-    //   true,
-    //   typeClasification,
-    // );
-    // this.reloadCurrentRoute()
   }
 
 }
