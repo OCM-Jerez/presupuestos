@@ -106,10 +106,11 @@
     margin-bottom: 0.5rem;
     font-weight: 900;
     margin-top: 1rem;
-    color: black;
+    color: rgb(14, 1, 1);
     font-family: var(--fuente-principal);
     // https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
-    font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem);
+    @include fluid-type($min_width, $max_width, $min_font, $max_font);
+    // font-size: clamp(0.2rem, -0.875rem + 8.333vw, 3.5rem);
     // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
     text-align: center;
   }
