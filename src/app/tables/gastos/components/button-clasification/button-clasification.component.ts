@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AvalaibleYearsService } from '../../../../services/avalaibleYears.service';
 import { IButtonClasification } from '../../model/components.interface';
 
-// import { CLASIFICATION_TYPE } from '../../../../commons/util/util';
 @Component({
   selector: 'app-button-clasification',
   templateUrl: './button-clasification.component.html',
