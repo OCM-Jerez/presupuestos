@@ -17,6 +17,7 @@ import { IndiceComponent } from './indice/indice.component';
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
 import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.component';
 import { CheckboxComponent } from './commons/components/checkbox/checkbox.component';
+import { DetallePresupuestoModule } from './detalle-presupuesto/detalle-presupuesto.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,8 @@ import { CheckboxComponent } from './commons/components/checkbox/checkbox.compon
     FormsModule,
     NgSelectModule,
     ReactiveFormsModule,
+    DetallePresupuestoModule
+
   ],
   providers: [
     AvalaibleYearsService
