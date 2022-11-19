@@ -28,7 +28,12 @@ export class PrepareDataIngresosService {
   // Itera por cada uno de los años disponibles para ingresos
   async getDataAllYear(tipoClasificacion: string): Promise<any[]> {
     let rowData = [];
-    const years = this._avalaibleYearsService.getYearsSelected();
+    let years = this._avalaibleYearsService.getYearsSelected();
+
+    // Si llegamos desde civio no hay un año seleccionado
+    if (years.length === 0) {
+      years = [2022]
+    }
 
     await asynForEach(years, async (year: number) => {
       const dataIng = await this.getDataYear(year, tipoClasificacion);
