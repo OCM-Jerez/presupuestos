@@ -18,6 +18,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  explicamos() {
+    this._router.navigateByUrl('/explicamos')
+  }
+
   visionGlobal() {
     this._router.navigateByUrl('/home')
   }
