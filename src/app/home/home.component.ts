@@ -26,4 +26,8 @@ export class HomeComponent implements OnInit {
     this._router.navigateByUrl('/detallePresupuesto')
   }
 
+  licitaciones() {
+    window.open('https://con.ocmjerez.org/', '_blank');
+  }
+
 }
