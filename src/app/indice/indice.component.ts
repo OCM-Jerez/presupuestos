@@ -36,4 +36,8 @@ export class IndiceComponent {
     this._router.navigateByUrl('/newGastos')
   }
 
+  HomeNew() {
+    this._router.navigateByUrl('/homeNew')
+  }
+
 }

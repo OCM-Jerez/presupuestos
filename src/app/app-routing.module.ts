@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 import { IndiceComponent } from './indice/indice.component';
 
 const routes: Routes = [
+  { path: 'homeNew', component: HomeComponent },
   { path: 'home', component: IndiceComponent },
   { path: 'tableIngresos', loadChildren: () => import('./tables/table-ingresos/table-ingresos.module').then((m) => m.TableIngresosModule) },
 
