@@ -22,6 +22,10 @@ export class HomeComponent implements OnInit {
     this._router.navigateByUrl('/explicamos')
   }
 
+  glosario() {
+    this._router.navigateByUrl('/glosario')
+  }
+
   visionGlobal() {
     this._router.navigateByUrl('/home')
   }

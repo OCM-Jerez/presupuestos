@@ -1,0 +1,40 @@
+.OCM-title {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 100 hw;
+    color: black;
+    font-weight: 700;
+    font-family: var(--fuente-principal);
+    font-size: clamp(3rem, 4rem, 5rem);
+    text-align: center;
+}
+
+div {
+    width: 90%;
+    margin-top: 50px;
+    // margin-left: 300px;
+    // margin-right: 100px;
+}
+
+p {
+    text-align: justify;
+    font-size: clamp(2rem, 2.5em, 3rem);
+    color: black;
+    line-height: 36px;
+}
+
+h3 {
+    font-size: 32px;
+    color: black;
+    margin-left: 80px;
+}
+
+.term-description {
+    font-size: 22px;
+    margin: 20px 20px 20px 100px;
+    text-align: justify;
+    line-height: 26px;
+}
