@@ -22,4 +22,8 @@ export class HomeComponent implements OnInit {
     this._router.navigateByUrl('/home')
   }
 
+  detallePresupuesto() {
+    this._router.navigateByUrl('/detallePresupuesto')
+  }
+
 }
