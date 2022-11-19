@@ -11,6 +11,34 @@
     margin-top: 50px;
 }
 
+.OCM-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100 hw;
+    color: black;
+    font-weight: 500;
+    font-family: var(--fuente-principal);
+    font-size: clamp(1.5rem, 2rem, 2.5rem);
+    text-align: center;
+    margin-top: 50px;
+}
+
+.flex-container {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    align-content: center;
+    width: 100%;
+    height: 380px;
+    background-color: #cce3f9;
+    gap: 20px;
+    margin-top: 20px;
+}
+
 // https://codepen.io/alvarotrigo/pen/GRMbzBR
 $max-tab-count: 4;
 $tab-wrap-border-radius: 6px;
@@ -96,6 +124,53 @@ $tab-wrap-border-radius: 6px;
         transform: translateY(-3px);
         border-radius: $tab-wrap-border-radius;
     }
+}
+
+table.paleBlueRows {
+    font-family: "Times New Roman", Times, serif;
+    border: 1px solid #ffffff;
+    width: 1100px;
+    height: 100px;
+    text-align: center;
+    border-collapse: collapse;
+    margin-left: 20px;
+    margin-top: 80px;
+}
+table.paleBlueRows td,
+table.paleBlueRows th {
+    border: 1px solid #ffffff;
+    padding: 3px 2px;
+}
+table.paleBlueRows tbody td {
+    font-size: 13px;
+}
+table.paleBlueRows tr:nth-child(even) {
+    background: #d0e4f5;
+}
+table.paleBlueRows thead {
+    background: #003df6;
+    border-bottom: 5px solid #ffffff;
+}
+table.paleBlueRows thead th {
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    border-left: 2px solid #ffffff;
+}
+table.paleBlueRows thead th:first-child {
+    border-left: none;
+}
+
+table.paleBlueRows tfoot {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+    background: #d0e4f5;
+    border-top: 3px solid #444444;
+}
+table.paleBlueRows tfoot td {
+    font-size: 14px;
 }
 
 /* boring stuff */
