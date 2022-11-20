@@ -116,7 +116,7 @@ export class PrepareDataIngresosService {
     return result;
   }
 
-  // Seleciona datos del año que se pasa como parametro
+  // Selecciona datos del año que se pasa como parametro
   async getYearDataJson(year: number) {
     const data = await import(`../../assets/data/${year}LiqIng.json`);
     return data.default;
