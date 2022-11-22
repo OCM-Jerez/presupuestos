@@ -119,8 +119,17 @@
                     </ag-grid-angular>
                 </div> -->
 
-                <app-compara-ing *ngIf="showComponentIngresos" (clickDetail)="clickDetail()"
-                    [fieldsHide]="['Iniciales']"></app-compara-ing>
+                <app-compara-ing *ngIf="showComponentIngresos" (clickDetail)="clickDetail()" [fieldsHide]="[
+                                   'Iniciales', 
+                                   'Modificaciones',
+                                   'DerechosReconocidos',
+                                   'DerechosAnulados',
+                                   'DerechosCancelados',
+                                   'RecaudacionNeta',
+                                   'DerechosPendienteCobro',
+                                   'DiferenciaPrevision'
+                                   ]">
+                </app-compara-ing>
             </div>
 
             <div class="tab__content">
