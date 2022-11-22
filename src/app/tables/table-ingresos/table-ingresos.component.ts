@@ -153,10 +153,7 @@ export class TableIngresosComponent implements OnInit {
   private _hideColumns() {
     if (this.fieldsHide.length > 0) {
       const year = this.avalaibleYearsService.yearsSelected[0];
-
       const columnsHide = this.fieldsHide.map((item) => { return { colId: `${item}${year}`, hide: true } });
-      console.log(columnsHide);
-
       this._columnApi!.applyColumnState({
         state: columnsHide
       });
@@ -280,7 +277,6 @@ export class TableIngresosComponent implements OnInit {
     }
 
     this.clickDetail.emit();
-
     //this.reloadCurrentRoute()
   }
 
