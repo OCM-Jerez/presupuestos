@@ -47,6 +47,9 @@ export class AvalaibleYearsService {
 
   // Devuelve el array con los años seleccionados
   getYearsSelected(): number[] {
+    if (this.yearsSelected.length === 0) {
+      this.yearsSelected.push(new Date().getFullYear());
+    }
     return this.yearsSelected;
   }
 
