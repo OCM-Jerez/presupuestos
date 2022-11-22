@@ -31,9 +31,9 @@ export class PrepareDataIngresosService {
     let years = this._avalaibleYearsService.getYearsSelected();
 
     // Si llegamos desde civio no hay un año seleccionado
-    if (years.length === 0) {
-      years = [2022]
-    }
+    // if (years.length === 0) {
+    //   years = [2022]
+    // }
 
     await asynForEach(years, async (year: number) => {
       const dataIng = await this.getDataYear(year, tipoClasificacion);
