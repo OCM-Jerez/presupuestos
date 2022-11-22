@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DetallePresupuestoComponent } from './detalle-presupuesto.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { RouterModule, Routes } from '@angular/router';
+import { TableIngresosModule } from '../tables/table-ingresos/table-ingresos.module';
 
 export const routes: Routes = [{ path: '', component: DetallePresupuestoComponent }]
 
@@ -10,6 +11,6 @@ export const routes: Routes = [{ path: '', component: DetallePresupuestoComponen
   declarations: [
     DetallePresupuestoComponent
   ],
-  imports: [RouterModule.forChild(routes), CommonModule, AgGridModule],
+  imports: [RouterModule.forChild(routes), CommonModule, AgGridModule, TableIngresosModule],
 })
 export class DetallePresupuestoModule { }

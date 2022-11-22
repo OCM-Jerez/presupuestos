@@ -22,6 +22,32 @@
                 background-size:1200px 600px;background-position: center center; background-repeat: no-repeat;">
                 </div>
 
+                <div id="form-wrapper">
+                    <form action="/p/quote.php" method="GET">
+                        <h1 id="form-title">AÑO</h1>
+                        <div id="debt-amount-slider">
+                            <input type="radio" name="debt-amount" id="1" value="1" required>
+                            <label for="1" data-debt-amount="2015"></label>
+                            <input type="radio" name="debt-amount" id="2" value="2" required>
+                            <label for="2" data-debt-amount="2016"></label>
+                            <input type="radio" name="debt-amount" id="3" value="3" required>
+                            <label for="3" data-debt-amount="2017"></label>
+                            <input type="radio" name="debt-amount" id="4" value="4" required>
+                            <label for="4" data-debt-amount="2018"></label>
+                            <input type="radio" name="debt-amount" id="5" value="5" required>
+                            <label for="5" data-debt-amount="2019"></label>
+                            <input type="radio" name="debt-amount" id="6" value="6" required>
+                            <label for="6" data-debt-amount="2020"></label>
+                            <input type="radio" name="debt-amount" id="7" value="7" required>
+                            <label for="7" data-debt-amount="2021"></label>
+                            <input type="radio" name="debt-amount" id="8" value="8" required>
+                            <label for="8" data-debt-amount="2022"></label>
+                            <div id="debt-amount-pos"></div>
+                        </div>
+                    </form>
+                    <!-- <button type="submit">Get Debt Free!</button> -->
+                </div>
+
                 <table class="paleBlueRows">
                     <thead>
                         <tr>
@@ -62,8 +88,8 @@
                     </tbody>
                 </table> -->
 
-                <div style="margin-top: 40px;">
-                    <!-- <button type="button" (click)="detalle('ingresosEconomicaCapitulos')" class="btn-54">
+                <!-- <div style="margin-top: 40px;">
+                    <button type="button" (click)="detalle('ingresosEconomicaCapitulos')" class="btn-54">
                         <span class="shadow"></span>
                         <span class="depth"></span>
                         <span class="content">Por capítulo</span>
@@ -85,15 +111,16 @@
                         <span class="shadow"></span>
                         <span class="depth"></span>
                         <span class="content">Por económico</span>
-                    </button> -->
+                    </button>
 
 
                     <ag-grid-angular #agGrid style="width: 100%; height: 600px; padding-right: 20px; margin-left: 10px"
                         class="ag-theme-balham" [gridOptions]="gridOptions" (gridReady)="onGridReady($event)">
                     </ag-grid-angular>
-                </div>
+                </div> -->
 
-
+                <app-compara-ing *ngIf="showComponentIngresos" (clickDetail)="clickDetail()"
+                    [fieldsHide]="['Iniciales']"></app-compara-ing>
             </div>
 
             <div class="tab__content">

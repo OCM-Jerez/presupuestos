@@ -34,7 +34,9 @@ export class DetallePresupuestoComponent {
   private _columnApi: ColumnApi;
   private _columnDefs: any[];
   private _dataTable: IDataTable;
-
+  messageYears = this.avalaibleYearsService.message;
+  showComponentIngresos = false;
+  private typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaArticulos'
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
@@ -43,9 +45,21 @@ export class DetallePresupuestoComponent {
     private _alertService: AlertService,
     private _tableService: TableService
   ) {
-    this._loadPropertyTable();
+    this._loadData();
+    //this._loadPropertyTable();
   }
-  messageYears = this.avalaibleYearsService.message;
+
+  private async _loadData(): Promise<void> {
+    await this._tableService.loadDataForTypeClasification(true, this.typeClasification);
+    this.showComponentIngresos = true;
+  }
+
+  clickDetail() {
+    this.showComponentIngresos = false;
+    setTimeout(() => {
+      this.showComponentIngresos = true;
+    }, 100);
+  }
 
   private async _loadPropertyTable() {
     await this._tableService.loadDataForTypeClasification(true, 'ingresosEconomicaArticulos',);
@@ -164,6 +178,7 @@ export class DetallePresupuestoComponent {
 
 
   async detalle(typeClasification: CLASIFICATION_TYPE) {
+
     this._dataStoreService.IsDetails = true;
     const selectedRows = this.agGrid.api.getSelectedNodes();
     const dataPropertyTable = getClasificacion(typeClasification);
