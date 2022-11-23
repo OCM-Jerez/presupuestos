@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ViewChild, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -24,7 +24,7 @@ import { getClasificacion } from '../data-table';
   selector: 'app-table-ingresos',
   templateUrl: './table-ingresos.component.html',
 })
-export class TableIngresosComponent implements OnInit {
+export class TableIngresosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   @Output() clickDetail = new EventEmitter();
   @Input() fieldsHide: string[] = [];
@@ -47,11 +47,8 @@ export class TableIngresosComponent implements OnInit {
   ) {
     this._loadPropertyTable();
   }
-  ngOnInit(): void {
 
 
-
-  }
   messageYears = this.avalaibleYearsService.message;
 
   private async _loadPropertyTable() {
