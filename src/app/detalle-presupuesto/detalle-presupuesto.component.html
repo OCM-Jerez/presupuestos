@@ -1,6 +1,7 @@
 <div class="flex-container" style=" background: white;">
     <div class="container">
         <h2 class="OCM-title">Detalle del presupuesto</h2>
+        <span class="OCM-subtitle">Datos ejecución presupuesto al 2 de noviembre de 2022</span>
         <div class="tab-wrap">
 
             <!-- active tab on page load gets checked attribute -->
@@ -16,12 +17,14 @@
             <input type="radio" id="tab4" name="tabGroup1" class="tab">
             <label for="tab4">¿Para qué se gasta?</label>
 
+            <!-- Tab Ingresos -->
             <div class="tab__content">
-                <span class="OCM-subtitle">Datos ejecución presupuesto al 2 de noviembre de 2022</span>
+
                 <div class="flex-container" style=" height: 600px;background-image: url('../../assets/img/Civio/graficoIngresos.png'); 
                 background-size:1200px 600px;background-position: center center; background-repeat: no-repeat;">
                 </div>
 
+                <!-- Selector año -->
                 <div id="form-wrapper">
                     <form action="/p/quote.php" method="GET">
                         <h1 id="form-title">AÑO</h1>
@@ -68,57 +71,7 @@
                     </tbody>
                 </table>
 
-                <!-- <table class="paleBlueRows">
-                    <thead>
-                        <tr>
-                            <th style="width: 1000px;font-size: 20px; text-align: left; margin-left: 40px;">ARTÍCULO
-                            </th>
-                            <th style="width: 200px;height: 60px;font-size: 20px">PRESUPUESTADO</th>
-                            <th style="width: 200px;font-size: 20px">INGRESADO</th>
-
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td style="text-align: left; font-size: 32px;">TOTAL</td>
-                            <td style="text-align: right; font-size: 32px;">242.128.125</td>
-                            <td style="text-align: right; font-size: 32px;">142.028.325</td>
-                        </tr>
-                    </tbody>
-                </table> -->
-
-                <!-- <div style="margin-top: 40px;">
-                    <button type="button" (click)="detalle('ingresosEconomicaCapitulos')" class="btn-54">
-                        <span class="shadow"></span>
-                        <span class="depth"></span>
-                        <span class="content">Por capítulo</span>
-                    </button>
-
-                    <button type="button" (click)="detalle('ingresosEconomicaArticulos')" class="btn-54">
-                        <span class="shadow"></span>
-                        <span class="depth"></span>
-                        <span class="content">Por artículo</span>
-                    </button>
-
-                    <button type="button" (click)="detalle('ingresosEconomicaConceptos')" class="btn-54">
-                        <span class="shadow"></span>
-                        <span class="depth"></span>
-                        <span class="content">Por concepto</span>
-                    </button>
-
-                    <button type="button" (click)="detalle('ingresosEconomicaEconomicos')" class="btn-54">
-                        <span class="shadow"></span>
-                        <span class="depth"></span>
-                        <span class="content">Por económico</span>
-                    </button>
-
-
-                    <ag-grid-angular #agGrid style="width: 100%; height: 600px; padding-right: 20px; margin-left: 10px"
-                        class="ag-theme-balham" [gridOptions]="gridOptions" (gridReady)="onGridReady($event)">
-                    </ag-grid-angular>
-                </div> -->
-
+                <!-- AG-Grid -->
                 <app-compara-ing *ngIf="showComponentIngresos" (clickDetail)="clickDetail()" [fieldsHide]="[
                                    'Iniciales', 
                                    'Modificaciones',
@@ -132,8 +85,8 @@
                 </app-compara-ing>
             </div>
 
+            <!-- Tab ¿En qué se gasta?  -->
             <div class="tab__content">
-                <span class="OCM-subtitle">Datos ejecución presupuesto al 2 de noviembre de 2022</span>
                 <div class="flex-container" style=" height: 600px;background-image: url('../../assets/img/Civio/graficoEnQueSeGasta.png'); 
                 background-size:1200px 600px;background-position: center center; background-repeat: no-repeat;">
                 </div>
@@ -179,8 +132,8 @@
                 </table>
             </div>
 
+            <!-- Tab ¿Quién lo gasta?  -->
             <div class="tab__content">
-                <span class="OCM-subtitle">Datos ejecución presupuesto al 2 de noviembre de 2022</span>
                 <div class="flex-container" style=" height: 600px;background-image: url('../../assets/img/Civio/graficoQuienGasta.png'); 
                 background-size:1200px 600px;background-position: center center; background-repeat: no-repeat;">
                 </div>
@@ -226,8 +179,8 @@
                 </table>
             </div>
 
+            <!-- Tab ¿Para qué gasta?  -->
             <div class="tab__content">
-                <span class="OCM-subtitle">Datos ejecución presupuesto al 2 de noviembre de 2022</span>
                 <div class="flex-container" style=" height: 600px;background-image: url('../../assets/img/Civio/graficoParaQueSeGasta.png'); 
                 background-size:1200px 600px;background-position: center center; background-repeat: no-repeat;">
                 </div>
@@ -274,9 +227,6 @@
                 </table>
             </div>
         </div>
-
-
-
 
     </div>
 </div>
