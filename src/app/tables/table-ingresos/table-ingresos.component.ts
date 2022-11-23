@@ -21,7 +21,7 @@ import { CLASIFICATION_TYPE } from '../../commons/util/util';
 import { getClasificacion } from '../data-table';
 
 @Component({
-  selector: 'app-compara-ing',
+  selector: 'app-table-ingresos',
   templateUrl: './table-ingresos.component.html',
 })
 export class TableIngresosComponent implements OnInit {

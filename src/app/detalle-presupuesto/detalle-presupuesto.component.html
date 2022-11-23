@@ -72,7 +72,7 @@
                 </table>
 
                 <!-- AG-Grid -->
-                <app-compara-ing *ngIf="showComponentIngresos" (clickDetail)="clickDetail()" [fieldsHide]="[
+                <app-table-ingresos *ngIf="showComponentIngresos" (clickDetail)="clickDetail()" [fieldsHide]="[
                                    'Iniciales', 
                                    'Modificaciones',
                                    'DerechosReconocidos',
@@ -82,7 +82,7 @@
                                    'DerechosPendienteCobro',
                                    'DiferenciaPrevision'
                                    ]">
-                </app-compara-ing>
+                </app-table-ingresos>
             </div>
 
             <!-- Tab ¿En qué se gasta?  -->
