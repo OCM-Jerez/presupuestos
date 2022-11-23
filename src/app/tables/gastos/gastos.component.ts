@@ -8,7 +8,7 @@ import { IButtonClasification } from './model/components.interface';
 import { getClasificacion } from '../data-table';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColumnState, ColumnApi, GridApi, GridReadyEvent } from "ag-grid-community/main";
+import { ColumnState, ColumnApi, GridApi, GridReadyEvent } from "ag-grid-community";
 // import { CLASIFICATION_TYPE } from './../../commons/util/util';
 
 @Component({

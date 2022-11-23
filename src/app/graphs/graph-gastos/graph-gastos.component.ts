@@ -2,7 +2,8 @@ import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { AgChartOptions, GridOptions } from 'ag-grid-community';
+import { GridOptions } from 'ag-grid-community';
+import { AgChartOptions } from 'ag-charts-community';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { accumulate } from '../../commons/util/util';
