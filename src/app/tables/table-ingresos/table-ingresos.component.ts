@@ -138,8 +138,6 @@ export class TableIngresosComponent {
   // No lo uso en este componente pero si quisiese hacer alguna llamada a las API
   // este codigo es necesario.
   onGridReady = (params: GridReadyEvent) => {
-    console.log('onGridReady');
-
     this._gridApi = params.api;
     this._columnApi = params.columnApi;
 
@@ -227,15 +225,9 @@ export class TableIngresosComponent {
   }
 
   private _hideColumns() {
-    console.log('_hideColumns()');
-    console.log([this.fieldsHide]);
-    console.log([this.buttonsHide]);
-
     if (this.fieldsHide.length > 0) {
       const year = this.avalaibleYearsService.yearsSelected[0];
       const columnsHide = this.fieldsHide.map((item) => { return { colId: `${item}${year}`, hide: true } });
-      console.log(columnsHide);
-
       this._columnApi!.applyColumnState({
         state: columnsHide
       });
@@ -243,20 +235,18 @@ export class TableIngresosComponent {
   }
 
   private _hideButtons() {
-    console.log('_hideButtons()');
-    console.log([this.buttonsHide]);
 
     if (this.buttonsHide.length > 0) {
       if (this.buttonsHide.includes('menu')) {
-        console.log('menu');
+
         this.hasMenuButton = false
       };
       if (this.buttonsHide.includes('grafico')) {
-        console.log('grafico');
+
         this.hasGraficoButton = false
       };
       if (this.buttonsHide.includes('graphTree')) {
-        console.log('hasGraphTree');
+
         this.hasGraphTree = false
       };
     }
