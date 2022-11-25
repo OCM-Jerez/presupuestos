@@ -28,10 +28,13 @@ export class TableIngresosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   @Output() clickDetail = new EventEmitter();
   @Input() fieldsHide: string[] = [];
+  @Input() buttonsHide: string[] = [];
 
   public gridOptions: GridOptions;
   public hasGraphTree = true;
   public textButton: string;
+  public hasMenuButton = true;
+  public hasGraficoButton = true;
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
   private _columnDefs: any[];
@@ -46,12 +49,9 @@ export class TableIngresosComponent {
     private _tableService: TableService
   ) {
     this._loadPropertyTable();
-    console.log([this.fieldsHide]);
-
   }
 
-  // messageYears = this.avalaibleYearsService.message;
-  messageYears = " desde detalle presupuesto";
+  messageYears = this.avalaibleYearsService.message;
 
   private async _loadPropertyTable() {
     this._dataTable = this._dataStoreService.getDataTable
@@ -149,6 +149,7 @@ export class TableIngresosComponent {
     params.columnApi.applyColumnState({ state: defaultSortModel });
 
     this._hideColumns();
+    this._hideButtons();
   }
 
   // TODO: Las colummnas disparan su altura
@@ -228,7 +229,7 @@ export class TableIngresosComponent {
   private _hideColumns() {
     console.log('_hideColumns()');
     console.log([this.fieldsHide]);
-
+    console.log([this.buttonsHide]);
 
     if (this.fieldsHide.length > 0) {
       const year = this.avalaibleYearsService.yearsSelected[0];
@@ -238,6 +239,26 @@ export class TableIngresosComponent {
       this._columnApi!.applyColumnState({
         state: columnsHide
       });
+    }
+  }
+
+  private _hideButtons() {
+    console.log('_hideButtons()');
+    console.log([this.buttonsHide]);
+
+    if (this.buttonsHide.length > 0) {
+      if (this.buttonsHide.includes('menu')) {
+        console.log('menu');
+        this.hasMenuButton = false
+      };
+      if (this.buttonsHide.includes('grafico')) {
+        console.log('grafico');
+        this.hasGraficoButton = false
+      };
+      if (this.buttonsHide.includes('graphTree')) {
+        console.log('hasGraphTree');
+        this.hasGraphTree = false
+      };
     }
   }
 

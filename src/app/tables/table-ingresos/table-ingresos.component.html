@@ -2,7 +2,7 @@
     <h4 class="OCM-text--cabecera">Comparativa ingresos {{
         messageYears }}</h4>
 
-    <button id="showGraph" type="button" (click)="showGraph()" class="btn-54">
+    <button *ngIf="hasGraficoButton" id="showGraph" type="button" (click)="showGraph()" class="btn-54">
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content">{{textButton}}</span>
@@ -39,7 +39,7 @@
     </button>
 
     <!-- <button type="button" class="btn-54" onclick="history.back()"> -->
-    <button type="button" class="btn-54" (click)="home()">
+    <button *ngIf="hasMenuButton" type="button" class="btn-54" (click)="home()">
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content" style="background-color: brown;">Menú</span>
