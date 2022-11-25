@@ -227,16 +227,18 @@ export class TableIngresosComponent {
 
   private _hideColumns() {
     console.log('_hideColumns()');
+    console.log([this.fieldsHide]);
 
-    // if (this.fieldsHide.length > 0) {
-    //   const year = this.avalaibleYearsService.yearsSelected[0];
-    //   const columnsHide = this.fieldsHide.map((item) => { return { colId: `${item}${year}`, hide: true } });
-    //   console.log(columnsHide);
 
-    //   this._columnApi!.applyColumnState({
-    //     state: columnsHide
-    //   });
-    // }
+    if (this.fieldsHide.length > 0) {
+      const year = this.avalaibleYearsService.yearsSelected[0];
+      const columnsHide = this.fieldsHide.map((item) => { return { colId: `${item}${year}`, hide: true } });
+      console.log(columnsHide);
+
+      this._columnApi!.applyColumnState({
+        state: columnsHide
+      });
+    }
   }
 
   showGraph() {
