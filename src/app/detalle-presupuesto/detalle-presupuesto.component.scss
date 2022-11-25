@@ -1,3 +1,11 @@
+#treemap {
+    display: block;
+    min-width: 150px;
+    max-width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
 $number-of-options: 8;
 
 #form-wrapper {
