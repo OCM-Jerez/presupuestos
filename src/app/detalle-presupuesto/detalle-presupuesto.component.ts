@@ -10,6 +10,11 @@ import { TableService } from '../services/table.service';
 import { CLASIFICATION_TYPE } from '../commons/util/util';
 import { getClasificacion } from '../tables/data-table';
 
+import * as Highcharts from 'highcharts';
+// import HC_exporting from 'highcharts/highcharts-more';
+// HC_exporting(Highcharts);
+
+
 @Component({
   selector: 'app-detalle-presupuesto',
   templateUrl: './detalle-presupuesto.component.html',
@@ -17,8 +22,10 @@ import { getClasificacion } from '../tables/data-table';
 })
 export class DetallePresupuestoComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+  // Highcharts = Highcharts;
   showComponentIngresos = false;
   private typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaArticulos'
+
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
@@ -28,9 +35,26 @@ export class DetallePresupuestoComponent {
     this._loadData();
   }
 
+  Highcharts = Highcharts;
+  chart: any = {
+    series: [
+      {
+        data: [1, 2, 3],
+      },
+    ],
+    chart: {
+      type: 'line',
+    },
+    title: {
+      text: 'Gráfico de prueba',
+    },
+  };
+
+
   private async _loadData(): Promise<void> {
     await this._tableService.loadDataForTypeClasification(true, this.typeClasification);
     this.showComponentIngresos = true;
+    this.showGraph();
   }
 
   clickDetail() {
@@ -68,5 +92,23 @@ export class DetallePresupuestoComponent {
       this._router.navigate([currentUrl]);
     });
   }
+
+  showGraph() {
+    // this.Highcharts = Highcharts;
+    // linechart: any = {
+    //   series: [
+    //     {
+    //       data: [1, 2, 3],
+    //     },
+    //   ],
+    //   chart: {
+    //     type: 'line',
+    //   },
+    //   title: {
+    //     text: 'linechart',
+    //   },
+    // };
+  }
+
 
 }

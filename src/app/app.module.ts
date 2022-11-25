@@ -18,6 +18,7 @@ import { AvalaibleYearsService } from './services/avalaibleYears.service';
 import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.component';
 import { CheckboxComponent } from './commons/components/checkbox/checkbox.component';
 import { DetallePresupuestoModule } from './detalle-presupuesto/detalle-presupuesto.module';
+import { PruebaModule } from './hightcharts/prueba/prueba.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DetallePresupuestoModule } from './detalle-presupuesto/detalle-presupue
     FormsModule,
     NgSelectModule,
     ReactiveFormsModule,
-    DetallePresupuestoModule
+    DetallePresupuestoModule,
+    PruebaModule
 
   ],
   providers: [

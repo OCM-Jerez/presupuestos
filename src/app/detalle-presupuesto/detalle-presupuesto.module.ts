@@ -4,6 +4,8 @@ import { DetallePresupuestoComponent } from './detalle-presupuesto.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { RouterModule, Routes } from '@angular/router';
 import { TableIngresosModule } from '../tables/table-ingresos/table-ingresos.module';
+import { PruebaModule } from '../hightcharts/prueba/prueba.module';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 export const routes: Routes = [{ path: '', component: DetallePresupuestoComponent }]
 
@@ -11,6 +13,6 @@ export const routes: Routes = [{ path: '', component: DetallePresupuestoComponen
   declarations: [
     DetallePresupuestoComponent
   ],
-  imports: [RouterModule.forChild(routes), CommonModule, AgGridModule, TableIngresosModule],
+  imports: [RouterModule.forChild(routes), CommonModule, AgGridModule, TableIngresosModule, HighchartsChartModule],
 })
 export class DetallePresupuestoModule { }
