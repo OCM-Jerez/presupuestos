@@ -11,14 +11,18 @@ import { TableService } from '../services/table.service';
 import { CLASIFICATION_TYPE } from '../commons/util/util';
 import { getClasificacion } from '../tables/data-table';
 
+import { IDataTable } from '../commons/interfaces/dataTable.interface';
+
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
-import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
+// import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
 import HighchartsTreemap from 'highcharts/modules/treemap';
+import heatmap from 'highcharts/modules/heatmap';
 
 HighchartsMore(Highcharts);
-HighchartsSolidGauge(Highcharts);
+// HighchartsSolidGauge(Highcharts);
 HighchartsTreemap(Highcharts);
+heatmap(Highcharts)
 
 
 @Component({
@@ -31,9 +35,11 @@ export class DetallePresupuestoComponent {
   // Highcharts = Highcharts;
   showComponentIngresos = false;
   private typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaArticulos'
+  private _dataTable: IDataTable;
 
   public ngAfterViewInit(): void {
-    this.createChartPie();
+    this._loadData();
+    // this.createChartPie();
   }
 
   constructor(
@@ -42,62 +48,104 @@ export class DetallePresupuestoComponent {
     private _dataStoreService: DataStoreService,
     private _tableService: TableService
   ) {
-    this._loadData();
+
   }
 
   // https://stackblitz.com/edit/angular14-standaone-components-highcharts?file=src%2Fapp%2Fapp.component.ts
   // https://stackblitz.com/edit/angular-9nkrgd?file=src%2Fapp%2Fapp.component.ts
   // https://stackblitz.com/edit/angular13-highcharts-tjumvu?file=src%2Fapp%2Fapp.component.ts
-  // Highcharts = Highcharts;
-  // chart: any = {
-  //   series: [
-  //     {
-  //       data: [1, 2, 3],
-  //     },
-  //   ],
-  //   chart: {
-  //     type: 'line',
-  //   },
-  //   title: {
-  //     text: 'Gráfico de prueba',
-  //   },
-  // };
-
+  // https://stackblitz.com/edit/angular13-highcharts-tjumvu?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html
 
   private createChartPie(): void {
-    const data: any[] = [{
-      name: 'A',
-      value: 6,
-      colorValue: 1
-    }, {
-      name: 'B',
-      value: 6,
-      colorValue: 2
-    }, {
-      name: 'C',
-      value: 4,
-      colorValue: 3
-    }, {
-      name: 'D',
-      value: 3,
-      colorValue: 4
-    }, {
-      name: 'E',
-      value: 2,
-      colorValue: 5
-    }, {
-      name: 'F',
-      value: 2,
-      colorValue: 6
-    }, {
-      name: 'policia',
-      value: 16,
-      colorValue: 7
-    }]
+    // const data: any[] = [{
+    //   name: 'A',
+    //   value: 6,
+    //   colorValue: 1
+    // }, {
+    //   name: 'B',
+    //   value: 6,
+    //   colorValue: 2
+    // }, {
+    //   name: 'C',
+    //   value: 4,
+    //   colorValue: 3
+    // }, {
+    //   name: 'D',
+    //   value: 3,
+    //   colorValue: 4
+    // }, {
+    //   name: 'E',
+    //   value: 2,
+    //   colorValue: 5
+    // }, {
+    //   name: 'F',
+    //   value: 2,
+    //   colorValue: 6
+    // }, {
+    //   name: 'policia',
+    //   value: 16,
+    //   colorValue: 7
+    // }]
+
+    // this._dataTable = this._dataStoreService.getDataTable
+    // console.log(this._dataTable);
+
+    // const data = this._dataTable.rowData.filter(x => x.CodEco === 1000)
+    // console.log(data);
+
+
+    // const chart = Highcharts.chart('treemap', {
+    //   chart: {
+    //     type: 'treemap',
+    //   },
+    //   title: {
+    //     text: '',
+    //   },
+    //   credits: {
+    //     enabled: false,
+    //   },
+    //   tooltip: {
+    //     headerFormat: `<span class="mb-2">Programa: {point.key}</span><br>`,
+    //     pointFormat: '<span>Euros: {point.value}</span>',
+    //     useHTML: true,
+    //   },
+    //   series: [
+    //     {
+    //       name: null,
+    //       innerSize: '50%',
+    //       data,
+    //     },
+    //   ],
+    // } as any);
+
+  }
+
+  private async _loadData(): Promise<void> {
+    await this._tableService.loadDataForTypeClasification(true, this.typeClasification);
+    this.showComponentIngresos = true;
+    this._dataTable = this._dataStoreService.getDataTable
+    console.log(this._dataTable);
+    // const data = this._dataTable.rowData.filter(x => x.CodArt === 11)
+    const data = this._dataTable.rowData;
+    console.log(data);
+    var color = 10
+    data.map(item => {
+      color = color + 1;
+      item.name = item.DesArt;
+      item.value = item.Definitivas2022;
+      item.colorValue = (item.Definitivas2022 / 100)
+    });
+    console.log(data);
 
     const chart = Highcharts.chart('treemap', {
+      colorAxis: {
+        minColor: '#FFFFFF',
+        // maxColor: Highcharts.getOptions().colors[0]
+        maxColor: '#F41313'
+      },
       chart: {
         type: 'treemap',
+        layoutAlgorithm: 'squarified',
       },
       title: {
         text: '',
@@ -106,8 +154,12 @@ export class DetallePresupuestoComponent {
         enabled: false,
       },
       tooltip: {
+        tooltip: {
+          enabled: false,
+        },
         headerFormat: `<span class="mb-2">Programa: {point.key}</span><br>`,
-        pointFormat: '<span>Euros: {point.value}</span>',
+        pointFormat: '<span>Euros: {point.value}</span></br><span>Color: {point.colorValue}</span>',
+
         useHTML: true,
       },
       series: [
@@ -119,12 +171,6 @@ export class DetallePresupuestoComponent {
       ],
     } as any);
 
-  }
-
-  private async _loadData(): Promise<void> {
-    await this._tableService.loadDataForTypeClasification(true, this.typeClasification);
-    this.showComponentIngresos = true;
-    this.showGraph();
   }
 
   clickDetail() {
@@ -162,23 +208,5 @@ export class DetallePresupuestoComponent {
       this._router.navigate([currentUrl]);
     });
   }
-
-  showGraph() {
-    // this.Highcharts = Highcharts;
-    // linechart: any = {
-    //   series: [
-    //     {
-    //       data: [1, 2, 3],
-    //     },
-    //   ],
-    //   chart: {
-    //     type: 'line',
-    //   },
-    //   title: {
-    //     text: 'linechart',
-    //   },
-    // };
-  }
-
 
 }
