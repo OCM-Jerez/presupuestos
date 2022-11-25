@@ -46,10 +46,12 @@ export class TableIngresosComponent {
     private _tableService: TableService
   ) {
     this._loadPropertyTable();
+    console.log([this.fieldsHide]);
+
   }
 
-
-  messageYears = this.avalaibleYearsService.message;
+  // messageYears = this.avalaibleYearsService.message;
+  messageYears = " desde detalle presupuesto";
 
   private async _loadPropertyTable() {
     this._dataTable = this._dataStoreService.getDataTable
@@ -136,7 +138,6 @@ export class TableIngresosComponent {
   // No lo uso en este componente pero si quisiese hacer alguna llamada a las API
   // este codigo es necesario.
   onGridReady = (params: GridReadyEvent) => {
-
     this._gridApi = params.api;
     this._columnApi = params.columnApi;
 
@@ -144,18 +145,10 @@ export class TableIngresosComponent {
       { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
     ];
     params.columnApi.applyColumnState({ state: defaultSortModel });
+
     this._hideColumns();
   }
 
-  private _hideColumns() {
-    if (this.fieldsHide.length > 0) {
-      const year = this.avalaibleYearsService.yearsSelected[0];
-      const columnsHide = this.fieldsHide.map((item) => { return { colId: `${item}${year}`, hide: true } });
-      this._columnApi!.applyColumnState({
-        state: columnsHide
-      });
-    }
-  }
   // TODO: Las colummnas disparan su altura
   // headerHeightSetter() {
   // var padding = 20;
@@ -228,6 +221,16 @@ export class TableIngresosComponent {
         field: `DiferenciaPrevision${year}`,
       },
     ];
+  }
+
+  private _hideColumns() {
+    if (this.fieldsHide.length > 0) {
+      const year = this.avalaibleYearsService.yearsSelected[0];
+      const columnsHide = this.fieldsHide.map((item) => { return { colId: `${item}${year}`, hide: true } });
+      this._columnApi!.applyColumnState({
+        state: columnsHide
+      });
+    }
   }
 
   showGraph() {
