@@ -32,8 +32,6 @@ export class DetallePresupuestoComponent {
   private _dataTable: IDataTable;
   public totalPresupuestado: number;
   public totalRecaudado: number;
-
-
   public ngAfterViewInit(): void {
     this._loadData();
   }
@@ -63,7 +61,6 @@ export class DetallePresupuestoComponent {
     });
     console.log(articulos);
 
-
     // Totalizo por articulo
     data = articulos.reduce((acc, curr) => {
       const index = acc.findIndex(item => item.name === curr.name)
@@ -89,6 +86,7 @@ export class DetallePresupuestoComponent {
     this.totalPresupuestado = totales.value;
     this.totalRecaudado = totales.recaudado;
 
+    // Gráfico treemap
     const chart = Highcharts.chart('treemap', {
       colorAxis: {
         minColor: '#FFFFFF',
