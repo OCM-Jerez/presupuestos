@@ -73,7 +73,8 @@
                 </table>
 
                 <!-- AG-Grid -->
-                <app-table-ingresos *ngIf="showComponentIngresos" (clickDetail)="clickDetail()" [fieldsHide]="[
+                <div style="margin-top: 40px;">
+                    <app-table-ingresos *ngIf="showComponentIngresos" (clickDetail)="clickDetail()" [fieldsHide]="[
                                    'Iniciales', 
                                    'Modificaciones',
                                    'DerechosReconocidos',
@@ -84,8 +85,9 @@
                                     ]" [buttonsHide]="[
                                     'menu',
                                     'grafico',
-                                    'graphTree']">
-                </app-table-ingresos>
+                                    'graphTree']" [hasTitle]=false>
+                    </app-table-ingresos>
+                </div>
             </div>
 
             <!-- Tab ¿En qué se gasta?  -->

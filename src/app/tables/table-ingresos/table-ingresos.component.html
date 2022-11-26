@@ -1,5 +1,5 @@
 <div>
-    <h4 class="OCM-text--cabecera">Comparativa ingresos {{
+    <h4 *ngIf="hasTitle" class="OCM-text--cabecera">Comparativa ingresos {{
         messageYears }}</h4>
 
     <button *ngIf="hasGraficoButton" id="showGraph" type="button" (click)="showGraph()" class="btn-54">

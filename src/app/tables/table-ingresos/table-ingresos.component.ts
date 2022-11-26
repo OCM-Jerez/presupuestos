@@ -29,6 +29,7 @@ export class TableIngresosComponent {
   @Output() clickDetail = new EventEmitter();
   @Input() fieldsHide: string[] = [];
   @Input() buttonsHide: string[] = [];
+  @Input() hasTitle: boolean = true;
 
   public gridOptions: GridOptions;
   public hasGraphTree = true;
