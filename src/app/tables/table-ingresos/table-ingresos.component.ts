@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -7,6 +7,7 @@ import { ColumnApi, GridApi } from "ag-grid-community/main";
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
+import { CellRendererOCM1, CellRendererOCMtext1 } from '../../ag-grid/CellRendererOCM1'
 // import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
@@ -24,12 +25,13 @@ import { getClasificacion } from '../data-table';
   selector: 'app-table-ingresos',
   templateUrl: './table-ingresos.component.html',
 })
-export class TableIngresosComponent {
+export class TableIngresosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   @Output() clickDetail = new EventEmitter();
   @Input() fieldsHide: string[] = [];
   @Input() buttonsHide: string[] = [];
   @Input() hasTitle: boolean = true;
+  @Input() cellRenderer: boolean;
 
   public gridOptions: GridOptions;
   public hasGraphTree = true;
@@ -40,6 +42,7 @@ export class TableIngresosComponent {
   private _columnApi: ColumnApi;
   private _columnDefs: any[];
   private _dataTable: IDataTable;
+  private _cellRenderer: string = '';
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -51,10 +54,15 @@ export class TableIngresosComponent {
   ) {
     this._loadPropertyTable();
   }
+  ngOnInit(): void {
+    console.log(this.cellRenderer);
+    this._cellRenderer = this.cellRenderer ? 'CellRendererOCM' : 'CellRendererOCMtext1';
+  }
 
   messageYears = this.avalaibleYearsService.message;
 
   private async _loadPropertyTable() {
+
     this._dataTable = this._dataStoreService.getDataTable
     this._columnDefs = [
       {
