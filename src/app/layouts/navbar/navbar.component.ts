@@ -10,16 +10,6 @@ export class NavbarComponent {
     public router: Router,
   ) { }
 
-
-
-  explicamos() {
-    this.router.navigateByUrl('/explicamos')
-  }
-
-  glosario() {
-    this.router.navigateByUrl('/glosario')
-  }
-
   visionGlobal() {
     this.router.navigateByUrl('/home')
   }
@@ -31,4 +21,13 @@ export class NavbarComponent {
   licitaciones() {
     window.open('https://con.ocmjerez.org/', '_blank');
   }
+
+  explicamos() {
+    this.router.navigateByUrl('/explicamos')
+  }
+
+  glosario() {
+    this.router.navigateByUrl('/glosario')
+  }
+
 }
