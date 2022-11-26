@@ -2,35 +2,6 @@
 // https://fixu.cl/que-es-la-metodologia-bem-y-como-se-aplica-al-front-end/
 @import "/src/app/scss/variables";
 
-.nav {
-    display: flex;
-    direction: row;
-    height: 50px;
-    width: 100%;
-    margin: 0, auto;
-    justify-content: center;
-    background-color: white;
-    // position: relative;
-}
-
-.OCM-navbarButton {
-    padding: 10px;
-    border: unset;
-    // border-radius: 15px;
-    height: 40px;
-    margin: 10px;
-    color: #212121;
-    // z-index: 1;
-    background: white;
-    // position: relative;
-    font-weight: 1000;
-    font-size: 26px;
-    // -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    // box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    // transition: all 250ms;
-    // overflow: hidden;
-}
-
 .OCM-indice {
     margin-bottom: 2rem;
     margin-top: 2rem;
