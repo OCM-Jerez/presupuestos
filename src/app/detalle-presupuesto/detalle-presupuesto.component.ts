@@ -83,8 +83,10 @@ export class DetallePresupuestoComponent {
       })
       return acc
     }, {})
-    this.totalPresupuestado = totales.value;
-    this.totalRecaudado = totales.recaudado;
+    this.totalPresupuestado = totales.value.toString()
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    this.totalRecaudado = totales.recaudado.toString()
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 
     // Gráfico treemap
     const chart = Highcharts.chart('treemap', {
