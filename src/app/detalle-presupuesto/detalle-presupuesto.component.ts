@@ -30,6 +30,9 @@ export class DetallePresupuestoComponent {
   showComponentIngresos = false;
   private typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaArticulos'
   private _dataTable: IDataTable;
+  public totalPresupuestado: number;
+  public totalRecaudado: number;
+
 
   public ngAfterViewInit(): void {
     this._loadData();
@@ -53,21 +56,38 @@ export class DetallePresupuestoComponent {
       const value = {
         "name": item.CodArt + '-' + item.DesArt,
         "value": item.Definitivas2022,
+        "recaudado": item.DerechosReconocidosNetos2022,
         "colorValue": (item.Definitivas2022 / 100)
       }
       articulos.push(value)
     });
+    console.log(articulos);
+
 
     // Totalizo por articulo
     data = articulos.reduce((acc, curr) => {
       const index = acc.findIndex(item => item.name === curr.name)
-      index > -1 ? acc[index].value += curr.value : acc.push({
+      index > -1 ? (acc[index].value += curr.value, acc[index].recaudado += curr.recaudado) : acc.push({
         name: curr.name,
         value: curr.value,
+        recaudado: curr.recaudado,
         colorValue: (curr.value / 1000)
       })
       return acc
     }, [])
+
+    // Total general para datos tabla
+    const totales = data.reduce((acc, curr) => {
+      Object.keys(curr).forEach((key, index) => {
+        if (!acc[key]) {
+          acc[key] = 0
+        }
+        acc[key] += curr[key]
+      })
+      return acc
+    }, {})
+    this.totalPresupuestado = totales.value;
+    this.totalRecaudado = totales.recaudado;
 
     const chart = Highcharts.chart('treemap', {
       colorAxis: {
