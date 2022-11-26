@@ -8,7 +8,7 @@ import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { DataStoreService } from '../services/dataStore.service';
 import { TableService } from '../services/table.service';
 
-import { CLASIFICATION_TYPE } from '../commons/util/util';
+import { accumulate, CLASIFICATION_TYPE } from '../commons/util/util';
 import { getClasificacion } from '../tables/data-table';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
@@ -124,18 +124,91 @@ export class DetallePresupuestoComponent {
     await this._tableService.loadDataForTypeClasification(true, this.typeClasification);
     this.showComponentIngresos = true;
     this._dataTable = this._dataStoreService.getDataTable
-    console.log(this._dataTable);
-    // const data = this._dataTable.rowData.filter(x => x.CodArt === 11)
-    const data = this._dataTable.rowData;
-    console.log(data);
-    var color = 10
+    var data = this._dataTable.rowData;
+    // console.log(data);
+
+    // Creo item para cada uno de los articulos.
+    let articulos = []
+
+    // Creo array de Articulos.
     data.map(item => {
-      color = color + 1;
-      item.name = item.DesArt;
-      item.value = item.Definitivas2022;
-      item.colorValue = (item.Definitivas2022 / 100)
+      const value = {
+        "name": item.CodArt + '-' + item.DesArt,
+        "value": item.Definitivas2022,
+        "colorValue": (item.Definitivas2022 / 100)
+      }
+      articulos.push(value)
     });
+
+    // articulos = [...new Set(articulos)];
+    console.log([articulos])
+
+    data = articulos.reduce((acc, curr) => {
+      const index = acc.findIndex(item => item.name === curr.name)
+      index > -1 ? acc[index].value += curr.value : acc.push({
+        name: curr.name,
+        value: curr.value,
+        colorValue: (curr.value / 1000)
+      })
+      return acc
+    }, [])
+    // console.log(data);
+
+
+
+    // var color = 10
+    // data.map(item => {
+    //   color = color + 1;
+    //   item.name = item.CodArt;
+    //   item.value = item.Definitivas;
+    //   item.colorValue = (item.Definitivas / 100)
+    // });
     console.log(data);
+
+
+
+    // // Acumular los datos por articulo
+    // Creo item para cada uno de los articulos.
+    // let articulos = []
+    // let dataFinal = [];
+
+    // // Creo array de Articulos.
+    // data.map(item => {
+    //   const value = {
+    //     "CodArt": item.CodArt,
+    //     "Definitivas": item.Definitivas2022
+    //   }
+    //   articulos.push(value)
+    // });
+
+    // // articulos = [...new Set(articulos)];
+    // console.log([articulos])
+
+    // data = articulos.reduce((acc, curr) => {
+    //   const index = acc.findIndex(item => item.CodArt === curr.CodArt)
+    //   index > -1 ? acc[index].Definitivas += curr.Definitivas : acc.push({
+    //     CodArt: curr.CodArt,
+    //     Definitivas: curr.Definitivas
+    //   })
+    //   return acc
+    // }, [])
+
+    // var color = 10
+    // data.map(item => {
+    //   color = color + 1;
+    //   // item.name = item.DesArt;
+    //   // item.value = item.Definitivas2022;
+    //   item.colorValue = (item.Definitivas / 100)
+    // });
+
+    // console.log([data])
+
+
+
+
+
+
+
 
     const chart = Highcharts.chart('treemap', {
       colorAxis: {
@@ -145,7 +218,7 @@ export class DetallePresupuestoComponent {
       },
       chart: {
         type: 'treemap',
-        layoutAlgorithm: 'squarified',
+        // layoutAlgorithm: 'squarified',
       },
       title: {
         text: '',
@@ -157,7 +230,7 @@ export class DetallePresupuestoComponent {
         tooltip: {
           enabled: false,
         },
-        headerFormat: `<span class="mb-2">Programa: {point.key}</span><br>`,
+        headerFormat: `<span class="mb-2">Artículo: {point.name}</span><br>`,
         pointFormat: '<span>Euros: {point.value}</span></br><span>Color: {point.colorValue}</span>',
 
         useHTML: true,
