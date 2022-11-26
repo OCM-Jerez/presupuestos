@@ -20,7 +20,7 @@
   padding: 0px 15px 0px 15px;
   border: 1px solid #1b0408;
   border-radius: 4px;
-  z-index:2;
+  z-index: 2;
   position: fixed;
   max-width: 500px;
   top: 85px;
@@ -29,10 +29,12 @@
 
 .OCM-app-root {
   width: 98vw;
-  min-height: 100vh;
+  min-height: 98vh;
   margin-left: 20px;
-  display: grid;
-  grid-template-rows: 40px auto 40px;
+  display: flexbox;
+  flex-direction: column;
+  justify-content: space-between;
+  // grid-template-rows: 40px auto 40px;
 }
 
 // https://javascript.plainenglish.io/5-steps-to-adding-a-sticky-footer-to-your-angular-11-application-6c185c2ed99f
@@ -190,9 +192,8 @@
   background-image: none;
   color: #fff;
   cursor: pointer;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
+    Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   font-size: 100%;
   line-height: 1.5;
   margin: 4px;
