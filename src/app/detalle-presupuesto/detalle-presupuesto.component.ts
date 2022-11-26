@@ -89,7 +89,7 @@ export class DetallePresupuestoComponent {
         tooltip: {
           enabled: false,
         },
-        headerFormat: `<span class="mb-2">Artículo: {point.name}</span><br>`,
+        headerFormat: `<span class="mb-2">{point.key}</span><br>`,
         pointFormat: '<span>Euros: {point.value}</span></br><span>Color: {point.colorValue}</span>',
 
         useHTML: true,
