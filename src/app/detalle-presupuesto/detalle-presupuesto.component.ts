@@ -1,4 +1,3 @@
-import { HighchartsChartModule } from 'highcharts-angular';
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -35,20 +34,12 @@ export class DetallePresupuestoComponent {
   public ngAfterViewInit(): void {
     this._loadData();
   }
-
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
     private _dataStoreService: DataStoreService,
     private _tableService: TableService
-  ) {
-
-  }
-
-  // https://stackblitz.com/edit/angular14-standaone-components-highcharts?file=src%2Fapp%2Fapp.component.ts
-  // https://stackblitz.com/edit/angular-9nkrgd?file=src%2Fapp%2Fapp.component.ts
-  // https://stackblitz.com/edit/angular13-highcharts-tjumvu?file=src%2Fapp%2Fapp.component.ts
-  // https://stackblitz.com/edit/angular13-highcharts-tjumvu?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html
+  ) { }
 
   private async _loadData(): Promise<void> {
     await this._tableService.loadDataForTypeClasification(true, this.typeClasification);
