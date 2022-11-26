@@ -1,4 +1,4 @@
-export function CellRendererOCM(params: any) {
+export function CellRendererOCM1(params: any) {
   if (params.value) {
     const valorFormateado: number = params.value
       .toString()
@@ -27,7 +27,7 @@ export function CellRendererOCM(params: any) {
 }
 
 
-export function CellRendererOCMtext(params: any) {
+export function CellRendererOCMtext1(params: any) {
   return params.value
 }
 
