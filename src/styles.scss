@@ -12,6 +12,95 @@
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/legacy/ag-theme-balham-v22-compat.scss";
 
 // #region OCM
+.OCM-barraBuscar {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  width: 100%;
+  height: 80px;
+  background-color: #cce3f9;
+  gap: 20px;
+  // margin-top: 20px;
+  background: #e7f2fc;
+  height: 50px;
+}
+
+.OCM-buttonBuscar {
+  padding: 10px;
+  border: unset;
+  // border-radius: 15px;
+  height: 40px;
+  margin: 10px;
+  color: white;
+  z-index: 1;
+  background: #2612e2;
+  position: relative;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+input[type="text"],
+select {
+  width: 420px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.OCM-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100 hw;
+  color: black;
+  font-weight: 600;
+  font-family: var(--fuente-principal);
+  font-size: clamp(1.5rem, 2rem, 2.5rem);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.nav {
+  display: flex;
+  direction: row;
+  height: 50px;
+  width: 100%;
+  margin: 0, auto;
+  justify-content: center;
+  background-color: white;
+  // position: relative;
+}
+
+.OCM-navbarButton {
+  padding: 10px;
+  border: unset;
+  // border-radius: 15px;
+  height: 40px;
+  margin: 10px;
+  color: rgb(143, 135, 135);
+  // z-index: 1;
+  background: white;
+  // position: relative;
+  font-weight: 600;
+  font-size: 20px;
+  cursor: grab;
+  // -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  // box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  // transition: all 250ms;
+  // overflow: hidden;
+  &:hover {
+    transform: scale(1.2);
+    color: black;
+  }
+}
+
 .OCM-alert {
   background-color: #d31f1f;
   border-color: #1b0408;
@@ -45,8 +134,9 @@
   }
   display: flex;
   justify-content: space-between;
+  flex-flow: row wrap;
   width: 100%;
-  height: 40px;
+  height: 150px;
   background-color: map-get($OCM-colors, navBarBackground);
   &--brand {
     display: flex;

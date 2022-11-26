@@ -7,8 +7,28 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
   constructor(
-    public router: Router
-  ) {
+    public router: Router,
+  ) { }
 
+
+
+  explicamos() {
+    this.router.navigateByUrl('/explicamos')
+  }
+
+  glosario() {
+    this.router.navigateByUrl('/glosario')
+  }
+
+  visionGlobal() {
+    this.router.navigateByUrl('/home')
+  }
+
+  detallePresupuesto() {
+    this.router.navigateByUrl('/detallePresupuesto')
+  }
+
+  licitaciones() {
+    window.open('https://con.ocmjerez.org/', '_blank');
   }
 }
