@@ -7,90 +7,78 @@
 @import "/src/app/scss/variables";
 
 .OCM-navbar {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    width: 100%;
+    height: 150px;
+    &--1row {
+        display: flex;
+        justify-content: space-between;
+        background-color: map-get($OCM-colors, navBarBackground);
+        &--brand {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 18%;
+            // background-color: red;
+
+            &--logo {
+                @include OCM-logo;
+                background: url("../../../assets/img/logoOCMyellow.svg") no-repeat center center;
+            }
+            &--text {
+                @include OCM-text;
+                font-size: 12px;
+            }
+        }
+        &--title {
+            // display: flex;
+            // justify-content: space-between;
+            width: 64%;
+            // background-color: rgb(35, 196, 64);
+            @include OCM-text;
+            @include fluid-type($min_width, $max_width, $min_font, $max_font);
+        }
+        &--homeEmpty {
+            // display: flex;
+            // flex-direction: row;
+            width: 18%;
+            // background-color: rgb(166, 211, 19);
+        }
+        &--home {
+            // display: flex;
+            // flex-direction: row;
+            // justify-content: flex-end;
+            width: 18%;
+            // background-color: rgb(38, 11, 101);
+            &--logoHome {
+                @include OCM-logo;
+                // background-color: red;
+                background: url("../../..//assets/img/home.svg") no-repeat center center;
+                margin-right: 20px;
+            }
+        }
+    }
+
     a {
         text-decoration: none;
         color: white;
     }
-    display: flex;
-    justify-content: space-between;
-    flex-flow: row wrap;
-    width: 100%;
-    height: 150px;
-    background-color: map-get($OCM-colors, navBarBackground);
-    &--brand {
-        display: flex;
-        justify-content: space-between;
-        &--logo {
-            @include OCM-logo;
-            background: url("../../../assets/img/logoOCMyellow.svg") no-repeat center center;
-        }
-        &--text {
-            @include OCM-text;
-            font-size: 12px;
-        }
-    }
-    &--title {
-        @include OCM-text;
-        @include fluid-type($min_width, $max_width, $min_font, $max_font);
-    }
-    &--homeEmpty {
-        display: flex;
-        flex-direction: row;
-        width: 246px;
-    }
-    &--home {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        width: 246px;
-        .OCM-logoHome {
-            @include OCM-logo;
-            background: url("../../..//assets/img/home.svg") no-repeat center center;
-            margin-right: 20px;
-        }
-    }
 }
 
-.OCM-barraBuscar {
+.nav {
     display: flex;
-    margin: 0 auto;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: center;
-    width: 100%;
-    height: 80px;
-    background-color: #cce3f9;
-    gap: 20px;
-    // margin-top: 20px;
-    background: #e7f2fc;
+    direction: row;
     height: 50px;
-}
-
-.OCM-buttonBuscar {
-    padding: 10px;
-    border: unset;
-    // border-radius: 15px;
-    height: 40px;
-    margin: 10px;
-    color: white;
-    z-index: 1;
-    background: #2612e2;
-    position: relative;
-    font-weight: 500;
-    font-size: 17px;
-}
-
-input[type="text"],
-select {
-    width: 420px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    width: 100%;
+    margin: 0, auto;
+    justify-content: center;
+    background-color: white;
+    // position: relative;
 }
 
 .OCM-navbarButton {
@@ -114,4 +102,44 @@ select {
         transform: scale(1.2);
         color: black;
     }
+}
+
+.OCM-barraBuscar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    width: 100%;
+    height: 60px;
+    gap: 20px;
+    background: #e7f2fc;
+    margin-top: 10px;
+}
+
+.OCM-buttonBuscar {
+    padding: 10px;
+    border: unset;
+    border-radius: 5px;
+    height: 35px;
+    margin: 10px;
+    color: white;
+    z-index: 1;
+    background: #2612e2;
+    position: relative;
+    font-weight: 500;
+    font-size: 17px;
+    cursor: grab;
+}
+
+input[type="text"],
+select {
+    width: 420px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }

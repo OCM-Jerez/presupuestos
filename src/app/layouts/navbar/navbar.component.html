@@ -1,18 +1,21 @@
-<nav class="OCM-navbarFooter">
+<nav class="OCM-navbar">
 
-  <div class="OCM-navbar--brand">
-    <a href="https://ocmjerez.org" class="OCM-navbarFooter--brand--logo" target="_blank" rel="nofollow"></a>
-    <span class="OCM-navbarFooter--brand--text">Observatorio Ciudadano Municipal de Jerez</span>
-  </div>
+  <div class="OCM-navbar--1row">
+    <div class="OCM-navbar--1row--brand">
+      <a href="https://ocmjerez.org" class="OCM-navbar--1row--brand--logo" target="_blank" rel="nofollow"></a>
+      <span class="OCM-navbar--1row--brand--text">Observatorio Ciudadano Municipal de Jerez</span>
+    </div>
 
-  <div class="OCM-navbarFooter--title">Datos presupuestos Ayuntamiento</div>
+    <div class="OCM-navbar--1row--title">Datos presupuestos Ayuntamiento Jerez</div>
 
-  <div *ngIf="router.url === '/homeNew'" class="OCM-navbarFooter--homeEmpty"></div>
-  <div *ngIf="router.url !== '/homeNew'" class="OCM-navbarFooter--home">
-    <a routerLink="/" class="OCM-logoHome"></a>
+    <div *ngIf="router.url === '/homeNew'" class="OCM-navbar--1row--homeEmpty"></div>
+    <div *ngIf="router.url !== '/homeNew'" class="OCM-navbar--1row--home">
+      <a routerLink="/" class="OCM-navbar--1row--home--logoHome"></a>
+    </div>
   </div>
 
   <div class="nav">
+    <button type="button" (click)="inicio()" class="OCM-navbarButton">Inicio</button>
     <button type="button" (click)="visionGlobal()" class="OCM-navbarButton">Visión global</button>
     <button type="button" (click)="detallePresupuesto()" class="OCM-navbarButton">Detalle del presupuesto</button>
     <button type="button" (click)="licitaciones()" class="OCM-navbarButton">Licitaciones</button>

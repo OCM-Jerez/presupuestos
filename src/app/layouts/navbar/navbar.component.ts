@@ -11,6 +11,10 @@ export class NavbarComponent {
     public router: Router,
   ) { }
 
+
+  inicio() {
+    this.router.navigateByUrl('/')
+  }
   visionGlobal() {
     this.router.navigateByUrl('/home')
   }
