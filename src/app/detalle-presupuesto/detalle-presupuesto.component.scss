@@ -1,3 +1,12 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    width: 99%;
+    height: 100%;
+    background-color: whitesmoke;
+    margin-top: 20px;
+}
+
 #treemap {
     display: block;
     min-width: 150px;
@@ -6,8 +15,8 @@
     margin: 0 auto;
 }
 
+/* #region Selector año  */
 $number-of-options: 8;
-
 #form-wrapper {
     width: 100%;
     display: flex;
@@ -205,50 +214,19 @@ form {
         margin-right: 12px;
     }
 }
-//======================================================================
+/* #endregion */
 
-.OCM-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100 hw;
-    color: black;
-    font-weight: 700;
-    font-family: var(--fuente-principal);
-    font-size: clamp(3rem, 4rem, 5rem);
-    text-align: center;
-    margin-top: 50px;
-}
-
-.OCM-subtitle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100 hw;
-    color: black;
-    font-weight: 500;
-    font-family: var(--fuente-principal);
-    font-size: clamp(1.5rem, 2rem, 2.5rem);
-    text-align: center;
-    margin-top: 50px;
-}
-
-.flex-container {
-    display: flex;
-    margin: 0 auto;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    align-content: center;
-    width: 100%;
-    height: 380px;
-    background-color: #cce3f9;
-    gap: 20px;
-    margin-top: 20px;
-}
-
+/* #region  Tabs */
 // https://codepen.io/alvarotrigo/pen/GRMbzBR
+.container {
+    margin: 0 auto;
+    display: block;
+    max-width: 98%;
+    > *:not(.tab-wrap) {
+        padding: 0 80px;
+    }
+}
+
 $max-tab-count: 4;
 $tab-wrap-border-radius: 6px;
 .tab-wrap {
@@ -334,7 +312,9 @@ $tab-wrap-border-radius: 6px;
         border-radius: $tab-wrap-border-radius;
     }
 }
+/* #endregion */
 
+/* #region  Table */
 table.paleBlueRows {
     font-family: "Times New Roman", Times, serif;
     border: 1px solid #ffffff;
@@ -382,11 +362,4 @@ table.paleBlueRows tfoot td {
     font-size: 14px;
 }
 
-.container {
-    margin: 0 auto;
-    display: block;
-    max-width: 1200px;
-    > *:not(.tab-wrap) {
-        padding: 0 80px;
-    }
-}
+/* #endregion */

@@ -440,18 +440,6 @@ insertamo sun seudo elemento con el mismo tamaño. */
     }
 }
 
-.OCM-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100 hw;
-    color: black;
-    font-weight: 700;
-    font-family: var(--fuente-principal);
-    font-size: clamp(3rem, 4rem, 5rem);
-    text-align: center;
-}
-
 table.paleBlueRows {
     font-family: "Times New Roman", Times, serif;
     border: 1px solid #ffffff;

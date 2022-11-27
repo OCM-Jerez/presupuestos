@@ -12,6 +12,17 @@
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/legacy/ag-theme-balham-v22-compat.scss";
 
 // #region OCM
+.OCM-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100 hw;
+  color: black;
+  font-weight: 700;
+  font-family: var(--fuente-principal);
+  font-size: clamp(3rem, 4rem, 5rem);
+  text-align: center;
+}
 
 .OCM-subtitle {
   display: flex;
