@@ -16,10 +16,7 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { IndiceComponent } from './indice/indice.component';
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
 import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.component';
-import { CheckboxComponent } from './commons/components/checkbox/checkbox.component';
 import { DetallePresupuestoModule } from './detalle-presupuesto/detalle-presupuesto.module';
-import { PruebaModule } from './hightcharts/prueba/prueba.module';
-import { CommonModule } from '@angular/common';
 import { CheckboxModule } from './commons/components/checkbox/checkbox.module';
 
 @NgModule({
@@ -38,12 +35,8 @@ import { CheckboxModule } from './commons/components/checkbox/checkbox.module';
     NgSelectModule,
     ReactiveFormsModule,
     CheckboxModule
-    // DetallePresupuestoModule,
-    // PruebaModule
   ],
-  exports: [
-    // FormsModule,
-  ],
+
   providers: [
     AvalaibleYearsService
   ],
