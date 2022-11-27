@@ -2,6 +2,31 @@
 // https://fixu.cl/que-es-la-metodologia-bem-y-como-se-aplica-al-front-end/
 @import "/src/app/scss/variables";
 
+.graph2 {
+    display: flex;
+    justify-content: start;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    // flex-wrap: nowrap;
+}
+
+#sankey {
+    // min-width: 150px;
+    width: 50%;
+    max-width: 50%;
+    height: 550px;
+    margin: 0 auto;
+}
+
+#sankey1 {
+    // min-width: 150px;
+    width: 50%;
+    max-width: 50%;
+    height: 550px;
+    margin: 0 auto;
+}
+
 .OCM-indice {
     margin-bottom: 2rem;
     margin-top: 2rem;
