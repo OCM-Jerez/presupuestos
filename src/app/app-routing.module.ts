@@ -12,7 +12,7 @@ const routes: Routes = [
 
   { path: 'homeNew', component: HomeComponent },
   { path: 'detallePresupuesto', component: DetallePresupuestoComponent },
-  // { path: 'detallePresupuesto', loadChildren: () => import('../app/detalle-presupuesto/detalle-presupuesto.module').then((m) => m.DetallePresupuestoModule) },
+  // { path: 'detallePresupuesto', loadChildren: () => import('./detalle-presupuesto/detalle-presupuesto.module').then((m) => m.DetallePresupuestoModule) },
 
   { path: 'explicamos', component: ExplicamosComponent },
   { path: 'glosario', component: GlosarioComponent },
