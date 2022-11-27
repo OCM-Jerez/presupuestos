@@ -12,20 +12,19 @@
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-
-    width: 100%;
+    margin-top: 40px;
+    width: 99%;
     height: 150px;
     &--1row {
         display: flex;
         justify-content: space-between;
         background-color: map-get($OCM-colors, navBarBackground);
+        height: 50px;
         &--brand {
             display: flex;
             justify-content: flex-start;
             align-items: center;
             width: 18%;
-            // background-color: red;
-
             &--logo {
                 @include OCM-logo;
                 background: url("../../../assets/img/logoOCMyellow.svg") no-repeat center center;
@@ -36,28 +35,17 @@
             }
         }
         &--title {
-            // display: flex;
-            // justify-content: space-between;
             width: 64%;
-            // background-color: rgb(35, 196, 64);
             @include OCM-text;
             @include fluid-type($min_width, $max_width, $min_font, $max_font);
         }
         &--homeEmpty {
-            // display: flex;
-            // flex-direction: row;
             width: 18%;
-            // background-color: rgb(166, 211, 19);
         }
         &--home {
-            // display: flex;
-            // flex-direction: row;
-            // justify-content: flex-end;
             width: 18%;
-            // background-color: rgb(38, 11, 101);
             &--logoHome {
                 @include OCM-logo;
-                // background-color: red;
                 background: url("../../..//assets/img/home.svg") no-repeat center center;
                 margin-right: 20px;
             }
@@ -78,7 +66,6 @@
     margin: 0, auto;
     justify-content: center;
     background-color: white;
-    // position: relative;
 }
 
 .OCM-navbarButton {
