@@ -1,3 +1,4 @@
+/* #region flex-container      */
 .flex-container {
     display: flex;
     margin: 0 auto;
@@ -12,7 +13,9 @@
     gap: 20px;
     margin-top: 20px;
 }
+/* #endregion */
 
+/* #region flex-items          */
 .flex-items:nth-child(1) {
     display: block;
     flex-grow: 0;
@@ -42,7 +45,9 @@
     order: 0;
     margin-right: 100px;
 }
+/* #endregion */
 
+/* #region OCM-cardHome        */
 .OCM-cardHome {
     width: 75%;
     // height: 80%;
@@ -79,7 +84,9 @@
         padding-right: 20px;
     }
 }
+/* #endregion */
 
+/* #region OCM-cardEjemplos    */
 .OCM-cardEjemplos {
     width: 100%;
     height: 100%;
@@ -101,7 +108,9 @@
         line-height: 1.2;
     }
 }
+/* #endregion */
 
+/* #region OCM-cardMenu        */
 .OCM-cardMenu {
     width: 100%;
     height: 100%;
@@ -167,7 +176,9 @@
         padding-right: 20px;
     }
 }
+/* #endregion */
 
+/* #region table.paleBlueRows  */
 table.paleBlueRows {
     font-family: "Times New Roman", Times, serif;
     border: 1px solid #ffffff;
@@ -214,7 +225,9 @@ table.paleBlueRows tfoot {
 table.paleBlueRows tfoot td {
     font-size: 14px;
 }
+/* #endregion */
 
+/* #region OCM-button          */
 .OCM-button {
     padding: 10px;
     border: unset;
@@ -256,3 +269,5 @@ button:hover {
 button:hover::before {
     width: 100%;
 }
+
+/* #endregion */
