@@ -37,6 +37,8 @@
     &--rrss {
         display: flex;
         flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
         .OCM-logoFacebook {
             @include OCM-logo;
             background: url("../../../assets/img/facebook.svg") no-repeat center center;
