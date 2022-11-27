@@ -19,6 +19,8 @@ import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.c
 import { CheckboxComponent } from './commons/components/checkbox/checkbox.component';
 import { DetallePresupuestoModule } from './detalle-presupuesto/detalle-presupuesto.module';
 import { PruebaModule } from './hightcharts/prueba/prueba.module';
+import { CommonModule } from '@angular/common';
+import { CheckboxModule } from './commons/components/checkbox/checkbox.module';
 
 @NgModule({
   declarations: [
@@ -26,8 +28,7 @@ import { PruebaModule } from './hightcharts/prueba/prueba.module';
     FooterComponent,
     NavbarComponent,
     IndiceComponent,
-    HeaderAgGridComponent,
-    CheckboxComponent,
+    HeaderAgGridComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +37,12 @@ import { PruebaModule } from './hightcharts/prueba/prueba.module';
     FormsModule,
     NgSelectModule,
     ReactiveFormsModule,
-    DetallePresupuestoModule,
-    PruebaModule
-
+    CheckboxModule
+    // DetallePresupuestoModule,
+    // PruebaModule
+  ],
+  exports: [
+    // FormsModule,
   ],
   providers: [
     AvalaibleYearsService

@@ -6,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { TableIngresosModule } from '../tables/table-ingresos/table-ingresos.module';
 import { PruebaModule } from '../hightcharts/prueba/prueba.module';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { CheckboxComponent } from '../commons/components/checkbox/checkbox.component';
+import { CheckboxModule } from '../commons/components/checkbox/checkbox.module';
 
 export const routes: Routes = [{ path: '', component: DetallePresupuestoComponent }]
 
@@ -13,6 +15,12 @@ export const routes: Routes = [{ path: '', component: DetallePresupuestoComponen
   declarations: [
     DetallePresupuestoComponent
   ],
-  imports: [RouterModule.forChild(routes), CommonModule, AgGridModule, TableIngresosModule, HighchartsChartModule],
+  imports: [RouterModule.forChild(routes),
+    CommonModule,
+    AgGridModule,
+    TableIngresosModule,
+    HighchartsChartModule,
+    CheckboxModule
+  ],
 })
 export class DetallePresupuestoModule { }

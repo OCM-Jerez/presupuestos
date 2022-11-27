@@ -17,6 +17,8 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsTreemap from 'highcharts/modules/treemap';
 import heatmap from 'highcharts/modules/heatmap';
 
+
+
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
 heatmap(Highcharts)
