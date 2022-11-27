@@ -26,17 +26,6 @@
   margin-top: 20px;
 }
 
-.nav {
-  display: flex;
-  direction: row;
-  height: 50px;
-  width: 100%;
-  margin: 0, auto;
-  justify-content: center;
-  background-color: white;
-  // position: relative;
-}
-
 .OCM-alert {
   background-color: #d31f1f;
   border-color: #1b0408;
@@ -60,72 +49,6 @@
   flex-direction: column;
   justify-content: space-between;
   // grid-template-rows: 40px auto 40px;
-}
-
-// https://javascript.plainenglish.io/5-steps-to-adding-a-sticky-footer-to-your-angular-11-application-6c185c2ed99f
-.OCM-navbarFooter {
-  a {
-    text-decoration: none;
-    color: white;
-  }
-  display: flex;
-  justify-content: space-between;
-  flex-flow: row wrap;
-  width: 100%;
-  height: 150px;
-  background-color: map-get($OCM-colors, navBarBackground);
-  &--brand {
-    display: flex;
-    justify-content: space-between;
-    &--logo {
-      @include OCM-logo;
-      background: url("./assets/img/logoOCMyellow.svg") no-repeat center center;
-    }
-    &--text {
-      @include OCM-text;
-      font-size: 12px;
-    }
-  }
-  &--title {
-    @include OCM-text;
-    @include fluid-type($min_width, $max_width, $min_font, $max_font);
-  }
-  &--rrss {
-    display: flex;
-    flex-direction: row;
-    .OCM-logoFacebook {
-      @include OCM-logo;
-      background: url("./assets/img/facebook.svg") no-repeat center center;
-    }
-    .OCM-logoTwitter {
-      @include OCM-logo;
-      background: url("./assets/img/twitter.svg") no-repeat center center;
-    }
-  }
-  &--homeEmpty {
-    display: flex;
-    flex-direction: row;
-    width: 246px;
-  }
-  &--home {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 246px;
-    .OCM-logoHome {
-      @include OCM-logo;
-      background: url("./assets/img/home.svg") no-repeat center center;
-      margin-right: 20px;
-    }
-  }
-  &--mail {
-    @include OCM-text;
-    text-decoration-style: none;
-    margin-right: 20px;
-    a:hover {
-      transform: scale(1.2);
-    }
-  }
 }
 
 .OCM-text {
