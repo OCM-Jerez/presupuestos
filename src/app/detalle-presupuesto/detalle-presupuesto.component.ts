@@ -37,6 +37,7 @@ export class DetallePresupuestoComponent {
   public ngAfterViewInit(): void {
     this._loadData();
   }
+
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
