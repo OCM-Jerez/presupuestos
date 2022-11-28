@@ -60,51 +60,60 @@
             <th style="width: 1000px"></th>
             <th style="width: 200px;height: 60px;font-size: 26px">INGRESOS</th>
             <th style="width: 200px;font-size: 26px">GASTOS</th>
-
         </tr>
     </thead>
 
     <tbody>
         <tr>
             <td style="text-align: left; font-size: 32px;">TOTAL PRESUPUESTADO</td>
-            <td style="text-align: right; font-size: 32px;">242.128.125</td>
-            <td style="text-align: right; font-size: 32px;">242.128.125</td>
+            <td style="text-align: right; font-size: 32px; background-color: darkgreen;">{{ totalPresupuestoIngresos }}
+            </td>
+            <td style="text-align: right; font-size: 32px; background-color: darkgreen;">{{ totalPresupuestoGastos }}
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-size: 32px ; font-weight: 800;">TOTAL EJECUTADO <span
+                    style="font-size: 14px; margin-left: 10px">Hasta noviembre</span></td>
+            <td style="text-align: right; font-size: 32px ; font-weight: 800;  background-color: darkgreen;">{{
+                totalEjecutadoIngresos }}</td>
+            <td style="text-align: right; font-size: 32px ; font-weight: 800;  background-color: darkgreen;">{{
+                totalEjecutadoGastos }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; font-size: 32px;">Subtotal no financiero <span
+                    style="font-size: 14px; margin-left: 10px"> Capítulos 1 a 7</span></td>
+            <td style="text-align: right; font-size: 32px;">{{ noFinancieroIngresos }}</td>
+            <td style="text-align: right; font-size: 32px;">{{ noFinancieroGastos }}</td>
 
         </tr>
         <tr>
-            <td style="text-align: left; font-size: 32px ; font-weight: 800;">TOTAL EJECUTADO (HASTA NOVIEMBRE)</td>
-            <td style="text-align: right; font-size: 32px ; font-weight: 800;">183.125.021</td>
-            <td style="text-align: right; font-size: 32px ; font-weight: 800;">156.854.365</td>
+            <td style="text-align: left; font-size: 32px;">Subtotal corriente<span
+                    style="font-size: 14px; margin-left: 10px"> Capítulos 1
+                    a 5</span> </td>
+            <td style="text-align: right; font-size: 32px;">{{ corrientesIngresos}}</td>
+            <td style="text-align: right; font-size: 32px ;">{{ corrientesGastos }}</td>
 
         </tr>
         <tr>
-            <td style="text-align: left; font-size: 32px;">Subtotal no financiero</td>
-            <td style="text-align: right; font-size: 32px;">cell2_3</td>
-            <td style="text-align: right; font-size: 32px;">cell3_3</td>
+            <td style="text-align: left; font-size: 32px;">Subtotal de capital<span
+                    style="font-size: 14px; margin-left: 10px"> Capítulos
+                    6 y 7</span></td>
+            <td style="text-align: right; font-size: 32px;">{{ capitalIngresos }}</td>
+            <td style="text-align: right; font-size: 32px ;">{{ capitalGastos }}</td>
 
         </tr>
         <tr>
-            <td style="text-align: left; font-size: 32px;">Subtotal corriente</td>
-            <td style="text-align: right; font-size: 32px;">cell2_4</td>
-            <td style="text-align: right; font-size: 32px ;">cell3_4</td>
-
-        </tr>
-        <tr>
-            <td style="text-align: left; font-size: 32px;">Subtotal de capital</td>
-            <td style="text-align: right; font-size: 32px;">cell2_5</td>
-            <td style="text-align: right; font-size: 32px ;">cell3_5</td>
-
-        </tr>
-        <tr>
-            <td style="text-align: left; font-size: 32px;">Subtotal financiero</td>
-            <td style="text-align: right; font-size: 32px;">cell2_5</td>
-            <td style="text-align: right; font-size: 32px;">cell3_5</td>
+            <td style="text-align: left; font-size: 32px;">Subtotal financiero<span
+                    style="font-size: 14px; margin-left: 10px"> Capítulos 8
+                    y 9</span> </td>
+            <td style="text-align: right; font-size: 32px;">{{ financierosIngresos }}</td>
+            <td style="text-align: right; font-size: 32px;">{{ financierosGastos }}</td>
 
         </tr>
     </tbody>
 </table>
 
-<table class="paleBlueRows" STYLE="margin-top: 100px; width: 1350px; height: 200px;">
+<table class="paleBlueRows" STYLE="margin-top: 40px; width: 1350px; height: 200px;">
     <thead>
         <tr>
             <th style="width: 1200px; height: 60px; text-align: left;font-size: 26px">INDICADORES PRESUPUESTARIOS</th>
@@ -112,27 +121,26 @@
 
         </tr>
     </thead>
-    <!-- <tfoot>
-        <tr>
-            <td>foot1</td>
-            <td>foot2</td>
-            <td>foot3</td>
 
-        </tr>
-    </tfoot> -->
     <tbody>
         <tr>
-            <td style="text-align: left; font-size: 32px;">AHORRO BRUTO</td>
-            <td style="text-align: right; font-size: 32px;">nada</td>
+            <td style="text-align: left; font-size: 32px;">AHORRO BRUTO <span
+                    style="font-size: 14px; margin-left: 10px"> Ingresos
+                    corrientes - gastos corrientes</span></td>
+            <td style="text-align: right; font-size: 32px;">{{ ahorroBruto }}</td>
         </tr>
         <tr>
-            <td style="text-align: left; font-size: 32px;">AHORRO NETO</td>
-            <td style="text-align: right; font-size: 32px;">ninguno</td>
+            <td style="text-align: left; font-size: 32px;">AHORRO NETO <span style="font-size: 14px; margin-left: 10px">
+                    Ahorro neto -
+                    capitulo 9 de gastos</span></td>
+            <td style="text-align: right; font-size: 32px;">{{ ahorroNeto }}</td>
 
         </tr>
         <tr>
-            <td style="text-align: left; font-size: 32px;">CAPACIDAD/NECESIDAD DE FINANCIACIÓN</td>
-            <td style="text-align: right; font-size: 32px;">mucha</td>
+            <td style="text-align: left; font-size: 32px;">CAPACIDAD/NECESIDAD DE FINANCIACIÓN <span
+                    style="font-size: 14px; margin-left: 10px"> Ingresos no financieros -
+                    gastos no financieros</span></td>
+            <td style="text-align: right; font-size: 32px;">{{ capacidadFinanciacion }}</td>
         </tr>
 
 
