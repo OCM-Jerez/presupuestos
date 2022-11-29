@@ -88,7 +88,7 @@ export class IndiceComponent implements OnInit {
       }
       capitulos.push(value)
     });
-    console.log(capitulos);
+    // console.log(capitulos);
 
 
 
@@ -157,7 +157,7 @@ export class IndiceComponent implements OnInit {
     await this._tableService.loadDataForTypeClasification(false, 'gastosProgramaPoliticas');
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
-    console.log(data);
+    // console.log(data);
 
     // Creo array de politicas de gasto
     let politicas = []
@@ -170,7 +170,7 @@ export class IndiceComponent implements OnInit {
       }
       politicas.push(value)
     });
-    console.log(politicas);
+    // console.log(politicas);
 
     // Totalizo por politicas de gasto
     data = politicas.reduce((acc, curr) => {
@@ -184,9 +184,9 @@ export class IndiceComponent implements OnInit {
       return acc
     }, [])
     this._dataGrapGastos = data
-    console.log(this._dataGrapGastos);
-    console.log(this._dataGrapGastos[0]);
-    console.log(this._dataGrapGastos[0].name);
+    // console.log(this._dataGrapGastos);
+    // console.log(this._dataGrapGastos[0]);
+    // console.log(this._dataGrapGastos[0].name);
 
 
     this.noFinancieroGastos = (
