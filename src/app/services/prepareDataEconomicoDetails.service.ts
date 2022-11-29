@@ -69,6 +69,9 @@ export class PrepareDataEconomicoDetailsService {
       });
     })
 
+    console.log(result);
+
+
     return result;
   }
 
