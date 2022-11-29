@@ -62,7 +62,7 @@ export class DetallePresupuestoComponent {
       }
       articulos.push(value)
     });
-    console.log(articulos);
+    // console.log(articulos);
 
     // Totalizo por articulo
     data = articulos.reduce((acc, curr) => {

@@ -50,7 +50,7 @@
     <div id="sankey1"></div>
 </div>
 
-<app-checkbox></app-checkbox>
+<app-checkbox [multiYears]=false></app-checkbox>
 
 <h3 class="OCM-title">Datos presupuestarios año seleccionado</h3>
 
@@ -147,9 +147,11 @@
     </tbody>
 </table>
 
+
+<!-- ==================  Menu anterior   ================================================     -->
 <div class="OCM-indice">
     <hr style="color:white">
-    <app-checkbox></app-checkbox>
+    <app-checkbox [multiYears]=true></app-checkbox>
     <div class="OCM-comment">
         Los datos del año 2022 corresponden a la ejecución al {{liqDate}}
     </div>
@@ -164,8 +166,6 @@
                 <span class="OCM-economica">Clasificación económica</span>
             </div>
         </div>
-
-
 
         <!-- <div class="OCM-capitulo">
             <div (click)="openTable('ingresosEconomicaCapitulos')" class="OCM-card">

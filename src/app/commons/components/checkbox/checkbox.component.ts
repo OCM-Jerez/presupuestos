@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { AvalaibleYearsService } from '../../../services/avalaibleYears.service'
   styleUrls: ['./checkbox.component.scss']
 })
 export class CheckboxComponent implements OnInit {
+  @Input() multiYears: boolean;
   years: any[] = [];
 
   constructor(
@@ -47,25 +48,26 @@ export class CheckboxComponent implements OnInit {
         year: 2022,
         checked: false,
       },
-      {
+      // {
+      //   year: 'Todos',
+      //   checked: false,
+      // },
+    ]
+
+    if (this.multiYears) {
+      this.years.push({
         year: 'Todos',
         checked: false,
-      },
-    ]
+      },)
+    }
+
+
     this.getSelectedItem();
   }
-
-  // get result(): {
-  //   year: number,
-  //   checked: boolean,
-  // }[] {
-  //   return this.years.filter(item => item.checked);
-  // }
 
   private getSelectedItem(tipo?: string) {
     if (localStorage.getItem('selected_years') === null) {
       this.years[7].checked = true // por defecto selecciona último año disponible
-      // const selectedYears = this.result;
       const selectedYears = this.years.filter(item => item.checked);
       localStorage.setItem("selected_years", JSON.stringify(selectedYears)); //store years selected
       const yearSelecteds = selectedYears.map((year) => year.year);
@@ -84,14 +86,27 @@ export class CheckboxComponent implements OnInit {
   }
 
   changeCheckbox(yearSelected: { year: number, checked: boolean }) {
+    console.log(this.multiYears);
+
     if (yearSelected.year === this.years[8].year) {
       const isAll = this.years[8].checked === true;
       this.years[8].year = isAll ? 'Ninguno' : 'Todos';
       this.years.forEach((year) => year.checked = isAll);
     }
     this.years[8].checked = false
-    // const selectedYears = this.result;
-    const selectedYears = this.years.filter(item => item.checked);
+    var selectedYears = this.years.filter(item => item.checked);
+
+    if (!this.multiYears) {
+      if (selectedYears.length > 1) {
+        console.log("Ya hay un año seleccionado")
+        console.log(yearSelected.year);
+        const yearFind = this.years.find((yearFind) => yearFind.year === yearSelected.year);
+        console.log(yearFind);
+      } else {
+        console.log("Puedes seleccionar más años");
+      }
+    }
+
     localStorage.setItem("selected_years", JSON.stringify(selectedYears)); //store years selected
     const yearSelecteds = selectedYears.map((year) => year.year);
     this._avalaibleYearsService.generateMessage(yearSelecteds);
