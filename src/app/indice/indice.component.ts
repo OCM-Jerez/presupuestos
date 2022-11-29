@@ -12,6 +12,7 @@ import HighchartsSankey from 'highcharts/modules/sankey';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
 import { DataStoreService } from '../services/dataStore.service';
+import { PrepareDataCapituloDetails } from '../services/prepareDataCapituloDetails.service';
 
 HighchartsMore(Highcharts);
 HighchartsSankey(Highcharts);
@@ -50,6 +51,7 @@ export class IndiceComponent implements OnInit {
     private _router: Router,
     private _tableService: TableService,
     private _dataStoreService: DataStoreService,
+    private _prepareDataCapituloDetails: PrepareDataCapituloDetails
   ) {
 
   }
@@ -89,8 +91,6 @@ export class IndiceComponent implements OnInit {
       capitulos.push(value)
     });
     // console.log(capitulos);
-
-
 
     // Totalizo por capitulo de ingreso
     data = capitulos.reduce((acc, curr) => {
@@ -188,6 +188,40 @@ export class IndiceComponent implements OnInit {
     // console.log(this._dataGrapGastos[0]);
     // console.log(this._dataGrapGastos[0].name);
 
+    // ============  gastosEconomicaCapitulos  ==================================
+    var dataGastosEconomicaCapitulos = await this._prepareDataCapituloDetails.getDataAllYear();
+    // this._dataTable = this._dataStoreService.getDataTable
+    // var dataGastosEconomicaCapitulos = this._dataTable.rowData;
+    console.log(dataGastosEconomicaCapitulos);
+
+
+    // Creo array de politicas de gasto
+    let capitulosGastos = []
+    dataGastosEconomicaCapitulos.map(item => {
+      const value = {
+        "name": item.CodCap + '-' + item.DesCap,
+        "value": item.Definitivas2022,
+      }
+      capitulosGastos.push(value)
+    });
+    console.log(capitulosGastos);
+
+
+    // Totalizo por capitulo
+    capitulosGastos = capitulosGastos.reduce((acc, curr) => {
+      const index = acc.findIndex(item => item.name === curr.name)
+      index > -1 ? (acc[index].value += curr.value) : acc.push({
+        name: curr.name,
+        value: curr.value,
+      })
+      return acc
+    }, [])
+    // this._dataGrapGastos = data
+    console.log(capitulosGastos);
+
+
+
+
 
     this.noFinancieroGastos = (
       this._dataGrapGastos[0].value +
@@ -242,7 +276,7 @@ export class IndiceComponent implements OnInit {
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 
     // Tengo que sumar capitulo 9 de gastos
-    this.ahorroNeto = ((this.corrientesIngresos - this.corrientesGastos) - 9162118).toString()
+    this.ahorroNeto = ((this.corrientesIngresos - this.corrientesGastos) - capitulosGastos[7].value).toString()
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 
     this.corrientesIngresos = this.corrientesIngresos.toString()
