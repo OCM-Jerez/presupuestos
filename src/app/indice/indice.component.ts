@@ -41,27 +41,24 @@ export class IndiceComponent implements OnInit {
   public capacidadFinanciacion: any;
 
   // private _dataGrap: [{ name: string, va: number }] = [{ name: "", value: 0 }]
-  private _dataGrapIngresos: any;
-  private _dataGrapGastos: any;
+  private _dataGraphIngresos: any;
+  private _dataGraphGastos: any;
 
   private _dataTable: IDataTable;
-  private _typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaCapitulos'
+  // private _typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaCapitulos'
   // https://stackoverflow.com/questions/69549927/how-to-pass-enum-value-in-angular-template-as-an-input
   constructor(
     private _router: Router,
     private _tableService: TableService,
     private _dataStoreService: DataStoreService,
     private _prepareDataCapituloDetails: PrepareDataCapituloDetails
-  ) {
+  ) { }
 
-  }
   ngOnInit(): void {
-    // this.showGraph()
     this._loadData();
   }
 
-
-  // Esto es para el menu original
+  /* #region  Esto es para el menu original */
   async openTable(tipoClasificacion: CLASIFICATION_TYPE): Promise<void> {
     const isIncome = tipoClasificacion.startsWith('ingresos');
     await this._tableService.loadDataForTypeClasification(isIncome, tipoClasificacion,);
@@ -72,9 +69,10 @@ export class IndiceComponent implements OnInit {
       this._router.navigateByUrl('/tableGastos')
     }
   }
-
+  /* #endregion */
 
   private async _loadData(): Promise<void> {
+    /* #region  Capitulos de ingresos */
     await this._tableService.loadDataForTypeClasification(true, 'ingresosEconomicaCapitulos');
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
@@ -103,40 +101,40 @@ export class IndiceComponent implements OnInit {
       })
       return acc
     }, [])
-    this._dataGrapIngresos = data
+    this._dataGraphIngresos = data
 
     this.noFinancieroIngresos = (
-      this._dataGrapIngresos[0].value +
-      this._dataGrapIngresos[1].value +
-      this._dataGrapIngresos[2].value +
-      this._dataGrapIngresos[3].value +
-      this._dataGrapIngresos[4].value +
-      this._dataGrapIngresos[5].value +
-      this._dataGrapIngresos[6].value
+      this._dataGraphIngresos[0].value +
+      this._dataGraphIngresos[1].value +
+      this._dataGraphIngresos[2].value +
+      this._dataGraphIngresos[3].value +
+      this._dataGraphIngresos[4].value +
+      this._dataGraphIngresos[5].value +
+      this._dataGraphIngresos[6].value
     ).toString()
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 
     this.corrientesIngresos = (
-      this._dataGrapIngresos[0].value +
-      this._dataGrapIngresos[1].value +
-      this._dataGrapIngresos[2].value +
-      this._dataGrapIngresos[3].value +
-      this._dataGrapIngresos[4].value
+      this._dataGraphIngresos[0].value +
+      this._dataGraphIngresos[1].value +
+      this._dataGraphIngresos[2].value +
+      this._dataGraphIngresos[3].value +
+      this._dataGraphIngresos[4].value
     );
 
     this.capitalIngresos = (
-      this._dataGrapIngresos[5].value +
-      this._dataGrapIngresos[6].value
+      this._dataGraphIngresos[5].value +
+      this._dataGraphIngresos[6].value
     ).toString()
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 
     this.financierosIngresos = (
-      this._dataGrapIngresos[7].value +
-      this._dataGrapIngresos[8].value
+      this._dataGraphIngresos[7].value +
+      this._dataGraphIngresos[8].value
     );
+    /* #endregion */
 
-
-    // Total general ingresos para datos tabla
+    /* #region  Total general ingresos para datos tabla */
     const totalPresupuestoIngresos = data.reduce((acc, curr) => {
       Object.keys(curr).forEach((key, index) => {
         if (!acc[key]) {
@@ -151,9 +149,9 @@ export class IndiceComponent implements OnInit {
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
     this.totalEjecutadoIngresos = totalPresupuestoIngresos.recaudado.toString()
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    /* #endregion */
 
-
-    // ==================== politicas de gasto  ==========================================
+    /* #region politicas de gasto  */
     await this._tableService.loadDataForTypeClasification(false, 'gastosProgramaPoliticas');
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
@@ -183,12 +181,13 @@ export class IndiceComponent implements OnInit {
       })
       return acc
     }, [])
-    this._dataGrapGastos = data
-    // console.log(this._dataGrapGastos);
-    // console.log(this._dataGrapGastos[0]);
-    // console.log(this._dataGrapGastos[0].name);
+    this._dataGraphGastos = data
+    // console.log(this._dataGraphGastos);
+    // console.log(this._dataGraphGastos[0]);
+    // console.log(this._dataGraphGastos[0].name);
+    /* #endregion */
 
-    // ============  gastosEconomicaCapitulos  ==================================
+    /* #region  gastosEconomicaCapitulos */
     var dataGastosEconomicaCapitulos = await this._prepareDataCapituloDetails.getDataAllYear();
     console.log(dataGastosEconomicaCapitulos);
 
@@ -213,40 +212,9 @@ export class IndiceComponent implements OnInit {
       return acc
     }, [])
     console.log(capitulosGastos);
-    // ============  gastosEconomicaCapitulos  ==================================
+    /* #endregion */
 
-    this.noFinancieroGastos = (
-      this._dataGrapGastos[0].value +
-      this._dataGrapGastos[1].value +
-      this._dataGrapGastos[2].value +
-      this._dataGrapGastos[3].value +
-      this._dataGrapGastos[4].value +
-      this._dataGrapGastos[5].value +
-      this._dataGrapGastos[6].value
-    ).toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-
-    this.corrientesGastos = (
-      this._dataGrapGastos[0].value +
-      this._dataGrapGastos[1].value +
-      this._dataGrapGastos[2].value +
-      this._dataGrapGastos[3].value +
-      this._dataGrapGastos[4].value
-    );
-
-    this.capitalGastos = (
-      this._dataGrapGastos[5].value +
-      this._dataGrapGastos[6].value
-    ).toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-
-    this.financierosGastos = (
-      this._dataGrapGastos[7].value +
-      this._dataGrapGastos[8].value
-    );
-
-
-    // Total general gastos para datos tabla
+    /* #region  Total general gastos para datos tabla */
     const totalPresupuestoGastos = data.reduce((acc, curr) => {
       Object.keys(curr).forEach((key, index) => {
         if (!acc[key]) {
@@ -256,13 +224,43 @@ export class IndiceComponent implements OnInit {
       })
       return acc
     }, {})
+    /* #endregion */
+
+    /* #region  Calculos valores para mostrar en tabla */
+    this.noFinancieroGastos = (
+      this._dataGraphGastos[0].value +
+      this._dataGraphGastos[1].value +
+      this._dataGraphGastos[2].value +
+      this._dataGraphGastos[3].value +
+      this._dataGraphGastos[4].value +
+      this._dataGraphGastos[5].value +
+      this._dataGraphGastos[6].value
+    ).toString()
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+
+    this.corrientesGastos = (
+      this._dataGraphGastos[0].value +
+      this._dataGraphGastos[1].value +
+      this._dataGraphGastos[2].value +
+      this._dataGraphGastos[3].value +
+      this._dataGraphGastos[4].value
+    );
+
+    this.capitalGastos = (
+      this._dataGraphGastos[5].value +
+      this._dataGraphGastos[6].value
+    ).toString()
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+
+    this.financierosGastos = (
+      this._dataGraphGastos[7].value +
+      this._dataGraphGastos[8].value
+    );
 
     this.totalPresupuestoGastos = totalPresupuestoGastos.value.toString()
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
     this.totalEjecutadoGastos = totalPresupuestoGastos.recaudado.toString()
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-
-
 
     this.ahorroBruto = (this.corrientesIngresos - this.corrientesGastos).toString()
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
@@ -282,13 +280,13 @@ export class IndiceComponent implements OnInit {
     this.financierosIngresos = this.financierosIngresos.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
     this.financierosGastos = this.financierosGastos.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 
-    this.showGraph()
+    /* #endregion */
 
+    this.showGraph()
   }
 
-
   showGraph() {
-    // Gráfico chartSK
+    // Gráfico ingresos
     Highcharts.chart("sankey", {
       title: {
         text: "<span style= 'font-size: 32px'>Ingresos</span>"
@@ -322,15 +320,15 @@ export class IndiceComponent implements OnInit {
           ],
           keys: ["from", "to", "weight"],
           data: [
-            [this._dataGrapIngresos[0].name, "Presupuesto", this._dataGrapIngresos[0].value],
-            [this._dataGrapIngresos[1].name, "Presupuesto", this._dataGrapIngresos[1].value],
-            [this._dataGrapIngresos[2].name, "Presupuesto", this._dataGrapIngresos[2].value],
-            [this._dataGrapIngresos[3].name, "Presupuesto", this._dataGrapIngresos[3].value],
-            [this._dataGrapIngresos[4].name, "Presupuesto", this._dataGrapIngresos[4].value],
-            [this._dataGrapIngresos[5].name, "Presupuesto", this._dataGrapIngresos[5].value],
-            [this._dataGrapIngresos[6].name, "Presupuesto", this._dataGrapIngresos[6].value],
-            [this._dataGrapIngresos[7].name, "Presupuesto", this._dataGrapIngresos[7].value],
-            [this._dataGrapIngresos[8].name, "Presupuesto", this._dataGrapIngresos[8].value]
+            [this._dataGraphIngresos[0].name, "Presupuesto", this._dataGraphIngresos[0].value],
+            [this._dataGraphIngresos[1].name, "Presupuesto", this._dataGraphIngresos[1].value],
+            [this._dataGraphIngresos[2].name, "Presupuesto", this._dataGraphIngresos[2].value],
+            [this._dataGraphIngresos[3].name, "Presupuesto", this._dataGraphIngresos[3].value],
+            [this._dataGraphIngresos[4].name, "Presupuesto", this._dataGraphIngresos[4].value],
+            [this._dataGraphIngresos[5].name, "Presupuesto", this._dataGraphIngresos[5].value],
+            [this._dataGraphIngresos[6].name, "Presupuesto", this._dataGraphIngresos[6].value],
+            [this._dataGraphIngresos[7].name, "Presupuesto", this._dataGraphIngresos[7].value],
+            [this._dataGraphIngresos[8].name, "Presupuesto", this._dataGraphIngresos[8].value]
           ],
           type: "sankey",
           name: "Ingresos",
@@ -344,7 +342,7 @@ export class IndiceComponent implements OnInit {
       ]
     } as any);
 
-    // Gráfico chartSK
+    // Gráfico gastos
     Highcharts.chart("sankey1", {
       title: {
         text: "<span style= 'font-size: 32px'>Gastos</span>"
@@ -379,26 +377,26 @@ export class IndiceComponent implements OnInit {
           ],
           keys: ["from", "to", "weight"],
           data: [
-            ["Presupuesto", this._dataGrapGastos[0].name, this._dataGrapGastos[0].value],
-            ["Presupuesto", this._dataGrapGastos[1].name, this._dataGrapGastos[1].value],
-            ["Presupuesto", this._dataGrapGastos[2].name, this._dataGrapGastos[2].value],
-            ["Presupuesto", this._dataGrapGastos[3].name, this._dataGrapGastos[3].value],
-            ["Presupuesto", this._dataGrapGastos[4].name, this._dataGrapGastos[4].value],
-            ["Presupuesto", this._dataGrapGastos[5].name, this._dataGrapGastos[5].value],
-            ["Presupuesto", this._dataGrapGastos[6].name, this._dataGrapGastos[6].value],
-            ["Presupuesto", this._dataGrapGastos[7].name, this._dataGrapGastos[7].value],
-            ["Presupuesto", this._dataGrapGastos[8].name, this._dataGrapGastos[8].value],
-            ["Presupuesto", this._dataGrapGastos[9].name, this._dataGrapGastos[9].value],
-            ["Presupuesto", this._dataGrapGastos[10].name, this._dataGrapGastos[10].value],
-            ["Presupuesto", this._dataGrapGastos[11].name, this._dataGrapGastos[11].value],
-            ["Presupuesto", this._dataGrapGastos[12].name, this._dataGrapGastos[12].value],
-            ["Presupuesto", this._dataGrapGastos[13].name, this._dataGrapGastos[13].value],
-            ["Presupuesto", this._dataGrapGastos[14].name, this._dataGrapGastos[14].value],
-            ["Presupuesto", this._dataGrapGastos[15].name, this._dataGrapGastos[15].value],
-            ["Presupuesto", this._dataGrapGastos[16].name, this._dataGrapGastos[16].value],
-            ["Presupuesto", this._dataGrapGastos[17].name, this._dataGrapGastos[17].value],
-            ["Presupuesto", this._dataGrapGastos[18].name, this._dataGrapGastos[18].value],
-            ["Presupuesto", this._dataGrapGastos[19].name, this._dataGrapGastos[19].value]
+            ["Presupuesto", this._dataGraphGastos[0].name, this._dataGraphGastos[0].value],
+            ["Presupuesto", this._dataGraphGastos[1].name, this._dataGraphGastos[1].value],
+            ["Presupuesto", this._dataGraphGastos[2].name, this._dataGraphGastos[2].value],
+            ["Presupuesto", this._dataGraphGastos[3].name, this._dataGraphGastos[3].value],
+            ["Presupuesto", this._dataGraphGastos[4].name, this._dataGraphGastos[4].value],
+            ["Presupuesto", this._dataGraphGastos[5].name, this._dataGraphGastos[5].value],
+            ["Presupuesto", this._dataGraphGastos[6].name, this._dataGraphGastos[6].value],
+            ["Presupuesto", this._dataGraphGastos[7].name, this._dataGraphGastos[7].value],
+            ["Presupuesto", this._dataGraphGastos[8].name, this._dataGraphGastos[8].value],
+            ["Presupuesto", this._dataGraphGastos[9].name, this._dataGraphGastos[9].value],
+            ["Presupuesto", this._dataGraphGastos[10].name, this._dataGraphGastos[10].value],
+            ["Presupuesto", this._dataGraphGastos[11].name, this._dataGraphGastos[11].value],
+            ["Presupuesto", this._dataGraphGastos[12].name, this._dataGraphGastos[12].value],
+            ["Presupuesto", this._dataGraphGastos[13].name, this._dataGraphGastos[13].value],
+            ["Presupuesto", this._dataGraphGastos[14].name, this._dataGraphGastos[14].value],
+            ["Presupuesto", this._dataGraphGastos[15].name, this._dataGraphGastos[15].value],
+            ["Presupuesto", this._dataGraphGastos[16].name, this._dataGraphGastos[16].value],
+            ["Presupuesto", this._dataGraphGastos[17].name, this._dataGraphGastos[17].value],
+            ["Presupuesto", this._dataGraphGastos[18].name, this._dataGraphGastos[18].value],
+            ["Presupuesto", this._dataGraphGastos[19].name, this._dataGraphGastos[19].value]
           ],
           type: "sankey",
           name: "",
@@ -421,7 +419,6 @@ export class IndiceComponent implements OnInit {
   HomeNew() {
     this._router.navigateByUrl('/homeNew')
   }
-
 
   explicamos() {
     this._router.navigateByUrl('/explicamos')
