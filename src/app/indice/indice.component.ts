@@ -153,7 +153,7 @@ export class IndiceComponent implements OnInit {
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 
 
-    // Gastos ===================================================
+    // ==================== politicas de gasto  ==========================================
     await this._tableService.loadDataForTypeClasification(false, 'gastosProgramaPoliticas');
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
@@ -190,10 +190,7 @@ export class IndiceComponent implements OnInit {
 
     // ============  gastosEconomicaCapitulos  ==================================
     var dataGastosEconomicaCapitulos = await this._prepareDataCapituloDetails.getDataAllYear();
-    // this._dataTable = this._dataStoreService.getDataTable
-    // var dataGastosEconomicaCapitulos = this._dataTable.rowData;
     console.log(dataGastosEconomicaCapitulos);
-
 
     // Creo array de politicas de gasto
     let capitulosGastos = []
@@ -206,7 +203,6 @@ export class IndiceComponent implements OnInit {
     });
     console.log(capitulosGastos);
 
-
     // Totalizo por capitulo
     capitulosGastos = capitulosGastos.reduce((acc, curr) => {
       const index = acc.findIndex(item => item.name === curr.name)
@@ -216,12 +212,8 @@ export class IndiceComponent implements OnInit {
       })
       return acc
     }, [])
-    // this._dataGrapGastos = data
     console.log(capitulosGastos);
-
-
-
-
+    // ============  gastosEconomicaCapitulos  ==================================
 
     this.noFinancieroGastos = (
       this._dataGrapGastos[0].value +
