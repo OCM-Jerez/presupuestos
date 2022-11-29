@@ -5,7 +5,7 @@ import { asynForEach } from '../commons/util/util';
 @Injectable({
   providedIn: 'root'
 })
-export class PrepareDataEconomicoDetailsService {
+export class PrepareDataCapituloDetails {
   private dataGasto: any = <any>{};
 
   constructor(
@@ -68,6 +68,8 @@ export class PrepareDataEconomicoDetailsService {
         });
       });
     })
+
+    console.log('_prepareDataCapituloDetails', result);
 
     return result;
   }
