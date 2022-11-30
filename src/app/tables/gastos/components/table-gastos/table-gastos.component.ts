@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnApi, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
@@ -13,7 +14,6 @@ import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 
 import { accumulate } from '../../../../commons/util/util';
 import { PrepareDataProgramaDetailsService } from '../../../../services/prepareDataProgramaDetails.service';
-import { Router } from '@angular/router';
 // import { PrepareDataGastosDetailsService } from '../../../../services/prepareDataGastosDetails.service';
 
 @Component({
@@ -23,13 +23,10 @@ import { Router } from '@angular/router';
 })
 export class TableGastosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-
   private _columnDefs: any[];
   private _dataTable: IDataTable;
-  // private _rowData: any[any];
   gridOptions: GridOptions;
   selectedCodeRowFirstLevel = '';
-
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
 
@@ -45,8 +42,6 @@ export class TableGastosComponent implements OnInit {
     const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
     this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder]);
   }
-
-  // private _dataTable = this._dataStoreService.getDataTable;
 
   ngOnInit(): void {
     this._loadTable();
@@ -85,7 +80,6 @@ export class TableGastosComponent implements OnInit {
 
     ];
 
-    // this.createDataOCM().then(() => {
     this.gridOptions = {
       defaultColDef: {
         width: 130,
@@ -109,7 +103,6 @@ export class TableGastosComponent implements OnInit {
             '</div>',
         },
       },
-      // rowData: this._rowData,
       rowData: this._dataTable.rowData,
       columnDefs: this._columnDefs,
       groupDisplayType: 'custom',
@@ -134,15 +127,13 @@ export class TableGastosComponent implements OnInit {
               this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
                 this._router.navigate(['tableProgramaDetails']);
               });
-              // this.createDataOCM().then(() => { });
-              // this.reloadCurrentRoute()
             };
           }
         }
 
       }
     } as GridOptions;
-    // })
+
   }
 
   onGridReady = (params: GridReadyEvent) => {
@@ -153,15 +144,6 @@ export class TableGastosComponent implements OnInit {
     // ];
     // params.columnApi.applyColumnState({ state: defaultSortModel });
   }
-
-  // async createDataOCM(): Promise<void> {
-  // console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-  // this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this._dataStoreService.getDataTable.clasificationType))
-  // this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear('gastosProgramaProgramas'))
-  // .filter(x => x.CodOrg == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-  // .filter(x => x.CodOrg === 24);
-  // console.log(this._rowData);
-  // }
 
   private _createColumnsChildren(year: number) {
     return [
@@ -284,7 +266,6 @@ export class TableGastosComponent implements OnInit {
     this.gridOptions.rowData = dataFinal;
     console.log(typeof (this._dataTable.rowData));
     console.log([this._dataTable.rowData]);
-
 
     this._columnDefs = [
       {
@@ -420,15 +401,10 @@ export class TableGastosComponent implements OnInit {
 
     ];
 
-    // setTimeout(() => {
-    //   this._gridApi.expandAll()
-
-    // }, 10)
   }
 
   expandAll() {
     this._gridApi.expandAll();
-    // this.isExpanded = true;
   }
 
   reloadCurrentRoute() {
@@ -437,6 +413,5 @@ export class TableGastosComponent implements OnInit {
       this._router.navigate([currentUrl]);
     });
   }
-
 
 }
