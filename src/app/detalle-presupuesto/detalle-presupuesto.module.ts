@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { AgGridModule } from 'ag-grid-angular';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import { DetallePresupuestoComponent } from './detalle-presupuesto.component';
-import { AgGridModule } from 'ag-grid-angular';
-import { RouterModule, Routes } from '@angular/router';
 import { TableIngresosModule } from '../tables/table-ingresos/table-ingresos.module';
-import { HighchartsChartModule } from 'highcharts-angular';
 import { CheckboxModule } from '../commons/components/checkbox/checkbox.module';
+import { GastosModule } from '../tables/gastos/gastos.module';
 
 export const routes: Routes = [{ path: '', component: DetallePresupuestoComponent }]
 @NgModule({
@@ -14,12 +16,13 @@ export const routes: Routes = [{ path: '', component: DetallePresupuestoComponen
     DetallePresupuestoComponent
   ],
   imports: [
-    RouterModule.forChild(routes),
     CommonModule,
+    RouterModule.forChild(routes),
     AgGridModule,
-    TableIngresosModule,
     HighchartsChartModule,
-    CheckboxModule
+    TableIngresosModule,
+    CheckboxModule,
+    GastosModule
   ],
 })
 export class DetallePresupuestoModule { }
