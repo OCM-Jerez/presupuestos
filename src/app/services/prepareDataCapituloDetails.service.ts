@@ -69,7 +69,7 @@ export class PrepareDataCapituloDetails {
       });
     })
 
-    console.log('_prepareDataCapituloDetails', result);
+    // console.log('_prepareDataCapituloDetails', result);
 
     return result;
   }
