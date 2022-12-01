@@ -27,10 +27,10 @@ heatmap(Highcharts)
 export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   showComponentIngresos = false;
-  private typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaArticulos'
+  // private typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaArticulos'
   // private typeClasification: CLASIFICATION_TYPE = 'gastosOrganicaOrganicos'
   // private typeClasification: CLASIFICATION_TYPE = 'gastosProgramaPoliticas'
-  // private typeClasification: CLASIFICATION_TYPE = 'gastosEconomicaEconomicos'
+  private typeClasification: CLASIFICATION_TYPE = 'gastosEconomicaEconomicos'
 
   private _dataTable: IDataTable;
   public totalPresupuestado: number;
@@ -59,8 +59,8 @@ export class DetallePresupuestoComponent implements OnInit {
 
 
     // tengo que pasar parametro correcto para isIncome = true o false
-    // 
-    await this._tableService.loadDataForTypeClasification(true, this.typeClasification);
+    const isIncome = this.typeClasification.startsWith('ingresos');
+    await this._tableService.loadDataForTypeClasification(isIncome, this.typeClasification);
     this.showComponentIngresos = true;
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
