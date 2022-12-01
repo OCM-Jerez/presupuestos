@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -26,11 +26,15 @@ heatmap(Highcharts)
 })
 export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+  @ViewChild('tabIngresos') tabIngresos: ElementRef;
+  @ViewChild('tabEnQue') tabEnQue: ElementRef;
+  @ViewChild('tabQuien') tabQuien: ElementRef;
+  @ViewChild('tabParaQue') tabParaQue: ElementRef;
   showComponentIngresos = false;
-  // private typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaArticulos'
+  private typeClasification: CLASIFICATION_TYPE
   // private typeClasification: CLASIFICATION_TYPE = 'gastosOrganicaOrganicos'
   // private typeClasification: CLASIFICATION_TYPE = 'gastosProgramaPoliticas'
-  private typeClasification: CLASIFICATION_TYPE = 'gastosEconomicaEconomicos'
+  // private typeClasification: CLASIFICATION_TYPE = 'gastosEconomicaEconomicos'
 
   private _dataTable: IDataTable;
   public totalPresupuestado: number;
@@ -42,13 +46,13 @@ export class DetallePresupuestoComponent implements OnInit {
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
+    private _renderer2: Renderer2,
     private _dataStoreService: DataStoreService,
     private _tableService: TableService
   ) { }
 
   ngOnInit(): void {
     // console.log(' ngOnInit() DetallePresupuestoComponent');
-    // this._loadData();
   }
 
   private async _loadData(): Promise<void> {
@@ -57,6 +61,26 @@ export class DetallePresupuestoComponent implements OnInit {
     // para almacenarlo y volver al mismo tab cuando reloadCurrentRoute()
 
 
+    if (this.tabIngresos.nativeElement.checked) {
+      console.log('tab ingresos seleccionado');
+      this.typeClasification = 'ingresosEconomicaArticulos'
+    }
+
+    if (this.tabEnQue.nativeElement.checked) {
+      console.log('tab ¿En qué se gasta? seleccionado');
+      this.typeClasification = 'gastosProgramaPoliticas'
+    }
+
+    if (this.tabQuien.nativeElement.checked) {
+      console.log('tab ¿Quién lo gasta? seleccionado');
+      this.typeClasification = 'gastosOrganicaOrganicos'
+    }
+
+    if (this.tabParaQue.nativeElement.checked) {
+      console.log('tab ¿Para qué se gasta? seleccionado');
+      this.typeClasification = 'gastosEconomicaEconomicos'
+    }
+
 
     // tengo que pasar parametro correcto para isIncome = true o false
     const isIncome = this.typeClasification.startsWith('ingresos');
@@ -64,7 +88,7 @@ export class DetallePresupuestoComponent implements OnInit {
     this.showComponentIngresos = true;
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
-    console.log(data);
+    // console.log(data);
 
     // Creo array de Articulos.
     let articulos = []
