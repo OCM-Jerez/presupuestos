@@ -189,7 +189,7 @@ export class IndiceComponent implements OnInit {
 
     /* #region  gastosEconomicaCapitulos */
     var dataGastosEconomicaCapitulos = await this._prepareDataCapituloDetails.getDataAllYear();
-    console.log(dataGastosEconomicaCapitulos);
+    // console.log(dataGastosEconomicaCapitulos);
 
     // Creo array de politicas de gasto
     let capitulosGastos = []
@@ -200,7 +200,7 @@ export class IndiceComponent implements OnInit {
       }
       capitulosGastos.push(value)
     });
-    console.log(capitulosGastos);
+    // console.log(capitulosGastos);
 
     // Totalizo por capitulo
     capitulosGastos = capitulosGastos.reduce((acc, curr) => {
@@ -211,7 +211,7 @@ export class IndiceComponent implements OnInit {
       })
       return acc
     }, [])
-    console.log(capitulosGastos);
+    // console.log(capitulosGastos);
     /* #endregion */
 
     /* #region  Total general gastos para datos tabla */
