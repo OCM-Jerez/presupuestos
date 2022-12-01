@@ -3,6 +3,33 @@
         <h2 class="OCM-title">Detalle del presupuesto</h2>
         <span class="OCM-subtitle">Datos ejecución presupuesto al 2 de noviembre de 2022</span>
 
+        <!-- Seleccion año a mostrar -->
+        <div id="form-wrapper">
+            <app-checkbox [multiYears]=false></app-checkbox>
+        </div>
+
+        <!-- Tabla totales -->
+        <table class="paleBlueRows">
+            <thead>
+                <tr>
+                    <th style="width: 1000px;font-size: 20px; text-align: left; margin-left: 40px;">2022 (Hasta
+                        octubre)</th>
+                    <th style="width: 200px;height: 60px;font-size: 20px">PRESUPUESTADO</th>
+                    <th style="width: 200px;font-size: 20px">INGRESADO</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td style="text-align: left; font-size: 32px;">TOTAL</td>
+                    <td style="text-align: right; font-size: 32px;">{{ totalPresupuestado }}</td>
+                    <td style="text-align: right; font-size: 32px;">{{ totalRecaudado }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
         <div class="tab-wrap">
             <input type="radio" id="tab1" name="tabGroup1" class="tab" checked>
             <label for="tab1">Ingresos</label>
@@ -22,31 +49,6 @@
                 <div class="col-6">
                     <div id="treemap"></div>
                 </div>
-
-                <div id="form-wrapper">
-                    <app-checkbox [multiYears]=false></app-checkbox>
-                </div>
-
-                <!-- Tabla totales -->
-                <table class="paleBlueRows">
-                    <thead>
-                        <tr>
-                            <th style="width: 1000px;font-size: 20px; text-align: left; margin-left: 40px;">2022 (Hasta
-                                octubre)</th>
-                            <th style="width: 200px;height: 60px;font-size: 20px">PRESUPUESTADO</th>
-                            <th style="width: 200px;font-size: 20px">INGRESADO</th>
-
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td style="text-align: left; font-size: 32px;">TOTAL</td>
-                            <td style="text-align: right; font-size: 32px;">{{ totalPresupuestado }}</td>
-                            <td style="text-align: right; font-size: 32px;">{{ totalRecaudado }}</td>
-                        </tr>
-                    </tbody>
-                </table>
 
                 <!-- AG-Grid -->
                 <div style="margin-top: 40px;">
@@ -141,7 +143,7 @@
                     </tbody>
                 </table>
 
-                <table class="paleBlueRows">
+                <!-- <table class="paleBlueRows">
                     <thead>
                         <tr>
                             <th style="width: 1000px;font-size: 20px; text-align: left; margin-left: 40px;">ORGÁNICO
@@ -159,7 +161,10 @@
                             <td style="text-align: right; font-size: 32px;">142.028.325</td>
                         </tr>
                     </tbody>
-                </table>
+                </table> -->
+
+                <app-gastos></app-gastos>
+
             </div>
 
             <!-- Tab ¿Para qué gasta?  -->
@@ -188,7 +193,7 @@
                     </tbody>
                 </table>
 
-                <table class="paleBlueRows">
+                <!-- <table class="paleBlueRows">
                     <thead>
                         <tr>
                             <th style="width: 1000px;font-size: 20px; text-align: left; margin-left: 40px;">POLÍTICA DE
@@ -207,7 +212,10 @@
                             <td style="text-align: right; font-size: 32px;">142.028.325</td>
                         </tr>
                     </tbody>
-                </table>
+                </table> -->
+
+                <app-gastos></app-gastos>
+
             </div>
         </div>
 
