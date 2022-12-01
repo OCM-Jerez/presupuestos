@@ -43,6 +43,13 @@ export class DetallePresupuestoComponent {
   ) { }
 
   private async _loadData(): Promise<void> {
+
+    // trato de conocer el tab activo
+    // para almacenarlo y volver al mismo tab cuando reloadCurrentRoute()
+
+
+
+
     await this._tableService.loadDataForTypeClasification(true, this.typeClasification);
     this.showComponentIngresos = true;
     this._dataTable = this._dataStoreService.getDataTable
