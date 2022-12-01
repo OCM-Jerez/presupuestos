@@ -31,11 +31,7 @@ export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('tabQuien') tabQuien: ElementRef;
   @ViewChild('tabParaQue') tabParaQue: ElementRef;
   showComponentIngresos = false;
-  private typeClasification: CLASIFICATION_TYPE
-  // private typeClasification: CLASIFICATION_TYPE = 'gastosOrganicaOrganicos'
-  // private typeClasification: CLASIFICATION_TYPE = 'gastosProgramaPoliticas'
-  // private typeClasification: CLASIFICATION_TYPE = 'gastosEconomicaEconomicos'
-
+  private typeClasification: CLASIFICATION_TYPE;
   private _dataTable: IDataTable;
   public totalPresupuestado: number;
   public totalRecaudado: number;

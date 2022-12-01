@@ -56,21 +56,6 @@ export class TableGastosComponent implements OnInit {
 
   private async _loadTable() {
 
-    // await this._tableService.loadDataForTypeClasification(false, 'ingresosEconomicaArticulos',);
-    // console.log(this._dataTable.rowData);
-
-    // await this._tableService.loadDataForTypeClasification(true, 'gastosOrganicaOrganicos',);
-    // console.log(this._dataTable.rowData);
-
-    // await this._tableService.loadDataForTypeClasification(true, 'gastosProgramaPoliticas',);
-    // console.log(this._dataTable.rowData);
-
-    // await this._tableService.loadDataForTypeClasification(true, 'gastosEconomicaEconomicos',);
-    // console.log(this._dataTable.rowData);
-
-
-
-
     this._columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,
