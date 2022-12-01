@@ -9,11 +9,12 @@ import localeTextESPes from '../../../../../assets/data/localeTextESPes.json';
 
 import { AvalaibleYearsService } from '../../../../services/avalaibleYears.service';
 import { DataStoreService } from '../../../../services/dataStore.service';
+import { TableService } from '../../../../services/table.service';
+import { PrepareDataProgramaDetailsService } from '../../../../services/prepareDataProgramaDetails.service';
 
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 
 import { accumulate } from '../../../../commons/util/util';
-import { PrepareDataProgramaDetailsService } from '../../../../services/prepareDataProgramaDetails.service';
 // import { PrepareDataGastosDetailsService } from '../../../../services/prepareDataGastosDetails.service';
 
 @Component({
@@ -34,6 +35,7 @@ export class TableGastosComponent implements OnInit {
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
     private _dataStoreService: DataStoreService,
+    private _tableService: TableService,
     private _avalaibleYearsService: AvalaibleYearsService,
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
 
@@ -47,7 +49,12 @@ export class TableGastosComponent implements OnInit {
     this._loadTable();
   }
 
-  private _loadTable() {
+  private async _loadTable() {
+
+    await this._tableService.loadDataForTypeClasification(false, 'gastosEconomicaEconomicos',);
+    console.log(this._dataTable.rowData);
+
+
     this._columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,
