@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -24,10 +24,14 @@ heatmap(Highcharts)
   templateUrl: './detalle-presupuesto.component.html',
   styleUrls: ['./detalle-presupuesto.component.scss']
 })
-export class DetallePresupuestoComponent {
+export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   showComponentIngresos = false;
   private typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaArticulos'
+  // private typeClasification: CLASIFICATION_TYPE = 'gastosOrganicaOrganicos'
+  // private typeClasification: CLASIFICATION_TYPE = 'gastosProgramaPoliticas'
+  // private typeClasification: CLASIFICATION_TYPE = 'gastosEconomicaEconomicos'
+
   private _dataTable: IDataTable;
   public totalPresupuestado: number;
   public totalRecaudado: number;
@@ -42,6 +46,11 @@ export class DetallePresupuestoComponent {
     private _tableService: TableService
   ) { }
 
+  ngOnInit(): void {
+    // console.log(' ngOnInit() DetallePresupuestoComponent');
+    // this._loadData();
+  }
+
   private async _loadData(): Promise<void> {
 
     // trato de conocer el tab activo
@@ -49,11 +58,13 @@ export class DetallePresupuestoComponent {
 
 
 
-
+    // tengo que pasar parametro correcto para isIncome = true o false
+    // 
     await this._tableService.loadDataForTypeClasification(true, this.typeClasification);
     this.showComponentIngresos = true;
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
+    console.log(data);
 
     // Creo array de Articulos.
     let articulos = []

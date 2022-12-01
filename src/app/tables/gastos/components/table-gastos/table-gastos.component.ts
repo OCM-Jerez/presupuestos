@@ -40,9 +40,14 @@ export class TableGastosComponent implements OnInit {
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
 
   ) {
+
     this._dataTable = _dataStoreService.getDataTable;
-    const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
-    this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder]);
+    console.log(this._dataTable);
+
+    // const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
+    // this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder]);
+    // console.log(this._dataTable.rowData);
+
   }
 
   ngOnInit(): void {
@@ -51,8 +56,19 @@ export class TableGastosComponent implements OnInit {
 
   private async _loadTable() {
 
-    await this._tableService.loadDataForTypeClasification(false, 'gastosEconomicaEconomicos',);
+    await this._tableService.loadDataForTypeClasification(false, 'ingresosEconomicaArticulos',);
     console.log(this._dataTable.rowData);
+
+    // await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos',);
+    // console.log(this._dataTable.rowData);
+
+    // await this._tableService.loadDataForTypeClasification(false, 'gastosProgramaPoliticas',);
+    // console.log(this._dataTable.rowData);
+
+    // await this._tableService.loadDataForTypeClasification(false, 'gastosEconomicaEconomicos',);
+    // console.log(this._dataTable.rowData);
+
+
 
 
     this._columnDefs = [
