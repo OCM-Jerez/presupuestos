@@ -55,37 +55,73 @@ export class DetallePresupuestoComponent implements OnInit {
 
   checkedTab(e: any) {
     console.log(e.target.id)
-    if (e.target.id == "tab1") {
-      this.typeClasification = 'ingresosEconomicaArticulos';
-      this.showComponentIngresos = true;
-      this.showGastosPrograma = false;
-      this.showGastosOrganico = false;
-      this.showGastosEconomica = false;
+
+    switch (e.target.id) {
+      case "tab1":
+        this.typeClasification = 'ingresosEconomicaArticulos';
+        this.showComponentIngresos = true;
+        this.showGastosPrograma = false;
+        this.showGastosOrganico = false;
+        this.showGastosEconomica = false;
+        break;
+      case "tab2":
+        this.typeClasification = 'gastosProgramaPoliticas';
+        this.showGastosPrograma = true
+        this.showComponentIngresos = false;
+        this.showGastosOrganico = false;
+        this.showGastosEconomica = false;
+        break;
+      case "tab3":
+        this.typeClasification = 'gastosOrganicaOrganicos';
+        this.showGastosOrganico = true
+        this.showComponentIngresos = false;
+        this.showGastosPrograma = false;
+        this.showGastosEconomica = false;
+        break;
+      case "tab4":
+        this.typeClasification = 'gastosEconomicaEconomicos';
+        this.showGastosEconomica = true
+        this.showComponentIngresos = false;
+        this.showGastosPrograma = false;
+        this.showGastosOrganico = false;
+        break;
+
+      default:
+        break;
     }
 
-    if (e.target.id == "tab2") {
-      this.typeClasification = 'gastosProgramaPoliticas';
-      this.showGastosPrograma = true
-      this.showComponentIngresos = false;
-      this.showGastosOrganico = false;
-      this.showGastosEconomica = false;
-    }
+    // if (e.target.id == "tab1") {
+    //   this.typeClasification = 'ingresosEconomicaArticulos';
+    //   this.showComponentIngresos = true;
+    //   this.showGastosPrograma = false;
+    //   this.showGastosOrganico = false;
+    //   this.showGastosEconomica = false;
+    // }
 
-    if (e.target.id == "tab3") {
-      this.typeClasification = 'gastosOrganicaOrganicos';
-      this.showGastosOrganico = true
-      this.showComponentIngresos = false;
-      this.showGastosPrograma = false;
-      this.showGastosEconomica = false;
-    }
+    // if (e.target.id == "tab2") {
+    //   this.typeClasification = 'gastosProgramaPoliticas';
+    //   this.showGastosPrograma = true
+    //   this.showComponentIngresos = false;
+    //   this.showGastosOrganico = false;
+    //   this.showGastosEconomica = false;
+    // }
 
-    if (e.target.id == "tab4") {
-      this.typeClasification = 'gastosEconomicaEconomicos';
-      this.showGastosEconomica = true
-      this.showComponentIngresos = false;
-      this.showGastosPrograma = false;
-      this.showGastosOrganico = false;
-    }
+    // if (e.target.id == "tab3") {
+    //   this.typeClasification = 'gastosOrganicaOrganicos';
+    //   this.showGastosOrganico = true
+    //   this.showComponentIngresos = false;
+    //   this.showGastosPrograma = false;
+    //   this.showGastosEconomica = false;
+    // }
+
+    // if (e.target.id == "tab4") {
+    //   this.typeClasification = 'gastosEconomicaEconomicos';
+    //   this.showGastosEconomica = true
+    //   this.showComponentIngresos = false;
+    //   this.showGastosPrograma = false;
+    //   this.showGastosOrganico = false;
+    // }
+
     this._loadData();
 
   }
