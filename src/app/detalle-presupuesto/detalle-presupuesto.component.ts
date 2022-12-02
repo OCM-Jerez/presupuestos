@@ -27,7 +27,7 @@ heatmap(Highcharts)
 })
 export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  showComponentIngresos = true;
+  showComponentIngresos = false;
   showGastosPrograma = false;
   showGastosOrganico = false;
   showGastosEconomica = false;
