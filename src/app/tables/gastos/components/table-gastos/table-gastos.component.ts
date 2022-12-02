@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -38,10 +38,10 @@ export class TableGastosComponent implements OnInit {
     private _tableService: TableService,
     private _avalaibleYearsService: AvalaibleYearsService,
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
-
   ) {
 
     this._dataTable = _dataStoreService.getDataTable;
+    console.log("******************* _dataTable *************************")
     console.log(this._dataTable);
 
     // const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
@@ -54,7 +54,15 @@ export class TableGastosComponent implements OnInit {
     this._loadTable();
   }
 
+  ngOnChanges(): void {
+    this._loadTable();
+  }
+
   private async _loadTable() {
+
+    this._dataTable = this._dataStoreService.getDataTable;
+    console.log("******************* _dataTable *************************")
+    console.log(this._dataTable);
 
     this._columnDefs = [
       {

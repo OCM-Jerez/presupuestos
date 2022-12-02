@@ -16,6 +16,8 @@ import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsTreemap from 'highcharts/modules/treemap';
 import heatmap from 'highcharts/modules/heatmap';
+import { GastosComponent } from '../tables/gastos/gastos.component';
+
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
 heatmap(Highcharts)
@@ -26,15 +28,23 @@ heatmap(Highcharts)
 })
 export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  @ViewChild('tabIngresos') tabIngresos: ElementRef;
-  @ViewChild('tabEnQue') tabEnQue: ElementRef;
-  @ViewChild('tabQuien') tabQuien: ElementRef;
-  @ViewChild('tabParaQue') tabParaQue: ElementRef;
-  showComponentIngresos = false;
+  // @ViewChild('tabIngresos') tabIngresos: ElementRef;
+  // @ViewChild('tabEnQue') tabEnQue: ElementRef;
+  // @ViewChild('tabQuien') tabQuien: ElementRef;
+  // @ViewChild('tabParaQue') tabParaQue: ElementRef;
+  showComponentIngresos = true;
+  showGastosPrograma = false;
+  showGastosOrganico = false;
+  showGastosEconomica = false;
+
+
   private typeClasification: CLASIFICATION_TYPE;
   private _dataTable: IDataTable;
   public totalPresupuestado: number;
   public totalRecaudado: number;
+
+
+
   public ngAfterViewInit(): void {
     this._loadData();
   }
@@ -49,6 +59,48 @@ export class DetallePresupuestoComponent implements OnInit {
 
   ngOnInit(): void {
     // console.log(' ngOnInit() DetallePresupuestoComponent');
+    this.typeClasification = 'ingresosEconomicaArticulos';
+  }
+
+  checkedTab(e: any) {
+    console.log(e.target.id)
+
+    if (e.target.id == "tab1") {
+      this.typeClasification = 'ingresosEconomicaArticulos';
+      this.showComponentIngresos = true;
+      this.showGastosPrograma = false;
+      this.showGastosOrganico = false;
+      this.showGastosEconomica = false;
+
+
+    }
+
+    if (e.target.id == "tab2") {
+      this.typeClasification = 'gastosProgramaPoliticas';
+      this.showGastosPrograma = true
+      this.showComponentIngresos = false;
+      this.showGastosOrganico = false;
+      this.showGastosEconomica = false;
+    }
+
+    if (e.target.id == "tab3") {
+      this.typeClasification = 'gastosOrganicaOrganicos';
+      this.showGastosOrganico = true
+      this.showComponentIngresos = false;
+      this.showGastosPrograma = false;
+      this.showGastosEconomica = false;
+
+    }
+
+    if (e.target.id == "tab4") {
+      this.typeClasification = 'gastosEconomicaEconomicos';
+      this.showGastosEconomica = true
+      this.showComponentIngresos = false;
+      this.showGastosPrograma = false;
+      this.showGastosOrganico = false;
+    }
+    this._loadData();
+
   }
 
   private async _loadData(): Promise<void> {
@@ -57,37 +109,40 @@ export class DetallePresupuestoComponent implements OnInit {
     // para almacenarlo y volver al mismo tab cuando reloadCurrentRoute()
 
 
-    if (this.tabIngresos.nativeElement.checked) {
-      console.log('tab ingresos seleccionado');
-      this.typeClasification = 'ingresosEconomicaArticulos'
-    }
+    // if (this.tabIngresos.nativeElement.checked) {
+    //   console.log('tab ingresos seleccionado');
+    //   this.typeClasification = 'ingresosEconomicaArticulos'
+    // }
 
-    if (this.tabEnQue.nativeElement.checked) {
-      console.log('tab ¿En qué se gasta? seleccionado');
-      this.typeClasification = 'gastosProgramaPoliticas'
-    }
+    // if (this.tabEnQue.nativeElement.checked) {
+    //   console.log('tab ¿En qué se gasta? seleccionado');
+    //   this.typeClasification = 'gastosProgramaPoliticas'
+    // }
 
-    if (this.tabQuien.nativeElement.checked) {
-      console.log('tab ¿Quién lo gasta? seleccionado');
-      this.typeClasification = 'gastosOrganicaOrganicos'
-    }
+    // if (this.tabQuien.nativeElement.checked) {
+    //   console.log('tab ¿Quién lo gasta? seleccionado');
+    //   this.typeClasification = 'gastosOrganicaOrganicos'
+    // }
 
-    if (this.tabParaQue.nativeElement.checked) {
-      console.log('tab ¿Para qué se gasta? seleccionado');
-      this.typeClasification = 'gastosEconomicaEconomicos'
-    }
+    // if (this.tabParaQue.nativeElement.checked) {
+    //   console.log('tab ¿Para qué se gasta? seleccionado');
+    //   this.typeClasification = 'gastosEconomicaEconomicos'
+    // }
 
 
     // tengo que pasar parametro correcto para isIncome = true o false
+    console.log(this.typeClasification);
     const isIncome = this.typeClasification.startsWith('ingresos');
+
     await this._tableService.loadDataForTypeClasification(isIncome, this.typeClasification);
     this.showComponentIngresos = true;
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
-    // console.log(data);
+    console.log("--------------------")
+    console.log(data);
 
     // Creo array de Articulos.
-    let articulos = []
+    let articulos = [];
     data.map(item => {
       const value = {
         "name": item.CodArt + '-' + item.DesArt,

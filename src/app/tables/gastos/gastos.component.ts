@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Injectable, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 // import { TableGastosComponent } from './components/table-gastos/table-gastos.component';
@@ -33,6 +33,7 @@ export class GastosComponent {
 
   onGridReady = (params: GridReadyEvent) => {
     this._gridApi = params.api;
+    console.log('==========================================');
     console.log(this._gridApi);
 
     this._columnApi = params.columnApi;
