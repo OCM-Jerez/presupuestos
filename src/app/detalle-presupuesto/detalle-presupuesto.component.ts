@@ -55,6 +55,8 @@ export class DetallePresupuestoComponent implements OnInit {
 
   checkedTab(e: any) {
     console.log(e.target.id)
+    // Almaceno tab actualpara volver al mismo tab cuando reloadCurrentRoute()
+
 
     switch (e.target.id) {
       case "tab1":
@@ -90,48 +92,11 @@ export class DetallePresupuestoComponent implements OnInit {
         break;
     }
 
-    // if (e.target.id == "tab1") {
-    //   this.typeClasification = 'ingresosEconomicaArticulos';
-    //   this.showComponentIngresos = true;
-    //   this.showGastosPrograma = false;
-    //   this.showGastosOrganico = false;
-    //   this.showGastosEconomica = false;
-    // }
-
-    // if (e.target.id == "tab2") {
-    //   this.typeClasification = 'gastosProgramaPoliticas';
-    //   this.showGastosPrograma = true
-    //   this.showComponentIngresos = false;
-    //   this.showGastosOrganico = false;
-    //   this.showGastosEconomica = false;
-    // }
-
-    // if (e.target.id == "tab3") {
-    //   this.typeClasification = 'gastosOrganicaOrganicos';
-    //   this.showGastosOrganico = true
-    //   this.showComponentIngresos = false;
-    //   this.showGastosPrograma = false;
-    //   this.showGastosEconomica = false;
-    // }
-
-    // if (e.target.id == "tab4") {
-    //   this.typeClasification = 'gastosEconomicaEconomicos';
-    //   this.showGastosEconomica = true
-    //   this.showComponentIngresos = false;
-    //   this.showGastosPrograma = false;
-    //   this.showGastosOrganico = false;
-    // }
-
     this._loadData();
 
   }
 
   private async _loadData(): Promise<void> {
-
-    // trato de conocer el tab activo
-    // para almacenarlo y volver al mismo tab cuando reloadCurrentRoute()
-
-
     // tengo que pasar parametro correcto para isIncome = true o false
     console.log(this.typeClasification);
     const isIncome = this.typeClasification.startsWith('ingresos');
