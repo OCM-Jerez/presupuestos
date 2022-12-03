@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -27,6 +27,7 @@ heatmap(Highcharts)
 })
 export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+  @ViewChildren("itemElement") private itemElements: QueryList<ElementRef>;
   showComponentIngresos = false;
   showGastosPrograma = false;
   showGastosOrganico = false;
@@ -35,6 +36,7 @@ export class DetallePresupuestoComponent implements OnInit {
   private _dataTable: IDataTable;
   public totalPresupuestado: number;
   public totalRecaudado: number;
+  private _oldActiveTab: string;
 
   public ngAfterViewInit(): void {
     this._loadData();
@@ -54,12 +56,26 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   checkedTab(e: any) {
-    console.log(e.target.id)
-    // Almaceno tab actualpara volver al mismo tab cuando reloadCurrentRoute()
+
+    console.log(e.target)
+    // Almaceno tab actual para volver al mismo tab cuando reloadCurrentRoute()
+    this._oldActiveTab = e.target.id.substring(3, 4);
+    console.log('this._oldActiveTab  ', this._oldActiveTab);
+
+    // localStorage.setItem('activeTab', e.target.id.substring(3, 4));
+    var activeTab = Number(localStorage.getItem('activeTab'));
+    console.log('localStorage ', activeTab);
+    // console.log(this.itemElements);
+    this.itemElements.forEach(item => console.log(item.nativeElement.children[0].checked));
+    // this.itemElements.forEach(item => console.log(item.nativeElement.children[0].checked));
+
+    this.itemElements.first.nativeElement.children[activeTab - 1].checked = true;
+
 
 
     switch (e.target.id) {
       case "tab1":
+
         this.typeClasification = 'ingresosEconomicaArticulos';
         this.showComponentIngresos = true;
         this.showGastosPrograma = false;
@@ -67,6 +83,9 @@ export class DetallePresupuestoComponent implements OnInit {
         this.showGastosEconomica = false;
         break;
       case "tab2":
+
+        // console.log(this.itemElements.first.nativeElement.children[1].checked);
+        // this.itemElements.first.nativeElement.children[1].checked
         this.typeClasification = 'gastosProgramaPoliticas';
         this.showGastosPrograma = true
         this.showComponentIngresos = false;
@@ -215,6 +234,8 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   reloadCurrentRoute() {
+    localStorage.setItem('activeTab', this._oldActiveTab);
+
     let currentUrl = this._router.url;
     this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this._router.navigate([currentUrl]);
