@@ -1,33 +1,35 @@
 <div class="flex-container">
     <div class="container">
-        <h2 class="OCM-title">Detalle del presupuesto</h2>
-        <span class="OCM-subtitle">Datos ejecución presupuesto al 2 de noviembre de 2022</span>
+        <div class="datosAnuales">
+            <h2 class="OCM-title">Detalle del presupuesto</h2>
+            <span class="OCM-subtitle">Datos ejecución presupuesto al 2 de noviembre de 2022</span>
 
-        <!-- Seleccion año a mostrar -->
-        <div id="form-wrapper">
-            <app-checkbox [multiYears]=false></app-checkbox>
+            <!-- Seleccion año a mostrar -->
+            <div class="selectYear">
+                <app-checkbox [multiYears]=false></app-checkbox>
+            </div>
+
+            <!-- Tabla totales -->
+            <table class="paleBlueRows">
+                <thead>
+                    <tr>
+                        <th style="width: 1000px;font-size: 20px; text-align: left; margin-left: 40px;">2022 (Hasta
+                            octubre)</th>
+                        <th style="width: 200px;height: 60px;font-size: 20px">PRESUPUESTADO</th>
+                        <th style="width: 200px;font-size: 20px">INGRESADO</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td style="text-align: left; font-size: 32px;">TOTAL</td>
+                        <td style="text-align: right; font-size: 32px;">{{ totalPresupuestado }}</td>
+                        <td style="text-align: right; font-size: 32px;">{{ totalRecaudado }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-        <!-- Tabla totales -->
-        <table class="paleBlueRows">
-            <thead>
-                <tr>
-                    <th style="width: 1000px;font-size: 20px; text-align: left; margin-left: 40px;">2022 (Hasta
-                        octubre)</th>
-                    <th style="width: 200px;height: 60px;font-size: 20px">PRESUPUESTADO</th>
-                    <th style="width: 200px;font-size: 20px">INGRESADO</th>
-
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td style="text-align: left; font-size: 32px;">TOTAL</td>
-                    <td style="text-align: right; font-size: 32px;">{{ totalPresupuestado }}</td>
-                    <td style="text-align: right; font-size: 32px;">{{ totalRecaudado }}</td>
-                </tr>
-            </tbody>
-        </table>
 
 
         <div #itemElement class="tab-wrap">
