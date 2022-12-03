@@ -269,6 +269,57 @@ export class DetallePresupuestoComponent implements OnInit {
           return acc
         }, [])
         break;
+      case 'tab3':
+        console.log(data);
+        let presupuestadoQuien = [];
+        data.map(item => {
+          const value = {
+            "name": item.CodOrg + '-' + item.DesOrg,
+            "value": item.Definitivas2022,
+            // "recaudado": item.DerechosReconocidosNetos2022,
+            "colorValue": (item.Definitivas2022 / 100)
+          }
+          presupuestadoQuien.push(value)
+        });
+
+        // Totalizo por articulo
+        data = presupuestadoQuien.reduce((acc, curr) => {
+          const index = acc.findIndex(item => item.name === curr.name)
+          index > -1 ? (acc[index].value += curr.value) : acc.push({
+            name: curr.name,
+            value: curr.value,
+            // recaudado: curr.recaudado,
+            colorValue: (curr.value / 1000)
+          })
+          return acc
+        }, [])
+        break;
+      case 'tab4':
+        console.log(data);
+        let presupuestadoParaQue = [];
+        data.map(item => {
+          const value = {
+            "name": item.CodEco + '-' + item.DesEco,
+            "value": item.Definitivas2022,
+            // "recaudado": item.DerechosReconocidosNetos2022,
+            "colorValue": (item.Definitivas2022 / 100)
+          }
+          presupuestadoParaQue.push(value)
+        });
+
+        // Totalizo por articulo
+        data = presupuestadoParaQue.reduce((acc, curr) => {
+          const index = acc.findIndex(item => item.name === curr.name)
+          index > -1 ? (acc[index].value += curr.value) : acc.push({
+            name: curr.name,
+            value: curr.value,
+            // recaudado: curr.recaudado,
+            colorValue: (curr.value / 1000)
+          })
+          return acc
+        }, [])
+
+        break;
 
       default:
         break;
