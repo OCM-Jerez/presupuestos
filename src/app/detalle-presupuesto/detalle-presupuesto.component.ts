@@ -39,6 +39,7 @@ export class DetallePresupuestoComponent implements OnInit {
   private _oldActiveTab: string;
   radioButtonSelected = 'radio-1';
   tabSelected = 'tab1';
+  treemap = 'treemap1';
 
   public ngAfterViewInit(): void {
     this._loadData();
@@ -58,16 +59,16 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   checkedTab(e: any) {
-    console.log(e.target)
+    // console.log(e.target)
     // Almaceno tab actual para volver al mismo tab cuando reloadCurrentRoute()
     this._oldActiveTab = e.target.id.substring(3, 4);
-    console.log('this._oldActiveTab  ', this._oldActiveTab);
+    // console.log('this._oldActiveTab  ', this._oldActiveTab);
 
     // localStorage.setItem('activeTab', e.target.id.substring(3, 4));
     var activeTab = Number(localStorage.getItem('activeTab'));
-    console.log('localStorage ', activeTab);
+    // console.log('localStorage ', activeTab);
     // console.log(this.itemElements);
-    this.itemElements.forEach(item => console.log(item.nativeElement.children[0].checked));
+    // this.itemElements.forEach(item => console.log(item.nativeElement.children[0].checked));
     // this.itemElements.forEach(item => console.log(item.nativeElement.children[0].checked));
 
     this.itemElements.first.nativeElement.children[activeTab - 1].checked = true;
@@ -76,6 +77,7 @@ export class DetallePresupuestoComponent implements OnInit {
     switch (e.target.id) {
       case 'tab1':
         this.tabSelected = 'tab1'
+        this.treemap = 'treemap1';
         this.typeClasification = 'ingresosEconomicaArticulos';
         this.showComponentIngresos = true;
         this.showGastosPrograma = false;
@@ -84,6 +86,7 @@ export class DetallePresupuestoComponent implements OnInit {
         break;
       case 'tab2':
         this.tabSelected = 'tab2'
+        this.treemap = 'treemap2';
 
         // console.log(this.itemElements.first.nativeElement.children[1].checked);
         // this.itemElements.first.nativeElement.children[1].checked
@@ -95,6 +98,7 @@ export class DetallePresupuestoComponent implements OnInit {
         break;
       case 'tab3':
         this.tabSelected = 'tab3'
+        this.treemap = 'treemap3';
         this.typeClasification = 'gastosOrganicaOrganicos';
         this.showGastosOrganico = true
         this.showComponentIngresos = false;
@@ -103,6 +107,7 @@ export class DetallePresupuestoComponent implements OnInit {
         break;
       case 'tab4':
         this.tabSelected = 'tab4'
+        this.treemap = 'treemap4';
         this.typeClasification = 'gastosEconomicaEconomicos';
         this.showGastosEconomica = true
         this.showComponentIngresos = false;
@@ -157,8 +162,8 @@ export class DetallePresupuestoComponent implements OnInit {
 
     this.totalPresupuestado = totales.Definitivas2022.toString()
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    this.totalRecaudado = totales.DerechosReconocidosNetos2022.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    // this.totalRecaudado = totales.DerechosReconocidosNetos2022.toString()
+    //   .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
     /* #endregion */
 
     // Datos para grafico
@@ -198,7 +203,7 @@ export class DetallePresupuestoComponent implements OnInit {
               }
               recaudadoArticulo.push(value)
             });
-            console.log(recaudadoArticulo);
+            // console.log(recaudadoArticulo);
 
             // Totalizo por recaudado por articulo
             data = recaudadoArticulo.reduce((acc, curr) => {
@@ -220,7 +225,7 @@ export class DetallePresupuestoComponent implements OnInit {
               }
               diferencias.push(value)
             });
-            console.log(diferencias);
+            // console.log(diferencias);
 
             // Totalizo por recaudado por articulo
             data = diferencias.reduce((acc, curr) => {
@@ -239,19 +244,39 @@ export class DetallePresupuestoComponent implements OnInit {
         }
         break;
       case 'tab2':
+        console.log(data);
 
+        let presupuestado = [];
+        data.map(item => {
+          const value = {
+            "name": item.CodPro + '-' + item.DesPro,
+            "value": item.Definitivas2022,
+            // "recaudado": item.DerechosReconocidosNetos2022,
+            "colorValue": (item.Definitivas2022 / 100)
+          }
+          presupuestado.push(value)
+        });
+
+        // Totalizo por articulo
+        data = presupuestado.reduce((acc, curr) => {
+          const index = acc.findIndex(item => item.name === curr.name)
+          index > -1 ? (acc[index].value += curr.value) : acc.push({
+            name: curr.name,
+            value: curr.value,
+            // recaudado: curr.recaudado,
+            colorValue: (curr.value / 1000)
+          })
+          return acc
+        }, [])
         break;
 
       default:
         break;
     }
 
-
-
-
     // Gráfico treemap   
-    // console.log(data);
-    const chart = Highcharts.chart('treemap', {
+    console.log(data);
+    const chart = Highcharts.chart(this.treemap, {
       colorAxis: {
         minColor: '#FFFFFF',
         // maxColor: Highcharts.getOptions().colors[0]
