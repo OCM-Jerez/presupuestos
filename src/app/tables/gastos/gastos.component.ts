@@ -1,4 +1,4 @@
-import { Component, Injectable, ViewChild } from '@angular/core';
+import { Component, Injectable, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 // import { TableGastosComponent } from './components/table-gastos/table-gastos.component';
@@ -16,7 +16,7 @@ import { ColumnState, ColumnApi, GridApi, GridReadyEvent } from "ag-grid-communi
   templateUrl: './gastos.component.html',
   styleUrls: ['./gastos.component.scss']
 })
-export class GastosComponent {
+export class GastosComponent implements OnInit {
   // @ViewChild('table') tableAg!: TableGastosComponent;
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private _gridApi: GridApi;
@@ -27,6 +27,10 @@ export class GastosComponent {
     private _tableService: TableService,
     private _router: Router,
   ) { }
+
+  ngOnInit(): void {
+
+  }
 
   buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
   showTable = true;
@@ -61,6 +65,7 @@ export class GastosComponent {
 
     this._dataStoreService.selectedCodeRowFirstLevel = '';
     this.reloadCurrentRoute()
+    //this.ngOnInit();
   }
 
   reloadCurrentRoute() {

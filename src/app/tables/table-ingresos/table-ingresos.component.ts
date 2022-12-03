@@ -285,6 +285,7 @@ export class TableIngresosComponent implements OnInit {
   }
 
   async detalle(typeClasification: CLASIFICATION_TYPE) {
+
     this._dataStoreService.IsDetails = true;
     const selectedRows = this.agGrid.api.getSelectedNodes();
     const dataPropertyTable = getClasificacion(typeClasification);
@@ -306,6 +307,7 @@ export class TableIngresosComponent implements OnInit {
 
     this.clickDetail.emit();
     //this.reloadCurrentRoute()
+    //this._loadPropertyTable();
   }
 
   reloadCurrentRoute() {

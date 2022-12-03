@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -27,7 +27,7 @@ heatmap(Highcharts)
 })
 export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  showComponentIngresos = false;
+  showComponentIngresos = true;
   showGastosPrograma = false;
   showGastosOrganico = false;
   showGastosEconomica = false;
@@ -36,9 +36,9 @@ export class DetallePresupuestoComponent implements OnInit {
   public totalPresupuestado: number;
   public totalRecaudado: number;
   public totalGastado: number;
-  private _oldActiveTab: string;
+  // private _oldActiveTab: string;
   private _radioButtonSelected = 'radio-1';
-  private _tabSelected = 'tab1';
+  private _tabSelected: string = "tab1";
   private _treemap = 'treemap1';
 
   public ngAfterViewInit(): void {
@@ -55,24 +55,39 @@ export class DetallePresupuestoComponent implements OnInit {
   ngOnInit(): void {
     // console.log(' ngOnInit() DetallePresupuestoComponent');
     this.typeClasification = 'ingresosEconomicaArticulos';
+    this._tabSelected = localStorage.getItem('activeTab') != null ? localStorage.getItem('activeTab') : 'tab1';
+    console.log(this._tabSelected)
+
+    switch (this._tabSelected) {
+      case 'tab1':
+        this.showComponentIngresos = true;
+        this.showGastosPrograma = false;
+        this.showGastosOrganico = false;
+        this.showGastosEconomica = false;
+        break;
+      case 'tab2':
+        this.showGastosPrograma = true
+        this.showComponentIngresos = false;
+        this.showGastosOrganico = false;
+        this.showGastosEconomica = false;
+        break;
+      case 'tab3':
+        this.showGastosOrganico = true
+        this.showComponentIngresos = false;
+        this.showGastosPrograma = false;
+        this.showGastosEconomica = false;
+        break;
+      case 'tab4':
+        this.showGastosEconomica = true
+        this.showComponentIngresos = false;
+        this.showGastosPrograma = false;
+        this.showGastosOrganico = false;
+        break;
+    }
+
   }
 
   checkedTab(e: any) {
-    // console.log(e.target)
-    // Almaceno tab actual para volver al mismo tab cuando reloadCurrentRoute()
-    // this._oldActiveTab = e.target.id.substring(3, 4);
-    // console.log('this._oldActiveTab  ', this._oldActiveTab);
-
-    // localStorage.setItem('activeTab', e.target.id.substring(3, 4));
-    // var activeTab = Number(localStorage.getItem('activeTab'));
-    // console.log('localStorage ', activeTab);
-    // console.log(this.itemElements);
-    // this.itemElements.forEach(item => console.log(item.nativeElement.children[0].checked));
-    // this.itemElements.forEach(item => console.log(item.nativeElement.children[0].checked));
-
-    // this.itemElements.first.nativeElement.children[activeTab - 1].checked = true;
-
-
     switch (e.target.id) {
       case 'tab1':
         this._tabSelected = 'tab1'
@@ -86,9 +101,6 @@ export class DetallePresupuestoComponent implements OnInit {
       case 'tab2':
         this._tabSelected = 'tab2'
         this._treemap = 'treemap2';
-
-        // console.log(this.itemElements.first.nativeElement.children[1].checked);
-        // this.itemElements.first.nativeElement.children[1].checked
         this.typeClasification = 'gastosProgramaPoliticas';
         this.showGastosPrograma = true
         this.showComponentIngresos = false;
@@ -113,14 +125,16 @@ export class DetallePresupuestoComponent implements OnInit {
         this.showGastosPrograma = false;
         this.showGastosOrganico = false;
         break;
-
-      default:
-        break;
     }
+    localStorage.setItem('activeTab', this._tabSelected);
 
     this._loadData();
-
   }
+
+  // test() {
+  //   this.showComponentIngresos = true;
+  //   console.log("inside test")
+  // }
 
   checkedRadio(e: any) {
     this._radioButtonSelected = e.target.id
@@ -132,7 +146,7 @@ export class DetallePresupuestoComponent implements OnInit {
     const isIncome = this.typeClasification.startsWith('ingresos');
 
     await this._tableService.loadDataForTypeClasification(isIncome, this.typeClasification);
-    this.showComponentIngresos = true;
+    // this.showComponentIngresos = true;
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
     // console.log("--------------------")
@@ -148,7 +162,7 @@ export class DetallePresupuestoComponent implements OnInit {
       })
       return acc
     }, {})
-    console.log(totales);
+    // console.log(totales);
 
     // https://stackoverflow.com/questions/54907549/keep-only-selected-keys-in-every-object-from-array
     // var keys_to_keep = ['Definitivas2022', 'DerechosReconocidosNetos2022']
@@ -320,7 +334,7 @@ export class DetallePresupuestoComponent implements OnInit {
     }
 
     // Gráfico treemap   
-    console.log(data);
+    // console.log(data);
     const chart = Highcharts.chart(this._treemap, {
       colorAxis: {
         minColor: '#FFFFFF',
@@ -365,7 +379,7 @@ export class DetallePresupuestoComponent implements OnInit {
     }, 100);
   }
 
-  async detalle(typeClasification: CLASIFICATION_TYPE) {
+  /*async detalle(typeClasification: CLASIFICATION_TYPE) {
     this._dataStoreService.IsDetails = true;
     const selectedRows = this.agGrid.api.getSelectedNodes();
     const dataPropertyTable = getClasificacion(typeClasification);
@@ -385,10 +399,11 @@ export class DetallePresupuestoComponent implements OnInit {
     }
 
     this.reloadCurrentRoute()
-  }
+  }*/
 
   reloadCurrentRoute() {
-    localStorage.setItem('activeTab', this._oldActiveTab);
+
+    console.log(this._tabSelected)
 
     let currentUrl = this._router.url;
     this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {

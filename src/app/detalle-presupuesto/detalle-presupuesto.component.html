@@ -31,18 +31,28 @@
             </table>
         </div>
 
+
+
+
         <div #itemElement class="tab-wrap">
-            <input type="radio" id="tab1" name="tabGroup1" class="tab" checked (change)="checkedTab($event)">
+            <input type="radio" id="tab1" name="tabGroup1" class="tab" [checked]="showComponentIngresos"
+                (change)="checkedTab($event)">
             <label for="tab1">Ingresos</label>
 
-            <input type="radio" id="tab2" name="tabGroup1" class="tab" (change)="checkedTab($event)">
+            <input type="radio" id="tab2" name="tabGroup1" class="tab" [checked]="showGastosPrograma"
+                (change)="checkedTab($event)">
             <label for="tab2">¿En qué se gasta?</label>
 
-            <input type="radio" id="tab3" name="tabGroup1" class="tab" (change)="checkedTab($event)">
+            <input type="radio" id="tab3" name="tabGroup1" class="tab" [checked]="showGastosOrganico"
+                (change)="checkedTab($event)">
             <label for="tab3">¿Quién lo gasta?</label>
 
-            <input type="radio" id="tab4" name="tabGroup1" class="tab" (change)="checkedTab($event)">
+            <input type="radio" id="tab4" name="tabGroup1" class="tab" [checked]="showGastosEconomica"
+                (change)="checkedTab($event)">
             <label for="tab4">¿Para qué se gasta?</label>
+
+            <!-- <button (click)="test()"
+                style="background-color: green; width: 180px; height: 100px; color: white">test</button> -->
 
             <!-- Tab Ingresos -->
             <div class="tab__content">
@@ -103,6 +113,7 @@
                 <app-gastos *ngIf="showGastosEconomica"></app-gastos>
             </div>
         </div>
+
 
     </div>
 </div>
