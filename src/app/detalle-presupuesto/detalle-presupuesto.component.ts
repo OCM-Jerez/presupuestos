@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -27,7 +27,6 @@ heatmap(Highcharts)
 })
 export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  @ViewChildren("itemElement") private itemElements: QueryList<ElementRef>;
   showComponentIngresos = false;
   showGastosPrograma = false;
   showGastosOrganico = false;
@@ -36,10 +35,11 @@ export class DetallePresupuestoComponent implements OnInit {
   private _dataTable: IDataTable;
   public totalPresupuestado: number;
   public totalRecaudado: number;
+  public totalGastado: number;
   private _oldActiveTab: string;
-  radioButtonSelected = 'radio-1';
-  tabSelected = 'tab1';
-  treemap = 'treemap1';
+  private _radioButtonSelected = 'radio-1';
+  private _tabSelected = 'tab1';
+  private _treemap = 'treemap1';
 
   public ngAfterViewInit(): void {
     this._loadData();
@@ -48,7 +48,6 @@ export class DetallePresupuestoComponent implements OnInit {
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
-    private _renderer2: Renderer2,
     private _dataStoreService: DataStoreService,
     private _tableService: TableService
   ) { }
@@ -76,8 +75,8 @@ export class DetallePresupuestoComponent implements OnInit {
 
     switch (e.target.id) {
       case 'tab1':
-        this.tabSelected = 'tab1'
-        this.treemap = 'treemap1';
+        this._tabSelected = 'tab1'
+        this._treemap = 'treemap1';
         this.typeClasification = 'ingresosEconomicaArticulos';
         this.showComponentIngresos = true;
         this.showGastosPrograma = false;
@@ -85,8 +84,8 @@ export class DetallePresupuestoComponent implements OnInit {
         this.showGastosEconomica = false;
         break;
       case 'tab2':
-        this.tabSelected = 'tab2'
-        this.treemap = 'treemap2';
+        this._tabSelected = 'tab2'
+        this._treemap = 'treemap2';
 
         // console.log(this.itemElements.first.nativeElement.children[1].checked);
         // this.itemElements.first.nativeElement.children[1].checked
@@ -97,8 +96,8 @@ export class DetallePresupuestoComponent implements OnInit {
         this.showGastosEconomica = false;
         break;
       case 'tab3':
-        this.tabSelected = 'tab3'
-        this.treemap = 'treemap3';
+        this._tabSelected = 'tab3'
+        this._treemap = 'treemap3';
         this.typeClasification = 'gastosOrganicaOrganicos';
         this.showGastosOrganico = true
         this.showComponentIngresos = false;
@@ -106,8 +105,8 @@ export class DetallePresupuestoComponent implements OnInit {
         this.showGastosEconomica = false;
         break;
       case 'tab4':
-        this.tabSelected = 'tab4'
-        this.treemap = 'treemap4';
+        this._tabSelected = 'tab4'
+        this._treemap = 'treemap4';
         this.typeClasification = 'gastosEconomicaEconomicos';
         this.showGastosEconomica = true
         this.showComponentIngresos = false;
@@ -124,7 +123,7 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   checkedRadio(e: any) {
-    this.radioButtonSelected = e.target.id
+    this._radioButtonSelected = e.target.id
     this._loadData();
   }
 
@@ -149,7 +148,7 @@ export class DetallePresupuestoComponent implements OnInit {
       })
       return acc
     }, {})
-    // console.log(totales);
+    console.log(totales);
 
     // https://stackoverflow.com/questions/54907549/keep-only-selected-keys-in-every-object-from-array
     // var keys_to_keep = ['Definitivas2022', 'DerechosReconocidosNetos2022']
@@ -162,37 +161,44 @@ export class DetallePresupuestoComponent implements OnInit {
 
     this.totalPresupuestado = totales.Definitivas2022.toString()
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    // this.totalRecaudado = totales.DerechosReconocidosNetos2022.toString()
-    //   .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    if (this.typeClasification === 'ingresosEconomicaArticulos') {
+      this.totalRecaudado = totales.DerechosReconocidosNetos2022.toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    }
+    if (this.typeClasification != 'ingresosEconomicaArticulos') {
+      this.totalGastado = totales.Pagos2022.toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    }
+
     /* #endregion */
 
     // Datos para grafico
-    switch (this.tabSelected) {
+    switch (this._tabSelected) {
       case 'tab1':
-        switch (this.radioButtonSelected) {
+        switch (this._radioButtonSelected) {
           case 'radio-1':
-            let presupuestadoArticulo = [];
-            data.map(item => {
-              const value = {
-                "name": item.CodArt + '-' + item.DesArt,
-                "value": item.Definitivas2022,
-                // "recaudado": item.DerechosReconocidosNetos2022,
-                "colorValue": (item.Definitivas2022 / 100)
-              }
-              presupuestadoArticulo.push(value)
-            });
+            data = this.preparaDataGraph(data)
 
-            // Totalizo por articulo
-            data = presupuestadoArticulo.reduce((acc, curr) => {
-              const index = acc.findIndex(item => item.name === curr.name)
-              index > -1 ? (acc[index].value += curr.value) : acc.push({
-                name: curr.name,
-                value: curr.value,
-                // recaudado: curr.recaudado,
-                colorValue: (curr.value / 1000)
-              })
-              return acc
-            }, [])
+            // let presupuestadoArticulo = [];
+            // data.map(item => {
+            //   const value = {
+            //     "name": item.CodArt + '-' + item.DesArt,
+            //     "value": item.Definitivas2022,
+            //     "colorValue": (item.Definitivas2022 / 100)
+            //   }
+            //   presupuestadoArticulo.push(value)
+            // });
+
+            // // Totalizo por articulo
+            // data = presupuestadoArticulo.reduce((acc, curr) => {
+            //   const index = acc.findIndex(item => item.name === curr.name)
+            //   index > -1 ? (acc[index].value += curr.value) : acc.push({
+            //     name: curr.name,
+            //     value: curr.value,
+            //     colorValue: (curr.value / 1000)
+            //   })
+            //   return acc
+            // }, [])
             break;
           case 'radio-2':
             let recaudadoArticulo = [];
@@ -203,7 +209,6 @@ export class DetallePresupuestoComponent implements OnInit {
               }
               recaudadoArticulo.push(value)
             });
-            // console.log(recaudadoArticulo);
 
             // Totalizo por recaudado por articulo
             data = recaudadoArticulo.reduce((acc, curr) => {
@@ -225,7 +230,6 @@ export class DetallePresupuestoComponent implements OnInit {
               }
               diferencias.push(value)
             });
-            // console.log(diferencias);
 
             // Totalizo por recaudado por articulo
             data = diferencias.reduce((acc, curr) => {
@@ -244,14 +248,11 @@ export class DetallePresupuestoComponent implements OnInit {
         }
         break;
       case 'tab2':
-        console.log(data);
-
         let presupuestado = [];
         data.map(item => {
           const value = {
             "name": item.CodPro + '-' + item.DesPro,
             "value": item.Definitivas2022,
-            // "recaudado": item.DerechosReconocidosNetos2022,
             "colorValue": (item.Definitivas2022 / 100)
           }
           presupuestado.push(value)
@@ -263,20 +264,17 @@ export class DetallePresupuestoComponent implements OnInit {
           index > -1 ? (acc[index].value += curr.value) : acc.push({
             name: curr.name,
             value: curr.value,
-            // recaudado: curr.recaudado,
             colorValue: (curr.value / 1000)
           })
           return acc
         }, [])
         break;
       case 'tab3':
-        console.log(data);
         let presupuestadoQuien = [];
         data.map(item => {
           const value = {
             "name": item.CodOrg + '-' + item.DesOrg,
             "value": item.Definitivas2022,
-            // "recaudado": item.DerechosReconocidosNetos2022,
             "colorValue": (item.Definitivas2022 / 100)
           }
           presupuestadoQuien.push(value)
@@ -288,20 +286,17 @@ export class DetallePresupuestoComponent implements OnInit {
           index > -1 ? (acc[index].value += curr.value) : acc.push({
             name: curr.name,
             value: curr.value,
-            // recaudado: curr.recaudado,
             colorValue: (curr.value / 1000)
           })
           return acc
         }, [])
         break;
       case 'tab4':
-        console.log(data);
         let presupuestadoParaQue = [];
         data.map(item => {
           const value = {
             "name": item.CodEco + '-' + item.DesEco,
             "value": item.Definitivas2022,
-            // "recaudado": item.DerechosReconocidosNetos2022,
             "colorValue": (item.Definitivas2022 / 100)
           }
           presupuestadoParaQue.push(value)
@@ -313,7 +308,6 @@ export class DetallePresupuestoComponent implements OnInit {
           index > -1 ? (acc[index].value += curr.value) : acc.push({
             name: curr.name,
             value: curr.value,
-            // recaudado: curr.recaudado,
             colorValue: (curr.value / 1000)
           })
           return acc
@@ -327,7 +321,7 @@ export class DetallePresupuestoComponent implements OnInit {
 
     // Gráfico treemap   
     console.log(data);
-    const chart = Highcharts.chart(this.treemap, {
+    const chart = Highcharts.chart(this._treemap, {
       colorAxis: {
         minColor: '#FFFFFF',
         // maxColor: Highcharts.getOptions().colors[0]
@@ -400,6 +394,38 @@ export class DetallePresupuestoComponent implements OnInit {
     this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this._router.navigate([currentUrl]);
     });
+  }
+
+  preparaDataGraph(data: any) {
+    let array = [];
+    switch (this._tabSelected) {
+      case 'tab1':
+        data.map(item => {
+          const value = {
+            name: item.CodArt + '-' + item.DesArt,
+            value: item.Definitivas2022,
+            colorValue: (item.Definitivas2022 / 100)
+          }
+          array.push(value)
+        });
+        break;
+
+      default:
+        break;
+    }
+
+    // Totalizo por articulo
+    data = array.reduce((acc, curr) => {
+      const index = acc.findIndex(item => item.name === curr.name)
+      index > -1 ? (acc[index].value += curr.value) : acc.push({
+        name: curr.name,
+        value: curr.value,
+        colorValue: (curr.value / 1000)
+      })
+      return acc
+    }, [])
+    return data
+
   }
 
 }
