@@ -38,6 +38,7 @@ export class DetallePresupuestoComponent implements OnInit {
   public totalRecaudado: number;
   private _oldActiveTab: string;
   radioButtonSelected = 'radio-1';
+  tabSelected = 'tab1';
 
   public ngAfterViewInit(): void {
     this._loadData();
@@ -73,15 +74,16 @@ export class DetallePresupuestoComponent implements OnInit {
 
 
     switch (e.target.id) {
-      case "tab1":
-
+      case 'tab1':
+        this.tabSelected = 'tab1'
         this.typeClasification = 'ingresosEconomicaArticulos';
         this.showComponentIngresos = true;
         this.showGastosPrograma = false;
         this.showGastosOrganico = false;
         this.showGastosEconomica = false;
         break;
-      case "tab2":
+      case 'tab2':
+        this.tabSelected = 'tab2'
 
         // console.log(this.itemElements.first.nativeElement.children[1].checked);
         // this.itemElements.first.nativeElement.children[1].checked
@@ -91,14 +93,16 @@ export class DetallePresupuestoComponent implements OnInit {
         this.showGastosOrganico = false;
         this.showGastosEconomica = false;
         break;
-      case "tab3":
+      case 'tab3':
+        this.tabSelected = 'tab3'
         this.typeClasification = 'gastosOrganicaOrganicos';
         this.showGastosOrganico = true
         this.showComponentIngresos = false;
         this.showGastosPrograma = false;
         this.showGastosEconomica = false;
         break;
-      case "tab4":
+      case 'tab4':
+        this.tabSelected = 'tab4'
         this.typeClasification = 'gastosEconomicaEconomicos';
         this.showGastosEconomica = true
         this.showComponentIngresos = false;
@@ -158,57 +162,92 @@ export class DetallePresupuestoComponent implements OnInit {
     /* #endregion */
 
     // Datos para grafico
-    switch (this.radioButtonSelected) {
-      case 'radio-1':
-        let presupuestadoArticulo = [];
-        data.map(item => {
-          const value = {
-            "name": item.CodArt + '-' + item.DesArt,
-            "value": item.Definitivas2022,
-            // "recaudado": item.DerechosReconocidosNetos2022,
-            "colorValue": (item.Definitivas2022 / 100)
-          }
-          presupuestadoArticulo.push(value)
-        });
+    switch (this.tabSelected) {
+      case 'tab1':
+        switch (this.radioButtonSelected) {
+          case 'radio-1':
+            let presupuestadoArticulo = [];
+            data.map(item => {
+              const value = {
+                "name": item.CodArt + '-' + item.DesArt,
+                "value": item.Definitivas2022,
+                // "recaudado": item.DerechosReconocidosNetos2022,
+                "colorValue": (item.Definitivas2022 / 100)
+              }
+              presupuestadoArticulo.push(value)
+            });
 
-        // Totalizo por articulo
-        data = presupuestadoArticulo.reduce((acc, curr) => {
-          const index = acc.findIndex(item => item.name === curr.name)
-          index > -1 ? (acc[index].value += curr.value) : acc.push({
-            name: curr.name,
-            value: curr.value,
-            // recaudado: curr.recaudado,
-            colorValue: (curr.value / 1000)
-          })
-          return acc
-        }, [])
+            // Totalizo por articulo
+            data = presupuestadoArticulo.reduce((acc, curr) => {
+              const index = acc.findIndex(item => item.name === curr.name)
+              index > -1 ? (acc[index].value += curr.value) : acc.push({
+                name: curr.name,
+                value: curr.value,
+                // recaudado: curr.recaudado,
+                colorValue: (curr.value / 1000)
+              })
+              return acc
+            }, [])
+            break;
+          case 'radio-2':
+            let recaudadoArticulo = [];
+            data.map(item => {
+              const value = {
+                "name": item.CodArt + '-' + item.DesArt,
+                "value": item.DerechosReconocidosNetos2022,
+              }
+              recaudadoArticulo.push(value)
+            });
+            console.log(recaudadoArticulo);
+
+            // Totalizo por recaudado por articulo
+            data = recaudadoArticulo.reduce((acc, curr) => {
+              const index = acc.findIndex(item => item.name === curr.name)
+              index > -1 ? (acc[index].value += curr.value) : acc.push({
+                name: curr.name,
+                value: curr.value,
+                colorValue: (curr.value / 1000)
+              })
+              return acc
+            }, [])
+            break;
+          case 'radio-3':
+            let diferencias = [];
+            data.map(item => {
+              const value = {
+                "name": item.CodArt + '-' + item.DesArt,
+                "value": (item.Definitivas2022 - item.DerechosReconocidosNetos2022),
+              }
+              diferencias.push(value)
+            });
+            console.log(diferencias);
+
+            // Totalizo por recaudado por articulo
+            data = diferencias.reduce((acc, curr) => {
+              const index = acc.findIndex(item => item.name === curr.name)
+              index > -1 ? (acc[index].value += curr.value) : acc.push({
+                name: curr.name,
+                value: curr.value,
+                colorValue: (curr.value / 1000)
+              })
+              return acc
+            }, [])
+            break;
+
+          default:
+            break;
+        }
         break;
-      case 'radio-2':
-        let recaudadoArticulo = [];
-        data.map(item => {
-          const value = {
-            "name": item.CodArt + '-' + item.DesArt,
-            "value": item.DerechosReconocidosNetos2022,
-          }
-          recaudadoArticulo.push(value)
-        });
-        console.log(recaudadoArticulo);
+      case 'tab2':
 
-        // Totalizo por recaudado por articulo
-        data = recaudadoArticulo.reduce((acc, curr) => {
-          const index = acc.findIndex(item => item.name === curr.name)
-          index > -1 ? (acc[index].value += curr.value) : acc.push({
-            name: curr.name,
-            value: curr.value,
-            colorValue: (curr.value / 1000)
-          })
-          return acc
-        }, [])
         break;
 
       default:
         break;
     }
+
+
+
 
     // Gráfico treemap   
     // console.log(data);
@@ -233,7 +272,8 @@ export class DetallePresupuestoComponent implements OnInit {
           enabled: false,
         },
         headerFormat: `<span class="mb-2">{point.key}</span><br>`,
-        pointFormat: '<span>Euros: {point.value}</span></br><span>Color: {point.colorValue}</span>',
+        // pointFormat: '<span>Euros: {point.value}</span></br><span>Color: {point.colorValue}</span>',
+        pointFormat: '<span>Euros: {point.value}</span>',
 
         useHTML: true,
       },
