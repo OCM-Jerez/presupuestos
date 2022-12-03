@@ -56,7 +56,6 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   checkedTab(e: any) {
-
     console.log(e.target)
     // Almaceno tab actual para volver al mismo tab cuando reloadCurrentRoute()
     this._oldActiveTab = e.target.id.substring(3, 4);
@@ -70,7 +69,6 @@ export class DetallePresupuestoComponent implements OnInit {
     // this.itemElements.forEach(item => console.log(item.nativeElement.children[0].checked));
 
     this.itemElements.first.nativeElement.children[activeTab - 1].checked = true;
-
 
 
     switch (e.target.id) {
@@ -117,15 +115,15 @@ export class DetallePresupuestoComponent implements OnInit {
 
   private async _loadData(): Promise<void> {
     // tengo que pasar parametro correcto para isIncome = true o false
-    console.log(this.typeClasification);
+    // console.log(this.typeClasification);
     const isIncome = this.typeClasification.startsWith('ingresos');
 
     await this._tableService.loadDataForTypeClasification(isIncome, this.typeClasification);
     this.showComponentIngresos = true;
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
-    console.log("--------------------")
-    console.log(data);
+    // console.log("--------------------")
+    // console.log(data);
 
     // Creo array de Articulos.
     let articulos = [];
@@ -160,6 +158,7 @@ export class DetallePresupuestoComponent implements OnInit {
         }
         acc[key] += curr[key]
       })
+      console.log(acc);
       return acc
     }, {})
     this.totalPresupuestado = totales.value.toString()

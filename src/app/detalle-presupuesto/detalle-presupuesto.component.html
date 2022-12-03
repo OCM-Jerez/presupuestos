@@ -31,7 +31,6 @@
             </table>
         </div>
 
-
         <div #itemElement class="tab-wrap">
             <input type="radio" id="tab1" name="tabGroup1" class="tab" checked (change)="checkedTab($event)">
             <label for="tab1">Ingresos</label>
@@ -48,9 +47,7 @@
             <!-- Tab Ingresos -->
             <div class="tab__content">
 
-                <div class="col-6">
-                    <div id="treemap"></div>
-                </div>
+                <div id="treemap"></div>
 
                 <!-- AG-Grid -->
                 <div style="margin-top: 40px;">
@@ -76,45 +73,6 @@
                 background-size:1200px 600px;background-position: center center; background-repeat: no-repeat;">
                 </div>
 
-                <table class="paleBlueRows">
-                    <thead>
-                        <tr>
-                            <th style="width: 1000px;font-size: 20px; text-align: left; margin-left: 40px;">2022 (Hasta
-                                octubre)</th>
-                            <th style="width: 200px;height: 60px;font-size: 20px">PRESUPUESTADO</th>
-                            <th style="width: 200px;font-size: 20px">INGRESADO</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td style="text-align: left; font-size: 32px;">TOTAL</td>
-                            <td style="text-align: right; font-size: 32px;">318.711.288</td>
-                            <td style="text-align: right; font-size: 32px;">149.416.437</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- <table class="paleBlueRows">
-                    <thead>
-                        <tr>
-                            <th style="width: 1000px;font-size: 20px; text-align: left; margin-left: 40px;">ARTÍCULO
-                            </th>
-                            <th style="width: 200px;height: 60px;font-size: 20px">PRESUPUESTADO</th>
-                            <th style="width: 200px;font-size: 20px">INGRESADO</th>
-
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td style="text-align: left; font-size: 32px;">TOTAL</td>
-                            <td style="text-align: right; font-size: 32px;">242.128.125</td>
-                            <td style="text-align: right; font-size: 32px;">142.028.325</td>
-                        </tr>
-                    </tbody>
-                </table> -->
-
                 <app-gastos *ngIf="showGastosPrograma"></app-gastos>
 
             </div>
@@ -125,46 +83,6 @@
                 background-size:1200px 600px;background-position: center center; background-repeat: no-repeat;">
                 </div>
 
-                <table class="paleBlueRows">
-                    <thead>
-                        <tr>
-                            <th style="width: 1000px;font-size: 20px; text-align: left; margin-left: 40px;">2022 (Hasta
-                                octubre)</th>
-                            <th style="width: 200px;height: 60px;font-size: 20px">PRESUPUESTADO</th>
-                            <th style="width: 200px;font-size: 20px">INGRESADO</th>
-
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td style="text-align: left; font-size: 32px;">TOTAL</td>
-                            <td style="text-align: right; font-size: 32px;">318.711.288</td>
-                            <td style="text-align: right; font-size: 32px;">149.416.437</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- <table class="paleBlueRows">
-                    <thead>
-                        <tr>
-                            <th style="width: 1000px;font-size: 20px; text-align: left; margin-left: 40px;">ORGÁNICO
-                            </th>
-                            <th style="width: 200px;height: 60px;font-size: 20px">PRESUPUESTADO</th>
-                            <th style="width: 200px;font-size: 20px">INGRESADO</th>
-
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td style="text-align: left; font-size: 32px;">TOTAL</td>
-                            <td style="text-align: right; font-size: 32px;">242.128.125</td>
-                            <td style="text-align: right; font-size: 32px;">142.028.325</td>
-                        </tr>
-                    </tbody>
-                </table> -->
-
                 <app-gastos *ngIf="showGastosOrganico"></app-gastos>
 
             </div>
@@ -174,47 +92,6 @@
                 <div class="flex-container" style=" height: 600px;background-image: url('../../assets/img/Civio/graficoParaQueSeGasta.png'); 
                 background-size:1200px 600px;background-position: center center; background-repeat: no-repeat;">
                 </div>
-
-                <table class="paleBlueRows">
-                    <thead>
-                        <tr>
-                            <th style="width: 1000px;font-size: 20px; text-align: left; margin-left: 40px;">2022 (Hasta
-                                octubre)</th>
-                            <th style="width: 200px;height: 60px;font-size: 20px">PRESUPUESTADO</th>
-                            <th style="width: 200px;font-size: 20px">INGRESADO</th>
-
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td style="text-align: left; font-size: 32px;">TOTAL</td>
-                            <td style="text-align: right; font-size: 32px;">242.128.125</td>
-                            <td style="text-align: right; font-size: 32px;">142.028.325</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- <table class="paleBlueRows">
-                    <thead>
-                        <tr>
-                            <th style="width: 1000px;font-size: 20px; text-align: left; margin-left: 40px;">POLÍTICA DE
-                                GASTO
-                            </th>
-                            <th style="width: 200px;height: 60px;font-size: 20px">PRESUPUESTADO</th>
-                            <th style="width: 200px;font-size: 20px">INGRESADO</th>
-
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td style="text-align: left; font-size: 32px;">TOTAL</td>
-                            <td style="text-align: right; font-size: 32px;">242.128.125</td>
-                            <td style="text-align: right; font-size: 32px;">142.028.325</td>
-                        </tr>
-                    </tbody>
-                </table> -->
 
                 <app-gastos *ngIf="showGastosEconomica"></app-gastos>
 
