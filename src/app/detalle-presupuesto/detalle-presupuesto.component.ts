@@ -37,6 +37,7 @@ export class DetallePresupuestoComponent implements OnInit {
   public totalPresupuestado: number;
   public totalRecaudado: number;
   private _oldActiveTab: string;
+  radioButtonSelected = 'radio-1';
 
   public ngAfterViewInit(): void {
     this._loadData();
@@ -113,9 +114,13 @@ export class DetallePresupuestoComponent implements OnInit {
 
   }
 
+  checkedRadio(e: any) {
+    this.radioButtonSelected = e.target.id
+    this._loadData();
+  }
+
   private async _loadData(): Promise<void> {
     // tengo que pasar parametro correcto para isIncome = true o false
-    // console.log(this.typeClasification);
     const isIncome = this.typeClasification.startsWith('ingresos');
 
     await this._tableService.loadDataForTypeClasification(isIncome, this.typeClasification);
@@ -125,32 +130,7 @@ export class DetallePresupuestoComponent implements OnInit {
     // console.log("--------------------")
     // console.log(data);
 
-    // Creo array de Articulos.
-    let articulos = [];
-    data.map(item => {
-      const value = {
-        "name": item.CodArt + '-' + item.DesArt,
-        "value": item.Definitivas2022,
-        "recaudado": item.DerechosReconocidosNetos2022,
-        "colorValue": (item.Definitivas2022 / 100)
-      }
-      articulos.push(value)
-    });
-    // console.log(articulos);
-
-    // Totalizo por articulo
-    data = articulos.reduce((acc, curr) => {
-      const index = acc.findIndex(item => item.name === curr.name)
-      index > -1 ? (acc[index].value += curr.value, acc[index].recaudado += curr.recaudado) : acc.push({
-        name: curr.name,
-        value: curr.value,
-        recaudado: curr.recaudado,
-        colorValue: (curr.value / 1000)
-      })
-      return acc
-    }, [])
-
-    // Total general para datos tabla
+    /* #region Total general para datos tabla  */
     const totales = data.reduce((acc, curr) => {
       Object.keys(curr).forEach((key, index) => {
         if (!acc[key]) {
@@ -158,15 +138,80 @@ export class DetallePresupuestoComponent implements OnInit {
         }
         acc[key] += curr[key]
       })
-      console.log(acc);
       return acc
     }, {})
-    this.totalPresupuestado = totales.value.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    this.totalRecaudado = totales.recaudado.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    // console.log(totales);
 
-    // Gráfico treemap
+    // https://stackoverflow.com/questions/54907549/keep-only-selected-keys-in-every-object-from-array
+    // var keys_to_keep = ['Definitivas2022', 'DerechosReconocidosNetos2022']
+    // const redux = array => array.map(o => keys_to_keep.reduce((acc, curr) => {
+    //   acc[curr] = o[curr];
+    //   return acc;
+    // }, {}));
+
+    // console.log(redux(data));
+
+    this.totalPresupuestado = totales.Definitivas2022.toString()
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    this.totalRecaudado = totales.DerechosReconocidosNetos2022.toString()
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    /* #endregion */
+
+    // Datos para grafico
+    switch (this.radioButtonSelected) {
+      case 'radio-1':
+        let presupuestadoArticulo = [];
+        data.map(item => {
+          const value = {
+            "name": item.CodArt + '-' + item.DesArt,
+            "value": item.Definitivas2022,
+            // "recaudado": item.DerechosReconocidosNetos2022,
+            "colorValue": (item.Definitivas2022 / 100)
+          }
+          presupuestadoArticulo.push(value)
+        });
+
+        // Totalizo por articulo
+        data = presupuestadoArticulo.reduce((acc, curr) => {
+          const index = acc.findIndex(item => item.name === curr.name)
+          index > -1 ? (acc[index].value += curr.value) : acc.push({
+            name: curr.name,
+            value: curr.value,
+            // recaudado: curr.recaudado,
+            colorValue: (curr.value / 1000)
+          })
+          return acc
+        }, [])
+        break;
+      case 'radio-2':
+        let recaudadoArticulo = [];
+        data.map(item => {
+          const value = {
+            "name": item.CodArt + '-' + item.DesArt,
+            "value": item.DerechosReconocidosNetos2022,
+          }
+          recaudadoArticulo.push(value)
+        });
+        console.log(recaudadoArticulo);
+
+        // Totalizo por recaudado por articulo
+        data = recaudadoArticulo.reduce((acc, curr) => {
+          const index = acc.findIndex(item => item.name === curr.name)
+          index > -1 ? (acc[index].value += curr.value) : acc.push({
+            name: curr.name,
+            value: curr.value,
+            colorValue: (curr.value / 1000)
+          })
+          return acc
+        }, [])
+        break;
+
+      default:
+        break;
+    }
+
+    // Gráfico treemap   
+    // console.log(data);
     const chart = Highcharts.chart('treemap', {
       colorAxis: {
         minColor: '#FFFFFF',
