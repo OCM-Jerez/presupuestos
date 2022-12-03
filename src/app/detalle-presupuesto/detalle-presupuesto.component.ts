@@ -61,17 +61,17 @@ export class DetallePresupuestoComponent implements OnInit {
   checkedTab(e: any) {
     // console.log(e.target)
     // Almaceno tab actual para volver al mismo tab cuando reloadCurrentRoute()
-    this._oldActiveTab = e.target.id.substring(3, 4);
+    // this._oldActiveTab = e.target.id.substring(3, 4);
     // console.log('this._oldActiveTab  ', this._oldActiveTab);
 
     // localStorage.setItem('activeTab', e.target.id.substring(3, 4));
-    var activeTab = Number(localStorage.getItem('activeTab'));
+    // var activeTab = Number(localStorage.getItem('activeTab'));
     // console.log('localStorage ', activeTab);
     // console.log(this.itemElements);
     // this.itemElements.forEach(item => console.log(item.nativeElement.children[0].checked));
     // this.itemElements.forEach(item => console.log(item.nativeElement.children[0].checked));
 
-    this.itemElements.first.nativeElement.children[activeTab - 1].checked = true;
+    // this.itemElements.first.nativeElement.children[activeTab - 1].checked = true;
 
 
     switch (e.target.id) {
