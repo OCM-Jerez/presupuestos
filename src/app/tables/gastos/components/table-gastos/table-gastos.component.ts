@@ -41,8 +41,8 @@ export class TableGastosComponent implements OnInit {
   ) {
 
     this._dataTable = _dataStoreService.getDataTable;
-    console.log("******************* _dataTable *************************")
-    console.log(this._dataTable);
+    // console.log("******************* _dataTable *************************")
+    // console.log(this._dataTable);
 
     // const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
     // this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder]);
@@ -61,8 +61,8 @@ export class TableGastosComponent implements OnInit {
   private async _loadTable() {
 
     this._dataTable = this._dataStoreService.getDataTable;
-    console.log("******************* _dataTable *************************")
-    console.log(this._dataTable);
+    // console.log("******************* _dataTable *************************")
+    // console.log(this._dataTable);
 
     this._columnDefs = [
       {

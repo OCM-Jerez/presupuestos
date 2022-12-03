@@ -55,7 +55,7 @@ export class TableIngresosComponent implements OnInit {
     this._loadPropertyTable();
   }
   ngOnInit(): void {
-    console.log(this.cellRenderer);
+    // console.log(this.cellRenderer);
     this._cellRenderer = this.cellRenderer ? 'CellRendererOCM' : 'CellRendererOCMtext1';
   }
 
