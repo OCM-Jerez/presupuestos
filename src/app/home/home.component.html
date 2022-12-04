@@ -1,22 +1,20 @@
 <!-- https://www.cssportal.com/css-flexbox-generator/ -->
-<div class="flex-container" style=" background: white;">
-    <div class="flex-items">
-        <div class="OCM-cardMenu">
-            <span class="OCM-cardMenu__title">¿Cómo y en qué gasta el Ayuntamiento de Jerez de la Frontera?</span>
-            <p class="OCM-cardMenu__subtitle">Te mostramos de un modo claro cómo se distribuye
-                nuestro presupuesto. De
-                dónde vienen los ingresos y a qué destinamos el gasto.</p>
+<div class="flex">
+    <div class="flex__cardInfo">
+        <div class="cardInfo">
+            <span class="cardInfo__title">¿Cómo y en qué gasta el Ayuntamiento de Jerez de la Frontera?</span>
+            <p class="cardInfo__subtitle">Te mostramos de un modo claro cómo se distribuye nuestro presupuesto.
+                De dónde vienen los ingresos y a qué destinamos el gasto.</p>
         </div>
     </div>
 
-    <div class="flex-items" style="margin-right: 100px">
-        <div class="OCM-cardMenu">
-            <span class="OCM-cardMenu__title">ALGUNOS EJEMPLOS</span>
-            <table class="paleBlueRows" STYLE="width: 90%; height: 200px;">
+    <div class="flex__cardTable">
+        <div class="cardTable">
+            <span class="cardTable__title">ALGUNOS EJEMPLOS</span>
+            <table class="paleBlueRows">
                 <thead>
                     <tr>
-                        <th>¿Cuanto recauda el Ayuntamiento por...?
-                        </th>
+                        <th>¿Cuanto recauda el Ayuntamiento por...?</th>
                         <th>Euros</th>
                     </tr>
                 </thead>
@@ -37,38 +35,38 @@
             </table>
         </div>
     </div>
-</div>
 
-<div class="flex-container" style="height: 750px;">
-    <div class="flex-items">
-        <div class="OCM-cardMenu">
-            <img src="../../assets/img/Civio/menu1-400x250.png" alt="Avatar" class="OCM-cardMenu__image">
-            <span class="OCM-cardMenu__title">Visión global</span>
-            <p class="OCM-cardMenu__subtitle">Para que tengas una idea general de los ingresos y gastos del Ayuntamiento
-                de Madrid.</p>
-            <button type="button" (click)="visionGlobal()" class="OCM-button"> Visión global</button>
+    <!-- <div class="flex-container" style="height: 750px;"> -->
+    <div class="flex__cardMenu">
+        <div class="cardMenu">
+            <img src="../../assets/img/Civio/menu1-400x250.png" alt="Avatar" class="cardMenu__image">
+            <span class="cardMenu__title">Visión global</span>
+            <p class="cardMenu__subtitle">Para que tengas una idea general de los ingresos y gastos del Ayuntamiento
+                de Jerez.</p>
+            <button type="button" (click)="visionGlobal()" class="cardMenu__button"> Visión global</button>
         </div>
     </div>
 
-    <div class="flex-items">
-        <div class="OCM-cardMenu">
-            <img src="../../assets/img/Civio/menu2-400x250.png" alt="Avatar" class="OCM-cardMenu__image">
-            <span class="OCM-cardMenu__title">Detalle del presupuesto</span>
-            <p class="OCM-cardMenu__subtitle">Educación, protección y bienestar social, cultura... ¿Qué área te
+    <div class="flex__cardMenu">
+        <div class="cardMenu">
+            <img src="../../assets/img/Civio/menu2-400x250.png" alt="Avatar" class="cardMenu__image">
+            <span class="cardMenu__title">Detalle del presupuesto</span>
+            <p class="cardMenu__subtitle">Educación, protección y bienestar social, cultura... ¿Qué área te
                 interesa?
             </p>
-            <button type="button" (click)="detallePresupuesto()" class="OCM-button">Detalle del presupuesto</button>
+            <button type="button" (click)="detallePresupuesto()" class="cardMenu__button">Detalle del
+                presupuesto</button>
         </div>
     </div>
 
-    <div class="flex-items">
-        <div class="OCM-cardMenu">
-            <img src="../../assets/img/Civio/menu3-400x250.png" alt="Avatar" class="OCM-cardMenu__image">
-            <span class="OCM-cardMenu__title">Licitaciones</span>
-            <p class="OCM-cardMenu__subtitle">Todos las licitaciones de obras, contratos menores de nuestro Ayuntamiento
+    <div class="flex__cardMenu">
+        <div class="cardMenu">
+            <img src="../../assets/img/Civio/menu3-400x250.png" alt="Avatar" class="cardMenu__image">
+            <span class="cardMenu__title">Licitaciones</span>
+            <p class="cardMenu__subtitle">Todos las licitaciones de obras, contratos menores de nuestro Ayuntamiento
             </p>
-            <button type="button" (click)="licitaciones()" target="_blank" class="OCM-button">Licitaciones</button>
+            <button type="button" (click)="licitaciones()" target="_blank"
+                class="cardMenu__button">Licitaciones</button>
         </div>
     </div>
-
 </div>
