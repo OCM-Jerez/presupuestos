@@ -6,162 +6,17 @@
 @import "/src/app/scss/utilities";
 @import "/src/app/scss/variables";
 
-.navbar {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    // margin-top: 10px;
-    background-color: #d4ef0d;
-    width: 99%;
-    height: 150px;
-    &--1row {
-        display: flex;
-        justify-content: space-between;
-        background-color: map-get($OCM-colors, navBarBackground);
-        height: 50px;
-        &--brand {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            width: 18%;
-            &--logo {
-                @include OCM-logo;
-                background: url("../../../assets/img/logoOCMyellow.svg") no-repeat center center;
-            }
-            &--text {
-                @include OCM-text;
-                font-size: 12px;
-            }
-        }
-        &--title {
-            width: 64%;
-            @include OCM-text;
-            @include fluid-type($min_width, $max_width, $min_font, $max_font);
-        }
-        &--homeEmpty {
-            width: 18%;
-        }
-        &--home {
-            width: 18%;
-            &--logoHome {
-                @include OCM-logo;
-                background: url("../../..//assets/img/home.svg") no-repeat center center;
-                margin-right: 20px;
-            }
-        }
-    }
-
-    a {
-        text-decoration: none;
-        color: white;
-    }
-}
-
-.navMenu {
-    display: flex;
-    direction: row;
-    height: 50px;
-    width: 100%;
-    margin: 0, auto;
-    justify-content: center;
-    background-color: white;
-}
-
-.navMenuButton {
-    padding: 10px;
-    border: unset;
-    // border-radius: 15px;
-    height: 40px;
-    margin: 10px;
-    color: rgb(143, 135, 135);
-    // z-index: 1;
-    background: white;
-    // position: relative;
-    font-weight: 600;
-    font-size: 18px;
-    cursor: grab;
-    // -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    // box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    // transition: all 250ms;
-    // overflow: hidden;
-    &:hover {
-        transform: scale(1.2);
-        color: black;
-    }
-}
-
-.barraBuscar {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: center;
-    width: 100%;
-    height: 60px;
-    gap: 20px;
-    background: #e7f2fc;
-    margin-top: 10px;
-    &--text {
-        margin-top: 20px;
-        font-size: 2.5rem;
-    }
-}
-
-.buttonBuscar {
-    padding: 10px;
-    border: unset;
-    border-radius: 5px;
-    height: 35px;
-    margin: 10px;
-    color: white;
-    z-index: 1;
-    background: #2612e2;
-    position: relative;
-    font-weight: 500;
-    font-size: 17px;
-    cursor: grab;
-}
-
-input[type="text"],
-select {
-    width: 420px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-@media screen and (max-width: 1399.98px) {
-}
-
-@media screen and (max-width: 1199.98px) {
-    .navMenuButton {
-        font-size: 14px;
-    }
-}
-
-@media screen and (max-width: 991.98px) {
-    .navMenuButton {
-        font-size: 12px;
-    }
-}
-
-// =============================================================================================
-@media screen and (max-width: 767.98px) {
+@media screen and (max-width: 3399.98px) {
     .navbar {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
-        margin-top: 10px;
+        // margin-top: 10px;
+        background-color: #d4ef0d;
         width: 99%;
-        height: 125px;
+        height: 150px;
         &--1row {
             display: flex;
             justify-content: space-between;
@@ -177,26 +32,26 @@ select {
                     background: url("../../../assets/img/logoOCMyellow.svg") no-repeat center center;
                 }
                 &--text {
-                    display: none;
+                    @include OCM-text;
+                    font-size: 12px;
                 }
             }
             &--title {
-                width: 82%;
-                // @include OCM-text;
-                // @include fluid-type($min_width, $max_width, $min_font, $max_font);
-                font-size: 2rem;
+                width: 64%;
+                @include OCM-text;
+                @include fluid-type($min_width, $max_width, $min_font, $max_font);
             }
-            // &--homeEmpty {
-            //     width: 18%;
-            // }
-            // &--home {
-            //     width: 18%;
-            //     &--logoHome {
-            //         @include OCM-logo;
-            //         background: url("../../..//assets/img/home.svg") no-repeat center center;
-            //         margin-right: 20px;
-            //     }
-            // }
+            &--homeEmpty {
+                width: 18%;
+            }
+            &--home {
+                width: 18%;
+                &--logoHome {
+                    @include OCM-logo;
+                    background: url("../../..//assets/img/home.svg") no-repeat center center;
+                    margin-right: 20px;
+                }
+            }
         }
 
         a {
@@ -208,7 +63,7 @@ select {
     .navMenu {
         display: flex;
         direction: row;
-        height: 10px;
+        height: 50px;
         width: 100%;
         margin: 0, auto;
         justify-content: center;
@@ -216,14 +71,14 @@ select {
     }
 
     .navMenuButton {
-        padding: 5px;
+        padding: 10px;
         border: unset;
         height: 40px;
-        margin: 2px;
+        margin: 10px;
         color: rgb(143, 135, 135);
         background: white;
         font-weight: 600;
-        font-size: 10px;
+        font-size: 18px;
         cursor: grab;
         &:hover {
             transform: scale(1.2);
@@ -235,16 +90,18 @@ select {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: flex-start;
         align-content: center;
         width: 100%;
-        height: 30px;
-        // gap: 20px;
+        height: 60px;
+        gap: 20px;
         background: #e7f2fc;
         margin-top: 10px;
         &--text {
-            font-size: 1rem;
+            margin-top: 20px;
+            font-size: 2.5rem;
+            font-weight: 600;
         }
     }
 
@@ -252,30 +109,81 @@ select {
         padding: 10px;
         border: unset;
         border-radius: 5px;
-        height: 20px;
+        height: 35px;
         margin: 10px;
         color: white;
         z-index: 1;
         background: #2612e2;
         position: relative;
         font-weight: 500;
-        font-size: 1rem;
+        font-size: 17px;
         cursor: grab;
     }
 
     input[type="text"],
     select {
-        width: 190px;
-        height: 30px;
+        width: 380px;
         padding: 12px 20px;
         margin: 8px 0;
         display: inline-block;
         border: 1px solid #ccc;
         border-radius: 4px;
         box-sizing: border-box;
-        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 1199.98px) {
+}
+
+@media screen and (max-width: 991.98px) {
+    .navMenuButton {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+    .barraBuscar {
+        &--text {
+            margin-top: 16px;
+            margin-right: 2px;
+            margin-left: 10px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+    }
+    input[type="text"],
+    select {
+        width: 270px;
     }
 }
 
 @media screen and (max-width: 575.98px) {
+    .barraBuscar {
+        // align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        height: 30px;
+
+        margin-top: 2px;
+        &--text {
+            margin-top: 6px;
+            margin-left: 4px;
+            margin-right: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    }
+    input[type="text"],
+    select {
+        width: 180px;
+        padding: 0px 0px;
+        margin: 6px 0;
+    }
+    .buttonBuscar {
+        padding: 2px;
+        margin-left: 20px;
+        margin-top: 4px;
+        height: 20px;
+        font-size: 12px;
+    }
 }
