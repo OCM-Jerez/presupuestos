@@ -92,7 +92,7 @@ export class DetallePresupuestoComponent implements OnInit {
       case 'tab1':
         this._tabSelected = 'tab1'
         this._treemap = 'treemap1';
-        this.typeClasification = 'ingresosEconomicaArticulos';
+        this.typeClasification = 'ingresosEconomicaCapitulos';
         this.showComponentIngresos = true;
         this.showGastosPrograma = false;
         this.showGastosOrganico = false;
@@ -179,10 +179,10 @@ export class DetallePresupuestoComponent implements OnInit {
       this.totalRecaudado = totales.DerechosReconocidosNetos2022.toString()
         .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
     }
-    if (this.typeClasification != 'ingresosEconomicaArticulos') {
-      this.totalGastado = totales.Pagos2022.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    }
+    // if (this.typeClasification != 'ingresosEconomicaArticulos') {
+    //   this.totalGastado = totales.Pagos2022.toString()
+    //     .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    // }
 
     /* #endregion */
 
@@ -373,10 +373,10 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   clickDetail() {
-    this.showComponentIngresos = false;
-    setTimeout(() => {
-      this.showComponentIngresos = true;
-    }, 100);
+    // this.showComponentIngresos = false;
+    // setTimeout(() => {
+    //   this.showComponentIngresos = true;
+    // }, 100);
   }
 
   /*async detalle(typeClasification: CLASIFICATION_TYPE) {
@@ -412,12 +412,14 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   preparaDataGraph(data: any) {
+    console.log(data);
+
     let array = [];
     switch (this._tabSelected) {
       case 'tab1':
         data.map(item => {
           const value = {
-            name: item.CodArt + '-' + item.DesArt,
+            name: item.CodCap + '-' + item.DesCap,
             value: item.Definitivas2022,
             colorValue: (item.Definitivas2022 / 100)
           }

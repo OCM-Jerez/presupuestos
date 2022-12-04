@@ -1,4 +1,4 @@
-import { Component, Injectable, ViewChild, OnInit } from '@angular/core';
+import { Component, Injectable, ViewChild, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 // import { TableGastosComponent } from './components/table-gastos/table-gastos.component';
@@ -19,6 +19,11 @@ import { ColumnState, ColumnApi, GridApi, GridReadyEvent } from "ag-grid-communi
 export class GastosComponent implements OnInit {
   // @ViewChild('table') tableAg!: TableGastosComponent;
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+  @Input() buttonsHide: string[] = [];
+  @Input() hasTitle: boolean = true;
+  public hasGraficoButton = true;
+  public hasGraphTree = true;
+  public hasMenuButton = true;
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
 
@@ -29,7 +34,7 @@ export class GastosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    this._hideButtons();
   }
 
   buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
@@ -45,6 +50,7 @@ export class GastosComponent implements OnInit {
     //   { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
     // ];
     // params.columnApi.applyColumnState({ state: defaultSortModel });
+
   }
 
   async detalle(button: IButtonClasification) {
@@ -73,6 +79,21 @@ export class GastosComponent implements OnInit {
     this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this._router.navigate([currentUrl]);
     });
+  }
+
+
+  private _hideButtons() {
+    if (this.buttonsHide.length > 0) {
+      if (this.buttonsHide.includes('menu')) {
+        this.hasMenuButton = false
+      };
+      if (this.buttonsHide.includes('grafico')) {
+        this.hasGraficoButton = false
+      };
+      if (this.buttonsHide.includes('graphTree')) {
+        this.hasGraphTree = false
+      };
+    }
   }
 
 }

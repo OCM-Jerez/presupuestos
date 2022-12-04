@@ -34,10 +34,10 @@ export class TableIngresosComponent implements OnInit {
   @Input() cellRenderer: boolean;
 
   public gridOptions: GridOptions;
-  public hasGraphTree = true;
   public textButton: string;
-  public hasMenuButton = true;
   public hasGraficoButton = true;
+  public hasGraphTree = true;
+  public hasMenuButton = true;
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
   private _columnDefs: any[];
@@ -244,18 +244,14 @@ export class TableIngresosComponent implements OnInit {
   }
 
   private _hideButtons() {
-
     if (this.buttonsHide.length > 0) {
       if (this.buttonsHide.includes('menu')) {
-
         this.hasMenuButton = false
       };
       if (this.buttonsHide.includes('grafico')) {
-
         this.hasGraficoButton = false
       };
       if (this.buttonsHide.includes('graphTree')) {
-
         this.hasGraphTree = false
       };
     }
