@@ -7,7 +7,7 @@
 @import "/src/app/scss/variables";
 
 // https://javascript.plainenglish.io/5-steps-to-adding-a-sticky-footer-to-your-angular-11-application-6c185c2ed99f
-.OCM-footer {
+.footer {
     a {
         text-decoration: none;
         color: white;
@@ -39,11 +39,11 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
-        .OCM-logoFacebook {
+        .logoFacebook {
             @include OCM-logo;
             background: url("../../../assets/img/facebook.svg") no-repeat center center;
         }
-        .OCM-logoTwitter {
+        .logoTwitter {
             @include OCM-logo;
             background: url("../../../assets/img/twitter.svg") no-repeat center center;
         }
@@ -59,7 +59,7 @@
 }
 
 @media screen and (max-width: 844px) {
-    .OCM-footer {
+    .footer {
         display: none;
     }
 }

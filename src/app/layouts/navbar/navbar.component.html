@@ -1,31 +1,31 @@
-<nav class="OCM-navbar">
+<nav class="navbar">
 
-  <div class="OCM-navbar--1row">
-    <div class="OCM-navbar--1row--brand">
-      <a href="https://ocmjerez.org" class="OCM-navbar--1row--brand--logo" target="_blank" rel="nofollow"></a>
-      <span class="OCM-navbar--1row--brand--text">Observatorio Ciudadano Municipal de Jerez</span>
+  <div class="navbar--1row">
+    <div class="navbar--1row--brand">
+      <a href="https://ocmjerez.org" class="navbar--1row--brand--logo" target="_blank" rel="nofollow"></a>
+      <span class="navbar--1row--brand--text">Observatorio Ciudadano Municipal de Jerez</span>
     </div>
 
-    <div class="OCM-navbar--1row--title">Datos presupuestos Ayuntamiento Jerez</div>
+    <div class="navbar--1row--title">Datos presupuestos Ayuntamiento Jerez</div>
 
-    <div *ngIf="router.url === '/homeNew'" class="OCM-navbar--1row--homeEmpty"></div>
-    <div *ngIf="router.url !== '/homeNew'" class="OCM-navbar--1row--home">
-      <a routerLink="/" class="OCM-navbar--1row--home--logoHome"></a>
+    <div *ngIf="router.url === '/homeNew'" class="navbar--1row--homeEmpty"></div>
+    <div *ngIf="router.url !== '/homeNew'" class="navbar--1row--home">
+      <a routerLink="/" class="navbar--1row--home--logoHome"></a>
     </div>
   </div>
 
-  <div class="nav">
-    <button type="button" (click)="inicio()" class="OCM-navbarButton">Inicio</button>
-    <button type="button" (click)="visionGlobal()" class="OCM-navbarButton">Visión global</button>
-    <button type="button" (click)="detallePresupuesto()" class="OCM-navbarButton">Detalle del presupuesto</button>
-    <button type="button" (click)="licitaciones()" class="OCM-navbarButton">Licitaciones</button>
-    <button type="button" (click)="explicamos()" class="OCM-navbarButton">Te lo explicamos</button>
-    <button type="button" (click)="glosario()" class="OCM-navbarButton">¿Qué significa...?</button>
+  <div class="navMenu">
+    <button type="button" (click)="inicio()" class="navMenuButton">Inicio</button>
+    <button type="button" (click)="visionGlobal()" class="navMenuButton">Visión global</button>
+    <button type="button" (click)="detallePresupuesto()" class="navMenuButton">Detalle del presupuesto</button>
+    <button type="button" (click)="licitaciones()" class="navMenuButton">Licitaciones</button>
+    <button type="button" (click)="explicamos()" class="navMenuButton">Te lo explicamos</button>
+    <button type="button" (click)="glosario()" class="navMenuButton">¿Qué significa...?</button>
   </div>
 
-  <div class="OCM-barraBuscar">
+  <div class="barraBuscar">
     <div>
-      <span class="OCM-barraBuscar--text">¿Buscas algo en concreto? </span>
+      <span class="barraBuscar--text">¿Buscas algo en concreto? </span>
     </div>
 
     <div>
@@ -33,7 +33,7 @@
     </div>
 
     <div>
-      <button type="button" (click)="glosario()" class="OCM-buttonBuscar">Buscar </button>
+      <button type="button" (click)="glosario()" class="buttonBuscar">Buscar </button>
     </div>
   </div>
 
