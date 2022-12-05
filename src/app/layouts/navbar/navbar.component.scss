@@ -158,6 +158,34 @@
 }
 
 @media screen and (max-width: 575.98px) {
+    .navbar {
+        height: 120px;
+        &--1row {
+            width: 390px;
+            &--brand {
+                width: 90px;
+                height: 30px;
+                &--logo {
+                    background: url("../../../assets/img/logoOCMyellow.svg") no-repeat center center;
+                }
+                &--text {
+                    font-size: 7px;
+                }
+            }
+            &--title {
+                align-items: center;
+                width: 55%;
+                width: 300px;
+                font-size: 12px;
+            }
+            &--homeEmpty {
+                width: 0%;
+            }
+            &--home {
+                width: 0%;
+            }
+        }
+    }
     .barraBuscar {
         // align-items: flex-start;
         justify-content: flex-start;
