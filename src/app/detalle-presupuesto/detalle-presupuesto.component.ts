@@ -191,7 +191,7 @@ export class DetallePresupuestoComponent implements OnInit {
       case 'tab1':
         switch (this._radioButtonSelected) {
           case 'radio-1':
-            data = this.preparaDataGraph(data)
+            data = this.preparaDataGraph(data, 'CodCap', 'DesCap', 'Definitivas2022');
 
             // let presupuestadoArticulo = [];
             // data.map(item => {
@@ -402,46 +402,147 @@ export class DetallePresupuestoComponent implements OnInit {
   }*/
 
   reloadCurrentRoute() {
-
     console.log(this._tabSelected)
-
     let currentUrl = this._router.url;
     this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this._router.navigate([currentUrl]);
     });
   }
 
-  preparaDataGraph(data: any) {
-    console.log(data);
+  preparaDataGraph(data: any, codigo, descripcion, campoSumatorio) {
+    console.log('Data inicial', data);
+    // 128 object como este:
+    //     "CodCap": 1,
+    //     "CodEco": 10000,
+    //     "Definitivas2022": 2993000,
+    //     "DerechosCancelados2022": 8041,
+    //     "DerechosPendienteCobro2022": 250422,
+    //     "DerechosReconocidos2022": 3313193,
+    //     "DerechosReconocidosNetos2022": 3070813,
+    //     "DesCap": "Impuestos directos"
+    //     "DiferenciaPrevision2022": 320193,
+    //     "Iniciales2022": 2993000,
+    //     "Modificaciones2022": 0,
+    //     "RecaudacionNeta2022": 3062772,
+    //    {
+    // }
+
+    //   {
+    //     "CodArt": 10,
+    //     "CodCap": 1,
+    //     "CodCon": 100,
+    //     "CodEco": 10000,
+    //     "Definitivas2022": 2993000,
+    //     "DerechosCancelados2022": 8041,
+    //     "DerechosPendienteCobro2022": 250422,
+    //     "DerechosReconocidos2022": 3313193,
+    //     "DerechosReconocidosNetos2022": 3070813,
+    //     "DesArt": "Impuesto sobre la Renta.",
+    //     "DesCap": "Impuestos directos",
+    //     "DesCon": "Impuestos sobre la Renta de las Personas Físicas.",
+    //     "DesEco": "Impuestos sobre la Renta de las Personas Físicas."
+    //     "DiferenciaPrevision2022": 320193,
+    //     "Iniciales2022": 2993000,
+    //     "Modificaciones2022": 0,
+    //     "RecaudacionNeta2022": 3062772,
+    // }
 
     let array = [];
     switch (this._tabSelected) {
       case 'tab1':
-        data.map(item => {
+        // Mi codigo inicial
+        // data.map(item => {
+        //   const value = {
+        //     name: item.CodCap + '-' + item.DesCap,
+        //     value: item.Definitivas2022,
+        //     colorValue: (item.Definitivas2022 / 100)
+        //   }
+        //   array.push(value)
+        // });
+        // console.log('Array obtenido con mi codigo', array);
+        // 128 object como este:
+        //   {
+        //     "name": "1-Impuestos directos",
+        //     "value": 2993000,
+        //     "colorValue": 29930
+        // }
+
+        // codigo propuesto por ChatGPT
+        // Opcion 1
+        array = data.reduce((acc, curr) => {
           const value = {
-            name: item.CodCap + '-' + item.DesCap,
-            value: item.Definitivas2022,
-            colorValue: (item.Definitivas2022 / 100)
+            "name": curr[codigo] + '-' + curr[descripcion],
+            "value": curr[campoSumatorio],
+            "colorValue": (curr[campoSumatorio] / 100)
           }
-          array.push(value)
-        });
+          acc.push(value);
+          // console.log('acc obtenido con opcion 1', acc);
+          return acc;
+        }, []);
+        console.log('Array obtenido con opcion 1', array);
+        // 128 object como este:
+        //   {
+        //     "name": "1-Impuestos directos",
+        //     "value": 2993000,
+        //     "colorValue": 29930
+        // }
+
+
+        // // Opcion 2
+        // array.push(...data.map(({ CodCap, DesCap, Definitivas2022 }) => ({
+        //   name: `${CodCap}-${DesCap}`,
+        //   value: Definitivas2022,
+        //   colorValue: (Definitivas2022 / 100)
+        // })));
+        // console.log('Array obtenido con opcion 2', array);
+        // 128 object como este:
+        //   {
+        //     "name": "1-Impuestos directos",
+        //     "value": 2993000,
+        //     "colorValue": 29930
+        // }
+
         break;
 
       default:
         break;
     }
 
-    // Totalizo por articulo
-    data = array.reduce((acc, curr) => {
-      const index = acc.findIndex(item => item.name === curr.name)
-      index > -1 ? (acc[index].value += curr.value) : acc.push({
-        name: curr.name,
-        value: curr.value,
-        colorValue: (curr.value / 1000)
-      })
-      return acc
-    }, [])
+    // Totalizo por capitulo
+    // data = array.reduce((acc, curr) => {
+    //   const index = acc.findIndex(item => item.name === curr.name)
+    //   index > -1 ? (acc[index].value += curr.value) : acc.push({
+    //     name: curr.name,
+    //     value: curr.value,
+    //     colorValue: (curr.value / 1000)
+    //   })
+    //   return acc
+    // }, [])
+
+    // codigo propuesto por ChatGPT
+    data = array.reduce((acc, { name, value }) => {
+      const item = acc.find(item => item.name === name)
+      item ? item.value += value : acc.push({
+        name,
+        value,
+        colorValue: (value / 1000)
+      });
+      return acc;
+    }, []);
+    console.log('data obtenido con mi codigo', data);
+    // 9 objcts como este. Corresponden a los 9 capitulos
+    //   {
+    //     "name": "1-Impuestos directos",
+    //     "value": 79777600,
+    //     "colorValue": 2993
+    // }
     return data
+
+
+
+
+
+
 
   }
 
