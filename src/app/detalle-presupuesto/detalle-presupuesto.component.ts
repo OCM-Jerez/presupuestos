@@ -8,7 +8,6 @@ import { DataStoreService } from '../services/dataStore.service';
 import { TableService } from '../services/table.service';
 
 import { CLASIFICATION_TYPE } from '../commons/util/util';
-import { getClasificacion } from '../tables/data-table';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
 
@@ -36,7 +35,6 @@ export class DetallePresupuestoComponent implements OnInit {
   public totalPresupuestado: number;
   public totalRecaudado: number;
   public totalGastado: number;
-  // private _oldActiveTab: string;
   private _radioButtonSelected = 'radio-1';
   private _tabSelected: string = "tab1";
   private _treemap = 'treemap1';
@@ -84,7 +82,6 @@ export class DetallePresupuestoComponent implements OnInit {
         this.showGastosOrganico = false;
         break;
     }
-
   }
 
   checkedTab(e: any) {
@@ -146,7 +143,6 @@ export class DetallePresupuestoComponent implements OnInit {
     const isIncome = this.typeClasification.startsWith('ingresos');
 
     await this._tableService.loadDataForTypeClasification(isIncome, this.typeClasification);
-    // this.showComponentIngresos = true;
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
     // console.log("--------------------")
@@ -162,16 +158,6 @@ export class DetallePresupuestoComponent implements OnInit {
       })
       return acc
     }, {})
-    // console.log(totales);
-
-    // https://stackoverflow.com/questions/54907549/keep-only-selected-keys-in-every-object-from-array
-    // var keys_to_keep = ['Definitivas2022', 'DerechosReconocidosNetos2022']
-    // const redux = array => array.map(o => keys_to_keep.reduce((acc, curr) => {
-    //   acc[curr] = o[curr];
-    //   return acc;
-    // }, {}));
-
-    // console.log(redux(data));
 
     this.totalPresupuestado = totales.Definitivas2022.toString()
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
@@ -203,75 +189,13 @@ export class DetallePresupuestoComponent implements OnInit {
         break;
       case 'tab2':
         data = this.preparaDataGraph(data, 'CodPro', 'DesPro', 'Definitivas2022');
-        // let presupuestado = [];
-        // data.map(item => {
-        //   const value = {
-        //     "name": item.CodPro + '-' + item.DesPro,
-        //     "value": item.Definitivas2022,
-        //     "colorValue": (item.Definitivas2022 / 100)
-        //   }
-        //   presupuestado.push(value)
-        // });
-
-        // // Totalizo por articulo
-        // data = presupuestado.reduce((acc, curr) => {
-        //   const index = acc.findIndex(item => item.name === curr.name)
-        //   index > -1 ? (acc[index].value += curr.value) : acc.push({
-        //     name: curr.name,
-        //     value: curr.value,
-        //     colorValue: (curr.value / 1000)
-        //   })
-        //   return acc
-        // }, [])
         break;
       case 'tab3':
         data = this.preparaDataGraph(data, 'CodOrg', 'DesOrg', 'Definitivas2022');
-        // let presupuestadoQuien = [];
-        // data.map(item => {
-        //   const value = {
-        //     "name": item.CodOrg + '-' + item.DesOrg,
-        //     "value": item.Definitivas2022,
-        //     "colorValue": (item.Definitivas2022 / 100)
-        //   }
-        //   presupuestadoQuien.push(value)
-        // });
-
-        // // Totalizo por articulo
-        // data = presupuestadoQuien.reduce((acc, curr) => {
-        //   const index = acc.findIndex(item => item.name === curr.name)
-        //   index > -1 ? (acc[index].value += curr.value) : acc.push({
-        //     name: curr.name,
-        //     value: curr.value,
-        //     colorValue: (curr.value / 1000)
-        //   })
-        //   return acc
-        // }, [])
         break;
       case 'tab4':
         data = this.preparaDataGraph(data, 'CodEco', 'DesEco', 'Definitivas2022');
-        // let presupuestadoParaQue = [];
-        // data.map(item => {
-        //   const value = {
-        //     "name": item.CodEco + '-' + item.DesEco,
-        //     "value": item.Definitivas2022,
-        //     "colorValue": (item.Definitivas2022 / 100)
-        //   }
-        //   presupuestadoParaQue.push(value)
-        // });
-
-        // // Totalizo por articulo
-        // data = presupuestadoParaQue.reduce((acc, curr) => {
-        //   const index = acc.findIndex(item => item.name === curr.name)
-        //   index > -1 ? (acc[index].value += curr.value) : acc.push({
-        //     name: curr.name,
-        //     value: curr.value,
-        //     colorValue: (curr.value / 1000)
-        //   })
-        //   return acc
-        // }, [])
         break;
-      // default:
-      //   break;
     }
 
     // Gráfico treemap   
@@ -353,8 +277,6 @@ export class DetallePresupuestoComponent implements OnInit {
   preparaDataGraph(data: any, codigo, descripcion, campoSumatorio, aRestar?) {
     // console.log('Data inicial', data);
     let array = [];
-    // switch (this._tabSelected) {
-    //   case 'tab1':
     array = data.reduce((acc, curr) => {
       const item = aRestar === undefined ?
         {
@@ -371,10 +293,8 @@ export class DetallePresupuestoComponent implements OnInit {
       return acc;
     }, []);
     // console.log('Array obtenido con opcion 1', array);
-    //     break;
-    // }
 
-    // codigo propuesto por ChatGPT
+    // Totalizo
     data = array.reduce((acc, { name, value }) => {
       const item = acc.find(item => item.name === name)
       item ? item.value += value : acc.push({
