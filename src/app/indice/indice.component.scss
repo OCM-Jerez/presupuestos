@@ -2,511 +2,577 @@
 // https://fixu.cl/que-es-la-metodologia-bem-y-como-se-aplica-al-front-end/
 @import "/src/app/scss/variables";
 
-.graph2 {
-    display: flex;
-    justify-content: start;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    // flex-wrap: nowrap;
-}
-
-#sankey {
-    // min-width: 150px;
-    width: 50%;
-    max-width: 50%;
-    height: 550px;
-    margin: 0 auto;
-}
-
-#sankey1 {
-    // min-width: 150px;
-    width: 50%;
-    max-width: 50%;
-    height: 550px;
-    margin: 0 auto;
-}
-
-.OCM-indice {
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    // height: calc(100vh - 125px);
-    background-color: #15202b;
-    height: 90vh;
-}
-
-/* Como CSS no tiene la propiedad background.opacity
-insertamo sun seudo elemento con el mismo tamaño. */
-// .OCM-indice::after {
-//   content: "";
-//   background: url("../../assets/img/textura.jpg");
-//   opacity: 0, 5;
-//   top: 0;
-//   left: 0;
-//   bottom: 0;
-//   right: 0;
-//   position: absolute;
-//   z-index: -1;
-// }
-
-.OCM-comment {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100 hw;
-    color: map-get($OCM-colors, claro);
-    font-weight: 700;
-    font-family: var(--fuente-principal);
-    font-size: clamp(0.7rem, 2rem, 2.4rem);
-    text-align: center;
-}
-
-.OCM-row {
-    &--add {
+@media screen and (max-width: 3399.98px) {
+    .flex-container {
         display: flex;
-        margin: 1rem;
-        justify-content: center;
-        text-align: center;
+        margin: 0 auto;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        align-content: center;
+        width: 100%;
+        height: 270px;
+        background-color: #cce3f9;
+        gap: 20px;
+        margin-top: 20px;
     }
-}
 
-.OCM-no-bullets {
-    color: map-get($OCM-colors, claro);
-    list-style-type: none;
-    font-size: clamp(4rem, -1.275rem + 8.333vw, 2rem);
-    font-weight: 900;
-    margin-right: 2rem;
-    margin-bottom: 4rem;
-}
+    .flex-items {
+        width: 250px;
+        height: 250px;
+        margin-top: 10px;
+    }
 
-/* https://www.w3schools.com/bootstrap4/bootstrap_cards.asp */
-.OCM-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: clamp(10rem, 10rem, 20rem);
-    height: clamp(5rem, 5rem, 5rem);
-    justify-content: space-around;
-    text-justify: auto;
-    margin-bottom: 0.3rem;
-    // margin-top: 2rem;
-    border-radius: 0.6rem;
-    color: rgba(0, 0, 0, 0.87);
-    background: #262729;
-    box-shadow: 1rem 1rem 0.5rem 0px rgba(0, 0, 0, 0.75);
-    // margin-left: 2rem;
-    // margin-right: 2rem;
-    text-align: center;
-    transition: transform 0.5s ease-in-out;
-    transition: box-shadow 0.3s;
-    &__title {
+    // .flex-items:nth-child(1) {
+    //     display: block;
+    //     // flex-grow: 0;
+    //     flex-shrink: 1;
+    //     flex-basis: auto;
+    //     align-self: auto;
+    //     order: 0;
+    //     background-color: rgb(160, 175, 23);
+    // }
+
+    // .flex-items:nth-child(2) {
+    //     display: block;
+    //     flex-grow: 0;
+    //     flex-shrink: 1;
+    //     flex-basis: auto;
+    //     align-self: auto;
+    //     order: 0;
+    //     background-color: rgb(160, 175, 23);
+    //     height: 450px;
+    // }
+
+    // .flex-items:nth-child(3) {
+    //     display: block;
+    //     flex-grow: 0;
+    //     flex-shrink: 1;
+    //     flex-basis: auto;
+    //     align-self: auto;
+    //     order: 0;
+    //     background-color: rgb(160, 175, 23);
+    // }
+
+    .graph2 {
+        display: flex;
+        justify-content: start;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+        // flex-wrap: nowrap;
+    }
+
+    #sankey {
+        // min-width: 150px;
+        width: 50%;
+        max-width: 50%;
+        height: 550px;
+        margin: 0 auto;
+    }
+
+    #sankey1 {
+        // min-width: 150px;
+        width: 50%;
+        max-width: 50%;
+        height: 550px;
+        margin: 0 auto;
+    }
+
+    .datosPresupuestarios {
         display: flex;
         align-items: center;
+        justify-content: center;
+        width: 100 hw;
+        color: black;
+        font-weight: 700;
+        font-family: var(--fuente-principal);
+        font-size: clamp(3rem, 4rem, 5rem);
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    // .OCM-indice {
+    //     margin-bottom: 2rem;
+    //     margin-top: 2rem;
+    //     // height: calc(100vh - 125px);
+    //     background-color: #15202b;
+    //     height: 90vh;
+    // }
+
+    /* Como CSS no tiene la propiedad background.opacity
+    insertamo sun seudo elemento con el mismo tamaño. */
+    // .OCM-indice::after {
+    //   content: "";
+    //   background: url("../../assets/img/textura.jpg");
+    //   opacity: 0, 5;
+    //   top: 0;
+    //   left: 0;
+    //   bottom: 0;
+    //   right: 0;
+    //   position: absolute;
+    //   z-index: -1;
+    // }
+
+    .OCM-comment {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100 hw;
+        color: map-get($OCM-colors, claro);
+        font-weight: 700;
+        font-family: var(--fuente-principal);
+        font-size: clamp(0.7rem, 2rem, 2.4rem);
+        text-align: center;
+    }
+
+    // .OCM-row {
+    //     &--add {
+    //         display: flex;
+    //         margin: 1rem;
+    //         justify-content: center;
+    //         text-align: center;
+    //     }
+    // }
+
+    // .OCM-no-bullets {
+    //     color: map-get($OCM-colors, claro);
+    //     list-style-type: none;
+    //     font-size: clamp(4rem, -1.275rem + 8.333vw, 2rem);
+    //     font-weight: 900;
+    //     margin-right: 2rem;
+    //     margin-bottom: 4rem;
+    // }
+
+    /* https://www.w3schools.com/bootstrap4/bootstrap_cards.asp */
+    .OCM-card {
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         width: clamp(10rem, 10rem, 20rem);
-        color: map-get($OCM-colors, claro);
-        font-weight: 700;
-        font-family: var(--fuente-principal);
-        // font-size: 1.4rem;
-        font-size: clamp(0.7rem, 1rem, 1.4rem);
-        // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
+        height: clamp(5rem, 5rem, 5rem);
+        justify-content: space-around;
+        text-justify: auto;
+        margin-bottom: 0.3rem;
+        // margin-top: 2rem;
+        border-radius: 0.6rem;
+        color: rgba(0, 0, 0, 0.87);
+        background: #262729;
+        box-shadow: 1rem 1rem 0.5rem 0px rgba(0, 0, 0, 0.75);
+        // margin-left: 2rem;
+        // margin-right: 2rem;
         text-align: center;
+        transition: transform 0.5s ease-in-out;
+        transition: box-shadow 0.3s;
+        &__title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(10rem, 10rem, 20rem);
+            color: map-get($OCM-colors, claro);
+            font-weight: 700;
+            font-family: var(--fuente-principal);
+            // font-size: 1.4rem;
+            font-size: clamp(0.7rem, 1rem, 1.4rem);
+            // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
+            text-align: center;
+        }
+        &--empty {
+            width: 100%;
+        }
+        &:hover {
+            cursor: grab;
+            transform: scale(1.2);
+            box-shadow: 0 5px 15px rgba(238, 5, 24, 0.932);
+        }
     }
-    &--empty {
-        width: 100%;
-    }
-    &:hover {
-        cursor: grab;
-        transform: scale(1.2);
-        box-shadow: 0 5px 15px rgba(238, 5, 24, 0.932);
-    }
-}
 
-.OCM-card1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: clamp(20rem, 210rem, 40rem);
-    height: clamp(10rem, 10rem, 10rem);
-    justify-content: space-around;
-    text-justify: auto;
-    margin-bottom: 0.3rem;
-    // margin-top: 2rem;
-    border-radius: 0.6rem;
-    color: rgba(0, 0, 0, 0.87);
-    background: #262729;
-    box-shadow: 1rem 1rem 0.5rem 0px rgba(0, 0, 0, 0.75);
-    // margin-left: 2rem;
-    // margin-right: 2rem;
-    text-align: center;
-    transition: transform 0.5s ease-in-out;
-    transition: box-shadow 0.3s;
-    &__title {
+    .OCM-card1 {
         display: flex;
-        align-items: center;
+        flex-direction: column;
         justify-content: center;
-        // width: clamp(20rem, 20rem, 40rem);
-        color: map-get($OCM-colors, claro);
-        font-weight: 700;
-        font-family: var(--fuente-principal);
-        // font-size: 1.4rem;
-        font-size: clamp(2.8rem, 4rem, 5.6rem);
-        // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
+        width: clamp(20rem, 210rem, 40rem);
+        height: clamp(10rem, 10rem, 10rem);
+        justify-content: space-around;
+        text-justify: auto;
+        margin-bottom: 0.3rem;
+        // margin-top: 2rem;
+        border-radius: 0.6rem;
+        color: rgba(0, 0, 0, 0.87);
+        background: #262729;
+        box-shadow: 1rem 1rem 0.5rem 0px rgba(0, 0, 0, 0.75);
+        // margin-left: 2rem;
+        // margin-right: 2rem;
         text-align: center;
+        transition: transform 0.5s ease-in-out;
+        transition: box-shadow 0.3s;
+        &__title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // width: clamp(20rem, 20rem, 40rem);
+            color: map-get($OCM-colors, claro);
+            font-weight: 700;
+            font-family: var(--fuente-principal);
+            // font-size: 1.4rem;
+            font-size: clamp(2.8rem, 4rem, 5.6rem);
+            // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
+            text-align: center;
+        }
+        &--empty {
+            width: 100%;
+        }
+        &:hover {
+            cursor: grab;
+            transform: scale(1.2);
+            box-shadow: 0 5px 15px rgba(238, 5, 24, 0.932);
+        }
     }
-    &--empty {
-        width: 100%;
+
+    // https://grid.layoutit.com/
+
+    /* #region  Indice antiguo   */
+    .OCM-containerNew {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1.5fr 2fr 0.3fr 0.3fr 0.3fr 0.3fr 1.5fr 1.5fr 2fr 0.5fr 0.5fr 0.5fr 0.5fr;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        border: 1px solid #000;
+        grid-template-areas:
+            ". . . . . espacio . . . . . ."
+            ". . . . ingresos ingresos ingresos ingresos . . . ."
+            ". . . . economicaIngreso economicaIngreso economicaIngreso economicaIngreso . . . ."
+            ". . . . capitulo . . . . . . ."
+            ". . . . . articulo . . . . . ."
+            ". . . . . . concepto . . . . ."
+            ". . . . . . . subconcepto . . . ."
+            ". . . . . espacio1 . . . . . ."
+            ". . . . gastos gastos gastos gastos . . . ."
+            "organica organica organica organica programas programas programas programas economica economica economica economica"
+            "organico . . . area . . . capitulo1 . . ."
+            ". . . . . politica . . . articulo1 . ."
+            ". . . . . . grupo . . . concepto1 ."
+            ". . . . . . . programa . . . subconcepto1";
     }
-    &:hover {
-        cursor: grab;
-        transform: scale(1.2);
-        box-shadow: 0 5px 15px rgba(238, 5, 24, 0.932);
+
+    .OCM-gastos {
+        grid-area: gastos;
+        // border: 1px solid #000;
+        // background-color: aqua;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        font-size: 62px;
+        font-weight: bold;
+        color: aliceblue;
     }
-}
 
-// https://grid.layoutit.com/
-.OCM-containerNew {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1.5fr 2fr 0.3fr 0.3fr 0.3fr 0.3fr 1.5fr 1.5fr 2fr 0.5fr 0.5fr 0.5fr 0.5fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    border: 1px solid #000;
-    grid-template-areas:
-        ". . . . . espacio . . . . . ."
-        ". . . . ingresos ingresos ingresos ingresos . . . ."
-        ". . . . economicaIngreso economicaIngreso economicaIngreso economicaIngreso . . . ."
-        ". . . . capitulo . . . . . . ."
-        ". . . . . articulo . . . . . ."
-        ". . . . . . concepto . . . . ."
-        ". . . . . . . subconcepto . . . ."
-        ". . . . . espacio1 . . . . . ."
-        ". . . . gastos gastos gastos gastos . . . ."
-        "organica organica organica organica programas programas programas programas economica economica economica economica"
-        "organico . . . area . . . capitulo1 . . ."
-        ". . . . . politica . . . articulo1 . ."
-        ". . . . . . grupo . . . concepto1 ."
-        ". . . . . . . programa . . . subconcepto1";
-}
-
-.OCM-gastos {
-    grid-area: gastos;
-    // border: 1px solid #000;
-    // background-color: aqua;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    font-size: 62px;
-    font-weight: bold;
-    color: aliceblue;
-}
-
-.OCM-economicaIngreso {
-    grid-area: economicaIngreso;
-    border: 1px solid #000;
-    border-radius: 0.6rem;
-    background-color: rgb(38, 40, 34);
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: aliceblue;
-    margin-bottom: 10px;
-}
-
-.OCM-capitulo {
-    grid-area: capitulo;
-}
-
-.OCM-articulo {
-    grid-area: articulo;
-}
-
-.OCM-concepto {
-    grid-area: concepto;
-}
-
-.OCM-subconcepto {
-    grid-area: subconcepto;
-}
-
-.OCM-ingresos {
-    grid-area: ingresos;
-    // border: 1px solid #000;
-    // border: 1px solid #000;
-    // background-color: aqua;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    font-size: 62px;
-    font-weight: bold;
-    color: aliceblue;
-}
-
-.OCM-organica {
-    grid-area: organica;
-    border: 1px solid #000;
-    border-radius: 0.6rem;
-    background-color: rgb(38, 40, 34);
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    font-size: 30px;
-    // font-size: clamp(0.5rem,-1.275rem + 8.333vw, 2rem);
-    font-weight: bold;
-    color: aliceblue;
-    margin-bottom: 10px;
-}
-
-.OCM-programas {
-    grid-area: programas;
-    border: 1px solid #000;
-    border-radius: 0.6rem;
-    background-color: rgb(67, 77, 48);
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    font-size: 30px;
-    //   font-size: clamp(0.2rem,1.5rem, 2rem);
-    font-weight: bold;
-    color: aliceblue;
-    margin-bottom: 10px;
-}
-
-.OCM-economica {
-    grid-area: economica;
-    border: 1px solid #000;
-    border-radius: 0.6rem;
-    background-color: rgb(38, 40, 34);
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: aliceblue;
-    margin-bottom: 10px;
-}
-
-.OCM-organico {
-    grid-area: organico;
-}
-
-.OCM-area {
-    grid-area: area;
-}
-
-.OCM-politica {
-    grid-area: politica;
-}
-
-.OCM-grupo {
-    grid-area: grupo;
-}
-
-.OCM-programa {
-    grid-area: programa;
-}
-
-.OCM-capitulo1 {
-    grid-area: capitulo1;
-}
-
-.OCM-articulo1 {
-    grid-area: articulo1;
-}
-
-.OCM-concepto1 {
-    grid-area: concepto1;
-}
-
-.OCM-subconcepto1 {
-    grid-area: subconcepto1;
-}
-
-.flex-container {
-    display: flex;
-    margin: 0 auto;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    align-content: center;
-    width: 100%;
-    height: 500px;
-    background-color: #cce3f9;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.flex-items {
-    width: 350px;
-    height: 350px;
-    margin-top: 20px;
-}
-
-.flex-items:nth-child(1) {
-    display: block;
-    // flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-    background-color: rgb(160, 175, 23);
-}
-
-.flex-items:nth-child(2) {
-    display: block;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-    background-color: rgb(160, 175, 23);
-    height: 450px;
-}
-
-.flex-items:nth-child(3) {
-    display: block;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-    background-color: rgb(160, 175, 23);
-}
-
-.OCM-cardV {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background: white;
-    padding: 0px;
-    // background-image: url("../../assets/img/busget-stream-3.png");
-    background-repeat: no-repeat;
-    background-size: 160px 100px;
-    background-position: 170px 20px;
-
-    &__indice {
-        display: flex;
-        align-items: left;
-        justify-content: left;
-        // color: map-get($OCM-colors, claro);
-        color: #003df6;
-        font-weight: 700;
-        font-family: var(--fuente-principal);
-        font-size: clamp(5.6rem, 8rem, 11.2rem);
-        // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
-        // text-align: center;
-        margin-top: 40px;
-        margin-bottom: 40px;
-        margin-left: 40px;
-        width: 100px;
-    }
-    &__svg {
-        // display: block;
-        align-items: left;
-        justify-content: left;
-        // color: map-get($OCM-colors, claro);
-        color: rgba(41, 24, 199, 0.87);
-        font-weight: 700;
-        font-family: var(--fuente-principal);
-        font-size: clamp(5.6rem, 8rem, 11.2rem);
-        // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
-        // text-align: center;
-        margin-top: 20px;
-        margin-bottom: 80px;
-    }
-    &__title {
-        display: flex;
-        // align-items: left;
-        // justify-content: left;
-        // width: clamp(20rem, 20rem, 40rem);
-        // color: map-get($OCM-colors, claro);
-        color: rgba(1, 0, 3, 0.913);
-        font-weight: 600;
-        font-family: var(--fuente-principal);
-        // font-size: 1.4rem;
-        font-size: clamp(1.8rem, 3rem, 3.6rem);
-        // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
-        text-align: left;
+    .OCM-economicaIngreso {
+        grid-area: economicaIngreso;
+        border: 1px solid #000;
+        border-radius: 0.6rem;
+        background-color: rgb(38, 40, 34);
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        font-size: 30px;
+        font-weight: bold;
+        color: aliceblue;
         margin-bottom: 10px;
-        margin-left: 20px;
-        line-height: 1.2;
     }
-    &__footer {
-        display: flex;
-        height: 100%;
-        margin-bottom: 0px;
-        padding-top: 20px;
 
-        // align-items: center;
-        // justify-content: center;
-        color: white;
-        font-weight: 300;
-        font-family: var(--fuente-principal);
-        // font-size: 1.4rem;
-        font-size: clamp(1.5rem, 2rem, 3rem);
-        // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
-        text-align: left;
-        background: #555555;
-        line-height: 1.3;
-        padding-left: 20px;
-        padding-right: 20px;
+    .OCM-capitulo {
+        grid-area: capitulo;
     }
-    &--empty {
+
+    .OCM-articulo {
+        grid-area: articulo;
+    }
+
+    .OCM-concepto {
+        grid-area: concepto;
+    }
+
+    .OCM-subconcepto {
+        grid-area: subconcepto;
+    }
+
+    .OCM-ingresos {
+        grid-area: ingresos;
+        // border: 1px solid #000;
+        // border: 1px solid #000;
+        // background-color: aqua;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        font-size: 62px;
+        font-weight: bold;
+        color: aliceblue;
+    }
+
+    .OCM-organica {
+        grid-area: organica;
+        border: 1px solid #000;
+        border-radius: 0.6rem;
+        background-color: rgb(38, 40, 34);
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        font-size: 30px;
+        // font-size: clamp(0.5rem,-1.275rem + 8.333vw, 2rem);
+        font-weight: bold;
+        color: aliceblue;
+        margin-bottom: 10px;
+    }
+
+    .OCM-programas {
+        grid-area: programas;
+        border: 1px solid #000;
+        border-radius: 0.6rem;
+        background-color: rgb(67, 77, 48);
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        font-size: 30px;
+        //   font-size: clamp(0.2rem,1.5rem, 2rem);
+        font-weight: bold;
+        color: aliceblue;
+        margin-bottom: 10px;
+    }
+
+    .OCM-economica {
+        grid-area: economica;
+        border: 1px solid #000;
+        border-radius: 0.6rem;
+        background-color: rgb(38, 40, 34);
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        font-size: 30px;
+        font-weight: bold;
+        color: aliceblue;
+        margin-bottom: 10px;
+    }
+
+    .OCM-organico {
+        grid-area: organico;
+    }
+
+    .OCM-area {
+        grid-area: area;
+    }
+
+    .OCM-politica {
+        grid-area: politica;
+    }
+
+    .OCM-grupo {
+        grid-area: grupo;
+    }
+
+    .OCM-programa {
+        grid-area: programa;
+    }
+
+    .OCM-capitulo1 {
+        grid-area: capitulo1;
+    }
+
+    .OCM-articulo1 {
+        grid-area: articulo1;
+    }
+
+    .OCM-concepto1 {
+        grid-area: concepto1;
+    }
+
+    .OCM-subconcepto1 {
+        grid-area: subconcepto1;
+    }
+    /* #endregion */
+
+    .OCM-cardV {
         width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background: white;
+        padding: 0px;
+        background-repeat: no-repeat;
+        background-size: 160px 100px;
+        background-position: 170px 20px;
+
+        &__indice {
+            display: flex;
+            align-items: left;
+            justify-content: left;
+            color: #003df6;
+            font-weight: 700;
+            font-family: var(--fuente-principal);
+            // font-size: clamp(5.6rem, 8rem, 11.2rem);
+            font-size: 3rem;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            width: 100px;
+        }
+        &__svg {
+            align-items: left;
+            justify-content: left;
+            color: rgba(41, 24, 199, 0.87);
+            font-weight: 700;
+            font-family: var(--fuente-principal);
+            font-size: 1rem;
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+        &__title {
+            display: flex;
+            color: rgba(1, 0, 3, 0.913);
+            font-weight: 600;
+            font-family: var(--fuente-principal);
+            font-size: 1.4rem;
+            text-align: left;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            line-height: 1.2;
+        }
+        &__footer {
+            display: flex;
+            height: 100%;
+            margin-bottom: 0px;
+            padding-top: 20px;
+            color: white;
+            font-weight: 300;
+            font-family: var(--fuente-principal);
+            font-size: 1.4rem;
+            text-align: left;
+            background: #555555;
+            line-height: 1.3;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        &--empty {
+            width: 100%;
+        }
+        &:hover {
+            // cursor: grab;
+            transform: scale(1.2);
+            box-shadow: 0 5px 15px rgba(238, 5, 24, 0.932);
+        }
     }
-    &:hover {
-        // cursor: grab;
-        transform: scale(1.2);
-        box-shadow: 0 5px 15px rgba(238, 5, 24, 0.932);
+
+    table.paleBlueRows {
+        font-family: "Times New Roman", Times, serif;
+        border: 1px solid #ffffff;
+        width: 50vh;
+        height: 200px;
+        text-align: center;
+        border-collapse: collapse;
+        margin-left: 100px;
+    }
+    table.paleBlueRows td,
+    table.paleBlueRows th {
+        border: 1px solid #ffffff;
+        padding: 3px 2px;
+    }
+    table.paleBlueRows tbody td {
+        font-size: 1.6rem;
+    }
+    table.paleBlueRows tr:nth-child(even) {
+        background: #d0e4f5;
+    }
+    table.paleBlueRows thead {
+        background: #003df6;
+        border-bottom: 5px solid #ffffff;
+    }
+    table.paleBlueRows thead th {
+        font-size: 14px;
+        font-weight: bold;
+        color: #ffffff;
+        text-align: center;
+        border-left: 2px solid #ffffff;
+    }
+    table.paleBlueRows thead th:first-child {
+        border-left: none;
+    }
+
+    table.paleBlueRows tfoot {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333333;
+        background: #d0e4f5;
+        border-top: 3px solid #444444;
+    }
+    table.paleBlueRows tfoot td {
+        font-size: 14px;
+    }
+
+    .flex-containerTables {
+        display: flex;
+        margin: 0 auto;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        align-content: center;
+        width: 100%;
+        height: 220px;
+        background-color: #cce3f9;
+        gap: 20px;
+        margin-top: 10px;
     }
 }
 
-table.paleBlueRows {
-    font-family: "Times New Roman", Times, serif;
-    border: 1px solid #ffffff;
-    width: 1350px;
-    height: 400px;
-    text-align: center;
-    border-collapse: collapse;
-    margin-left: 100px;
-}
-table.paleBlueRows td,
-table.paleBlueRows th {
-    border: 1px solid #ffffff;
-    padding: 3px 2px;
-}
-table.paleBlueRows tbody td {
-    font-size: 13px;
-}
-table.paleBlueRows tr:nth-child(even) {
-    background: #d0e4f5;
-}
-table.paleBlueRows thead {
-    background: #003df6;
-    border-bottom: 5px solid #ffffff;
-}
-table.paleBlueRows thead th {
-    font-size: 17px;
-    font-weight: bold;
-    color: #ffffff;
-    text-align: center;
-    border-left: 2px solid #ffffff;
-}
-table.paleBlueRows thead th:first-child {
-    border-left: none;
+@media screen and (max-width: 1199.98px) {
 }
 
-table.paleBlueRows tfoot {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333333;
-    background: #d0e4f5;
-    border-top: 3px solid #444444;
+@media screen and (max-width: 991.98px) {
 }
-table.paleBlueRows tfoot td {
-    font-size: 14px;
+
+@media screen and (max-width: 767.98px) {
+}
+
+@media screen and (max-width: 575.98px) {
+    .flex-container {
+        height: 140px;
+    }
+
+    .flex-items {
+        width: 125px;
+        height: 125px;
+        margin-top: 10px;
+    }
+
+    .OCM-cardV {
+        &__indice {
+            font-size: 1rem;
+            margin-top: 0px;
+            margin-bottom: 2px;
+        }
+        &__svg {
+            // align-items: left;
+            // justify-content: left;
+            // color: rgba(41, 24, 199, 0.87);
+            // font-weight: 700;
+            // font-family: var(--fuente-principal);
+            // font-size: 1rem;
+            // margin-top: 10px;
+            // margin-bottom: 40px;
+        }
+        &__title {
+            margin-bottom: 1px;
+        }
+        &__footer {
+            padding-top: 0px;
+            font-size: 0.7rem;
+        }
+    }
+
+    .datosPresupuestarios {
+        font-size: 1.4rem;
+        // margin: auto;
+    }
 }
