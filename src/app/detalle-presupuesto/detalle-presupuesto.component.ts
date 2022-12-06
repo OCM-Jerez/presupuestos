@@ -26,10 +26,12 @@ heatmap(Highcharts)
 })
 export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  showComponentIngresos = true;
-  showGastosPrograma = false;
-  showGastosOrganico = false;
-  showGastosEconomica = false;
+  showGridIngresos = true;
+  showGridGastos = true;
+  showTabIngresos = true;
+  showTabPrograma = false;
+  showTabOrganico = false;
+  showTabEconomica = false;
   private typeClasification: CLASIFICATION_TYPE;
   private _dataTable: IDataTable;
   public totalPresupuestado: number;
@@ -52,36 +54,52 @@ export class DetallePresupuestoComponent implements OnInit {
 
   ngOnInit(): void {
     // console.log(' ngOnInit() DetallePresupuestoComponent');
-    this.typeClasification = 'ingresosEconomicaArticulos';
+    // this.typeClasification = 'ingresosEconomicaArticulos';
     this._tabSelected = localStorage.getItem('activeTab') != null ? localStorage.getItem('activeTab') : 'tab1';
-    console.log(this._tabSelected)
+    console.log(this._tabSelected, this._radioButtonSelected)
 
     switch (this._tabSelected) {
       case 'tab1':
-        this.showComponentIngresos = true;
-        this.showGastosPrograma = false;
-        this.showGastosOrganico = false;
-        this.showGastosEconomica = false;
+        this.typeClasification = 'ingresosEconomicaArticulos';
+        this.showGridIngresos = true;
+        this.showGridGastos = false;
+        this.showTabIngresos = true;
+        this.showTabPrograma = false;
+        this.showTabOrganico = false;
+        this.showTabEconomica = false;
         break;
       case 'tab2':
-        this.showGastosPrograma = true
-        this.showComponentIngresos = false;
-        this.showGastosOrganico = false;
-        this.showGastosEconomica = false;
+        this.typeClasification = 'gastosProgramaPoliticas';
+        this.showGridGastos = true
+        this.showGridIngresos = false;
+        this.showTabIngresos = false;
+        this.showTabPrograma = true;
+        this.showTabOrganico = false;
+        this.showTabEconomica = false;
+
         break;
       case 'tab3':
-        this.showGastosOrganico = true
-        this.showComponentIngresos = false;
-        this.showGastosPrograma = false;
-        this.showGastosEconomica = false;
+        this.typeClasification = 'gastosOrganicaOrganicos';
+        this.showGridGastos = true
+        this.showGridIngresos = false;
+        this.showTabIngresos = false;
+        this.showTabPrograma = false;
+        this.showTabOrganico = true;
+        this.showTabEconomica = false;
+
         break;
       case 'tab4':
-        this.showGastosEconomica = true
-        this.showComponentIngresos = false;
-        this.showGastosPrograma = false;
-        this.showGastosOrganico = false;
+        this.typeClasification = 'gastosEconomicaEconomicos';
+        this.showGridGastos = true
+        this.showGridIngresos = false;
+        this.showTabIngresos = false;
+        this.showTabPrograma = false;
+        this.showTabOrganico = false;
+        this.showTabEconomica = true;
+
         break;
     }
+    this._loadData();
   }
 
   checkedTab(e: any) {
@@ -89,42 +107,49 @@ export class DetallePresupuestoComponent implements OnInit {
       case 'tab1':
         this._tabSelected = 'tab1'
         this._treemap = 'treemap1';
-        this.typeClasification = 'ingresosEconomicaCapitulos';
-        this.showComponentIngresos = true;
-        this.showGastosPrograma = false;
-        this.showGastosOrganico = false;
-        this.showGastosEconomica = false;
+        this.typeClasification = 'ingresosEconomicaArticulos';
+        this.showGridIngresos = true;
+        this.showGridGastos = false;
+        this.showTabIngresos = true;
+        this.showTabPrograma = false;
+        this.showTabOrganico = false;
+        this.showTabEconomica = false;
         break;
       case 'tab2':
         this._tabSelected = 'tab2'
         this._treemap = 'treemap2';
         this.typeClasification = 'gastosProgramaPoliticas';
-        this.showGastosPrograma = true
-        this.showComponentIngresos = false;
-        this.showGastosOrganico = false;
-        this.showGastosEconomica = false;
+        this.showGridGastos = true
+        this.showGridIngresos = false;
+        this.showTabIngresos = false;
+        this.showTabPrograma = true;
+        this.showTabOrganico = false;
+        this.showTabEconomica = false;
         break;
       case 'tab3':
         this._tabSelected = 'tab3'
         this._treemap = 'treemap3';
         this.typeClasification = 'gastosOrganicaOrganicos';
-        this.showGastosOrganico = true
-        this.showComponentIngresos = false;
-        this.showGastosPrograma = false;
-        this.showGastosEconomica = false;
+        this.showGridGastos = true
+        this.showGridIngresos = false;
+        this.showTabIngresos = false;
+        this.showTabPrograma = false;
+        this.showTabOrganico = true;
+        this.showTabEconomica = false;
         break;
       case 'tab4':
         this._tabSelected = 'tab4'
         this._treemap = 'treemap4';
         this.typeClasification = 'gastosEconomicaEconomicos';
-        this.showGastosEconomica = true
-        this.showComponentIngresos = false;
-        this.showGastosPrograma = false;
-        this.showGastosOrganico = false;
+        this.showGridGastos = true
+        this.showGridIngresos = false;
+        this.showTabIngresos = false;
+        this.showTabPrograma = false;
+        this.showTabOrganico = false;
+        this.showTabEconomica = true;
         break;
     }
     localStorage.setItem('activeTab', this._tabSelected);
-
     this._loadData();
   }
 
@@ -159,12 +184,12 @@ export class DetallePresupuestoComponent implements OnInit {
       return acc
     }, {})
 
-    this.totalPresupuestado = totales.Definitivas2022.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    if (this.typeClasification === 'ingresosEconomicaArticulos') {
-      this.totalRecaudado = totales.DerechosReconocidosNetos2022.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    }
+    // this.totalPresupuestado = totales.Definitivas2022.toString()
+    //   .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    // if (this.typeClasification === 'ingresosEconomicaArticulos') {
+    //   this.totalRecaudado = totales.DerechosReconocidosNetos2022.toString()
+    //     .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    // }
     // if (this.typeClasification != 'ingresosEconomicaArticulos') {
     //   this.totalGastado = totales.Pagos2022.toString()
     //     .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
@@ -177,29 +202,28 @@ export class DetallePresupuestoComponent implements OnInit {
       case 'tab1':
         switch (this._radioButtonSelected) {
           case 'radio-1':
-            data = this.preparaDataGraph(data, 'CodCap', 'DesCap', 'Definitivas2022');
+            data = await this.preparaDataGraph(data, 'CodArt', 'DesArt', 'Definitivas2022');
             break;
           case 'radio-2':
-            data = this.preparaDataGraph(data, 'CodCap', 'DesCap', 'DerechosReconocidosNetos2022');
+            data = await this.preparaDataGraph(data, 'CodArt', 'DesArt', 'DerechosReconocidosNetos2022');
             break;
           case 'radio-3':
-            data = this.preparaDataGraph(data, 'CodCap', 'DesCap', 'Definitivas2022', 'DerechosReconocidosNetos2022');
+            data = await this.preparaDataGraph(data, 'CodArt', 'DesArt', 'Definitivas2022', 'DerechosReconocidosNetos2022');
             break;
         }
         break;
       case 'tab2':
-        data = this.preparaDataGraph(data, 'CodPro', 'DesPro', 'Definitivas2022');
+        data = await this.preparaDataGraph(data, 'CodPro', 'DesPro', 'Definitivas2022');
         break;
       case 'tab3':
-        data = this.preparaDataGraph(data, 'CodOrg', 'DesOrg', 'Definitivas2022');
+        data = await this.preparaDataGraph(data, 'CodOrg', 'DesOrg', 'Definitivas2022');
         break;
       case 'tab4':
-        data = this.preparaDataGraph(data, 'CodEco', 'DesEco', 'Definitivas2022');
+        data = await this.preparaDataGraph(data, 'CodEco', 'DesEco', 'Definitivas2022');
         break;
     }
 
     // Gráfico treemap   
-    // console.log(data);
     const chart = Highcharts.chart(this._treemap, {
       colorAxis: {
         minColor: '#FFFFFF',
@@ -266,15 +290,7 @@ export class DetallePresupuestoComponent implements OnInit {
     this.reloadCurrentRoute()
   }*/
 
-  reloadCurrentRoute() {
-    console.log(this._tabSelected)
-    let currentUrl = this._router.url;
-    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this._router.navigate([currentUrl]);
-    });
-  }
-
-  preparaDataGraph(data: any, codigo, descripcion, campoSumatorio, aRestar?) {
+  async preparaDataGraph(data: any, codigo, descripcion, campoSumatorio, aRestar?) {
     // console.log('Data inicial', data);
     let array = [];
     array = data.reduce((acc, curr) => {
@@ -307,6 +323,14 @@ export class DetallePresupuestoComponent implements OnInit {
     // console.log('data obtenido con mi codigo', data);
     return data
 
+  }
+
+  reloadCurrentRoute() {
+    console.log(this._tabSelected)
+    let currentUrl = this._router.url;
+    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this._router.navigate([currentUrl]);
+    });
   }
 
 }
