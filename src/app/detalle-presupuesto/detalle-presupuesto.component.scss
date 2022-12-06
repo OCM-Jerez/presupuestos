@@ -121,6 +121,45 @@ $tab-wrap-border-radius: 6px;
 }
 /* #endregion */
 
+/* #region  Table           */
+table.paleBlueRows {
+    font-family: "Times New Roman", Times, serif;
+    border: 1px solid #ffffff;
+    width: 95%;
+    height: 80%;
+    text-align: center;
+    border-collapse: collapse;
+    margin-left: 20px;
+}
+table.paleBlueRows thead {
+    background: #003df6;
+    border-bottom: 5px solid #ffffff;
+    height: 20px;
+}
+table.paleBlueRows thead th {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    width: 50px;
+    border-left: 2px solid #ffffff;
+}
+
+table.paleBlueRows tr:nth-child(even) {
+    background: #84c4c8;
+}
+
+table.paleBlueRows tbody td {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: right;
+    background: #84c4c8;
+}
+
+table.paleBlueRows tbody td:first-child {
+    text-align: left;
+}
+
 /* #region  radioButtons */
 // https://codepen.io/triss90/pen/XNEdRe
 $color1: #f4f4f4;
