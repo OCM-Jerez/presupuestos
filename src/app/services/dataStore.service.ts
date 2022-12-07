@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
+import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class DataStoreService {
   private _graphTitle: string;
   private _selectedCodeRowFirstLevel: string;
   private _IsDetails = false;
+  private _dataTotalesPresupuesto: IDataTotalesPresupuesto
 
   get getDataTable(): IDataTable {
     return this._data
@@ -75,6 +77,14 @@ export class DataStoreService {
 
   get IsDetails(): boolean {
     return this._IsDetails
+  }
+
+  set setDataTotalesPresupuesto(data: IDataTotalesPresupuesto) {
+    this._dataTotalesPresupuesto = data
+  }
+
+  get getDataTotalesPresupuesto(): IDataTotalesPresupuesto {
+    return this._dataTotalesPresupuesto
   }
 
   setData(data: IDataGraph) {
