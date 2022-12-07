@@ -40,7 +40,7 @@ export class TableGastosComponent implements OnInit {
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
   ) {
 
-    this._dataTable = _dataStoreService.getDataTable;
+    // this._dataTable = _dataStoreService.getDataTable;
     // console.log("******************* _dataTable *************************")
     // console.log(this._dataTable);
 
