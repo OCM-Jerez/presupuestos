@@ -13,6 +13,7 @@ import HighchartsSankey from 'highcharts/modules/sankey';
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
 import { DataStoreService } from '../services/dataStore.service';
 import { PrepareDataCapituloDetails } from '../services/prepareDataCapituloDetails.service';
+import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 
 HighchartsMore(Highcharts);
 HighchartsSankey(Highcharts);
@@ -191,7 +192,7 @@ export class IndiceComponent implements OnInit {
     var dataGastosEconomicaCapitulos = await this._prepareDataCapituloDetails.getDataAllYear();
     // console.log(dataGastosEconomicaCapitulos);
 
-    // Creo array de politicas de gasto
+    // Creo array de capitulos de gasto
     let capitulosGastos = []
     dataGastosEconomicaCapitulos.map(item => {
       const value = {
@@ -281,6 +282,18 @@ export class IndiceComponent implements OnInit {
     this.financierosGastos = this.financierosGastos.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 
     /* #endregion */
+
+
+    const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
+      year: 2022,
+      totalPresupuestoIngresos: this.totalPresupuestoIngresos,
+      totalPresupuestoGastos: this.totalPresupuestoGastos,
+      totalEjecutadoIngresos: this.totalEjecutadoIngresos,
+      totalEjecutadoGastos: this.totalEjecutadoGastos,
+    }
+    console.log(DataTotalesPresupuesto);
+    this._dataStoreService.setDataTotalesPresupuesto = DataTotalesPresupuesto;
+
 
     this.showGraph()
   }

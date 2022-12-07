@@ -1,3 +1,4 @@
+import { IDataTotalesPresupuesto } from './../commons/interfaces/dataTotalesPresupuesto. interface';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -34,6 +35,7 @@ export class DetallePresupuestoComponent implements OnInit {
   totalPresupuestado: number;
   totalRecaudado: number;
   totalGastado: number;
+  DataTotalesPresupuesto: IDataTotalesPresupuesto;
   private typeClasification: CLASIFICATION_TYPE;
   private _dataTable: IDataTable;
   private _radioButtonSelected = 'radio-1';
@@ -57,6 +59,8 @@ export class DetallePresupuestoComponent implements OnInit {
     // setTimeout(() => {
     //   this._loadData();
     // }, 5000);
+
+    this.DataTotalesPresupuesto = this._dataStoreService.getDataTotalesPresupuesto;
   }
 
   checkedTab(e: any) {

@@ -14,8 +14,9 @@
                 <thead>
                     <tr>
                         <th style=" width: 300px">2022 (Hasta octubre)</th>
-                        <th>PRESUPUESTADO</th>
+                        <th>PRESUPUESTO INGRESOS</th>
                         <th>RECAUDADO</th>
+                        <th>PRESUPUESTO GASTOS</th>
                         <th>GASTADO</th>
                     </tr>
                 </thead>
@@ -23,9 +24,11 @@
                 <tbody>
                     <tr>
                         <td>TOTAL</td>
-                        <td>{{ totalPresupuestado }}</td>
-                        <td>{{ totalRecaudado }}</td>
-                        <td>{{ totalGastado }}</td>
+                        <td>{{ DataTotalesPresupuesto.totalPresupuestoIngresos }}</td>
+                        <td>{{ DataTotalesPresupuesto.totalEjecutadoIngresos }}</td>
+                        <td>{{ DataTotalesPresupuesto.totalPresupuestoGastos }}</td>
+                        <td>{{ DataTotalesPresupuesto.totalEjecutadoGastos }}</td>
+
                     </tr>
                 </tbody>
             </table>
