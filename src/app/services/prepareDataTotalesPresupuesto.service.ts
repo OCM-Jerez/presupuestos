@@ -56,4 +56,5 @@ export class PrepareDataTotalesPresupuestoService {
     }
     this._dataStoreService.setDataTotalesPresupuesto = DataTotalesPresupuesto;
   }
+
 }
