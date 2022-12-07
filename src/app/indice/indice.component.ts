@@ -284,17 +284,6 @@ export class IndiceComponent implements OnInit {
     /* #endregion */
 
 
-    const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
-      year: 2022,
-      totalPresupuestoIngresos: this.totalPresupuestoIngresos,
-      totalPresupuestoGastos: this.totalPresupuestoGastos,
-      totalEjecutadoIngresos: this.totalEjecutadoIngresos,
-      totalEjecutadoGastos: this.totalEjecutadoGastos,
-    }
-    console.log(DataTotalesPresupuesto);
-    this._dataStoreService.setDataTotalesPresupuesto = DataTotalesPresupuesto;
-
-
     this.showGraph()
   }
 
