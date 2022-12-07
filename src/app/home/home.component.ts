@@ -6,7 +6,6 @@ import { TableService } from '../services/table.service';
 import { PrepareDataTotalesPresupuestoService } from '../services/prepareDataTotalesPresupuesto.service';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
-import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -25,6 +24,7 @@ export class HomeComponent implements OnInit {
   totalPresupuestoGastos: number;
   totalEjecutadoIngresos: number;
   totalEjecutadoGastos: number;
+  textoTabla: string;
 
   constructor(
     private _router: Router,
@@ -39,29 +39,53 @@ export class HomeComponent implements OnInit {
   }
 
   private async _loadData(): Promise<void> {
-
     //  Calculo totales de ingresos y gastos y los guardo en _dataStoreService  */
     this._prepareDataTotalesPresupuestoService.calcTotales();
 
     /* #region datos aleatorios para mostrar en tabla  */
-    await this._tableService.loadDataForTypeClasification(true, 'ingresosEconomicaArticulos');
-    this._dataTable = this._dataStoreService.getDataTable
-    var dataIngresos = this._dataTable.rowData;
+    const ingresoGasto = (Math.random() >= 0.5) ? true : false;
 
-    this.random(1, dataIngresos.length);
-    const index1 = this._arrRandom[0];
-    const index2 = this._arrRandom[1];
-    const index3 = this._arrRandom[2];
+    if (ingresoGasto) {
+      await this._tableService.loadDataForTypeClasification(true, 'ingresosEconomicaArticulos');
+      this._dataTable = this._dataStoreService.getDataTable
+      var dataIngresos = this._dataTable.rowData;
 
-    this.textEjemplo1 = dataIngresos[index1].DesArt
-    this.valueEjemplo1 = dataIngresos[index1].Definitivas2022.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    this.textEjemplo2 = dataIngresos[index2].DesArt
-    this.valueEjemplo2 = dataIngresos[index2].Definitivas2022.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    this.textEjemplo3 = dataIngresos[index3].DesArt
-    this.valueEjemplo3 = dataIngresos[index3].Definitivas2022.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+      this.random(1, dataIngresos.length);
+      const index1 = this._arrRandom[0];
+      const index2 = this._arrRandom[1];
+      const index3 = this._arrRandom[2];
+
+      this.textoTabla = '¿Cuanto recauda el Ayuntamiento por...?'
+      this.textEjemplo1 = dataIngresos[index1].DesArt
+      this.valueEjemplo1 = dataIngresos[index1].Definitivas2022.toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+      this.textEjemplo2 = dataIngresos[index2].DesArt
+      this.valueEjemplo2 = dataIngresos[index2].Definitivas2022.toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+      this.textEjemplo3 = dataIngresos[index3].DesArt
+      this.valueEjemplo3 = dataIngresos[index3].Definitivas2022.toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    } else {
+      await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos');
+      this._dataTable = this._dataStoreService.getDataTable
+      var dataGastos = this._dataTable.rowData;
+
+      this.random(1, dataGastos.length);
+      const index1 = this._arrRandom[0];
+      const index2 = this._arrRandom[1];
+      const index3 = this._arrRandom[2];
+
+      this.textoTabla = '¿Cuanto ha gastado la delegación de...?'
+      this.textEjemplo1 = dataGastos[index1].DesOrg
+      this.valueEjemplo1 = dataGastos[index1].Pagos2022.toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+      this.textEjemplo2 = dataGastos[index2].DesOrg
+      this.valueEjemplo2 = dataGastos[index2].Pagos2022.toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+      this.textEjemplo3 = dataGastos[index3].DesOrg
+      this.valueEjemplo3 = dataGastos[index3].Pagos2022.toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    }
     /* #endregion */
   }
 
