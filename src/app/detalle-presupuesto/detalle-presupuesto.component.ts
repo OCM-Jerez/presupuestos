@@ -59,6 +59,9 @@ export class DetallePresupuestoComponent implements OnInit {
     console.log(this._tabSelected, this._radioButtonSelected)
     this.setValues(this._tabSelected);
     this._loadData();
+    // setTimeout(() => {
+    //   this._loadData();
+    // }, 5000);
   }
 
   checkedTab(e: any) {
@@ -80,6 +83,7 @@ export class DetallePresupuestoComponent implements OnInit {
   private async _loadData(): Promise<void> {
     // tengo que pasar parametro correcto para isIncome = true o false
     const isIncome = this.typeClasification.startsWith('ingresos');
+    console.log(this.typeClasification);
 
     await this._tableService.loadDataForTypeClasification(isIncome, this.typeClasification);
     this._dataTable = this._dataStoreService.getDataTable
