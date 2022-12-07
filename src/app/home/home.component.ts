@@ -42,100 +42,96 @@ export class HomeComponent implements OnInit {
     //  Calculo totales de ingresos y gastos y los guardo en _dataStoreService  */
     this._prepareDataTotalesPresupuestoService.calcTotales();
 
-    /* #region datos aleatorios para mostrar en tabla  */
+    /* #region   */
     const ingresoGasto = (Math.random() >= 0.5) ? true : false;
 
-    // if (ingresoGasto) {
-    await this._tableService.loadDataForTypeClasification(true, 'ingresosEconomicaArticulos');
-    this._dataTable = this._dataStoreService.getDataTable
-    var dataIngresos = this._dataTable.rowData;
+    if (ingresoGasto) {
+      await this._tableService.loadDataForTypeClasification(true, 'ingresosEconomicaArticulos');
+      this._dataTable = this._dataStoreService.getDataTable
+      let dataIngresos = this._dataTable.rowData;
 
-    let array = [];
-    array = dataIngresos.reduce((acc, curr) => {
-      const item =
-      {
-        "name": curr['DesArt'],
-        "value": curr['Definitivas2022'],
-      }
-      acc.push(item);
-      return acc;
-    }, []);
+      let array = [];
+      array = dataIngresos.reduce((acc, curr) => {
+        const item =
+        {
+          "name": curr['DesArt'],
+          "value": curr['DerechosReconocidosNetos2022'],
+        }
+        acc.push(item);
+        return acc;
+      }, []);
 
-    // Totalizo
-    const dataTablaAleatoria = array.reduce((acc, { name, value }) => {
-      const item = acc.find(item => item.name === name)
-      item ? item.value += value : acc.push({
-        name,
-        value,
-      });
-      return acc;
-    }, []);
+      // Totalizo
+      const dataTablaAleatoria = array.reduce((acc, { name, value }) => {
+        const item = acc.find(item => item.name === name)
+        item ? item.value += value : acc.push({
+          name,
+          value,
+        });
+        return acc;
+      }, []);
 
+      this.random(1, dataTablaAleatoria.length);
+      const index1 = this._arrRandom[0];
+      const index2 = this._arrRandom[1];
+      const index3 = this._arrRandom[2];
 
+      this.textoTabla = '¿Cuanto recauda el Ayuntamiento por...?'
+      this.textEjemplo1 = dataTablaAleatoria[index1].name
+      this.valueEjemplo1 = dataTablaAleatoria[index1].value.toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+      this.textEjemplo2 = dataTablaAleatoria[index2].name
+      this.valueEjemplo2 = dataTablaAleatoria[index2].value.toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+      this.textEjemplo3 = dataTablaAleatoria[index3].name
+      this.valueEjemplo3 = dataTablaAleatoria[index3].value.toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    } else {
+      await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos');
+      this._dataTable = this._dataStoreService.getDataTable
+      let dataGastos = this._dataTable.rowData;
 
+      let array = [];
+      array = dataGastos.reduce((acc, curr) => {
+        const item =
+        {
+          "name": curr['DesOrg'],
+          "value": curr['Pagos2022'],
+        }
+        acc.push(item);
+        return acc;
+      }, []);
 
-    // const dataTablaAleatoria = this.preparaDataTable(dataIngresos, 'DesArt', 'Definitivas2022');
-    console.log(dataTablaAleatoria);
+      //  Totalizo
+      const dataTablaAleatoria = array.reduce((acc, { name, value }) => {
+        const item = acc.find(item => item.name === name)
+        item ? item.value += value : acc.push({
+          name,
+          value,
+        });
+        return acc;
+      }, []);
 
-    this.random(1, dataTablaAleatoria.length);
-    const index1 = this._arrRandom[0];
-    const index2 = this._arrRandom[1];
-    const index3 = this._arrRandom[2];
+      this.random(1, dataTablaAleatoria.length);
+      const index1 = this._arrRandom[0];
+      const index2 = this._arrRandom[1];
+      const index3 = this._arrRandom[2];
 
-    this.textoTabla = '¿Cuanto recauda el Ayuntamiento por...?'
-    this.textEjemplo1 = dataTablaAleatoria[index1].name
-    this.valueEjemplo1 = dataTablaAleatoria[index1].value.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    this.textEjemplo2 = dataTablaAleatoria[index2].name
-    this.valueEjemplo2 = dataTablaAleatoria[index2].value.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    this.textEjemplo3 = dataTablaAleatoria[index3].name
-    this.valueEjemplo3 = dataTablaAleatoria[index3].value.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    // } else {
-    // await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos');
-    // this._dataTable = this._dataStoreService.getDataTable
-    // var dataGastos = this._dataTable.rowData;
-
-    // let array = [];
-    // array = dataGastos.reduce((acc, curr) => {
-    //   const item =
-    //   {
-    //     "name": curr['DesArt'],
-    //     "value": curr['Definitivas2022'],
-    //   }
-    //   acc.push(item);
-    //   return acc;
-    // }, []);
-
-    // // Totalizo
-    // const dataTablaAleatoria = array.reduce((acc, { name, value }) => {
-    //   const item = acc.find(item => item.name === name)
-    //   item ? item.value += value : acc.push({
-    //     name,
-    //     value,
-    //   });
-    //   return acc;
-    // }, []);
-
-    // this.random(1, dataTablaAleatoria.length);
-    // const index1 = this._arrRandom[0];
-    // const index2 = this._arrRandom[1];
-    // const index3 = this._arrRandom[2];
-
-    // this.textoTabla = '¿Cuanto ha gastado la delegación de...?'
-    // this.textEjemplo1 = dataTablaAleatoria[index1].name
-    // this.valueEjemplo1 = dataTablaAleatoria[index1].value.toString()
-    //   .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    // this.textEjemplo2 = dataTablaAleatoria[index2].name
-    // this.valueEjemplo2 = dataTablaAleatoria[index2].value.toString()
-    //   .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    // this.textEjemplo3 = dataTablaAleatoria[index3].name
-    // this.valueEjemplo3 = dataTablaAleatoria[index3].value.toString()
-    //   .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    // }
-    /* #endregion */
+      this.textoTabla = '¿Cuanto ha gastado la delegación de...?'
+      this.textEjemplo1 = dataTablaAleatoria[index1].name
+      this.valueEjemplo1 = dataTablaAleatoria[index1].value.toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+      this.textEjemplo2 = dataTablaAleatoria[index2].name
+      this.valueEjemplo2 = dataTablaAleatoria[index2].value.toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+      this.textEjemplo3 = dataTablaAleatoria[index3].name
+      this.valueEjemplo3 = dataTablaAleatoria[index3].value.toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    }
   }
+  /* #endregion */
+
+
 
   visionGlobal() {
     this._router.navigateByUrl('/home')
@@ -177,8 +173,6 @@ export class HomeComponent implements OnInit {
       });
       return acc;
     }, []);
-    console.log(dataTotal);
-
     return dataTotal
 
   }
