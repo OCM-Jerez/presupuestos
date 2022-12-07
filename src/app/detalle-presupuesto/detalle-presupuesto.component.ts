@@ -1,14 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
 
-import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { DataStoreService } from '../services/dataStore.service';
 import { TableService } from '../services/table.service';
 
 import { CLASIFICATION_TYPE } from '../commons/util/util';
-
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
 
 import * as Highcharts from 'highcharts';
@@ -34,11 +31,11 @@ export class DetallePresupuestoComponent implements OnInit {
   showTabPrograma = false;
   showTabOrganico = false;
   showTabEconomica = false;
+  totalPresupuestado: number;
+  totalRecaudado: number;
+  totalGastado: number;
   private typeClasification: CLASIFICATION_TYPE;
   private _dataTable: IDataTable;
-  public totalPresupuestado: number;
-  public totalRecaudado: number;
-  public totalGastado: number;
   private _radioButtonSelected = 'radio-1';
   private _tabSelected: string = "tab1";
   private _treemap = 'treemap1';
@@ -48,8 +45,6 @@ export class DetallePresupuestoComponent implements OnInit {
   // }
 
   constructor(
-    public avalaibleYearsService: AvalaibleYearsService,
-    private _router: Router,
     private _dataStoreService: DataStoreService,
     private _tableService: TableService
   ) { }
@@ -111,7 +106,6 @@ export class DetallePresupuestoComponent implements OnInit {
     //   this.totalGastado = totales.Pagos2022.toString()
     //     .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
     // }
-
     /* #endregion */
 
     // Datos para grafico
@@ -184,29 +178,6 @@ export class DetallePresupuestoComponent implements OnInit {
     //   this.showComponentIngresos = true;
     // }, 100);
   }
-
-  /*async detalle(typeClasification: CLASIFICATION_TYPE) {
-    this._dataStoreService.IsDetails = true;
-    const selectedRows = this.agGrid.api.getSelectedNodes();
-    const dataPropertyTable = getClasificacion(typeClasification);
-
-    if (selectedRows.length > 0) {
-      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      const useStarWitch: boolean = dataPropertyTable.useStarWitch;
-      const attribute: string = dataPropertyTable.attribute;
-      await this._tableService.loadDataForTypeClasification(
-        true,
-        typeClasification,
-        { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
-    } else {
-      await this._tableService.loadDataForTypeClasification(
-        true,
-        typeClasification);
-    }
-
-    this.reloadCurrentRoute()
-  }*/
-
 
   setValues(tab) {
     switch (tab) {
@@ -299,14 +270,6 @@ export class DetallePresupuestoComponent implements OnInit {
     // console.log('data obtenido con mi codigo', data);
     return data
 
-  }
-
-  reloadCurrentRoute() {
-    console.log(this._tabSelected)
-    let currentUrl = this._router.url;
-    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this._router.navigate([currentUrl]);
-    });
   }
 
 }
