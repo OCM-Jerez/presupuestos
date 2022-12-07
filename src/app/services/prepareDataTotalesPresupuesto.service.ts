@@ -28,6 +28,8 @@ export class PrepareDataTotalesPresupuestoService {
       })
       return acc
     }, {})
+    console.log(totalPresupuestoIngresos);
+
 
     await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos');
     this._dataTable = this._dataStoreService.getDataTable
