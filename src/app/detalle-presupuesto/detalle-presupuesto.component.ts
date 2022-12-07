@@ -27,7 +27,9 @@ heatmap(Highcharts)
 export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   showGridIngresos = true;
-  showGridGastos = true;
+  showGridPrograma = false;
+  showGridOrganico = false;
+  showGridEconomica = false;
   showTabIngresos = true;
   showTabPrograma = false;
   showTabOrganico = false;
@@ -41,9 +43,9 @@ export class DetallePresupuestoComponent implements OnInit {
   private _tabSelected: string = "tab1";
   private _treemap = 'treemap1';
 
-  public ngAfterViewInit(): void {
-    this._loadData();
-  }
+  // public ngAfterViewInit(): void {
+  //   this._loadData();
+  // }
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -60,18 +62,24 @@ export class DetallePresupuestoComponent implements OnInit {
 
     switch (this._tabSelected) {
       case 'tab1':
+        this._treemap = 'treemap1';
         this.typeClasification = 'ingresosEconomicaArticulos';
         this.showGridIngresos = true;
-        this.showGridGastos = false;
+        this.showGridPrograma = false;
+        this.showGridOrganico = false;
+        this.showGridEconomica = false;
         this.showTabIngresos = true;
         this.showTabPrograma = false;
         this.showTabOrganico = false;
         this.showTabEconomica = false;
         break;
       case 'tab2':
+        this._treemap = 'treemap2';
         this.typeClasification = 'gastosProgramaPoliticas';
-        this.showGridGastos = true
         this.showGridIngresos = false;
+        this.showGridPrograma = true;
+        this.showGridOrganico = false;
+        this.showGridEconomica = false;
         this.showTabIngresos = false;
         this.showTabPrograma = true;
         this.showTabOrganico = false;
@@ -79,9 +87,12 @@ export class DetallePresupuestoComponent implements OnInit {
 
         break;
       case 'tab3':
+        this._treemap = 'treemap3';
         this.typeClasification = 'gastosOrganicaOrganicos';
-        this.showGridGastos = true
         this.showGridIngresos = false;
+        this.showGridPrograma = false;
+        this.showGridOrganico = true;
+        this.showGridEconomica = false;
         this.showTabIngresos = false;
         this.showTabPrograma = false;
         this.showTabOrganico = true;
@@ -89,9 +100,12 @@ export class DetallePresupuestoComponent implements OnInit {
 
         break;
       case 'tab4':
+        this._treemap = 'treemap4';
         this.typeClasification = 'gastosEconomicaEconomicos';
-        this.showGridGastos = true
         this.showGridIngresos = false;
+        this.showGridPrograma = false;
+        this.showGridOrganico = false;
+        this.showGridEconomica = true;
         this.showTabIngresos = false;
         this.showTabPrograma = false;
         this.showTabOrganico = false;
@@ -109,7 +123,9 @@ export class DetallePresupuestoComponent implements OnInit {
         this._treemap = 'treemap1';
         this.typeClasification = 'ingresosEconomicaArticulos';
         this.showGridIngresos = true;
-        this.showGridGastos = false;
+        this.showGridPrograma = false;
+        this.showGridOrganico = false;
+        this.showGridEconomica = false;
         this.showTabIngresos = true;
         this.showTabPrograma = false;
         this.showTabOrganico = false;
@@ -119,8 +135,10 @@ export class DetallePresupuestoComponent implements OnInit {
         this._tabSelected = 'tab2'
         this._treemap = 'treemap2';
         this.typeClasification = 'gastosProgramaPoliticas';
-        this.showGridGastos = true
         this.showGridIngresos = false;
+        this.showGridPrograma = true;
+        this.showGridOrganico = false;
+        this.showGridEconomica = false;
         this.showTabIngresos = false;
         this.showTabPrograma = true;
         this.showTabOrganico = false;
@@ -130,8 +148,10 @@ export class DetallePresupuestoComponent implements OnInit {
         this._tabSelected = 'tab3'
         this._treemap = 'treemap3';
         this.typeClasification = 'gastosOrganicaOrganicos';
-        this.showGridGastos = true
         this.showGridIngresos = false;
+        this.showGridPrograma = false;
+        this.showGridOrganico = true;
+        this.showGridEconomica = false;
         this.showTabIngresos = false;
         this.showTabPrograma = false;
         this.showTabOrganico = true;
@@ -141,8 +161,10 @@ export class DetallePresupuestoComponent implements OnInit {
         this._tabSelected = 'tab4'
         this._treemap = 'treemap4';
         this.typeClasification = 'gastosEconomicaEconomicos';
-        this.showGridGastos = true
         this.showGridIngresos = false;
+        this.showGridPrograma = false;
+        this.showGridOrganico = false;
+        this.showGridEconomica = true;
         this.showTabIngresos = false;
         this.showTabPrograma = false;
         this.showTabOrganico = false;
@@ -170,8 +192,7 @@ export class DetallePresupuestoComponent implements OnInit {
     await this._tableService.loadDataForTypeClasification(isIncome, this.typeClasification);
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
-    // console.log("--------------------")
-    // console.log(data);
+    console.log(data);
 
     /* #region Total general para datos tabla  */
     const totales = data.reduce((acc, curr) => {

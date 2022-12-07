@@ -97,7 +97,7 @@
             <!-- Tab ¿En qué se gasta? Clasificacion económica -->
             <div class="tab__content">
                 <div id="treemap2"></div>
-                <app-gastos *ngIf="showGridGastos" [buttonsHide]="[
+                <app-gastos *ngIf="showGridPrograma" [buttonsHide]="[
                 'menu',
                 'grafico',
                 'graphTree']" [hasTitle]=false></app-gastos>
@@ -106,13 +106,13 @@
             <!-- Tab ¿Quién lo gasta?  -->
             <div class="tab__content">
                 <div id="treemap3"></div>
-                <app-gastos *ngIf="showGridGastos"></app-gastos>
+                <app-gastos *ngIf="showGridOrganico"></app-gastos>
             </div>
 
             <!-- Tab ¿Para qué gasta?  -->
             <div class="tab__content">
                 <div id="treemap4"></div>
-                <app-gastos *ngIf="showGridGastos"></app-gastos>
+                <app-gastos *ngIf="showGridEconomica"></app-gastos>
             </div>
         </div>
 
