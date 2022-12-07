@@ -30,7 +30,6 @@ export class PrepareDataTotalesPresupuestoService {
     }, {})
     console.log(totalPresupuestoIngresos);
 
-
     await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos');
     this._dataTable = this._dataStoreService.getDataTable
     var dataGastos = this._dataTable.rowData;
