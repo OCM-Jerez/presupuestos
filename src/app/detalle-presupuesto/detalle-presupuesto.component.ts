@@ -55,122 +55,14 @@ export class DetallePresupuestoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // console.log(' ngOnInit() DetallePresupuestoComponent');
-    // this.typeClasification = 'ingresosEconomicaArticulos';
     this._tabSelected = localStorage.getItem('activeTab') != null ? localStorage.getItem('activeTab') : 'tab1';
     console.log(this._tabSelected, this._radioButtonSelected)
-
-    switch (this._tabSelected) {
-      case 'tab1':
-        this._treemap = 'treemap1';
-        this.typeClasification = 'ingresosEconomicaArticulos';
-        this.showGridIngresos = true;
-        this.showGridPrograma = false;
-        this.showGridOrganico = false;
-        this.showGridEconomica = false;
-        this.showTabIngresos = true;
-        this.showTabPrograma = false;
-        this.showTabOrganico = false;
-        this.showTabEconomica = false;
-        break;
-      case 'tab2':
-        this._treemap = 'treemap2';
-        this.typeClasification = 'gastosProgramaPoliticas';
-        this.showGridIngresos = false;
-        this.showGridPrograma = true;
-        this.showGridOrganico = false;
-        this.showGridEconomica = false;
-        this.showTabIngresos = false;
-        this.showTabPrograma = true;
-        this.showTabOrganico = false;
-        this.showTabEconomica = false;
-
-        break;
-      case 'tab3':
-        this._treemap = 'treemap3';
-        this.typeClasification = 'gastosOrganicaOrganicos';
-        this.showGridIngresos = false;
-        this.showGridPrograma = false;
-        this.showGridOrganico = true;
-        this.showGridEconomica = false;
-        this.showTabIngresos = false;
-        this.showTabPrograma = false;
-        this.showTabOrganico = true;
-        this.showTabEconomica = false;
-
-        break;
-      case 'tab4':
-        this._treemap = 'treemap4';
-        this.typeClasification = 'gastosEconomicaEconomicos';
-        this.showGridIngresos = false;
-        this.showGridPrograma = false;
-        this.showGridOrganico = false;
-        this.showGridEconomica = true;
-        this.showTabIngresos = false;
-        this.showTabPrograma = false;
-        this.showTabOrganico = false;
-        this.showTabEconomica = true;
-
-        break;
-    }
+    this.setValues(this._tabSelected);
     this._loadData();
   }
 
   checkedTab(e: any) {
-    switch (e.target.id) {
-      case 'tab1':
-        this._tabSelected = 'tab1'
-        this._treemap = 'treemap1';
-        this.typeClasification = 'ingresosEconomicaArticulos';
-        this.showGridIngresos = true;
-        this.showGridPrograma = false;
-        this.showGridOrganico = false;
-        this.showGridEconomica = false;
-        this.showTabIngresos = true;
-        this.showTabPrograma = false;
-        this.showTabOrganico = false;
-        this.showTabEconomica = false;
-        break;
-      case 'tab2':
-        this._tabSelected = 'tab2'
-        this._treemap = 'treemap2';
-        this.typeClasification = 'gastosProgramaPoliticas';
-        this.showGridIngresos = false;
-        this.showGridPrograma = true;
-        this.showGridOrganico = false;
-        this.showGridEconomica = false;
-        this.showTabIngresos = false;
-        this.showTabPrograma = true;
-        this.showTabOrganico = false;
-        this.showTabEconomica = false;
-        break;
-      case 'tab3':
-        this._tabSelected = 'tab3'
-        this._treemap = 'treemap3';
-        this.typeClasification = 'gastosOrganicaOrganicos';
-        this.showGridIngresos = false;
-        this.showGridPrograma = false;
-        this.showGridOrganico = true;
-        this.showGridEconomica = false;
-        this.showTabIngresos = false;
-        this.showTabPrograma = false;
-        this.showTabOrganico = true;
-        this.showTabEconomica = false;
-        break;
-      case 'tab4':
-        this._tabSelected = 'tab4'
-        this._treemap = 'treemap4';
-        this.typeClasification = 'gastosEconomicaEconomicos';
-        this.showGridIngresos = false;
-        this.showGridPrograma = false;
-        this.showGridOrganico = false;
-        this.showGridEconomica = true;
-        this.showTabIngresos = false;
-        this.showTabPrograma = false;
-        this.showTabOrganico = false;
-        this.showTabEconomica = true;
-        break;
-    }
+    this.setValues(e.target.id)
     localStorage.setItem('activeTab', this._tabSelected);
     this._loadData();
   }
@@ -310,6 +202,65 @@ export class DetallePresupuestoComponent implements OnInit {
 
     this.reloadCurrentRoute()
   }*/
+
+
+  setValues(tab) {
+    switch (tab) {
+      case 'tab1':
+        this._tabSelected = 'tab1'
+        this._treemap = 'treemap1';
+        this.typeClasification = 'ingresosEconomicaArticulos';
+        this.showGridIngresos = true;
+        this.showGridPrograma = false;
+        this.showGridOrganico = false;
+        this.showGridEconomica = false;
+        this.showTabIngresos = true;
+        this.showTabPrograma = false;
+        this.showTabOrganico = false;
+        this.showTabEconomica = false;
+        break;
+      case 'tab2':
+        this._tabSelected = 'tab2'
+        this._treemap = 'treemap2';
+        this.typeClasification = 'gastosProgramaPoliticas';
+        this.showGridIngresos = false;
+        this.showGridPrograma = true;
+        this.showGridOrganico = false;
+        this.showGridEconomica = false;
+        this.showTabIngresos = false;
+        this.showTabPrograma = true;
+        this.showTabOrganico = false;
+        this.showTabEconomica = false;
+        break;
+      case 'tab3':
+        this._tabSelected = 'tab3'
+        this._treemap = 'treemap3';
+        this.typeClasification = 'gastosOrganicaOrganicos';
+        this.showGridIngresos = false;
+        this.showGridPrograma = false;
+        this.showGridOrganico = true;
+        this.showGridEconomica = false;
+        this.showTabIngresos = false;
+        this.showTabPrograma = false;
+        this.showTabOrganico = true;
+        this.showTabEconomica = false;
+        break;
+      case 'tab4':
+        this._tabSelected = 'tab4'
+        this._treemap = 'treemap4';
+        this.typeClasification = 'gastosEconomicaEconomicos';
+        this.showGridIngresos = false;
+        this.showGridPrograma = false;
+        this.showGridOrganico = false;
+        this.showGridEconomica = true;
+        this.showTabIngresos = false;
+        this.showTabPrograma = false;
+        this.showTabOrganico = false;
+        this.showTabEconomica = true;
+        break;
+    }
+
+  }
 
   async preparaDataGraph(data: any, codigo, descripcion, campoSumatorio, aRestar?) {
     // console.log('Data inicial', data);
