@@ -45,47 +45,95 @@ export class HomeComponent implements OnInit {
     /* #region datos aleatorios para mostrar en tabla  */
     const ingresoGasto = (Math.random() >= 0.5) ? true : false;
 
-    if (ingresoGasto) {
-      await this._tableService.loadDataForTypeClasification(true, 'ingresosEconomicaArticulos');
-      this._dataTable = this._dataStoreService.getDataTable
-      var dataIngresos = this._dataTable.rowData;
+    // if (ingresoGasto) {
+    await this._tableService.loadDataForTypeClasification(true, 'ingresosEconomicaArticulos');
+    this._dataTable = this._dataStoreService.getDataTable
+    var dataIngresos = this._dataTable.rowData;
 
-      this.random(1, dataIngresos.length);
-      const index1 = this._arrRandom[0];
-      const index2 = this._arrRandom[1];
-      const index3 = this._arrRandom[2];
+    let array = [];
+    array = dataIngresos.reduce((acc, curr) => {
+      const item =
+      {
+        "name": curr['DesArt'],
+        "value": curr['Definitivas2022'],
+      }
+      acc.push(item);
+      return acc;
+    }, []);
 
-      this.textoTabla = '¿Cuanto recauda el Ayuntamiento por...?'
-      this.textEjemplo1 = dataIngresos[index1].DesArt
-      this.valueEjemplo1 = dataIngresos[index1].Definitivas2022.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-      this.textEjemplo2 = dataIngresos[index2].DesArt
-      this.valueEjemplo2 = dataIngresos[index2].Definitivas2022.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-      this.textEjemplo3 = dataIngresos[index3].DesArt
-      this.valueEjemplo3 = dataIngresos[index3].Definitivas2022.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    } else {
-      await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos');
-      this._dataTable = this._dataStoreService.getDataTable
-      var dataGastos = this._dataTable.rowData;
+    // Totalizo
+    const dataTablaAleatoria = array.reduce((acc, { name, value }) => {
+      const item = acc.find(item => item.name === name)
+      item ? item.value += value : acc.push({
+        name,
+        value,
+      });
+      return acc;
+    }, []);
 
-      this.random(1, dataGastos.length);
-      const index1 = this._arrRandom[0];
-      const index2 = this._arrRandom[1];
-      const index3 = this._arrRandom[2];
 
-      this.textoTabla = '¿Cuanto ha gastado la delegación de...?'
-      this.textEjemplo1 = dataGastos[index1].DesOrg
-      this.valueEjemplo1 = dataGastos[index1].Pagos2022.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-      this.textEjemplo2 = dataGastos[index2].DesOrg
-      this.valueEjemplo2 = dataGastos[index2].Pagos2022.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-      this.textEjemplo3 = dataGastos[index3].DesOrg
-      this.valueEjemplo3 = dataGastos[index3].Pagos2022.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    }
+
+
+    // const dataTablaAleatoria = this.preparaDataTable(dataIngresos, 'DesArt', 'Definitivas2022');
+    console.log(dataTablaAleatoria);
+
+    this.random(1, dataTablaAleatoria.length);
+    const index1 = this._arrRandom[0];
+    const index2 = this._arrRandom[1];
+    const index3 = this._arrRandom[2];
+
+    this.textoTabla = '¿Cuanto recauda el Ayuntamiento por...?'
+    this.textEjemplo1 = dataTablaAleatoria[index1].name
+    this.valueEjemplo1 = dataTablaAleatoria[index1].value.toString()
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    this.textEjemplo2 = dataTablaAleatoria[index2].name
+    this.valueEjemplo2 = dataTablaAleatoria[index2].value.toString()
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    this.textEjemplo3 = dataTablaAleatoria[index3].name
+    this.valueEjemplo3 = dataTablaAleatoria[index3].value.toString()
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    // } else {
+    // await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos');
+    // this._dataTable = this._dataStoreService.getDataTable
+    // var dataGastos = this._dataTable.rowData;
+
+    // let array = [];
+    // array = dataGastos.reduce((acc, curr) => {
+    //   const item =
+    //   {
+    //     "name": curr['DesArt'],
+    //     "value": curr['Definitivas2022'],
+    //   }
+    //   acc.push(item);
+    //   return acc;
+    // }, []);
+
+    // // Totalizo
+    // const dataTablaAleatoria = array.reduce((acc, { name, value }) => {
+    //   const item = acc.find(item => item.name === name)
+    //   item ? item.value += value : acc.push({
+    //     name,
+    //     value,
+    //   });
+    //   return acc;
+    // }, []);
+
+    // this.random(1, dataTablaAleatoria.length);
+    // const index1 = this._arrRandom[0];
+    // const index2 = this._arrRandom[1];
+    // const index3 = this._arrRandom[2];
+
+    // this.textoTabla = '¿Cuanto ha gastado la delegación de...?'
+    // this.textEjemplo1 = dataTablaAleatoria[index1].name
+    // this.valueEjemplo1 = dataTablaAleatoria[index1].value.toString()
+    //   .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    // this.textEjemplo2 = dataTablaAleatoria[index2].name
+    // this.valueEjemplo2 = dataTablaAleatoria[index2].value.toString()
+    //   .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    // this.textEjemplo3 = dataTablaAleatoria[index3].name
+    // this.valueEjemplo3 = dataTablaAleatoria[index3].value.toString()
+    //   .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    // }
     /* #endregion */
   }
 
@@ -106,6 +154,33 @@ export class HomeComponent implements OnInit {
       const r = Math.floor((Math.random() * (max - min + 1)) + min);
       if (this._arrRandom.indexOf(r) === -1) this._arrRandom.push(r);
     }
+  }
+
+  async preparaDataTable(data: any, descripcion, campoSumatorio) {
+    let array = [];
+    array = data.reduce((acc, curr) => {
+      const item =
+      {
+        "name": curr[descripcion],
+        "value": curr[campoSumatorio],
+      }
+      acc.push(item);
+      return acc;
+    }, []);
+
+    // Totalizo
+    const dataTotal = array.reduce((acc, { name, value }) => {
+      const item = acc.find(item => item.name === name)
+      item ? item.value += value : acc.push({
+        name,
+        value,
+      });
+      return acc;
+    }, []);
+    console.log(dataTotal);
+
+    return dataTotal
+
   }
 
 }
