@@ -119,7 +119,8 @@ export class DetallePresupuestoComponent implements OnInit {
       case 'tab1':
         switch (this._radioButtonSelected) {
           case 'radio-1':
-            data = await this.preparaDataGraph(data, 'CodArt', 'DesArt', 'Definitivas2022');
+            // data = await this.preparaDataGraph(data, 'CodArt', 'DesArt', 'Definitivas2022');
+            data = await this.preparaDataGraph(data, 'CodEco', 'DesEco', 'Definitivas2022');
             break;
           case 'radio-2':
             data = await this.preparaDataGraph(data, 'CodArt', 'DesArt', 'DerechosReconocidosNetos2022');
@@ -157,6 +158,9 @@ export class DetallePresupuestoComponent implements OnInit {
       credits: {
         enabled: false,
       },
+      legend: {
+        enabled: false
+      },
       tooltip: {
         tooltip: {
           enabled: false,
@@ -190,7 +194,8 @@ export class DetallePresupuestoComponent implements OnInit {
       case 'tab1':
         this._tabSelected = 'tab1'
         this._treemap = 'treemap1';
-        this.typeClasification = 'ingresosEconomicaArticulos';
+        // this.typeClasification = 'ingresosEconomicaArticulos';
+        this.typeClasification = 'ingresosEconomicaEconomicos';
         this.showGridIngresos = true;
         this.showGridPrograma = false;
         this.showGridOrganico = false;

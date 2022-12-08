@@ -2,7 +2,7 @@
     <div class="container">
         <div class="datosAnuales">
             <h2 class="OCM-title">Detalle del presupuesto</h2>
-            <span class="OCM-subtitle"> Los datos del año 2022 corresponden a la ejecución al {{liqDate}}</span>
+            <!-- <span class="OCM-subtitle"> Los datos del año 2022 corresponden a la ejecución al {{liqDate}}</span> -->
 
             <!-- Seleccion año a mostrar -->
             <div class="selectYear">
@@ -13,7 +13,7 @@
             <table class="paleBlueRows">
                 <thead>
                     <tr>
-                        <th style=" width: 300px">2022 (Hasta octubre)</th>
+                        <th style=" width: 300px">2022 (ejecución al {{liqDate}})</th>
                         <th>PRESUPUESTO INGRESOS</th>
                         <th>RECAUDADO</th>
                         <th>PRESUPUESTO GASTOS</th>
@@ -78,7 +78,7 @@
                 <div id="treemap1"></div>
 
                 <!-- AG-Grid -->
-                <div style="margin-top: 40px;">
+                <div style="margin-top: 10px;">
                     <app-table-ingresos *ngIf="showGridIngresos" (clickDetail)="clickDetail()" [fieldsHide]="[
                                    'Iniciales', 
                                    'Modificaciones',
