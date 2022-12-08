@@ -14,13 +14,30 @@
     </div>
   </div>
 
-  <div class="navMenu">
+  <!-- <div class="navMenu">
     <button type="button" (click)="inicio()" class="navMenuButton">Inicio</button>
     <button type="button" (click)="visionGlobal()" class="navMenuButton">Visión global</button>
     <button type="button" (click)="detallePresupuesto()" class="navMenuButton">Detalle del presupuesto</button>
     <button type="button" (click)="licitaciones()" class="navMenuButton">Licitaciones</button>
     <button type="button" (click)="explicamos()" class="navMenuButton">Te lo explicamos</button>
     <button type="button" (click)="glosario()" class="navMenuButton">¿Qué significa...?</button>
+  </div> -->
+
+
+  <div class="navMenu">
+    <header class="header">
+      <!-- <a href="" class="logo">CSS Nav</a> -->
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+      <ul *ngIf="!collapsed" class="menu">
+        <li><a (click)="inicio()">Inicio</a></li>
+        <li><a (click)="visionGlobal()">Visión global</a></li>
+        <li><a (click)="detallePresupuesto()">Detalle del presupuesto</a></li>
+        <li><a (click)="licitaciones()">Licitaciones</a></li>
+        <li><a (click)="explicamos()">Te lo explicamos</a></li>
+        <li><a (click)="glosario()">¿Qué significa ...?</a></li>
+      </ul>
+    </header>
   </div>
 
   <div class="barraBuscar">

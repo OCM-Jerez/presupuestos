@@ -7,13 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  collapsed = false;
   constructor(
     public router: Router,
   ) { }
 
-
   inicio() {
     this.router.navigateByUrl('/')
+    // this.collapsed = true;
   }
   visionGlobal() {
     this.router.navigateByUrl('/home')
