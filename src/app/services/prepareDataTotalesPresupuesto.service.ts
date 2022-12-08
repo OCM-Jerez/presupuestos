@@ -8,7 +8,9 @@ import { TableService } from './table.service';
   providedIn: 'root'
 })
 export class PrepareDataTotalesPresupuestoService {
-  private _dataTable: IDataTable;
+  private _dataTableIngresos: IDataTable;
+  private _dataTableGastos: IDataTable;
+
   constructor(
     private _tableService: TableService,
     private _dataStoreService: DataStoreService,
@@ -16,8 +18,8 @@ export class PrepareDataTotalesPresupuestoService {
 
   async calcTotales() {
     await this._tableService.loadDataForTypeClasification(true, 'ingresosEconomicaArticulos');
-    this._dataTable = this._dataStoreService.getDataTable
-    var dataIngresos = this._dataTable.rowData;
+    this._dataTableIngresos = this._dataStoreService.getDataTable
+    const dataIngresos = this._dataTableIngresos.rowData;
 
     const totalPresupuestoIngresos = dataIngresos.reduce((acc, curr) => {
       Object.keys(curr).forEach((key, index) => {
@@ -31,8 +33,8 @@ export class PrepareDataTotalesPresupuestoService {
     console.log(totalPresupuestoIngresos);
 
     await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos');
-    this._dataTable = this._dataStoreService.getDataTable
-    var dataGastos = this._dataTable.rowData;
+    this._dataTableGastos = this._dataStoreService.getDataTable
+    const dataGastos = this._dataTableGastos.rowData;
     const totalPresupuestoGastos = dataGastos.reduce((acc, curr) => {
       Object.keys(curr).forEach((key, index) => {
         if (!acc[key]) {
@@ -42,6 +44,9 @@ export class PrepareDataTotalesPresupuestoService {
       })
       return acc
     }, {})
+    console.log(totalPresupuestoGastos);
+
+
 
     const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
       year: 2022,
@@ -54,6 +59,8 @@ export class PrepareDataTotalesPresupuestoService {
       totalEjecutadoGastos: totalPresupuestoGastos.Pagos2022.toString()
         .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'),
     }
+    console.log(DataTotalesPresupuesto);
+
     this._dataStoreService.setDataTotalesPresupuesto = DataTotalesPresupuesto;
   }
 
