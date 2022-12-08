@@ -141,7 +141,11 @@ export class DetallePresupuestoComponent implements OnInit {
         break;
     }
 
-    // Gráfico treemap   
+    this.graphTreemap(data);
+
+  }
+
+  graphTreemap(data) {
     const chart = Highcharts.chart(this._treemap, {
       colorAxis: {
         minColor: '#FFFFFF',
@@ -175,11 +179,10 @@ export class DetallePresupuestoComponent implements OnInit {
         {
           name: null,
           innerSize: '50%',
-          data,
+          data: data,
         },
       ],
     } as any);
-
   }
 
   clickDetail() {
