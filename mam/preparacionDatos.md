@@ -269,6 +269,7 @@ Lo mejor es copiar la fila de un fichero anterior.
 - Guardar como desde VS Code.
 - Le cambio el nombre = al csv
 - Copiarlo a src/assets de la app
+-**Verificar que no tiene objetos vacios al final**
 - Cambiar nombres en :
 
         ⋅⋅⋅..\src\app\layouts\global-constants.ts
