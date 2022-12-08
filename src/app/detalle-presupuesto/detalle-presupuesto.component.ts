@@ -91,29 +91,6 @@ export class DetallePresupuestoComponent implements OnInit {
     var data = this._dataTable.rowData;
     console.log(data);
 
-    /* #region Total general para datos tabla  */
-    const totales = data.reduce((acc, curr) => {
-      Object.keys(curr).forEach((key, index) => {
-        if (!acc[key]) {
-          acc[key] = 0
-        }
-        acc[key] += curr[key]
-      })
-      return acc
-    }, {})
-
-    // this.totalPresupuestado = totales.Definitivas2022.toString()
-    //   .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    // if (this.typeClasification === 'ingresosEconomicaArticulos') {
-    //   this.totalRecaudado = totales.DerechosReconocidosNetos2022.toString()
-    //     .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    // }
-    // if (this.typeClasification != 'ingresosEconomicaArticulos') {
-    //   this.totalGastado = totales.Pagos2022.toString()
-    //     .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    // }
-    /* #endregion */
-
     // Datos para grafico
     switch (this._tabSelected) {
       case 'tab1':
