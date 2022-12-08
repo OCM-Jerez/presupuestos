@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  liqDate: '02/11/2022'
+  liqDate: '01/12/2022'
 };

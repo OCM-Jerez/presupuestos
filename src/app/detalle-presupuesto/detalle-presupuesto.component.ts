@@ -13,6 +13,7 @@ import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsTreemap from 'highcharts/modules/treemap';
 import heatmap from 'highcharts/modules/heatmap';
+import { environment } from '../../environments/environment';
 
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
@@ -24,6 +25,7 @@ heatmap(Highcharts)
 })
 export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+  public liqDate = environment.liqDate;
   showGridIngresos = true;
   showGridPrograma = false;
   showGridOrganico = false;
