@@ -94,7 +94,7 @@ export class CheckboxComponent implements OnInit {
       this.years.forEach((year) => year.checked = isAll);
     }
     this.years[8].checked = false
-    var selectedYears = this.years.filter(item => item.checked);
+    let selectedYears = this.years.filter(item => item.checked);
 
     if (!this.multiYears) {
       if (selectedYears.length > 1) {

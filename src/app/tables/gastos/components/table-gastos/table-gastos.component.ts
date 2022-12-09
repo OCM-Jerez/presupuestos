@@ -138,7 +138,7 @@ export class TableGastosComponent implements OnInit {
           console.log(this._dataTable.clasificationType);
 
           if (this._dataTable.clasificationType === 'gastosProgramaProgramas') {
-            var isExecuted = confirm("¿Quieres ver el detalle de este programa?");
+            const isExecuted = confirm("¿Quieres ver el detalle de este programa?");
             if (isExecuted) {
               this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
                 this._router.navigate(['tableProgramaDetails']);
