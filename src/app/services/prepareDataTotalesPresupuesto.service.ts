@@ -47,21 +47,22 @@ export class PrepareDataTotalesPresupuestoService {
     // console.log(totalPresupuestoGastos);
     // console.log(totalPresupuestoIngresos);
 
-    const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
-      year: 2022,
-      totalPresupuestoIngresos: totalPresupuestoIngresos.Definitivas2022.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'),
-      totalEjecutadoIngresos: totalPresupuestoIngresos.DerechosReconocidosNetos2022.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'),
-      totalPresupuestoGastos: totalPresupuestoGastos.Definitivas2022.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'),
-      totalEjecutadoGastos: totalPresupuestoGastos.Pagos2022.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'),
+    try {
+      const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
+        year: 2022,
+        totalPresupuestoIngresos: totalPresupuestoIngresos.Definitivas2022.toString()
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'),
+        totalEjecutadoIngresos: totalPresupuestoIngresos.DerechosReconocidosNetos2022.toString()
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'),
+        totalPresupuestoGastos: totalPresupuestoGastos.Definitivas2022.toString()
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'),
+        totalEjecutadoGastos: totalPresupuestoGastos.Pagos2022.toString()
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'),
+      }
+      // console.log(DataTotalesPresupuesto);
+      this._dataStoreService.setDataTotalesPresupuesto = DataTotalesPresupuesto;
+    } catch (error) {
+      console.log('error------------------- ', error);
     }
-    // console.log(DataTotalesPresupuesto);
-
-    this._dataStoreService.setDataTotalesPresupuesto = DataTotalesPresupuesto;
   }
-
-
 }
