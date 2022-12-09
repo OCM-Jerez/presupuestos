@@ -62,8 +62,9 @@ export class TableIngresosComponent implements OnInit {
   messageYears = this.avalaibleYearsService.message;
 
   private async _loadPropertyTable() {
-
     this._dataTable = this._dataStoreService.getDataTable
+    console.log(this._dataTable);
+
     this._columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,
@@ -150,7 +151,7 @@ export class TableIngresosComponent implements OnInit {
     this._gridApi = params.api;
     this._columnApi = params.columnApi;
 
-    var defaultSortModel: ColumnState[] = [
+    let defaultSortModel: ColumnState[] = [
       { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
     ];
     params.columnApi.applyColumnState({ state: defaultSortModel });
@@ -161,8 +162,8 @@ export class TableIngresosComponent implements OnInit {
 
   // TODO: Las colummnas disparan su altura
   // headerHeightSetter() {
-  // var padding = 20;
-  // var height = headerHeightGetter(1) + padding;
+  // let padding = 20;
+  // let height = headerHeightGetter(1) + padding;
   // this.GridApi.setHeaderHeight(height);
   // this.GridApi.resetRowHeights();
   // }

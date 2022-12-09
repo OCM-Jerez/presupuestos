@@ -189,7 +189,7 @@ export class IndiceComponent implements OnInit {
     /* #endregion */
 
     /* #region  gastosEconomicaCapitulos */
-    var dataGastosEconomicaCapitulos = await this._prepareDataCapituloDetails.getDataAllYear();
+    const dataGastosEconomicaCapitulos = await this._prepareDataCapituloDetails.getDataAllYear();
     // console.log(dataGastosEconomicaCapitulos);
 
     // Creo array de capitulos de gasto
@@ -282,7 +282,6 @@ export class IndiceComponent implements OnInit {
     this.financierosGastos = this.financierosGastos.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 
     /* #endregion */
-
 
     this.showGraph()
   }

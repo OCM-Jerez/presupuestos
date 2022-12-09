@@ -83,12 +83,12 @@ export class DetallePresupuestoComponent implements OnInit {
 
   private async _loadData(): Promise<void> {
     // tengo que pasar parametro correcto para isIncome = true o false
-    const isIncome = this.typeClasification.startsWith('ingresos');
-    // console.log(this.typeClasification);
+    // const isIncome = this.typeClasification.startsWith('ingresos');
+    console.log(this.typeClasification);
 
     await this._tableService.loadDataForTypeClasification(this.typeClasification);
     this._dataTable = this._dataStoreService.getDataTable
-    var data = this._dataTable.rowData;
+    let data = this._dataTable.rowData;
     // console.log(data);
 
     // Datos para grafico

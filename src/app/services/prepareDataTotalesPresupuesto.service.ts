@@ -45,7 +45,7 @@ export class PrepareDataTotalesPresupuestoService {
       return acc
     }, {})
     // console.log(totalPresupuestoGastos);
-    // console.log(totalPresupuestoIngresos);
+    console.log(totalPresupuestoIngresos);
 
     try {
       const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
@@ -62,7 +62,7 @@ export class PrepareDataTotalesPresupuestoService {
       // console.log(DataTotalesPresupuesto);
       this._dataStoreService.setDataTotalesPresupuesto = DataTotalesPresupuesto;
     } catch (error) {
-      console.log('error------------------- ', error);
+      console.error('error------------------- ', error);
     }
   }
 }
