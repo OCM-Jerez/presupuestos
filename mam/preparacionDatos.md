@@ -143,14 +143,14 @@ End Sub
 - Abrir Excel original
 - Guardar en carpeta OCM.
 - Guardar como xlsx (version más reciente de Excel)
-- Eliminar 2ª fila de cabecera, la que asigna letras a las columnas (a), (b) c=a+b ............
-- Eliminar fila totales.
 - eliminar columnas:
     - C.Gestor
+
     - Saldo de Créditos Retenidos pdtes de utilización
     - Saldo de Créditos Retenidos para Trans.
     - Saldo de Acuerd. Créd. para No Disponibil.
     - Saldo de Gastos Autorizados
+
     - Saldo de Pagos Ordenados
     - Total gastado
     - Saldo de Créditos disponibles
@@ -159,17 +159,22 @@ End Sub
     - Facturas consumen disp. Pend. Contabilizar
     - Gastado en Fase Definitiva
    
-
-- Añadir columnas:
-
+- Añadir columnas a partir de la columna D inclusive
         ⋅⋅⋅CodCap
         ⋅⋅⋅DesCap
         ⋅⋅⋅DesOrg
         ⋅⋅⋅DesPro
         ⋅⋅⋅DesEco
 
+- Insertar fila para copiar los datos de la caabecera aanterior.        
 - Copiar cabecera de fichero anterior. ES IMPORTANTE QUE COINCIDAN LAS COLUMNAS.
   DE LO CONTRARIO DESPLAZARA LOS VALORES SI FALTA ALGUNA.
+- Elimiar la cabecera original  
+- Eliminar 2ª fila de cabecera, la que asigna letras a las columnas (a), (b) c=a+b ............
+- Eliminar fila totales.
+
+- En fila 2 copiar y pegar las formulas de la s columnas D a H del fichero anterior.
+- Extender las formulas en todas las filas.
 
 - Cambiar a tipo numero, 0 decimales, sin separador de miles, las columnas:
 CodOrg hay que convertir a numero evitando el doble caracter 00, 01, 02 ....   Multiplicar por 1 y copiar como valor.
@@ -178,6 +183,10 @@ CodOrg hay que convertir a numero evitando el doble caracter 00, 01, 02 ....   M
         ⋅⋅⋅CodPro
         ⋅⋅⋅CodEco
         ⋅⋅⋅CodCap
+
+- Buscar  en las columnaas E a H inclusive
+
+
 
 - Extraer primer caracter de "Eco." en columna creada CodCap. =IZQUIERDA(C2;1)
 - Abrir Tabla organicos 2020.xlsx
@@ -217,10 +226,20 @@ Lo mejor es copiar la fila de un fichero anterior.
 
 - Archivo->guardar como->desplegable tipo archivo-> CSV UTF-8 (delimitado por comas) (\*.csv)
 - Si no se hace como UTF-8 el json contendra simbolos extraños.  
-- Guardar como 2020LiqGas
+- Guardar con el mismo nombre
+
 - En el CSV generado revisar todas las columnas numericas.
 - Revisar formato columna CodOrg debe ser numerico sin decimales ni separación de miles.
 - 
+- Convertir a JSON
+- Renombrar el fichero anterior añadiendo DDMM dia y mes al final
+- Copiarlo en assets de la app.
+
+- si se han añadido nuevos programas o economicos, generar JSON desde Excel-> csv->JSON
+- En assets renombrar el JSON anterior añadiendo AAAMMDD
+- En el csv dejar unicamente las dos primeras columnas antes de convertir a JSON
+- Solo guardo el Excel actualizado el JSON actualizado lo muevo a assets.
+
 
 
 

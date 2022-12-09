@@ -1,0 +1,1806 @@
+[
+  {
+    "codigo": 10000,
+    "descripcion": "Retribuciones básicas y otras remuneraciones"
+  },
+  {
+    "codigo": 10001,
+    "descripcion": "Otras remuneraciones"
+  },
+  {
+    "codigo": 11000,
+    "descripcion": "Retribuciones básicas personal eventual-Grupos Políticos"
+  },
+  {
+    "codigo": 11001,
+    "descripcion": "Retribuciones complementarias-Grupos Políticos"
+  },
+  {
+    "codigo": 11002,
+    "descripcion": "Otras remuneraciones personal eventual-Grupos Políticos"
+  },
+  {
+    "codigo": 12000,
+    "descripcion": "Sueldos del grupo A1 personal funcionario"
+  },
+  {
+    "codigo": 12001,
+    "descripcion": "Sueldos del grupo A2 personal funcionario"
+  },
+  {
+    "codigo": 12003,
+    "descripcion": "Sueldos del Grupo C1"
+  },
+  {
+    "codigo": 12004,
+    "descripcion": "Sueldos del grupo C2 personal funcionario"
+  },
+  {
+    "codigo": 12005,
+    "descripcion": "Sueldos del Grupo E"
+  },
+  {
+    "codigo": 12006,
+    "descripcion": "Trienios personal funcionario"
+  },
+  {
+    "codigo": 12100,
+    "descripcion": "Complemento destino personal funcionario"
+  },
+  {
+    "codigo": 12101,
+    "descripcion": "Complemento específico personal funcionario"
+  },
+  {
+    "codigo": 12103,
+    "descripcion": "Otros complementos personal funcionario"
+  },
+  {
+    "codigo": 12200,
+    "descripcion": "Retribuciones en especie"
+  },
+  {
+    "codigo": 13000,
+    "descripcion": "Retribuciones básicas personal laboral fijo"
+  },
+  {
+    "codigo": 13001,
+    "descripcion": "Horas extraordinarias personal laboral fijo"
+  },
+  {
+    "codigo": 13002,
+    "descripcion": "Otras remuneraciones personal laboral fijo"
+  },
+  {
+    "codigo": 13100,
+    "descripcion": "Retribuciones personal laboral eventual"
+  },
+  {
+    "codigo": 13101,
+    "descripcion": "Indefinidos no fijos en plantilla"
+  },
+  {
+    "codigo": 13102,
+    "descripcion": "Indemnizaciones ERE"
+  },
+  {
+    "codigo": 14300,
+    "descripcion": "Retribuciones otro personal"
+  },
+  {
+    "codigo": 15000,
+    "descripcion": "Productividad"
+  },
+  {
+    "codigo": 15002,
+    "descripcion": "Productividad no disponible-Ser Grles"
+  },
+  {
+    "codigo": 15100,
+    "descripcion": "Gratificaciones"
+  },
+  {
+    "codigo": 16000,
+    "descripcion": "Seguridad Social"
+  },
+  {
+    "codigo": 16009,
+    "descripcion": "Otras cuotas- Políticas activas empleo"
+  },
+  {
+    "codigo": 16200,
+    "descripcion": "Formación y perfeccionamiento del personal"
+  },
+  {
+    "codigo": 16204,
+    "descripcion": "Acción social"
+  },
+  {
+    "codigo": 16205,
+    "descripcion": "Seguros-Otras prestaciones económicas a favor de empleados"
+  },
+  {
+    "codigo": 20200,
+    "descripcion": "Arrendamientos edificios y otras construcciones"
+  },
+  {
+    "codigo": 20300,
+    "descripcion": "Arrendamiento de maquinaria, instalaciones y utillaje"
+  },
+  {
+    "codigo": 20400,
+    "descripcion": "Arrendamiento material transporte"
+  },
+  {
+    "codigo": 20500,
+    "descripcion": "Arrendamientos de mobiliario y enseres"
+  },
+  {
+    "codigo": 20600,
+    "descripcion": "Arrendamientos de equipos para proceso de informacion"
+  },
+  {
+    "codigo": 20800,
+    "descripcion": "Arrendamiento otro inmovilizado material"
+  },
+  {
+    "codigo": 20900,
+    "descripcion": "Cánones"
+  },
+  {
+    "codigo": 21000,
+    "descripcion": "Reparación, mantenimiento y conservación infraestructura y bienes naturales"
+  },
+  {
+    "codigo": 21001,
+    "descripcion": "Canalizaciones vía pública"
+  },
+  {
+    "codigo": 21200,
+    "descripcion": "Reparación, mantenimiento y conservación edificios y otras construcciones"
+  },
+  {
+    "codigo": 21204,
+    "descripcion": "Actuaciones inmediatas"
+  },
+  {
+    "codigo": 21206,
+    "descripcion": "Reparación, mantenimiento y conservación elevadores"
+  },
+  {
+    "codigo": 21207,
+    "descripcion": "Mantenimiento extintores"
+  },
+  {
+    "codigo": 21208,
+    "descripcion": "Mantenimiento alarmas"
+  },
+  {
+    "codigo": 21300,
+    "descripcion": "Reparación, mantenimiento y conservación maquinaria, instalaciones y utillaje"
+  },
+  {
+    "codigo": 21302,
+    "descripcion": "Reparación, mantenimiento y conservación aparatos aire acondicionado"
+  },
+  {
+    "codigo": 21303,
+    "descripcion": "Reparación, mantenimiento y conservación emisoras radio"
+  },
+  {
+    "codigo": 21400,
+    "descripcion": "Reparación, mantenimiento y conservación elementos transporte"
+  },
+  {
+    "codigo": 21500,
+    "descripcion": "Reparación, mantenimiento y conservación mobiliario y enseres"
+  },
+  {
+    "codigo": 21600,
+    "descripcion": "Reparación, mantenimiento y conservación equipos proceso informático"
+  },
+  {
+    "codigo": 21700,
+    "descripcion": "Reparación mantenimiento y conservación instrumentos municipales"
+  },
+  {
+    "codigo": 21900,
+    "descripcion": "Reparación, mantenimiento y conservación otro inmovilizado material"
+  },
+  {
+    "codigo": 22000,
+    "descripcion": "Ordinario no inventariable"
+  },
+  {
+    "codigo": 22001,
+    "descripcion": "Prensa, revistas, libros y otras publicaciones"
+  },
+  {
+    "codigo": 22002,
+    "descripcion": "Material informático no inventariable"
+  },
+  {
+    "codigo": 22003,
+    "descripcion": "Ordinario no inventariable para almacen"
+  },
+  {
+    "codigo": 22100,
+    "descripcion": "Energía eléctrica"
+  },
+  {
+    "codigo": 22101,
+    "descripcion": "Agua"
+  },
+  {
+    "codigo": 22102,
+    "descripcion": "Suministro de gas"
+  },
+  {
+    "codigo": 22103,
+    "descripcion": "Combustibles y carburantes"
+  },
+  {
+    "codigo": 22104,
+    "descripcion": "Suministro de vestuario."
+  },
+  {
+    "codigo": 22105,
+    "descripcion": "Productos alimenticios"
+  },
+  {
+    "codigo": 22106,
+    "descripcion": "Productos farmaceuticos y material sanitario"
+  },
+  {
+    "codigo": 22107,
+    "descripcion": "Gestion ayudas sociales especie"
+  },
+  {
+    "codigo": 22108,
+    "descripcion": "Suministro otro material para almacen central"
+  },
+  {
+    "codigo": 22109,
+    "descripcion": "Suministro munición"
+  },
+  {
+    "codigo": 22110,
+    "descripcion": "Productos de limpieza y aseo"
+  },
+  {
+    "codigo": 22111,
+    "descripcion": "Suministro repuestos maquinaria, utillaje y elementos"
+  },
+  {
+    "codigo": 22112,
+    "descripcion": "Suministro material electrónico, eléctrico y telecomunicaciones"
+  },
+  {
+    "codigo": 22113,
+    "descripcion": "Manutención de animales"
+  },
+  {
+    "codigo": 22199,
+    "descripcion": "Otros suministros"
+  },
+  {
+    "codigo": 22200,
+    "descripcion": "Postales"
+  },
+  {
+    "codigo": 22201,
+    "descripcion": "Postales otras"
+  },
+  {
+    "codigo": 22202,
+    "descripcion": "Telegráficas"
+  },
+  {
+    "codigo": 22203,
+    "descripcion": "Informáticas"
+  },
+  {
+    "codigo": 22299,
+    "descripcion": "Otros gastos en comunicaciones"
+  },
+  {
+    "codigo": 22300,
+    "descripcion": "Transportes de mercancías"
+  },
+  {
+    "codigo": 22400,
+    "descripcion": "Primas de seguro"
+  },
+  {
+    "codigo": 22401,
+    "descripcion": "Seguros voluntario PC"
+  },
+  {
+    "codigo": 22500,
+    "descripcion": "Tributos Estatales"
+  },
+  {
+    "codigo": 22501,
+    "descripcion": "Tributos Comunidades Autónomas"
+  },
+  {
+    "codigo": 22502,
+    "descripcion": "Tributos Entidades locales"
+  },
+  {
+    "codigo": 22601,
+    "descripcion": "Atenciones protocolarias y representativas"
+  },
+  {
+    "codigo": 22602,
+    "descripcion": "Publicidad y propaganda"
+  },
+  {
+    "codigo": 22603,
+    "descripcion": "Publicación en Diarios Oficiales"
+  },
+  {
+    "codigo": 22604,
+    "descripcion": "Jurídicos, contenciosos"
+  },
+  {
+    "codigo": 22606,
+    "descripcion": "Reuniones, conferencias y cursos"
+  },
+  {
+    "codigo": 22607,
+    "descripcion": "Oposiciones y pruebas selectivas"
+  },
+  {
+    "codigo": 22608,
+    "descripcion": "Comunidad de propietarios"
+  },
+  {
+    "codigo": 22609,
+    "descripcion": "Actividades culturales y deportivas"
+  },
+  {
+    "codigo": 22610,
+    "descripcion": "Festejos populares"
+  },
+  {
+    "codigo": 22611,
+    "descripcion": "Indemnizaciones"
+  },
+  {
+    "codigo": 22612,
+    "descripcion": "Actividades culturales en barriadas rurales"
+  },
+  {
+    "codigo": 22613,
+    "descripcion": "Club Amigos del Zoo"
+  },
+  {
+    "codigo": 22614,
+    "descripcion": "Otros gastos de promoción"
+  },
+  {
+    "codigo": 22616,
+    "descripcion": "Publicidad, propaganda a cargo particulares"
+  },
+  {
+    "codigo": 22623,
+    "descripcion": "Actividades complementarias"
+  },
+  {
+    "codigo": 22625,
+    "descripcion": "Actividades de juventud"
+  },
+  {
+    "codigo": 22626,
+    "descripcion": "Dinamización del ocio juvenil"
+  },
+  {
+    "codigo": 22630,
+    "descripcion": "Actividades menores p. Infanc Fam."
+  },
+  {
+    "codigo": 22633,
+    "descripcion": "Actividades programa prevención mendicidad infantil"
+  },
+  {
+    "codigo": 22638,
+    "descripcion": "Actividades Día Mundial Discapacidad"
+  },
+  {
+    "codigo": 22640,
+    "descripcion": "Programa transf."
+  },
+  {
+    "codigo": 22643,
+    "descripcion": "Gastos diversos"
+  },
+  {
+    "codigo": 22654,
+    "descripcion": "Actividades convivencia intercultural"
+  },
+  {
+    "codigo": 22655,
+    "descripcion": "Programa subvencionado zonas"
+  },
+  {
+    "codigo": 22656,
+    "descripcion": "Programa plan zona sur no subvencionado"
+  },
+  {
+    "codigo": 22657,
+    "descripcion": "Actividades programa participación y solidaridad"
+  },
+  {
+    "codigo": 22659,
+    "descripcion": "Actividades Institucionales"
+  },
+  {
+    "codigo": 22661,
+    "descripcion": "Programa voluntariado"
+  },
+  {
+    "codigo": 22662,
+    "descripcion": "Por obras a cargo de terceros"
+  },
+  {
+    "codigo": 22663,
+    "descripcion": "Gastos diversos proyecto casa mujeres"
+  },
+  {
+    "codigo": 22664,
+    "descripcion": "Dinamización asociaciones"
+  },
+  {
+    "codigo": 22665,
+    "descripcion": "Campaña contra la violencia de género"
+  },
+  {
+    "codigo": 22666,
+    "descripcion": "Proyecto salud nuestra ciudad"
+  },
+  {
+    "codigo": 22667,
+    "descripcion": "Programa municipal prevención acciones"
+  },
+  {
+    "codigo": 22670,
+    "descripcion": "Programas actuacion en distritos"
+  },
+  {
+    "codigo": 22672,
+    "descripcion": "Ecomercado"
+  },
+  {
+    "codigo": 22673,
+    "descripcion": "Plan Especial San Juan de Dios"
+  },
+  {
+    "codigo": 22674,
+    "descripcion": "Actividades de dinamización"
+  },
+  {
+    "codigo": 22699,
+    "descripcion": "Otros gastos diversos"
+  },
+  {
+    "codigo": 22700,
+    "descripcion": "Limpieza y aseo"
+  },
+  {
+    "codigo": 22701,
+    "descripcion": "Seguridad"
+  },
+  {
+    "codigo": 22702,
+    "descripcion": "Valoraciones y peritajes"
+  },
+  {
+    "codigo": 22704,
+    "descripcion": "Custodia, depósito y almacenaje"
+  },
+  {
+    "codigo": 22706,
+    "descripcion": "Estudios y trabajos técnicos"
+  },
+  {
+    "codigo": 22707,
+    "descripcion": "Estudios y trabajos técnicos"
+  },
+  {
+    "codigo": 22708,
+    "descripcion": "Servicios de recaudación a favor de la entidad"
+  },
+  {
+    "codigo": 22709,
+    "descripcion": "Recogida de residuos urbanos"
+  },
+  {
+    "codigo": 22710,
+    "descripcion": "Conservación y mantenimiento planta compostaje y reciclaje"
+  },
+  {
+    "codigo": 22712,
+    "descripcion": "Limpieza dependencias municipales"
+  },
+  {
+    "codigo": 22713,
+    "descripcion": "Mantenimiento alumbrado público"
+  },
+  {
+    "codigo": 22714,
+    "descripcion": "Mantenimiento parques y jardines públicos"
+  },
+  {
+    "codigo": 22715,
+    "descripcion": "Mantenimiento red semafórica"
+  },
+  {
+    "codigo": 22716,
+    "descripcion": "Mantenimiento señalización horizontal"
+  },
+  {
+    "codigo": 22717,
+    "descripcion": "Mantenimiento señalización vertical"
+  },
+  {
+    "codigo": 22718,
+    "descripcion": "Control tarjetas O.R.A."
+  },
+  {
+    "codigo": 22719,
+    "descripcion": "Conservación señalización horizontal, vertical y balizamiento"
+  },
+  {
+    "codigo": 22720,
+    "descripcion": "Ayuda domiciliaria"
+  },
+  {
+    "codigo": 22722,
+    "descripcion": "Limpieza colegios públicos"
+  },
+  {
+    "codigo": 22723,
+    "descripcion": "Servicios técnicos (Veterinario, herrador,etc)"
+  },
+  {
+    "codigo": 22726,
+    "descripcion": "Teleasistencia domiciliaria"
+  },
+  {
+    "codigo": 22733,
+    "descripcion": "Servicio transporte autobuses a pedanias"
+  },
+  {
+    "codigo": 22734,
+    "descripcion": "Servicio atención de día infantil y juvenil"
+  },
+  {
+    "codigo": 22735,
+    "descripcion": "Alumbrado decorativo fiestas"
+  },
+  {
+    "codigo": 22736,
+    "descripcion": "Alumbrado decorativo Navidad"
+  },
+  {
+    "codigo": 22746,
+    "descripcion": "Balizamiento y B.R.V."
+  },
+  {
+    "codigo": 22747,
+    "descripcion": "Mantenimiento de parques infantiles"
+  },
+  {
+    "codigo": 22748,
+    "descripcion": "Mantenimiento y alquiler WC botellodromo"
+  },
+  {
+    "codigo": 22749,
+    "descripcion": "Mantenimiento de fuentes ornamentales"
+  },
+  {
+    "codigo": 22755,
+    "descripcion": "Programa individual atención"
+  },
+  {
+    "codigo": 22760,
+    "descripcion": "Atencion a la ciudadania en distritos"
+  },
+  {
+    "codigo": 22799,
+    "descripcion": "Otros trabajos realizados por otras empresas y profesionales"
+  },
+  {
+    "codigo": 23000,
+    "descripcion": "Dietas miembros de los órganos de gobierno"
+  },
+  {
+    "codigo": 23010,
+    "descripcion": "Dietas del personal directivo"
+  },
+  {
+    "codigo": 23020,
+    "descripcion": "Dietas del personal no directivo"
+  },
+  {
+    "codigo": 23100,
+    "descripcion": "Locomoción de miembros órganos gobierno"
+  },
+  {
+    "codigo": 23110,
+    "descripcion": "Locomoción del personal directivo"
+  },
+  {
+    "codigo": 23120,
+    "descripcion": "Locomoción del personal no directivo"
+  },
+  {
+    "codigo": 23300,
+    "descripcion": "Otras indemnizaciones"
+  },
+  {
+    "codigo": 30000,
+    "descripcion": "Intereses de obligaciones y bonos-Deuda"
+  },
+  {
+    "codigo": 31000,
+    "descripcion": "Intereses préstamo interior"
+  },
+  {
+    "codigo": 31100,
+    "descripcion": "Gastos formalización,modificación y cancelación operaciones en euros"
+  },
+  {
+    "codigo": 35200,
+    "descripcion": "Intereses de demora"
+  },
+  {
+    "codigo": 35201,
+    "descripcion": "Intereses de demora a acreedores públicos"
+  },
+  {
+    "codigo": 35210,
+    "descripcion": "Intereses de demora a acreedores públicos otros"
+  },
+  {
+    "codigo": 35300,
+    "descripcion": "Operaciones de intercambio financiero"
+  },
+  {
+    "codigo": 35900,
+    "descripcion": "Otros gastos financieros"
+  },
+  {
+    "codigo": 41001,
+    "descripcion": "Patronato Municipal Parque Zoológico"
+  },
+  {
+    "codigo": 41003,
+    "descripcion": "Fundación Municipal de Formación y Empleo"
+  },
+  {
+    "codigo": 44900,
+    "descripcion": "AJEMSA- Serv. agua, alcantarillado y recogida de residuos"
+  },
+  {
+    "codigo": 44901,
+    "descripcion": "EMEMSA-Explotación de los Montes de Propio, S.A."
+  },
+  {
+    "codigo": 44902,
+    "descripcion": "JECOMUSA-Servicio de radio y television Municipal"
+  },
+  {
+    "codigo": 44903,
+    "descripcion": "JEREYSSA-Servicio de Recaudación"
+  },
+  {
+    "codigo": 44904,
+    "descripcion": "COMUJESA"
+  },
+  {
+    "codigo": 44905,
+    "descripcion": "EMUVIJESA"
+  },
+  {
+    "codigo": 44906,
+    "descripcion": "CIRJESA-Circuito de Jerez, S.A."
+  },
+  {
+    "codigo": 44907,
+    "descripcion": "Otras subvenciones a entes públicos y sociedades mercantiles"
+  },
+  {
+    "codigo": 44910,
+    "descripcion": "JESYTEL-Servicios Informaticos Internos"
+  },
+  {
+    "codigo": 44990,
+    "descripcion": "Otras subvenciones a entes públicos y sociedades mercantiles"
+  },
+  {
+    "codigo": 46100,
+    "descripcion": "Transferencias a entidades"
+  },
+  {
+    "codigo": 46200,
+    "descripcion": "Transferencias a Ayuntamientos"
+  },
+  {
+    "codigo": 46600,
+    "descripcion": "A otras entidades agrupen municipios"
+  },
+  {
+    "codigo": 46601,
+    "descripcion": "Mancomunidad municipios Bahía Cádiz"
+  },
+  {
+    "codigo": 46700,
+    "descripcion": "Consorcio Bomberos Provincia Cádiz"
+  },
+  {
+    "codigo": 46702,
+    "descripcion": "Consorcio Metropolitano Transporte Bahia Cádiz"
+  },
+  {
+    "codigo": 46703,
+    "descripcion": "Consorcio de Aguas de la Zona Gaditana"
+  },
+  {
+    "codigo": 46800,
+    "descripcion": "A Entidades Locales Autónomas"
+  },
+  {
+    "codigo": 46801,
+    "descripcion": "Fondo compensación ELA por crecimiento habitantes desde convenio vigente"
+  },
+  {
+    "codigo": 47000,
+    "descripcion": "Subvención empresas privadas para fomento empleo"
+  },
+  {
+    "codigo": 47001,
+    "descripcion": "Prog. Mpal. apoyo emprendiemiento y la"
+  },
+  {
+    "codigo": 47002,
+    "descripcion": "Plan Promoción de Empleo"
+  },
+  {
+    "codigo": 47003,
+    "descripcion": "Ordenanzas Reg. Fomento desarrollo económico Jerez"
+  },
+  {
+    "codigo": 47200,
+    "descripcion": "Subvección deficit transporte colectivo urbano"
+  },
+  {
+    "codigo": 47900,
+    "descripcion": "Otras subvenciones a empresas privadas"
+  },
+  {
+    "codigo": 47902,
+    "descripcion": "Escuela Negocios de Jerez"
+  },
+  {
+    "codigo": 48000,
+    "descripcion": "Atenciones benéficiencia y asistencia"
+  },
+  {
+    "codigo": 48003,
+    "descripcion": "Ayudas a Bono-Taxi"
+  },
+  {
+    "codigo": 48004,
+    "descripcion": "Ayudas sociales alquiler"
+  },
+  {
+    "codigo": 48100,
+    "descripcion": "Premios, becas y pensiones de estudio"
+  },
+  {
+    "codigo": 48800,
+    "descripcion": "Cooperación internacional y ayuda a"
+  },
+  {
+    "codigo": 48801,
+    "descripcion": "Coordinadora ONGDS de la provincia de Cádiz"
+  },
+  {
+    "codigo": 48900,
+    "descripcion": "Otras transferencias"
+  },
+  {
+    "codigo": 48901,
+    "descripcion": "Ayudas a banda de música"
+  },
+  {
+    "codigo": 48902,
+    "descripcion": "Atencion sociales en interes de la ciudad"
+  },
+  {
+    "codigo": 48903,
+    "descripcion": "Fundación Caballero Bonald"
+  },
+  {
+    "codigo": 48904,
+    "descripcion": "Fundación Teatro Villamarta"
+  },
+  {
+    "codigo": 48905,
+    "descripcion": "Fundación Andrés de Ribera"
+  },
+  {
+    "codigo": 48906,
+    "descripcion": "Fundación Centro Acogida San José"
+  },
+  {
+    "codigo": 48907,
+    "descripcion": "Consejo Económico y Social"
+  },
+  {
+    "codigo": 48908,
+    "descripcion": "FUNDARTE"
+  },
+  {
+    "codigo": 48911,
+    "descripcion": "Subvención al Taxi accesible"
+  },
+  {
+    "codigo": 48917,
+    "descripcion": "Speed Festival"
+  },
+  {
+    "codigo": 48918,
+    "descripcion": "Fundación Secretariado General Gitano"
+  },
+  {
+    "codigo": 48921,
+    "descripcion": "Comedor El Salvador"
+  },
+  {
+    "codigo": 48922,
+    "descripcion": "Cruz Roja Jerez (UMES)"
+  },
+  {
+    "codigo": 48923,
+    "descripcion": "Colegio Oficial Veterinarios de Cádiz"
+  },
+  {
+    "codigo": 48924,
+    "descripcion": "Cruz Roja -Transporte"
+  },
+  {
+    "codigo": 48925,
+    "descripcion": "Convenio apoyo proceso"
+  },
+  {
+    "codigo": 48926,
+    "descripcion": "Convenio APESORJE"
+  },
+  {
+    "codigo": 48927,
+    "descripcion": "Convenio AFEMEN"
+  },
+  {
+    "codigo": 48928,
+    "descripcion": "Centro de día Hogar San Juan"
+  },
+  {
+    "codigo": 48929,
+    "descripcion": "Fundaciones"
+  },
+  {
+    "codigo": 48930,
+    "descripcion": "Economato San Juan de Dios"
+  },
+  {
+    "codigo": 48931,
+    "descripcion": "Banco de alimentos"
+  },
+  {
+    "codigo": 48932,
+    "descripcion": "Centro acogida inmigrantes (CEAIN)"
+  },
+  {
+    "codigo": 48933,
+    "descripcion": "Grupo desarrollo rural"
+  },
+  {
+    "codigo": 48936,
+    "descripcion": "Convocatoria unica de subvenciones"
+  },
+  {
+    "codigo": 48937,
+    "descripcion": "Proyecto Hombre"
+  },
+  {
+    "codigo": 48938,
+    "descripcion": "Asociación de Ciudades Interculturales"
+  },
+  {
+    "codigo": 48939,
+    "descripcion": "Todos con Casa"
+  },
+  {
+    "codigo": 49000,
+    "descripcion": "Al exterior"
+  },
+  {
+    "codigo": 50000,
+    "descripcion": "Fondo Contingencia de Ejecución Presupuestaria (Art.31 LOEPSF)"
+  },
+  {
+    "codigo": 60000,
+    "descripcion": "Inversionse nuevas en terrenos destinados al"
+  },
+  {
+    "codigo": 60201,
+    "descripcion": "Cargas urbanisticas"
+  },
+  {
+    "codigo": 60216,
+    "descripcion": "Reurbanización C/Cantareria y C/Nueva (Actuaciones barrio Santiago)"
+  },
+  {
+    "codigo": 60219,
+    "descripcion": "Reforma y ampliación Peña Los Juncales en"
+  },
+  {
+    "codigo": 60222,
+    "descripcion": "Actuacionse resto Convenio"
+  },
+  {
+    "codigo": 60227,
+    "descripcion": "Urbanización U.E. 4S2 San Jeronimo B - 1ª Fase"
+  },
+  {
+    "codigo": 60230,
+    "descripcion": "Urbanización U.E. 1A18 Mreced"
+  },
+  {
+    "codigo": 60231,
+    "descripcion": "Urbanización vial entre UE 2T1 Armas Santiago y 1A18 Merced"
+  },
+  {
+    "codigo": 60234,
+    "descripcion": "Remodelacion vial glorieta Cuatro Caminos con nudo enlace N-"
+  },
+  {
+    "codigo": 60235,
+    "descripcion": "Otras obras conexión norte"
+  },
+  {
+    "codigo": 60236,
+    "descripcion": "Urbanización U.E. 4K1 Y 2M El Angel (C/Atlanta y eje)"
+  },
+  {
+    "codigo": 60237,
+    "descripcion": "Construcción de glorieta en A-4 accesos al sector sup 34"
+  },
+  {
+    "codigo": 60238,
+    "descripcion": "C onexión con sistema general viario U.E. 2Q1 Arroyo Membrillar"
+  },
+  {
+    "codigo": 60239,
+    "descripcion": "Escultura rotonda de Cuatro Caminos"
+  },
+  {
+    "codigo": 60302,
+    "descripcion": "Proyectos modificados y liquidaciones obras convenio educación"
+  },
+  {
+    "codigo": 60303,
+    "descripcion": "Campo de futbol 7 barriada La Granja"
+  },
+  {
+    "codigo": 60418,
+    "descripcion": "Instalacion maquinaria aire acondicionado Casa de la Mujer II fase"
+  },
+  {
+    "codigo": 60420,
+    "descripcion": "Museo de la Ciudad de Jerez"
+  },
+  {
+    "codigo": 60701,
+    "descripcion": "Obras accesibilidad 2005. Convenio IMSERSO Y ONCE"
+  },
+  {
+    "codigo": 60702,
+    "descripcion": "Actuaciones en El Alcazar"
+  },
+  {
+    "codigo": 60703,
+    "descripcion": "A/C restauración y rehabilitación sala Profundis Claustros de Santo Domingo"
+  },
+  {
+    "codigo": 60704,
+    "descripcion": "Construcción de centro europeo de la música andalusí"
+  },
+  {
+    "codigo": 60711,
+    "descripcion": "Claustros de Santo Domingo"
+  },
+  {
+    "codigo": 60900,
+    "descripcion": "Otras inversiones nuevas en infraestructuras y bienes para u"
+  },
+  {
+    "codigo": 60902,
+    "descripcion": "Obras Plan Urban"
+  },
+  {
+    "codigo": 60903,
+    "descripcion": "Obras Fondo Estatal de Inversión Local"
+  },
+  {
+    "codigo": 60905,
+    "descripcion": "Fondo estatatal para el empleo y sostenibilidad local"
+  },
+  {
+    "codigo": 60906,
+    "descripcion": "EDUSI"
+  },
+  {
+    "codigo": 60907,
+    "descripcion": "Urbanizacion de parcela edificio Jefatura de Policia Local"
+  },
+  {
+    "codigo": 60908,
+    "descripcion": "Urbanizacion de entorno de San Juan de los Caballeros"
+  },
+  {
+    "codigo": 60910,
+    "descripcion": "Reordenación de Plaza Belén"
+  },
+  {
+    "codigo": 60911,
+    "descripcion": "Adecuacion espacios libres calle Taxdirt"
+  },
+  {
+    "codigo": 60913,
+    "descripcion": "Reurbanizacion parque forestal La Marquesa"
+  },
+  {
+    "codigo": 60914,
+    "descripcion": "Instalación areas de recreo infantil en diferentes zonas de Jerez"
+  },
+  {
+    "codigo": 60916,
+    "descripcion": "Instalacion de circuitos biosaludables en espacios públicos"
+  },
+  {
+    "codigo": 60918,
+    "descripcion": "Adecuación espacios públicos entorno centro comercial Area Sur"
+  },
+  {
+    "codigo": 60920,
+    "descripcion": "Otras inversiones financ.con ejecución avales"
+  },
+  {
+    "codigo": 60921,
+    "descripcion": "Dotac.escaleras, rampas y acerados mejora acces.Zona Sur"
+  },
+  {
+    "codigo": 60922,
+    "descripcion": "Urbanización ARI F-05- La Hoyanca"
+  },
+  {
+    "codigo": 60923,
+    "descripcion": "Urbanización Calle Varsovia"
+  },
+  {
+    "codigo": 60925,
+    "descripcion": "Sector 30 San José Obrero"
+  },
+  {
+    "codigo": 60926,
+    "descripcion": "U.E. 2.G.1 Pelirón-Planemiento y Gestión"
+  },
+  {
+    "codigo": 60927,
+    "descripcion": "Expediente Reparcelación de la U.E. 4.S.2 \"San Jerónimo B"
+  },
+  {
+    "codigo": 60928,
+    "descripcion": "Expediente Reparcelación de la U.E. 4.S1 \"San Jerónimo A"
+  },
+  {
+    "codigo": 60929,
+    "descripcion": "Expediente Reparcelación de la U.E. 4.A.4 \"Entrevías"
+  },
+  {
+    "codigo": 60942,
+    "descripcion": "Urbanización UE 2T1 Armas de Santiago"
+  },
+  {
+    "codigo": 60943,
+    "descripcion": "Expropiación forzosa Poligono 4 PAU 1 Fdo. Portillo"
+  },
+  {
+    "codigo": 60945,
+    "descripcion": "Obras de urbanización calle C - UE 4Q1 \"El Portal"
+  },
+  {
+    "codigo": 60946,
+    "descripcion": "Ejecución aval UE 4G4B Pago Perceba"
+  },
+  {
+    "codigo": 60947,
+    "descripcion": "Aparatos biosaludables parques urbanos"
+  },
+  {
+    "codigo": 60948,
+    "descripcion": "Mant.conserv.espacios pbcos. y viario Bda. S.Juan de Dios"
+  },
+  {
+    "codigo": 60949,
+    "descripcion": "Reurbanización de Plaza Vargas y adyacentes"
+  },
+  {
+    "codigo": 60952,
+    "descripcion": "Sum.mobiliario parques y jardines - ELA La Barca Florida"
+  },
+  {
+    "codigo": 60953,
+    "descripcion": "Sum.19 lumnarias led y valla perimetral - ELA Nueva Jarilla"
+  },
+  {
+    "codigo": 60954,
+    "descripcion": "Sum.mobiliario, aparatos biosaludables-ELA S.Isidro G."
+  },
+  {
+    "codigo": 60955,
+    "descripcion": "Adquisición mobiliario y enseres parques mpal.-ELA El Torno"
+  },
+  {
+    "codigo": 60956,
+    "descripcion": "Adecentamiento, pavimentación,vallado calles ELA Estella Mar"
+  },
+  {
+    "codigo": 60957,
+    "descripcion": "Mejora de viales públicos 3ª F-ELA Guadalcacín"
+  },
+  {
+    "codigo": 60958,
+    "descripcion": "Cubierta Pque Mpal Francisco J Martínez Fdez ELA Nueva Jaril"
+  },
+  {
+    "codigo": 60959,
+    "descripcion": "Cubierta En Parque Mpal Esperanza Román ELA S. Isidro G"
+  },
+  {
+    "codigo": 60960,
+    "descripcion": "Sum. de Mobiliario y Carpa de Recinto Romería ELA N.Jarill"
+  },
+  {
+    "codigo": 60961,
+    "descripcion": "Adq. de Caseta Prefab Aseos para P.Mpal E.Román ELA S.Isidro"
+  },
+  {
+    "codigo": 60962,
+    "descripcion": "Juegos de Calistenia Parque Mpal En Plaza Pablo Ig ELA S. Is"
+  },
+  {
+    "codigo": 60963,
+    "descripcion": "Adquisición de Elementos de Juegos Infantiles ELA Torrecera"
+  },
+  {
+    "codigo": 60964,
+    "descripcion": "Adq. de Mobiliario de Parques y Jardines ELA Torrecera"
+  },
+  {
+    "codigo": 60965,
+    "descripcion": "Adq. Losetas de Caucho para Suelo de Parques y Jar ELA Torre"
+  },
+  {
+    "codigo": 60966,
+    "descripcion": "Obras de urbanización U.E. 8.E.2. Parque Empresarial 2"
+  },
+  {
+    "codigo": 60967,
+    "descripcion": "Mejoras de equipamientos y zonas verdes"
+  },
+  {
+    "codigo": 60968,
+    "descripcion": "Terminación de obras Sector 26 1ª Fase"
+  },
+  {
+    "codigo": 60975,
+    "descripcion": "POS 2006 Asfaltado varias calles en Nueva Jarilla"
+  },
+  {
+    "codigo": 60977,
+    "descripcion": "Reord.y urban.Pl.Orbaneja y c/Sta.María G. y Juana Dios Lacoste"
+  },
+  {
+    "codigo": 60998,
+    "descripcion": "Obras POS"
+  },
+  {
+    "codigo": 61900,
+    "descripcion": "Otras inversiones en infraestructuras"
+  },
+  {
+    "codigo": 61901,
+    "descripcion": "Reurbanización de Plaza Zahara- Vías"
+  },
+  {
+    "codigo": 61902,
+    "descripcion": "Rehabilitacion techos de galeria soportales de Madre de Dios"
+  },
+  {
+    "codigo": 61903,
+    "descripcion": "Refuerzo de firme varias calles"
+  },
+  {
+    "codigo": 61904,
+    "descripcion": "Ordenación y modern mercadillo Parada y"
+  },
+  {
+    "codigo": 61906,
+    "descripcion": "Reforma de infraestructuras en barriada ICOVESA"
+  },
+  {
+    "codigo": 61909,
+    "descripcion": "Conservacion y mantenimiento en mercado central de abastos"
+  },
+  {
+    "codigo": 61910,
+    "descripcion": "Adecentamiento de vías públicas ELA Estella del Marqués"
+  },
+  {
+    "codigo": 61911,
+    "descripcion": "Mejoras alumbrado público ELA Estella del Marqués"
+  },
+  {
+    "codigo": 61912,
+    "descripcion": "Reparación saneamiento vía pública ELA Guadalcacin"
+  },
+  {
+    "codigo": 61913,
+    "descripcion": "Cambio luminaria pública a LED piscina municipal ELA El Torno"
+  },
+  {
+    "codigo": 61914,
+    "descripcion": "Adaptación de viales públicos ELA Guadalcacín"
+  },
+  {
+    "codigo": 61915,
+    "descripcion": "Asfaltado de viales públicos ELA La Barca de la Florida"
+  },
+  {
+    "codigo": 61916,
+    "descripcion": "Dotación mobiliario infantil y urbano parques ELA Nueva Jarilla"
+  },
+  {
+    "codigo": 61917,
+    "descripcion": "Sustitución de luminaria pública a LED ELA Estella Marqués"
+  },
+  {
+    "codigo": 61918,
+    "descripcion": "Sum. de Césped Artificial para Zonas Ajardinadas ELA N. Jari"
+  },
+  {
+    "codigo": 61919,
+    "descripcion": "Mejoras de acerado y accesibilidad"
+  },
+  {
+    "codigo": 61920,
+    "descripcion": "Renovación acerados y mejoras accesibilidad Puertas del Sur"
+  },
+  {
+    "codigo": 61970,
+    "descripcion": "Actuaciones varias"
+  },
+  {
+    "codigo": 61971,
+    "descripcion": "Tu Barrio nuestro Centro - Organos de"
+  },
+  {
+    "codigo": 62200,
+    "descripcion": "Edificios y otras construcciones"
+  },
+  {
+    "codigo": 62202,
+    "descripcion": "Contrucción nave cobertizo instalaciones deportivas ELA San Isidro"
+  },
+  {
+    "codigo": 62201,
+    "descripcion": "Construcc.Centro Polivalente de uso social S.José Obrero"
+  },
+  {
+    "codigo": 62203,
+    "descripcion": "Construcción vestuarios adaptados instalaciones deportivas ELA San Isidro"
+  },
+  {
+    "codigo": 62204,
+    "descripcion": "Construcción de Aseos y Almacén En Edificio Mpal ELA Torrecera"
+  },
+  {
+    "codigo": 62205,
+    "descripcion": "Mejora de Escenario En Edificio Mpal ELA Torrecera"
+  },
+  {
+    "codigo": 62206,
+    "descripcion": "Centro tecnológico del Motor"
+  },
+  {
+    "codigo": 62207,
+    "descripcion": "Eje. de Aseos y Vestuarios Adaptados  Discapac. ELA S. Isidr"
+  },
+  {
+    "codigo": 62237,
+    "descripcion": "Parque flotante desmontable"
+  },
+  {
+    "codigo": 62246,
+    "descripcion": "Remodelacion edificio junto estacion tren (imprenta municipal)"
+  },
+  {
+    "codigo": 62300,
+    "descripcion": "Maquinaria, instalaciones y utillaje"
+  },
+  {
+    "codigo": 62302,
+    "descripcion": "Adquisición equipo de videoconferencia"
+  },
+  {
+    "codigo": 62308,
+    "descripcion": "Adquisición máquina recogida residuos ELA Estella Marqués"
+  },
+  {
+    "codigo": 62310,
+    "descripcion": "Adquisicion maquinaria, instalaciones y utillaje"
+  },
+  {
+    "codigo": 62324,
+    "descripcion": "Adquisición maquinaria Imprenta"
+  },
+  {
+    "codigo": 62348,
+    "descripcion": "Instalación cámara frigorífica Mdo"
+  },
+  {
+    "codigo": 62367,
+    "descripcion": "Maquinaria de Impresión Offet Cuatro"
+  },
+  {
+    "codigo": 62368,
+    "descripcion": "Fase de Manipulado para Imprenta"
+  },
+  {
+    "codigo": 62369,
+    "descripcion": "Máquina numeradora de aspas Imprenta"
+  },
+  {
+    "codigo": 62378,
+    "descripcion": "Biomaza en piscina Zona Sur-Piscinas"
+  },
+  {
+    "codigo": 62400,
+    "descripcion": "Adquisición elementos de transporte"
+  },
+  {
+    "codigo": 62420,
+    "descripcion": "Adquisicion material de transporte"
+  },
+  {
+    "codigo": 62500,
+    "descripcion": "Mobiliario y enseres"
+  },
+  {
+    "codigo": 62514,
+    "descripcion": "Climatizacion de instalaciones"
+  },
+  {
+    "codigo": 62551,
+    "descripcion": "Equipamiento Centro de Día-Serv grales de"
+  },
+  {
+    "codigo": 62565,
+    "descripcion": "Equipamiento C.Cívico La Granja-Serv Gles"
+  },
+  {
+    "codigo": 62600,
+    "descripcion": "Equipos para procesos de información"
+  },
+  {
+    "codigo": 62603,
+    "descripcion": "Adquisición equipo informatico"
+  },
+  {
+    "codigo": 62752,
+    "descripcion": "Instalación cesped artifical campo futbol Picadueñas"
+  },
+  {
+    "codigo": 62765,
+    "descripcion": "Centro de Formación Municipal-Formación"
+  },
+  {
+    "codigo": 62775,
+    "descripcion": "Césped artificial cerramiento y vesturarios"
+  },
+  {
+    "codigo": 62779,
+    "descripcion": "Equipamiento Sala Paúl"
+  },
+  {
+    "codigo": 62785,
+    "descripcion": "Presupuestos participativos pendientes ejecución anterior"
+  },
+  {
+    "codigo": 62787,
+    "descripcion": "Remod/adaptac Escuela Policía en Est."
+  },
+  {
+    "codigo": 62788,
+    "descripcion": "Inst césped artif Campo Futbol San Ginés y"
+  },
+  {
+    "codigo": 62790,
+    "descripcion": "Inversiones en instalaciones"
+  },
+  {
+    "codigo": 62900,
+    "descripcion": "Otras inversiones nuevas asociadas funcionamiento operativo servicio"
+  },
+  {
+    "codigo": 62901,
+    "descripcion": "Otros gastos de inversión-Policía Local"
+  },
+  {
+    "codigo": 62902,
+    "descripcion": "Inversiones asociadas a actuaciones urbanísticas"
+  },
+  {
+    "codigo": 62905,
+    "descripcion": "Equipos y materiales para serv prev riesgos"
+  },
+  {
+    "codigo": 62907,
+    "descripcion": "Adquisición equipos análisis"
+  },
+  {
+    "codigo": 62908,
+    "descripcion": "Sum.equipam.espacios deport. ELA La Barca de la Florida"
+  },
+  {
+    "codigo": 62909,
+    "descripcion": "Sum.mobiliario para equip.cultural mpal. ELA El Torno"
+  },
+  {
+    "codigo": 62910,
+    "descripcion": "Adquisición focos LED iluminación campo de fútbol Estella"
+  },
+  {
+    "codigo": 62911,
+    "descripcion": "Adaptación piscina municiapal a  Normativa vigente ELA El Torno"
+  },
+  {
+    "codigo": 62912,
+    "descripcion": "Suministro de gradas campo municipal futbol ELA San Isidro"
+  },
+  {
+    "codigo": 62913,
+    "descripcion": "Suministro de equipamiento cultural ELA Torrecera"
+  },
+  {
+    "codigo": 62914,
+    "descripcion": "Adq. de Mobiliario y Enseres  Instalaciones Depor ELA Torno"
+  },
+  {
+    "codigo": 62915,
+    "descripcion": "Suministro mobiliario para pabellón deportivo municipal ELA Nueva Jarilla"
+  },
+  {
+    "codigo": 62916,
+    "descripcion": "Sum. de Mobiliario para Instalaciones Deportivas ELA Torrecera"
+  },
+  {
+    "codigo": 62917,
+    "descripcion": "Suministro proyectores LED campo de fútbol municipal ELA Nueva Jarilla"
+  },
+  {
+    "codigo": 62918,
+    "descripcion": "Adaptación espacios complejo deportivo instalaciones municiapales ELA Torremelgarejo"
+  },
+  {
+    "codigo": 62921,
+    "descripcion": "Equipo fotografico digital"
+  },
+  {
+    "codigo": 63100,
+    "descripcion": "Terrenos y bienes naturales"
+  },
+  {
+    "codigo": 63200,
+    "descripcion": "Inversión, reposición edificios y otras construcciones"
+  },
+  {
+    "codigo": 63201,
+    "descripcion": "Plan de actuación en colegios pedanias"
+  },
+  {
+    "codigo": 63202,
+    "descripcion": "Reparacion edificio gimnasio Campo de la Juventud"
+  },
+  {
+    "codigo": 63203,
+    "descripcion": "Rehabilitacion fachadas biblioteca"
+  },
+  {
+    "codigo": 63204,
+    "descripcion": "Actuaciones consolñidación Palacio"
+  },
+  {
+    "codigo": 63207,
+    "descripcion": "Actuaciones consolidación Palacio Villapanes"
+  },
+  {
+    "codigo": 63208,
+    "descripcion": "Actuaciones varias en Claustros de Santo Domingo"
+  },
+  {
+    "codigo": 63209,
+    "descripcion": "Arreglos estación de autobuses"
+  },
+  {
+    "codigo": 63214,
+    "descripcion": "Anctuaciones en aseos CEIP Guadalete ELA El Torno"
+  },
+  {
+    "codigo": 63215,
+    "descripcion": "Actuaciones en piscina municipal ELA Torrecera"
+  },
+  {
+    "codigo": 63216,
+    "descripcion": "Rehabilitacioón centro cultural ELA Estella del Marqués"
+  },
+  {
+    "codigo": 63217,
+    "descripcion": "Reparación sistema electronio campo futbol ELA Guadalcacin"
+  },
+  {
+    "codigo": 63218,
+    "descripcion": "Rehabilitacion y mejoras zonas deportivas ELA San Isidro"
+  },
+  {
+    "codigo": 63219,
+    "descripcion": "Rehabilitación piscina municipal ELA Torrecera"
+  },
+  {
+    "codigo": 63222,
+    "descripcion": "Rehabilitación oficinas para salud pca-Otras"
+  },
+  {
+    "codigo": 63223,
+    "descripcion": "Actuaciones medioambientales Cementerio Municipal"
+  },
+  {
+    "codigo": 63226,
+    "descripcion": "Centro de Arte Contemporáneo Callejón de los Bolos"
+  },
+  {
+    "codigo": 63227,
+    "descripcion": "Puesta en valor del Cine Astoria"
+  },
+  {
+    "codigo": 63228,
+    "descripcion": "Tabanco del Duque"
+  },
+  {
+    "codigo": 63229,
+    "descripcion": "Rehabilitación antiguas escuelas de la ELA Torrecera"
+  },
+  {
+    "codigo": 63230,
+    "descripcion": "Adecentamiento y reparación edificio consistorial ELA Estella Marques"
+  },
+  {
+    "codigo": 63231,
+    "descripcion": "Adecuación infraestructuras CEIP Guadalete en ELA El Torno"
+  },
+  {
+    "codigo": 63232,
+    "descripcion": "Rehabilitacion complejo Díez Mérito"
+  },
+  {
+    "codigo": 63300,
+    "descripcion": "Inversión reposición maquinaria, instal utillaje-Instalaciones"
+  },
+  {
+    "codigo": 63500,
+    "descripcion": "Inversión reposición mobiliario"
+  },
+  {
+    "codigo": 63900,
+    "descripcion": "Otras inversiones de reposición asociadas al funcionamiento operativo"
+  },
+  {
+    "codigo": 63903,
+    "descripcion": "Rehabilitacion y mejoras parque y pistal padel ELA La Barca"
+  },
+  {
+    "codigo": 63904,
+    "descripcion": "Suministro de césped artificial campo de fútbol Guadalcacín"
+  },
+  {
+    "codigo": 63905,
+    "descripcion": "Sustitución  cubierta pabellón polideportivo municipal Víctor Cor ELA La Barca"
+  },
+  {
+    "codigo": 63906,
+    "descripcion": "Reforma y adecuación de piscinas municipales ELA Barca"
+  },
+  {
+    "codigo": 63907,
+    "descripcion": "Reforma y adecuación de piscinas municipales ELA Nueva Jarilla"
+  },
+  {
+    "codigo": 64100,
+    "descripcion": "Gastos en aplicaciones informáticas"
+  },
+  {
+    "codigo": 68100,
+    "descripcion": "Terrenos y bienes naturales-Actuaciones PMS"
+  },
+  {
+    "codigo": 68101,
+    "descripcion": "Adquisiciones en delimitaciones de areas"
+  },
+  {
+    "codigo": 68104,
+    "descripcion": "Actuaciones PMS- Cerrofruto"
+  },
+  {
+    "codigo": 68200,
+    "descripcion": "Gastos en inversiones de bienes patrimoniales"
+  },
+  {
+    "codigo": 72000,
+    "descripcion": "A la Administración General del Estado"
+  },
+  {
+    "codigo": 74000,
+    "descripcion": "A EMUVIJESA-Gestión urbanistica"
+  },
+  {
+    "codigo": 74005,
+    "descripcion": "A COMUJESA"
+  },
+  {
+    "codigo": 74007,
+    "descripcion": "A CIRJESA-Circuito de Jerez"
+  },
+  {
+    "codigo": 74300,
+    "descripcion": "A entes públicos y soc mercantiles de la Entidad Local"
+  },
+  {
+    "codigo": 75000,
+    "descripcion": "A la administracióngeneral de las Comunidades Autónomas"
+  },
+  {
+    "codigo": 76100,
+    "descripcion": "A Diputaciones, Consejos y cabildos"
+  },
+  {
+    "codigo": 76702,
+    "descripcion": "Consorcio Metropolitano Transporte Bahía Cádiz"
+  },
+  {
+    "codigo": 77003,
+    "descripcion": "Resarcimiento esfuerzo electrico IKEA"
+  },
+  {
+    "codigo": 78000,
+    "descripcion": "Transferencia de capital a familias e instituciones sin fines lucro"
+  },
+  {
+    "codigo": 78900,
+    "descripcion": "Otras transferencias de capital"
+  },
+  {
+    "codigo": 78904,
+    "descripcion": "Transferencia capital Archic. Stmo.Cristo Expiración Ermita San Telmo"
+  },
+  {
+    "codigo": 78905,
+    "descripcion": "Transferencia capital Orden Padres Mercedarios Rehabilitación Basílica Merced"
+  },
+  {
+    "codigo": 78906,
+    "descripcion": "Fundación Centro Acogida San José"
+  },
+  {
+    "codigo": 78907,
+    "descripcion": "Transferencia capital Hermandad La Sentencia Rehabilitación Ermita La Yedra"
+  },
+  {
+    "codigo": 78921,
+    "descripcion": "Obras rehabilitación Bda. Asunción-Edifif y"
+  },
+  {
+    "codigo": 78923,
+    "descripcion": "Fundación Andrés de Ribera-Promoción"
+  },
+  {
+    "codigo": 82190,
+    "descripcion": "A otros subsectores"
+  },
+  {
+    "codigo": 83001,
+    "descripcion": "Anticipos reintegros al personal a largo plazo"
+  },
+  {
+    "codigo": 83101,
+    "descripcion": "Anticipos reintegros al personal a largo plazo"
+  },
+  {
+    "codigo": 85090,
+    "descripcion": "Resto de adquisiciones de acciones del sector publico"
+  },
+  {
+    "codigo": 90100,
+    "descripcion": "Amortización de Deuda Pública en euros a"
+  },
+  {
+    "codigo": 91100,
+    "descripcion": "Amortización prestamos largo plazo entes sector público"
+  },
+  {
+    "codigo": 91300,
+    "descripcion": "Amortización prestamos a medio y largo entes fuera sector público"
+  },
+  {
+    "codigo": 76700,
+    "descripcion": "Transferencias a Consorcios. A revisar"
+  },
+  {
+    "codigo": 60917,
+    "descripcion": "Inversiones reales. Medio rural. A revisar"
+  },
+  {
+    "codigo": 68900,
+    "descripcion": "Inversiones reales. Cultura. A revisar"
+  },
+  {
+    "codigo": 68102,
+    "descripcion": "Inversiones reales. Montes propios. A revisar"
+  },
+  {
+    "codigo": 60915,
+    "descripcion": "Inversiones reales urbanismo. A revisar"
+  },
+  {
+    "codigo": 61907,
+    "descripcion": "Inversiones reales urbanismo. A revisar"
+  },
+  {
+    "codigo": 61908,
+    "descripcion": "Inversiones reales urbanismo. A revisar"
+  },
+  {
+    "codigo": 63210,
+    "descripcion": "Inversiones reales urbanismo. A revisar"
+  },
+  {
+    "codigo": 63211,
+    "descripcion": "Inversiones reales urbanismo. A revisar"
+  },
+  {
+    "codigo": 63901,
+    "descripcion": "Inversiones reales urbanismo. A revisar"
+  },
+  {
+    "codigo": 63902,
+    "descripcion": "Inversiones reales urbanismo. A revisar"
+  },
+  {
+    "codigo": 65000,
+    "descripcion": "Inversiones reales urbanismo. A revisar"
+  }
+]
