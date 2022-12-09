@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
     private _dataStoreService: DataStoreService,
     private _tableService: TableService,
     private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService
-
   ) { }
 
   ngOnInit(): void {
@@ -42,9 +41,8 @@ export class HomeComponent implements OnInit {
     //  Calculo totales de ingresos y gastos y los guardo en _dataStoreService  */
     this._prepareDataTotalesPresupuestoService.calcTotales();
 
-    /* #region   */
+    /* #region datos aleatorios para la tabla de ejemplos  */
     const ingresoGasto = (Math.random() >= 0.5) ? true : false;
-
     if (ingresoGasto) {
       await this._tableService.loadDataForTypeClasification(true, 'ingresosEconomicaArticulos');
       this._dataTable = this._dataStoreService.getDataTable
@@ -70,22 +68,29 @@ export class HomeComponent implements OnInit {
         });
         return acc;
       }, []);
+      console.log('dataTablaAleatoria', dataTablaAleatoria);
 
-      this.random(1, dataTablaAleatoria.length);
+
+      this.random(1, dataTablaAleatoria.length - 1);
       const index1 = this._arrRandom[0];
       const index2 = this._arrRandom[1];
       const index3 = this._arrRandom[2];
 
       this.textoTabla = '¿Cuanto recauda el Ayuntamiento por...?'
-      this.textEjemplo1 = dataTablaAleatoria[index1].name
-      this.valueEjemplo1 = dataTablaAleatoria[index1].value.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-      this.textEjemplo2 = dataTablaAleatoria[index2].name
-      this.valueEjemplo2 = dataTablaAleatoria[index2].value.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-      this.textEjemplo3 = dataTablaAleatoria[index3].name
-      this.valueEjemplo3 = dataTablaAleatoria[index3].value.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+      try {
+        this.textEjemplo1 = dataTablaAleatoria[index1].name
+        this.valueEjemplo1 = dataTablaAleatoria[index1].value.toString()
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        this.textEjemplo2 = dataTablaAleatoria[index2].name
+        this.valueEjemplo2 = dataTablaAleatoria[index2].value.toString()
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        this.textEjemplo3 = dataTablaAleatoria[index3].name
+        this.valueEjemplo3 = dataTablaAleatoria[index3].value.toString()
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+      } catch (error) {
+        console.log('error', index1, index2, index3);
+      }
+
     } else {
       await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos');
       this._dataTable = this._dataStoreService.getDataTable
@@ -112,24 +117,30 @@ export class HomeComponent implements OnInit {
         return acc;
       }, []);
 
-      this.random(1, dataTablaAleatoria.length);
+      this.random(1, dataTablaAleatoria.length - 1);
       const index1 = this._arrRandom[0];
       const index2 = this._arrRandom[1];
       const index3 = this._arrRandom[2];
 
       this.textoTabla = '¿Cuanto ha gastado la delegación de...?'
-      this.textEjemplo1 = dataTablaAleatoria[index1].name
-      this.valueEjemplo1 = dataTablaAleatoria[index1].value.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-      this.textEjemplo2 = dataTablaAleatoria[index2].name
-      this.valueEjemplo2 = dataTablaAleatoria[index2].value.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-      this.textEjemplo3 = dataTablaAleatoria[index3].name
-      this.valueEjemplo3 = dataTablaAleatoria[index3].value.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+      try {
+        this.textEjemplo1 = dataTablaAleatoria[index1].name;
+        this.valueEjemplo1 = dataTablaAleatoria[index1].value.toString()
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        this.textEjemplo2 = dataTablaAleatoria[index2].name;
+        this.valueEjemplo2 = dataTablaAleatoria[index2].value.toString()
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        this.textEjemplo3 = dataTablaAleatoria[index3].name;
+        this.valueEjemplo3 = dataTablaAleatoria[index3].value.toString()
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+      } catch (error) {
+        console.log('error', index1, index2, index3);
+
+      }
+
     }
+    /* #endregion */
   }
-  /* #endregion */
 
 
 
