@@ -30,7 +30,7 @@ export class PrepareDataTotalesPresupuestoService {
       })
       return acc
     }, {})
-    console.log(totalPresupuestoIngresos);
+    // console.log(totalPresupuestoIngresos);
 
     await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos');
     this._dataTableGastos = this._dataStoreService.getDataTable
@@ -44,9 +44,8 @@ export class PrepareDataTotalesPresupuestoService {
       })
       return acc
     }, {})
-    console.log(totalPresupuestoGastos);
-
-
+    // console.log(totalPresupuestoGastos);
+    // console.log(totalPresupuestoIngresos);
 
     const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
       year: 2022,
@@ -59,7 +58,7 @@ export class PrepareDataTotalesPresupuestoService {
       totalEjecutadoGastos: totalPresupuestoGastos.Pagos2022.toString()
         .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'),
     }
-    console.log(DataTotalesPresupuesto);
+    // console.log(DataTotalesPresupuesto);
 
     this._dataStoreService.setDataTotalesPresupuesto = DataTotalesPresupuesto;
   }
