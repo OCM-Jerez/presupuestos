@@ -46,7 +46,7 @@ export class GastosComponent implements OnInit {
     console.log(this._gridApi);
 
     this._columnApi = params.columnApi;
-    // var defaultSortModel: ColumnState[] = [
+    // let defaultSortModel: ColumnState[] = [
     //   { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
     // ];
     // params.columnApi.applyColumnState({ state: defaultSortModel });
