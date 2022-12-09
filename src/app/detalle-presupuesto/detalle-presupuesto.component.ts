@@ -55,7 +55,7 @@ export class DetallePresupuestoComponent implements OnInit {
 
   ngOnInit(): void {
     this._tabSelected = localStorage.getItem('activeTab') != null ? localStorage.getItem('activeTab') : 'tab1';
-    console.log(this._tabSelected, this._radioButtonSelected)
+    // console.log(this._tabSelected, this._radioButtonSelected)
     this.setValues(this._tabSelected);
     this._loadData();
     // setTimeout(() => {
@@ -84,12 +84,12 @@ export class DetallePresupuestoComponent implements OnInit {
   private async _loadData(): Promise<void> {
     // tengo que pasar parametro correcto para isIncome = true o false
     const isIncome = this.typeClasification.startsWith('ingresos');
-    console.log(this.typeClasification);
+    // console.log(this.typeClasification);
 
     await this._tableService.loadDataForTypeClasification(isIncome, this.typeClasification);
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
-    console.log(data);
+    // console.log(data);
 
     // Datos para grafico
     switch (this._tabSelected) {

@@ -68,8 +68,7 @@ export class HomeComponent implements OnInit {
         });
         return acc;
       }, []);
-      console.log('dataTablaAleatoria', dataTablaAleatoria);
-
+      // console.log('dataTablaAleatoria', dataTablaAleatoria);
 
       this.random(1, dataTablaAleatoria.length - 1);
       const index1 = this._arrRandom[0];
@@ -90,7 +89,6 @@ export class HomeComponent implements OnInit {
       } catch (error) {
         console.log('error', index1, index2, index3);
       }
-
     } else {
       await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos');
       this._dataTable = this._dataStoreService.getDataTable
@@ -141,8 +139,6 @@ export class HomeComponent implements OnInit {
     }
     /* #endregion */
   }
-
-
 
   visionGlobal() {
     this._router.navigateByUrl('/home')
