@@ -86,7 +86,7 @@ export class DetallePresupuestoComponent implements OnInit {
     const isIncome = this.typeClasification.startsWith('ingresos');
     // console.log(this.typeClasification);
 
-    await this._tableService.loadDataForTypeClasification(isIncome, this.typeClasification);
+    await this._tableService.loadDataForTypeClasification(this.typeClasification);
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
     // console.log(data);

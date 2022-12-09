@@ -60,12 +60,12 @@ export class GastosComponent implements OnInit {
       const useStarWitch: boolean = dataPropertyTable.useStarWitch;
       const attribute: string = dataPropertyTable.attribute;
       await this._tableService.loadDataForTypeClasification(
-        false,
+        // false,
         button.clasificationType,
         { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
     } else {
       await this._tableService.loadDataForTypeClasification(
-        false,
+        // false,
         button.clasificationType);
     }
 

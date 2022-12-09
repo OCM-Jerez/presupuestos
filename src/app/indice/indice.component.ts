@@ -62,7 +62,7 @@ export class IndiceComponent implements OnInit {
   /* #region  Esto es para el menu original */
   async openTable(tipoClasificacion: CLASIFICATION_TYPE): Promise<void> {
     const isIncome = tipoClasificacion.startsWith('ingresos');
-    await this._tableService.loadDataForTypeClasification(isIncome, tipoClasificacion,);
+    await this._tableService.loadDataForTypeClasification(tipoClasificacion,);
 
     if (isIncome) {
       this._router.navigateByUrl('/tableIngresos')
@@ -74,7 +74,7 @@ export class IndiceComponent implements OnInit {
 
   private async _loadData(): Promise<void> {
     /* #region  Capitulos de ingresos */
-    await this._tableService.loadDataForTypeClasification(true, 'ingresosEconomicaCapitulos');
+    await this._tableService.loadDataForTypeClasification('ingresosEconomicaCapitulos');
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
 
@@ -153,7 +153,7 @@ export class IndiceComponent implements OnInit {
     /* #endregion */
 
     /* #region politicas de gasto  */
-    await this._tableService.loadDataForTypeClasification(false, 'gastosProgramaPoliticas');
+    await this._tableService.loadDataForTypeClasification('gastosProgramaPoliticas');
     this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
     // console.log(data);
@@ -414,7 +414,7 @@ export class IndiceComponent implements OnInit {
   }
 
   async newGastos(tipoClasificacion: CLASIFICATION_TYPE) {
-    await this._tableService.loadDataForTypeClasification(false, tipoClasificacion,);
+    await this._tableService.loadDataForTypeClasification(tipoClasificacion);
     this._router.navigateByUrl('/newGastos')
   }
 

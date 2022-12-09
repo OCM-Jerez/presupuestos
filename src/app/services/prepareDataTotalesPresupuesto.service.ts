@@ -17,7 +17,7 @@ export class PrepareDataTotalesPresupuestoService {
   ) { }
 
   async calcTotales() {
-    await this._tableService.loadDataForTypeClasification(true, 'ingresosEconomicaArticulos');
+    await this._tableService.loadDataForTypeClasification('ingresosEconomicaArticulos');
     this._dataTableIngresos = this._dataStoreService.getDataTable
     const dataIngresos = this._dataTableIngresos.rowData;
 
@@ -32,7 +32,7 @@ export class PrepareDataTotalesPresupuestoService {
     }, {})
     // console.log(totalPresupuestoIngresos);
 
-    await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos');
+    await this._tableService.loadDataForTypeClasification('gastosOrganicaOrganicos');
     this._dataTableGastos = this._dataStoreService.getDataTable
     const dataGastos = this._dataTableGastos.rowData;
     const totalPresupuestoGastos = dataGastos.reduce((acc, curr) => {

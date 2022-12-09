@@ -281,7 +281,6 @@ export class TableIngresosComponent implements OnInit {
   }
 
   async detalle(typeClasification: CLASIFICATION_TYPE) {
-
     this._dataStoreService.IsDetails = true;
     const selectedRows = this.agGrid.api.getSelectedNodes();
     const dataPropertyTable = getClasificacion(typeClasification);
@@ -291,12 +290,12 @@ export class TableIngresosComponent implements OnInit {
       const useStarWitch: boolean = dataPropertyTable.useStarWitch;
       const attribute: string = dataPropertyTable.attribute;
       await this._tableService.loadDataForTypeClasification(
-        true,
+        // true,
         typeClasification,
         { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
     } else {
       await this._tableService.loadDataForTypeClasification(
-        true,
+        // true,
         typeClasification);
       // this._alertService.showAlert(`Selecciona artículo`);
     }

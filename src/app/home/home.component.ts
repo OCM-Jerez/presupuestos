@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
     /* #region datos aleatorios para la tabla de ejemplos  */
     const ingresoGasto = (Math.random() >= 0.5) ? true : false;
     if (ingresoGasto) {
-      await this._tableService.loadDataForTypeClasification(true, 'ingresosEconomicaArticulos');
+      await this._tableService.loadDataForTypeClasification('ingresosEconomicaArticulos');
       this._dataTable = this._dataStoreService.getDataTable
       let dataIngresos = this._dataTable.rowData;
 
@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit {
         console.log('error', index1, index2, index3);
       }
     } else {
-      await this._tableService.loadDataForTypeClasification(false, 'gastosOrganicaOrganicos');
+      await this._tableService.loadDataForTypeClasification('gastosOrganicaOrganicos');
       this._dataTable = this._dataStoreService.getDataTable
       let dataGastos = this._dataTable.rowData;
 
