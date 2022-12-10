@@ -113,7 +113,8 @@ export class DetallePresupuestoComponent implements OnInit {
         data = await this.preparaDataGraph(data, 'CodOrg', 'DesOrg', 'Definitivas2022');
         break;
       case 'tab4':
-        data = await this.preparaDataGraph(data, 'CodEco', 'DesEco', 'Definitivas2022');
+        // data = await this.preparaDataGraph(data, 'CodEco', 'DesEco', 'Definitivas2022');
+        data = await this.preparaDataGraph(data, 'CodCap', 'DesCap', 'Definitivas2022');
         break;
     }
 
@@ -213,7 +214,8 @@ export class DetallePresupuestoComponent implements OnInit {
       case 'tab4':
         this._tabSelected = 'tab4'
         this._treemap = 'treemap4';
-        this.typeClasification = 'gastosEconomicaEconomicos';
+        // this.typeClasification = 'gastosEconomicaEconomicos';
+        this.typeClasification = 'gastosEconomicaCapitulos';
         this.showGridIngresos = false;
         this.showGridPrograma = false;
         this.showGridOrganico = false;
