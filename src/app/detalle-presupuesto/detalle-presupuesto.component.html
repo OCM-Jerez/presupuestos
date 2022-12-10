@@ -75,7 +75,7 @@
 
                 </div>
 
-                <div id="treemap1"></div>
+                <div id="treemap1" class="treemap"></div>
 
                 <!-- AG-Grid -->
                 <div style="margin-top: 10px;">
@@ -97,7 +97,7 @@
 
             <!-- Tab ¿En qué se gasta? Clasificacion económica -->
             <div class="tab__content">
-                <div id="treemap2"></div>
+                <div id="treemap2" class="treemap"></div>
                 <app-gastos *ngIf="showGridPrograma" [buttonsHide]="[
                 'menu',
                 'grafico',
@@ -106,13 +106,13 @@
 
             <!-- Tab ¿Quién lo gasta?  -->
             <div class="tab__content">
-                <div id="treemap3"></div>
+                <div id="treemap3" class="treemap"></div>
                 <app-gastos *ngIf="showGridOrganico"></app-gastos>
             </div>
 
             <!-- Tab ¿Para qué gasta?  -->
             <div class="tab__content">
-                <div id="treemap4"></div>
+                <div id="treemap4" class="treemap"></div>
                 <app-gastos *ngIf="showGridEconomica"></app-gastos>
             </div>
         </div>
