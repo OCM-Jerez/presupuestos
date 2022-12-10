@@ -38,8 +38,7 @@ export class GastosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('===============  entro en gastos.component.ts  ===========================');
-
+    // console.log('===============  entro en gastos.component.ts  ===========================');
     this._hideButtons();
   }
 

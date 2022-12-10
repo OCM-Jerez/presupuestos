@@ -95,7 +95,8 @@ export class TableGastosComponent implements OnInit {
       })
 
     ];
-
+    // console.log('En table-gastos ', this._dataTable.clasificationType);
+    // console.log(this._dataTable.rowData);
     this.gridOptions = {
       defaultColDef: {
         width: 130,

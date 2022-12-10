@@ -55,6 +55,7 @@ export class TableIngresosComponent implements OnInit {
     this._loadPropertyTable();
   }
   ngOnInit(): void {
+    // console.log('===============  entro en ingresos.component.ts  ===========================');
     // console.log(this.cellRenderer);
     this._cellRenderer = this.cellRenderer ? 'CellRendererOCM' : 'CellRendererOCMtext1';
   }
@@ -63,7 +64,7 @@ export class TableIngresosComponent implements OnInit {
 
   private async _loadPropertyTable() {
     this._dataTable = this._dataStoreService.getDataTable
-    console.log(this._dataTable);
+    // console.log(this._dataTable);
 
     this._columnDefs = [
       {
