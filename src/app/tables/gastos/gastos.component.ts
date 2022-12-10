@@ -34,6 +34,8 @@ export class GastosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log('===============  entro en gastos.component.ts  ===========================');
+
     this._hideButtons();
   }
 
@@ -54,20 +56,20 @@ export class GastosComponent implements OnInit {
   }
 
   async detalle(button: IButtonClasification) {
+    console.log('=================  =========================', button);
     const dataPropertyTable = getClasificacion(button.clasificationType);
 
     if (this._dataStoreService.selectedCodeRowFirstLevel) {
       const useStarWitch: boolean = dataPropertyTable.useStarWitch;
       const attribute: string = dataPropertyTable.attribute;
       await this._tableService.loadDataForTypeClasification(
-        // false,
         button.clasificationType,
         { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
     } else {
       await this._tableService.loadDataForTypeClasification(
-        // false,
         button.clasificationType);
     }
+
 
     this._dataStoreService.selectedCodeRowFirstLevel = '';
     this.reloadCurrentRoute()
@@ -80,7 +82,6 @@ export class GastosComponent implements OnInit {
       this._router.navigate([currentUrl]);
     });
   }
-
 
   private _hideButtons() {
     if (this.buttonsHide.length > 0) {

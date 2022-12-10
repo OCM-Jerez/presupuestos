@@ -45,7 +45,7 @@ export class PrepareDataTotalesPresupuestoService {
       return acc
     }, {})
     // console.log(totalPresupuestoGastos);
-    console.log(totalPresupuestoIngresos);
+    // console.log(totalPresupuestoIngresos);
 
     try {
       const DataTotalesPresupuesto: IDataTotalesPresupuesto = {

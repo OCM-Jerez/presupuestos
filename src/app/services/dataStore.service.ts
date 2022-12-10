@@ -28,9 +28,9 @@ export class DataStoreService {
 
   set setDataTable(data: IDataTable) {
     this._data = data
-    console.log('DataStoreServic data que entra como parametro', data);
+    // console.log('DataStoreServic data que entra como parametro', data);
     // console.log('DataStoreServic._dataSource', this._dataSource);
-    console.log('DataStoreServic._dataSource', this._data);
+    // console.log('DataStoreServic._dataSource', this._data);
   }
 
   set setDataGraph(data: IDataGraph) {
@@ -88,7 +88,7 @@ export class DataStoreService {
   set setDataTotalesPresupuesto(data: IDataTotalesPresupuesto) {
     this._dataTotalesPresupuesto = data
     // console.log('DataStoreService', this._dataSource);
-    console.log('DataStoreService', this._data);
+    // console.log('DataStoreService', this._data);
 
   }
 
