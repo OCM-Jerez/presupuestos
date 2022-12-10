@@ -53,6 +53,7 @@ export class DetallePresupuestoComponent implements OnInit {
 
   ngOnInit(): void {
     this._tabSelected = localStorage.getItem('activeTab') != null ? localStorage.getItem('activeTab') : 'tab1';
+    this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
     this.setValues(this._tabSelected);
     this._loadData();
     this.DataTotalesPresupuesto = this._dataStoreService.getDataTotalesPresupuesto;
@@ -60,6 +61,8 @@ export class DetallePresupuestoComponent implements OnInit {
 
   checkedTab(e: any) {
     this._tabSelected = e.target.id;
+    this._treemap = `treemap${e.target.id.charAt(e.target.id.length - 1)}`;
+
     this.setValues(e.target.id)
     localStorage.setItem('activeTab', this._tabSelected);
     this._loadData();
@@ -89,25 +92,25 @@ export class DetallePresupuestoComponent implements OnInit {
             await this._prepareDataTreemapService.calcSeries(data, 'CodEco', 'DesEco', 'Definitivas2022', 'DerechosReconocidosNetos2022');
             break;
         }
-        this._treemap = 'treemap1';
+        // this._treemap = 'treemap1';
         this.showGridIngresos = true;
         this.showTabIngresos = true;
         break;
       case 'tab2':
         await this._prepareDataTreemapService.calcSeries(data, 'CodPro', 'DesPro', 'Definitivas2022');
-        this._treemap = 'treemap2';
+        // this._treemap = 'treemap2';
         this.showGridPrograma = true;
         this.showTabPrograma = true;
         break;
       case 'tab3':
         await this._prepareDataTreemapService.calcSeries(data, 'CodOrg', 'DesOrg', 'Definitivas2022');
-        this._treemap = 'treemap3';
+        // this._treemap = 'treemap3';
         this.showGridOrganico = true;
         this.showTabOrganico = true;
         break;
       case 'tab4':
         await this._prepareDataTreemapService.calcSeries(data, 'CodCap', 'DesCap', 'Definitivas2022');
-        this._treemap = 'treemap4';
+        // this._treemap = 'treemap4';
         this.showGridEconomica = true;
         this.showTabEconomica = true;
         break;
