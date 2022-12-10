@@ -229,37 +229,47 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   async preparaDataGraph(data: any, codigo, descripcion, campoSumatorio, aRestar?) {
-    // console.log('Data inicial', data);
     let array = [];
     array = data.reduce((acc, curr) => {
       const item = aRestar === undefined ?
         {
           "name": curr[codigo] + '-' + curr[descripcion],
           "value": curr[campoSumatorio],
-          "colorValue": (curr[campoSumatorio] / 100)
         } :
         {
           "name": curr[codigo] + '-' + curr[descripcion],
           "value": curr[campoSumatorio] - curr[aRestar],
-          "colorValue": (curr[campoSumatorio] - curr[aRestar] / 100)
         }
       acc.push(item);
       return acc;
     }, []);
-    // console.log('Array obtenido con opcion 1', array);
 
     // Totalizo
+    const colors = [
+      '#2f7ed8', '#097E17', '#8bbc21', '#910000', '#1aadce',
+      '#492970', '#f28f43', '#77a1e5', '#c42525', '#a6c96a',
+      '#7cb5ec', '#003DF6', '#90ed7d', '#f7a35c', '#8085e9',
+      '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1',
+      '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'
+    ]
+    let colorIndex = -1;
+
     data = array.reduce((acc, { name, value }) => {
+      colorIndex += 1;
+      colorIndex > 25 ? colorIndex = 0 : colorIndex;
       const item = acc.find(item => item.name === name)
       item ? item.value += value : acc.push({
         name,
         value,
-        colorValue: (value / 1000)
+        color: colors[colorIndex]
       });
       return acc;
     }, []);
-    data = data.slice(0, 20);
-    // console.log('data obtenido con mi codigo', data);
+    data = data.sort((a, b) => b.value - a.value);
+    console.log(data);
+    data = data.slice(0, 25);
+    console.log(data);
+
     return data
 
   }
