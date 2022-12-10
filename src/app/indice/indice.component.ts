@@ -289,6 +289,9 @@ export class IndiceComponent implements OnInit {
   showGraph() {
     // Gráfico ingresos
     Highcharts.chart("sankey", {
+      accessibility: {
+        enabled: false
+      },
       title: {
         text: "<span style= 'font-size: 32px'>Ingresos</span>"
       },
@@ -345,6 +348,9 @@ export class IndiceComponent implements OnInit {
 
     // Gráfico gastos
     Highcharts.chart("sankey1", {
+      accessibility: {
+        enabled: false
+      },
       title: {
         text: "<span style= 'font-size: 32px'>Gastos</span>"
       },
