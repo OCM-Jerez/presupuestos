@@ -257,6 +257,15 @@ export class DetallePresupuestoComponent implements OnInit {
     data = data.slice(0, 25);
 
     // Asigno colors
+    // generado con https://hue.tools/?format=hex
+    // const colors = [
+    //   '#635775', '#687c0a', '#17e4a0', '#7451c8', '#c2d6c8',
+    //   '#1ee636', '#8eb302', '#310f36', '#3b9765', '#451f33',
+    //   '#76df31', '#ee2559', '#3138ee', '#55c278', '#4566db',
+    //   '#64fee1', '#046a1e', '#0209ea', '#2ab066', '#944d4e',
+    //   '#604e1c', '#7decfb', '#9142b5', '#d63a76', '#7a25a7'
+    // ]
+
     const colors = [
       '#2f7ed8', '#097E17', '#8bbc21', '#910000', '#1aadce',
       '#492970', '#f28f43', '#77a1e5', '#c42525', '#a6c96a',
