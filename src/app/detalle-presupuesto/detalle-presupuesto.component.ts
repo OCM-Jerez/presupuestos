@@ -84,7 +84,6 @@ export class DetallePresupuestoComponent implements OnInit {
   private async _loadData(): Promise<void> {
     // tengo que pasar parametro correcto para isIncome = true o false
     // const isIncome = this.typeClasification.startsWith('ingresos');
-    console.log(this.typeClasification);
 
     await this._tableService.loadDataForTypeClasification(this.typeClasification);
     this._dataTable = this._dataStoreService.getDataTable
@@ -95,15 +94,15 @@ export class DetallePresupuestoComponent implements OnInit {
     switch (this._tabSelected) {
       case 'tab1':
         switch (this._radioButtonSelected) {
-          case 'radio-1':
+          case 'radio-1': //Presupuestado
             // data = await this.preparaDataGraph(data, 'CodArt', 'DesArt', 'Definitivas2022');
             data = await this.preparaDataGraph(data, 'CodEco', 'DesEco', 'Definitivas2022');
             break;
-          case 'radio-2':
-            data = await this.preparaDataGraph(data, 'CodArt', 'DesArt', 'DerechosReconocidosNetos2022');
+          case 'radio-2': //Recaudado
+            data = await this.preparaDataGraph(data, 'CodEco', 'DesEco', 'DerechosReconocidosNetos2022');
             break;
-          case 'radio-3':
-            data = await this.preparaDataGraph(data, 'CodArt', 'DesArt', 'Definitivas2022', 'DerechosReconocidosNetos2022');
+          case 'radio-3': //Diferencia
+            data = await this.preparaDataGraph(data, 'CodEco', 'DesEco', 'Definitivas2022', 'DerechosReconocidosNetos2022');
             break;
         }
         break;
