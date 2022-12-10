@@ -75,14 +75,15 @@ export class GastosComponent implements OnInit {
 
     this._dataStoreService.selectedCodeRowFirstLevel = '';
 
+    console.log('this._dataStoreService.getDataTable', this._dataStoreService.getDataTable);
+
+
     // Actualizo datos treemap en función del boton pulsado
-    console.log('Actualizo datos treemap en función del boton pulsado');
-    this._dataTable = this._dataStoreService.getDataTable
-    let data = this._dataTable.rowData;
-    await this._prepareDataTreemapService.calcSeries(data, 'CodEco', 'DesEco', 'Definitivas2022');
+    // console.log('Actualizo datos treemap en función del boton pulsado');
+
     // console.log('dataTreemap', dataTreemap);
     // this._dataStoreService.setDataTreemap = dataTreemap;
-    console.log('this._dataStoreService.getDataTreemap', await this._dataStoreService.getDataTreemap);
+    // console.log('this._dataStoreService.getDataTreemap', await this._dataStoreService.getDataTreemap);
 
 
 
