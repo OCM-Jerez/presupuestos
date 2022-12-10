@@ -126,6 +126,9 @@ export class DetallePresupuestoComponent implements OnInit {
     data = this._dataStoreService.getDataTreemap;
     console.log(data);
     const chart = Highcharts.chart(this._treemap, {
+      accessibility: {
+        enabled: false
+      },
       colorAxis: {
         minColor: '#FFFFFF',
         // maxColor: Highcharts.getOptions().colors[0]
