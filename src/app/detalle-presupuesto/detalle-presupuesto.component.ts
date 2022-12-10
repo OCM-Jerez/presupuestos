@@ -245,8 +245,6 @@ export class DetallePresupuestoComponent implements OnInit {
     }, []);
 
     // Totalizo
-
-
     data = array.reduce((acc, { name, value }) => {
       const item = acc.find(item => item.name === name)
       item ? item.value += value : acc.push({
