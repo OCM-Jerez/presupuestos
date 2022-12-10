@@ -258,6 +258,7 @@ export class DetallePresupuestoComponent implements OnInit {
       });
       return acc;
     }, []);
+    data = data.slice(0, 20);
     // console.log('data obtenido con mi codigo', data);
     return data
 
