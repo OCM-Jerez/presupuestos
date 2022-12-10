@@ -245,6 +245,20 @@ export class DetallePresupuestoComponent implements OnInit {
     }, []);
 
     // Totalizo
+
+
+    data = array.reduce((acc, { name, value }) => {
+      const item = acc.find(item => item.name === name)
+      item ? item.value += value : acc.push({
+        name,
+        value,
+      });
+      return acc;
+    }, []);
+    data = data.sort((a, b) => b.value - a.value);
+    data = data.slice(0, 25);
+
+    // Asigno colors
     const colors = [
       '#2f7ed8', '#097E17', '#8bbc21', '#910000', '#1aadce',
       '#492970', '#f28f43', '#77a1e5', '#c42525', '#a6c96a',
@@ -254,21 +268,11 @@ export class DetallePresupuestoComponent implements OnInit {
     ]
     let colorIndex = -1;
 
-    data = array.reduce((acc, { name, value }) => {
+    data.map((item, index) => {
       colorIndex += 1;
       colorIndex > 25 ? colorIndex = 0 : colorIndex;
-      const item = acc.find(item => item.name === name)
-      item ? item.value += value : acc.push({
-        name,
-        value,
-        color: colors[colorIndex]
-      });
-      return acc;
-    }, []);
-    data = data.sort((a, b) => b.value - a.value);
-    console.log(data);
-    data = data.slice(0, 25);
-    console.log(data);
+      item.color = colors[colorIndex];
+    });
 
     return data
 
