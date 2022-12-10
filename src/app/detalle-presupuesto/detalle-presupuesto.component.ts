@@ -45,10 +45,6 @@ export class DetallePresupuestoComponent implements OnInit {
   private _tabSelected: string = "tab1";
   private _treemap = 'treemap1';
 
-  // public ngAfterViewInit(): void {
-  //   this._loadData();
-  // }
-
   constructor(
     private _dataStoreService: DataStoreService,
     private _tableService: TableService,
@@ -57,13 +53,8 @@ export class DetallePresupuestoComponent implements OnInit {
 
   ngOnInit(): void {
     this._tabSelected = localStorage.getItem('activeTab') != null ? localStorage.getItem('activeTab') : 'tab1';
-    // console.log(this._tabSelected, this._radioButtonSelected)
     this.setValues(this._tabSelected);
     this._loadData();
-    // setTimeout(() => {
-    //   this._loadData();
-    // }, 5000);
-
     this.DataTotalesPresupuesto = this._dataStoreService.getDataTotalesPresupuesto;
   }
 
@@ -73,24 +64,15 @@ export class DetallePresupuestoComponent implements OnInit {
     this._loadData();
   }
 
-  // test() {
-  //   this.showComponentIngresos = true;
-  //   console.log("inside test")
-  // }
-
   checkedRadio(e: any) {
     this._radioButtonSelected = e.target.id
     this._loadData();
   }
 
   private async _loadData(): Promise<void> {
-    // tengo que pasar parametro correcto para isIncome = true o false
-    // const isIncome = this.typeClasification.startsWith('ingresos');
-
     await this._tableService.loadDataForTypeClasification(this.typeClasification);
     this._dataTable = this._dataStoreService.getDataTable
     let data = this._dataTable.rowData;
-    // console.log(data);
 
     // Datos para grafico
     switch (this._tabSelected) {
@@ -129,14 +111,8 @@ export class DetallePresupuestoComponent implements OnInit {
       accessibility: {
         enabled: false
       },
-      colorAxis: {
-        minColor: '#FFFFFF',
-        // maxColor: Highcharts.getOptions().colors[0]
-        maxColor: '#F41313'
-      },
       chart: {
         type: 'treemap',
-        // layoutAlgorithm: 'squarified',
       },
       title: {
         text: '',
@@ -154,7 +130,6 @@ export class DetallePresupuestoComponent implements OnInit {
         headerFormat: `<span class="mb-2">{point.key}</span><br>`,
         // pointFormat: '<span>Euros: {point.value}</span></br><span>Color: {point.colorValue}</span>',
         pointFormat: '<span>Euros: {point.value}</span>',
-
         useHTML: true,
       },
       series: [
@@ -224,7 +199,6 @@ export class DetallePresupuestoComponent implements OnInit {
         this.showTabEconomica = true;
         break;
     }
-
   }
 
 }
