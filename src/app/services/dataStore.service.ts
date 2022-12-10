@@ -11,8 +11,6 @@ export class DataStoreService {
   private _dataSource = new Subject<IDataGraph>();
   dataSource$ = this._dataSource.asObservable();
 
-
-
   private _data: IDataTable;
   private _dataGraph: IDataGraph;
   private _selectedCodeRow: string;
@@ -21,6 +19,8 @@ export class DataStoreService {
   private _selectedCodeRowFirstLevel: string;
   private _IsDetails = false;
   private _dataTotalesPresupuesto: IDataTotalesPresupuesto
+
+  private _dataTreemap: any;
 
   get getDataTable(): IDataTable {
     return this._data
@@ -87,13 +87,18 @@ export class DataStoreService {
 
   set setDataTotalesPresupuesto(data: IDataTotalesPresupuesto) {
     this._dataTotalesPresupuesto = data
-    // console.log('DataStoreService', this._dataSource);
-    // console.log('DataStoreService', this._data);
-
   }
 
   get getDataTotalesPresupuesto(): IDataTotalesPresupuesto {
     return this._dataTotalesPresupuesto
+  }
+
+  set setDataTreemap(data: any) {
+    this._dataTreemap = data
+  }
+
+  get getDataTreemap(): any {
+    return this._dataTreemap
   }
 
   setData(data: IDataGraph) {

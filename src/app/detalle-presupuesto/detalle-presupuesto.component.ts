@@ -14,6 +14,7 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsTreemap from 'highcharts/modules/treemap';
 import heatmap from 'highcharts/modules/heatmap';
 import { environment } from '../../environments/environment';
+import { PrepareDataTreemapService } from '../services/prepareDataTreemap.service';
 
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
@@ -50,7 +51,8 @@ export class DetallePresupuestoComponent implements OnInit {
 
   constructor(
     private _dataStoreService: DataStoreService,
-    private _tableService: TableService
+    private _tableService: TableService,
+    private _prepareDataTreemapService: PrepareDataTreemapService
   ) { }
 
   ngOnInit(): void {
@@ -96,25 +98,31 @@ export class DetallePresupuestoComponent implements OnInit {
         switch (this._radioButtonSelected) {
           case 'radio-1': //Presupuestado
             // data = await this.preparaDataGraph(data, 'CodArt', 'DesArt', 'Definitivas2022');
-            data = await this.preparaDataGraph(data, 'CodEco', 'DesEco', 'Definitivas2022');
+            // data = await this.preparaDataGraph(data, 'CodEco', 'DesEco', 'Definitivas2022');
+            await this._prepareDataTreemapService.calcSeries(data, 'CodEco', 'DesEco', 'Definitivas2022');
             break;
           case 'radio-2': //Recaudado
-            data = await this.preparaDataGraph(data, 'CodEco', 'DesEco', 'DerechosReconocidosNetos2022');
+            // data = await this.preparaDataGraph(data, 'CodEco', 'DesEco', 'DerechosReconocidosNetos2022');
+            await this._prepareDataTreemapService.calcSeries(data, 'CodEco', 'DesEco', 'DerechosReconocidosNetos2022');
             break;
           case 'radio-3': //Diferencia
-            data = await this.preparaDataGraph(data, 'CodEco', 'DesEco', 'Definitivas2022', 'DerechosReconocidosNetos2022');
+            // data = await this.preparaDataGraph(data, 'CodEco', 'DesEco', 'Definitivas2022', 'DerechosReconocidosNetos2022');
+            await this._prepareDataTreemapService.calcSeries(data, 'CodEco', 'DesEco', 'Definitivas2022', 'DerechosReconocidosNetos2022');
             break;
         }
         break;
       case 'tab2':
-        data = await this.preparaDataGraph(data, 'CodPro', 'DesPro', 'Definitivas2022');
+        // data = await this.preparaDataGraph(data, 'CodPro', 'DesPro', 'Definitivas2022');
+        await this._prepareDataTreemapService.calcSeries(data, 'CodPro', 'DesPro', 'Definitivas2022');
         break;
       case 'tab3':
-        data = await this.preparaDataGraph(data, 'CodOrg', 'DesOrg', 'Definitivas2022');
+        // data = await this.preparaDataGraph(data, 'CodOrg', 'DesOrg', 'Definitivas2022');
+        await this._prepareDataTreemapService.calcSeries(data, 'CodOrg', 'DesOrg', 'Definitivas2022');
         break;
       case 'tab4':
         // data = await this.preparaDataGraph(data, 'CodEco', 'DesEco', 'Definitivas2022');
-        data = await this.preparaDataGraph(data, 'CodCap', 'DesCap', 'Definitivas2022');
+        // data = await this.preparaDataGraph(data, 'CodCap', 'DesCap', 'Definitivas2022');
+        await this._prepareDataTreemapService.calcSeries(data, 'CodCap', 'DesCap', 'Definitivas2022');
         break;
     }
 
@@ -123,6 +131,9 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   graphTreemap(data) {
+    data = this._dataStoreService.getDataTreemap;
+    console.log(data);
+
     const chart = Highcharts.chart(this._treemap, {
       colorAxis: {
         minColor: '#FFFFFF',
@@ -229,61 +240,69 @@ export class DetallePresupuestoComponent implements OnInit {
 
   }
 
-  async preparaDataGraph(data: any, codigo, descripcion, campoSumatorio, aRestar?) {
-    let array = [];
-    array = data.reduce((acc, curr) => {
-      const item = aRestar === undefined ?
-        {
-          "name": curr[codigo] + '-' + curr[descripcion],
-          "value": curr[campoSumatorio],
-        } :
-        {
-          "name": curr[codigo] + '-' + curr[descripcion],
-          "value": curr[campoSumatorio] - curr[aRestar],
-        }
-      acc.push(item);
-      return acc;
-    }, []);
+  // async preparaDataGraph(data: any, codigo, descripcion, campoSumatorio, aRestar?) {
 
-    // Totalizo
-    data = array.reduce((acc, { name, value }) => {
-      const item = acc.find(item => item.name === name)
-      item ? item.value += value : acc.push({
-        name,
-        value,
-      });
-      return acc;
-    }, []);
-    data = data.sort((a, b) => b.value - a.value);
-    data = data.slice(0, 25);
+  //   this._prepareDataTreemapService.calcSeries(data, codigo, descripcion, campoSumatorio, aRestar);
 
-    // Asigno colors
-    // generado con https://hue.tools/?format=hex
-    // const colors = [
-    //   '#635775', '#687c0a', '#17e4a0', '#7451c8', '#c2d6c8',
-    //   '#1ee636', '#8eb302', '#310f36', '#3b9765', '#451f33',
-    //   '#76df31', '#ee2559', '#3138ee', '#55c278', '#4566db',
-    //   '#64fee1', '#046a1e', '#0209ea', '#2ab066', '#944d4e',
-    //   '#604e1c', '#7decfb', '#9142b5', '#d63a76', '#7a25a7'
-    // ]
 
-    const colors = [
-      '#2f7ed8', '#097E17', '#8bbc21', '#910000', '#1aadce',
-      '#492970', '#f28f43', '#77a1e5', '#c42525', '#a6c96a',
-      '#7cb5ec', '#003DF6', '#90ed7d', '#f7a35c', '#8085e9',
-      '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1',
-      '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'
-    ]
-    let colorIndex = -1;
 
-    data.map((item, index) => {
-      colorIndex += 1;
-      colorIndex > 25 ? colorIndex = 0 : colorIndex;
-      item.color = colors[colorIndex];
-    });
 
-    return data
 
-  }
+
+  // let array = [];
+  // array = data.reduce((acc, curr) => {
+  //   const item = aRestar === undefined ?
+  //     {
+  //       "name": curr[codigo] + '-' + curr[descripcion],
+  //       "value": curr[campoSumatorio],
+  //     } :
+  //     {
+  //       "name": curr[codigo] + '-' + curr[descripcion],
+  //       "value": curr[campoSumatorio] - curr[aRestar],
+  //     }
+  //   acc.push(item);
+  //   return acc;
+  // }, []);
+
+  // // Totalizo
+  // data = array.reduce((acc, { name, value }) => {
+  //   const item = acc.find(item => item.name === name)
+  //   item ? item.value += value : acc.push({
+  //     name,
+  //     value,
+  //   });
+  //   return acc;
+  // }, []);
+  // data = data.sort((a, b) => b.value - a.value);
+  // data = data.slice(0, 25);
+
+  // // Asigno colors
+  // // generado con https://hue.tools/?format=hex
+  // // const colors = [
+  // //   '#635775', '#687c0a', '#17e4a0', '#7451c8', '#c2d6c8',
+  // //   '#1ee636', '#8eb302', '#310f36', '#3b9765', '#451f33',
+  // //   '#76df31', '#ee2559', '#3138ee', '#55c278', '#4566db',
+  // //   '#64fee1', '#046a1e', '#0209ea', '#2ab066', '#944d4e',
+  // //   '#604e1c', '#7decfb', '#9142b5', '#d63a76', '#7a25a7'
+  // // ]
+
+  // const colors = [
+  //   '#2f7ed8', '#097E17', '#8bbc21', '#910000', '#1aadce',
+  //   '#492970', '#f28f43', '#77a1e5', '#c42525', '#a6c96a',
+  //   '#7cb5ec', '#003DF6', '#90ed7d', '#f7a35c', '#8085e9',
+  //   '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1',
+  //   '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'
+  // ]
+  // let colorIndex = -1;
+
+  // data.map((item, index) => {
+  //   colorIndex += 1;
+  //   colorIndex > 25 ? colorIndex = 0 : colorIndex;
+  //   item.color = colors[colorIndex];
+  // });
+
+  // return data
+
+  // }
 
 }

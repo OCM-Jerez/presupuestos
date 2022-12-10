@@ -9,6 +9,8 @@ import { getClasificacion } from '../data-table';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnState, ColumnApi, GridApi, GridReadyEvent } from "ag-grid-community";
+import { PrepareDataTreemapService } from '../../services/prepareDataTreemap.service';
+import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 // import { CLASIFICATION_TYPE } from './../../commons/util/util';
 
 @Component({
@@ -26,11 +28,13 @@ export class GastosComponent implements OnInit {
   public hasMenuButton = true;
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
+  private _dataTable: IDataTable;
 
   constructor(
     private _dataStoreService: DataStoreService,
     private _tableService: TableService,
     private _router: Router,
+    private _prepareDataTreemapService: PrepareDataTreemapService
   ) { }
 
   ngOnInit(): void {
@@ -70,8 +74,23 @@ export class GastosComponent implements OnInit {
         button.clasificationType);
     }
 
-
     this._dataStoreService.selectedCodeRowFirstLevel = '';
+
+    // Actualizo datos treemap en función del boton pulsado
+    console.log('Actualizo datos treemap en función del boton pulsado');
+    this._dataTable = this._dataStoreService.getDataTable
+    let data = this._dataTable.rowData;
+    await this._prepareDataTreemapService.calcSeries(data, 'CodEco', 'DesEco', 'Definitivas2022');
+    // console.log('dataTreemap', dataTreemap);
+    // this._dataStoreService.setDataTreemap = dataTreemap;
+    console.log('this._dataStoreService.getDataTreemap', await this._dataStoreService.getDataTreemap);
+
+
+
+
+
+
+
     this.reloadCurrentRoute()
     //this.ngOnInit();
   }
