@@ -34,19 +34,19 @@
         </div>
 
         <div #itemElement class="tab-wrap">
-            <input type="radio" id="tab1" name="tabGroup1" class="tab" [checked]="showTabIngresos"
+            <input type="radio" id="tab1" name="tabGroup1" class="tab" [checked]="showIngresos"
                 (change)="checkedTab($event)">
             <label for="tab1">Ingresos</label>
 
-            <input type="radio" id="tab2" name="tabGroup1" class="tab" [checked]="showTabPrograma"
+            <input type="radio" id="tab2" name="tabGroup1" class="tab" [checked]="showPrograma"
                 (change)="checkedTab($event)">
             <label for="tab2">¿En qué se gasta?</label>
 
-            <input type="radio" id="tab3" name="tabGroup1" class="tab" [checked]="showTabOrganico"
+            <input type="radio" id="tab3" name="tabGroup1" class="tab" [checked]="showOrganico"
                 (change)="checkedTab($event)">
             <label for="tab3">¿Quién lo gasta?</label>
 
-            <input type="radio" id="tab4" name="tabGroup1" class="tab" [checked]="showTabEconomica"
+            <input type="radio" id="tab4" name="tabGroup1" class="tab" [checked]="showEconomica"
                 (change)="checkedTab($event)">
             <label for="tab4">¿Para qué se gasta?</label>
 
@@ -75,7 +75,7 @@
 
                 <!-- AG-Grid -->
                 <div style="margin-top: 10px;">
-                    <app-table-ingresos *ngIf="showGridIngresos" [fieldsHide]="[
+                    <app-table-ingresos *ngIf="showIngresos" [fieldsHide]="[
                                    'Iniciales', 
                                    'Modificaciones',
                                    'DerechosReconocidos',
@@ -94,7 +94,7 @@
             <!-- Tab ¿En qué se gasta? Clasificacion económica -->
             <div class="tab__content">
                 <div id="treemap2" class="treemap"></div>
-                <app-gastos *ngIf="showGridPrograma" [buttonsHide]="[
+                <app-gastos *ngIf="showPrograma" [buttonsHide]="[
                 'menu',
                 'grafico',
                 'graphTree']" [hasTitle]=false></app-gastos>
@@ -103,13 +103,13 @@
             <!-- Tab ¿Quién lo gasta?  -->
             <div class="tab__content">
                 <div id="treemap3" class="treemap"></div>
-                <app-gastos *ngIf="showGridOrganico"></app-gastos>
+                <app-gastos *ngIf="showOrganico"></app-gastos>
             </div>
 
             <!-- Tab ¿Para qué gasta?  -->
             <div class="tab__content">
                 <div id="treemap4" class="treemap"></div>
-                <app-gastos *ngIf="showGridEconomica"></app-gastos>
+                <app-gastos *ngIf="showEconomica"></app-gastos>
             </div>
         </div>
 

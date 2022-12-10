@@ -27,14 +27,19 @@ heatmap(Highcharts)
 export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public liqDate = environment.liqDate;
-  showGridIngresos = false;
-  showGridPrograma = false;
-  showGridOrganico = false;
-  showGridEconomica = false;
-  showTabIngresos = false;
-  showTabPrograma = false;
-  showTabOrganico = false;
-  showTabEconomica = false;
+  // showGridIngresos = false;
+  // showGridPrograma = false;
+  // showGridOrganico = false;
+  // showGridEconomica = false;
+  // showTabIngresos = false;
+  // showTabPrograma = false;
+  // showTabOrganico = false;
+  // showTabEconomica = false;
+
+  showIngresos = false;
+  showPrograma = false;
+  showOrganico = false;
+  showEconomica = false;
   totalPresupuestado: number;
   totalRecaudado: number;
   totalGastado: number;
@@ -93,26 +98,30 @@ export class DetallePresupuestoComponent implements OnInit {
             break;
         }
         // this._treemap = 'treemap1';
-        this.showGridIngresos = true;
-        this.showTabIngresos = true;
+        this.showIngresos = true;
+        // this.showGridIngresos = true;
+        // this.showTabIngresos = true;
         break;
       case 'tab2':
         await this._prepareDataTreemapService.calcSeries(data, 'CodPro', 'DesPro', 'Definitivas2022');
         // this._treemap = 'treemap2';
-        this.showGridPrograma = true;
-        this.showTabPrograma = true;
+        this.showPrograma = true;
+        // this.showGridPrograma = true;
+        // this.showTabPrograma = true;
         break;
       case 'tab3':
         await this._prepareDataTreemapService.calcSeries(data, 'CodOrg', 'DesOrg', 'Definitivas2022');
         // this._treemap = 'treemap3';
-        this.showGridOrganico = true;
-        this.showTabOrganico = true;
+        this.showOrganico = true;
+        // this.showGridOrganico = true;
+        // this.showTabOrganico = true;
         break;
       case 'tab4':
         await this._prepareDataTreemapService.calcSeries(data, 'CodCap', 'DesCap', 'Definitivas2022');
         // this._treemap = 'treemap4';
-        this.showGridEconomica = true;
-        this.showTabEconomica = true;
+        this.showEconomica = true;
+        // this.showGridEconomica = true;
+        // this.showTabEconomica = true;
         break;
     }
     this.graphTreemap(data);
