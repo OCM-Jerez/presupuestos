@@ -15,6 +15,8 @@ import HighchartsTreemap from 'highcharts/modules/treemap';
 import heatmap from 'highcharts/modules/heatmap';
 import { environment } from '../../environments/environment';
 import { PrepareDataTreemapService } from '../services/prepareDataTreemap.service';
+import { PrepareDataTotalesPresupuestoService } from '../services/prepareDataTotalesPresupuesto.service';
+
 
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
@@ -26,23 +28,11 @@ heatmap(Highcharts)
 })
 export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  public liqDate = environment.liqDate;
-  // showGridIngresos = false;
-  // showGridPrograma = false;
-  // showGridOrganico = false;
-  // showGridEconomica = false;
-  // showTabIngresos = false;
-  // showTabPrograma = false;
-  // showTabOrganico = false;
-  // showTabEconomica = false;
-
+  liqDate = environment.liqDate;
   showIngresos = false;
   showPrograma = false;
   showOrganico = false;
   showEconomica = false;
-  totalPresupuestado: number;
-  totalRecaudado: number;
-  totalGastado: number;
   DataTotalesPresupuesto: IDataTotalesPresupuesto;
   private typeClasification: CLASIFICATION_TYPE;
   private _dataTable: IDataTable;
@@ -53,7 +43,8 @@ export class DetallePresupuestoComponent implements OnInit {
   constructor(
     private _dataStoreService: DataStoreService,
     private _tableService: TableService,
-    private _prepareDataTreemapService: PrepareDataTreemapService
+    private _prepareDataTreemapService: PrepareDataTreemapService,
+    private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService
   ) { }
 
   ngOnInit(): void {
@@ -61,13 +52,11 @@ export class DetallePresupuestoComponent implements OnInit {
     this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
     this.setValues(this._tabSelected);
     this._loadData();
-    this.DataTotalesPresupuesto = this._dataStoreService.getDataTotalesPresupuesto;
   }
 
   checkedTab(e: any) {
     this._tabSelected = e.target.id;
     this._treemap = `treemap${e.target.id.charAt(e.target.id.length - 1)}`;
-
     this.setValues(e.target.id)
     localStorage.setItem('activeTab', this._tabSelected);
     this._loadData();
@@ -79,6 +68,8 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   private async _loadData(): Promise<void> {
+    await this.setTotalesPresupuesto();
+
     await this._tableService.loadDataForTypeClasification(this.typeClasification);
     this._dataTable = this._dataStoreService.getDataTable
     let data = this._dataTable.rowData;
@@ -97,40 +88,33 @@ export class DetallePresupuestoComponent implements OnInit {
             await this._prepareDataTreemapService.calcSeries(data, 'CodEco', 'DesEco', 'Definitivas2022', 'DerechosReconocidosNetos2022');
             break;
         }
-        // this._treemap = 'treemap1';
         this.showIngresos = true;
-        // this.showGridIngresos = true;
-        // this.showTabIngresos = true;
         break;
       case 'tab2':
         await this._prepareDataTreemapService.calcSeries(data, 'CodPro', 'DesPro', 'Definitivas2022');
-        // this._treemap = 'treemap2';
         this.showPrograma = true;
-        // this.showGridPrograma = true;
-        // this.showTabPrograma = true;
         break;
       case 'tab3':
         await this._prepareDataTreemapService.calcSeries(data, 'CodOrg', 'DesOrg', 'Definitivas2022');
-        // this._treemap = 'treemap3';
         this.showOrganico = true;
-        // this.showGridOrganico = true;
-        // this.showTabOrganico = true;
         break;
       case 'tab4':
         await this._prepareDataTreemapService.calcSeries(data, 'CodCap', 'DesCap', 'Definitivas2022');
-        // this._treemap = 'treemap4';
         this.showEconomica = true;
-        // this.showGridEconomica = true;
-        // this.showTabEconomica = true;
         break;
     }
     this.graphTreemap(data);
 
   }
 
+  async setTotalesPresupuesto() {
+    //  Calculo totales de ingresos y gastos y los guardo en _dataStoreService  */
+    await this._prepareDataTotalesPresupuestoService.calcTotales();
+    this.DataTotalesPresupuesto = this._dataStoreService.getDataTotalesPresupuesto;
+  }
+
   graphTreemap(data) {
     data = this._dataStoreService.getDataTreemap;
-    // console.log(data);
     const chart = Highcharts.chart(this._treemap, {
       accessibility: {
         enabled: false
