@@ -1,5 +1,5 @@
 import { Component, Injectable, ViewChild, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 
 // import { TableGastosComponent } from './components/table-gastos/table-gastos.component';
 import { TableService } from '../../services/table.service';
@@ -10,7 +10,9 @@ import { getClasificacion } from '../data-table';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnState, ColumnApi, GridApi, GridReadyEvent } from "ag-grid-community";
 import { PrepareDataTreemapService } from '../../services/prepareDataTreemap.service';
-import { IDataTable } from '../../commons/interfaces/dataTable.interface';
+import { IDataProperty, IDataTable } from '../../commons/interfaces/dataTable.interface';
+import { CLASIFICATION_TYPE } from '../../commons/util/util';
+// import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 // import { CLASIFICATION_TYPE } from './../../commons/util/util';
 
 @Component({
@@ -33,12 +35,11 @@ export class GastosComponent implements OnInit {
   constructor(
     private _dataStoreService: DataStoreService,
     private _tableService: TableService,
-    private _router: Router,
+    // private _router: Router,
     private _prepareDataTreemapService: PrepareDataTreemapService
   ) { }
 
   ngOnInit(): void {
-    // console.log('===============  entro en gastos.component.ts  ===========================');
     this._hideButtons();
   }
 
@@ -47,9 +48,6 @@ export class GastosComponent implements OnInit {
 
   onGridReady = (params: GridReadyEvent) => {
     this._gridApi = params.api;
-    // console.log('==========================================');
-    // console.log(this._gridApi);
-
     this._columnApi = params.columnApi;
     // let defaultSortModel: ColumnState[] = [
     //   { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
@@ -59,52 +57,44 @@ export class GastosComponent implements OnInit {
   }
 
   async detalle(button: IButtonClasification) {
-    // console.log('======= entro en detalle =========', button);
     const dataPropertyTable = getClasificacion(button.clasificationType);
 
     if (this._dataStoreService.selectedCodeRowFirstLevel) {
       const useStarWitch: boolean = dataPropertyTable.useStarWitch;
       const attribute: string = dataPropertyTable.attribute;
-      await this._tableService.loadDataForTypeClasification(
+      this._dataTable = await this._tableService.loadDataForTypeClasification(
         button.clasificationType,
         { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
     } else {
-      await this._tableService.loadDataForTypeClasification(
+      this._dataTable = await this._tableService.loadDataForTypeClasification(
         button.clasificationType);
     }
-
+    console.log('data', this._dataTable);
     this._dataStoreService.selectedCodeRowFirstLevel = '';
 
-    // console.log('this._dataStoreService.getDataTable', this._dataStoreService.getDataTable);
-
     // Actualizo datos treemap en función del boton pulsado
-    // console.log('Actualizo datos treemap en función del boton pulsado');
+    console.log('Actualizo datos treemap en función del boton pulsado');
+    await this.dataGraph(this._dataTable.clasificationType, this._dataTable.rowData);
 
     // console.log('dataTreemap', dataTreemap);
     // this._dataStoreService.setDataTreemap = dataTreemap;
     // console.log('this._dataStoreService.getDataTreemap', await this._dataStoreService.getDataTreemap);
 
-    // this.reloadCurrentRoute()
     this.buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
 
-    this.showTable = false;
     // Como en el HTML usamos *ngIf="showTable" cuando lo ponemos
-    //   a false se eliina el componente del DOM y cuando lo ponemos  
-    //     a true se vuelve a crear el componente y se ejecuta el ngOnInit
+    // a false se elimina el componente del DOM y cuando lo ponemos  
+    // a true se vuelve a crear el componente y se ejecuta el ngOnInit
     this.showTable = false;
     setTimeout(() => {
       this.showTable = true;
     }, 500);
   }
 
-  // reloadCurrentRoute() {
-  //   console.log(this._router.url);
-
-  //   let currentUrl = this._router.url;
-  //   this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-  //     this._router.navigate([currentUrl]);
-  //   });
-  // }
+  async dataGraph(clasificationType: CLASIFICATION_TYPE, data: any) {
+    console.log('data', clasificationType);
+    await this._prepareDataTreemapService.calcSeries(data, getClasificacion(clasificationType).codField, getClasificacion(clasificationType).desField, 'Definitivas2022');
+  }
 
   private _hideButtons() {
     if (this.buttonsHide.length > 0) {

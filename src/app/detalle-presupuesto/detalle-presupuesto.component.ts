@@ -74,6 +74,8 @@ export class DetallePresupuestoComponent implements OnInit {
   private async _loadData(): Promise<void> {
     await this.setTotalesPresupuesto();
     let data = await this._tableService.loadDataForTypeClasification(this.typeClasification);
+    console.log(data);
+
     await this.dataGraph(data.rowData)
     await this.graphTreemap(data.rowData);
   }
