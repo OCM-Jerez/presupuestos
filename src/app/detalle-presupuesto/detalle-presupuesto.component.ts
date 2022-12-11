@@ -7,7 +7,7 @@ import { DataStoreService } from '../services/dataStore.service';
 import { TableService } from '../services/table.service';
 
 import { CLASIFICATION_TYPE } from '../commons/util/util';
-import { IDataTable } from '../commons/interfaces/dataTable.interface';
+// import { IDataTable } from '../commons/interfaces/dataTable.interface';
 
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
@@ -16,7 +16,6 @@ import heatmap from 'highcharts/modules/heatmap';
 import { environment } from '../../environments/environment';
 import { PrepareDataTreemapService } from '../services/prepareDataTreemap.service';
 import { PrepareDataTotalesPresupuestoService } from '../services/prepareDataTotalesPresupuesto.service';
-
 
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
@@ -42,7 +41,7 @@ export class DetallePresupuestoComponent implements OnInit {
       totalEjecutadoGastos: 0
     };
   private typeClasification: CLASIFICATION_TYPE;
-  private _dataTable: IDataTable;
+  // private _dataTable: IDataTable;
   private _radioButtonSelected = 'radio-1';
   private _tabSelected: string = "tab1";
   private _treemap = 'treemap1';
@@ -77,11 +76,14 @@ export class DetallePresupuestoComponent implements OnInit {
   private async _loadData(): Promise<void> {
     await this.setTotalesPresupuesto();
 
-    await this._tableService.loadDataForTypeClasification(this.typeClasification);
-    let data = this._dataStoreService.getDataTable.rowData;
+    // await this._tableService.loadDataForTypeClasification(this.typeClasification);
+    // let data = this._dataStoreService.getDataTable.rowData;
 
-    await this.dataGraph(data)
-    await this.graphTreemap(data);
+    let data = await this._tableService.loadDataForTypeClasification(this.typeClasification);
+    // console.log('------ data -----------', data);
+
+    await this.dataGraph(data.rowData)
+    await this.graphTreemap(data.rowData);
   }
 
   async setTotalesPresupuesto() {
