@@ -44,6 +44,7 @@ export class GastosComponent implements OnInit {
   }
 
   buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
+
   showTable = true;
 
   onGridReady = (params: GridReadyEvent) => {
@@ -97,6 +98,8 @@ export class GastosComponent implements OnInit {
   }
 
   private _hideButtons() {
+    console.log('this.buttonsHide', this.buttonsHide);
+
     if (this.buttonsHide.length > 0) {
       if (this.buttonsHide.includes('menu')) {
         this.hasMenuButton = false
