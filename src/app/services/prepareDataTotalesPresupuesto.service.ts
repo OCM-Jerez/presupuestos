@@ -49,19 +49,19 @@ export class PrepareDataTotalesPresupuestoService {
     //la función Object.keys para iterar sobre las claves del objeto que
     // representa la fila de datos actual, lo que también puede mejorar el rendimiento.
     this._totalPresupuestoIngresos = {};
-    const exclude = [
-      'CodArt',
-      'CodEco',
-      'DerechosAnulados2022',
-      'DerechosCancelados2022',
-      'DerechosPendienteCobro2022',
-      'DerechosReconocidos2022',
-      'DesArt',
-      'DiferenciaPrevision2022',
-      'Iniciales2022',
-      'Modificaciones2022',
-      'RecaudacionNeta2022'
-    ];
+    // const exclude = [
+    //   'CodArt',
+    //   'CodEco',
+    //   'DerechosAnulados2022',
+    //   'DerechosCancelados2022',
+    //   'DerechosPendienteCobro2022',
+    //   'DerechosReconocidos2022',
+    //   'DesArt',
+    //   'DiferenciaPrevision2022',
+    //   'Iniciales2022',
+    //   'Modificaciones2022',
+    //   'RecaudacionNeta2022'
+    // ];
 
     const include = [
       'Definitivas2022',
@@ -84,22 +84,11 @@ export class PrepareDataTotalesPresupuestoService {
         }
       }
     }
-    // console.log(this._totalPresupuestoIngresos);
   }
 
   async calcPresupuestoGastos() {
     await this._tableService.loadDataForTypeClasification('gastosOrganicaOrganicos');
     this._totalPresupuestoGastos = {};
-    // const exclude = [
-    //   'CodOrg',
-    //   'DesOrg',
-    //   'GastosComprometidos2022',
-    //   'Iniciales2022',
-    //   'Modificaciones2022',
-    //   'ObligacionesPendientePago2022',
-    //   'ObligacionesReconocidasNetas2022',
-    //   'RemanenteCredito2022'
-    // ];
     const include = [
       'Definitivas2022',
       'Pagos2022'
@@ -115,7 +104,6 @@ export class PrepareDataTotalesPresupuestoService {
         }
       }
     }
-    // console.log(this._totalPresupuestoGastos);
   }
 
   async setTotalesPresupuesto() {
@@ -128,8 +116,6 @@ export class PrepareDataTotalesPresupuestoService {
         totalEjecutadoGastos: this._totalPresupuestoGastos.Pagos2022.toLocaleString(),
       }
       this._dataStoreService.setDataTotalesPresupuesto = DataTotalesPresupuesto;
-      // console.log('DataTotalesPresupuesto------------------- ', DataTotalesPresupuesto);
-
     } catch (error) {
       // console.clear();
       console.error('error------------------- ', error);
