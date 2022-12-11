@@ -33,13 +33,14 @@ export class DetallePresupuestoComponent implements OnInit {
   showPrograma = false;
   showOrganico = false;
   showEconomica = false;
-  DataTotalesPresupuesto: IDataTotalesPresupuesto = {
-    year: 2022,
-    totalPresupuestoIngresos: 0,
-    totalPresupuestoGastos: 0,
-    totalEjecutadoIngresos: 0,
-    totalEjecutadoGastos: 0
-  };
+  DataTotalesPresupuesto: IDataTotalesPresupuesto =
+    {
+      year: 2022,
+      totalPresupuestoIngresos: 0,
+      totalPresupuestoGastos: 0,
+      totalEjecutadoIngresos: 0,
+      totalEjecutadoGastos: 0
+    };
   private typeClasification: CLASIFICATION_TYPE;
   private _dataTable: IDataTable;
   private _radioButtonSelected = 'radio-1';
@@ -77,8 +78,7 @@ export class DetallePresupuestoComponent implements OnInit {
     await this.setTotalesPresupuesto();
 
     await this._tableService.loadDataForTypeClasification(this.typeClasification);
-    this._dataTable = this._dataStoreService.getDataTable
-    let data = this._dataTable.rowData;
+    let data = this._dataStoreService.getDataTable.rowData;
 
     await this.dataGraph(data)
     await this.graphTreemap(data);
