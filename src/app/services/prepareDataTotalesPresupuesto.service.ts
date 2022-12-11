@@ -16,14 +16,17 @@ export class PrepareDataTotalesPresupuestoService {
   ) { }
 
   async calcTotales() {
+    await this.calcPresupuestoIngresos();
+    await this.calcPresupuestoGastos();
+    // await no funciona
     // Si no se hacen los dos setTimeout no funciona
-    setTimeout(() => {
-      this.calcPresupuestoIngresos();
-    }, 0);
+    // setTimeout(() => {
+    //   this.calcPresupuestoIngresos();
+    // }, 0);
 
-    setTimeout(() => {
-      this.calcPresupuestoGastos();
-    }, 0);
+    // setTimeout(() => {
+    //   this.calcPresupuestoGastos();
+    // }, 0);
 
     this.setTotalesPresupuesto();
   }
