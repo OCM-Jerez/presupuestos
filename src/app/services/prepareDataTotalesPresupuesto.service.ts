@@ -30,28 +30,93 @@ export class PrepareDataTotalesPresupuestoService {
 
   async calcPresupuestoIngresos() {
     await this._tableService.loadDataForTypeClasification('ingresosEconomicaArticulos');
-    this._totalPresupuestoIngresos = this._dataStoreService.getDataTable.rowData.reduce((acc, curr) => {
-      Object.keys(curr).forEach((key, index) => {
-        if (!acc[key]) {
-          acc[key] = 0
+    // this._totalPresupuestoIngresos = this._dataStoreService.getDataTable.rowData.reduce((acc, curr) => {
+    //   Object.keys(curr).forEach((key, index) => {
+    //     if (!acc[key]) {
+    //       acc[key] = 0
+    //     }
+    //     acc[key] += curr[key]
+    //   })
+    //   return acc
+    // }, {})
+    // console.log(this._totalPresupuestoIngresos);
+
+
+    // Propuesto por ChatGPT
+    // Este código utiliza un bucle for en lugar de la función reduce para
+    // iterar sobre las filas de la tabla de datos. Esto puede mejorar el 
+    // rendimiento ya que evita la creación de una función anónima en cada
+    // iteración del bucle. Además, se utiliza un bucle for-in en lugar de 
+    //la función Object.keys para iterar sobre las claves del objeto que
+    // representa la fila de datos actual, lo que también puede mejorar el rendimiento.
+    this._totalPresupuestoIngresos = {};
+    const exclude = [
+      'CodArt',
+      'CodEco',
+      'DerechosAnulados2022',
+      'DerechosCancelados2022',
+      'DerechosPendienteCobro2022',
+      'DerechosReconocidos2022',
+      'DesArt',
+      'DiferenciaPrevision2022',
+      'Iniciales2022',
+      'Modificaciones2022',
+      'RecaudacionNeta2022'
+    ];
+
+    const include = [
+      'Definitivas2022',
+      'DerechosReconocidosNetos2022'
+    ]
+
+    // Iterar sobre cada fila de la tabla de datos
+    for (const row of this._dataStoreService.getDataTable.rowData) {
+      // Iterar sobre cada clave del objeto que representa la fila actual
+      for (const key in row) {
+        // if (!exclude.includes(key)) {
+        if (include.includes(key)) {
+          // Si la clave no existe en el objeto que almacena el total de ingresos,
+          // se inicializa en cero
+          if (!this._totalPresupuestoIngresos[key]) {
+            this._totalPresupuestoIngresos[key] = 0;
+          }
+          // Se suma el valor de la clave al total
+          this._totalPresupuestoIngresos[key] += row[key];
         }
-        acc[key] += curr[key]
-      })
-      return acc
-    }, {})
+      }
+    }
+    // console.log(this._totalPresupuestoIngresos);
   }
 
   async calcPresupuestoGastos() {
     await this._tableService.loadDataForTypeClasification('gastosOrganicaOrganicos');
-    this._totalPresupuestoGastos = this._dataStoreService.getDataTable.rowData.reduce((acc, curr) => {
-      Object.keys(curr).forEach((key, index) => {
-        if (!acc[key]) {
-          acc[key] = 0
+    this._totalPresupuestoGastos = {};
+    // const exclude = [
+    //   'CodOrg',
+    //   'DesOrg',
+    //   'GastosComprometidos2022',
+    //   'Iniciales2022',
+    //   'Modificaciones2022',
+    //   'ObligacionesPendientePago2022',
+    //   'ObligacionesReconocidasNetas2022',
+    //   'RemanenteCredito2022'
+    // ];
+    const include = [
+      'Definitivas2022',
+      'Pagos2022'
+    ]
+
+    for (const row of this._dataStoreService.getDataTable.rowData) {
+      for (const key in row) {
+        if (include.includes(key)) {
+          if (!this._totalPresupuestoGastos[key]) {
+            this._totalPresupuestoGastos[key] = 0;
+          }
+          this._totalPresupuestoGastos[key] += row[key];
         }
-        acc[key] += curr[key]
-      })
-      return acc
-    }, {})
+      }
+    }
+    // console.log(this._totalPresupuestoGastos);
   }
 
   async setTotalesPresupuesto() {
