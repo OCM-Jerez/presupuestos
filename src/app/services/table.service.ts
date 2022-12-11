@@ -50,9 +50,21 @@ export class TableService {
             graphSubTitle: ''
         }
 
+        const grabar = true;
+        if (grabar) {
+            // Uso el setter
+            // console.log('Grabo', rowData);
+            this._dataStoreService.setDataTable = sendDataTable;
+            this._dataStoreService.dataGraph = sendDataGraph;
+        } else {
+            console.log('No grabo');
+            // return rowData
+        }
         // Uso el setter
         this._dataStoreService.setDataTable = sendDataTable;
         this._dataStoreService.dataGraph = sendDataGraph;
+
+
     }
 
 }
