@@ -41,7 +41,6 @@ export class PrepareDataTotalesPresupuestoService {
     // }, {})
     // console.log(this._totalPresupuestoIngresos);
 
-
     // Propuesto por ChatGPT
     // Este código utiliza un bucle for en lugar de la función reduce para
     // iterar sobre las filas de la tabla de datos. Esto puede mejorar el 
@@ -123,16 +122,14 @@ export class PrepareDataTotalesPresupuestoService {
     try {
       const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
         year: 2022,
-        totalPresupuestoIngresos: this._totalPresupuestoIngresos.Definitivas2022.toString()
-          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'),
-        totalEjecutadoIngresos: this._totalPresupuestoIngresos.DerechosReconocidosNetos2022.toString()
-          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'),
-        totalPresupuestoGastos: this._totalPresupuestoGastos.Definitivas2022.toString()
-          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'),
-        totalEjecutadoGastos: this._totalPresupuestoGastos.Pagos2022.toString()
-          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'),
+        totalPresupuestoIngresos: this._totalPresupuestoIngresos.Definitivas2022.toLocaleString(),
+        totalEjecutadoIngresos: this._totalPresupuestoIngresos.DerechosReconocidosNetos2022.toLocaleString(),
+        totalPresupuestoGastos: this._totalPresupuestoGastos.Definitivas2022.toLocaleString(),
+        totalEjecutadoGastos: this._totalPresupuestoGastos.Pagos2022.toLocaleString(),
       }
       this._dataStoreService.setDataTotalesPresupuesto = DataTotalesPresupuesto;
+      // console.log('DataTotalesPresupuesto------------------- ', DataTotalesPresupuesto);
+
     } catch (error) {
       // console.clear();
       console.error('error------------------- ', error);
