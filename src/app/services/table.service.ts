@@ -19,15 +19,13 @@ export class TableService {
     ) { }
 
     async loadDataForTypeClasification(
-        // isIncome: boolean,
         tipoClasificacion?: CLASIFICATION_TYPE,
         filter?: { valueFilter: string, attribute: string, useStarWitch?: boolean }
     ): Promise<void> {
         const dataPropertyTable = getClasificacion(tipoClasificacion) as IDataProperty;
         const dataPropertyGraph = getClasificacionGraph(tipoClasificacion);
-
         let rowData: any[];
-        // if (isIncome) {
+
         if (tipoClasificacion.startsWith('ingresos')) {
             rowData = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion);
         } else {
