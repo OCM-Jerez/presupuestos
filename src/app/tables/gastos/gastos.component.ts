@@ -47,8 +47,8 @@ export class GastosComponent implements OnInit {
 
   onGridReady = (params: GridReadyEvent) => {
     this._gridApi = params.api;
-    console.log('==========================================');
-    console.log(this._gridApi);
+    // console.log('==========================================');
+    // console.log(this._gridApi);
 
     this._columnApi = params.columnApi;
     // let defaultSortModel: ColumnState[] = [
@@ -59,7 +59,7 @@ export class GastosComponent implements OnInit {
   }
 
   async detalle(button: IButtonClasification) {
-    console.log('=================  =========================', button);
+    // console.log('======= entro en detalle =========', button);
     const dataPropertyTable = getClasificacion(button.clasificationType);
 
     if (this._dataStoreService.selectedCodeRowFirstLevel) {
@@ -75,8 +75,7 @@ export class GastosComponent implements OnInit {
 
     this._dataStoreService.selectedCodeRowFirstLevel = '';
 
-    console.log('this._dataStoreService.getDataTable', this._dataStoreService.getDataTable);
-
+    // console.log('this._dataStoreService.getDataTable', this._dataStoreService.getDataTable);
 
     // Actualizo datos treemap en función del boton pulsado
     // console.log('Actualizo datos treemap en función del boton pulsado');
@@ -85,22 +84,27 @@ export class GastosComponent implements OnInit {
     // this._dataStoreService.setDataTreemap = dataTreemap;
     // console.log('this._dataStoreService.getDataTreemap', await this._dataStoreService.getDataTreemap);
 
+    // this.reloadCurrentRoute()
+    this.buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
 
-
-
-
-
-
-    this.reloadCurrentRoute()
-    //this.ngOnInit();
+    this.showTable = false;
+    // Como en el HTML usamos *ngIf="showTable" cuando lo ponemos
+    //   a false se eliina el componente del DOM y cuando lo ponemos  
+    //     a true se vuelve a crear el componente y se ejecuta el ngOnInit
+    this.showTable = false;
+    setTimeout(() => {
+      this.showTable = true;
+    }, 500);
   }
 
-  reloadCurrentRoute() {
-    let currentUrl = this._router.url;
-    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this._router.navigate([currentUrl]);
-    });
-  }
+  // reloadCurrentRoute() {
+  //   console.log(this._router.url);
+
+  //   let currentUrl = this._router.url;
+  //   this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+  //     this._router.navigate([currentUrl]);
+  //   });
+  // }
 
   private _hideButtons() {
     if (this.buttonsHide.length > 0) {
