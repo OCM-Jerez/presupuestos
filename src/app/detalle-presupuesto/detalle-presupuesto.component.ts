@@ -33,7 +33,13 @@ export class DetallePresupuestoComponent implements OnInit {
   showPrograma = false;
   showOrganico = false;
   showEconomica = false;
-  DataTotalesPresupuesto: IDataTotalesPresupuesto;
+  DataTotalesPresupuesto: IDataTotalesPresupuesto = {
+    year: 2022,
+    totalPresupuestoIngresos: 0,
+    totalPresupuestoGastos: 0,
+    totalEjecutadoIngresos: 0,
+    totalEjecutadoGastos: 0
+  };
   private typeClasification: CLASIFICATION_TYPE;
   private _dataTable: IDataTable;
   private _radioButtonSelected = 'radio-1';
@@ -74,6 +80,16 @@ export class DetallePresupuestoComponent implements OnInit {
     this._dataTable = this._dataStoreService.getDataTable
     let data = this._dataTable.rowData;
 
+    await this.dataGraph(data)
+    await this.graphTreemap(data);
+  }
+
+  async setTotalesPresupuesto() {
+    await this._prepareDataTotalesPresupuestoService.calcTotales();
+    this.DataTotalesPresupuesto = this._dataStoreService.getDataTotalesPresupuesto;
+  }
+
+  async dataGraph(data) {
     // Datos para grafico
     switch (this._tabSelected) {
       case 'tab1':
@@ -103,17 +119,9 @@ export class DetallePresupuestoComponent implements OnInit {
         this.showEconomica = true;
         break;
     }
-    this.graphTreemap(data);
-
   }
 
-  async setTotalesPresupuesto() {
-    //  Calculo totales de ingresos y gastos y los guardo en _dataStoreService  */
-    await this._prepareDataTotalesPresupuestoService.calcTotales();
-    this.DataTotalesPresupuesto = this._dataStoreService.getDataTotalesPresupuesto;
-  }
-
-  graphTreemap(data) {
+  async graphTreemap(data) {
     data = this._dataStoreService.getDataTreemap;
     const chart = Highcharts.chart(this._treemap, {
       accessibility: {
