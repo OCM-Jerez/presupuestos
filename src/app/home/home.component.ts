@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { DataStoreService } from '../services/dataStore.service';
 import { TableService } from '../services/table.service';
-import { PrepareDataTotalesPresupuestoService } from '../services/prepareDataTotalesPresupuesto.service';
+// import { PrepareDataTotalesPresupuestoService } from '../services/prepareDataTotalesPresupuesto.service';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
 @Component({
@@ -20,17 +20,17 @@ export class HomeComponent implements OnInit {
   valueEjemplo1: number;
   valueEjemplo2: number;
   valueEjemplo3: number;
-  totalPresupuestoIngresos: number;
-  totalPresupuestoGastos: number;
-  totalEjecutadoIngresos: number;
-  totalEjecutadoGastos: number;
+  // totalPresupuestoIngresos: number;
+  // totalPresupuestoGastos: number;
+  // totalEjecutadoIngresos: number;
+  // totalEjecutadoGastos: number;
   textoTabla: string;
 
   constructor(
     private _router: Router,
     private _dataStoreService: DataStoreService,
     private _tableService: TableService,
-    private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService
+    // private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService
   ) { }
 
   ngOnInit(): void {
@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
 
   private async _loadData(): Promise<void> {
     //  Calculo totales de ingresos y gastos y los guardo en _dataStoreService  */
-    this._prepareDataTotalesPresupuestoService.calcTotales();
+    // await this._prepareDataTotalesPresupuestoService.calcTotales();
 
     /* #region datos aleatorios para la tabla de ejemplos  */
     const ingresoGasto = (Math.random() >= 0.5) ? true : false;
@@ -159,30 +159,30 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  async preparaDataTable(data: any, descripcion, campoSumatorio) {
-    let array = [];
-    array = data.reduce((acc, curr) => {
-      const item =
-      {
-        "name": curr[descripcion],
-        "value": curr[campoSumatorio],
-      }
-      acc.push(item);
-      return acc;
-    }, []);
+  // async preparaDataTable(data: any, descripcion, campoSumatorio) {
+  //   let array = [];
+  //   array = data.reduce((acc, curr) => {
+  //     const item =
+  //     {
+  //       "name": curr[descripcion],
+  //       "value": curr[campoSumatorio],
+  //     }
+  //     acc.push(item);
+  //     return acc;
+  //   }, []);
 
-    // Totalizo
-    const dataTotal = array.reduce((acc, { name, value }) => {
-      const item = acc.find(item => item.name === name)
-      item ? item.value += value : acc.push({
-        name,
-        value,
-      });
-      return acc;
-    }, []);
-    return dataTotal
+  //   // Totalizo
+  //   const dataTotal = array.reduce((acc, { name, value }) => {
+  //     const item = acc.find(item => item.name === name)
+  //     item ? item.value += value : acc.push({
+  //       name,
+  //       value,
+  //     });
+  //     return acc;
+  //   }, []);
+  //   return dataTotal
 
-  }
+  // }
 
 }
 
