@@ -72,6 +72,7 @@
         &--1row {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             background-color: map-get($OCM-colors, navBarBackground);
             height: 50px;
             &--brand {
@@ -86,6 +87,9 @@
                 &--text {
                     @include OCM-text;
                     font-size: 12px;
+                }
+                &--text1 {
+                    display: none;
                 }
             }
             &--title {
@@ -211,7 +215,7 @@
 
 @media screen and (max-width: 575.98px) {
     .barraBuscar {
-        // display: none;
+        display: none;
         margin-bottom: 10px;
     }
 
@@ -352,7 +356,12 @@
                     background: url("../../../assets/img/logoOCMyellow.svg") no-repeat center center;
                 }
                 &--text {
-                    font-size: 7px;
+                    display: none;
+                }
+                &--text1 {
+                    display: block;
+                    color: white;
+                    font-size: 9px;
                 }
             }
             &--title {
