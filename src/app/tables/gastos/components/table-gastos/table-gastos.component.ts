@@ -177,7 +177,8 @@ export class TableGastosComponent implements OnInit {
             headerName: 'Creditos definitivos',
             field: `Definitivas${year}`,
             width: 140,
-            columnGroupShow: 'close'
+            columnGroupShow: 'close',
+            sort: 'desc'
           },
         ]
       },
