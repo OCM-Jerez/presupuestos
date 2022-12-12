@@ -22,6 +22,8 @@ export class GastosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   @Input() buttonsHide: string[] = [];
   @Input() hasTitle: boolean = true;
+  @Input() hasMenu: boolean = true;
+  @Input() hasGrafico: boolean = true;
   public hasGraficoButton = true;
   public hasGraphTree = true;
   public hasMenuButton = true;
@@ -94,6 +96,7 @@ export class GastosComponent implements OnInit {
     // Si recargamos la app los datos de los services se pierden.
     this.showTable = false;
     setTimeout(() => {
+      this._hideButtons()
       this.showTable = true;
     }, 500);
   }

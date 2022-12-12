@@ -95,9 +95,8 @@
             <div class="tab__content">
                 <div id="treemap2" class="treemap"></div>
                 <app-gastos (clickDetalle)="clickDetalle()" *ngIf="showPrograma" [buttonsHide]="[
-                'Gráfico arbol',
-                'Por áreas',
-                'Por política']" [hasTitle]=false></app-gastos>
+                'Gráfico arbol',             
+                ]" [hasTitle]=false [hasMenu]=false [hasGrafico]=false></app-gastos>
             </div>
 
             <!-- Tab ¿Quién lo gasta?  -->

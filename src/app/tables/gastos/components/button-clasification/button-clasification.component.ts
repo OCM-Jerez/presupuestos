@@ -14,6 +14,8 @@ export class ButtonClasificationComponent implements OnInit {
   // @Input() messageYears = '';
   @Input() buttons: IButtonClasification[] = [];
   @Input() hasTitle: boolean = true;
+  @Input() hasMenu: boolean = true;
+  @Input() hasGrafico: boolean = true;
 
   @Output() clickButton = new EventEmitter<IButtonClasification>();
   @Output() clickVolver = new EventEmitter<IButtonClasification>();

@@ -2,7 +2,7 @@
     <h4 *ngIf="hasTitle" class="OCM-text--cabecera">Comparativa gastos {{
         messageYears }}</h4>
 
-    <button type="button" (click)="showGraph()" class="btn-54">
+    <button *ngIf="hasGrafico" type="button" (click)="showGraph()" class="btn-54">
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content">Mostrar gráfico</span>
@@ -14,7 +14,7 @@
         <span class="content">{{button.name}} </span>
     </button>
 
-    <button type="button" class="btn-54" (click)="menu()">
+    <button *ngIf="hasMenu" type="button" class="btn-54" (click)="menu()">
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content" style="background-color: brown;">Menú</span>

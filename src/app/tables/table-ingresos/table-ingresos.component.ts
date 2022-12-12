@@ -31,6 +31,7 @@ export class TableIngresosComponent implements OnInit {
   @Input() fieldsHide: string[] = [];
   @Input() buttonsHide: string[] = [];
   @Input() hasTitle: boolean = true;
+  @Input() hasGrafico: boolean = true;
   @Input() cellRenderer: boolean;
 
   public gridOptions: GridOptions;
