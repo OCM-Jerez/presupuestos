@@ -50,8 +50,10 @@ export class DetallePresupuestoComponent implements OnInit {
     private _prepareDataTreemapService: PrepareDataTreemapService,
     private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService
   ) { }
+  showTable = true;
 
   ngOnInit(): void {
+    console.log('onInit updateTreemap');
     this._tabSelected = localStorage.getItem('activeTab') != null ? localStorage.getItem('activeTab') : 'tab1';
     this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
     this.setValues(this._tabSelected);
@@ -83,7 +85,9 @@ export class DetallePresupuestoComponent implements OnInit {
     console.log(data);
 
     await this.dataGraph(data.rowData)
-    await this.graphTreemap(data.rowData);
+    // await this.graphTreemap(data.rowData); // No es necesario pasarle la data, ya que la recupera del store
+    await this.graphTreemap();
+
   }
 
   async setTotalesPresupuesto() {
@@ -123,10 +127,13 @@ export class DetallePresupuestoComponent implements OnInit {
     }
   }
 
-  async graphTreemap(data) {
-    data = this._dataStoreService.getDataTreemap;
+  // async graphTreemap(data) {
+  async graphTreemap() {
+    const data = this._dataStoreService.getDataTreemap;
     console.warn('------  Recupero la data del store para usarla en el grafico');
     console.log(data);
+    console.log('this._treemap in graphTreemap()', this._treemap);
+
     const chart = Highcharts.chart(this._treemap, {
       accessibility: {
         enabled: false
@@ -181,4 +188,22 @@ export class DetallePresupuestoComponent implements OnInit {
     }
   }
 
+  updateTreemap() {
+    // console.log('updateTreemap');
+    // this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
+    // const data = this._dataStoreService.getDataTreemap;
+    // console.log('data treemap', data);
+    // console.log('_tabSelected', this._treemap);
+    this.showTable = false;
+    setTimeout(() => {
+      this.showTable = true;
+    }, 0);
+
+    setTimeout(() => {
+      this.graphTreemap()
+    }, 0);
+  }
+
 }
+
+
