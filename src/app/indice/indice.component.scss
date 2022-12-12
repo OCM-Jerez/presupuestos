@@ -3,6 +3,15 @@
 @import "/src/app/scss/variables";
 
 @media screen and (max-width: 3399.98px) {
+    .OCM-indice {
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        // height: calc(100vh - 125px);
+        background-color: #15202b;
+        height: 90vh;
+        display: none;
+    }
+
     .flex-container {
         display: flex;
         margin: 0 auto;
@@ -91,14 +100,6 @@
         font-size: clamp(3rem, 4rem, 5rem);
         text-align: center;
         margin-bottom: 20px;
-    }
-
-    .OCM-indice {
-        margin-bottom: 2rem;
-        margin-top: 2rem;
-        // height: calc(100vh - 125px);
-        background-color: #15202b;
-        height: 90vh;
     }
 
     /* Como CSS no tiene la propiedad background.opacity
