@@ -1,3 +1,4 @@
 <!-- <app-button-clasification (clickButton)="clickButton($event)" [buttons]="buttons"></app-button-clasification> -->
-<app-button-clasification (clickButton)="detalle($event)" [buttons]="buttons"></app-button-clasification>
+<app-button-clasification (clickButton)="detalle($event)" [buttons]="buttons"
+    [hasTitle]="hasTitle"></app-button-clasification>
 <app-table-gastos *ngIf="showTable" #table></app-table-gastos>

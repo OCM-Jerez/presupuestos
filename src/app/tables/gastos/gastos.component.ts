@@ -38,8 +38,8 @@ export class GastosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.buttons);
     this._hideButtons();
+    console.log(this.hasTitle);
 
   }
 
@@ -104,45 +104,19 @@ export class GastosComponent implements OnInit {
   // }
 
   private _hideButtons() {
-    console.log('this.buttonsHide', this.buttonsHide);
-    console.log('this.buttons', this.buttons);
-    // let bb = this.buttons;
-
-    this.buttons.forEach((element, index) => {
+    // console.log('this.buttonsHide', this.buttonsHide);
+    // console.log('this.buttons', this.buttons);
+    this.buttons.forEach(() => {
       for (const key in this.buttons) {
-        console.log('Buscando', this.buttons[key].name);
+        // console.log('Buscando', this.buttons[key].name);
         if (this.buttonsHide.includes(this.buttons[key].name)) {
-          console.log('Encontrado', this.buttons[key].name);
+          // console.log('Encontrado', this.buttons[key].name);
           // delete this.buttons[key]s.name;
           this.buttons.splice(parseInt(key), 1);
         }
       }
     });
 
-    // for (const key in this.buttons) {
-    //   console.log('Buscando', this.buttons[key].name);
-    //   if (this.buttonsHide.includes(this.buttons[key].name)) {
-    //     console.log('Encontrado', this.buttons[key].name);
-    //     // delete this.buttons[key]s.name;
-    //     this.buttons.splice(parseInt(key), 1);
-    //   }
-    // }
-
-    console.log('bb', this.buttons);
-
-
-
-    // if (this.buttonsHide.length > 0) {
-    //   if (this.buttonsHide.includes('menu')) {
-    //     this.hasMenuButton = false
-    //   };
-    //   if (this.buttonsHide.includes('grafico')) {
-    //     this.hasGraficoButton = false
-    //   };
-    //   if (this.buttonsHide.includes('graphTree')) {
-    //     this.hasGraphTree = false
-    //   };
-    // }
   }
 
 }
