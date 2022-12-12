@@ -17,7 +17,7 @@ import { CLASIFICATION_TYPE } from '../../commons/util/util';
   styleUrls: ['./gastos.component.scss']
 })
 export class GastosComponent implements OnInit {
-  @Output() clickDetalle = new EventEmitter<IButtonClasification>();
+  @Output() clickDetalle = new EventEmitter<void>();
 
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   @Input() buttonsHide: string[] = [];
@@ -53,7 +53,7 @@ export class GastosComponent implements OnInit {
   }
 
   async detalle(button: IButtonClasification) {
-    this.clickDetalle.emit(button);
+    this.clickDetalle.emit();
 
     const dataPropertyTable = getClasificacion(button.clasificationType);
 

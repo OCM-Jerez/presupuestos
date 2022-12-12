@@ -206,7 +206,7 @@ export class DetallePresupuestoComponent implements OnInit {
   //   }, 0);
   // }
 
-  clickDetalle(button: IButtonClasification) {
+  clickDetalle() {
     console.log('clickDetalle');
     setTimeout(() => {
       this.showTable = true;
