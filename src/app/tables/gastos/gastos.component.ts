@@ -63,12 +63,20 @@ export class GastosComponent implements OnInit {
       this._dataTable = await this._tableService.loadDataForTypeClasification(
         button.clasificationType);
     }
-    console.log('data', this._dataTable);
+
+    console.log('He pulsado un botón detalles, actualizo data', this._dataTable);
     this._dataStoreService.selectedCodeRowFirstLevel = '';
 
     console.log('Actualizo datos treemap en función del boton pulsado');
-    await this.dataGraph(this._dataTable.clasificationType, this._dataTable.rowData);
+    await this._prepareDataTreemapService.calcSeries(
+      this._dataTable.rowData,
+      getClasificacion(this._dataTable.clasificationType).codField,
+      getClasificacion(this._dataTable.clasificationType).desField,
+      'Definitivas2022'
+    );
+    console.log('this._dataStoreService.getDataTreemap', this._dataStoreService.getDataTreemap);
 
+    // await this.dataGraph(this._dataTable.clasificationType, this._dataTable.rowData);
     // console.log('dataTreemap', dataTreemap);
     // this._dataStoreService.setDataTreemap = dataTreemap;
     // console.log('this._dataStoreService.getDataTreemap', await this._dataStoreService.getDataTreemap);
@@ -78,16 +86,17 @@ export class GastosComponent implements OnInit {
     // Como en el HTML usamos *ngIf="showTable" cuando lo ponemos
     // a false se elimina el componente del DOM y cuando lo ponemos  
     // a true se vuelve a crear el componente y se ejecuta el ngOnInit
+    // Si recargamos la app los datos de los services se pierden.
     this.showTable = false;
     setTimeout(() => {
       this.showTable = true;
     }, 500);
   }
 
-  async dataGraph(clasificationType: CLASIFICATION_TYPE, data: any) {
-    console.log('data', clasificationType);
-    await this._prepareDataTreemapService.calcSeries(data, getClasificacion(clasificationType).codField, getClasificacion(clasificationType).desField, 'Definitivas2022');
-  }
+  // async dataGraph(clasificationType: CLASIFICATION_TYPE, data: any) {
+  //   console.log('data', clasificationType);
+  //   await this._prepareDataTreemapService.calcSeries(data, getClasificacion(clasificationType).codField, getClasificacion(clasificationType).desField, 'Definitivas2022');
+  // }
 
   private _hideButtons() {
     console.log('this.buttonsHide', this.buttonsHide);
