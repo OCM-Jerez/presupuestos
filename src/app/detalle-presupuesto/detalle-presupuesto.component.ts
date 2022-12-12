@@ -15,6 +15,7 @@ import heatmap from 'highcharts/modules/heatmap';
 import { environment } from '../../environments/environment';
 import { PrepareDataTreemapService } from '../services/prepareDataTreemap.service';
 import { PrepareDataTotalesPresupuestoService } from '../services/prepareDataTotalesPresupuesto.service';
+import { IButtonClasification } from '../tables/gastos/model/components.interface';
 
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
@@ -26,6 +27,7 @@ heatmap(Highcharts)
 })
 export class DetallePresupuestoComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+
   liqDate = environment.liqDate;
   showIngresos = false;
   showPrograma = false;
@@ -188,13 +190,24 @@ export class DetallePresupuestoComponent implements OnInit {
     }
   }
 
-  updateTreemap() {
-    // console.log('updateTreemap');
-    // this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
-    // const data = this._dataStoreService.getDataTreemap;
-    // console.log('data treemap', data);
-    // console.log('_tabSelected', this._treemap);
-    this.showTable = false;
+  // updateTreemap() {
+  //   // console.log('updateTreemap');
+  //   // this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
+  //   // const data = this._dataStoreService.getDataTreemap;
+  //   // console.log('data treemap', data);
+  //   // console.log('_tabSelected', this._treemap);
+  //   this.showTable = false;
+  //   setTimeout(() => {
+  //     this.showTable = true;
+  //   }, 0);
+
+  //   setTimeout(() => {
+  //     this.graphTreemap()
+  //   }, 0);
+  // }
+
+  clickDetalle(button: IButtonClasification) {
+    console.log('clickDetalle');
     setTimeout(() => {
       this.showTable = true;
     }, 0);
@@ -202,6 +215,7 @@ export class DetallePresupuestoComponent implements OnInit {
     setTimeout(() => {
       this.graphTreemap()
     }, 0);
+
   }
 
 }

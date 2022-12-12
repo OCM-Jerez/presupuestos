@@ -94,7 +94,7 @@
             <!-- Tab ¿En qué se gasta? Clasificacion económica -->
             <div class="tab__content">
                 <div id="treemap2" class="treemap"></div>
-                <app-gastos *ngIf="showPrograma" [buttonsHide]="[
+                <app-gastos (clickDetalle)="clickDetalle($event)" *ngIf="showPrograma" [buttonsHide]="[
                 'menu',
                 'grafico',
                 'graphTree']" [hasTitle]=false></app-gastos>
@@ -108,9 +108,9 @@
 
             <!-- Tab ¿Para qué gasta?  -->
             <div class="tab__content">
-                <button class="btn btn-primary" (click)="updateTreemap()">updateTreemap</button>
+                <!-- <button class="btn btn-primary" (click)="updateTreemap()">updateTreemap</button> -->
                 <div *ngIf="showTable" id="treemap4" class="treemap"></div>
-                <app-gastos *ngIf="showEconomica"></app-gastos>
+                <app-gastos (clickDetalle)="clickDetalle($event)" *ngIf="showEconomica"></app-gastos>
             </div>
         </div>
 

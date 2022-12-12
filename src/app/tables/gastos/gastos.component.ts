@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, Input } from '@angular/core';
+import { Component, ViewChild, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { TableService } from '../../services/table.service';
 import { DataStoreService } from '../../services/dataStore.service';
@@ -17,6 +17,8 @@ import { CLASIFICATION_TYPE } from '../../commons/util/util';
   styleUrls: ['./gastos.component.scss']
 })
 export class GastosComponent implements OnInit {
+  @Output() clickDetalle = new EventEmitter<IButtonClasification>();
+
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   @Input() buttonsHide: string[] = [];
   @Input() hasTitle: boolean = true;
@@ -51,6 +53,8 @@ export class GastosComponent implements OnInit {
   }
 
   async detalle(button: IButtonClasification) {
+    this.clickDetalle.emit(button);
+
     const dataPropertyTable = getClasificacion(button.clasificationType);
 
     if (this._dataStoreService.selectedCodeRowFirstLevel) {
