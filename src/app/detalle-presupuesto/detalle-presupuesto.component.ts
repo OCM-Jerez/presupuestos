@@ -55,7 +55,7 @@ export class DetallePresupuestoComponent implements OnInit {
   showTable = true;
 
   ngOnInit(): void {
-    console.log('onInit updateTreemap');
+    // console.log('onInit updateTreemap');
     this._tabSelected = localStorage.getItem('activeTab') != null ? localStorage.getItem('activeTab') : 'tab1';
     this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
     this.setValues(this._tabSelected);
@@ -78,13 +78,13 @@ export class DetallePresupuestoComponent implements OnInit {
   private async _loadData(): Promise<void> {
     await this.setTotalesPresupuesto();
     let data = await this._tableService.loadDataForTypeClasification(this.typeClasification);
-    console.warn('------  Cargo esta data la recupero para usarla en este componente.');
-    console.warn('------  La misma data se almacena en el store para ser usada en otros componentes');
-    console.warn('------  Con data.rowData se calculan los datos del treemap en la function dataGraph(data.rowData)');
-    console.warn('------  La data se almacena en store');
-    console.warn('------  graphTreemap(data) recuperara la data del store y la usará para mostrar el grafico');
-    console.warn('------  El AG Grid mostrara los datos adecuado recuperandolos del store');
-    console.log(data);
+    // console.warn('------  Cargo esta data la recupero para usarla en este componente.');
+    // console.warn('------  La misma data se almacena en el store para ser usada en otros componentes');
+    // console.warn('------  Con data.rowData se calculan los datos del treemap en la function dataGraph(data.rowData)');
+    // console.warn('------  La data se almacena en store');
+    // console.warn('------  graphTreemap(data) recuperara la data del store y la usará para mostrar el grafico');
+    // console.warn('------  El AG Grid mostrara los datos adecuado recuperandolos del store');
+    // console.log(data);
 
     await this.dataGraph(data.rowData)
     // await this.graphTreemap(data.rowData); // No es necesario pasarle la data, ya que la recupera del store
@@ -132,9 +132,9 @@ export class DetallePresupuestoComponent implements OnInit {
   // async graphTreemap(data) {
   async graphTreemap() {
     const data = this._dataStoreService.getDataTreemap;
-    console.warn('------  Recupero la data del store para usarla en el grafico');
-    console.log(data);
-    console.log('this._treemap in graphTreemap()', this._treemap);
+    // console.warn('------  Recupero la data del store para usarla en el grafico');
+    // console.log(data);
+    // console.log('this._treemap in graphTreemap()', this._treemap);
 
     const chart = Highcharts.chart(this._treemap, {
       accessibility: {

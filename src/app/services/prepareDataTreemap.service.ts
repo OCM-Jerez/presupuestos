@@ -63,7 +63,7 @@ export class PrepareDataTreemapService {
     });
 
     this._dataStoreService.setDataTreemap = data;
-    console.log(' this._dataStoreService.setDataTreemap', data);
+    // console.log(' this._dataStoreService.setDataTreemap', data);
 
     // return data
   }
