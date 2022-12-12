@@ -1,7 +1,5 @@
-import { Component, Injectable, ViewChild, OnInit, Input } from '@angular/core';
-// import { Router } from '@angular/router';
+import { Component, ViewChild, OnInit, Input } from '@angular/core';
 
-// import { TableGastosComponent } from './components/table-gastos/table-gastos.component';
 import { TableService } from '../../services/table.service';
 import { DataStoreService } from '../../services/dataStore.service';
 import { IButtonClasification } from './model/components.interface';
@@ -10,10 +8,8 @@ import { getClasificacion } from '../data-table';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnState, ColumnApi, GridApi, GridReadyEvent } from "ag-grid-community";
 import { PrepareDataTreemapService } from '../../services/prepareDataTreemap.service';
-import { IDataProperty, IDataTable } from '../../commons/interfaces/dataTable.interface';
+import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
-// import { IDataTable } from '../../commons/interfaces/dataTable.interface';
-// import { CLASIFICATION_TYPE } from './../../commons/util/util';
 
 @Component({
   selector: 'app-gastos',
@@ -21,7 +17,6 @@ import { CLASIFICATION_TYPE } from '../../commons/util/util';
   styleUrls: ['./gastos.component.scss']
 })
 export class GastosComponent implements OnInit {
-  // @ViewChild('table') tableAg!: TableGastosComponent;
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   @Input() buttonsHide: string[] = [];
   @Input() hasTitle: boolean = true;
@@ -35,7 +30,6 @@ export class GastosComponent implements OnInit {
   constructor(
     private _dataStoreService: DataStoreService,
     private _tableService: TableService,
-    // private _router: Router,
     private _prepareDataTreemapService: PrepareDataTreemapService
   ) { }
 
@@ -44,7 +38,6 @@ export class GastosComponent implements OnInit {
   }
 
   buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
-
   showTable = true;
 
   onGridReady = (params: GridReadyEvent) => {
@@ -73,7 +66,6 @@ export class GastosComponent implements OnInit {
     console.log('data', this._dataTable);
     this._dataStoreService.selectedCodeRowFirstLevel = '';
 
-    // Actualizo datos treemap en función del boton pulsado
     console.log('Actualizo datos treemap en función del boton pulsado');
     await this.dataGraph(this._dataTable.clasificationType, this._dataTable.rowData);
 
