@@ -20,6 +20,7 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { TableService } from '../../services/table.service';
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
 import { getClasificacion } from '../data-table';
+import { PrepareDataTreemapService } from '../../services/prepareDataTreemap.service';
 
 @Component({
   selector: 'app-table-ingresos',
@@ -44,12 +45,14 @@ export class TableIngresosComponent implements OnInit {
   private _columnDefs: any[];
   private _dataTable: IDataTable;
   private _cellRenderer: string = '';
+  showTable = true;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
     private _dataStoreService: DataStoreService,
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
+    private _prepareDataTreemapService: PrepareDataTreemapService,
     private _alertService: AlertService,
     private _tableService: TableService
   ) {
@@ -65,7 +68,7 @@ export class TableIngresosComponent implements OnInit {
 
   private async _loadPropertyTable() {
     this._dataTable = this._dataStoreService.getDataTable
-    // console.log(this._dataTable);
+    console.log(this._dataTable.dataPropertyTable.codField, this._dataTable.dataPropertyTable.desField);
 
     this._columnDefs = [
       {
@@ -284,28 +287,47 @@ export class TableIngresosComponent implements OnInit {
   }
 
   async detalle(typeClasification: CLASIFICATION_TYPE) {
+    this.clickDetail.emit();
     this._dataStoreService.IsDetails = true;
     const selectedRows = this.agGrid.api.getSelectedNodes();
     const dataPropertyTable = getClasificacion(typeClasification);
+    console.log('dataPropertyTable', dataPropertyTable);
 
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
       const useStarWitch: boolean = dataPropertyTable.useStarWitch;
       const attribute: string = dataPropertyTable.attribute;
-      await this._tableService.loadDataForTypeClasification(
+      this._dataTable = await this._tableService.loadDataForTypeClasification(
         // true,
         typeClasification,
         { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
     } else {
-      await this._tableService.loadDataForTypeClasification(
+      this._dataTable = await this._tableService.loadDataForTypeClasification(
         // true,
         typeClasification);
       // this._alertService.showAlert(`Selecciona artículo`);
     }
 
-    this.clickDetail.emit();
-    //this.reloadCurrentRoute()
-    //this._loadPropertyTable();
+    console.log('He pulsado un botón detalles, actualizo data', this._dataTable);
+    this._dataStoreService.selectedCodeRowFirstLevel = '';
+
+    console.log('Actualizo datos treemap en función del boton pulsado');
+    await this._prepareDataTreemapService.calcSeries(
+      this._dataTable.rowData,
+      getClasificacion(this._dataTable.clasificationType).codField,
+      getClasificacion(this._dataTable.clasificationType).desField,
+      'Definitivas2022'
+    );
+    console.log('this._dataStoreService.getDataTreemap', this._dataStoreService.getDataTreemap);
+
+    this.showTable = false;
+    setTimeout(() => {
+      this._hideButtons()
+      this._loadPropertyTable();
+      this.showTable = true;
+    }, 500);
+
+
   }
 
   reloadCurrentRoute() {
