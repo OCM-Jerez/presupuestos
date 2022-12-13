@@ -1,3 +1,4 @@
+/* #region  import */
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -10,23 +11,26 @@ import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRenderer
 import { CellRendererOCM1, CellRendererOCMtext1 } from '../../ag-grid/CellRendererOCM1'
 // import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
+import { AlertService } from '../../services/alert.service';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
 import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
-import { AlertService } from '../../services/alert.service';
+import { PrepareDataTreemapService } from '../../services/prepareDataTreemap.service';
+import { TableService } from '../../services/table.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
-import { TableService } from '../../services/table.service';
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
 import { getClasificacion } from '../data-table';
-import { PrepareDataTreemapService } from '../../services/prepareDataTreemap.service';
 
+/* #endregion */
 @Component({
   selector: 'app-table-ingresos',
   templateUrl: './table-ingresos.component.html',
 })
+
 export class TableIngresosComponent implements OnInit {
+  /* #region  definir variables */
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   @Output() clickDetail = new EventEmitter();
   @Output() clickDetalle: EventEmitter<void> = new EventEmitter();
@@ -35,7 +39,6 @@ export class TableIngresosComponent implements OnInit {
   @Input() hasTitle: boolean = true;
   @Input() hasGrafico: boolean = true;
   @Input() cellRenderer: boolean;
-
   public gridOptions: GridOptions;
   public textButton: string;
   public hasGraficoButton = true;
@@ -47,8 +50,8 @@ export class TableIngresosComponent implements OnInit {
   private _dataTable: IDataTable;
   private _cellRenderer: string = '';
   showTable = true;
-
-
+  messageYears = this.avalaibleYearsService.message;
+  /* #endregion */
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -61,17 +64,13 @@ export class TableIngresosComponent implements OnInit {
   ) {
     this._loadPropertyTable();
   }
+
   ngOnInit(): void {
-    // console.log('===============  entro en ingresos.component.ts  ===========================');
-    // console.log(this.cellRenderer);
     this._cellRenderer = this.cellRenderer ? 'CellRendererOCM' : 'CellRendererOCMtext1';
   }
 
-  messageYears = this.avalaibleYearsService.message;
-
   private async _loadPropertyTable() {
     this._dataTable = this._dataStoreService.getDataTable
-    console.log(this._dataTable.dataPropertyTable.codField, this._dataTable.dataPropertyTable.desField);
 
     this._columnDefs = [
       {
@@ -101,7 +100,6 @@ export class TableIngresosComponent implements OnInit {
           children: this.createColumnsChildren(year),
         }
       })
-
     ]
 
     this.gridOptions = {
@@ -152,9 +150,11 @@ export class TableIngresosComponent implements OnInit {
     this.textButton = `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`;
 
   }
+
   // Store the api for later use.
   // No lo uso en este componente pero si quisiese hacer alguna llamada a las API
   // este codigo es necesario.
+
   onGridReady = (params: GridReadyEvent) => {
     this._gridApi = params.api;
     this._columnApi = params.columnApi;
@@ -177,7 +177,6 @@ export class TableIngresosComponent implements OnInit {
   // }
 
   createColumnsChildren(year: number) {
-
     return [
       {
         headerName: 'Créditos',
@@ -292,12 +291,10 @@ export class TableIngresosComponent implements OnInit {
 
   async detalle(typeClasification: CLASIFICATION_TYPE) {
     this.clickDetalle.emit();
-    console.log('Emito ', typeClasification);
-
     this._dataStoreService.IsDetails = true;
     const selectedRows = this.agGrid.api.getSelectedNodes();
     const dataPropertyTable = getClasificacion(typeClasification);
-    console.log('dataPropertyTable', dataPropertyTable);
+    // console.log('dataPropertyTable', dataPropertyTable);
 
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
@@ -314,17 +311,17 @@ export class TableIngresosComponent implements OnInit {
       // this._alertService.showAlert(`Selecciona artículo`);
     }
 
-    console.log('He pulsado un botón detalles, actualizo data', this._dataTable);
+    // console.log('He pulsado un botón detalles, actualizo data', this._dataTable);
     this._dataStoreService.selectedCodeRowFirstLevel = '';
 
-    console.log('Actualizo datos treemap en función del boton pulsado');
+    // console.log('Actualizo datos treemap en función del boton pulsado');
     await this._prepareDataTreemapService.calcSeries(
       this._dataTable.rowData,
       getClasificacion(this._dataTable.clasificationType).codField,
       getClasificacion(this._dataTable.clasificationType).desField,
       'Definitivas2022'
     );
-    console.log('this._dataStoreService.getDataTreemap', this._dataStoreService.getDataTreemap);
+    // console.log('this._dataStoreService.getDataTreemap', this._dataStoreService.getDataTreemap);
 
     this.showTable = false;
     setTimeout(() => {
@@ -332,15 +329,6 @@ export class TableIngresosComponent implements OnInit {
       this._loadPropertyTable();
       this.showTable = true;
     }, 500);
-
-
-  }
-
-  reloadCurrentRoute() {
-    let currentUrl = this._router.url;
-    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this._router.navigate([currentUrl]);
-    });
   }
 
   async home() {
