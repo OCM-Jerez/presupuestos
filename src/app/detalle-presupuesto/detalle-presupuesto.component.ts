@@ -177,6 +177,15 @@ export class DetallePresupuestoComponent implements OnInit {
         this._typeClasification = 'gastosEconomicaCapitulos';
         break;
     }
+
+    // const values = {
+    //   tab1: 'ingresosEconomicaEconomicos',
+    //   tab2: 'gastosProgramaPoliticas',
+    //   tab3: 'gastosOrganicaOrganicos',
+    //   tab4: 'gastosEconomicaCapitulos'
+    // };
+    // this._typeClasification = values[tab];
+
   }
 
   clickDetalle() {
