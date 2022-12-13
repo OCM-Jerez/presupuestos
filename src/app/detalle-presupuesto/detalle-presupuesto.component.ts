@@ -1,21 +1,18 @@
 import { IDataTotalesPresupuesto } from './../commons/interfaces/dataTotalesPresupuesto. interface';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { AgGridAngular } from 'ag-grid-angular';
-
 import { DataStoreService } from '../services/dataStore.service';
+import { PrepareDataTreemapService } from '../services/prepareDataTreemap.service';
+import { PrepareDataTotalesPresupuestoService } from '../services/prepareDataTotalesPresupuesto.service';
 import { TableService } from '../services/table.service';
 
 import { CLASIFICATION_TYPE } from '../commons/util/util';
+import { environment } from '../../environments/environment';
 
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsTreemap from 'highcharts/modules/treemap';
 import heatmap from 'highcharts/modules/heatmap';
-import { environment } from '../../environments/environment';
-import { PrepareDataTreemapService } from '../services/prepareDataTreemap.service';
-import { PrepareDataTotalesPresupuestoService } from '../services/prepareDataTotalesPresupuesto.service';
-import { IButtonClasification } from '../tables/gastos/model/components.interface';
 
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
@@ -26,8 +23,8 @@ heatmap(Highcharts)
   styleUrls: ['./detalle-presupuesto.component.scss']
 })
 export class DetallePresupuestoComponent implements OnInit {
-  @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 
+  /* #region  Definir variables */
   liqDate = environment.liqDate;
   showIngresos = false;
   showPrograma = false;
@@ -41,12 +38,14 @@ export class DetallePresupuestoComponent implements OnInit {
       totalEjecutadoIngresos: 0,
       totalEjecutadoGastos: 0
     };
-  private typeClasification: CLASIFICATION_TYPE;
+  recibeLoEmitido: string = "";
+  showGraphInTab = true;
+  showTable = true;
+  private _typeClasification: CLASIFICATION_TYPE;
   private _radioButtonSelected = 'radio-1';
   private _tabSelected: string = "tab1";
   private _treemap = 'treemap1';
-  recibeLoEmitido: string = "";
-  showGraphInTab = true;
+  /* #endregion */
 
   constructor(
     private _dataStoreService: DataStoreService,
@@ -54,10 +53,8 @@ export class DetallePresupuestoComponent implements OnInit {
     private _prepareDataTreemapService: PrepareDataTreemapService,
     private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService
   ) { }
-  showTable = true;
 
   ngOnInit(): void {
-    // console.log('onInit updateTreemap');
     this._tabSelected = localStorage.getItem('activeTab') != null ? localStorage.getItem('activeTab') : 'tab1';
     this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
     this.setValues(this._tabSelected);
@@ -78,21 +75,17 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   private async _loadData(): Promise<void> {
-    console.log('recibeLoEmitido', this.recibeLoEmitido);
     await this.setTotalesPresupuesto();
-    let data = await this._tableService.loadDataForTypeClasification(this.typeClasification);
-    // console.warn('------  Cargo esta data la recupero para usarla en este componente.');
-    // console.warn('------  La misma data se almacena en el store para ser usada en otros componentes');
-    // console.warn('------  Con data.rowData se calculan los datos del treemap en la function dataGraph(data.rowData)');
-    // console.warn('------  La data se almacena en store');
-    // console.warn('------  graphTreemap(data) recuperara la data del store y la usará para mostrar el grafico');
-    // console.warn('------  El AG Grid mostrara los datos adecuado recuperandolos del store');
-    // console.log(data);
-
+    let data = await this._tableService.loadDataForTypeClasification(this._typeClasification);
+    // console.warn('------  Cargo esta data la recupero para usarla en este componente.
+    // console.warn('------  La misma data se almacena en el store para ser usada en otros componentes.
+    // console.warn('------  Con data.rowData se calculan los datos del treemap en la function dataGraph(data.rowData).
+    // console.warn('------  La data se almacena en store.
+    // console.warn('------  graphTreemap(data) recuperara la data del store y la usará para mostrar el grafico.
+    // console.warn('------  El AG Grid mostrara los datos adecuado recuperandolos del store.
     await this.dataGraph(data.rowData)
-    // await this.graphTreemap(data.rowData); // No es necesario pasarle la data, ya que la recupera del store
+    // await this.graphTreemap(data.rowData); // No es necesario pasarle la data, ya que la recupera del store.
     await this.graphTreemap();
-
   }
 
   async setTotalesPresupuesto() {
@@ -132,13 +125,8 @@ export class DetallePresupuestoComponent implements OnInit {
     }
   }
 
-  // async graphTreemap(data) {
   async graphTreemap() {
     const data = this._dataStoreService.getDataTreemap;
-    // console.warn('------  Recupero la data del store para usarla en el grafico');
-    // console.log(data);
-    // console.log('this._treemap in graphTreemap()', this._treemap);
-
     const chart = Highcharts.chart(this._treemap, {
       accessibility: {
         enabled: false
@@ -177,47 +165,21 @@ export class DetallePresupuestoComponent implements OnInit {
   setValues(tab) {
     switch (tab) {
       case 'tab1':
-        // this.typeClasification = 'ingresosEconomicaArticulos';
-        this.typeClasification = 'ingresosEconomicaEconomicos';
+        this._typeClasification = 'ingresosEconomicaEconomicos';
         break;
       case 'tab2':
-        this.typeClasification = 'gastosProgramaPoliticas';
+        this._typeClasification = 'gastosProgramaPoliticas';
         break;
       case 'tab3':
-        this.typeClasification = 'gastosOrganicaOrganicos';
+        this._typeClasification = 'gastosOrganicaOrganicos';
         break;
       case 'tab4':
-        // this.typeClasification = 'gastosEconomicaEconomicos';
-        this.typeClasification = 'gastosEconomicaCapitulos';
+        this._typeClasification = 'gastosEconomicaCapitulos';
         break;
     }
   }
 
-
-  // async detalle(event) {
-  //   console.log('detalle', event);
-
-
-  // }
-
-  // updateTreemap() {
-  //   // console.log('updateTreemap');
-  //   // this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
-  //   // const data = this._dataStoreService.getDataTreemap;
-  //   // console.log('data treemap', data);
-  //   // console.log('_tabSelected', this._treemap);
-  //   this.showTable = false;
-  //   setTimeout(() => {
-  //     this.showTable = true;
-  //   }, 0);
-
-  //   setTimeout(() => {
-  //     this.graphTreemap()
-  //   }, 0);
-  // }
-
   clickDetalle() {
-    console.log('clickDetalle');
     setTimeout(() => {
       this.showTable = true;
     }, 0);
@@ -227,16 +189,10 @@ export class DetallePresupuestoComponent implements OnInit {
     }, 0);
   }
 
-  recibeLoEmitidoF(event: any) {
-    // this.recibeLoEmitido = typeClasification;
-    console.log('recibeLoEmitido', event);
-    // this.showGraphInTab = false;
+  updateTreemap(event: any) {
     setTimeout(() => {
-      // this.showGraphInTab = true;
       this.graphTreemap()
     }, 0);
-
-
   }
 
 }

@@ -76,7 +76,7 @@
 
                 <!-- AG-Grid -->
                 <div style="margin-top: 10px;">
-                    <app-table-ingresos (clickDetalle)="recibeLoEmitidoF($event)" *ngIf="showIngresos" [fieldsHide]="[
+                    <app-table-ingresos (clickDetalle)="updateTreemap($event)" *ngIf="showIngresos" [fieldsHide]="[
                                    'Iniciales', 
                                    'Modificaciones',
                                    'DerechosReconocidos',
