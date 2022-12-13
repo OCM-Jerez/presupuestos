@@ -189,7 +189,7 @@ export class DetallePresupuestoComponent implements OnInit {
     }, 0);
   }
 
-  updateTreemap(event: any) {
+  updateTreemap() {
     setTimeout(() => {
       this.graphTreemap()
     }, 0);

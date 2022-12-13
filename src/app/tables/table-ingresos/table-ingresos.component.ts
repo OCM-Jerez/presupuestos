@@ -29,12 +29,12 @@ import { PrepareDataTreemapService } from '../../services/prepareDataTreemap.ser
 export class TableIngresosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   @Output() clickDetail = new EventEmitter();
+  @Output() clickDetalle: EventEmitter<void> = new EventEmitter();
   @Input() fieldsHide: string[] = [];
   @Input() buttonsHide: string[] = [];
   @Input() hasTitle: boolean = true;
   @Input() hasGrafico: boolean = true;
   @Input() cellRenderer: boolean;
-  @Output() clickDetalle: EventEmitter<string> = new EventEmitter();
 
   public gridOptions: GridOptions;
   public textButton: string;
@@ -291,7 +291,7 @@ export class TableIngresosComponent implements OnInit {
   }
 
   async detalle(typeClasification: CLASIFICATION_TYPE) {
-    this.clickDetalle.emit(typeClasification);
+    this.clickDetalle.emit();
     console.log('Emito ', typeClasification);
 
     this._dataStoreService.IsDetails = true;
