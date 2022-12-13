@@ -71,11 +71,12 @@
 
                 </div>
 
-                <div id="treemap1" class="treemap"></div>
+                <div *ngIf="showGraphInTab" id="treemap1" class="treemap">
+                </div>
 
                 <!-- AG-Grid -->
                 <div style="margin-top: 10px;">
-                    <app-table-ingresos *ngIf="showIngresos" [fieldsHide]="[
+                    <app-table-ingresos (clickDetalle)="recibeLoEmitidoF($event)" *ngIf="showIngresos" [fieldsHide]="[
                                    'Iniciales', 
                                    'Modificaciones',
                                    'DerechosReconocidos',

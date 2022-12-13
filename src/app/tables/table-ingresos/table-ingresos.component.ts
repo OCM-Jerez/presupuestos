@@ -34,6 +34,7 @@ export class TableIngresosComponent implements OnInit {
   @Input() hasTitle: boolean = true;
   @Input() hasGrafico: boolean = true;
   @Input() cellRenderer: boolean;
+  @Output() clickDetalle: EventEmitter<string> = new EventEmitter();
 
   public gridOptions: GridOptions;
   public textButton: string;
@@ -46,6 +47,8 @@ export class TableIngresosComponent implements OnInit {
   private _dataTable: IDataTable;
   private _cellRenderer: string = '';
   showTable = true;
+
+
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -287,7 +290,9 @@ export class TableIngresosComponent implements OnInit {
   }
 
   async detalle(typeClasification: CLASIFICATION_TYPE) {
-    this.clickDetail.emit();
+    this.clickDetalle.emit(typeClasification);
+    console.log('Emito ', typeClasification);
+
     this._dataStoreService.IsDetails = true;
     const selectedRows = this.agGrid.api.getSelectedNodes();
     const dataPropertyTable = getClasificacion(typeClasification);

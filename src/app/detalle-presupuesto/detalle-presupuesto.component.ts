@@ -45,6 +45,8 @@ export class DetallePresupuestoComponent implements OnInit {
   private _radioButtonSelected = 'radio-1';
   private _tabSelected: string = "tab1";
   private _treemap = 'treemap1';
+  recibeLoEmitido: string = "";
+  showGraphInTab = true;
 
   constructor(
     private _dataStoreService: DataStoreService,
@@ -76,6 +78,7 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   private async _loadData(): Promise<void> {
+    console.log('recibeLoEmitido', this.recibeLoEmitido);
     await this.setTotalesPresupuesto();
     let data = await this._tableService.loadDataForTypeClasification(this.typeClasification);
     // console.warn('------  Cargo esta data la recupero para usarla en este componente.');
@@ -190,6 +193,13 @@ export class DetallePresupuestoComponent implements OnInit {
     }
   }
 
+
+  // async detalle(event) {
+  //   console.log('detalle', event);
+
+
+  // }
+
   // updateTreemap() {
   //   // console.log('updateTreemap');
   //   // this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
@@ -215,6 +225,17 @@ export class DetallePresupuestoComponent implements OnInit {
     setTimeout(() => {
       this.graphTreemap()
     }, 0);
+  }
+
+  recibeLoEmitidoF(event: any) {
+    // this.recibeLoEmitido = typeClasification;
+    console.log('recibeLoEmitido', event);
+    // this.showGraphInTab = false;
+    setTimeout(() => {
+      // this.showGraphInTab = true;
+      this.graphTreemap()
+    }, 0);
+
 
   }
 
