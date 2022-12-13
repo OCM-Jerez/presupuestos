@@ -1,15 +1,17 @@
+/* #region  import */
 import { Component, ViewChild, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { TableService } from '../../services/table.service';
+import { AgGridAngular } from 'ag-grid-angular';
+import { ColumnApi, GridApi, GridReadyEvent } from "ag-grid-community";
+
 import { DataStoreService } from '../../services/dataStore.service';
+import { PrepareDataTreemapService } from '../../services/prepareDataTreemap.service';
+import { TableService } from '../../services/table.service';
+
 import { IButtonClasification } from './model/components.interface';
 import { getClasificacion } from '../data-table';
-
-import { AgGridAngular } from 'ag-grid-angular';
-import { ColumnState, ColumnApi, GridApi, GridReadyEvent } from "ag-grid-community";
-import { PrepareDataTreemapService } from '../../services/prepareDataTreemap.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
-import { CLASIFICATION_TYPE } from '../../commons/util/util';
+/* #endregion */
 
 @Component({
   selector: 'app-gastos',
@@ -17,8 +19,8 @@ import { CLASIFICATION_TYPE } from '../../commons/util/util';
   styleUrls: ['./gastos.component.scss']
 })
 export class GastosComponent implements OnInit {
+  /* #region  definir variables */
   @Output() clickDetalle = new EventEmitter<void>();
-
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   @Input() buttonsHide: string[] = [];
   @Input() hasTitle: boolean = true;
@@ -32,6 +34,7 @@ export class GastosComponent implements OnInit {
   private _dataTable: IDataTable;
   buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
   showTable = true;
+  /* #endregion */
 
   constructor(
     private _dataStoreService: DataStoreService,
@@ -41,8 +44,6 @@ export class GastosComponent implements OnInit {
 
   ngOnInit(): void {
     this._hideButtons();
-    console.log(this.hasTitle);
-
   }
 
   onGridReady = (params: GridReadyEvent) => {
@@ -52,12 +53,10 @@ export class GastosComponent implements OnInit {
     //   { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
     // ];
     // params.columnApi.applyColumnState({ state: defaultSortModel });
-
   }
 
   async detalle(button: IButtonClasification) {
     this.clickDetalle.emit();
-
     const dataPropertyTable = getClasificacion(button.clasificationType);
 
     if (this._dataStoreService.selectedCodeRowFirstLevel) {
@@ -71,18 +70,17 @@ export class GastosComponent implements OnInit {
         button.clasificationType);
     }
 
-    console.log('He pulsado un botón detalles, actualizo data', this._dataTable);
+    // console.log('He pulsado un botón detalles, actualizo data', this._dataTable);
     this._dataStoreService.selectedCodeRowFirstLevel = '';
 
-    console.log('Actualizo datos treemap en función del boton pulsado');
+    // console.log('Actualizo datos treemap en función del boton pulsado');
     await this._prepareDataTreemapService.calcSeries(
       this._dataTable.rowData,
       getClasificacion(this._dataTable.clasificationType).codField,
       getClasificacion(this._dataTable.clasificationType).desField,
       'Definitivas2022'
     );
-    console.log('this._dataStoreService.getDataTreemap', this._dataStoreService.getDataTreemap);
-
+    // console.log('this._dataStoreService.getDataTreemap', this._dataStoreService.getDataTreemap);
     // await this.dataGraph(this._dataTable.clasificationType, this._dataTable.rowData);
     // console.log('dataTreemap', dataTreemap);
     // this._dataStoreService.setDataTreemap = dataTreemap;
@@ -101,11 +99,6 @@ export class GastosComponent implements OnInit {
     }, 500);
   }
 
-  // async dataGraph(clasificationType: CLASIFICATION_TYPE, data: any) {
-  //   console.log('data', clasificationType);
-  //   await this._prepareDataTreemapService.calcSeries(data, getClasificacion(clasificationType).codField, getClasificacion(clasificationType).desField, 'Definitivas2022');
-  // }
-
   private _hideButtons() {
     // console.log('this.buttonsHide', this.buttonsHide);
     // console.log('this.buttons', this.buttons);
@@ -119,7 +112,6 @@ export class GastosComponent implements OnInit {
         }
       }
     });
-
   }
 
 }
