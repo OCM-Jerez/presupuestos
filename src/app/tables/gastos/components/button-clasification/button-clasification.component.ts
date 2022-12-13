@@ -11,20 +11,17 @@ import { IButtonClasification } from '../../model/components.interface';
 })
 
 export class ButtonClasificationComponent implements OnInit {
-  // @Input() messageYears = '';
   @Input() buttons: IButtonClasification[] = [];
   @Input() hasTitle: boolean = true;
   @Input() hasMenu: boolean = true;
   @Input() hasGrafico: boolean = true;
-
   @Output() clickButton = new EventEmitter<IButtonClasification>();
-  @Output() clickVolver = new EventEmitter<IButtonClasification>();
+  messageYears = this.avalaibleYearsService.message;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router
   ) { }
-  messageYears = this.avalaibleYearsService.message;
 
   ngOnInit(): void {
   }
@@ -38,6 +35,5 @@ export class ButtonClasificationComponent implements OnInit {
 
   menu(): void {
     setTimeout(() => this._router.navigateByUrl("/home"), 50);
-    //this.clickVolver.emit(item);
   }
 }
