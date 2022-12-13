@@ -160,7 +160,7 @@ export class TableIngresosComponent implements OnInit {
     this._columnApi = params.columnApi;
 
     let defaultSortModel: ColumnState[] = [
-      { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
+      // { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
     ];
     params.columnApi.applyColumnState({ state: defaultSortModel });
 
@@ -195,7 +195,8 @@ export class TableIngresosComponent implements OnInit {
           {
             headerName: 'Previsiones definitivas',
             field: `Definitivas${year}`,
-            columnGroupShow: 'close'
+            columnGroupShow: 'close',
+            sort: 'desc'
           },
         ]
       },
