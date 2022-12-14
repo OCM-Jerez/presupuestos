@@ -126,6 +126,7 @@ export class TableGastosComponent implements OnInit {
       rowSelection: 'single',
       localeText: localeTextESPes,
       pagination: true,
+      paginationPageSize: 25,
       onRowClicked: () => {
         const selectedRows = this.agGrid.api.getSelectedNodes();
         if (selectedRows.length > 0) {
