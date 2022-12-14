@@ -27,6 +27,7 @@ import { getClasificacion } from '../data-table';
 @Component({
   selector: 'app-table-ingresos',
   templateUrl: './table-ingresos.component.html',
+  styleUrls: ['./table-ingresos.component.scss']
 })
 
 export class TableIngresosComponent implements OnInit {
