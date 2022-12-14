@@ -140,7 +140,7 @@ export class TableIngresosComponent implements OnInit {
       rowSelection: 'single',
       localeText: localeTextESPes,
       pagination: true,
-      paginationPageSize: 25,
+      paginationPageSize: 20,
 
       // EVENTS - add event callback handlers
       // onGridReady: function (event) { consoltextButtone.log('the grid is now ready'); },
