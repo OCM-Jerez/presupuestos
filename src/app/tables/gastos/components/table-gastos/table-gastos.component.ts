@@ -15,7 +15,6 @@ import { TableService } from '../../../../services/table.service';
 import { PrepareDataProgramaDetailsService } from '../../../../services/prepareDataProgramaDetails.service';
 
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
-
 /* #endregion */
 
 @Component({
@@ -65,12 +64,12 @@ export class TableGastosComponent implements OnInit {
     this._columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,
-
         children: [
           {
             headerName: this._dataTable.dataPropertyTable.subHeaderName,
             field: this._dataTable.dataPropertyTable.codField,
-            width: this._dataTable.dataPropertyTable.width,
+            // width: this._dataTable.dataPropertyTable.width,
+            width: 220,
             rowGroup: true,
             showRowGroup: this._dataTable.dataPropertyTable.codField,
             cellRenderer: CellRendererOCMtext,
@@ -126,7 +125,7 @@ export class TableGastosComponent implements OnInit {
       suppressAggFuncInHeader: true,
       rowSelection: 'single',
       localeText: localeTextESPes,
-      pagination: false,
+      pagination: true,
       onRowClicked: () => {
         const selectedRows = this.agGrid.api.getSelectedNodes();
         if (selectedRows.length > 0) {
