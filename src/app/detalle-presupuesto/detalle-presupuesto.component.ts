@@ -167,21 +167,6 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   setValues(tab) {
-    // switch (tab) {
-    //   case 'tab1':
-    //     this._typeClasification = 'ingresosEconomicaEconomicos';
-    //     break;
-    //   case 'tab2':
-    //     this._typeClasification = 'gastosProgramaPoliticas';
-    //     break;
-    //   case 'tab3':
-    //     this._typeClasification = 'gastosOrganicaOrganicos';
-    //     break;
-    //   case 'tab4':
-    //     this._typeClasification = 'gastosEconomicaCapitulos';
-    //     break;
-    // }
-
     const values = {
       tab1: 'ingresosEconomicaEconomicos',
       tab2: 'gastosProgramaPoliticas',
@@ -189,7 +174,6 @@ export class DetallePresupuestoComponent implements OnInit {
       tab4: 'gastosEconomicaCapitulos'
     };
     this._typeClasification = values[tab];
-
   }
 
   clickDetalle() {
