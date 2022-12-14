@@ -80,7 +80,8 @@ export class TableIngresosComponent implements OnInit {
           {
             headerName: this._dataTable.dataPropertyTable.subHeaderName,
             field: this._dataTable.dataPropertyTable.codField,
-            width: this._dataTable.dataPropertyTable.width,
+            // width: this._dataTable.dataPropertyTable.width,
+            width: 220,
             rowGroup: true,
             showRowGroup: this._dataTable.dataPropertyTable.codField,
             cellRenderer: CellRendererOCMtext,
@@ -138,7 +139,8 @@ export class TableIngresosComponent implements OnInit {
       suppressAggFuncInHeader: true,
       rowSelection: 'single',
       localeText: localeTextESPes,
-      pagination: false,
+      pagination: true,
+      paginationPageSize: 25,
 
       // EVENTS - add event callback handlers
       // onGridReady: function (event) { consoltextButtone.log('the grid is now ready'); },
