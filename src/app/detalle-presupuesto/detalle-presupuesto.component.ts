@@ -1,3 +1,4 @@
+/* #region  import */
 import { IDataTotalesPresupuesto } from './../commons/interfaces/dataTotalesPresupuesto. interface';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
@@ -17,11 +18,14 @@ import heatmap from 'highcharts/modules/heatmap';
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
 heatmap(Highcharts)
+/* #endregion */
+
 @Component({
   selector: 'app-detalle-presupuesto',
   templateUrl: './detalle-presupuesto.component.html',
   styleUrls: ['./detalle-presupuesto.component.scss']
 })
+
 export class DetallePresupuestoComponent implements OnInit {
 
   /* #region  Definir variables */
@@ -163,28 +167,28 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   setValues(tab) {
-    switch (tab) {
-      case 'tab1':
-        this._typeClasification = 'ingresosEconomicaEconomicos';
-        break;
-      case 'tab2':
-        this._typeClasification = 'gastosProgramaPoliticas';
-        break;
-      case 'tab3':
-        this._typeClasification = 'gastosOrganicaOrganicos';
-        break;
-      case 'tab4':
-        this._typeClasification = 'gastosEconomicaCapitulos';
-        break;
-    }
+    // switch (tab) {
+    //   case 'tab1':
+    //     this._typeClasification = 'ingresosEconomicaEconomicos';
+    //     break;
+    //   case 'tab2':
+    //     this._typeClasification = 'gastosProgramaPoliticas';
+    //     break;
+    //   case 'tab3':
+    //     this._typeClasification = 'gastosOrganicaOrganicos';
+    //     break;
+    //   case 'tab4':
+    //     this._typeClasification = 'gastosEconomicaCapitulos';
+    //     break;
+    // }
 
-    // const values = {
-    //   tab1: 'ingresosEconomicaEconomicos',
-    //   tab2: 'gastosProgramaPoliticas',
-    //   tab3: 'gastosOrganicaOrganicos',
-    //   tab4: 'gastosEconomicaCapitulos'
-    // };
-    // this._typeClasification = values[tab];
+    const values = {
+      tab1: 'ingresosEconomicaEconomicos',
+      tab2: 'gastosProgramaPoliticas',
+      tab3: 'gastosOrganicaOrganicos',
+      tab4: 'gastosEconomicaCapitulos'
+    };
+    this._typeClasification = values[tab];
 
   }
 
