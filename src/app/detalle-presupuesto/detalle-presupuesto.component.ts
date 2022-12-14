@@ -204,6 +204,16 @@ export class DetallePresupuestoComponent implements OnInit {
     }, 0);
   }
 
+  hasChangeCheckbox() {
+    this.showEconomica = false;
+    this.showGraphInTab = false;
+    setTimeout(() => {
+      this._loadData();
+      this.showEconomica = true;
+    }, 0);
+
+  }
+
 }
 
 

@@ -5,7 +5,7 @@
 
         <!-- Seleccion año a mostrar -->
         <div class="selectYear">
-            <app-checkbox [multiYears]=true></app-checkbox>
+            <app-checkbox (hasChangeCheckbox)="hasChangeCheckbox()" [multiYears]=true></app-checkbox>
         </div>
 
         <!-- Tabla totales -->

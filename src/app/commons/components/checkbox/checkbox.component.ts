@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
+import { IButtonClasification } from '../../../tables/gastos/model/components.interface';
 
 @Component({
   selector: 'app-checkbox',
@@ -8,6 +9,7 @@ import { AvalaibleYearsService } from '../../../services/avalaibleYears.service'
 })
 export class CheckboxComponent implements OnInit {
   @Input() multiYears: boolean;
+  @Output() hasChangeCheckbox = new EventEmitter<boolean>();
   years: any[] = [];
 
   constructor(
@@ -86,7 +88,7 @@ export class CheckboxComponent implements OnInit {
   }
 
   changeCheckbox(yearSelected: { year: number, checked: boolean }) {
-    console.log(this.multiYears);
+    // console.log(this.multiYears);
 
     if (yearSelected.year === this.years[8].year) {
       const isAll = this.years[8].checked === true;
@@ -110,6 +112,10 @@ export class CheckboxComponent implements OnInit {
     localStorage.setItem("selected_years", JSON.stringify(selectedYears)); //store years selected
     const yearSelecteds = selectedYears.map((year) => year.year);
     this._avalaibleYearsService.generateMessage(yearSelecteds);
+
+    this.hasChangeCheckbox.emit();
   }
 
 }
+
+
