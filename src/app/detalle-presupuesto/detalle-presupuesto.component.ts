@@ -30,6 +30,9 @@ export class DetallePresupuestoComponent implements OnInit {
 
   /* #region  Definir variables */
   liqDate = environment.liqDate;
+  showTable = true;
+  showGraphInTab = true;
+  showTablePresupuestos = true;
   showIngresos = false;
   showPrograma = false;
   showOrganico = false;
@@ -42,9 +45,7 @@ export class DetallePresupuestoComponent implements OnInit {
       totalEjecutadoIngresos: 0,
       totalEjecutadoGastos: 0
     };
-  recibeLoEmitido: string = "";
-  showGraphInTab = true;
-  showTable = true;
+  // recibeLoEmitido: string = "";
   private _typeClasification: CLASIFICATION_TYPE;
   private _radioButtonSelected = 'radio-1';
   private _tabSelected: string = "tab1";
@@ -195,8 +196,9 @@ export class DetallePresupuestoComponent implements OnInit {
   hasChangeCheckbox() {
     this.showEconomica = false;
     this.showGraphInTab = false;
+    this.showTablePresupuestos = false;
     setTimeout(() => {
-      this._loadData();
+      this.ngOnInit();
       this.showEconomica = true;
     }, 0);
 

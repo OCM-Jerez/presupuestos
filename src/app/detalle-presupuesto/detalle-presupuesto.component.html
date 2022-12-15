@@ -1,6 +1,6 @@
 <div class="flex-container">
     <div class="container">
-        <h2 class="OCM-title">Detalle del presupuesto</h2>
+        <h2 class="OCM-title">Detalle del presupuesto {{ showGraphInTab}}</h2>
         <!-- <div class="datosAnuales"> -->
 
         <!-- Seleccion año a mostrar -->
@@ -9,7 +9,7 @@
         </div>
 
         <!-- Tabla totales -->
-        <table class="paleBlueRows">
+        <table *ngIf="showTablePresupuestos" class="paleBlueRows">
             <thead>
                 <tr>
                     <th style=" width: 300px">2022 (ejecución al {{liqDate}})</th>
@@ -74,6 +74,7 @@
                 <div *ngIf="showGraphInTab" id="treemap1" class="treemap">
                 </div>
 
+
                 <!-- AG-Grid -->
                 <div class="agGridContainer">
                     <app-table-ingresos (clickDetalle)="updateTreemap()" *ngIf="showIngresos" [fieldsHide]="[
@@ -112,7 +113,7 @@
             <!-- Tab ¿Para qué gasta?  -->
             <div class="tab__content">
                 <!-- <button class="btn btn-primary" (click)="updateTreemap()">updateTreemap</button> -->
-                <div *ngIf="showTable" id="treemap4" class="treemap"></div>
+                <div *ngIf="showGraphInTab" id="treemap4" class="treemap"></div>
                 <app-gastos *ngIf="showEconomica" (clickDetalle)="clickDetalle()" [buttonsHide]="[
                 'Gráfico arbol',             
                 ]" [hasTitle]=false [hasMenu]=false [hasGrafico]=false></app-gastos>
