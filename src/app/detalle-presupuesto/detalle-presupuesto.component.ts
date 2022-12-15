@@ -14,6 +14,7 @@ import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsTreemap from 'highcharts/modules/treemap';
 import heatmap from 'highcharts/modules/heatmap';
+import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
@@ -56,7 +57,8 @@ export class DetallePresupuestoComponent implements OnInit {
     private _dataStoreService: DataStoreService,
     private _tableService: TableService,
     private _prepareDataTreemapService: PrepareDataTreemapService,
-    private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService
+    private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService,
+    private _avalaibleYearsService: AvalaibleYearsService,
   ) { }
 
   ngOnInit(): void {
@@ -194,14 +196,20 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   hasChangeCheckbox() {
+    let years = this._avalaibleYearsService.getYearsSelected();
+    if (years.length === 1) {
+      this.showGraphInTab = true;
+      this.showTablePresupuestos = true;
+    } else {
+      this.showGraphInTab = false;
+      this.showTablePresupuestos = false;
+    }
     this.showEconomica = false;
-    this.showGraphInTab = false;
-    this.showTablePresupuestos = false;
+
     setTimeout(() => {
       this.ngOnInit();
       this.showEconomica = true;
     }, 0);
-
   }
 
 }
