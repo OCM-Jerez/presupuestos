@@ -71,7 +71,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     },
     gastosProgramaAreas: {
         sufijo: 'Pro',
-        headerName: 'Clasificado por areas de programas de gasto',
+        headerName: 'Clasificado areas programas de gasto',
         subHeaderName: 'Area de gasto',
         codField: 'CodPro',
         desField: 'DesPro',
@@ -104,7 +104,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     },
     gastosProgramaPoliticas: {
         sufijo: 'Pro',
-        headerName: 'Clasificado por políticas de gasto',
+        headerName: 'Clasificado políticas gasto',
         subHeaderName: 'Política de gasto',
         codField: 'CodPro',
         desField: 'DesPro',
@@ -136,7 +136,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     },
     gastosProgramaGrupos: {
         sufijo: 'Pro',
-        headerName: 'Clasificado por grupos programas de gasto',
+        headerName: 'Clasificado grupos programas gasto',
         subHeaderName: 'Grupo programas de gasto',
         codField: 'CodPro',
         desField: 'DesPro',
