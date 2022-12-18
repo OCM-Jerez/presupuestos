@@ -137,40 +137,44 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   async graphTreemap() {
-    const data = this._dataStoreService.getDataTreemap;
-    const chart = Highcharts.chart(this._treemap, {
-      accessibility: {
-        enabled: false
-      },
-      chart: {
-        type: 'treemap',
-      },
-      title: {
-        text: '',
-      },
-      credits: {
-        enabled: false,
-      },
-      legend: {
-        enabled: false
-      },
-      tooltip: {
-        tooltip: {
+    if (this.showGraphInTab) {
+      const data = this._dataStoreService.getDataTreemap;
+      console.log('this._treemap', this._treemap);
+      const chart = Highcharts.chart(this._treemap, {
+        accessibility: {
+          enabled: false
+        },
+        chart: {
+          type: 'treemap',
+        },
+        title: {
+          text: '',
+        },
+        credits: {
           enabled: false,
         },
-        headerFormat: `<span class="mb-2">{point.key}</span><br>`,
-        // pointFormat: '<span>Euros: {point.value}</span></br><span>Color: {point.colorValue}</span>',
-        pointFormat: '<span>Euros: {point.value}</span>',
-        useHTML: true,
-      },
-      series: [
-        {
-          name: null,
-          innerSize: '50%',
-          data: data,
+        legend: {
+          enabled: false
         },
-      ],
-    } as any);
+        tooltip: {
+          tooltip: {
+            enabled: false,
+          },
+          headerFormat: `<span class="mb-2">{point.key}</span><br>`,
+          // pointFormat: '<span>Euros: {point.value}</span></br><span>Color: {point.colorValue}</span>',
+          pointFormat: '<span>Euros: {point.value}</span>',
+          useHTML: true,
+        },
+        series: [
+          {
+            name: null,
+            innerSize: '50%',
+            data: data,
+          },
+        ],
+      } as any);
+    }
+
   }
 
   setValues(tab) {
@@ -193,7 +197,7 @@ export class DetallePresupuestoComponent implements OnInit {
     }, 0);
   }
 
-  hasChangeCheckbox() {
+  async hasChangeCheckbox() {
     let years = this._avalaibleYearsService.getYearsSelected();
     console.log(years);
     if (years.length === 1 || years[0] === 2022) {
@@ -202,59 +206,41 @@ export class DetallePresupuestoComponent implements OnInit {
       this.showTablePresupuestos = true;
       setTimeout(() => {
         this.graphTreemap()
-      }, 1000);
+      }, 10);
     } else {
       this.showGraphInTab = false;
       this.showTablePresupuestos = false;
     }
 
+    // await this._loadData();
+    // this.setValues(this._tabSelected);
+    let data = await this._tableService.loadDataForTypeClasification(this._typeClasification);
+    await this.dataGraph(data.rowData)
+
     switch (this._tabSelected) {
       case 'tab1':
         this.showIngresos = false;
-        this.ngOnInit();
-        this.setValues(this._tabSelected);
-        this._loadData();
         setTimeout(() => {
-          this.showPrograma = false;
-          this.showOrganico = false;
-          this.showEconomica = false;
-        }, 1000);
+          this.showIngresos = true;
+        }, 10);
         break;
       case 'tab2':
         this.showPrograma = false;
-        this.ngOnInit();
-        this.setValues(this._tabSelected);
-        this._loadData();
         setTimeout(() => {
-          this.showIngresos = false;
           this.showPrograma = true;
-          this.showOrganico = false;
-          this.showEconomica = false;
-        }, 1000);
+        }, 10);
         break;
       case 'tab3':
         this.showOrganico = false;
-        this.ngOnInit();
-        this.setValues(this._tabSelected);
-        this._loadData();
         setTimeout(() => {
-          this.showIngresos = false;
-          this.showPrograma = false;
           this.showOrganico = true;
-          this.showEconomica = false;
-        }, 0);
+        }, 10);
         break;
       case 'tab4':
         this.showEconomica = false;
-        this.ngOnInit();
-        this.setValues(this._tabSelected);
-        this._loadData();
         setTimeout(() => {
-          this.showIngresos = false;
-          this.showPrograma = false;
-          this.showOrganico = false;
           this.showEconomica = true;
-        }, 1000);
+        }, 10);
         break;
     }
 
