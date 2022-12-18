@@ -61,10 +61,9 @@ export class IndiceComponent implements OnInit {
 
   /* #region  Esto es para el menu original */
   async openTable(tipoClasificacion: CLASIFICATION_TYPE): Promise<void> {
-    const isIncome = tipoClasificacion.startsWith('ingresos');
-    await this._tableService.loadDataForTypeClasification(tipoClasificacion,);
+    await this._tableService.loadDataForTypeClasification(tipoClasificacion);
 
-    if (isIncome) {
+    if (tipoClasificacion.startsWith('ingresos')) {
       this._router.navigateByUrl('/tableIngresos')
     } else {
       this._router.navigateByUrl('/tableGastos')
