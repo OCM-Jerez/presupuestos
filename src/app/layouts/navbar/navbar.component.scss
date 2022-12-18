@@ -214,11 +214,6 @@
 }
 
 @media screen and (max-width: 575.98px) {
-    .barraBuscar {
-        display: none;
-        margin-bottom: 10px;
-    }
-
     .navMenu {
         height: 25px;
     }
@@ -241,21 +236,21 @@
         list-style: none;
         overflow: hidden;
         background-color: #fff;
+        // border: 1px solid #130303;
     }
 
     .header li a {
         display: block;
         // padding: 20px 20px;
-        margin-left: 50%;
-        border-right: 1px solid #f4f4f4;
+        margin-left: 5%;
         text-decoration: none;
-        color: rgb(121, 9, 9);
-        font-size: 2rem;
+        color: rgb(9, 10, 1);
+        font-size: 1.5rem;
     }
 
     .header li a:hover,
     .header .menu-btn:hover {
-        background-color: #9a2323;
+        background-color: #ea0f0f;
     }
 
     // .header .logo {
@@ -273,12 +268,13 @@
         clear: both;
         max-height: 0;
         transition: max-height 0.2s ease-out;
-        background-color: rgb(225, 225, 11);
+        background-color: rgb(246, 246, 241);
         height: 14rem;
+        width: 90%;
+        margin-left: 58%;
     }
 
     /* menu icon */
-
     .header .menu-icon {
         cursor: pointer;
         display: inline-block;
@@ -381,33 +377,39 @@
     /* #endregion */
 
     /* #region .barraBuscar  */
-    .barraBuscar {
-        // align-items: flex-start;
-        justify-content: flex-start;
-        width: 100%;
-        height: 30px;
 
-        margin-top: 2px;
-        &--text {
-            margin-top: 6px;
-            margin-left: 4px;
-            margin-right: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-        }
+    .barraBuscar {
+        display: none;
+        margin-bottom: 10px;
     }
-    input[type="text"],
-    select {
-        width: 180px;
-        padding: 0px 0px;
-        margin: 6px 0;
-    }
-    .buttonBuscar {
-        padding: 2px;
-        margin-left: 20px;
-        margin-top: 4px;
-        height: 20px;
-        font-size: 12px;
-    }
+
+    // .barraBuscar {
+    //     // align-items: flex-start;
+    //     justify-content: flex-start;
+    //     width: 100%;
+    //     height: 30px;
+
+    //     margin-top: 2px;
+    //     &--text {
+    //         margin-top: 6px;
+    //         margin-left: 4px;
+    //         margin-right: 10px;
+    //         font-size: 1rem;
+    //         font-weight: 600;
+    //     }
+    // }
+    // input[type="text"],
+    // select {
+    //     width: 180px;
+    //     padding: 0px 0px;
+    //     margin: 6px 0;
+    // }
+    // .buttonBuscar {
+    //     padding: 2px;
+    //     margin-left: 20px;
+    //     margin-top: 4px;
+    //     height: 20px;
+    //     font-size: 12px;
+    // }
     /* #endregion */
 }
