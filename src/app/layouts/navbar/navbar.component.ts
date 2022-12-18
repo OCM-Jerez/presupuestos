@@ -14,26 +14,49 @@ export class NavbarComponent {
 
   inicio() {
     this.router.navigateByUrl('/')
-    // this.collapsed = true;
+    this.collapsed = true;
+    setTimeout(() => {
+      this.collapsed = false;
+    }, 0);
   }
   visionGlobal() {
     this.router.navigateByUrl('/home')
+    this.collapsed = true;
+    setTimeout(() => {
+      this.collapsed = false;
+    }, 0);
   }
 
   detallePresupuesto() {
     this.router.navigateByUrl('/detallePresupuesto')
+    this.collapsed = true;
+    setTimeout(() => {
+      this.collapsed = false;
+    }, 0);
   }
 
   licitaciones() {
     window.open('https://con.ocmjerez.org/', '_blank');
+    this.collapsed = true;
+    setTimeout(() => {
+      this.collapsed = false;
+    }, 0);
   }
 
   explicamos() {
     this.router.navigateByUrl('/explicamos')
+    this.collapsed = true;
+    setTimeout(() => {
+      this.collapsed = false;
+    }, 0);
   }
 
   glosario() {
     this.router.navigateByUrl('/glosario')
+    this.collapsed = true;
+    setTimeout(() => {
+      this.collapsed = false;
+    }, 0);
   }
 
 }
