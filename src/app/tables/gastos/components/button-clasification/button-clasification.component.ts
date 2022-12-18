@@ -27,6 +27,8 @@ export class ButtonClasificationComponent implements OnInit {
   }
 
   showGraph(): void {
+    console.log("showGraph");
+
   }
 
   click(item: IButtonClasification): void {
