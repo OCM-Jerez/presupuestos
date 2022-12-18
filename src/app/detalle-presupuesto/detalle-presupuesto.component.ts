@@ -31,7 +31,7 @@ export class DetallePresupuestoComponent implements OnInit {
 
   /* #region  Definir variables */
   liqDate = environment.liqDate;
-  showTable = true;
+  // showTable = true;
   showGraphInTab = true;
   showTablePresupuestos = true;
   showIngresos = false;
@@ -82,17 +82,23 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   private async _loadData(): Promise<void> {
-    await this.setTotalesPresupuesto();
-    let data = await this._tableService.loadDataForTypeClasification(this._typeClasification);
     // console.warn('------  Cargo esta data la recupero para usarla en este componente.
     // console.warn('------  La misma data se almacena en el store para ser usada en otros componentes.
     // console.warn('------  Con data.rowData se calculan los datos del treemap en la function dataGraph(data.rowData).
     // console.warn('------  La data se almacena en store.
     // console.warn('------  graphTreemap(data) recuperara la data del store y la usará para mostrar el grafico.
     // console.warn('------  El AG Grid mostrara los datos adecuado recuperandolos del store.
-    await this.dataGraph(data.rowData)
-    // await this.graphTreemap(data.rowData); // No es necesario pasarle la data, ya que la recupera del store.
-    await this.graphTreemap();
+
+    let years = this._avalaibleYearsService.getYearsSelected();
+    if (years.length === 1 || years[0] === 2022) {
+      console.log('Cargar data para 2022');
+
+      await this.setTotalesPresupuesto();
+      let data = await this._tableService.loadDataForTypeClasification(this._typeClasification);
+      await this.dataGraph(data.rowData)
+      // await this.graphTreemap(data.rowData); // No es necesario pasarle la data, ya que la recupera del store.
+      await this.graphTreemap();
+    }
   }
 
   async setTotalesPresupuesto() {
@@ -180,36 +186,104 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   clickDetalle() {
-    setTimeout(() => {
-      this.showTable = true;
-    }, 0);
+    // setTimeout(() => {
+    //   this.showTable = true;
+    // }, 0);
 
     setTimeout(() => {
       this.graphTreemap()
     }, 0);
   }
 
-  updateTreemap() {
-    setTimeout(() => {
-      this.graphTreemap()
-    }, 0);
-  }
+  // updateTreemap() {
+  //   setTimeout(() => {
+  //     this.graphTreemap()
+  //   }, 0);
+  // }
 
   hasChangeCheckbox() {
     let years = this._avalaibleYearsService.getYearsSelected();
-    if (years.length === 1) {
+    console.log(years);
+    if (years.length === 1 || years[0] === 2022) {
+      console.log('hasChangeCheckbox');
       this.showGraphInTab = true;
       this.showTablePresupuestos = true;
+      setTimeout(() => {
+        this.graphTreemap()
+      }, 1000);
     } else {
       this.showGraphInTab = false;
       this.showTablePresupuestos = false;
     }
-    this.showEconomica = false;
 
-    setTimeout(() => {
-      this.ngOnInit();
-      this.showEconomica = true;
-    }, 0);
+    switch (this._tabSelected) {
+      case 'tab1':
+        this.showIngresos = false;
+        this.ngOnInit();
+        this.setValues(this._tabSelected);
+        this._loadData();
+        setTimeout(() => {
+
+          this.showPrograma = false;
+          this.showOrganico = false;
+          this.showEconomica = false;
+        }, 1000);
+        break;
+      case 'tab2':
+        this.showPrograma = false;
+        this.ngOnInit();
+        this.setValues(this._tabSelected);
+        this._loadData();
+        setTimeout(() => {
+          this.showIngresos = false;
+          this.showPrograma = true;
+          this.showOrganico = false;
+          this.showEconomica = false;
+        }, 1000);
+        break;
+      case 'tab3':
+        this.showOrganico = false;
+        this.ngOnInit();
+        this.setValues(this._tabSelected);
+        this._loadData();
+        setTimeout(() => {
+          this.showIngresos = false;
+          this.showPrograma = false;
+          this.showOrganico = true;
+          this.showEconomica = false;
+        }, 0);
+        break;
+      case 'tab4':
+        this.showEconomica = false;
+        this.ngOnInit();
+        this.setValues(this._tabSelected);
+        this._loadData();
+        setTimeout(() => {
+          this.showIngresos = false;
+          this.showPrograma = false;
+          this.showOrganico = false;
+          this.showEconomica = true;
+        }, 1000);
+        break;
+
+
+    }
+
+
+    // this.showEconomica = false;
+    // setTimeout(() => {
+    //   // this.ngOnInit();
+    //   this.showEconomica = true;
+    // }, 0);
+
+    // this.showPrograma = false;
+    // setTimeout(() => {
+    //   // this.ngOnInit();
+
+    //   this.setValues(this._tabSelected);
+    //   this._loadData();
+    //   this.showPrograma = true;
+    // }, 1000);
   }
 
 }

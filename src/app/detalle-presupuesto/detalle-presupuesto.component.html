@@ -1,6 +1,6 @@
 <div class="flex-container">
     <div class="container">
-        <h2 class="OCM-title">Detalle del presupuesto {{ showGraphInTab}}</h2>
+        <h2 class="OCM-title">Detalle del presupuesto</h2>
         <!-- <div class="datosAnuales"> -->
 
         <!-- Seleccion año a mostrar -->
@@ -77,7 +77,7 @@
 
                 <!-- AG-Grid -->
                 <div class="agGridContainer">
-                    <app-table-ingresos (clickDetalle)="updateTreemap()" *ngIf="showIngresos" [fieldsHide]="[
+                    <app-table-ingresos (clickDetalle)="clickDetalle()" *ngIf="showIngresos" [fieldsHide]="[
                                    'Iniciales', 
                                    'Modificaciones',
                                    'DerechosReconocidos',
@@ -95,7 +95,7 @@
 
             <!-- Tab ¿En qué se gasta? Clasificacion económica -->
             <div class="tab__content">
-                <div id="treemap2" class="treemap"></div>
+                <div *ngIf="showGraphInTab" id="treemap2" class="treemap"></div>
                 <app-gastos *ngIf="showPrograma" (clickDetalle)="clickDetalle()" [buttonsHide]="[
                 'Gráfico arbol',             
                 ]" [hasTitle]=false [hasMenu]=false [hasGrafico]=false></app-gastos>
@@ -103,7 +103,7 @@
 
             <!-- Tab ¿Quién lo gasta?  -->
             <div class="tab__content">
-                <div id="treemap3" class="treemap"></div>
+                <div *ngIf="showGraphInTab" id="treemap3" class="treemap"></div>
                 <app-gastos *ngIf="showOrganico" (clickDetalle)="clickDetalle()" [buttonsHide]="[
                 'Gráfico arbol',
                 'Detalle orgánico',             
