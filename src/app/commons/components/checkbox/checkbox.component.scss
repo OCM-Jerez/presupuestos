@@ -122,8 +122,15 @@
 }
 
 @media screen and (max-width: 575.98px) {
+	.checkbox-group {
+		width: 90%;
+		margin-left: 0px;
+		margin-right: 0pxauto;
+		border-style: none;
+		max-width: 80%vh;
+	}
 	.checkbox-group-legend {
-		font-size: 1.5rem;
+		font-size: 1.2rem;
 		margin-bottom: 0.7rem;
 		margin-top: 0.7rem;
 	}
