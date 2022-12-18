@@ -98,7 +98,7 @@
                 <div *ngIf="showGraphInTab" id="treemap2" class="treemap"></div>
                 <app-gastos *ngIf="showPrograma" (clickDetalle)="clickDetalle()" [buttonsHide]="[
                 'Gráfico arbol',             
-                ]" [hasTitle]=false [hasMenu]=false [hasGrafico]=false></app-gastos>
+                ]" [hasTitle]=false [hasMenu]=false [hasGrafico]=true></app-gastos>
             </div>
 
             <!-- Tab ¿Quién lo gasta?  -->
@@ -107,7 +107,7 @@
                 <app-gastos *ngIf="showOrganico" (clickDetalle)="clickDetalle()" [buttonsHide]="[
                 'Gráfico arbol',
                 'Detalle orgánico',             
-                ]" [hasTitle]=false [hasMenu]=false [hasGrafico]=false></app-gastos>
+                ]" [hasTitle]=false [hasMenu]=false [hasGrafico]=true></app-gastos>
             </div>
 
             <!-- Tab ¿Para qué gasta?  -->
@@ -115,7 +115,7 @@
                 <div *ngIf="showGraphInTab" id="treemap4" class="treemap"></div>
                 <app-gastos *ngIf="showEconomica" (clickDetalle)="clickDetalle()" [buttonsHide]="[
                 'Gráfico arbol',             
-                ]" [hasTitle]=false [hasMenu]=false [hasGrafico]=false></app-gastos>
+                ]" [hasTitle]=false [hasMenu]=false [hasGrafico]=true></app-gastos>
             </div>
         </div>
 
