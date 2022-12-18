@@ -31,7 +31,6 @@ export class DetallePresupuestoComponent implements OnInit {
 
   /* #region  Definir variables */
   liqDate = environment.liqDate;
-  // showTable = true;
   showGraphInTab = true;
   showTablePresupuestos = true;
   showIngresos = false;
@@ -92,7 +91,6 @@ export class DetallePresupuestoComponent implements OnInit {
     let years = this._avalaibleYearsService.getYearsSelected();
     if (years.length === 1 || years[0] === 2022) {
       console.log('Cargar data para 2022');
-
       await this.setTotalesPresupuesto();
       let data = await this._tableService.loadDataForTypeClasification(this._typeClasification);
       await this.dataGraph(data.rowData)
@@ -195,12 +193,6 @@ export class DetallePresupuestoComponent implements OnInit {
     }, 0);
   }
 
-  // updateTreemap() {
-  //   setTimeout(() => {
-  //     this.graphTreemap()
-  //   }, 0);
-  // }
-
   hasChangeCheckbox() {
     let years = this._avalaibleYearsService.getYearsSelected();
     console.log(years);
@@ -223,7 +215,6 @@ export class DetallePresupuestoComponent implements OnInit {
         this.setValues(this._tabSelected);
         this._loadData();
         setTimeout(() => {
-
           this.showPrograma = false;
           this.showOrganico = false;
           this.showEconomica = false;
@@ -265,27 +256,9 @@ export class DetallePresupuestoComponent implements OnInit {
           this.showEconomica = true;
         }, 1000);
         break;
-
-
     }
 
-
-    // this.showEconomica = false;
-    // setTimeout(() => {
-    //   // this.ngOnInit();
-    //   this.showEconomica = true;
-    // }, 0);
-
-    // this.showPrograma = false;
-    // setTimeout(() => {
-    //   // this.ngOnInit();
-
-    //   this.setValues(this._tabSelected);
-    //   this._loadData();
-    //   this.showPrograma = true;
-    // }, 1000);
   }
-
 }
 
 
