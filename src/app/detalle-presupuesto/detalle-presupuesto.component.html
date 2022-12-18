@@ -53,7 +53,7 @@
             <!-- Tab Ingresos -->
             <div class="tab__content">
 
-                <div class="radioButtonsGroup">
+                <div *ngIf="showGraphInTab" class="radioButtonsGroup">
                     <div class="radio">
                         <input id="radio-1" name="radio" type="radio" checked (change)="checkedRadio($event)">
                         <label for="radio-1" class="radio-label">Presupuestado</label>
