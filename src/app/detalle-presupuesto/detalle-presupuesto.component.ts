@@ -88,15 +88,11 @@ export class DetallePresupuestoComponent implements OnInit {
     // console.warn('------  graphTreemap(data) recuperara la data del store y la usará para mostrar el grafico.
     // console.warn('------  El AG Grid mostrara los datos adecuado recuperandolos del store.
 
-    // let years = this._avalaibleYearsService.getYearsSelected();
-    // if (years.length === 1 || years[0] === 2022) {
-    //   console.log('Cargar data para 2022');
     await this.setTotalesPresupuesto();
     let data = await this._tableService.loadDataForTypeClasification(this._typeClasification);
     await this.dataGraph(data.rowData)
     // await this.graphTreemap(data.rowData); // No es necesario pasarle la data, ya que la recupera del store.
     await this.graphTreemap();
-    // }
   }
 
   async setTotalesPresupuesto() {
@@ -139,7 +135,6 @@ export class DetallePresupuestoComponent implements OnInit {
   async graphTreemap() {
     if (this.showGraphInTab) {
       const data = this._dataStoreService.getDataTreemap;
-      console.log('this._treemap', this._treemap);
       const chart = Highcharts.chart(this._treemap, {
         accessibility: {
           enabled: false
@@ -188,10 +183,6 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   clickDetalle() {
-    // setTimeout(() => {
-    //   this.showTable = true;
-    // }, 0);
-
     setTimeout(() => {
       this.graphTreemap()
     }, 0);
@@ -199,9 +190,7 @@ export class DetallePresupuestoComponent implements OnInit {
 
   async hasChangeCheckbox() {
     let years = this._avalaibleYearsService.getYearsSelected();
-    console.log(years);
     if (years.length === 1 || years[0] === 2022) {
-      console.log('hasChangeCheckbox');
       this.showGraphInTab = true;
       this.showTablePresupuestos = true;
       setTimeout(() => {
