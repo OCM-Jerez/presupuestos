@@ -63,6 +63,15 @@ export class DetallePresupuestoComponent implements OnInit {
     this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
     this.setValues(this._tabSelected);
     this._loadData();
+
+    let years = this._avalaibleYearsService.getYearsSelected();
+    if (years.length === 1 && years[0] === 2022) {
+      this.showGraphInTab = true;
+      this.showTablePresupuestos = true;
+    } else {
+      this.showGraphInTab = false;
+      this.showTablePresupuestos = false;
+    }
   }
 
   checkedTab(e: any) {
