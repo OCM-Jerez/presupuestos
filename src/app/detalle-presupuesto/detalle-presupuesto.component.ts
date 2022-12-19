@@ -185,7 +185,7 @@ export class DetallePresupuestoComponent implements OnInit {
 
   async hasChangeCheckbox() {
     let years = this._avalaibleYearsService.getYearsSelected();
-    if (years.length === 1 || years[0] === 2022) {
+    if (years.length === 1 && years[0] === 2022) {
       this.showGraphInTab = true;
       this.showTablePresupuestos = true;
       setTimeout(() => {
