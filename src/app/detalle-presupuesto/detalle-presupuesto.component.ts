@@ -28,7 +28,6 @@ heatmap(Highcharts)
 })
 
 export class DetallePresupuestoComponent implements OnInit {
-
   /* #region  Definir variables */
   liqDate = environment.liqDate;
   showGraphInTab = true;
@@ -45,7 +44,6 @@ export class DetallePresupuestoComponent implements OnInit {
       totalEjecutadoIngresos: 0,
       totalEjecutadoGastos: 0
     };
-  // recibeLoEmitido: string = "";
   private _typeClasification: CLASIFICATION_TYPE;
   private _radioButtonSelected = 'radio-1';
   private _tabSelected: string = "tab1";
@@ -91,8 +89,7 @@ export class DetallePresupuestoComponent implements OnInit {
     await this.setTotalesPresupuesto();
     let data = await this._tableService.loadDataForTypeClasification(this._typeClasification);
     await this.dataGraph(data.rowData)
-    // await this.graphTreemap(data.rowData); // No es necesario pasarle la data, ya que la recupera del store.
-    await this.graphTreemap();
+    await this.graphTreemap();  // No es necesario pasarle la data, ya que la recupera del store.
   }
 
   async setTotalesPresupuesto() {
@@ -100,8 +97,7 @@ export class DetallePresupuestoComponent implements OnInit {
     this.DataTotalesPresupuesto = this._dataStoreService.getDataTotalesPresupuesto;
   }
 
-  async dataGraph(data) {
-    // Datos para grafico
+  async dataGraph(data) {    // Datos para grafico
     switch (this._tabSelected) {
       case 'tab1':
         switch (this._radioButtonSelected) {
@@ -169,7 +165,6 @@ export class DetallePresupuestoComponent implements OnInit {
         ],
       } as any);
     }
-
   }
 
   setValues(tab) {
@@ -232,7 +227,6 @@ export class DetallePresupuestoComponent implements OnInit {
         }, 10);
         break;
     }
-
   }
 }
 
