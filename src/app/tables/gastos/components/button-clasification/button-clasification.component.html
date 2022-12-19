@@ -2,7 +2,7 @@
     <h4 *ngIf="hasTitle" class="OCM-text--cabecera">Comparativa gastos {{
         messageYears }}</h4>
 
-    <button *ngIf="hasGrafico" type="button" (click)="showGraph()" class="btn-54">
+    <button *ngIf="hasGrafico" type="button" (click)="showGraph($event)" class="btn-54">
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content">Mostrar gráfico</span>

@@ -1,6 +1,6 @@
 
 /* #region  import */
-import { Component, OnInit, ViewChild, OnChanges } from '@angular/core';
+import { Component, OnInit, ViewChild, OnChanges, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -15,6 +15,7 @@ import { TableService } from '../../../../services/table.service';
 import { PrepareDataProgramaDetailsService } from '../../../../services/prepareDataProgramaDetails.service';
 
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
+import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
 /* #endregion */
 
 @Component({
@@ -26,12 +27,21 @@ import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 export class TableGastosComponent implements OnInit {
   /* #region  definir variables */
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+
+  @Input()
+  set event(event: Event) {
+    if (event) {
+      this.showGraph(event);
+    }
+  }
+
   private _columnDefs: any[];
   private _dataTable: IDataTable;
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
   gridOptions: GridOptions;
   selectedCodeRowFirstLevel = '';
+  private _dataGraph: IDataGraph = {} as IDataGraph;
   /* #endregion */
 
   constructor(
@@ -213,5 +223,46 @@ export class TableGastosComponent implements OnInit {
       },
     ];
   }
+
+  showGraph($event) {
+    console.log('showGraph in TableGastosComponent');
+
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this._dataStoreService.selectedCodeRow = selectedRows[0].key;
+      this._dataGraph.rowData = this._dataTable.rowData
+      this._router.navigateByUrl("/graphGastos").then(() => {
+        this._dataStoreService.setData(
+          {
+            ...this._dataStoreService.dataGraph, graphSubTitle: selectedRows[0].key
+          }
+        );
+      })
+    } else {
+      console.log('No hay ninguna fila seleccionada');
+
+      // this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
+    }
+  }
+
+
+  // showGraph() {
+  //   const selectedRows = this.agGrid.api.getSelectedNodes();
+  //   if (selectedRows.length > 0) {
+  //     this._dataStoreService.selectedCodeRow = selectedRows[0].key;
+  //     this._dataGraph.graphSubTitle = selectedRows[0].key;
+  //     this._dataGraph.rowData = this._dataTable.rowData
+  //     this._router.navigateByUrl("/graphGastos").then(() => {
+  //       this._dataStoreService.setData(
+  //         {
+  //           ...this._dataStoreService.dataGraph, graphSubTitle: selectedRows[0].key
+  //         }
+  //       );
+  //     })
+  //   } else {
+  //     this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
+  //   }
+  // }
+
 
 }

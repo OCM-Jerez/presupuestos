@@ -16,6 +16,7 @@ export class ButtonClasificationComponent implements OnInit {
   @Input() hasMenu: boolean = true;
   @Input() hasGrafico: boolean = true;
   @Output() clickButton = new EventEmitter<IButtonClasification>();
+  @Output() clickGraph = new EventEmitter<Event>();
   messageYears = this.avalaibleYearsService.message;
 
   constructor(
@@ -26,9 +27,9 @@ export class ButtonClasificationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showGraph(): void {
-    console.log("showGraph");
-
+  showGraph(event: Event): void {
+    console.log("showGraph in ButtonClasificationComponent ");
+    this.clickGraph.emit(event);
   }
 
   click(item: IButtonClasification): void {
