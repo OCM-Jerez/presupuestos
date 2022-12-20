@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AvalaibleYearsService } from '../../../../services/avalaibleYears.service';
@@ -10,7 +10,7 @@ import { IButtonClasification } from '../../model/components.interface';
   styleUrls: ['./button-clasification.component.scss']
 })
 
-export class ButtonClasificationComponent implements OnInit {
+export class ButtonClasificationComponent {
   @Input() buttons: IButtonClasification[] = [];
   @Input() hasTitle: boolean = true;
   @Input() hasMenu: boolean = true;
@@ -24,11 +24,7 @@ export class ButtonClasificationComponent implements OnInit {
     private _router: Router
   ) { }
 
-  ngOnInit(): void {
-  }
-
   showGraph(event: Event): void {
-    console.log("showGraph in ButtonClasificationComponent ");
     this.clickGraph.emit(event);
   }
 
