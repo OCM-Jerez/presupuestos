@@ -2,17 +2,21 @@
     <h4 *ngIf="hasTitle" class="OCM-text--cabecera">Comparativa gastos {{
         messageYears }}</h4>
 
-    <button *ngIf="hasGrafico" type="button" (click)="showGraph($event)" class="btn-54">
-        <span class="shadow"></span>
-        <span class="depth"></span>
-        <span class="content">Mostrar gráfico</span>
-    </button>
 
-    <button *ngIf="hasDetallePrograma" type="button" (click)="showProgramaDetalle($event)" class="btn-54">
-        <span class="shadow"></span>
-        <span class="depth"></span>
-        <span class="content">Mostrar programa</span>
-    </button>
+    <div>
+        <span>Selecciona un fila y podras ver&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <button *ngIf="hasGrafico" type="button" (click)="showGraph($event)" class="btn-54">
+            <span class="shadow"></span>
+            <span class="depth"></span>
+            <span class="content" style="background: rgb(76, 90, 123);">Gráfico</span>
+        </button>
+
+        <button *ngIf="hasDetallePrograma" type="button" (click)="showProgramaDetalle($event)" class="btn-54">
+            <span class="shadow"></span>
+            <span class="depth"></span>
+            <span class="content" style="background: rgb(76, 90, 123);">Programa</span>
+        </button>
+    </div>
 
     <button type="button" *ngFor="let button of buttons" class="btn-54" (click)="click(button)">
         <span class="shadow"></span>
