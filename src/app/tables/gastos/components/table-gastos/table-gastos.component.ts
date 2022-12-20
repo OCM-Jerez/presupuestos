@@ -27,7 +27,6 @@ import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
 export class TableGastosComponent implements OnInit {
   /* #region  definir variables */
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-
   @Input()
   set event(event: Event) {
     if (event) {
@@ -225,8 +224,6 @@ export class TableGastosComponent implements OnInit {
   }
 
   showGraph($event) {
-    console.log('showGraph in TableGastosComponent');
-
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRow = selectedRows[0].key;
@@ -240,29 +237,8 @@ export class TableGastosComponent implements OnInit {
       })
     } else {
       console.log('No hay ninguna fila seleccionada');
-
       // this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }
   }
-
-
-  // showGraph() {
-  //   const selectedRows = this.agGrid.api.getSelectedNodes();
-  //   if (selectedRows.length > 0) {
-  //     this._dataStoreService.selectedCodeRow = selectedRows[0].key;
-  //     this._dataGraph.graphSubTitle = selectedRows[0].key;
-  //     this._dataGraph.rowData = this._dataTable.rowData
-  //     this._router.navigateByUrl("/graphGastos").then(() => {
-  //       this._dataStoreService.setData(
-  //         {
-  //           ...this._dataStoreService.dataGraph, graphSubTitle: selectedRows[0].key
-  //         }
-  //       );
-  //     })
-  //   } else {
-  //     this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
-  //   }
-  // }
-
 
 }
