@@ -32,7 +32,9 @@ export class TableGastosComponent implements OnInit {
     // console.log('event', event.target);
     if (event) {
       const target = event.target as HTMLButtonElement;
-      if (target.innerText.includes('gráfico')) {
+      console.log('target', target.innerText);
+
+      if (target.innerText.includes('Gráfico')) {
         this.showGraph(event);
       } else {
         this.showProgramaDetalle(event);
