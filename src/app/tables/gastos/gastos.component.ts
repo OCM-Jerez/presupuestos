@@ -37,6 +37,7 @@ export class GastosComponent implements OnInit {
   private _dataGraph: IDataGraph = {} as IDataGraph;
   buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
   showTable = true;
+  event: Event;
   /* #endregion */
 
   constructor(
@@ -45,11 +46,9 @@ export class GastosComponent implements OnInit {
     private _tableService: TableService,
     private _prepareDataTreemapService: PrepareDataTreemapService
   ) { }
-  event: Event;
 
   onChange(event: Event) {
     this.event = event;
-    // this.showGraph(event);
   }
 
   ngOnInit(): void {
@@ -123,26 +122,5 @@ export class GastosComponent implements OnInit {
       }
     });
   }
-
-  // showGraph($event) {
-  //   console.log('showGraph in GastosComponent');
-  //   console.log('this.agGrid.api', this.agGrid);
-
-  //   const selectedRows = this.agGrid.api.getSelectedNodes();
-  //   if (selectedRows.length > 0) {
-  //     this._dataStoreService.selectedCodeRow = selectedRows[0].key;
-  //     this._dataGraph.graphSubTitle = selectedRows[0].key;
-  //     this._dataGraph.rowData = this._dataTable.rowData
-  //     this._router.navigateByUrl("/graphGastos").then(() => {
-  //       this._dataStoreService.setData(
-  //         {
-  //           ...this._dataStoreService.dataGraph, graphSubTitle: selectedRows[0].key
-  //         }
-  //       );
-  //     })
-  //   } else {
-  //     // this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
-  //   }
-  // }
 
 }
