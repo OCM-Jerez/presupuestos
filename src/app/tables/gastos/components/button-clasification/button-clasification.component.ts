@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 
 import { AvalaibleYearsService } from '../../../../services/avalaibleYears.service';
 import { IButtonClasification } from '../../model/components.interface';
@@ -20,6 +21,7 @@ export class ButtonClasificationComponent {
   @Output() clickGraph = new EventEmitter<Event>();
   @Output() clickProgramaDetalle = new EventEmitter<Event>();
   messageYears = this.avalaibleYearsService.message;
+  hasDetallePrograma = false;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -36,6 +38,12 @@ export class ButtonClasificationComponent {
 
   click(item: IButtonClasification): void {
     this.clickButton.emit(item);
+
+    if (item.name === 'Por programa') {
+      this.hasDetallePrograma = true;
+    } else {
+      this.hasDetallePrograma = false;
+    }
   }
 
   menu(): void {
