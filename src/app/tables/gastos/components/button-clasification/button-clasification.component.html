@@ -8,6 +8,12 @@
         <span class="content">Mostrar gráfico</span>
     </button>
 
+    <button *ngIf="hasDetalle" type="button" (click)="showProgramaDetalle($event)" class="btn-54">
+        <span class="shadow"></span>
+        <span class="depth"></span>
+        <span class="content">Mostrar programa</span>
+    </button>
+
     <button type="button" *ngFor="let button of buttons" class="btn-54" (click)="click(button)">
         <span class="shadow"></span>
         <span class="depth"></span>

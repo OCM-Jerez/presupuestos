@@ -1,6 +1,6 @@
 
 /* #region  import */
-import { Component, OnInit, ViewChild, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -29,8 +29,14 @@ export class TableGastosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   @Input()
   set event(event: Event) {
+    // console.log('event', event.target);
     if (event) {
-      this.showGraph(event);
+      const target = event.target as HTMLButtonElement;
+      if (target.innerText.includes('gráfico')) {
+        this.showGraph(event);
+      } else {
+        this.showProgramaDetalle(event);
+      }
     }
   }
 
@@ -136,21 +142,21 @@ export class TableGastosComponent implements OnInit {
       localeText: localeTextESPes,
       pagination: true,
       paginationPageSize: 20,
-      onRowClicked: () => {
-        const selectedRows = this.agGrid.api.getSelectedNodes();
-        if (selectedRows.length > 0) {
-          this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-          if (this._dataTable.clasificationType === 'gastosProgramaProgramas') {
-            const isExecuted = confirm("¿Quieres ver el detalle de este programa?");
-            if (isExecuted) {
-              this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-                this._router.navigate(['tableProgramaDetails']);
-              });
-            };
-          }
-        }
+      // onRowClicked: () => {
+      //   const selectedRows = this.agGrid.api.getSelectedNodes();
+      //   if (selectedRows.length > 0) {
+      //     this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      //     if (this._dataTable.clasificationType === 'gastosProgramaProgramas') {
+      //       const isExecuted = confirm("¿Quieres ver el detalle de este programa?");
+      //       if (isExecuted) {
+      //         this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      //           this._router.navigate(['tableProgramaDetails']);
+      //         });
+      //       };
+      //     }
+      //   }
 
-      }
+      // }
     } as GridOptions;
   }
 
@@ -238,6 +244,20 @@ export class TableGastosComponent implements OnInit {
     } else {
       console.log('No hay ninguna fila seleccionada');
       // this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
+    }
+  }
+
+  showProgramaDetalle($event) {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+
+      if (this._dataTable.clasificationType === 'gastosProgramaProgramas') {
+        this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this._router.navigate(['tableProgramaDetails']);
+        });
+      }
+
     }
   }
 

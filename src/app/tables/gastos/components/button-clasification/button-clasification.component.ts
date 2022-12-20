@@ -15,8 +15,10 @@ export class ButtonClasificationComponent {
   @Input() hasTitle: boolean = true;
   @Input() hasMenu: boolean = true;
   @Input() hasGrafico: boolean = true;
+  @Input() hasDetalle: boolean = true;
   @Output() clickButton = new EventEmitter<IButtonClasification>();
   @Output() clickGraph = new EventEmitter<Event>();
+  @Output() clickProgramaDetalle = new EventEmitter<Event>();
   messageYears = this.avalaibleYearsService.message;
 
   constructor(
@@ -26,6 +28,10 @@ export class ButtonClasificationComponent {
 
   showGraph(event: Event): void {
     this.clickGraph.emit(event);
+  }
+
+  showProgramaDetalle(event: Event): void {
+    this.clickProgramaDetalle.emit(event);
   }
 
   click(item: IButtonClasification): void {
