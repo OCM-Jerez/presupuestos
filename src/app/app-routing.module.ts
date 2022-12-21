@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DetallePresupuestoComponent } from './detalle-presupuesto/detalle-presupuesto.component';
+import { EmpleadosComponent } from './empleados/empleados.component';
 import { ExplicamosComponent } from './explicamos/explicamos.component';
 import { GlosarioComponent } from './glosario/glosario.component';
 import { HomeComponent } from './home/home.component';
@@ -16,6 +17,9 @@ const routes: Routes = [
 
   { path: 'explicamos', component: ExplicamosComponent },
   { path: 'glosario', component: GlosarioComponent },
+
+  { path: 'empleados', component: EmpleadosComponent },
+
 
   { path: 'tableIngresos', loadChildren: () => import('./tables/table-ingresos/table-ingresos.module').then((m) => m.TableIngresosModule) },
 

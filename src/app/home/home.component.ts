@@ -153,7 +153,7 @@ export class HomeComponent implements OnInit {
   }
 
   empleados() {
-    this._router.navigateByUrl('/detallePresupuesto')
+    this._router.navigateByUrl('/empleados')
   }
 
   random(min: number, max: number) {
