@@ -152,6 +152,10 @@ export class HomeComponent implements OnInit {
     window.open('https://con.ocmjerez.org/', '_blank');
   }
 
+  empleados() {
+    this._router.navigateByUrl('/detallePresupuesto')
+  }
+
   random(min: number, max: number) {
     while (this._arrRandom.length < 3) {
       const r = Math.floor((Math.random() * (max - min + 1)) + min);
