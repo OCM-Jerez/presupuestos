@@ -156,6 +156,77 @@
     justify-content: center;
   }
 
+  .OCM-cardV {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 0px;
+    background-repeat: no-repeat;
+    background-size: 160px 100px;
+    background-position: 170px 20px;
+
+    &__indice {
+      display: flex;
+      align-items: left;
+      justify-content: left;
+      color: #003df6;
+      font-weight: 700;
+      font-family: var(--fuente-principal);
+      // font-size: clamp(5.6rem, 8rem, 11.2rem);
+      font-size: 3rem;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-left: 20px;
+      width: 100px;
+    }
+    &__svg {
+      align-items: left;
+      justify-content: left;
+      color: rgba(41, 24, 199, 0.87);
+      font-weight: 700;
+      font-family: var(--fuente-principal);
+      font-size: 1rem;
+      margin-top: 10px;
+      margin-bottom: 40px;
+    }
+    &__title {
+      display: flex;
+      color: rgba(1, 0, 3, 0.913);
+      font-weight: 600;
+      font-family: var(--fuente-principal);
+      font-size: 1.4rem;
+      text-align: left;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      line-height: 1.2;
+    }
+    &__footer {
+      display: flex;
+      height: 100%;
+      margin-bottom: 0px;
+      padding-top: 20px;
+      color: white;
+      font-weight: 300;
+      font-family: var(--fuente-principal);
+      font-size: 1.4rem;
+      text-align: left;
+      background: #555555;
+      line-height: 1.3;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    &--empty {
+      width: 100%;
+    }
+    &:hover {
+      // cursor: grab;
+      transform: scale(1.2);
+      box-shadow: 0 5px 15px rgba(238, 5, 24, 0.932);
+    }
+  }
+
   // #endregion
   /******** END  OCM *****************/
 
@@ -422,6 +493,31 @@
     margin-top: 0px;
     font-weight: 600 !important;
     font-size: 16px;
+  }
+
+  .OCM-cardV {
+    &__indice {
+      font-size: 1rem;
+      margin-top: 0px;
+      margin-bottom: 2px;
+    }
+    &__svg {
+      // align-items: left;
+      // justify-content: left;
+      // color: rgba(41, 24, 199, 0.87);
+      // font-weight: 700;
+      // font-family: var(--fuente-principal);
+      // font-size: 1rem;
+      // margin-top: 10px;
+      // margin-bottom: 40px;
+    }
+    &__title {
+      margin-bottom: 1px;
+    }
+    &__footer {
+      padding-top: 0px;
+      font-size: 0.7rem;
+    }
   }
 
   // #region Button from https://ui-buttons.web.app/
