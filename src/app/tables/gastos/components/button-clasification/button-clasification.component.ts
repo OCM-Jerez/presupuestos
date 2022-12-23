@@ -23,7 +23,6 @@ export class ButtonClasificationComponent {
   @Output() clickOrganicoDetalle = new EventEmitter<Event>();
   messageYears = this.avalaibleYearsService.message;
   hasDetallePrograma = false;
-  // hasDetalleOrganico = false;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -35,20 +34,17 @@ export class ButtonClasificationComponent {
   }
 
   showProgramaDetalle(event: Event): void {
+    // const target = event.target as HTMLButtonElement;
+    // console.log('showOrganicoDetalle', target);
     this.clickProgramaDetalle.emit(event);
   }
 
   showOrganicoDetalle(event: Event): void {
-    const target = event.target as HTMLButtonElement;
-    console.log('showOrganicoDetalle', target);
-
     this.clickProgramaDetalle.emit(event);
   }
 
   click(item: IButtonClasification, event: Event): void {
     this.clickButton.emit(event);
-
-
 
     if (item.name === 'Por programa') {
       this.hasDetallePrograma = true;
@@ -56,7 +52,6 @@ export class ButtonClasificationComponent {
       this.hasDetallePrograma = false;
     }
 
-    // hasDetalleOrganico = false;
   }
 
   menu(): void {
