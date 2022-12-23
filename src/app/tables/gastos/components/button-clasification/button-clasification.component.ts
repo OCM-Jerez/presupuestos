@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 
 import { AvalaibleYearsService } from '../../../../services/avalaibleYears.service';
 import { IButtonClasification } from '../../model/components.interface';
@@ -17,7 +16,6 @@ export class ButtonClasificationComponent {
   @Input() hasMenu: boolean = true;
   @Input() hasGrafico: boolean = true;
   @Input() hasDetalle: boolean = true;
-  // @Output() clickButton = new EventEmitter<IButtonClasification>();
   @Output() clickButton = new EventEmitter<Event>();
   @Output() clickGraph = new EventEmitter<Event>();
   @Output() clickProgramaDetalle = new EventEmitter<Event>();
