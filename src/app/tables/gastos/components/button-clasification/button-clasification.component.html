@@ -5,26 +5,28 @@
 
     <div>
         <span>Selecciona un fila y podras ver&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <button *ngIf="hasGrafico" type="button" (click)="showGraph($event)" class="btn-54">
+        <button *ngIf="hasGrafico" type="button" (click)="showGraph($event)" style="background: rgb(76, 90, 123);">
             <span class="shadow"></span>
             <span class="depth"></span>
-            <span class="content" style="background: rgb(76, 90, 123);">Gráfico</span>
+            <span class="content">Gráfico</span>
         </button>
 
-        <button *ngIf="hasDetallePrograma" type="button" (click)="showProgramaDetalle($event)" class="btn-54">
+        <button *ngIf="hasDetallePrograma" type="button" style="background: rgb(76, 90, 123);"
+            (click)="showProgramaDetalle($event)">
             <span class="shadow"></span>
             <span class="depth"></span>
-            <span class="content" style="background: rgb(76, 90, 123);">Programa</span>
+            <span class="content">Programa</span>
         </button>
 
-        <button *ngIf="hasDetalleOrganico" type="button" (click)="showOrganicoDetalle($event)" class="btn-54">
+        <button *ngIf="hasDetalleOrganico" type="button" (click)="showOrganicoDetalle($event)"
+            style="background: rgb(76, 90, 123);">
             <span class="shadow"></span>
             <span class="depth"></span>
-            <span class="content" style="background: rgb(76, 90, 123);">Orgánico</span>
+            <span class="content">Orgánico</span>
         </button>
     </div>
 
-    <button type="button" *ngFor="let button of buttons" class="btn-54" (click)="click(button, $event)">
+    <button type="button" *ngFor="let button of buttons" (click)="click(button, $event)">
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content">{{button.name}} </span>
