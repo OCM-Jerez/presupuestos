@@ -49,11 +49,11 @@ export class TableGastosComponent implements OnInit {
       //   this.showOrganicoDetalle(event);
       // }
 
-      switch (target.textContent) {
+      switch (target.textContent.trim()) {
         case 'Gráfico':
           this.showGraph();
           break;
-        case 'Programa':
+        case 'Prográma':
           this.showProgramaDetalle();
           break;
         case 'Orgánico':
