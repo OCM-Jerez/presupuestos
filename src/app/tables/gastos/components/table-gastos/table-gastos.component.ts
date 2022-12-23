@@ -34,10 +34,15 @@ export class TableGastosComponent implements OnInit {
       const target = event.target as HTMLButtonElement;
       console.log('target', target.innerText);
 
+
       if (target.innerText.includes('Gráfico')) {
         this.showGraph(event);
-      } else {
+      }
+      if (target.innerText.includes('Programa')) {
         this.showProgramaDetalle(event);
+      }
+      if (target.innerText.includes('Orgánico')) {
+        this.showOrganicoDetalle(event);
       }
     }
   }
@@ -254,4 +259,12 @@ export class TableGastosComponent implements OnInit {
     }
   }
 
+  showOrganicoDetalle($event) {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this._router.navigate(['tableOrganicoDetails']);
+    });
+
+  }
 }

@@ -16,6 +16,12 @@
             <span class="depth"></span>
             <span class="content" style="background: rgb(76, 90, 123);">Programa</span>
         </button>
+
+        <button *ngIf="hasDetalleOrganico" type="button" (click)="showOrganicoDetalle($event)" class="btn-54">
+            <span class="shadow"></span>
+            <span class="depth"></span>
+            <span class="content" style="background: rgb(76, 90, 123);">Orgánico</span>
+        </button>
     </div>
 
     <button type="button" *ngFor="let button of buttons" class="btn-54" (click)="click(button, $event)">

@@ -27,6 +27,7 @@ export class GastosComponent implements OnInit {
   @Input() hasTitle: boolean = true;
   @Input() hasMenu: boolean = true;
   @Input() hasGrafico: boolean = true;
+  @Input() hasDetalleOrganico: boolean = true;
   public hasGraficoButton = true;
   public hasGraphTree = true;
   public hasMenuButton = true;
