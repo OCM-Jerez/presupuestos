@@ -16,6 +16,7 @@ import { PrepareDataProgramaDetailsService } from '../../../../services/prepareD
 
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
+import { BoundElementProperty } from '@angular/compiler';
 /* #endregion */
 
 @Component({
@@ -30,20 +31,39 @@ export class TableGastosComponent implements OnInit {
   @Input()
   set event(event: Event) {
     if (event) {
-      console.log('event', event);
+      // console.log('event', event);
       const target = event.target as HTMLButtonElement;
-      console.log('target', target.innerText);
+      // Considera utilizar la propiedad textContent en lugar de innerText. 
+      // La propiedad textContent es más rápida y se recomienda su uso en
+      // lugar de innerText, a menos que sea necesario tener en cuenta la
+      // formateación visual del contenido del BoundElementProperty
+      // console.log('target.innerText', target.innerText);
+      // console.log('target.textContent ', target.textContent);
+      // if (target.innerText.includes('Gráfico')) {
+      //   this.showGraph(event);
+      // }
+      // if (target.innerText.includes('Programa')) {
+      //   this.showProgramaDetalle(event);
+      // }
+      // if (target.innerText.includes('Orgánico')) {
+      //   this.showOrganicoDetalle(event);
+      // }
 
+      switch (target.textContent) {
+        case 'Gráfico':
+          this.showGraph(event);
+          break;
+        case 'Programa':
+          this.showProgramaDetalle(event);
+          break;
+        case 'Orgánico':
+          this.showOrganicoDetalle(event);
+          break;
+        default:
+          // código opcional para manejar casos no cubiertos
+          break;
+      }
 
-      if (target.innerText.includes('Gráfico')) {
-        this.showGraph(event);
-      }
-      if (target.innerText.includes('Programa')) {
-        this.showProgramaDetalle(event);
-      }
-      if (target.innerText.includes('Orgánico')) {
-        this.showOrganicoDetalle(event);
-      }
     }
   }
 
@@ -265,6 +285,6 @@ export class TableGastosComponent implements OnInit {
     this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this._router.navigate(['tableOrganicoDetails']);
     });
-
   }
+
 }
