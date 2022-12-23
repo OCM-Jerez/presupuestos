@@ -12,7 +12,6 @@ import { IButtonClasification } from './model/components.interface';
 import { getClasificacion } from '../data-table';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
-import { Router } from '@angular/router';
 /* #endregion */
 
 @Component({
@@ -41,7 +40,6 @@ export class GastosComponent implements OnInit {
   /* #endregion */
 
   constructor(
-    private _router: Router,
     private _dataStoreService: DataStoreService,
     private _tableService: TableService,
     private _prepareDataTreemapService: PrepareDataTreemapService
@@ -65,19 +63,10 @@ export class GastosComponent implements OnInit {
   }
 
   async detalle(event: Event) {
-    console.log('event', event);
     const target = event.target as HTMLButtonElement;
-    console.log('target', target.innerText);
-
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
-    console.log('button', button);
-
-
-
-    this.clickDetalle.emit();
     const dataPropertyTable = getClasificacion(button.clasificationType);
-    console.log('selectedCodeRowFirstLevel', this._dataStoreService.selectedCodeRowFirstLevel);
-
+    this.clickDetalle.emit();
 
     if (this._dataStoreService.selectedCodeRowFirstLevel) {
       const useStarWitch: boolean = dataPropertyTable.useStarWitch;
@@ -90,7 +79,6 @@ export class GastosComponent implements OnInit {
         button.clasificationType);
     }
 
-    // console.log('He pulsado un botón detalles, actualizo data', this._dataTable);
     this._dataStoreService.selectedCodeRowFirstLevel = '';
 
     // console.log('Actualizo datos treemap en función del boton pulsado');
@@ -100,11 +88,6 @@ export class GastosComponent implements OnInit {
       getClasificacion(this._dataTable.clasificationType).desField,
       'Definitivas2022'
     );
-    // console.log('this._dataStoreService.getDataTreemap', this._dataStoreService.getDataTreemap);
-    // await this.dataGraph(this._dataTable.clasificationType, this._dataTable.rowData);
-    // console.log('dataTreemap', dataTreemap);
-    // this._dataStoreService.setDataTreemap = dataTreemap;
-    // console.log('this._dataStoreService.getDataTreemap', await this._dataStoreService.getDataTreemap);
 
     this.buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
 
@@ -120,14 +103,9 @@ export class GastosComponent implements OnInit {
   }
 
   private _hideButtons() {
-    // console.log('this.buttonsHide', this.buttonsHide);
-    // console.log('this.buttons', this.buttons);
     this.buttons.forEach(() => {
       for (const key in this.buttons) {
-        // console.log('Buscando', this.buttons[key].name);
         if (this.buttonsHide.includes(this.buttons[key].name)) {
-          // console.log('Encontrado', this.buttons[key].name);
-          // delete this.buttons[key]s.name;
           this.buttons.splice(parseInt(key), 1);
         }
       }
