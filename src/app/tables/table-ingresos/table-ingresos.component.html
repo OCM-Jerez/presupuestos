@@ -4,47 +4,54 @@
 
     <div class="buttonGroup">
 
-        <button *ngIf="hasGraficoButton" id="showGraph" type="button" (click)="showGraph()" class="btn-54">
-            <span class="shadow"></span>
+        <button *ngIf="hasGraficoButton" id="showGraph" type="button" class="OCM-button" (click)="showGraph()">
+            {{textButton}}
+            <!-- <span class="shadow"></span>
             <span class="depth"></span>
-            <span class="content">{{textButton}}</span>
+            <span class="content">{{textButton}}</span> -->
         </button>
 
-        <button type="button" *ngIf="hasGraphTree" class="OCM-btnExpand" (click)="showGraphTree()" class="btn-54">
-            <span class="shadow"></span>
+        <button type="button" *ngIf="hasGraphTree" class="OCM-btnExpand" class="OCM-button" (click)="showGraphTree()">
+            Gráfico arbol
+            <!-- <span class="shadow"></span>
             <span class="depth"></span>
-            <span class="content">Gráfico arbol</span>
+            <span class="content">Gráfico arbol</span> -->
         </button>
 
-        <button type="button" (click)="detalle('ingresosEconomicaCapitulos')" class="btn-54">
-            <span class="shadow"></span>
+        <button type="button" class="OCM-button" (click)="detalle('ingresosEconomicaCapitulos')">
+            Por capítulo
+            <!-- <span class="shadow"></span>
             <span class="depth"></span>
-            <span class="content">Por capítulo</span>
+            <span class="content">Por capítulo</span> -->
         </button>
 
-        <button type="button" (click)="detalle('ingresosEconomicaArticulos')" class="btn-54">
-            <span class="shadow"></span>
+        <button type="button" class="OCM-button" (click)="detalle('ingresosEconomicaArticulos')">
+            Por artículo
+            <!-- <span class="shadow"></span>
             <span class="depth"></span>
-            <span class="content">Por artículo</span>
+            <span class="content">Por artículo</span> -->
         </button>
 
-        <button type="button" (click)="detalle('ingresosEconomicaConceptos')" class="btn-54">
-            <span class="shadow"></span>
+        <button type="button" class="OCM-button" (click)="detalle('ingresosEconomicaConceptos')">
+            Por concepto
+            <!-- <span class="shadow"></span>
             <span class="depth"></span>
-            <span class="content">Por concepto</span>
+            <span class="content">Por concepto</span> -->
         </button>
 
-        <button type="button" (click)="detalle('ingresosEconomicaEconomicos')" class="btn-54">
-            <span class="shadow"></span>
+        <button type="button" class="OCM-button" (click)="detalle('ingresosEconomicaEconomicos')">
+            Por económico
+            <!-- <span class="shadow"></span>
             <span class="depth"></span>
-            <span class="content">Por económico</span>
+            <span class="content">Por económico</span> -->
         </button>
 
         <!-- <button type="button" class="btn-54" onclick="history.back()"> -->
-        <button *ngIf="hasMenuButton" type="button" class="btn-54" (click)="home()">
-            <span class="shadow"></span>
+        <button *ngIf="hasMenuButton" type="button" class="OCM-button" (click)="home()">
+            Menú
+            <!-- <span class="shadow"></span>
             <span class="depth"></span>
-            <span class="content" style="background-color: brown;">Menú</span>
+            <span class="content" style="background-color: brown;">Menú</span> -->
         </button>
 
     </div>

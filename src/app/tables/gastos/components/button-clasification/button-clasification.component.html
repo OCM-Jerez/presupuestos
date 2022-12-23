@@ -2,39 +2,44 @@
     <h4 *ngIf="hasTitle" class="OCM-text--cabecera">Comparativa gastos {{
         messageYears }}</h4>
 
-
     <div>
         <span>Selecciona un fila y podras ver&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <button *ngIf="hasGrafico" type="button" (click)="showGraph($event)" style="background: rgb(76, 90, 123);">
-            <span class="shadow"></span>
-            <span class="depth"></span>
-            <span class="content">Gráfico</span>
-        </button>
-
-        <button *ngIf="hasDetallePrograma" type="button" style="background: rgb(76, 90, 123);"
-            (click)="showProgramaDetalle($event)">
-            <span class="shadow"></span>
-            <span class="depth"></span>
-            <span class="content">Programa</span>
-        </button>
-
-        <button *ngIf="hasDetalleOrganico" type="button" (click)="showOrganicoDetalle($event)"
+        <button *ngIf="hasGrafico" type="button" class="OCM-button" (click)="showGraph($event)"
             style="background: rgb(76, 90, 123);">
-            <span class="shadow"></span>
+            Gráfico
+            <!-- <span class="shadow"></span>
             <span class="depth"></span>
-            <span class="content">Orgánico</span>
+            <span class="content">Gráfico</span> -->
+        </button>
+
+        <button *ngIf="hasDetallePrograma" type="button" class="OCM-button" style="background: rgb(76, 90, 123);"
+            (click)="showProgramaDetalle($event)">
+            Prográma
+            <!-- <span class="shadow"></span>
+            <span class="depth"></span>
+            <span class="content">Programa</span> -->
+        </button>
+
+        <button *ngIf="hasDetalleOrganico" type="button" class="OCM-button" (click)="showOrganicoDetalle($event)"
+            style="background: rgb(76, 90, 123);">
+            Orgánico
+            <!-- <span class="shadow"></span>
+            <span class="depth"></span>
+            <span class="content">Orgánico</span> -->
         </button>
     </div>
 
-    <button type="button" *ngFor="let button of buttons" (click)="click(button, $event)">
-        <span class="shadow"></span>
+    <button type="button" class="OCM-button" *ngFor="let button of buttons" (click)="click(button, $event)">
+        {{button.name}}
+        <!-- <span class="shadow"></span>
         <span class="depth"></span>
-        <span class="content">{{button.name}} </span>
+        <span class="content">{{button.name}} </span> -->
     </button>
 
-    <button *ngIf="hasMenu" type="button" class="btn-54" (click)="menu()">
-        <span class="shadow"></span>
+    <button *ngIf="hasMenu" type="button" class="OCM-button" (click)="menu()">
+        Menú
+        <!-- <span class="shadow"></span>
         <span class="depth"></span>
-        <span class="content" style="background-color: brown;">Menú</span>
+        <span class="content" style="background-color: brown;">Menú</span> -->
     </button>
 </div>
