@@ -7,39 +7,24 @@
         <button *ngIf="hasGrafico" type="button" class="OCM-button" (click)="showGraph($event)"
             style="background: rgb(76, 90, 123);">
             Gráfico
-            <!-- <span class="shadow"></span>
-            <span class="depth"></span>
-            <span class="content">Gráfico</span> -->
         </button>
 
         <button *ngIf="hasDetallePrograma" type="button" class="OCM-button" style="background: rgb(76, 90, 123);"
             (click)="showProgramaDetalle($event)">
             Prográma
-            <!-- <span class="shadow"></span>
-            <span class="depth"></span>
-            <span class="content">Programa</span> -->
         </button>
 
         <button *ngIf="hasDetalleOrganico" type="button" class="OCM-button" (click)="showOrganicoDetalle($event)"
             style="background: rgb(76, 90, 123);">
             Orgánico
-            <!-- <span class="shadow"></span>
-            <span class="depth"></span>
-            <span class="content">Orgánico</span> -->
         </button>
     </div>
 
     <button type="button" class="OCM-button" *ngFor="let button of buttons" (click)="click(button, $event)">
         {{button.name}}
-        <!-- <span class="shadow"></span>
-        <span class="depth"></span>
-        <span class="content">{{button.name}} </span> -->
     </button>
 
     <button *ngIf="hasMenu" type="button" class="OCM-button" (click)="menu()">
         Menú
-        <!-- <span class="shadow"></span>
-        <span class="depth"></span>
-        <span class="content" style="background-color: brown;">Menú</span> -->
     </button>
 </div>
