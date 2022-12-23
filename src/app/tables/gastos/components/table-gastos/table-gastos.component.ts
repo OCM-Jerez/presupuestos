@@ -74,7 +74,6 @@ export class TableGastosComponent implements OnInit {
 
   ngOnChanges(): void {
     this._loadTable();
-
   }
 
   private async _loadTable() {
@@ -150,21 +149,6 @@ export class TableGastosComponent implements OnInit {
         this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
 
       }
-      // onRowClicked: () => {
-      //   const selectedRows = this.agGrid.api.getSelectedNodes();
-      //   if (selectedRows.length > 0) {
-      //     this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      //     if (this._dataTable.clasificationType === 'gastosProgramaProgramas') {
-      //       const isExecuted = confirm("¿Quieres ver el detalle de este programa?");
-      //       if (isExecuted) {
-      //         this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      //           this._router.navigate(['tableProgramaDetails']);
-      //         });
-      //       };
-      //     }
-      //   }
-
-      // }
     } as GridOptions;
   }
 
