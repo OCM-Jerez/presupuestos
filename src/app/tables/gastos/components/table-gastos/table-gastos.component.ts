@@ -51,13 +51,13 @@ export class TableGastosComponent implements OnInit {
 
       switch (target.textContent) {
         case 'Gráfico':
-          this.showGraph(event);
+          this.showGraph();
           break;
         case 'Programa':
-          this.showProgramaDetalle(event);
+          this.showProgramaDetalle();
           break;
         case 'Orgánico':
-          this.showOrganicoDetalle(event);
+          this.showOrganicoDetalle();
           break;
         default:
           // código opcional para manejar casos no cubiertos
@@ -246,7 +246,7 @@ export class TableGastosComponent implements OnInit {
     ];
   }
 
-  showGraph($event) {
+  showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRow = selectedRows[0].key;
@@ -265,21 +265,21 @@ export class TableGastosComponent implements OnInit {
     }
   }
 
-  showProgramaDetalle($event) {
+  showProgramaDetalle() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
 
-      if (this._dataTable.clasificationType === 'gastosProgramaProgramas') {
-        this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this._router.navigate(['tableProgramaDetails']);
-        });
-      }
+      // if (this._dataTable.clasificationType === 'gastosProgramaProgramas') {
+      this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this._router.navigate(['tableProgramaDetails']);
+      });
+      // }
 
     }
   }
 
-  showOrganicoDetalle($event) {
+  showOrganicoDetalle() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
     this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
