@@ -18,7 +18,7 @@
         </button>
     </div>
 
-    <button type="button" *ngFor="let button of buttons" class="btn-54" (click)="click(button)">
+    <button type="button" *ngFor="let button of buttons" class="btn-54" (click)="click(button, $event)">
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content">{{button.name}} </span>

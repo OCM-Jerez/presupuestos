@@ -17,7 +17,8 @@ export class ButtonClasificationComponent {
   @Input() hasMenu: boolean = true;
   @Input() hasGrafico: boolean = true;
   @Input() hasDetalle: boolean = true;
-  @Output() clickButton = new EventEmitter<IButtonClasification>();
+  // @Output() clickButton = new EventEmitter<IButtonClasification>();
+  @Output() clickButton = new EventEmitter<Event>();
   @Output() clickGraph = new EventEmitter<Event>();
   @Output() clickProgramaDetalle = new EventEmitter<Event>();
   messageYears = this.avalaibleYearsService.message;
@@ -36,8 +37,8 @@ export class ButtonClasificationComponent {
     this.clickProgramaDetalle.emit(event);
   }
 
-  click(item: IButtonClasification): void {
-    this.clickButton.emit(item);
+  click(item: IButtonClasification, event: Event): void {
+    this.clickButton.emit(event);
 
     if (item.name === 'Por programa') {
       this.hasDetallePrograma = true;

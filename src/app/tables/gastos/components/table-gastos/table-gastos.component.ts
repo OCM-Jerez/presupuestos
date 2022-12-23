@@ -29,8 +29,8 @@ export class TableGastosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   @Input()
   set event(event: Event) {
-    // console.log('event', event.target);
     if (event) {
+      console.log('event', event);
       const target = event.target as HTMLButtonElement;
       console.log('target', target.innerText);
 
@@ -74,6 +74,7 @@ export class TableGastosComponent implements OnInit {
 
   ngOnChanges(): void {
     this._loadTable();
+
   }
 
   private async _loadTable() {
@@ -144,6 +145,11 @@ export class TableGastosComponent implements OnInit {
       localeText: localeTextESPes,
       pagination: true,
       paginationPageSize: 20,
+      onRowClicked: () => {
+        const selectedRows = this.agGrid.api.getSelectedNodes();
+        this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+
+      }
       // onRowClicked: () => {
       //   const selectedRows = this.agGrid.api.getSelectedNodes();
       //   if (selectedRows.length > 0) {
@@ -243,6 +249,7 @@ export class TableGastosComponent implements OnInit {
           }
         );
       })
+      this._dataStoreService.selectedCodeRowFirstLevel = '';
     } else {
       console.log('No hay ninguna fila seleccionada');
       // this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);

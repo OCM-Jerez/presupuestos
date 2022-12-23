@@ -314,7 +314,7 @@ export class TableIngresosComponent implements OnInit {
       // this._alertService.showAlert(`Selecciona artículo`);
     }
 
-    // console.log('He pulsado un botón detalles, actualizo data', this._dataTable);
+    console.log('He pulsado un botón detalles, actualizo data', this._dataTable);
     this._dataStoreService.selectedCodeRowFirstLevel = '';
 
     // console.log('Actualizo datos treemap en función del boton pulsado');

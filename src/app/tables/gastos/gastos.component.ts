@@ -64,9 +64,20 @@ export class GastosComponent implements OnInit {
     // params.columnApi.applyColumnState({ state: defaultSortModel });
   }
 
-  async detalle(button: IButtonClasification) {
+  async detalle(event: Event) {
+    console.log('event', event);
+    const target = event.target as HTMLButtonElement;
+    console.log('target', target.innerText);
+
+    const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
+    console.log('button', button);
+
+
+
     this.clickDetalle.emit();
     const dataPropertyTable = getClasificacion(button.clasificationType);
+    console.log('selectedCodeRowFirstLevel', this._dataStoreService.selectedCodeRowFirstLevel);
+
 
     if (this._dataStoreService.selectedCodeRowFirstLevel) {
       const useStarWitch: boolean = dataPropertyTable.useStarWitch;
