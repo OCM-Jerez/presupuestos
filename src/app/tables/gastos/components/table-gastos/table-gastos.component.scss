@@ -14,7 +14,13 @@
 
 @media screen and (max-width: 575.98px) {
     .agGrid {
-        background-color: red;
+        height: 90vh;
         max-width: 380px;
+    }
+
+    #agGrid {
+        height: 70vh;
+        padding-right: 4px;
+        margin-left: 4px;
     }
 }
