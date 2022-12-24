@@ -11,8 +11,6 @@ import localeTextESPes from '../../../../../assets/data/localeTextESPes.json';
 
 import { AvalaibleYearsService } from '../../../../services/avalaibleYears.service';
 import { DataStoreService } from '../../../../services/dataStore.service';
-import { TableService } from '../../../../services/table.service';
-import { PrepareDataProgramaDetailsService } from '../../../../services/prepareDataProgramaDetails.service';
 
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
@@ -27,26 +25,17 @@ import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
 export class TableGastosComponent implements OnInit {
   /* #region  definir variables */
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+  private _columnDefs: any[];
+  private _dataTable: IDataTable;
+  private _gridApi: GridApi;
+  private _columnApi: ColumnApi;
+  gridOptions: GridOptions;
+  selectedCodeRowFirstLevel = '';
+  private _dataGraph: IDataGraph = {} as IDataGraph;
   @Input()
   set event(event: Event) {
     if (event) {
-      // console.log('event', event);
       const target = event.target as HTMLButtonElement;
-      // Considera utilizar la propiedad textContent en lugar de innerText. 
-      // La propiedad textContent es más rápida y se recomienda su uso en
-      // lugar de innerText, a menos que sea necesario tener en cuenta la
-      // formateación visual del contenido del BoundElementProperty
-      // console.log('target.innerText', target.innerText);
-      // console.log('target.textContent ', target.textContent);
-      // if (target.innerText.includes('Gráfico')) {
-      //   this.showGraph(event);
-      // }
-      // if (target.innerText.includes('Programa')) {
-      //   this.showProgramaDetalle(event);
-      // }
-      // if (target.innerText.includes('Orgánico')) {
-      //   this.showOrganicoDetalle(event);
-      // }
 
       switch (target.textContent.trim()) {
         case 'Gráfico':
@@ -65,32 +54,14 @@ export class TableGastosComponent implements OnInit {
 
     }
   }
-
-  private _columnDefs: any[];
-  private _dataTable: IDataTable;
-  private _gridApi: GridApi;
-  private _columnApi: ColumnApi;
-  gridOptions: GridOptions;
-  selectedCodeRowFirstLevel = '';
-  private _dataGraph: IDataGraph = {} as IDataGraph;
   /* #endregion */
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
     private _dataStoreService: DataStoreService,
-    private _tableService: TableService,
     private _avalaibleYearsService: AvalaibleYearsService,
-    private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
-  ) {
-    // this._dataTable = _dataStoreService.getDataTable;
-    // console.log("******************* _dataTable *************************")
-    // console.log(this._dataTable);
-
-    // const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
-    // this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder]);
-    // console.log(this._dataTable.rowData);
-  }
+  ) { }
 
   ngOnInit(): void {
     this._loadTable();
@@ -102,6 +73,11 @@ export class TableGastosComponent implements OnInit {
 
   private async _loadTable() {
     this._dataTable = this._dataStoreService.getDataTable;
+    this.setColumnDefs()
+    this.setGridOptions();
+  }
+
+  setColumnDefs() {
     this._columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,
@@ -133,6 +109,9 @@ export class TableGastosComponent implements OnInit {
       })
 
     ];
+  }
+
+  setGridOptions() {
     this.gridOptions = {
       defaultColDef: {
         width: 130,
