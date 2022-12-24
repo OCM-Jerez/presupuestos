@@ -288,7 +288,10 @@ export class TableGastosComponent implements OnInit {
     const selectedRows = this.agGrid.api.getSelectedNodes();
 
     if (selectedRows.length > 0) {
-      throw new Error('showEconomicoDetalle not implemented.');
+      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this._router.navigate(['tableGrupoProgramaDetails']);
+      });
     }
 
   }

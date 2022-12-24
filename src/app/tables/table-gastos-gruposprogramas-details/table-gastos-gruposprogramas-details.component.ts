@@ -128,10 +128,22 @@ export class TableGastosGruposprogramasDetailsComponent {
   }
 
   async createDataOCM(): Promise<void> {
-    // console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
-      .filter(x => x.CodGru == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    console.log(this.dataStoreService.getDataTable.clasificationType);
+    const eco = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
+
+    // this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
+    // .filter(x => x.CodGru == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear('gastosProgramaProgramas'))
+    console.log(this._rowData);
+
+    setTimeout(() => {
+      this._rowData.filter(x => x.CodEco == eco);
+      console.log(this._rowData);
+    }, 5000);
+
   }
+
 
   createColumnsChildren(year: number) {
     return [

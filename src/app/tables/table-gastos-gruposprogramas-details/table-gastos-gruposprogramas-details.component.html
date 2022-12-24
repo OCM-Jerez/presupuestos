@@ -1,28 +1,28 @@
 <div>
-    <h4 style="font-size:20px; text-align: center;">Detalle grupo programas {{
+    <h4 style="font-size:20px; text-align: center;">Programas que gastan del económico {{
         dataStoreService.selectedCodeRowFirstLevel}}
         {{
         avalaibleYearsService.getAvalaibleYear() | async }}</h4>
 
-    <button *ngIf="!isExpanded" type="button" class="btn-54" (click)="expandAll()">
+    <button *ngIf="!isExpanded" type="button" class="OCM-button" (click)="expandAll()">
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content">Expandir todo</span>
     </button>
 
-    <button *ngIf="isExpanded" type="button" class="btn-54" (click)="collapseAll()">
+    <button *ngIf="isExpanded" type="button" class="OCM-button" (click)="collapseAll()">
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content">Colapsar todo</span>
     </button>
 
-    <button type="button" (click)="showProgramaDetails()" class="btn-54">
+    <button type="button" (click)="showProgramaDetails()" class="OCM-button">
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content">Detalle programa</span>
     </button>
 
-    <button type="button" class="btn-54" onclick="history.back()">
+    <button type="button" class="OCM-button" onclick="history.back()">
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content">Volver</span>
