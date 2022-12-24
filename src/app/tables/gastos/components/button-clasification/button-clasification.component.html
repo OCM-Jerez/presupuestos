@@ -18,6 +18,11 @@
             style="background: rgb(76, 90, 123);">
             Orgánico
         </button>
+
+        <button *ngIf="hasDetalleEconomico" type="button" class="OCM-button" (click)="showEconomicoDetalle($event)"
+            style="background: rgb(76, 90, 123);">
+            Programas
+        </button>
     </div>
 
     <button type="button" class="OCM-button" *ngFor="let button of buttons" (click)="click(button, $event)">

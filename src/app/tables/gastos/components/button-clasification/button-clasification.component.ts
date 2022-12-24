@@ -17,6 +17,7 @@ export class ButtonClasificationComponent {
   @Input() hasGrafico: boolean = true;
   @Input() hasDetalle: boolean = true;
   @Input() hasDetalleOrganico: boolean = true;
+  @Input() hasDetalleEconomico: boolean = true;
   @Output() clickButton = new EventEmitter<Event>();
   @Output() clickGraph = new EventEmitter<Event>();
   @Output() clickProgramaDetalle = new EventEmitter<Event>();
@@ -34,12 +35,16 @@ export class ButtonClasificationComponent {
   }
 
   showProgramaDetalle(event: Event): void {
-    // const target = event.target as HTMLButtonElement;
-    // console.log('showOrganicoDetalle', target);
     this.clickProgramaDetalle.emit(event);
   }
 
   showOrganicoDetalle(event: Event): void {
+    this.clickProgramaDetalle.emit(event);
+  }
+
+  showEconomicoDetalle(event: Event): void {
+    // const target = event.target as HTMLButtonElement;
+    // console.log('showEconomicoDetalle', target.innerText);
     this.clickProgramaDetalle.emit(event);
   }
 

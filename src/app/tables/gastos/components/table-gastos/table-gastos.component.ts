@@ -16,7 +16,6 @@ import { PrepareDataProgramaDetailsService } from '../../../../services/prepareD
 
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
-import { BoundElementProperty } from '@angular/compiler';
 /* #endregion */
 
 @Component({
@@ -59,8 +58,8 @@ export class TableGastosComponent implements OnInit {
         case 'Orgánico':
           this.showOrganicoDetalle();
           break;
-        default:
-          // código opcional para manejar casos no cubiertos
+        case 'Programas':
+          this.showEconomicoDetalle();
           break;
       }
 
@@ -267,16 +266,14 @@ export class TableGastosComponent implements OnInit {
 
   showProgramaDetalle() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
+
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-
-      // if (this._dataTable.clasificationType === 'gastosProgramaProgramas') {
       this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
         this._router.navigate(['tableProgramaDetails']);
       });
-      // }
-
     }
+
   }
 
   showOrganicoDetalle() {
@@ -285,6 +282,15 @@ export class TableGastosComponent implements OnInit {
     this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this._router.navigate(['tableOrganicoDetails']);
     });
+  }
+
+  showEconomicoDetalle() {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+
+    if (selectedRows.length > 0) {
+      throw new Error('showEconomicoDetalle not implemented.');
+    }
+
   }
 
 }
