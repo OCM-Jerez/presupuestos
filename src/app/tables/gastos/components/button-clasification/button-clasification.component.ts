@@ -18,10 +18,6 @@ export class ButtonClasificationComponent {
   @Input() hasDetalleOrganico: boolean = true;
   @Input() hasDetalleEconomico: boolean = true;
   @Output() clickButton = new EventEmitter<Event>();
-  // @Input() hasDetalle: boolean = true;
-  // @Output() clickGraph = new EventEmitter<Event>();
-  // @Output() clickProgramaDetalle = new EventEmitter<Event>();
-  // @Output() clickOrganicoDetalle = new EventEmitter<Event>();
   messageYears = this.avalaibleYearsService.message;
   hasDetallePrograma = false;
 
@@ -29,24 +25,6 @@ export class ButtonClasificationComponent {
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router
   ) { }
-
-  // showGraph(event: Event): void {
-  //   this.clickGraph.emit(event);
-  // }
-
-  // showProgramaDetalle(event: Event): void {
-  //   // this.clickProgramaDetalle.emit(event);
-  // }
-
-  // showOrganicoDetalle(event: Event): void {
-  //   // this.clickProgramaDetalle.emit(event);
-  // }
-
-  // showEconomicoDetalle(event: Event): void {
-  //   // const target = event.target as HTMLButtonElement;
-  //   // console.log('showEconomicoDetalle', target.innerText);
-  //   // this.clickProgramaDetalle.emit(event);
-  // }
 
   click(event: Event): void {
     this.clickButton.emit(event);
