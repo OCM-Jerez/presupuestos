@@ -4,28 +4,28 @@
 
     <div>
         <span>Selecciona un fila y podras ver&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <button *ngIf="hasGrafico" type="button" class="OCM-button" (click)="showGraph($event)"
+        <button *ngIf="hasGrafico" type="button" class="OCM-button" (click)="click($event)"
             style="background: rgb(76, 90, 123);">
             Gráfico
         </button>
 
         <button *ngIf="hasDetallePrograma" type="button" class="OCM-button" style="background: rgb(76, 90, 123);"
-            (click)="showProgramaDetalle($event)">
+            (click)="click($event)">
             Prográma
         </button>
 
-        <button *ngIf="hasDetalleOrganico" type="button" class="OCM-button" (click)="showOrganicoDetalle($event)"
+        <button *ngIf="hasDetalleOrganico" type="button" class="OCM-button" (click)="click($event)"
             style="background: rgb(76, 90, 123);">
             Orgánico
         </button>
 
-        <button *ngIf="hasDetalleEconomico" type="button" class="OCM-button" (click)="showEconomicoDetalle($event)"
+        <button *ngIf="hasDetalleEconomico" type="button" class="OCM-button" (click)="click($event)"
             style="background: rgb(76, 90, 123);">
             Programas
         </button>
     </div>
 
-    <button type="button" class="OCM-button" *ngFor="let button of buttons" (click)="click(button, $event)">
+    <button type="button" class="OCM-button" *ngFor="let button of buttons" (click)="click($event)">
         {{button.name}}
     </button>
 

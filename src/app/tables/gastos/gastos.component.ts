@@ -49,6 +49,7 @@ export class GastosComponent implements OnInit {
 
   onChange(event: Event) {
     this.event = event;
+    this.detalle(event);
   }
 
   ngOnInit(): void {
@@ -65,43 +66,47 @@ export class GastosComponent implements OnInit {
   }
 
   async detalle(event: Event) {
+    this.clickDetalle.emit();
     const target = event.target as HTMLButtonElement;
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
-    const dataPropertyTable = getClasificacion(button.clasificationType);
-    this.clickDetalle.emit();
 
-    if (this._dataStoreService.selectedCodeRowFirstLevel) {
-      const useStarWitch: boolean = dataPropertyTable.useStarWitch;
-      const attribute: string = dataPropertyTable.attribute;
-      this._dataTable = await this._tableService.loadDataForTypeClasification(
-        button.clasificationType,
-        { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
-    } else {
-      this._dataTable = await this._tableService.loadDataForTypeClasification(
-        button.clasificationType);
+    if (button) {   // Unicamente si se ha pulsado un boton que necesita actualización de la data, 
+      // no grafico por ejemplo, que llaman a otros componentes.
+      const dataPropertyTable = getClasificacion(button.clasificationType);
+
+      if (this._dataStoreService.selectedCodeRowFirstLevel) {
+        const useStarWitch: boolean = dataPropertyTable.useStarWitch;
+        const attribute: string = dataPropertyTable.attribute;
+        this._dataTable = await this._tableService.loadDataForTypeClasification(
+          button.clasificationType,
+          { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
+      } else {
+        this._dataTable = await this._tableService.loadDataForTypeClasification(
+          button.clasificationType);
+      }
+
+      this._dataStoreService.selectedCodeRowFirstLevel = '';
+
+      // console.log('Actualizo datos treemap en función del boton pulsado');
+      await this._prepareDataTreemapService.calcSeries(
+        this._dataTable.rowData,
+        getClasificacion(this._dataTable.clasificationType).codField,
+        getClasificacion(this._dataTable.clasificationType).desField,
+        'Definitivas2022'
+      );
+
+      this.buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
+
+      // Como en el HTML usamos *ngIf="showTable" cuando lo ponemos
+      // a false se elimina el componente del DOM y cuando lo ponemos  
+      // a true se vuelve a crear el componente y se ejecuta el ngOnInit
+      // Si recargamos la app los datos de los services se pierden.
+      this.showTable = false;
+      setTimeout(() => {
+        this._hideButtons()
+        this.showTable = true;
+      }, 500);
     }
-
-    this._dataStoreService.selectedCodeRowFirstLevel = '';
-
-    // console.log('Actualizo datos treemap en función del boton pulsado');
-    await this._prepareDataTreemapService.calcSeries(
-      this._dataTable.rowData,
-      getClasificacion(this._dataTable.clasificationType).codField,
-      getClasificacion(this._dataTable.clasificationType).desField,
-      'Definitivas2022'
-    );
-
-    this.buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
-
-    // Como en el HTML usamos *ngIf="showTable" cuando lo ponemos
-    // a false se elimina el componente del DOM y cuando lo ponemos  
-    // a true se vuelve a crear el componente y se ejecuta el ngOnInit
-    // Si recargamos la app los datos de los services se pierden.
-    this.showTable = false;
-    setTimeout(() => {
-      this._hideButtons()
-      this.showTable = true;
-    }, 500);
   }
 
   private _hideButtons() {
@@ -113,5 +118,7 @@ export class GastosComponent implements OnInit {
       }
     });
   }
+
+
 
 }

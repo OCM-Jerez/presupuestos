@@ -1,5 +1,4 @@
-<app-button-clasification (clickButton)="detalle($event)" (clickGraph)="onChange($event)"
-    (clickProgramaDetalle)="onChange($event)" [buttons]="buttons" [hasTitle]="hasTitle" [hasMenu]="hasMenu"
+<app-button-clasification (clickButton)="onChange($event)" [buttons]="buttons" [hasTitle]="hasTitle" [hasMenu]="hasMenu"
     [hasGrafico]="hasGrafico" [hasDetalleOrganico]="hasDetalleOrganico"
     [hasDetalleEconomico]="hasDetalleEconomico"></app-button-clasification>
 <app-table-gastos *ngIf="showTable" [event]="event" #table></app-table-gastos>
