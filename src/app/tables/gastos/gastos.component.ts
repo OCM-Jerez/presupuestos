@@ -11,7 +11,6 @@ import { TableService } from '../../services/table.service';
 import { IButtonClasification } from './model/components.interface';
 import { getClasificacion } from '../data-table';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
-import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 /* #endregion */
 
 @Component({
@@ -35,7 +34,6 @@ export class GastosComponent implements OnInit {
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
   private _dataTable: IDataTable;
-  private _dataGraph: IDataGraph = {} as IDataGraph;
   buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
   showTable = true;
   event: Event;

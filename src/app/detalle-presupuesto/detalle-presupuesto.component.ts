@@ -188,7 +188,7 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   clickDetalle() {
-    // Al pulsar botones grafico o detalle, como navegan a otra ruta intentan cargar el grapjTreeMap y da error.
+    // Al pulsar botones grafico o detalle, como navegan a otra ruta intentan cargar el graphTreeMap y da error.
     if (this._typeClasification !== 'gastosOrganicaOrganicos') {
       setTimeout(() => {
         this.graphTreemap()
