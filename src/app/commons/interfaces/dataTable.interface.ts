@@ -7,7 +7,6 @@ export interface IDataTable {
 }
 
 export interface IDataProperty {
-    sufijo: string;
     headerName: string;
     subHeaderName: string;
     codField: string;

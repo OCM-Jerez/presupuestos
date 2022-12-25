@@ -51,7 +51,8 @@ export class TableGastosComponent implements OnInit {
     private _alertService: AlertService
   ) {
     this._dataTable = _dataStoreService.getDataTable;
-    const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
+    // const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
+    const fieldOrder = `Cod${this._dataTable.dataPropertyTable.codField}`;
     this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder]);
 
     this._dataStoreService.IsDetails = false;

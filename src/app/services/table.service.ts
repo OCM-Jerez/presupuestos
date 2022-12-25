@@ -29,7 +29,7 @@ export class TableService {
         if (tipoClasificacion.startsWith('ingresos')) {
             rowData = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion);
         } else {
-            rowData = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion, dataPropertyTable.sufijo);
+            rowData = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion);
         }
 
         if (filter) {

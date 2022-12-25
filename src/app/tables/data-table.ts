@@ -10,7 +10,6 @@ export interface IClasification extends Omit<IDataProperty, 'graphTitle' | 'attr
 
 const CLASIFICATION: { [key: string]: IClasification } = {
     ingresosEconomicaCapitulos: {
-        sufijo: 'Cap',
         headerName: 'Clasificado por capítulo',
         subHeaderName: 'Capítulo',
         codField: 'CodCap',
@@ -20,7 +19,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         useStarWitch: true,
     },
     ingresosEconomicaArticulos: {
-        sufijo: 'Eco',
         headerName: 'Clasificado por articulo',
         subHeaderName: 'Articulo',
         codField: 'CodArt',
@@ -30,7 +28,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         useStarWitch: true,
     },
     ingresosEconomicaConceptos: {
-        sufijo: 'Eco',
         headerName: 'Clasificado por concepto',
         subHeaderName: 'Concepto',
         codField: 'CodCon',
@@ -40,7 +37,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         useStarWitch: true,
     },
     ingresosEconomicaEconomicos: {
-        sufijo: 'Eco',
         headerName: 'Clasificado por económico',
         subHeaderName: 'Económico',
         codField: 'CodEco',
@@ -50,7 +46,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         useStarWitch: true,
     },
     gastosOrganicaOrganicos: {
-        sufijo: 'Org',
         headerName: 'Clasificado por orgánico',
         subHeaderName: 'Orgánico',
         codField: 'CodOrg',
@@ -70,7 +65,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ]
     },
     gastosProgramaAreas: {
-        sufijo: 'Pro',
         headerName: 'Clasificado areas programas de gasto',
         subHeaderName: 'Area de gasto',
         codField: 'CodPro',
@@ -103,7 +97,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
 
     },
     gastosProgramaPoliticas: {
-        sufijo: 'Pro',
         headerName: 'Clasificado políticas gasto',
         subHeaderName: 'Política de gasto',
         codField: 'CodPro',
@@ -135,7 +128,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ]
     },
     gastosProgramaGrupos: {
-        sufijo: 'Pro',
         headerName: 'Clasificado grupos programas gasto',
         subHeaderName: 'Grupo programas de gasto',
         codField: 'CodPro',
@@ -167,7 +159,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ]
     },
     gastosProgramaProgramas: {
-        sufijo: 'Pro',
         headerName: 'Clasificado por programa',
         subHeaderName: 'Programa',
         codField: 'CodPro',
@@ -199,7 +190,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ]
     },
     gastosEconomicaCapitulos: {
-        sufijo: 'Cap',
         headerName: 'Clasificado por capítulo',
         subHeaderName: 'Capítulo',
         codField: 'CodCap',
@@ -231,7 +221,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ]
     },
     gastosEconomicaArticulos: {
-        sufijo: 'Eco',
         headerName: 'Clasificado por articulo',
         subHeaderName: 'Articulo',
         codField: 'CodEco',
@@ -264,7 +253,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
 
     },
     gastosEconomicaConceptos: {
-        sufijo: 'Eco',
         headerName: 'Clasificado por concepto',
         subHeaderName: 'Concepto',
         codField: 'CodEco',
@@ -296,7 +284,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ]
     },
     gastosEconomicaEconomicos: {
-        sufijo: 'Eco',
         headerName: 'Clasificado por económico',
         subHeaderName: 'Económico',
         codField: 'CodEco',
