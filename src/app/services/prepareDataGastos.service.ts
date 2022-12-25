@@ -10,8 +10,6 @@ import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { IDataGasto } from '../commons/interfaces/dataGasto.interface';
 import { asynForEach } from '../commons/util/util';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -40,16 +38,14 @@ export class PrepareDataGastosService {
     const result = [];
 
     this.dataGasto = {
-      cod: `Cod${sufijo}`,
-      des: `Des${sufijo}`,
-
-
-
-
-
-
-
-
+      CodPro: `CodPro`,
+      DesPro: `DesPro`,
+      CodOrg: `CodOrg`,
+      DesOrg: `DesOrg`,
+      CodCap: `CodCap`,
+      DesCap: `DesCap`,
+      CodEco: `CodEco`,
+      DesEco: `DesEco`,
       Iniciales: `Iniciales${year}`,
       Modificaciones: `Modificaciones${year}`,
       Definitivas: `Definitivas${year}`,
@@ -63,16 +59,14 @@ export class PrepareDataGastosService {
     await this.getYearDataJson(year).then(data => {
       Object.entries(data).forEach((currentValue) => {
         result.push({
-          [this.dataGasto.cod]: currentValue[1][this.dataGasto.cod],
-          [this.dataGasto.des]: currentValue[1][this.dataGasto.des],
-
-
-
-
-
-
-
-
+          [this.dataGasto.CodPro]: currentValue[1][this.dataGasto.CodPro],
+          [this.dataGasto.DesPro]: currentValue[1][this.dataGasto.DesPro],
+          [this.dataGasto.CodOrg]: currentValue[1][this.dataGasto.CodOrg],
+          [this.dataGasto.DesOrg]: currentValue[1][this.dataGasto.DesOrg],
+          [this.dataGasto.CodCap]: currentValue[1][this.dataGasto.CodCap],
+          [this.dataGasto.DesCap]: currentValue[1][this.dataGasto.DesCap],
+          [this.dataGasto.CodEco]: currentValue[1][this.dataGasto.CodEco],
+          [this.dataGasto.DesEco]: currentValue[1][this.dataGasto.DesEco],
           [this.dataGasto.Iniciales]: currentValue[1]['Iniciales'],
           [this.dataGasto.Modificaciones]: currentValue[1]['Modificaciones'],
           [this.dataGasto.Definitivas]: currentValue[1]['Definitivas'],
@@ -134,7 +128,7 @@ export class PrepareDataGastosService {
         break;
     }
 
-
+    console.log(result);
     return result;
   }
 
