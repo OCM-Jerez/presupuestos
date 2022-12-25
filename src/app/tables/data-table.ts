@@ -63,10 +63,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 name: 'Gráfico arbol',
                 clasificationType: 'gastosOrganicaOrganicos'
             },
-            {
-                name: 'Detalle orgánico',
-                clasificationType: 'gastosOrganicaOrganicos'
-            }
+            // {
+            //     name: 'Detalle orgánico',
+            //     clasificationType: 'gastosOrganicaOrganicos'
+            // }
         ]
     },
     gastosProgramaAreas: {
