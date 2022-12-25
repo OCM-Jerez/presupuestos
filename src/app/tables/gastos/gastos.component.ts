@@ -11,6 +11,7 @@ import { TableService } from '../../services/table.service';
 import { IButtonClasification } from './model/components.interface';
 import { getClasificacion } from '../data-table';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
+import { CLASIFICATION_TYPE } from '../../commons/util/util';
 /* #endregion */
 
 @Component({
@@ -118,22 +119,80 @@ export class GastosComponent implements OnInit {
   }
 
 
+  async detalle1(event: Event) {
+    this.clickDetalle.emit();
+    const target = event.target as HTMLButtonElement;
+
+    if (target.textContent.trim() === 'Orgánico') {
+      console.log('Orgánico');
+      let tipoClasificacion: CLASIFICATION_TYPE = 'gastosProgramaProgramas';
+      this._dataTable = (await this._tableService.loadDataForTypeClasification(tipoClasificacion))
+      this._dataTable.rowData = this._dataTable.rowData.filter(x => x.CodOrg == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+
+      const sendDataTable: IDataTable = {
+        dataPropertyTable: {
+          headerName: '',
+          subHeaderName: '',
+          codField: 'CodPro',
+          desField: 'DesPro',
+          width: 500,
+          graphTitle: '',
+          attribute: '',
+          useStarWitch: false
+        },
+        clasificationType: 'gastosProgramaProgramas',
+        rowData: this._dataTable.rowData
+      }
+
+      console.log('this._dataTable= ', this._dataTable);
+      this._dataStoreService.setDataTable = sendDataTable;
+
+
+    } else {
+
+      const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
+
+      if (button) {   // Unicamente si se ha pulsado un boton que necesita actualización de la data,
+        // no grafico por ejemplo, que llaman a otros componentes.
+
+        console.log('has pulsado el boton: ', target.innerText);
+        const dataPropertyTable = getClasificacion(button.clasificationType);
+
+        if (this._dataStoreService.selectedCodeRowFirstLevel) {
+          const useStarWitch: boolean = dataPropertyTable.useStarWitch;
+          const attribute: string = dataPropertyTable.attribute;
+          this._dataTable = await this._tableService.loadDataForTypeClasification(
+            button.clasificationType,
+            { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
+        } else {
+          this._dataTable = await this._tableService.loadDataForTypeClasification(
+            button.clasificationType);
+        }
+
+        this._dataStoreService.selectedCodeRowFirstLevel = '';
+
+        // console.log('Actualizo datos treemap en función del boton pulsado');
+        await this._prepareDataTreemapService.calcSeries(
+          this._dataTable.rowData,
+          getClasificacion(this._dataTable.clasificationType).codField,
+          getClasificacion(this._dataTable.clasificationType).desField,
+          'Definitivas2022'
+        );
+
+        this.buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
+
+      }
+
+    }
+    this.showTable = false;
+    setTimeout(() => {
+      this._hideButtons()
+      this.showTable = true;
+    }, 500);
+  }
+
+
 
 }
 
 
-
-// private _dataTablePrueba: any;
-// if (target.textContent.trim() === 'Orgánico') {
-//   tipoClasificacion = 'gastosProgramaProgramas';
-//   this._dataTablePrueba = (await this._prepareDataGastosDetailsService.getDataAllYear(tipoClasificacion))
-//     .filter(x => x.CodOrg == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-//   console.log('this._dataTable= ', this._dataTablePrueba);
-//   this._dataTable = this._dataTablePrueba;
-//   console.log('this._dataTable= ', this._dataTable);
-
-
-// } else {
-//   const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
-//   tipoClasificacion = button.clasificationType
-// }
