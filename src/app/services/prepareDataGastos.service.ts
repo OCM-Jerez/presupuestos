@@ -17,12 +17,12 @@ export class PrepareDataGastosService {
   private dataGasto: IDataGasto = <IDataGasto>{};
 
   constructor(
-    private _avalaibleYearsService: AvalaibleYearsService,
-
+    private _avalaibleYearsService: AvalaibleYearsService
   ) { }
 
   // Itera por cada uno de los años disponibles para gastos
   async getDataAllYear(tipoClasificacion: string): Promise<any[]> {
+    const startTime = performance.now();
     let rowData = [];
     const years = this._avalaibleYearsService.getYearsSelected();
 
@@ -30,13 +30,15 @@ export class PrepareDataGastosService {
       const dataGas = await this.getDataYear(year, tipoClasificacion);
       rowData = rowData.concat(...dataGas);
     });
+    const endTime = performance.now();
+    console.log(`Tiempo empleado para generar data: ${Math.round(endTime - startTime)} ms`);
+    console.log(rowData);
     return rowData;
   }
 
   // Selecciona datos gastos de un año
   async getDataYear(year: number, tipoClasificacion: string) {
     const result = [];
-
     this.dataGasto = {
       CodPro: `CodPro`,
       DesPro: `DesPro`,
@@ -128,7 +130,6 @@ export class PrepareDataGastosService {
         break;
     }
 
-    console.log(result);
     return result;
   }
 
