@@ -55,7 +55,11 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "highcharts",
+              "ag-grid-enterprise"
+            ]
           },
           "configurations": {
             "production": {
