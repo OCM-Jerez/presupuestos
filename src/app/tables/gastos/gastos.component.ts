@@ -120,3 +120,20 @@ export class GastosComponent implements OnInit {
 
 
 }
+
+
+
+// private _dataTablePrueba: any;
+// if (target.textContent.trim() === 'Orgánico') {
+//   tipoClasificacion = 'gastosProgramaProgramas';
+//   this._dataTablePrueba = (await this._prepareDataGastosDetailsService.getDataAllYear(tipoClasificacion))
+//     .filter(x => x.CodOrg == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+//   console.log('this._dataTable= ', this._dataTablePrueba);
+//   this._dataTable = this._dataTablePrueba;
+//   console.log('this._dataTable= ', this._dataTable);
+
+
+// } else {
+//   const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
+//   tipoClasificacion = button.clasificationType
+// }
