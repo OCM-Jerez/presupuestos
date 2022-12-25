@@ -31,8 +31,8 @@ export class PrepareDataGastosService {
       rowData = rowData.concat(...dataGas);
     });
     const endTime = performance.now();
-    console.log(`Tiempo empleado para generar data: ${Math.round(endTime - startTime)} ms`);
-    console.log(rowData);
+    // console.log(`Tiempo empleado para generar data: ${Math.round(endTime - startTime)} ms`);
+    // console.log(rowData);
     return rowData;
   }
 
