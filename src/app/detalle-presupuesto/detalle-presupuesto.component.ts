@@ -72,6 +72,7 @@ export class DetallePresupuestoComponent implements OnInit {
       this.showGraphInTab = false;
       this.showTablePresupuestos = false;
     }
+
   }
 
   checkedTab(e: any) {
@@ -187,9 +188,13 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   clickDetalle() {
-    setTimeout(() => {
-      this.graphTreemap()
-    }, 0);
+    // Al pulsar botones grafico o detalle, como navegan a otra ruta intentan cargar el grapjTreeMap y da error.
+    if (this._typeClasification !== 'gastosOrganicaOrganicos') {
+      setTimeout(() => {
+        this.graphTreemap()
+      }, 0);
+    }
+
   }
 
   async hasChangeCheckbox() {
