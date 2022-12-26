@@ -1,7 +1,6 @@
 import { IDataProperty } from '../commons/interfaces/dataTable.interface';
 import { CLASIFICATION_TYPE } from "../commons/util/util";
 import { IButtonClasification } from "./gastos/model/components.interface";
-// import { TIPO_CLASIFICACION } from "../commons/enums/tiposClasificacion.enum";
 export interface IClasification extends Omit<IDataProperty, 'graphTitle' | 'attribute' | 'useStarWitch'> {
     attribute?: string,
     useStarWitch?: boolean,
