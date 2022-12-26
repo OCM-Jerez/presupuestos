@@ -78,14 +78,11 @@ export class HomeComponent implements OnInit {
       this.textoTabla = '¿Cuanto recauda el Ayuntamiento por...?'
       try {
         this.textEjemplo1 = dataTablaAleatoria[index1].name
-        this.valueEjemplo1 = dataTablaAleatoria[index1].value.toString()
-          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        this.valueEjemplo1 = dataTablaAleatoria[index1].value.toLocaleString();
         this.textEjemplo2 = dataTablaAleatoria[index2].name
-        this.valueEjemplo2 = dataTablaAleatoria[index2].value.toString()
-          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        this.valueEjemplo2 = dataTablaAleatoria[index2].value.toLocaleString();
         this.textEjemplo3 = dataTablaAleatoria[index3].name
-        this.valueEjemplo3 = dataTablaAleatoria[index3].value.toString()
-          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        this.valueEjemplo3 = dataTablaAleatoria[index3].value.toLocaleString();
       } catch (error) {
         console.log('error', index1, index2, index3);
       }
@@ -123,14 +120,11 @@ export class HomeComponent implements OnInit {
       this.textoTabla = '¿Cuanto ha gastado la delegación de...?'
       try {
         this.textEjemplo1 = dataTablaAleatoria[index1].name;
-        this.valueEjemplo1 = dataTablaAleatoria[index1].value.toString()
-          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        this.valueEjemplo1 = dataTablaAleatoria[index1].value.toLocaleString();
         this.textEjemplo2 = dataTablaAleatoria[index2].name;
-        this.valueEjemplo2 = dataTablaAleatoria[index2].value.toString()
-          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        this.valueEjemplo2 = dataTablaAleatoria[index2].value.toLocaleString();
         this.textEjemplo3 = dataTablaAleatoria[index3].name;
-        this.valueEjemplo3 = dataTablaAleatoria[index3].value.toString()
-          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        this.valueEjemplo3 = dataTablaAleatoria[index3].value.toLocaleString();
       } catch (error) {
         console.log('error', index1, index2, index3);
 
