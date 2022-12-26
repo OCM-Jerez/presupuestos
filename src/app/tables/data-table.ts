@@ -9,49 +9,49 @@ export interface IClasification extends Omit<IDataProperty, 'graphTitle' | 'attr
 
 const CLASIFICATION: { [key: string]: IClasification } = {
     ingresosEconomicaCapitulos: {
-        headerName: 'Clasificado por capítulo',
-        subHeaderName: 'Capítulo',
+        attribute: 'CodCap',
         codField: 'CodCap',
         desField: 'DesCap',
-        width: 250,
-        attribute: 'CodCap',
+        headerName: 'Clasificado por capítulo',
+        subHeaderName: 'Capítulo',
         useStarWitch: true,
+        width: 250,
     },
     ingresosEconomicaArticulos: {
-        headerName: 'Clasificado por articulo',
-        subHeaderName: 'Articulo',
+        attribute: 'CodEco',
         codField: 'CodArt',
         desField: 'DesArt',
-        width: 550,
-        attribute: 'CodEco',
+        headerName: 'Clasificado por articulo',
+        subHeaderName: 'Articulo',
         useStarWitch: true,
+        width: 550,
     },
     ingresosEconomicaConceptos: {
-        headerName: 'Clasificado por concepto',
-        subHeaderName: 'Concepto',
+        attribute: 'CodEco',
         codField: 'CodCon',
         desField: 'DesCon',
-        width: 660,
-        attribute: 'CodEco',
+        headerName: 'Clasificado por concepto',
+        subHeaderName: 'Concepto',
         useStarWitch: true,
+        width: 660,
     },
     ingresosEconomicaEconomicos: {
-        headerName: 'Clasificado por económico',
-        subHeaderName: 'Económico',
+        attribute: 'CodEco',
         codField: 'CodEco',
         desField: 'DesEco',
-        width: 550,
-        attribute: 'CodEco',
+        headerName: 'Clasificado por económico',
+        subHeaderName: 'Económico',
         useStarWitch: true,
+        width: 550,
     },
     gastosOrganicaOrganicos: {
-        headerName: 'Clasificado por orgánico',
-        subHeaderName: 'Orgánico',
+        attribute: 'CodPro',
         codField: 'CodOrg',
         desField: 'DesOrg',
-        width: 250,
-        attribute: 'CodPro',
+        headerName: 'Clasificado por orgánico',
+        subHeaderName: 'Orgánico',
         useStarWitch: false,
+        width: 250,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -64,13 +64,13 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ]
     },
     gastosProgramaAreas: {
-        headerName: 'Clasificado areas programas de gasto',
-        subHeaderName: 'Area de gasto',
+        attribute: 'CodPro',
         codField: 'CodPro',
         desField: 'DesPro',
-        width: 550,
-        attribute: 'CodPro',
+        headerName: 'Clasificado areas programas de gasto',
+        subHeaderName: 'Area de gasto',
         useStarWitch: true,
+        width: 550,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -96,13 +96,13 @@ const CLASIFICATION: { [key: string]: IClasification } = {
 
     },
     gastosProgramaPoliticas: {
-        headerName: 'Clasificado políticas gasto',
-        subHeaderName: 'Política de gasto',
+        attribute: 'CodPro',
         codField: 'CodPro',
         desField: 'DesPro',
-        width: 550,
-        attribute: 'CodPro',
+        headerName: 'Clasificado políticas gasto',
+        subHeaderName: 'Política de gasto',
         useStarWitch: true,
+        width: 550,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -127,13 +127,13 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ]
     },
     gastosProgramaGrupos: {
-        headerName: 'Clasificado grupos programas gasto',
-        subHeaderName: 'Grupo programas de gasto',
+        attribute: 'CodPro',
         codField: 'CodPro',
         desField: 'DesPro',
-        width: 550,
-        attribute: 'CodPro',
+        headerName: 'Clasificado grupos programas gasto',
+        subHeaderName: 'Grupo programas de gasto',
         useStarWitch: true,
+        width: 550,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -158,13 +158,13 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ]
     },
     gastosProgramaProgramas: {
-        headerName: 'Clasificado por programa',
-        subHeaderName: 'Programa',
+        attribute: 'CodPro',
         codField: 'CodPro',
         desField: 'DesPro',
-        width: 550,
-        attribute: 'CodPro',
+        headerName: 'Clasificado por programa',
+        subHeaderName: 'Programa',
         useStarWitch: true,
+        width: 550,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -189,13 +189,13 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ]
     },
     gastosEconomicaCapitulos: {
-        headerName: 'Clasificado por capítulo',
-        subHeaderName: 'Capítulo',
+        attribute: 'CodEco',
         codField: 'CodCap',
         desField: 'DesCap',
-        width: 250,
-        attribute: 'CodEco',
+        headerName: 'Clasificado por capítulo',
+        subHeaderName: 'Capítulo',
         useStarWitch: true,
+        width: 250,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -220,13 +220,13 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ]
     },
     gastosEconomicaArticulos: {
-        headerName: 'Clasificado por articulo',
-        subHeaderName: 'Articulo',
+        attribute: 'CodEco',
         codField: 'CodEco',
         desField: 'DesEco',
-        width: 550,
-        attribute: 'CodEco',
+        headerName: 'Clasificado por articulo',
+        subHeaderName: 'Articulo',
         useStarWitch: true,
+        width: 550,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -252,13 +252,13 @@ const CLASIFICATION: { [key: string]: IClasification } = {
 
     },
     gastosEconomicaConceptos: {
-        headerName: 'Clasificado por concepto',
-        subHeaderName: 'Concepto',
+        attribute: 'CodEco',
         codField: 'CodEco',
         desField: 'DesEco',
-        width: 550,
-        attribute: 'CodEco',
+        headerName: 'Clasificado por concepto',
+        subHeaderName: 'Concepto',
         useStarWitch: true,
+        width: 550,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -283,13 +283,13 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ]
     },
     gastosEconomicaEconomicos: {
-        headerName: 'Clasificado por económico',
-        subHeaderName: 'Económico',
+        attribute: 'CodEco',
         codField: 'CodEco',
         desField: 'DesEco',
-        width: 550,
-        attribute: 'CodEco',
+        headerName: 'Clasificado por económico',
+        subHeaderName: 'Económico',
         useStarWitch: true,
+        width: 550,
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -316,5 +316,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
 }
 
 export const getClasificacion = (tipo: CLASIFICATION_TYPE): IClasification => {
+    console.log('getClasificacion', CLASIFICATION[tipo.toString()]);
+
     return CLASIFICATION[tipo.toString()];
 }

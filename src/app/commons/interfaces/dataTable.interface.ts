@@ -1,18 +1,18 @@
 import { CLASIFICATION_TYPE } from "../util/util";
 
 export interface IDataTable {
-    dataPropertyTable: IDataProperty;
     clasificationType: CLASIFICATION_TYPE;
+    dataPropertyTable: IDataProperty;
     rowData: any[]
 }
 
 export interface IDataProperty {
-    headerName: string;
-    subHeaderName: string;
+    attribute: string;
     codField: string;
     desField: string;
-    width: number;
     graphTitle: string;
-    attribute: string;
+    headerName: string;
+    subHeaderName: string;
     useStarWitch: boolean;
+    width: number;
 }
