@@ -11,7 +11,7 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSankey from 'highcharts/modules/sankey';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
-import { DataStoreService } from '../services/dataStore.service';
+// import { DataStoreService } from '../services/dataStore.service';
 import { PrepareDataCapituloDetails } from '../services/prepareDataCapituloDetails.service';
 // import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 
@@ -50,7 +50,7 @@ export class IndiceComponent implements OnInit {
   constructor(
     private _router: Router,
     private _tableService: TableService,
-    private _dataStoreService: DataStoreService,
+    // private _dataStoreService: DataStoreService,
     private _prepareDataCapituloDetails: PrepareDataCapituloDetails
   ) { }
 
@@ -78,24 +78,36 @@ export class IndiceComponent implements OnInit {
   private async _loadData(): Promise<void> {
     /* #region  Capitulos de ingresos */
     this._dataTable = await this._tableService.loadDataForTypeClasification('ingresosEconomicaCapitulos');
-    // this._dataTable = this._dataStoreService.getDataTable
-    var data = this._dataTable.rowData;
+    let dataIngreso = this._dataTable.rowData;
 
     // Creo array de Capitulos de ingresos.
-    let capitulos = []
-    data.map(item => {
-      const value = {
-        "name": item.CodCap + '-' + item.DesCap,
-        "value": item.Definitivas2022,
-        "recaudado": item.DerechosReconocidosNetos2022,
-        "colorValue": (item.Definitivas2022 / 100)
-      }
-      capitulos.push(value)
-    });
+    // let capitulos = []
+    // data.map(item => {
+    //   const value = {
+    //     "name": item.CodCap + '-' + item.DesCap,
+    //     "value": item.Definitivas2022,
+    //     "recaudado": item.DerechosReconocidosNetos2022,
+    //     "colorValue": (item.Definitivas2022 / 100)
+    //   }
+    //   capitulos.push(value)
+    // });
     // console.log(capitulos);
 
+    // alternativa chatGPT
+    let capitulos = []
+    for (const item of dataIngreso) {
+      const value = {
+        name: `${item.CodCap}-${item.DesCap}`,
+        value: item.Definitivas2022,
+        recaudado: item.DerechosReconocidosNetos2022,
+        colorValue: item.Definitivas2022 / 100
+      };
+      capitulos.push(value);
+    }
+
+
     // Totalizo por capitulo de ingreso
-    data = capitulos.reduce((acc, curr) => {
+    dataIngreso = capitulos.reduce((acc, curr) => {
       const index = acc.findIndex(item => item.name === curr.name)
       index > -1 ? (acc[index].value += curr.value, acc[index].recaudado += curr.recaudado) : acc.push({
         name: curr.name,
@@ -105,7 +117,8 @@ export class IndiceComponent implements OnInit {
       })
       return acc
     }, [])
-    this._dataGraphIngresos = data
+    this._dataGraphIngresos = dataIngreso
+    console.log(dataIngreso);
 
     this.noFinancieroIngresos = (
       this._dataGraphIngresos[0].value +
@@ -137,7 +150,7 @@ export class IndiceComponent implements OnInit {
     /* #endregion */
 
     /* #region  Total general ingresos para datos tabla */
-    const totalPresupuestoIngresos = data.reduce((acc, curr) => {
+    const totalPresupuestoIngresos = dataIngreso.reduce((acc, curr) => {
       Object.keys(curr).forEach((key, index) => {
         if (!acc[key]) {
           acc[key] = 0
@@ -154,7 +167,7 @@ export class IndiceComponent implements OnInit {
     /* #region politicas de gasto  */
     this._dataTable = await this._tableService.loadDataForTypeClasification('gastosProgramaPoliticas');
     // this._dataTable = this._dataStoreService.getDataTable
-    var data = this._dataTable.rowData;
+    let data = this._dataTable.rowData;
     // console.log(data);
 
     // Creo array de politicas de gasto
