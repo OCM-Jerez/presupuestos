@@ -316,7 +316,5 @@ const CLASIFICATION: { [key: string]: IClasification } = {
 }
 
 export const getClasificacion = (tipo: CLASIFICATION_TYPE): IClasification => {
-    console.log('getClasificacion', CLASIFICATION[tipo.toString()]);
-
     return CLASIFICATION[tipo.toString()];
 }
