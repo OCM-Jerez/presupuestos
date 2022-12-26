@@ -12,7 +12,8 @@ import { CLASIFICATION_TYPE } from '../commons/util/util';
 })
 export class HomeComponent implements OnInit {
   private _dataTable: IDataTable;
-  private _array = [];
+  private _arrayIngresos = [];
+  private _arrayGastos = [];
   // private _arrRandom: number[] = [];
   textoTabla: string;
   textEjemplo1: string;
@@ -33,18 +34,28 @@ export class HomeComponent implements OnInit {
 
   private async _randomData(): Promise<void> {
     const ingresoGasto = (Math.random() >= 0.5) ? true : false;
+    let dataTablaAleatoria: any[] = [];
 
-    if (ingresoGasto) {
-      // Cambio ingresosEconomicaArticulos a ingresosEconomicaEconomicos para tener todos los Items.
-      await this.getData('ingresosEconomicaEconomicos', 'DesEco', 'DerechosReconocidosNetos2022');
-    } else {
-      await this.getData('gastosOrganicaOrganicos', 'DesOrg', 'Pagos2022');
-    }
+    // Cambio ingresosEconomicaArticulos a ingresosEconomicaEconomicos para tener todos los Items.
+    // Se necesita para tener todos los datos de ingresos y gastos.
+    // esta data la almacenaremos para usarla hasta que se haga un cambio en los años seleccionados.
+    // Para guardar los datos de ingresos y gastos, necesitamos crear otro objeto.
+    // Ahora solo guardamos el ultimo objeto que se ha cargado. 
+    this._dataTable = await this._tableService.loadData('ingresosEconomicaEconomicos');
+    let dataIngresos = this._dataTable.rowData;
+    this._dataTable = await this._tableService.loadData('gastosOrganicaOrganicos');
+    let dataGastos = this._dataTable.rowData;
 
     this.textoTabla = ingresoGasto ? '¿Cuanto recauda el Ayuntamiento por...?' : '¿Cuanto ha gastado la delegación de...?';
 
+    if (ingresoGasto) {
+      dataTablaAleatoria = await this.getData('DesEco', 'DerechosReconocidosNetos2022', dataIngresos);
+    } else {
+      dataTablaAleatoria = await this.getData('DesOrg', 'Pagos2022', dataGastos);
+    }
+
     // Totalizo
-    const dataTablaAleatoria = this._array.reduce((acc, { name, value }) => {
+    dataTablaAleatoria = dataTablaAleatoria.reduce((acc, { name, value }) => {
       const item = acc.find(item => item.name === name)
       item ? item.value += value : acc.push({
         name,
@@ -52,22 +63,19 @@ export class HomeComponent implements OnInit {
       });
       return acc;
     }, []);
-
     dataTablaAleatoria.sort(() => Math.random() - 0.5);
+    console.log('dataTablaAleatoria', dataTablaAleatoria);
+
     this.textEjemplo1 = dataTablaAleatoria[0].name;
-    this.valueEjemplo1 = dataTablaAleatoria[0].value.toLocaleString();
+    this.valueEjemplo1 = dataTablaAleatoria[0].value.toLocaleString("de-DE");
     this.textEjemplo2 = dataTablaAleatoria[1].name;
-    this.valueEjemplo2 = dataTablaAleatoria[1].value.toLocaleString();
+    this.valueEjemplo2 = dataTablaAleatoria[1].value.toLocaleString("de-DE");
     this.textEjemplo3 = dataTablaAleatoria[2].name;
-    this.valueEjemplo3 = dataTablaAleatoria[2].value.toLocaleString();
+    this.valueEjemplo3 = dataTablaAleatoria[2].value.toLocaleString("de-DE");
   }
 
-  async getData(typeClasification: CLASIFICATION_TYPE, name: string, value: string) {
-    this._dataTable = await this._tableService.loadData(typeClasification);
-    let dataIngresos = this._dataTable.rowData;
-    console.log('data', dataIngresos);
-
-    this._array = dataIngresos.reduce((acc, curr) => {
+  async getData(name: string, value: string, data: any[] = []) {
+    data = data.reduce((acc, curr) => {
       const item =
       {
         "name": curr[`${name}`],
@@ -76,9 +84,9 @@ export class HomeComponent implements OnInit {
       acc.push(item);
       return acc;
     }, []);
-    console.log('this._array', this._array);
+    console.log('this._array', data);
+    return data;
   }
-
 
   visionGlobal() {
     this._router.navigateByUrl('/home')
