@@ -1,8 +1,7 @@
 export function CellRendererOCM(params: any) {
   if (params.value) {
-    const valorFormateado: number = params.value
-      .toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    const valorFormateado: number = params.value.toLocaleString();
+
     if (params.node.footer) {
       switch (params.node.level) {
         case 3: // Total cuarto nivel.
