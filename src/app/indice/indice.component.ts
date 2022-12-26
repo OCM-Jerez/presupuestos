@@ -111,8 +111,7 @@ export class IndiceComponent implements OnInit {
       this._dataGraphIngresos[4].value +
       this._dataGraphIngresos[5].value +
       this._dataGraphIngresos[6].value
-    ).toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    ).toLocaleString();
 
     this.corrientesIngresos = (
       this._dataGraphIngresos[0].value +
@@ -125,8 +124,7 @@ export class IndiceComponent implements OnInit {
     this.capitalIngresos = (
       this._dataGraphIngresos[5].value +
       this._dataGraphIngresos[6].value
-    ).toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    ).toLocaleString();
 
     this.financierosIngresos = (
       this._dataGraphIngresos[7].value +
@@ -145,10 +143,8 @@ export class IndiceComponent implements OnInit {
       return acc
     }, {})
 
-    this.totalPresupuestoIngresos = totalPresupuestoIngresos.value.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    this.totalEjecutadoIngresos = totalPresupuestoIngresos.recaudado.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    this.totalPresupuestoIngresos = totalPresupuestoIngresos.value.toLocaleString();
+    this.totalEjecutadoIngresos = totalPresupuestoIngresos.recaudado.toLocaleString();
     /* #endregion */
 
     /* #region politicas de gasto  */
@@ -235,8 +231,7 @@ export class IndiceComponent implements OnInit {
       this._dataGraphGastos[4].value +
       this._dataGraphGastos[5].value +
       this._dataGraphGastos[6].value
-    ).toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    ).toLocaleString();
 
     this.corrientesGastos = (
       this._dataGraphGastos[0].value +
@@ -249,36 +244,29 @@ export class IndiceComponent implements OnInit {
     this.capitalGastos = (
       this._dataGraphGastos[5].value +
       this._dataGraphGastos[6].value
-    ).toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    ).toLocaleString();
 
     this.financierosGastos = (
       this._dataGraphGastos[7].value +
       this._dataGraphGastos[8].value
     );
 
-    this.totalPresupuestoGastos = totalPresupuestoGastos.value.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    this.totalEjecutadoGastos = totalPresupuestoGastos.recaudado.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    this.totalPresupuestoGastos = totalPresupuestoGastos.value.toLocaleString();
+    this.totalEjecutadoGastos = totalPresupuestoGastos.recaudado.toLocaleString();
 
-    this.ahorroBruto = (this.corrientesIngresos - this.corrientesGastos).toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    this.ahorroBruto = (this.corrientesIngresos - this.corrientesGastos).toLocaleString();
 
     // Tengo que sumar capitulo 9 de gastos
-    this.ahorroNeto = ((this.corrientesIngresos - this.corrientesGastos) - capitulosGastos[7].value).toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    this.ahorroNeto = ((this.corrientesIngresos - this.corrientesGastos) - capitulosGastos[7].value).toLocaleString();
 
-    this.corrientesIngresos = this.corrientesIngresos.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    this.corrientesIngresos = this.corrientesIngresos.toLocaleString();
 
-    this.corrientesGastos = this.corrientesGastos.toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    this.corrientesGastos = this.corrientesGastos.toLocaleString();
 
-    this.capacidadFinanciacion = (this.financierosIngresos - this.financierosGastos).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    this.capacidadFinanciacion = (this.financierosIngresos - this.financierosGastos).toLocaleString();
 
-    this.financierosIngresos = this.financierosIngresos.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    this.financierosGastos = this.financierosGastos.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    this.financierosIngresos = this.financierosIngresos.toLocaleString();
+    this.financierosGastos = this.financierosGastos.toLocaleString();
 
     /* #endregion */
 
