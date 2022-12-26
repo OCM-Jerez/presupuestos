@@ -11,7 +11,6 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSankey from 'highcharts/modules/sankey';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
-import { PrepareDataCapituloDetails } from '../services/prepareDataCapituloDetails.service';
 // import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 
 HighchartsMore(Highcharts);
@@ -49,7 +48,6 @@ export class IndiceComponent implements OnInit {
   constructor(
     private _router: Router,
     private _tableService: TableService,
-    private _prepareDataCapituloDetails: PrepareDataCapituloDetails
   ) { }
 
   ngOnInit(): void {
@@ -185,12 +183,9 @@ export class IndiceComponent implements OnInit {
     /* #endregion */
 
     /* #region  gastosEconomicaCapitulos */
-    const dataGastosEconomicaCapitulos = await this._prepareDataCapituloDetails.getDataAllYear();
-    // console.log(dataGastosEconomicaCapitulos);
-
     // Creo array de capitulos de gasto
     let capitulosGastos = [];
-    for (const item of dataGastosEconomicaCapitulos) {
+    for (const item of this._dataGasto) {
       const value = {
         name: `${item.CodCap}-${item.DesCap}`,
         value: item.Definitivas2022
@@ -199,7 +194,7 @@ export class IndiceComponent implements OnInit {
     }
 
     // Totalizo por capitulo
-    capitulosGastos = capitulosGastos.reduce((acc, curr) => {
+    capitulosGastos = this._dataGasto.reduce((acc, curr) => {
       const index = acc.findIndex(item => item.name === curr.name)
       index > -1 ? (acc[index].value += curr.value) : acc.push({
         name: curr.name,
