@@ -105,7 +105,6 @@ export class IndiceComponent implements OnInit {
       capitulos.push(value);
     }
 
-
     // Totalizo por capitulo de ingreso
     this._dataIngreso = capitulos.reduce((acc, curr) => {
       const index = acc.findIndex(item => item.name === curr.name)
@@ -170,16 +169,27 @@ export class IndiceComponent implements OnInit {
     // console.log(data);
 
     // Creo array de politicas de gasto
+    // let politicas = []
+    // this._dataGasto.map(item => {
+    //   const value = {
+    //     "name": item.CodPro + '-' + item.DesPro,
+    //     "value": item.Definitivas2022,
+    //     "recaudado": item.Pagos2022,
+    //     "colorValue": (item.Pagos2022 / 100)
+    //   }
+    //   politicas.push(value)
+    // });
+
     let politicas = []
-    this._dataGasto.map(item => {
+    for (const item of this._dataGasto) {
       const value = {
-        "name": item.CodPro + '-' + item.DesPro,
-        "value": item.Definitivas2022,
-        "recaudado": item.Pagos2022,
-        "colorValue": (item.Pagos2022 / 100)
-      }
-      politicas.push(value)
-    });
+        name: `${item.CodPro}-${item.DesPro}`,
+        value: item.Definitivas2022,
+        recaudado: item.Pagos2022,
+        colorValue: item.Pagos2022 / 100
+      };
+      politicas.push(value);
+    }
     // console.log(politicas);
 
     // Totalizo por politicas de gasto
@@ -201,15 +211,14 @@ export class IndiceComponent implements OnInit {
     // console.log(dataGastosEconomicaCapitulos);
 
     // Creo array de capitulos de gasto
-    let capitulosGastos = []
-    dataGastosEconomicaCapitulos.map(item => {
+    let capitulosGastos = [];
+    for (const item of dataGastosEconomicaCapitulos) {
       const value = {
-        "name": item.CodCap + '-' + item.DesCap,
-        "value": item.Definitivas2022,
-      }
-      capitulosGastos.push(value)
-    });
-    // console.log(capitulosGastos);
+        name: `${item.CodCap}-${item.DesCap}`,
+        value: item.Definitivas2022
+      };
+      capitulosGastos.push(value);
+    }
 
     // Totalizo por capitulo
     capitulosGastos = capitulosGastos.reduce((acc, curr) => {
