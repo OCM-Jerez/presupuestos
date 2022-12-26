@@ -76,11 +76,11 @@ export class GastosComponent implements OnInit {
       if (this._dataStoreService.selectedCodeRowFirstLevel) {
         const useStarWitch: boolean = dataPropertyTable.useStarWitch;
         const attribute: string = dataPropertyTable.attribute;
-        this._dataTable = await this._tableService.loadDataForTypeClasification(
+        this._dataTable = await this._tableService.loadData(
           button.clasificationType,
           { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
       } else {
-        this._dataTable = await this._tableService.loadDataForTypeClasification(
+        this._dataTable = await this._tableService.loadData(
           button.clasificationType);
       }
 
@@ -122,7 +122,7 @@ export class GastosComponent implements OnInit {
     if (target.textContent.trim() === 'Orgánico') {
       console.log('Orgánico');
       let tipoClasificacion: CLASIFICATION_TYPE = 'gastosProgramaProgramas';
-      this._dataTable = (await this._tableService.loadDataForTypeClasification(tipoClasificacion))
+      this._dataTable = (await this._tableService.loadData(tipoClasificacion))
       this._dataTable.rowData = this._dataTable.rowData.filter(x => x.CodOrg == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
 
       const sendDataTable: IDataTable = {
@@ -155,11 +155,11 @@ export class GastosComponent implements OnInit {
         if (this._dataStoreService.selectedCodeRowFirstLevel) {
           const useStarWitch: boolean = dataPropertyTable.useStarWitch;
           const attribute: string = dataPropertyTable.attribute;
-          this._dataTable = await this._tableService.loadDataForTypeClasification(
+          this._dataTable = await this._tableService.loadData(
             button.clasificationType,
             { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
         } else {
-          this._dataTable = await this._tableService.loadDataForTypeClasification(
+          this._dataTable = await this._tableService.loadData(
             button.clasificationType);
         }
 

@@ -97,7 +97,7 @@ export class DetallePresupuestoComponent implements OnInit {
     // console.warn('------  El AG Grid mostrara los datos adecuado recuperandolos del store.
 
     await this.setTotalesPresupuesto();
-    let data = await this._tableService.loadDataForTypeClasification(this._typeClasification);
+    let data = await this._tableService.loadData(this._typeClasification);
     await this.dataGraph(data.rowData)
     await this.graphTreemap();  // No es necesario pasarle la data, ya que la recupera del store.
   }
@@ -212,7 +212,7 @@ export class DetallePresupuestoComponent implements OnInit {
 
     // await this._loadData();
     // this.setValues(this._tabSelected);
-    let data = await this._tableService.loadDataForTypeClasification(this._typeClasification);
+    let data = await this._tableService.loadData(this._typeClasification);
     await this.dataGraph(data.rowData)
 
     switch (this._tabSelected) {

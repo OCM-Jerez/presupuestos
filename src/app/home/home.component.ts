@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
   }
 
   async getData(typeClasification: CLASIFICATION_TYPE, name: string, value: string) {
-    this._dataTable = await this._tableService.loadDataForTypeClasification(typeClasification);
+    this._dataTable = await this._tableService.loadData(typeClasification);
     let data = this._dataTable.rowData;
     this._array = data.reduce((acc, curr) => {
       const item =

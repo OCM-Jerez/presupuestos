@@ -303,12 +303,12 @@ export class TableIngresosComponent implements OnInit {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
       const useStarWitch: boolean = dataPropertyTable.useStarWitch;
       const attribute: string = dataPropertyTable.attribute;
-      this._dataTable = await this._tableService.loadDataForTypeClasification(
+      this._dataTable = await this._tableService.loadData(
         // true,
         typeClasification,
         { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
     } else {
-      this._dataTable = await this._tableService.loadDataForTypeClasification(
+      this._dataTable = await this._tableService.loadData(
         // true,
         typeClasification);
       // this._alertService.showAlert(`Selecciona artículo`);

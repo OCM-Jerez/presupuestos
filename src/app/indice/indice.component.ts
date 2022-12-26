@@ -56,7 +56,7 @@ export class IndiceComponent implements OnInit {
 
   /* #region  Esto es para el menu original */
   async openTable(tipoClasificacion: CLASIFICATION_TYPE): Promise<void> {
-    await this._tableService.loadDataForTypeClasification(tipoClasificacion);
+    await this._tableService.loadData(tipoClasificacion);
 
     if (tipoClasificacion.startsWith('ingresos')) {
       this._router.navigateByUrl('/tableIngresos')
@@ -66,14 +66,14 @@ export class IndiceComponent implements OnInit {
   }
 
   async newGastos(tipoClasificacion: CLASIFICATION_TYPE) {
-    await this._tableService.loadDataForTypeClasification(tipoClasificacion);
+    await this._tableService.loadData(tipoClasificacion);
     this._router.navigateByUrl('/newGastos')
   }
   /* #endregion */
 
   private async _loadData(): Promise<void> {
     /* #region  Capitulos de ingresos */
-    this._dataTable = await this._tableService.loadDataForTypeClasification('ingresosEconomicaCapitulos');
+    this._dataTable = await this._tableService.loadData('ingresosEconomicaCapitulos');
     this._dataIngreso = this._dataTable.rowData;
 
     // Creo array de Capitulos de ingresos.
@@ -157,7 +157,7 @@ export class IndiceComponent implements OnInit {
     /* #endregion */
 
     /* #region politicas de gasto  */
-    this._dataTable = await this._tableService.loadDataForTypeClasification('gastosProgramaPoliticas');
+    this._dataTable = await this._tableService.loadData('gastosProgramaPoliticas');
     this._dataGasto = this._dataTable.rowData;
 
     let politicas = []

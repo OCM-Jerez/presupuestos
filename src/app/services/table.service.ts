@@ -18,7 +18,7 @@ export class TableService {
         private _dataStoreService: DataStoreService,
     ) { }
 
-    async loadDataForTypeClasification(
+    async loadData(
         tipoClasificacion?: CLASIFICATION_TYPE,
         filter?: { valueFilter: string, attribute: string, useStarWitch?: boolean }
     ): Promise<IDataTable> {

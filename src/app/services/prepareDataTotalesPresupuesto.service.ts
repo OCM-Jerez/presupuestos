@@ -32,7 +32,7 @@ export class PrepareDataTotalesPresupuestoService {
   }
 
   async calcPresupuestoIngresos() {
-    await this._tableService.loadDataForTypeClasification('ingresosEconomicaArticulos');
+    await this._tableService.loadData('ingresosEconomicaArticulos');
     // this._totalPresupuestoIngresos = this._dataStoreService.getDataTable.rowData.reduce((acc, curr) => {
     //   Object.keys(curr).forEach((key, index) => {
     //     if (!acc[key]) {
@@ -90,7 +90,7 @@ export class PrepareDataTotalesPresupuestoService {
   }
 
   async calcPresupuestoGastos() {
-    await this._tableService.loadDataForTypeClasification('gastosOrganicaOrganicos');
+    await this._tableService.loadData('gastosOrganicaOrganicos');
     this._totalPresupuestoGastos = {};
     const include = [
       'Definitivas2022',
