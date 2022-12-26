@@ -13,7 +13,7 @@ import HighchartsSankey from 'highcharts/modules/sankey';
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
 import { DataStoreService } from '../services/dataStore.service';
 import { PrepareDataCapituloDetails } from '../services/prepareDataCapituloDetails.service';
-import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
+// import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 
 HighchartsMore(Highcharts);
 HighchartsSankey(Highcharts);
@@ -40,14 +40,13 @@ export class IndiceComponent implements OnInit {
   public ahorroBruto: string;
   public ahorroNeto: string;
   public capacidadFinanciacion: any;
-
   // private _dataGrap: [{ name: string, va: number }] = [{ name: "", value: 0 }]
   private _dataGraphIngresos: any;
   private _dataGraphGastos: any;
-
   private _dataTable: IDataTable;
   // private _typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaCapitulos'
   // https://stackoverflow.com/questions/69549927/how-to-pass-enum-value-in-angular-template-as-an-input
+
   constructor(
     private _router: Router,
     private _tableService: TableService,
@@ -69,12 +68,17 @@ export class IndiceComponent implements OnInit {
       this._router.navigateByUrl('/tableGastos')
     }
   }
+
+  async newGastos(tipoClasificacion: CLASIFICATION_TYPE) {
+    await this._tableService.loadDataForTypeClasification(tipoClasificacion);
+    this._router.navigateByUrl('/newGastos')
+  }
   /* #endregion */
 
   private async _loadData(): Promise<void> {
     /* #region  Capitulos de ingresos */
-    await this._tableService.loadDataForTypeClasification('ingresosEconomicaCapitulos');
-    this._dataTable = this._dataStoreService.getDataTable
+    this._dataTable = await this._tableService.loadDataForTypeClasification('ingresosEconomicaCapitulos');
+    // this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
 
     // Creo array de Capitulos de ingresos.
@@ -148,8 +152,8 @@ export class IndiceComponent implements OnInit {
     /* #endregion */
 
     /* #region politicas de gasto  */
-    await this._tableService.loadDataForTypeClasification('gastosProgramaPoliticas');
-    this._dataTable = this._dataStoreService.getDataTable
+    this._dataTable = await this._tableService.loadDataForTypeClasification('gastosProgramaPoliticas');
+    // this._dataTable = this._dataStoreService.getDataTable
     var data = this._dataTable.rowData;
     // console.log(data);
 
@@ -178,9 +182,6 @@ export class IndiceComponent implements OnInit {
       return acc
     }, [])
     this._dataGraphGastos = data
-    // console.log(this._dataGraphGastos);
-    // console.log(this._dataGraphGastos[0]);
-    // console.log(this._dataGraphGastos[0].name);
     /* #endregion */
 
     /* #region  gastosEconomicaCapitulos */
@@ -258,16 +259,11 @@ export class IndiceComponent implements OnInit {
 
     // Tengo que sumar capitulo 9 de gastos
     this.ahorroNeto = ((this.corrientesIngresos - this.corrientesGastos) - capitulosGastos[7].value).toLocaleString();
-
     this.corrientesIngresos = this.corrientesIngresos.toLocaleString();
-
     this.corrientesGastos = this.corrientesGastos.toLocaleString();
-
     this.capacidadFinanciacion = (this.financierosIngresos - this.financierosGastos).toLocaleString();
-
     this.financierosIngresos = this.financierosIngresos.toLocaleString();
     this.financierosGastos = this.financierosGastos.toLocaleString();
-
     /* #endregion */
 
     this.showGraph()
@@ -403,35 +399,6 @@ export class IndiceComponent implements OnInit {
         }
       ]
     } as any);
-  }
-
-  async newGastos(tipoClasificacion: CLASIFICATION_TYPE) {
-    await this._tableService.loadDataForTypeClasification(tipoClasificacion);
-    this._router.navigateByUrl('/newGastos')
-  }
-
-  HomeNew() {
-    this._router.navigateByUrl('/homeNew')
-  }
-
-  explicamos() {
-    this._router.navigateByUrl('/explicamos')
-  }
-
-  glosario() {
-    this._router.navigateByUrl('/glosario')
-  }
-
-  visionGlobal() {
-    this._router.navigateByUrl('/home')
-  }
-
-  detallePresupuesto() {
-    this._router.navigateByUrl('/detallePresupuesto')
-  }
-
-  licitaciones() {
-    window.open('https://con.ocmjerez.org/', '_blank');
   }
 
 }
