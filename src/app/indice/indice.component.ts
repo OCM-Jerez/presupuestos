@@ -41,9 +41,9 @@ export class IndiceComponent implements OnInit {
   public ahorroNeto: string;
   public capacidadFinanciacion: any;
   // private _dataGrap: [{ name: string, va: number }] = [{ name: "", value: 0 }]
-  private _dataGraphIngresos: any;
-  private _dataGraphGastos: any;
   private _dataTable: IDataTable;
+  private _dataIngreso: any;
+  private _dataGasto: any;
   // private _typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaCapitulos'
   // https://stackoverflow.com/questions/69549927/how-to-pass-enum-value-in-angular-template-as-an-input
 
@@ -78,7 +78,7 @@ export class IndiceComponent implements OnInit {
   private async _loadData(): Promise<void> {
     /* #region  Capitulos de ingresos */
     this._dataTable = await this._tableService.loadDataForTypeClasification('ingresosEconomicaCapitulos');
-    let dataIngreso = this._dataTable.rowData;
+    this._dataIngreso = this._dataTable.rowData;
 
     // Creo array de Capitulos de ingresos.
     // let capitulos = []
@@ -95,7 +95,7 @@ export class IndiceComponent implements OnInit {
 
     // alternativa chatGPT
     let capitulos = []
-    for (const item of dataIngreso) {
+    for (const item of this._dataIngreso) {
       const value = {
         name: `${item.CodCap}-${item.DesCap}`,
         value: item.Definitivas2022,
@@ -107,7 +107,7 @@ export class IndiceComponent implements OnInit {
 
 
     // Totalizo por capitulo de ingreso
-    dataIngreso = capitulos.reduce((acc, curr) => {
+    this._dataIngreso = capitulos.reduce((acc, curr) => {
       const index = acc.findIndex(item => item.name === curr.name)
       index > -1 ? (acc[index].value += curr.value, acc[index].recaudado += curr.recaudado) : acc.push({
         name: curr.name,
@@ -117,40 +117,39 @@ export class IndiceComponent implements OnInit {
       })
       return acc
     }, [])
-    this._dataGraphIngresos = dataIngreso
-    console.log(dataIngreso);
+    console.log(this._dataIngreso);
 
     this.noFinancieroIngresos = (
-      this._dataGraphIngresos[0].value +
-      this._dataGraphIngresos[1].value +
-      this._dataGraphIngresos[2].value +
-      this._dataGraphIngresos[3].value +
-      this._dataGraphIngresos[4].value +
-      this._dataGraphIngresos[5].value +
-      this._dataGraphIngresos[6].value
+      this._dataIngreso[0].value +
+      this._dataIngreso[1].value +
+      this._dataIngreso[2].value +
+      this._dataIngreso[3].value +
+      this._dataIngreso[4].value +
+      this._dataIngreso[5].value +
+      this._dataIngreso[6].value
     ).toLocaleString();
 
     this.corrientesIngresos = (
-      this._dataGraphIngresos[0].value +
-      this._dataGraphIngresos[1].value +
-      this._dataGraphIngresos[2].value +
-      this._dataGraphIngresos[3].value +
-      this._dataGraphIngresos[4].value
+      this._dataIngreso[0].value +
+      this._dataIngreso[1].value +
+      this._dataIngreso[2].value +
+      this._dataIngreso[3].value +
+      this._dataIngreso[4].value
     );
 
     this.capitalIngresos = (
-      this._dataGraphIngresos[5].value +
-      this._dataGraphIngresos[6].value
+      this._dataIngreso[5].value +
+      this._dataIngreso[6].value
     ).toLocaleString();
 
     this.financierosIngresos = (
-      this._dataGraphIngresos[7].value +
-      this._dataGraphIngresos[8].value
+      this._dataIngreso[7].value +
+      this._dataIngreso[8].value
     );
     /* #endregion */
 
     /* #region  Total general ingresos para datos tabla */
-    const totalPresupuestoIngresos = dataIngreso.reduce((acc, curr) => {
+    const totalPresupuestoIngresos = this._dataIngreso.reduce((acc, curr) => {
       Object.keys(curr).forEach((key, index) => {
         if (!acc[key]) {
           acc[key] = 0
@@ -167,12 +166,12 @@ export class IndiceComponent implements OnInit {
     /* #region politicas de gasto  */
     this._dataTable = await this._tableService.loadDataForTypeClasification('gastosProgramaPoliticas');
     // this._dataTable = this._dataStoreService.getDataTable
-    let data = this._dataTable.rowData;
+    this._dataGasto = this._dataTable.rowData;
     // console.log(data);
 
     // Creo array de politicas de gasto
     let politicas = []
-    data.map(item => {
+    this._dataGasto.map(item => {
       const value = {
         "name": item.CodPro + '-' + item.DesPro,
         "value": item.Definitivas2022,
@@ -184,7 +183,7 @@ export class IndiceComponent implements OnInit {
     // console.log(politicas);
 
     // Totalizo por politicas de gasto
-    data = politicas.reduce((acc, curr) => {
+    this._dataGasto = politicas.reduce((acc, curr) => {
       const index = acc.findIndex(item => item.name === curr.name)
       index > -1 ? (acc[index].value += curr.value, acc[index].recaudado += curr.recaudado) : acc.push({
         name: curr.name,
@@ -194,7 +193,7 @@ export class IndiceComponent implements OnInit {
       })
       return acc
     }, [])
-    this._dataGraphGastos = data
+    // this._dataGraphGastos = data
     /* #endregion */
 
     /* #region  gastosEconomicaCapitulos */
@@ -225,7 +224,7 @@ export class IndiceComponent implements OnInit {
     /* #endregion */
 
     /* #region  Total general gastos para datos tabla */
-    const totalPresupuestoGastos = data.reduce((acc, curr) => {
+    const totalPresupuestoGastos = this._dataGasto.reduce((acc, curr) => {
       Object.keys(curr).forEach((key, index) => {
         if (!acc[key]) {
           acc[key] = 0
@@ -238,31 +237,31 @@ export class IndiceComponent implements OnInit {
 
     /* #region  Calculos valores para mostrar en tabla */
     this.noFinancieroGastos = (
-      this._dataGraphGastos[0].value +
-      this._dataGraphGastos[1].value +
-      this._dataGraphGastos[2].value +
-      this._dataGraphGastos[3].value +
-      this._dataGraphGastos[4].value +
-      this._dataGraphGastos[5].value +
-      this._dataGraphGastos[6].value
+      this._dataGasto[0].value +
+      this._dataGasto[1].value +
+      this._dataGasto[2].value +
+      this._dataGasto[3].value +
+      this._dataGasto[4].value +
+      this._dataGasto[5].value +
+      this._dataGasto[6].value
     ).toLocaleString();
 
     this.corrientesGastos = (
-      this._dataGraphGastos[0].value +
-      this._dataGraphGastos[1].value +
-      this._dataGraphGastos[2].value +
-      this._dataGraphGastos[3].value +
-      this._dataGraphGastos[4].value
+      this._dataGasto[0].value +
+      this._dataGasto[1].value +
+      this._dataGasto[2].value +
+      this._dataGasto[3].value +
+      this._dataGasto[4].value
     );
 
     this.capitalGastos = (
-      this._dataGraphGastos[5].value +
-      this._dataGraphGastos[6].value
+      this._dataGasto[5].value +
+      this._dataGasto[6].value
     ).toLocaleString();
 
     this.financierosGastos = (
-      this._dataGraphGastos[7].value +
-      this._dataGraphGastos[8].value
+      this._dataGasto[7].value +
+      this._dataGasto[8].value
     );
 
     this.totalPresupuestoGastos = totalPresupuestoGastos.value.toLocaleString();
@@ -320,15 +319,15 @@ export class IndiceComponent implements OnInit {
           ],
           keys: ["from", "to", "weight"],
           data: [
-            [this._dataGraphIngresos[0].name, "Presupuesto", this._dataGraphIngresos[0].value],
-            [this._dataGraphIngresos[1].name, "Presupuesto", this._dataGraphIngresos[1].value],
-            [this._dataGraphIngresos[2].name, "Presupuesto", this._dataGraphIngresos[2].value],
-            [this._dataGraphIngresos[3].name, "Presupuesto", this._dataGraphIngresos[3].value],
-            [this._dataGraphIngresos[4].name, "Presupuesto", this._dataGraphIngresos[4].value],
-            [this._dataGraphIngresos[5].name, "Presupuesto", this._dataGraphIngresos[5].value],
-            [this._dataGraphIngresos[6].name, "Presupuesto", this._dataGraphIngresos[6].value],
-            [this._dataGraphIngresos[7].name, "Presupuesto", this._dataGraphIngresos[7].value],
-            [this._dataGraphIngresos[8].name, "Presupuesto", this._dataGraphIngresos[8].value]
+            [this._dataIngreso[0].name, "Presupuesto", this._dataIngreso[0].value],
+            [this._dataIngreso[1].name, "Presupuesto", this._dataIngreso[1].value],
+            [this._dataIngreso[2].name, "Presupuesto", this._dataIngreso[2].value],
+            [this._dataIngreso[3].name, "Presupuesto", this._dataIngreso[3].value],
+            [this._dataIngreso[4].name, "Presupuesto", this._dataIngreso[4].value],
+            [this._dataIngreso[5].name, "Presupuesto", this._dataIngreso[5].value],
+            [this._dataIngreso[6].name, "Presupuesto", this._dataIngreso[6].value],
+            [this._dataIngreso[7].name, "Presupuesto", this._dataIngreso[7].value],
+            [this._dataIngreso[8].name, "Presupuesto", this._dataIngreso[8].value]
           ],
           type: "sankey",
           name: "Ingresos",
@@ -380,26 +379,26 @@ export class IndiceComponent implements OnInit {
           ],
           keys: ["from", "to", "weight"],
           data: [
-            ["Presupuesto", this._dataGraphGastos[0].name, this._dataGraphGastos[0].value],
-            ["Presupuesto", this._dataGraphGastos[1].name, this._dataGraphGastos[1].value],
-            ["Presupuesto", this._dataGraphGastos[2].name, this._dataGraphGastos[2].value],
-            ["Presupuesto", this._dataGraphGastos[3].name, this._dataGraphGastos[3].value],
-            ["Presupuesto", this._dataGraphGastos[4].name, this._dataGraphGastos[4].value],
-            ["Presupuesto", this._dataGraphGastos[5].name, this._dataGraphGastos[5].value],
-            ["Presupuesto", this._dataGraphGastos[6].name, this._dataGraphGastos[6].value],
-            ["Presupuesto", this._dataGraphGastos[7].name, this._dataGraphGastos[7].value],
-            ["Presupuesto", this._dataGraphGastos[8].name, this._dataGraphGastos[8].value],
-            ["Presupuesto", this._dataGraphGastos[9].name, this._dataGraphGastos[9].value],
-            ["Presupuesto", this._dataGraphGastos[10].name, this._dataGraphGastos[10].value],
-            ["Presupuesto", this._dataGraphGastos[11].name, this._dataGraphGastos[11].value],
-            ["Presupuesto", this._dataGraphGastos[12].name, this._dataGraphGastos[12].value],
-            ["Presupuesto", this._dataGraphGastos[13].name, this._dataGraphGastos[13].value],
-            ["Presupuesto", this._dataGraphGastos[14].name, this._dataGraphGastos[14].value],
-            ["Presupuesto", this._dataGraphGastos[15].name, this._dataGraphGastos[15].value],
-            ["Presupuesto", this._dataGraphGastos[16].name, this._dataGraphGastos[16].value],
-            ["Presupuesto", this._dataGraphGastos[17].name, this._dataGraphGastos[17].value],
-            ["Presupuesto", this._dataGraphGastos[18].name, this._dataGraphGastos[18].value],
-            ["Presupuesto", this._dataGraphGastos[19].name, this._dataGraphGastos[19].value]
+            ["Presupuesto", this._dataGasto[0].name, this._dataGasto[0].value],
+            ["Presupuesto", this._dataGasto[1].name, this._dataGasto[1].value],
+            ["Presupuesto", this._dataGasto[2].name, this._dataGasto[2].value],
+            ["Presupuesto", this._dataGasto[3].name, this._dataGasto[3].value],
+            ["Presupuesto", this._dataGasto[4].name, this._dataGasto[4].value],
+            ["Presupuesto", this._dataGasto[5].name, this._dataGasto[5].value],
+            ["Presupuesto", this._dataGasto[6].name, this._dataGasto[6].value],
+            ["Presupuesto", this._dataGasto[7].name, this._dataGasto[7].value],
+            ["Presupuesto", this._dataGasto[8].name, this._dataGasto[8].value],
+            ["Presupuesto", this._dataGasto[9].name, this._dataGasto[9].value],
+            ["Presupuesto", this._dataGasto[10].name, this._dataGasto[10].value],
+            ["Presupuesto", this._dataGasto[11].name, this._dataGasto[11].value],
+            ["Presupuesto", this._dataGasto[12].name, this._dataGasto[12].value],
+            ["Presupuesto", this._dataGasto[13].name, this._dataGasto[13].value],
+            ["Presupuesto", this._dataGasto[14].name, this._dataGasto[14].value],
+            ["Presupuesto", this._dataGasto[15].name, this._dataGasto[15].value],
+            ["Presupuesto", this._dataGasto[16].name, this._dataGasto[16].value],
+            ["Presupuesto", this._dataGasto[17].name, this._dataGasto[17].value],
+            ["Presupuesto", this._dataGasto[18].name, this._dataGasto[18].value],
+            ["Presupuesto", this._dataGasto[19].name, this._dataGasto[19].value]
           ],
           type: "sankey",
           name: "",
