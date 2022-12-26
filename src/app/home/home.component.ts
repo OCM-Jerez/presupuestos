@@ -35,7 +35,8 @@ export class HomeComponent implements OnInit {
     const ingresoGasto = (Math.random() >= 0.5) ? true : false;
 
     if (ingresoGasto) {
-      await this.getData('ingresosEconomicaArticulos', 'DesArt', 'DerechosReconocidosNetos2022');
+      // Cambio ingresosEconomicaArticulos a ingresosEconomicaEconomicos para tener todos los Items.
+      await this.getData('ingresosEconomicaEconomicos', 'DesEco', 'DerechosReconocidosNetos2022');
     } else {
       await this.getData('gastosOrganicaOrganicos', 'DesOrg', 'Pagos2022');
     }
@@ -63,8 +64,10 @@ export class HomeComponent implements OnInit {
 
   async getData(typeClasification: CLASIFICATION_TYPE, name: string, value: string) {
     this._dataTable = await this._tableService.loadData(typeClasification);
-    let data = this._dataTable.rowData;
-    this._array = data.reduce((acc, curr) => {
+    let dataIngresos = this._dataTable.rowData;
+    console.log('data', dataIngresos);
+
+    this._array = dataIngresos.reduce((acc, curr) => {
       const item =
       {
         "name": curr[`${name}`],
@@ -73,7 +76,9 @@ export class HomeComponent implements OnInit {
       acc.push(item);
       return acc;
     }, []);
+    console.log('this._array', this._array);
   }
+
 
   visionGlobal() {
     this._router.navigateByUrl('/home')
