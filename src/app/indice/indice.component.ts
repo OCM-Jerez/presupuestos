@@ -11,7 +11,6 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSankey from 'highcharts/modules/sankey';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
-// import { DataStoreService } from '../services/dataStore.service';
 import { PrepareDataCapituloDetails } from '../services/prepareDataCapituloDetails.service';
 // import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 
@@ -50,7 +49,6 @@ export class IndiceComponent implements OnInit {
   constructor(
     private _router: Router,
     private _tableService: TableService,
-    // private _dataStoreService: DataStoreService,
     private _prepareDataCapituloDetails: PrepareDataCapituloDetails
   ) { }
 
@@ -99,8 +97,7 @@ export class IndiceComponent implements OnInit {
       const value = {
         name: `${item.CodCap}-${item.DesCap}`,
         value: item.Definitivas2022,
-        recaudado: item.DerechosReconocidosNetos2022,
-        colorValue: item.Definitivas2022 / 100
+        recaudado: item.DerechosReconocidosNetos2022
       };
       capitulos.push(value);
     }
@@ -111,8 +108,7 @@ export class IndiceComponent implements OnInit {
       index > -1 ? (acc[index].value += curr.value, acc[index].recaudado += curr.recaudado) : acc.push({
         name: curr.name,
         value: curr.value,
-        recaudado: curr.recaudado,
-        colorValue: (curr.value / 1000)
+        recaudado: curr.recaudado
       })
       return acc
     }, [])
@@ -164,33 +160,17 @@ export class IndiceComponent implements OnInit {
 
     /* #region politicas de gasto  */
     this._dataTable = await this._tableService.loadDataForTypeClasification('gastosProgramaPoliticas');
-    // this._dataTable = this._dataStoreService.getDataTable
     this._dataGasto = this._dataTable.rowData;
-    // console.log(data);
-
-    // Creo array de politicas de gasto
-    // let politicas = []
-    // this._dataGasto.map(item => {
-    //   const value = {
-    //     "name": item.CodPro + '-' + item.DesPro,
-    //     "value": item.Definitivas2022,
-    //     "recaudado": item.Pagos2022,
-    //     "colorValue": (item.Pagos2022 / 100)
-    //   }
-    //   politicas.push(value)
-    // });
 
     let politicas = []
     for (const item of this._dataGasto) {
       const value = {
         name: `${item.CodPro}-${item.DesPro}`,
         value: item.Definitivas2022,
-        recaudado: item.Pagos2022,
-        colorValue: item.Pagos2022 / 100
+        recaudado: item.Pagos2022
       };
       politicas.push(value);
     }
-    // console.log(politicas);
 
     // Totalizo por politicas de gasto
     this._dataGasto = politicas.reduce((acc, curr) => {
@@ -198,12 +178,10 @@ export class IndiceComponent implements OnInit {
       index > -1 ? (acc[index].value += curr.value, acc[index].recaudado += curr.recaudado) : acc.push({
         name: curr.name,
         value: curr.value,
-        recaudado: curr.recaudado,
-        colorValue: (curr.value / 1000)
+        recaudado: curr.recaudado
       })
       return acc
     }, [])
-    // this._dataGraphGastos = data
     /* #endregion */
 
     /* #region  gastosEconomicaCapitulos */
