@@ -22,7 +22,7 @@ export class PrepareDataGastosService {
 
   // Itera por cada uno de los años disponibles para gastos
   async getDataAllYear(tipoClasificacion: string): Promise<any[]> {
-    const startTime = performance.now();
+    // const startTime = performance.now();
     let rowData = [];
     const years = this._avalaibleYearsService.getYearsSelected();
 
@@ -30,7 +30,7 @@ export class PrepareDataGastosService {
       const dataGas = await this.getDataYear(year, tipoClasificacion);
       rowData = rowData.concat(...dataGas);
     });
-    const endTime = performance.now();
+    // const endTime = performance.now();
     // console.log(`Tiempo empleado para generar data: ${Math.round(endTime - startTime)} ms`);
     // console.log(rowData);
     return rowData;
