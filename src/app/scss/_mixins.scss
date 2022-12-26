@@ -1,3 +1,4 @@
+@use "sass:math";
 @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
     $u1: unit($min-vw);
     $u2: unit($max-vw);
@@ -10,7 +11,7 @@
             @media screen and (min-width: $min-vw) {
                 font-size: calc(
                     #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
-                        ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+                        (math.div((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}))
                 );
             }
             @media screen and (min-width: $max-vw) {
