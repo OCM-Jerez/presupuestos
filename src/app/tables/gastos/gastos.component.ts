@@ -96,10 +96,6 @@ export class GastosComponent implements OnInit {
 
       this.buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
 
-      // Como en el HTML usamos *ngIf="showTable" cuando lo ponemos
-      // a false se elimina el componente del DOM y cuando lo ponemos  
-      // a true se vuelve a crear el componente y se ejecuta el ngOnInit
-      // Si recargamos la app los datos de los services se pierden.
       this.showTable = false;
       setTimeout(() => {
         this._hideButtons()
@@ -118,7 +114,7 @@ export class GastosComponent implements OnInit {
     });
   }
 
-
+  // para usar esta opcion hay que descomentar la linea 48 de table-gastos.component.ts
   async detalle1(event: Event) {
     this.clickDetalle.emit();
     const target = event.target as HTMLButtonElement;
@@ -144,12 +140,10 @@ export class GastosComponent implements OnInit {
         rowData: this._dataTable.rowData
       }
 
-      console.log('this._dataTable= ', this._dataTable);
+      // console.log('this._dataTable= ', this._dataTable);
+      console.log('sendDataTable= ', sendDataTable);
       this._dataStoreService.setDataTable = sendDataTable;
-
-
     } else {
-
       const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
 
       if (button) {   // Unicamente si se ha pulsado un boton que necesita actualización de la data,
@@ -180,6 +174,25 @@ export class GastosComponent implements OnInit {
         );
 
         this.buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
+
+        const sendDataTable: IDataTable = {
+          dataPropertyTable: {
+            headerName: '',
+            subHeaderName: '',
+            codField: dataPropertyTable.codField,
+            desField: dataPropertyTable.desField,
+            width: 500,
+            graphTitle: '',
+            attribute: dataPropertyTable.attribute,
+            useStarWitch: dataPropertyTable.useStarWitch
+          },
+          clasificationType: this._dataTable.clasificationType,
+          rowData: this._dataTable.rowData
+        }
+
+        // console.log('this._dataTable= ', this._dataTable);
+        console.log('sendDataTable= ', sendDataTable);
+        this._dataStoreService.setDataTable = sendDataTable;
 
       }
 
