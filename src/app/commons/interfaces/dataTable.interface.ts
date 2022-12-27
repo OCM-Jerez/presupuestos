@@ -1,9 +1,10 @@
 import { CLASIFICATION_TYPE } from "../util/util";
 
 export interface IDataTable {
-    clasificationType: CLASIFICATION_TYPE;
-    dataPropertyTable: IDataProperty;
-    rowData: any[]
+    clasificationType?: CLASIFICATION_TYPE;
+    dataPropertyTable?: IDataProperty;
+    rowDataIngresos?: any[]
+    rowDataGastos?: any[]
 }
 
 export interface IDataProperty {
