@@ -53,7 +53,7 @@ export class TableGastosComponent implements OnInit {
     this._dataTable = _dataStoreService.getDataTable;
     // const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
     const fieldOrder = `Cod${this._dataTable.dataPropertyTable.codField}`;
-    this._dataTable.rowData.sort((a, b) => a[fieldOrder] - b[fieldOrder]);
+    this._dataTable.rowDataGastos.sort((a, b) => a[fieldOrder] - b[fieldOrder]);
 
     this._dataStoreService.IsDetails = false;
 
@@ -125,7 +125,7 @@ export class TableGastosComponent implements OnInit {
             '</div>',
         },
       },
-      rowData: this._dataTable.rowData,
+      rowData: this._dataTable.rowDataGastos,
       columnDefs: this._columnDefs,
       // groupSuppressAutoColumn: true,
       groupDisplayType: 'custom',
@@ -232,7 +232,7 @@ export class TableGastosComponent implements OnInit {
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRow = selectedRows[0].key;
       this._dataGraph.graphSubTitle = selectedRows[0].key;
-      this._dataGraph.rowData = this._dataTable.rowData
+      this._dataGraph.rowDataGastos = this._dataTable.rowDataGastos
       this._router.navigateByUrl("/graphGastos").then(() => {
         this._dataStoreService.setData(
           {
@@ -337,7 +337,7 @@ export class TableGastosComponent implements OnInit {
   }
 
   showGraphTree() {
-    this._prepareDataGraphTreeService.prepareDataGraphTree(this._dataTable.rowData);
+    this._prepareDataGraphTreeService.prepareDataGraphTree(this._dataTable.rowDataGastos);
     setTimeout(() => {
       this._router.navigateByUrl("/graphTree")
     }, 50);
