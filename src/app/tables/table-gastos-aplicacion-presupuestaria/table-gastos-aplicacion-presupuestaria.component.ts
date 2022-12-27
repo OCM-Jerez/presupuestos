@@ -188,7 +188,8 @@ export class TableGastosAplicacionPresupuestariaComponent {
     if (selectedRows.length > 0) {
       const sendData: IDataGraph = {
         clasificationType: "aplicacion",
-        rowData: this.data,
+        rowDataGastos: this.data,
+        rowDataIngresos: [],
         graphTitle: 'Gasto por aplicación presupuestaria',
         graphSubTitle: selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco + '  ' + selectedRows[0].data.DesOrg + '-' + selectedRows[0].data.DesPro + '-' + selectedRows[0].data.DesEco
       }
