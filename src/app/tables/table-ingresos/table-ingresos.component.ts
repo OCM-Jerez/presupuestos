@@ -129,7 +129,7 @@ export class TableIngresosComponent implements OnInit {
       },
 
       // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
-      rowData: this._dataTable.rowData,
+      rowData: this._dataTable.rowDataIngresos,
       columnDefs: this._columnDefs,
       groupDisplayType: 'custom',
       groupIncludeTotalFooter: true,
@@ -286,7 +286,7 @@ export class TableIngresosComponent implements OnInit {
   }
 
   showGraphTree() {
-    this._prepareDataGraphTreeService.prepareDataGraphTree(this._dataTable.rowData);
+    this._prepareDataGraphTreeService.prepareDataGraphTree(this._dataTable.rowDataIngresos);
     setTimeout(() => {
       this._router.navigateByUrl("/graphTree")
     }, 50);
@@ -319,7 +319,7 @@ export class TableIngresosComponent implements OnInit {
 
     // console.log('Actualizo datos treemap en función del boton pulsado');
     await this._prepareDataTreemapService.calcSeries(
-      this._dataTable.rowData,
+      this._dataTable.rowDataIngresos,
       getClasificacion(this._dataTable.clasificationType).codField,
       getClasificacion(this._dataTable.clasificationType).desField,
       'Definitivas2022'
