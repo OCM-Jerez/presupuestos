@@ -88,7 +88,7 @@ export class GastosComponent implements OnInit {
 
       // console.log('Actualizo datos treemap en función del boton pulsado');
       await this._prepareDataTreemapService.calcSeries(
-        this._dataTable.rowData,
+        this._dataTable.rowDataGastos,
         getClasificacion(this._dataTable.clasificationType).codField,
         getClasificacion(this._dataTable.clasificationType).desField,
         'Definitivas2022'
@@ -123,7 +123,7 @@ export class GastosComponent implements OnInit {
       console.log('Orgánico');
       let tipoClasificacion: CLASIFICATION_TYPE = 'gastosProgramaProgramas';
       this._dataTable = (await this._tableService.loadData(tipoClasificacion))
-      this._dataTable.rowData = this._dataTable.rowData.filter(x => x.CodOrg == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+      this._dataTable.rowDataGastos = this._dataTable.rowDataGastos.filter(x => x.CodOrg == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
 
       const sendDataTable: IDataTable = {
         dataPropertyTable: {
@@ -137,7 +137,8 @@ export class GastosComponent implements OnInit {
           useStarWitch: false
         },
         clasificationType: 'gastosProgramaProgramas',
-        rowData: this._dataTable.rowData
+        rowDataGastos: this._dataTable.rowDataGastos,
+        rowDataIngresos: []
       }
 
       // console.log('this._dataTable= ', this._dataTable);
@@ -167,7 +168,7 @@ export class GastosComponent implements OnInit {
 
         // console.log('Actualizo datos treemap en función del boton pulsado');
         await this._prepareDataTreemapService.calcSeries(
-          this._dataTable.rowData,
+          this._dataTable.rowDataGastos,
           getClasificacion(this._dataTable.clasificationType).codField,
           getClasificacion(this._dataTable.clasificationType).desField,
           'Definitivas2022'
@@ -187,7 +188,8 @@ export class GastosComponent implements OnInit {
             useStarWitch: dataPropertyTable.useStarWitch
           },
           clasificationType: this._dataTable.clasificationType,
-          rowData: this._dataTable.rowData
+          rowDataGastos: this._dataTable.rowDataGastos,
+          rowDataIngresos: []
         }
 
         // console.log('this._dataTable= ', this._dataTable);
