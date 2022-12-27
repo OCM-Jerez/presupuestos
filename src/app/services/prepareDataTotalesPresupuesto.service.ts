@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 import { DataStoreService } from './dataStore.service';
-import { TableService } from './table.service';
+// import { TableService } from './table.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class PrepareDataTotalesPresupuestoService {
   private _totalPresupuestoGastos: any;
 
   constructor(
-    private _tableService: TableService,
+    // private _tableService: TableService,
     private _dataStoreService: DataStoreService,
   ) { }
 
@@ -32,7 +32,9 @@ export class PrepareDataTotalesPresupuestoService {
   }
 
   async calcPresupuestoIngresos() {
-    await this._tableService.loadData('ingresosEconomicaArticulos');
+    // await this._tableService.loadData('ingresosEconomicaArticulos');
+
+
     // this._totalPresupuestoIngresos = this._dataStoreService.getDataTable.rowData.reduce((acc, curr) => {
     //   Object.keys(curr).forEach((key, index) => {
     //     if (!acc[key]) {
@@ -72,7 +74,10 @@ export class PrepareDataTotalesPresupuestoService {
     ]
 
     // Iterar sobre cada fila de la tabla de datos
-    for (const row of this._dataStoreService.getDataTable.rowData) {
+    console.log(this._dataStoreService.getDataTable);
+    const rowDataIngresos = await this._dataStoreService.getDataTable.rowDataIngresos;
+
+    for (const row of rowDataIngresos) {
       // Iterar sobre cada clave del objeto que representa la fila actual
       for (const key in row) {
         // if (!exclude.includes(key)) {
@@ -90,14 +95,14 @@ export class PrepareDataTotalesPresupuestoService {
   }
 
   async calcPresupuestoGastos() {
-    await this._tableService.loadData('gastosOrganicaOrganicos');
+    // await this._tableService.loadData('gastosOrganicaOrganicos');
     this._totalPresupuestoGastos = {};
     const include = [
       'Definitivas2022',
       'Pagos2022'
     ]
 
-    for (const row of this._dataStoreService.getDataTable.rowData) {
+    for (const row of this._dataStoreService.getDataTable.rowDataGastos) {
       for (const key in row) {
         if (include.includes(key)) {
           if (!this._totalPresupuestoGastos[key]) {
