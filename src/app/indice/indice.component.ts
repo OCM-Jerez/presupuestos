@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { TableService } from '../services/table.service';
+// import { TableService } from '../services/table.service';
 
 import { CLASIFICATION_TYPE } from '../commons/util/util';
 import { environment } from '../../environments/environment';
@@ -11,6 +11,7 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSankey from 'highcharts/modules/sankey';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
+import { DataStoreService } from '../services/dataStore.service';
 // import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 
 HighchartsMore(Highcharts);
@@ -46,8 +47,9 @@ export class IndiceComponent implements OnInit {
   // https://stackoverflow.com/questions/69549927/how-to-pass-enum-value-in-angular-template-as-an-input
 
   constructor(
+    private _dataStoreService: DataStoreService,
     private _router: Router,
-    private _tableService: TableService,
+    // private _tableService: TableService,
   ) { }
 
   ngOnInit(): void {
@@ -56,7 +58,7 @@ export class IndiceComponent implements OnInit {
 
   /* #region  Esto es para el menu original */
   async openTable(tipoClasificacion: CLASIFICATION_TYPE): Promise<void> {
-    await this._tableService.loadData(tipoClasificacion);
+    // await this._tableService.loadData(tipoClasificacion);
 
     if (tipoClasificacion.startsWith('ingresos')) {
       this._router.navigateByUrl('/tableIngresos')
@@ -66,15 +68,16 @@ export class IndiceComponent implements OnInit {
   }
 
   async newGastos(tipoClasificacion: CLASIFICATION_TYPE) {
-    await this._tableService.loadData(tipoClasificacion);
+    // await this._tableService.loadData(tipoClasificacion);
     this._router.navigateByUrl('/newGastos')
   }
   /* #endregion */
 
   private async _loadData(): Promise<void> {
     /* #region  Capitulos de ingresos */
-    this._dataTable = await this._tableService.loadData('ingresosEconomicaCapitulos');
-    this._dataIngreso = this._dataTable.rowData;
+    // this._dataTable = await this._tableService.loadData('ingresosEconomicaCapitulos');
+    // this._dataIngreso = this._dataTable.rowDataIngresos;
+    this._dataIngreso = this._dataStoreService.getDataTable.rowDataIngresos;
 
     // Creo array de Capitulos de ingresos.
     // let capitulos = []
@@ -110,7 +113,6 @@ export class IndiceComponent implements OnInit {
       })
       return acc
     }, [])
-    console.log(this._dataIngreso);
 
     this.noFinancieroIngresos = (
       this._dataIngreso[0].value +
@@ -157,8 +159,9 @@ export class IndiceComponent implements OnInit {
     /* #endregion */
 
     /* #region politicas de gasto  */
-    this._dataTable = await this._tableService.loadData('gastosProgramaPoliticas');
-    this._dataGasto = this._dataTable.rowData;
+    // this._dataTable = await this._tableService.loadData('gastosProgramaPoliticas');
+    // this._dataGasto = this._dataTable.rowDataGastos;
+    this._dataGasto = this._dataStoreService.getDataTable.rowDataGastos;
 
     let politicas = []
     for (const item of this._dataGasto) {
