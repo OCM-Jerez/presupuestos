@@ -18,6 +18,25 @@ export class TableService {
         private _dataStoreService: DataStoreService,
     ) { }
 
+    async loadDataInitial(): Promise<IDataTable> {
+        // Cambio ingresosEconomicaArticulos a ingresosEconomicaEconomicos para tener todos los Items.
+        // Se necesita para tener todos los datos de ingresos y gastos.
+        // esta data la almacenaremos para usarla hasta que se haga un cambio en los años seleccionados.
+        // Para guardar los datos de ingresos y gastos, necesitamos crear otro objeto.
+        // Ahora solo guardamos el ultimo objeto que se ha cargado. 
+        const rowDataIngresos = await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos');
+        const rowDataGastos = await this._prepareDataGastosService.getDataAllYear('gastosOrganicaOrganicos');
+        const sendDataTable: IDataTable = {
+            rowDataIngresos,
+            rowDataGastos
+        }
+
+        // Uso el setter
+        this._dataStoreService.setDataTable = sendDataTable;
+        console.log(this._dataStoreService);
+        return sendDataTable;
+    }
+
     async loadData(
         tipoClasificacion?: CLASIFICATION_TYPE,
         filter?: { valueFilter: string, attribute: string, useStarWitch?: boolean }
@@ -26,7 +45,12 @@ export class TableService {
         const dataPropertyGraph = getClasificacionGraph(tipoClasificacion);
         let rowData: any[];
 
+        // Tengo que conservar rowData anteriores, de los contrario grabara un objeto vacio.
+        const rowDataGastosPrevia = this._dataStoreService.getDataTable.rowDataGastos;
+        const rowDataIngresosPrevia = this._dataStoreService.getDataTable.rowDataIngresos;
+
         if (tipoClasificacion.startsWith('ingresos')) {
+            // Necesito tipoClasificacion para añadir los item de diferentes clasificaciones
             rowData = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion);
         } else {
             rowData = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion);
@@ -37,17 +61,34 @@ export class TableService {
                 : rowData.filter(item => item[filter.attribute] == filter.valueFilter);
         }
 
-        const sendDataTable: IDataTable = {
-            dataPropertyTable,
-            clasificationType: tipoClasificacion,
-            rowData
-        }
-
-        const sendDataGraph: IDataGraph = {
-            clasificationType: tipoClasificacion,
-            rowData,
-            graphTitle: dataPropertyGraph.graphTitle,
-            graphSubTitle: ''
+        let sendDataTable: IDataTable = {};
+        let sendDataGraph: IDataGraph = {};
+        if (tipoClasificacion.startsWith('ingresos')) {
+            sendDataTable = {
+                dataPropertyTable,
+                clasificationType: tipoClasificacion,
+                rowDataIngresos: rowData,
+                rowDataGastos: rowDataGastosPrevia,
+            };
+            sendDataGraph = {
+                clasificationType: tipoClasificacion,
+                rowDataIngresos: rowData,
+                graphTitle: dataPropertyGraph.graphTitle,
+                graphSubTitle: ''
+            }
+        } else {
+            sendDataTable = {
+                dataPropertyTable,
+                clasificationType: tipoClasificacion,
+                rowDataIngresos: rowDataIngresosPrevia,
+                rowDataGastos: rowData,
+            };
+            sendDataGraph = {
+                clasificationType: tipoClasificacion,
+                rowDataGastos: rowData,
+                graphTitle: dataPropertyGraph.graphTitle,
+                graphSubTitle: ''
+            }
         }
 
         // Uso el setter

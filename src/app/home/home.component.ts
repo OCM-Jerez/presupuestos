@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { TableService } from '../services/table.service';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
-import { CLASIFICATION_TYPE } from '../commons/util/util';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,9 +11,6 @@ import { CLASIFICATION_TYPE } from '../commons/util/util';
 })
 export class HomeComponent implements OnInit {
   private _dataTable: IDataTable;
-  private _arrayIngresos = [];
-  private _arrayGastos = [];
-  // private _arrRandom: number[] = [];
   textoTabla: string;
   textEjemplo1: string;
   textEjemplo2: string;
@@ -36,15 +32,9 @@ export class HomeComponent implements OnInit {
     const ingresoGasto = (Math.random() >= 0.5) ? true : false;
     let dataTablaAleatoria: any[] = [];
 
-    // Cambio ingresosEconomicaArticulos a ingresosEconomicaEconomicos para tener todos los Items.
-    // Se necesita para tener todos los datos de ingresos y gastos.
-    // esta data la almacenaremos para usarla hasta que se haga un cambio en los años seleccionados.
-    // Para guardar los datos de ingresos y gastos, necesitamos crear otro objeto.
-    // Ahora solo guardamos el ultimo objeto que se ha cargado. 
-    this._dataTable = await this._tableService.loadData('ingresosEconomicaEconomicos');
-    let dataIngresos = this._dataTable.rowData;
-    this._dataTable = await this._tableService.loadData('gastosOrganicaOrganicos');
-    let dataGastos = this._dataTable.rowData;
+    this._dataTable = await this._tableService.loadDataInitial();
+    let dataIngresos = this._dataTable.rowDataIngresos;
+    let dataGastos = this._dataTable.rowDataGastos;
 
     this.textoTabla = ingresoGasto ? '¿Cuanto recauda el Ayuntamiento por...?' : '¿Cuanto ha gastado la delegación de...?';
 
@@ -64,7 +54,6 @@ export class HomeComponent implements OnInit {
       return acc;
     }, []);
     dataTablaAleatoria.sort(() => Math.random() - 0.5);
-    console.log('dataTablaAleatoria', dataTablaAleatoria);
 
     this.textEjemplo1 = dataTablaAleatoria[0].name;
     this.valueEjemplo1 = dataTablaAleatoria[0].value.toLocaleString("de-DE");
@@ -84,7 +73,6 @@ export class HomeComponent implements OnInit {
       acc.push(item);
       return acc;
     }, []);
-    console.log('this._array', data);
     return data;
   }
 
