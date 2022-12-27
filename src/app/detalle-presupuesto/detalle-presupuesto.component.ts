@@ -15,6 +15,7 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsTreemap from 'highcharts/modules/treemap';
 import heatmap from 'highcharts/modules/heatmap';
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
+import { IDataTable } from '../commons/interfaces/dataTable.interface';
 
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
@@ -29,6 +30,7 @@ heatmap(Highcharts)
 
 export class DetallePresupuestoComponent implements OnInit {
   /* #region  Definir variables */
+  private _dataTable: IDataTable;
   liqDate = environment.liqDate;
   showGraphInTab = true;
   showTablePresupuestos = true;
@@ -89,6 +91,9 @@ export class DetallePresupuestoComponent implements OnInit {
   }
 
   private async _loadData(): Promise<void> {
+    // Si se recarga la pagina hay que volver a generar la data. 
+    this._dataTable = await this._tableService.loadDataInitial();
+
     // console.warn('------  Cargo esta data la recupero para usarla en este componente.
     // console.warn('------  La misma data se almacena en el store para ser usada en otros componentes.
     // console.warn('------  Con data.rowData se calculan los datos del treemap en la function dataGraph(data.rowData).
@@ -98,11 +103,14 @@ export class DetallePresupuestoComponent implements OnInit {
 
     await this.setTotalesPresupuesto();
     let data = await this._tableService.loadData(this._typeClasification);
-    await this.dataGraph(data.rowData)
+    await this.dataGraph(data.rowDataGastos)
+    // NO FUNCIONA necesitamos todos los datos porque se cambiara de pestaña
+    // await this.dataGraph(this._dataStoreService.getDataTable.rowDataGastos);
     await this.graphTreemap();  // No es necesario pasarle la data, ya que la recupera del store.
   }
 
   async setTotalesPresupuesto() {
+    // Si se recarga la pagina hay que volver a calcular los totales. 
     await this._prepareDataTotalesPresupuestoService.calcTotales();
     this.DataTotalesPresupuesto = this._dataStoreService.getDataTotalesPresupuesto;
   }
@@ -213,7 +221,7 @@ export class DetallePresupuestoComponent implements OnInit {
     // await this._loadData();
     // this.setValues(this._tabSelected);
     let data = await this._tableService.loadData(this._typeClasification);
-    await this.dataGraph(data.rowData)
+    await this.dataGraph(data.rowDataGastos)
 
     switch (this._tabSelected) {
       case 'tab1':
