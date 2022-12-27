@@ -135,7 +135,7 @@ export class TableGastosComponent implements OnInit {
             '</div>',
         },
       },
-      rowData: this._dataTable.rowData,
+      rowData: this._dataTable.rowDataGastos,
       columnDefs: this._columnDefs,
       groupDisplayType: 'custom',
       groupIncludeTotalFooter: true,
@@ -228,7 +228,7 @@ export class TableGastosComponent implements OnInit {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRow = selectedRows[0].key;
-      this._dataGraph.rowData = this._dataTable.rowData
+      this._dataGraph.rowDataGastos = this._dataTable.rowDataGastos
       this._router.navigateByUrl("/graphGastos").then(() => {
         this._dataStoreService.setData(
           {
