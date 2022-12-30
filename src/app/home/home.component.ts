@@ -12,12 +12,19 @@ import { IDataTable } from '../commons/interfaces/dataTable.interface';
 export class HomeComponent implements OnInit {
   private _dataTable: IDataTable;
   textoTabla: string;
-  textEjemplo1: string;
-  textEjemplo2: string;
-  textEjemplo3: string;
-  valueEjemplo1: number;
-  valueEjemplo2: number;
-  valueEjemplo3: number;
+  // textEjemplo1: string;
+  // textEjemplo2: string;
+  // textEjemplo3: string;
+  // valueEjemplo1: number;
+  // valueEjemplo2: number;
+  // valueEjemplo3: number;
+  examples: { name: string; value: number }[] = [
+    { name: '', value: 0 },
+    { name: '', value: 0 },
+    { name: '', value: 0 },
+  ];
+
+  dataTablaAleatoria: any[] = [];
 
   constructor(
     private _tableService: TableService,
@@ -29,51 +36,95 @@ export class HomeComponent implements OnInit {
   }
 
   private async _randomData(): Promise<void> {
-    const ingresoGasto = (Math.random() >= 0.5) ? true : false;
-    let dataTablaAleatoria: any[] = [];
-
     this._dataTable = await this._tableService.loadDataInitial();
-    let dataIngresos = this._dataTable.rowDataIngresos;
-    let dataGastos = this._dataTable.rowDataGastos;
+    // let dataIngresos = this._dataTable.rowDataIngresos;
+    // let dataGastos = this._dataTable.rowDataGastos;
+
+    // if (ingresoGasto) {
+    //   this.dataTablaAleatoria = await this.getData('DesEco', 'DerechosReconocidosNetos2022', dataIngresos);
+    // } else {
+    //   this.dataTablaAleatoria = await this.getData('DesOrg', 'Pagos2022', dataGastos);
+    // }
+
+    const ingresoGasto = (Math.random() >= 0.5) ? true : false;
+    ingresoGasto
+      ? this.dataTablaAleatoria = await this.getData('DesEco', 'DerechosReconocidosNetos2022', this._dataTable.rowDataIngresos)
+      : this.dataTablaAleatoria = await this.getData('DesOrg', 'Pagos2022', this._dataTable.rowDataGastos);
 
     this.textoTabla = ingresoGasto ? '¿Cuanto recauda el Ayuntamiento por...?' : '¿Cuanto ha gastado la delegación de...?';
 
-    if (ingresoGasto) {
-      dataTablaAleatoria = await this.getData('DesEco', 'DerechosReconocidosNetos2022', dataIngresos);
-    } else {
-      dataTablaAleatoria = await this.getData('DesOrg', 'Pagos2022', dataGastos);
-    }
+    // await this.totalizar();
+    // console.log(this.dataTablaAleatoria);
 
-    // Totalizo
-    dataTablaAleatoria = dataTablaAleatoria.reduce((acc, { name, value }) => {
-      const item = acc.find(item => item.name === name)
-      item ? item.value += value : acc.push({
-        name,
-        value,
-      });
-      return acc;
-    }, []);
-    dataTablaAleatoria.sort(() => Math.random() - 0.5);
-
-    this.textEjemplo1 = dataTablaAleatoria[0].name;
-    this.valueEjemplo1 = dataTablaAleatoria[0].value.toLocaleString("de-DE");
-    this.textEjemplo2 = dataTablaAleatoria[1].name;
-    this.valueEjemplo2 = dataTablaAleatoria[1].value.toLocaleString("de-DE");
-    this.textEjemplo3 = dataTablaAleatoria[2].name;
-    this.valueEjemplo3 = dataTablaAleatoria[2].value.toLocaleString("de-DE");
+    await this.fillDatosAleatorios();
   }
 
+  // async getData(name: string, value: string, data: any[] = []) {
+  //   data = data.reduce((acc, curr) => {
+  //     const item =
+  //     {
+  //       "name": curr[`${name}`],
+  //       "value": curr[value],
+  //     }
+  //     acc.push(item);
+  //     return acc;
+  //   }, []);
+  //   return data;
+  // }
+
+  // async totalizar() {
+  //   this.dataTablaAleatoria = this.dataTablaAleatoria.reduce((acc, { name, value }) => {
+  //     const item = acc.find(item => item.name === name)
+  //     item ? item.value += value : acc.push({
+  //       name,
+  //       value,
+  //     });
+  //     return acc;
+  //   }, []);
+  // }
+
   async getData(name: string, value: string, data: any[] = []) {
-    data = data.reduce((acc, curr) => {
-      const item =
-      {
-        "name": curr[`${name}`],
-        "value": curr[value],
+    const resultado = data.reduce((acc, curr) => {
+      const itemName = curr[name];
+      const itemValue = curr[value];
+
+      const itemEncontrado = acc.find(item => item.name === itemName);
+      if (itemEncontrado) {
+        itemEncontrado.value += itemValue;
+      } else {
+        acc.push({
+          name: itemName,
+          value: itemValue,
+        });
       }
-      acc.push(item);
+
       return acc;
     }, []);
-    return data;
+    console.log(resultado);
+
+    return resultado;
+  }
+
+  // console.log(this.dataTablaAleatoria);
+  async fillDatosAleatorios() {
+
+    this.dataTablaAleatoria.sort(() => Math.random() - 0.5);
+    // for (let i = 0; i < 4; i++) {
+    //   this[`textEjemplo${i}`] = this.dataTablaAleatoria[i].name;
+    //   this[`valueEjemplo${i}`] = this.dataTablaAleatoria[i].value.toLocaleString("de-DE");
+    // }
+
+    for (let i = 0; i < 3; i++) {
+      this.examples[i].name = this.dataTablaAleatoria[i].name;
+      this.examples[i].value = this.dataTablaAleatoria[i].value.toLocaleString("de-DE");
+    }
+
+    // this.textEjemplo1 = this.dataTablaAleatoria[0].name;
+    // this.valueEjemplo1 = this.dataTablaAleatoria[0].value.toLocaleString("de-DE");
+    // this.textEjemplo2 = this.dataTablaAleatoria[1].name;
+    // this.valueEjemplo2 = this.dataTablaAleatoria[1].value.toLocaleString("de-DE");
+    // this.textEjemplo3 = this.dataTablaAleatoria[2].name;
+    // this.valueEjemplo3 = this.dataTablaAleatoria[2].value.toLocaleString("de-DE");
   }
 
   visionGlobal() {
