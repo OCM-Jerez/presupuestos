@@ -96,16 +96,16 @@ export class DetallePresupuestoComponent implements OnInit {
 
     // console.warn('------  Cargo esta data la recupero para usarla en este componente.
     // console.warn('------  La misma data se almacena en el store para ser usada en otros componentes.
-    // console.warn('------  Con data.rowData se calculan los datos del treemap en la function dataGraph(data.rowData).
+    // console.warn('------  Con data.rowData se calculan los datos del treemap en la function treeGraph(data.rowData).
     // console.warn('------  La data se almacena en store.
     // console.warn('------  graphTreemap(data) recuperara la data del store y la usará para mostrar el grafico.
     // console.warn('------  El AG Grid mostrara los datos adecuado recuperandolos del store.
 
     await this.setTotalesPresupuesto();
     let data = await this._tableService.loadData(this._typeClasification);
-    await this.dataGraph(data.rowDataGastos)
+    await this.treeGraph(data.rowDataGastos)
     // NO FUNCIONA necesitamos todos los datos porque se cambiara de pestaña
-    // await this.dataGraph(this._dataStoreService.getDataTable.rowDataGastos);
+    // await this.treeGraph(this._dataStoreService.getDataTable.rowDataGastos);
     await this.graphTreemap();  // No es necesario pasarle la data, ya que la recupera del store.
   }
 
@@ -115,7 +115,7 @@ export class DetallePresupuestoComponent implements OnInit {
     this.DataTotalesPresupuesto = this._dataStoreService.getDataTotalesPresupuesto;
   }
 
-  async dataGraph(data) {    // Datos para grafico
+  async treeGraph(data) {    // Datos para grafico
     switch (this._tabSelected) {
       case 'tab1':
         switch (this._radioButtonSelected) {
@@ -221,7 +221,7 @@ export class DetallePresupuestoComponent implements OnInit {
     // await this._loadData();
     // this.setValues(this._tabSelected);
     let data = await this._tableService.loadData(this._typeClasification);
-    await this.dataGraph(data.rowDataGastos)
+    await this.treeGraph(data.rowDataGastos)
 
     switch (this._tabSelected) {
       case 'tab1':
