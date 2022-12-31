@@ -15,15 +15,10 @@ export class DataStoreService {
   private _dataGraph: IDataGraph;
   private _selectedCodeRow: string;
   private _dataGraphTree: any[];
-  // private _graphTitle: string;
   private _selectedCodeRowFirstLevel: string;
   private _IsDetails = false;
   private _dataTotalesPresupuesto: IDataTotalesPresupuesto
   private _dataTreemap: any;
-
-  get dataTable(): IDataTable {
-    return this._data
-  }
 
   set dataTable(data: IDataTable) {
     this._data = data
@@ -32,40 +27,36 @@ export class DataStoreService {
     // console.log('DataStoreServic._dataSource', this._data);
   }
 
-  // set setDataGraph(data: IDataGraph) {
-  //   this._dataGraph = data
-  // }
+  get dataTable(): IDataTable {
+    return this._data
+  }
 
-  get dataGraph(): IDataGraph {
-    return this._dataGraph
+  setData(data: IDataGraph) {
+    this._dataSource.next(data)
   }
 
   set dataGraph(data: IDataGraph) {
     this._dataGraph = data
   }
 
-  // set graphTitle(graphTitle: string) {
-  //   this._graphTitle = graphTitle
-  // }
-
-  // get graphTitle(): string {
-  //   return this._graphTitle
-  // }
-
-  get selectedCodeRow(): string {
-    return this._selectedCodeRow
+  get dataGraph(): IDataGraph {
+    return this._dataGraph
   }
 
   set selectedCodeRow(code: string) {
     this._selectedCodeRow = code
   }
 
-  get dataGraphTree(): any[] {
-    return this._dataGraphTree
+  get selectedCodeRow(): string {
+    return this._selectedCodeRow
   }
 
   set dataGraphTree(dateGraphTree: any[]) {
     this._dataGraphTree = dateGraphTree
+  }
+
+  get dataGraphTree(): any[] {
+    return this._dataGraphTree
   }
 
   set selectedCodeRowFirstLevel(codeRow: string) {
@@ -100,7 +91,4 @@ export class DataStoreService {
     return this._dataTreemap
   }
 
-  setData(data: IDataGraph) {
-    this._dataSource.next(data)
-  }
 }
