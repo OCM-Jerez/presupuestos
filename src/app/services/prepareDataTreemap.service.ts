@@ -62,7 +62,7 @@ export class PrepareDataTreemapService {
       item.color = colors[colorIndex];
     });
 
-    this._dataStoreService.setDataTreemap = data;
+    this._dataStoreService.dataTreemap = data;
     // console.log(' this._dataStoreService.setDataTreemap', data);
 
     // return data

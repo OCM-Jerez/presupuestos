@@ -123,7 +123,7 @@ export class PrepareDataTotalesPresupuestoService {
         totalPresupuestoGastos: this._totalPresupuestoGastos.Definitivas2022.toLocaleString(),
         totalEjecutadoGastos: this._totalPresupuestoGastos.Pagos2022.toLocaleString(),
       }
-      this._dataStoreService.setDataTotalesPresupuesto = DataTotalesPresupuesto;
+      this._dataStoreService.dataTotalesPresupuesto = DataTotalesPresupuesto;
     } catch (error) {
       // console.clear();
       console.error('error------------------- ', error);

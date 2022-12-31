@@ -112,7 +112,7 @@ export class DetallePresupuestoComponent implements OnInit {
   async setTotalesPresupuesto() {
     // Si se recarga la pagina hay que volver a calcular los totales. 
     await this._prepareDataTotalesPresupuestoService.calcTotales();
-    this.DataTotalesPresupuesto = this._dataStoreService.getDataTotalesPresupuesto;
+    this.DataTotalesPresupuesto = this._dataStoreService.dataTotalesPresupuesto;
   }
 
   async treeGraph(data) {    // Datos para grafico
@@ -148,7 +148,7 @@ export class DetallePresupuestoComponent implements OnInit {
 
   async graphTreemap() {
     if (this.showGraphInTab) {
-      const data = this._dataStoreService.getDataTreemap;
+      const data = this._dataStoreService.dataTreemap;
       const chart = Highcharts.chart(this._treemap, {
         accessibility: {
           enabled: false

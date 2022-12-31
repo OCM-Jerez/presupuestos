@@ -84,19 +84,19 @@ export class DataStoreService {
     return this._IsDetails
   }
 
-  set setDataTotalesPresupuesto(data: IDataTotalesPresupuesto) {
+  set dataTotalesPresupuesto(data: IDataTotalesPresupuesto) {
     this._dataTotalesPresupuesto = data
   }
 
-  get getDataTotalesPresupuesto(): IDataTotalesPresupuesto {
+  get dataTotalesPresupuesto(): IDataTotalesPresupuesto {
     return this._dataTotalesPresupuesto
   }
 
-  set setDataTreemap(data: any) {
+  set dataTreemap(data: any) {
     this._dataTreemap = data
   }
 
-  get getDataTreemap(): any {
+  get dataTreemap(): any {
     return this._dataTreemap
   }
 
