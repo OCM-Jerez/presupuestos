@@ -33,7 +33,7 @@ export class TableService {
 
         // Uso el setter
         this._dataStoreService.setDataTable = sendDataTable;
-        console.log(this._dataStoreService);
+        console.log('loadDataInitial', this._dataStoreService);
         return sendDataTable;
     }
 
@@ -49,15 +49,22 @@ export class TableService {
         const rowDataGastosPrevia = this._dataStoreService.getDataTable.rowDataGastos;
         const rowDataIngresosPrevia = this._dataStoreService.getDataTable.rowDataIngresos;
 
-        if (tipoClasificacion.startsWith('ingresos')) {
+        // if (tipoClasificacion.startsWith('ingresos')) {
+        //     // Necesito tipoClasificacion para añadir los item de diferentes clasificaciones
+        //     rowData = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion);
+        // } else {
+        //     rowData = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion);
+        // }
+
+        tipoClasificacion.startsWith('ingresos')
             // Necesito tipoClasificacion para añadir los item de diferentes clasificaciones
-            rowData = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion);
-        } else {
-            rowData = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion);
-        }
+            ? rowData = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion)
+            : rowData = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion);
+
 
         if (filter) {
-            rowData = filter.useStarWitch ? rowData.filter(item => item[filter.attribute].toString().startsWith(filter.valueFilter))
+            rowData = filter.useStarWitch
+                ? rowData.filter(item => item[filter.attribute].toString().startsWith(filter.valueFilter))
                 : rowData.filter(item => item[filter.attribute] == filter.valueFilter);
         }
 
@@ -94,6 +101,8 @@ export class TableService {
         // Uso el setter
         this._dataStoreService.setDataTable = sendDataTable;
         this._dataStoreService.dataGraph = sendDataGraph;
+        console.log('loadData sendDataTable', sendDataTable);
+        console.log('loadData sendDataGraph', sendDataGraph);
         return sendDataTable;
 
     }
