@@ -32,9 +32,9 @@ export class DataStoreService {
     // console.log('DataStoreServic._dataSource', this._data);
   }
 
-  set setDataGraph(data: IDataGraph) {
-    this._dataGraph = data
-  }
+  // set setDataGraph(data: IDataGraph) {
+  //   this._dataGraph = data
+  // }
 
   get dataGraph(): IDataGraph {
     return this._dataGraph

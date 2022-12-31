@@ -194,7 +194,8 @@ export class TableGastosAplicacionPresupuestariaComponent {
         graphSubTitle: selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco + '  ' + selectedRows[0].data.DesOrg + '-' + selectedRows[0].data.DesPro + '-' + selectedRows[0].data.DesEco
       }
       // Uso el setter
-      this._dataStoreService.setDataGraph = sendData;
+      // this._dataStoreService.setDataGraph = sendData;
+      this._dataStoreService.dataGraph = sendData;
       this._router.navigateByUrl("/graphGastos").then(() => {
         this._dataStoreService.setData(
           sendData
