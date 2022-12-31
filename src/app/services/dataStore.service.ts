@@ -15,11 +15,10 @@ export class DataStoreService {
   private _dataGraph: IDataGraph;
   private _selectedCodeRow: string;
   private _dataGraphTree: any[];
-  private _graphTitle: string;
+  // private _graphTitle: string;
   private _selectedCodeRowFirstLevel: string;
   private _IsDetails = false;
   private _dataTotalesPresupuesto: IDataTotalesPresupuesto
-
   private _dataTreemap: any;
 
   get getDataTable(): IDataTable {
@@ -45,13 +44,13 @@ export class DataStoreService {
     this._dataGraph = data
   }
 
-  set graphTitle(graphTitle: string) {
-    this._graphTitle = graphTitle
-  }
+  // set graphTitle(graphTitle: string) {
+  //   this._graphTitle = graphTitle
+  // }
 
-  get graphTitle(): string {
-    return this._graphTitle
-  }
+  // get graphTitle(): string {
+  //   return this._graphTitle
+  // }
 
   get selectedCodeRow(): string {
     return this._selectedCodeRow
