@@ -38,7 +38,7 @@ export class TableGastosArticulosDetailsComponent {
     private _alertService: AlertService,
     private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
   ) {
-    this._dataTableGraph = dataStoreService.getDataTable;
+    this._dataTableGraph = dataStoreService.dataTable;
     this._columnDefs = [
       {
         headerName: this._dataTableGraph.dataPropertyTable.headerName,
@@ -129,7 +129,7 @@ export class TableGastosArticulosDetailsComponent {
 
   async createDataOCM(): Promise<void> {
     // console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
+    this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
       .filter(x => x.CodArt == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
   }
 

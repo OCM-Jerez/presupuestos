@@ -74,8 +74,8 @@ export class PrepareDataTotalesPresupuestoService {
     ]
 
     // Iterar sobre cada fila de la tabla de datos
-    console.log(this._dataStoreService.getDataTable);
-    const rowDataIngresos = await this._dataStoreService.getDataTable.rowDataIngresos;
+    console.log(this._dataStoreService.dataTable);
+    const rowDataIngresos = await this._dataStoreService.dataTable.rowDataIngresos;
 
     for (const row of rowDataIngresos) {
       // Iterar sobre cada clave del objeto que representa la fila actual
@@ -102,7 +102,7 @@ export class PrepareDataTotalesPresupuestoService {
       'Pagos2022'
     ]
 
-    for (const row of this._dataStoreService.getDataTable.rowDataGastos) {
+    for (const row of this._dataStoreService.dataTable.rowDataGastos) {
       for (const key in row) {
         if (include.includes(key)) {
           if (!this._totalPresupuestoGastos[key]) {

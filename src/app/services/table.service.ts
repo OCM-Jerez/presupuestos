@@ -32,7 +32,7 @@ export class TableService {
         }
 
         // Uso el setter
-        this._dataStoreService.setDataTable = sendDataTable;
+        this._dataStoreService.dataTable = sendDataTable;
         console.log('loadDataInitial', this._dataStoreService);
         return sendDataTable;
     }
@@ -46,8 +46,8 @@ export class TableService {
         let rowData: any[];
 
         // Tengo que conservar rowData anteriores, de los contrario grabara un objeto vacio.
-        const rowDataGastosPrevia = this._dataStoreService.getDataTable.rowDataGastos;
-        const rowDataIngresosPrevia = this._dataStoreService.getDataTable.rowDataIngresos;
+        const rowDataGastosPrevia = this._dataStoreService.dataTable.rowDataGastos;
+        const rowDataIngresosPrevia = this._dataStoreService.dataTable.rowDataIngresos;
 
         // if (tipoClasificacion.startsWith('ingresos')) {
         //     // Necesito tipoClasificacion para añadir los item de diferentes clasificaciones
@@ -99,7 +99,7 @@ export class TableService {
         }
 
         // Uso el setter
-        this._dataStoreService.setDataTable = sendDataTable;
+        this._dataStoreService.dataTable = sendDataTable;
         this._dataStoreService.dataGraph = sendDataGraph;
         console.log('loadData sendDataTable', sendDataTable);
         console.log('loadData sendDataGraph', sendDataGraph);

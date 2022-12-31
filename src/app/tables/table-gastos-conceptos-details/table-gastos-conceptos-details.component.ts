@@ -38,7 +38,7 @@ export class TableGastosConceptosDetailsComponent {
     private _alertService: AlertService,
     private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
   ) {
-    this._dataTableGraph = dataStoreService.getDataTable;
+    this._dataTableGraph = dataStoreService.dataTable;
     this._columnDefs = [
       {
         headerName: this._dataTableGraph.dataPropertyTable.headerName,
@@ -131,7 +131,7 @@ export class TableGastosConceptosDetailsComponent {
     let concepto = +this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
     // Detecto si vuelve de detalle o no.
     concepto = this.dataStoreService.IsDetails ? (concepto / 100) : concepto
-    this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
+    this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
       .filter(x => x.CodCon == concepto);
   }
 

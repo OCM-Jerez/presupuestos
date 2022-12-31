@@ -21,11 +21,11 @@ export class DataStoreService {
   private _dataTotalesPresupuesto: IDataTotalesPresupuesto
   private _dataTreemap: any;
 
-  get getDataTable(): IDataTable {
+  get dataTable(): IDataTable {
     return this._data
   }
 
-  set setDataTable(data: IDataTable) {
+  set dataTable(data: IDataTable) {
     this._data = data
     // console.log('DataStoreServic data que entra como parametro', data);
     // console.log('DataStoreServic._dataSource', this._dataSource);

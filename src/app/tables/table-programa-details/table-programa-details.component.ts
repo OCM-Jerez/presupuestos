@@ -42,7 +42,7 @@ export class TableProgramaDetailsComponent {
     private _location: Location,
     private _alertService: AlertService
   ) {
-    this._dataTableGraph = dataStoreService.getDataTable;
+    this._dataTableGraph = dataStoreService.dataTable;
     this._columnDefs = [
       {
         headerName: this._dataTableGraph.dataPropertyTable.headerName,

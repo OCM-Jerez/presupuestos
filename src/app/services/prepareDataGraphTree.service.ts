@@ -24,7 +24,7 @@ export class PrepareDataGraphTreeService {
       this._dataStoreService.dataGraphTree = [];
       this._location.back();
     } else {
-      this._dataGraphTree = await this._getDataGraphTree(this._dataStoreService.getDataTable.clasificationType, this._dataStoreService.getDataTable.dataPropertyTable.codField, years[0], rowData);
+      this._dataGraphTree = await this._getDataGraphTree(this._dataStoreService.dataTable.clasificationType, this._dataStoreService.dataTable.dataPropertyTable.codField, years[0], rowData);
       this._dataStoreService.dataGraphTree = this._dataGraphTree;
     }
   }

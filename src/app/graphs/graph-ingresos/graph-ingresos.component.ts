@@ -44,7 +44,7 @@ export class GraphIngresosComponent implements OnDestroy {
     private location: Location,
     private _dataStoreService: DataStoreService,
   ) {
-    this._dataTable = _dataStoreService.getDataTable;
+    this._dataTable = _dataStoreService.dataTable;
     this._subscription = this._dataStoreService.dataSource$.subscribe((data) => {
       this._dataGraph = data;
       this._createData();

@@ -77,7 +77,7 @@ export class IndiceComponent implements OnInit {
     /* #region  Capitulos de ingresos */
     // this._dataTable = await this._tableService.loadData('ingresosEconomicaCapitulos');
     // this._dataIngreso = this._dataTable.rowDataIngresos;
-    this._dataIngreso = this._dataStoreService.getDataTable.rowDataIngresos;
+    this._dataIngreso = this._dataStoreService.dataTable.rowDataIngresos;
 
     // Creo array de Capitulos de ingresos.
     // let capitulos = []
@@ -161,7 +161,7 @@ export class IndiceComponent implements OnInit {
     /* #region politicas de gasto  */
     // this._dataTable = await this._tableService.loadData('gastosProgramaPoliticas');
     // this._dataGasto = this._dataTable.rowDataGastos;
-    this._dataGasto = this._dataStoreService.getDataTable.rowDataGastos;
+    this._dataGasto = this._dataStoreService.dataTable.rowDataGastos;
 
     let politicas = []
     for (const item of this._dataGasto) {

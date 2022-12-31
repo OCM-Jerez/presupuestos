@@ -35,7 +35,7 @@ export class GastosComponent implements OnInit {
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
   private _dataTable: IDataTable;
-  buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
+  buttons = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttons;
   showTable = true;
   event: Event;
   /* #endregion */
@@ -94,7 +94,7 @@ export class GastosComponent implements OnInit {
         'Definitivas2022'
       );
 
-      this.buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
+      this.buttons = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttons;
 
       this.showTable = false;
       setTimeout(() => {
@@ -143,7 +143,7 @@ export class GastosComponent implements OnInit {
 
       // console.log('this._dataTable= ', this._dataTable);
       console.log('sendDataTable= ', sendDataTable);
-      this._dataStoreService.setDataTable = sendDataTable;
+      this._dataStoreService.dataTable = sendDataTable;
     } else {
       const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
 
@@ -174,7 +174,7 @@ export class GastosComponent implements OnInit {
           'Definitivas2022'
         );
 
-        this.buttons = getClasificacion(this._dataStoreService.getDataTable.clasificationType).buttons;
+        this.buttons = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttons;
 
         const sendDataTable: IDataTable = {
           dataPropertyTable: {
@@ -194,7 +194,7 @@ export class GastosComponent implements OnInit {
 
         // console.log('this._dataTable= ', this._dataTable);
         console.log('sendDataTable= ', sendDataTable);
-        this._dataStoreService.setDataTable = sendDataTable;
+        this._dataStoreService.dataTable = sendDataTable;
 
       }
 

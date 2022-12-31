@@ -52,7 +52,7 @@ export class GraphTreeComponent {
         fontWeight: 'bold',
       },
       subtitle: {
-        text: this._dataStoreService.getDataTable.dataPropertyTable.headerName,
+        text: this._dataStoreService.dataTable.dataPropertyTable.headerName,
         fontSize: 20,
         fontWeight: 'bold',
       },

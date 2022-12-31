@@ -38,7 +38,7 @@ export class TableGastosGruposprogramasDetailsComponent {
     public dataStoreService: DataStoreService,
     private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
   ) {
-    this._dataTableGraph = dataStoreService.getDataTable;
+    this._dataTableGraph = dataStoreService.dataTable;
     this._columnDefs = [
       {
         headerName: this._dataTableGraph.dataPropertyTable.headerName,
@@ -129,7 +129,7 @@ export class TableGastosGruposprogramasDetailsComponent {
 
   async createDataOCM(): Promise<void> {
     console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    console.log(this.dataStoreService.getDataTable.clasificationType);
+    console.log(this.dataStoreService.dataTable.clasificationType);
     const eco = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
 
     // this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))

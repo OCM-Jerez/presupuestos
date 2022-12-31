@@ -50,7 +50,7 @@ export class TableGastosComponent implements OnInit {
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
     private _alertService: AlertService
   ) {
-    this._dataTable = _dataStoreService.getDataTable;
+    this._dataTable = _dataStoreService.dataTable;
     // const fieldOrder = `Cod${this._dataTable.dataPropertyTable.sufijo}`;
     const fieldOrder = `Cod${this._dataTable.dataPropertyTable.codField}`;
     this._dataTable.rowDataGastos.sort((a, b) => a[fieldOrder] - b[fieldOrder]);

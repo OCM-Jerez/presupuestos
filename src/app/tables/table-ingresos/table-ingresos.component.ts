@@ -71,7 +71,7 @@ export class TableIngresosComponent implements OnInit {
   }
 
   private async _loadPropertyTable() {
-    this._dataTable = this._dataStoreService.getDataTable
+    this._dataTable = this._dataStoreService.dataTable
 
     this._columnDefs = [
       {

@@ -72,7 +72,7 @@ export class TableGastosComponent implements OnInit {
   }
 
   private async _loadTable() {
-    this._dataTable = this._dataStoreService.getDataTable;
+    this._dataTable = this._dataStoreService.dataTable;
     this.setColumnDefs()
     this.setGridOptions();
   }

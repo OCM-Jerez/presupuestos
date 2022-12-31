@@ -40,7 +40,7 @@ export class TableGastosPoliticasDetailsComponent {
     private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
     private _location: Location,
   ) {
-    this._dataTableGraph = dataStoreService.getDataTable;
+    this._dataTableGraph = dataStoreService.dataTable;
     this._columnDefs = [
       {
         headerName: this._dataTableGraph.dataPropertyTable.headerName,
@@ -131,7 +131,7 @@ export class TableGastosPoliticasDetailsComponent {
 
   async createDataOCM(): Promise<void> {
     // console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
+    this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
       .filter(x => x.CodPol == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
   }
 
