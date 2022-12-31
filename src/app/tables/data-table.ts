@@ -1,7 +1,7 @@
 import { IDataProperty } from '../commons/interfaces/dataTable.interface';
 import { CLASIFICATION_TYPE } from "../commons/util/util";
 import { IButtonClasification } from "./gastos/model/components.interface";
-export interface IClasification extends Omit<IDataProperty, 'graphTitle' | 'attribute' | 'useStarWitch'> {
+export interface IClasification extends Omit<IDataProperty, | 'attribute' | 'useStarWitch'> {
     attribute?: string,
     useStarWitch?: boolean,
     buttons?: IButtonClasification[]
@@ -16,6 +16,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Capítulo',
         useStarWitch: true,
         width: 250,
+        graphTitle: 'Ingresos por capítulo',
     },
     ingresosEconomicaArticulos: {
         attribute: 'CodEco',
@@ -25,6 +26,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Articulo',
         useStarWitch: true,
         width: 550,
+        graphTitle: 'Ingresos por artículo',
     },
     ingresosEconomicaConceptos: {
         attribute: 'CodEco',
@@ -34,6 +36,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Concepto',
         useStarWitch: true,
         width: 660,
+        graphTitle: 'Ingresos por concepto',
     },
     ingresosEconomicaEconomicos: {
         attribute: 'CodEco',
@@ -43,6 +46,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Económico',
         useStarWitch: true,
         width: 550,
+        graphTitle: 'Ingresos por económico',
     },
     gastosOrganicaOrganicos: {
         attribute: 'CodPro',
@@ -52,6 +56,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Orgánico',
         useStarWitch: false,
         width: 250,
+        graphTitle: 'Gastos por orgánico',
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -71,6 +76,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Area de gasto',
         useStarWitch: true,
         width: 550,
+        graphTitle: 'Gastos por área de programa',
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -103,6 +109,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Política de gasto',
         useStarWitch: true,
         width: 550,
+        graphTitle: 'Gastos por política de gasto',
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -134,6 +141,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Grupo programas de gasto',
         useStarWitch: true,
         width: 550,
+        graphTitle: 'Gastos por grupo de programa',
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -165,6 +173,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Programa',
         useStarWitch: true,
         width: 550,
+        graphTitle: 'Gastos por programa',
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -196,6 +205,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Capítulo',
         useStarWitch: true,
         width: 250,
+        graphTitle: 'Gastos por capítulo',
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -227,6 +237,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Articulo',
         useStarWitch: true,
         width: 550,
+        graphTitle: 'Gastos por artículo',
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -259,6 +270,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Concepto',
         useStarWitch: true,
         width: 550,
+        graphTitle: 'Gastos por concepto',
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -290,6 +302,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         subHeaderName: 'Económico',
         useStarWitch: true,
         width: 550,
+        graphTitle: 'Gastos por económico',
         buttons: [
             {
                 name: 'Gráfico arbol',
@@ -312,6 +325,17 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 clasificationType: 'gastosEconomicaEconomicos'
             }
         ]
+    },
+    aplicacion: {
+        attribute: 'CodEco',
+        codField: 'CodEco',
+        desField: 'DesEco',
+        headerName: 'Clasificado por económico',
+        subHeaderName: 'Económico',
+        useStarWitch: true,
+        width: 550,
+        graphTitle: 'Gastos por económico',
+
     },
 }
 
