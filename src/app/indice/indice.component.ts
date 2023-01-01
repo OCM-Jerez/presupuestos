@@ -83,8 +83,8 @@ export class IndiceComponent implements OnInit {
 
     await this.calcSumIngresos();
     await this.calcTotalesPresupuestoIngresos();
-    await this.calcSumPoliticasGastos();
     await this.calcSumGastos();
+    // await this.calcSumPoliticasGastos();
     await this.calcTotalesPresupuestoGastos();
     await this.calcIndicadores();
     this.showGraph()
@@ -159,32 +159,9 @@ export class IndiceComponent implements OnInit {
     this.totalEjecutadoIngresos = totalPresupuestoIngresos.recaudado.toLocaleString();
   }
 
-  async calcSumPoliticasGastos() {
+  async calcSumGastos() {
     this._dataGasto = this._dataStoreService.dataTable.rowDataGastos;
 
-    for (const item of this._dataGasto) {
-      const value = {
-        name: `${item.CodPro}-${item.DesPro}`,
-        value: item.Definitivas2022,
-        recaudado: item.Pagos2022
-      };
-      this._politicasGastos.push(value);
-    }
-
-    // Totalizo por politicas de gasto
-    this._politicasGastos = this._politicasGastos.reduce((acc, curr) => {
-      const index = acc.findIndex(item => item.name === curr.name)
-      index > -1 ? (acc[index].value += curr.value, acc[index].recaudado += curr.recaudado) : acc.push({
-        name: curr.name,
-        value: curr.value,
-        recaudado: curr.recaudado
-      })
-      return acc
-    }, [])
-
-  }
-
-  async calcSumGastos() {
     // Creo array de capitulos de gasto
     for (const item of this._dataGasto) {
       const value = {
@@ -197,6 +174,29 @@ export class IndiceComponent implements OnInit {
 
     // Totalizo por capitulo
     this._capitulosGastos = this._capitulosGastos.reduce((acc, curr) => {
+      const index = acc.findIndex(item => item.name === curr.name)
+      index > -1 ? (acc[index].value += curr.value, acc[index].recaudado += curr.recaudado) : acc.push({
+        name: curr.name,
+        value: curr.value,
+        recaudado: curr.recaudado
+      })
+      return acc
+    }, [])
+
+  }
+
+  async calcSumPoliticasGastos() {
+    for (const item of this._dataGasto) {
+      const value = {
+        name: `${item.CodPro}-${item.DesPro}`,
+        value: item.Definitivas2022,
+        recaudado: item.Pagos2022
+      };
+      this._politicasGastos.push(value);
+    }
+
+    // Totalizo por politicas de gasto
+    this._politicasGastos = this._politicasGastos.reduce((acc, curr) => {
       const index = acc.findIndex(item => item.name === curr.name)
       index > -1 ? (acc[index].value += curr.value, acc[index].recaudado += curr.recaudado) : acc.push({
         name: curr.name,
