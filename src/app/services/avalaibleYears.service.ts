@@ -48,7 +48,8 @@ export class AvalaibleYearsService {
   // Devuelve el array con los años seleccionados
   getYearsSelected(): number[] {
     if (this.yearsSelected.length === 0) {
-      this.yearsSelected.push(new Date().getFullYear());
+      // Mientras no existan datos del 2023 resto 1 al año actual
+      this.yearsSelected.push((new Date().getFullYear()) - 1);
     }
     return this.yearsSelected;
   }
