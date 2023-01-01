@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-// import { TableService } from '../services/table.service';
+import { TableService } from '../services/table.service';
 
 import { CLASIFICATION_TYPE } from '../commons/util/util';
 import { environment } from '../../environments/environment';
@@ -51,7 +51,7 @@ export class IndiceComponent implements OnInit {
   constructor(
     private _dataStoreService: DataStoreService,
     private _router: Router,
-    // private _tableService: TableService,
+    private _tableService: TableService,
   ) { }
 
   ngOnInit(): void {
@@ -76,6 +76,12 @@ export class IndiceComponent implements OnInit {
   /* #endregion */
 
   private async _loadData(): Promise<void> {
+    // si recargo la pagina cargo datos iniciales.
+    if (this._dataStoreService.dataTable === undefined) {
+      this._dataTable = await this._tableService.loadDataInitial();
+    };
+
+
     await this.calcSumIngresos();
     await this.calcTotalesPresupuestoIngresos();
     await this.calcSumPoliticasGastos();
