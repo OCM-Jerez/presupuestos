@@ -81,14 +81,12 @@ export class IndiceComponent implements OnInit {
       this._dataTable = await this._tableService.loadDataInitial();
     };
 
-
     await this.calcSumIngresos();
     await this.calcTotalesPresupuestoIngresos();
     await this.calcSumPoliticasGastos();
     await this.calcSumGastos();
     await this.calcTotalesPresupuestoGastos();
     await this.calcIndicadores();
-
     this.showGraph()
   }
 
