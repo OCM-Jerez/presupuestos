@@ -267,6 +267,8 @@ export class TableGastosComponent implements OnInit {
     const selectedRows = this.agGrid.api.getSelectedNodes();
 
     if (selectedRows.length > 0) {
+      console.log('Has pulsado detalles por economico', selectedRows[0].key);
+
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
       this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
         this._router.navigate(['tableGrupoProgramaDetails']);

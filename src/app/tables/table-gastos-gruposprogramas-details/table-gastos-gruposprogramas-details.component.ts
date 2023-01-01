@@ -79,6 +79,7 @@ export class TableGastosGruposprogramasDetailsComponent {
     ];
 
     this.createDataOCM().then(() => {
+      console.log(this._rowData);
       this.gridOptions = {
         defaultColDef: {
           width: 130,
@@ -135,11 +136,14 @@ export class TableGastosGruposprogramasDetailsComponent {
     // this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
     // .filter(x => x.CodGru == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear('gastosProgramaProgramas'))
+      .filter(x => x.CodEco == eco);
     console.log(this._rowData);
 
     setTimeout(() => {
-      this._rowData.filter(x => x.CodEco == eco);
-      console.log(this._rowData);
+      console.log(eco);
+
+      // this._rowData.filter(x => x.CodEco == eco);
+
     }, 5000);
 
   }
