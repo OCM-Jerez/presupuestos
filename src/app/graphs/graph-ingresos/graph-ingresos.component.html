@@ -1,13 +1,15 @@
-<div class="container">
+<!-- <div class="container"> -->
+<div class="graph" *ngIf="options">
 
-    <ag-charts-angular id="graph" *ngIf="options" [options]="options"></ag-charts-angular>
+    <ag-charts-angular style="width: 700px; height: 300px" *ngIf="options" [options]="options"></ag-charts-angular>
     <!-- <ag-charts-angular *ngIf="options" class="graph" [options]="options"></ag-charts-angular> -->
 
 
-    <ag-grid-angular #agGrid id="table" class="ag-theme-balham" [rowData]="data" [columnDefs]="columnDefs"
-        [defaultColDef]="defaultColDef" rowSelection="multiple" [groupIncludeFooter]="true"
-        [groupIncludeTotalFooter]="true" [groupHeaderHeight]="groupHeaderHeight" [headerHeight]="headerHeight"
-        [localeText]="localeText" [suppressAggFuncInHeader]="true" (gridReady)="onGridReady($event)">
+    <ag-grid-angular #agGrid style="width: 700px; height: 300px; padding-right: 20px; margin-left: 10px"
+        class="ag-theme-balham" [rowData]="data" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
+        rowSelection="multiple" [groupIncludeFooter]="true" [groupIncludeTotalFooter]="true"
+        [groupHeaderHeight]="groupHeaderHeight" [headerHeight]="headerHeight" [localeText]="localeText"
+        [suppressAggFuncInHeader]="true" (gridReady)="onGridReady($event)">
     </ag-grid-angular>
     <button class="OCM-btnExpand" type="button" (click)="volver()">Volver</button>
 
