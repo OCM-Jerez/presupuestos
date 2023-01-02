@@ -95,7 +95,8 @@
             &--title {
                 width: 64%;
                 @include OCM-text;
-                @include fluid-type($min_width, $max_width, $min_font, $max_font);
+                // @include fluid-type($min_width, $max_width, $min_font, $max_font);
+                font-size: clamp(1.5rem, 5vw, 2.5rem);
             }
             &--homeEmpty {
                 width: 18%;
