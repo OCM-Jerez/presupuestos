@@ -1,6 +1,6 @@
 export function CellRendererOCM1(params: any) {
   if (params.value) {
-    const valorFormateado: number = params.value.toLocaleString();
+    const valorFormateado: number = params.value.toLocaleString("de-DE");
 
     if (params.node.footer) {
       switch (params.node.level) {
