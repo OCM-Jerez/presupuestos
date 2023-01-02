@@ -1,8 +1,8 @@
 <div>
     <h4 style="font-size:20px; text-align: center;">Programas que gastan del económico {{
-        dataStoreService.selectedCodeRowFirstLevel}}
-        {{
-        avalaibleYearsService.getAvalaibleYear() | async }}</h4>
+        dataStoreService.selectedCodeRowFirstLevel}}. {{
+        messageYears }}
+    </h4>
 
     <button *ngIf="!isExpanded" type="button" class="OCM-button" (click)="expandAll()">
         <span class="shadow"></span>

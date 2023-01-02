@@ -30,6 +30,7 @@ export class TableGastosGruposprogramasDetailsComponent {
   private _rowData: any[any];
   private _columnDefs: any[any];
   private _dataTableGraph: IDataTable;
+  messageYears = this.avalaibleYearsService.message;
 
   constructor(
     private _router: Router,
@@ -79,7 +80,6 @@ export class TableGastosGruposprogramasDetailsComponent {
     ];
 
     this.createDataOCM().then(() => {
-      console.log(this._rowData);
       this.gridOptions = {
         defaultColDef: {
           width: 130,
@@ -137,14 +137,13 @@ export class TableGastosGruposprogramasDetailsComponent {
     // .filter(x => x.CodGru == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear('gastosProgramaProgramas'))
       .filter(x => x.CodEco == eco);
-    console.log(this._rowData);
 
-    setTimeout(() => {
-      console.log(eco);
+    // setTimeout(() => {
+    //   console.log(eco);
 
-      // this._rowData.filter(x => x.CodEco == eco);
+    //   // this._rowData.filter(x => x.CodEco == eco);
 
-    }, 5000);
+    // }, 5000);
 
   }
 
