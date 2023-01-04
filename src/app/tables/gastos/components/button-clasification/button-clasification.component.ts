@@ -13,11 +13,12 @@ import { IButtonClasification } from '../../model/components.interface';
 
 export class ButtonClasificationComponent {
   @Input() buttons: IButtonClasification[] = [];
+  @Input() buttonsAdditional: string[] = [];
   @Input() hasTitle: boolean = true;
-  @Input() hasMenu: boolean = true;
-  @Input() hasGrafico: boolean = true;
-  @Input() hasDetalleOrganico: boolean = true;
-  @Input() hasDetalleEconomico: boolean = true;
+  // @Input() hasMenu: boolean = true;
+  // @Input() hasGrafico: boolean = true;
+  // @Input() hasDetalleOrganico: boolean = true;
+  // @Input() hasDetalleEconomico: boolean = true;
   @Output() clickButton = new EventEmitter<Event>();
   messageYears = this.avalaibleYearsService.message;
   hasDetallePrograma = false;

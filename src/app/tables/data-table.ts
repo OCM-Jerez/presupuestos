@@ -4,7 +4,8 @@ import { IButtonClasification } from "./gastos/model/components.interface";
 export interface IClasification extends Omit<IDataProperty, | 'attribute' | 'useStarWitch'> {
     attribute?: string,
     useStarWitch?: boolean,
-    buttons?: IButtonClasification[]
+    buttons?: IButtonClasification[],
+    buttonsAdditional?: string[],
 }
 
 const CLASIFICATION: { [key: string]: IClasification } = {
@@ -58,14 +59,18 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 250,
         graphTitle: 'Gastos por orgánico',
         buttons: [
-            {
-                name: 'Gráfico arbol',
-                clasificationType: 'gastosOrganicaOrganicos'
-            },
+            // {
+            //     name: 'Gráfico arbol',
+            //     clasificationType: 'gastosOrganicaOrganicos'
+            // },
             // {
             //     name: 'Detalle orgánico',
             //     clasificationType: 'gastosOrganicaOrganicos'
             // }
+        ],
+        buttonsAdditional: [
+            'Gráfico detalladado',
+            'Programas que componen orgánico seleccionado'
         ]
     },
     gastosProgramaAreas: {
@@ -78,10 +83,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         graphTitle: 'Gastos por área de programa',
         buttons: [
-            {
-                name: 'Gráfico arbol',
-                clasificationType: 'gastosProgramaAreas'
-            },
+            // {
+            //     name: 'Gráfico arbol',
+            //     clasificationType: 'gastosProgramaAreas'
+            // },
             {
                 name: 'Por áreas',
                 clasificationType: 'gastosProgramaAreas'
@@ -111,10 +116,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         graphTitle: 'Gastos por política de gasto',
         buttons: [
-            {
-                name: 'Gráfico arbol',
-                clasificationType: 'gastosProgramaAreas'
-            },
+            // {
+            //     name: 'Gráfico arbol',
+            //     clasificationType: 'gastosProgramaAreas'
+            // },
             {
                 name: 'Por áreas',
                 clasificationType: 'gastosProgramaAreas'
@@ -131,6 +136,9 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 name: 'Por programa',
                 clasificationType: 'gastosProgramaProgramas'
             }
+        ],
+        buttonsAdditional: [
+            'Gráfico detalladado',
         ]
     },
     gastosProgramaGrupos: {
@@ -143,10 +151,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         graphTitle: 'Gastos por grupo de programa',
         buttons: [
-            {
-                name: 'Gráfico arbol',
-                clasificationType: 'gastosProgramaAreas'
-            },
+            // {
+            //     name: 'Gráfico arbol',
+            //     clasificationType: 'gastosProgramaAreas'
+            // },
             {
                 name: 'Por áreas',
                 clasificationType: 'gastosProgramaAreas'
@@ -175,10 +183,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         graphTitle: 'Gastos por programa',
         buttons: [
-            {
-                name: 'Gráfico arbol',
-                clasificationType: 'gastosProgramaAreas'
-            },
+            // {
+            //     name: 'Gráfico arbol',
+            //     clasificationType: 'gastosProgramaAreas'
+            // },
             {
                 name: 'Por áreas',
                 clasificationType: 'gastosProgramaAreas'
@@ -195,6 +203,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 name: 'Por programa',
                 clasificationType: 'gastosProgramaProgramas'
             }
+        ],
+        buttonsAdditional: [
+            'Gráfico detalladado',
+            'Detalle del programa seleecionado'
         ]
     },
     gastosEconomicaCapitulos: {
@@ -207,10 +219,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 250,
         graphTitle: 'Gastos por capítulo',
         buttons: [
-            {
-                name: 'Gráfico arbol',
-                clasificationType: 'gastosEconomicaCapitulos'
-            },
+            // {
+            //     name: 'Gráfico arbol',
+            //     clasificationType: 'gastosEconomicaCapitulos'
+            // },
             {
                 name: 'Por capítulo gasto',
                 clasificationType: 'gastosEconomicaCapitulos'
@@ -227,7 +239,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 name: 'Por económico',
                 clasificationType: 'gastosEconomicaEconomicos'
             }
-        ]
+        ],
+        buttonsAdditional: [
+            'Gráfico detalladado',
+            'Programas que gastan del elemento seleccionado',]
     },
     gastosEconomicaArticulos: {
         attribute: 'CodEco',
@@ -239,10 +254,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         graphTitle: 'Gastos por artículo',
         buttons: [
-            {
-                name: 'Gráfico arbol',
-                clasificationType: 'gastosEconomicaCapitulos'
-            },
+            // {
+            //     name: 'Gráfico arbol',
+            //     clasificationType: 'gastosEconomicaCapitulos'
+            // },
             {
                 name: 'Por capítulo gasto',
                 clasificationType: 'gastosEconomicaCapitulos'
@@ -272,10 +287,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         graphTitle: 'Gastos por concepto',
         buttons: [
-            {
-                name: 'Gráfico arbol',
-                clasificationType: 'gastosEconomicaCapitulos'
-            },
+            // {
+            //     name: 'Gráfico arbol',
+            //     clasificationType: 'gastosEconomicaCapitulos'
+            // },
             {
                 name: 'Por capítulo gasto',
                 clasificationType: 'gastosEconomicaCapitulos'
@@ -304,10 +319,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         graphTitle: 'Gastos por económico',
         buttons: [
-            {
-                name: 'Gráfico arbol',
-                clasificationType: 'gastosEconomicaCapitulos'
-            },
+            // {
+            //     name: 'Gráfico arbol',
+            //     clasificationType: 'gastosEconomicaCapitulos'
+            // },
             {
                 name: 'Por capítulo gasto',
                 clasificationType: 'gastosEconomicaCapitulos'

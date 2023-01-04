@@ -39,16 +39,16 @@ export class TableGastosComponent implements OnInit {
       // console.log('target', target.textContent.trim());
 
       switch (target.textContent.trim()) {
-        case 'Gráfico':
+        case 'Gráfico detalladado':
           this.showGraph();
           break;
-        case 'Prográma':
+        case 'Detalle del programa seleecionado':
           this.showProgramaDetalle();
           break;
-        case 'Orgánico':
+        case 'Programas que componen orgánico seleccionado':
           this.showOrganicoDetalle();
           break;
-        case 'Programas':
+        case 'Programas que gastan del elemento seleccionado':
           this.showEconomicoDetalle();
           break;
       }
@@ -269,7 +269,7 @@ export class TableGastosComponent implements OnInit {
     const selectedRows = this.agGrid.api.getSelectedNodes();
 
     if (selectedRows.length > 0) {
-      console.log('Has pulsado detalles por economico', selectedRows[0].key);
+      console.log('Has pulsado Programas que gastan del elemento seleccionado', selectedRows[0].key);
 
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
       this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {

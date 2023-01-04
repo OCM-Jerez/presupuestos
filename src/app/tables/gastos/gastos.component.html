@@ -1,4 +1,8 @@
-<app-button-clasification (clickButton)="onChange($event)" [buttons]="buttons" [hasTitle]="hasTitle" [hasMenu]="hasMenu"
-    [hasGrafico]="hasGrafico" [hasDetalleOrganico]="hasDetalleOrganico"
-    [hasDetalleEconomico]="hasDetalleEconomico"></app-button-clasification>
+<app-button-clasification (clickButton)="onChange($event)" [buttons]="buttons" [buttonsAdditional]="buttonsAdditional"
+    [hasTitle]="hasTitle"></app-button-clasification>
 <app-table-gastos *ngIf="showTable" [event]="event" #table></app-table-gastos>
+
+<!-- <app-button-clasification (clickButton)="onChange($event)" [buttons]="buttons" [buttonsAdditional]="buttonsAdditional"
+    [hasTitle]="hasTitle" [hasMenu]="hasMenu" [hasGrafico]="hasGrafico" [hasDetalleOrganico]="hasDetalleOrganico"
+    [hasDetalleEconomico]="hasDetalleEconomico"></app-button-clasification>
+<app-table-gastos *ngIf="showTable" [event]="event" #table></app-table-gastos> -->

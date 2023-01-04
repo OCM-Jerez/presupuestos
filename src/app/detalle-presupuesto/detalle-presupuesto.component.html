@@ -96,29 +96,19 @@
             <!-- Tab ¿En qué se gasta? Clasificacion económica -->
             <div class="tab__content">
                 <div *ngIf="showGraphInTab" id="treemap2" class="treemap"></div>
-                <app-gastos *ngIf="showPrograma" (clickDetalle)="clickDetalle()" [buttonsHide]="[
-                'Gráfico arbol',             
-                ]" [hasTitle]=false [hasMenu]=false [hasGrafico]=true [hasDetalleOrganico]=false
-                    [hasDetalleEconomico]=false></app-gastos>
+                <app-gastos *ngIf="showPrograma" (clickDetalle)="clickDetalle()" [hasTitle]=false></app-gastos>
             </div>
 
             <!-- Tab ¿Quién lo gasta?  -->
             <div class="tab__content">
                 <div *ngIf="showGraphInTab" id="treemap3" class="treemap"></div>
-                <app-gastos *ngIf="showOrganico" (clickDetalle)="clickDetalle()" [buttonsHide]="[
-                'Gráfico arbol',
-                'Detalle orgánico',             
-                ]" [hasTitle]=false [hasMenu]=false [hasGrafico]=true [hasDetalleOrganico]=true
-                    [hasDetalleEconomico]=false></app-gastos>
+                <app-gastos *ngIf="showOrganico" (clickDetalle)="clickDetalle()" [hasTitle]=false></app-gastos>
             </div>
 
             <!-- Tab ¿Para qué gasta?  -->
             <div class="tab__content">
                 <div *ngIf="showGraphInTab" id="treemap4" class="treemap"></div>
-                <app-gastos *ngIf="showEconomica" (clickDetalle)="clickDetalle()" [buttonsHide]="[
-                'Gráfico arbol',             
-                ]" [hasTitle]=false [hasMenu]=false [hasGrafico]=true [hasDetalleOrganico]=false
-                    [hasDetalleEconomico]=true></app-gastos>
+                <app-gastos *ngIf="showEconomica" (clickDetalle)="clickDetalle()" [hasTitle]=false></app-gastos>
             </div>
         </div>
 

@@ -23,19 +23,20 @@ export class GastosComponent implements OnInit {
   /* #region  definir variables */
   @Output() clickDetalle = new EventEmitter<void>();
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  @Input() buttonsHide: string[] = [];
+  // @Input() buttonsHide: string[] = [];
   @Input() hasTitle: boolean = true;
-  @Input() hasMenu: boolean = true;
-  @Input() hasGrafico: boolean = true;
-  @Input() hasDetalleOrganico: boolean = true;
-  @Input() hasDetalleEconomico: boolean = true;
-  public hasGraficoButton = true;
-  public hasGraphTree = true;
-  public hasMenuButton = true;
+  // @Input() hasMenu: boolean = true;
+  // @Input() hasGrafico: boolean = true;
+  // @Input() hasDetalleOrganico: boolean = true;
+  // @Input() hasDetalleEconomico: boolean = true;
+  // public hasGraficoButton = true;
+  // public hasGraphTree = true;
+  // public hasMenuButton = true;
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
   private _dataTable: IDataTable;
   buttons = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttons;
+  buttonsAdditional = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttonsAdditional;
   showTable = true;
   event: Event;
   /* #endregion */
@@ -52,7 +53,7 @@ export class GastosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._hideButtons();
+    // this._hideButtons();
   }
 
   onGridReady = (params: GridReadyEvent) => {
@@ -100,21 +101,21 @@ export class GastosComponent implements OnInit {
 
       this.showTable = false;
       setTimeout(() => {
-        this._hideButtons()
+        // this._hideButtons()
         this.showTable = true;
       }, 500);
     }
   }
 
-  private _hideButtons() {
-    this.buttons.forEach(() => {
-      for (const key in this.buttons) {
-        if (this.buttonsHide.includes(this.buttons[key].name)) {
-          this.buttons.splice(parseInt(key), 1);
-        }
-      }
-    });
-  }
+  // private _hideButtons() {
+  //   this.buttons.forEach(() => {
+  //     for (const key in this.buttons) {
+  //       if (this.buttonsHide.includes(this.buttons[key].name)) {
+  //         this.buttons.splice(parseInt(key), 1);
+  //       }
+  //     }
+  //   });
+  // }
 
   // para usar esta opcion hay que descomentar la linea 48 de table-gastos.component.ts
   async detalle1(event: Event) {
@@ -177,6 +178,7 @@ export class GastosComponent implements OnInit {
         );
 
         this.buttons = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttons;
+        this.buttonsAdditional = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttonsAdditional;
 
         const sendDataTable: IDataTable = {
           dataPropertyTable: {
@@ -203,7 +205,7 @@ export class GastosComponent implements OnInit {
     }
     this.showTable = false;
     setTimeout(() => {
-      this._hideButtons()
+      // this._hideButtons()
       this.showTable = true;
     }, 500);
   }

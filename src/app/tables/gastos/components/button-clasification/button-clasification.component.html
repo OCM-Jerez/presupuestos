@@ -5,7 +5,7 @@
     <div>
         <span>Selecciona un fila y podras ver&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
-        <button *ngIf="hasGrafico" type="button" class="OCM-button" (click)="click($event)"
+        <!-- <button *ngIf="hasGrafico" type="button" class="OCM-button" (click)="click($event)"
             style="background: rgb(76, 90, 123);">
             Gráfico
         </button>
@@ -13,9 +13,9 @@
         <button *ngIf="hasDetallePrograma" type="button" class="OCM-button" style="background: rgb(76, 90, 123);"
             (click)="click($event)">
             Prográma
-        </button>
+        </button> -->
 
-        <button *ngIf="hasDetalleOrganico" type="button" class="OCM-button" (click)="click($event)"
+        <!-- <button *ngIf="hasDetalleOrganico" type="button" class="OCM-button" (click)="click($event)"
             style="background: rgb(76, 90, 123);">
             Orgánico
         </button>
@@ -24,13 +24,19 @@
             style="background: rgb(76, 90, 123);">
             Programas
         </button>
+    </div> -->
+
+        <div class="OCM-button--container">
+            <button type="button" class="OCM-button" *ngFor="let button of buttonsAdditional" (click)="click($event)">
+                {{button}}
+            </button>
+        </div>
+
+        <button type="button" class="OCM-button" *ngFor="let button of buttons" (click)="click($event)">
+            {{button.name}}
+        </button>
+
+        <!-- <button *ngIf="hasMenu" type="button" class="OCM-button" (click)="menu()">
+            Menú
+        </button> -->
     </div>
-
-    <button type="button" class="OCM-button" *ngFor="let button of buttons" (click)="click($event)">
-        {{button.name}}
-    </button>
-
-    <button *ngIf="hasMenu" type="button" class="OCM-button" (click)="menu()">
-        Menú
-    </button>
-</div>
