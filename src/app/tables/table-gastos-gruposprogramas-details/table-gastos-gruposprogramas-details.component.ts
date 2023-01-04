@@ -12,9 +12,10 @@ import { DataStoreService } from '../../services/dataStore.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
-import { PrepareDataGastosDetailsService } from '../../services/prepareDataGastosDetails.service';
+// import { PrepareDataGastosDetailsService } from '../../services/prepareDataGastosDetails.service';
 import { Router } from '@angular/router';
 import { AlertService } from '../../services/alert.service';
+import { PrepareDataGastosService } from '../../services/prepareDataGastos.service';
 
 @Component({
   selector: 'app-table-gastos-gruposprogramas-details',
@@ -37,7 +38,8 @@ export class TableGastosGruposprogramasDetailsComponent {
     private _alertService: AlertService,
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
-    private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
+    // private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
+    private _prepareDataGastosService: PrepareDataGastosService
   ) {
     this._dataTableGraph = dataStoreService.dataTable;
     this._columnDefs = [
@@ -129,25 +131,12 @@ export class TableGastosGruposprogramasDetailsComponent {
   }
 
   async createDataOCM(): Promise<void> {
-    console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    console.log(this.dataStoreService.dataTable.clasificationType);
-    const eco = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
-
-    // this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
-    // .filter(x => x.CodGru == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear('gastosProgramaProgramas'))
-      // .filter(x => x.CodEco == eco);
-      .filter(x => x.CodCap == eco);
-
-    // setTimeout(() => {
-    //   console.log(eco);
-
-    //   // this._rowData.filter(x => x.CodEco == eco);
-
-    // }, 5000);
-
+    const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
+    const codField = this._dataTableGraph.dataPropertyTable.codField;
+    this._rowData = (await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
+      .filter(x => x[codField] == codigoSearch);
+    console.log('this._rowData', this._rowData);
   }
-
 
   createColumnsChildren(year: number) {
     return [
@@ -208,24 +197,24 @@ export class TableGastosGruposprogramasDetailsComponent {
     ];
   }
 
-  expandAll() {
-    this._gridApi.expandAll();
-    this.isExpanded = true;
-  }
+  // expandAll() {
+  //   this._gridApi.expandAll();
+  //   this.isExpanded = true;
+  // }
 
-  collapseAll() {
-    this._gridApi.collapseAll();
-    this.isExpanded = false;
-  }
+  // collapseAll() {
+  //   this._gridApi.collapseAll();
+  //   this.isExpanded = false;
+  // }
 
   showProgramaDetails() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
-    if (selectedRows.length > 0) {
-      this.dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      this._router.navigateByUrl("/tableProgramaDetails")
-    } else {
-      this._alertService.showAlert(`Selecciona programa`);
-    }
+    // if (selectedRows.length > 0) {
+    this.dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+    this._router.navigateByUrl("/tableProgramaDetails")
+    // } else {
+    //   this._alertService.showAlert(`Selecciona programa`);
+    // }
   }
 
 }
