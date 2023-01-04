@@ -1,6 +1,6 @@
 
 /* #region  import */
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -14,6 +14,7 @@ import { DataStoreService } from '../../../../services/dataStore.service';
 
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
+import { FlagService } from '../../../../services/flag.service';
 /* #endregion */
 
 @Component({
@@ -32,6 +33,7 @@ export class TableGastosComponent implements OnInit {
   gridOptions: GridOptions;
   selectedCodeRowFirstLevel = '';
   private _dataGraph: IDataGraph = {} as IDataGraph;
+  // @Output() rowSelected = new EventEmitter<boolean>();
   @Input()
   set event(event: Event) {
     if (event) {
@@ -62,6 +64,7 @@ export class TableGastosComponent implements OnInit {
     private _router: Router,
     private _dataStoreService: DataStoreService,
     private _avalaibleYearsService: AvalaibleYearsService,
+    private _flagService: FlagService
   ) { }
 
   ngOnInit(): void {
@@ -71,6 +74,7 @@ export class TableGastosComponent implements OnInit {
 
   ngOnChanges(): void {
     this._loadTable();
+    this._flagService.changeFlag(false);
   }
 
   private async _loadTable() {
@@ -152,6 +156,9 @@ export class TableGastosComponent implements OnInit {
       onRowClicked: () => {
         const selectedRows = this.agGrid.api.getSelectedNodes();
         this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+        this._flagService.changeFlag(true);
+        // const hasRowSelected = true;
+        // this.rowSelected.emit(hasRowSelected);
         console.log('onRowClicked', selectedRows[0].key);
       }
     } as GridOptions;

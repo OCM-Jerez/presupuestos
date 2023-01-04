@@ -39,6 +39,7 @@ export class GastosComponent implements OnInit {
   buttonsAdditional = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttonsAdditional;
   showTable = true;
   event: Event;
+  // hasRowSelected: boolean = false;
   /* #endregion */
 
   constructor(
@@ -51,6 +52,11 @@ export class GastosComponent implements OnInit {
     this.event = event;
     this.detalle(event);
   }
+
+  // onChangeRowSelected(hasRowSelected: boolean) {
+  //   console.log('hasRowSelected', hasRowSelected);
+  //   hasRowSelected = hasRowSelected;
+  // }
 
   ngOnInit(): void {
     // this._hideButtons();
