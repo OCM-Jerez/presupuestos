@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AvalaibleYearsService } from '../../../../services/avalaibleYears.service';
+import { DataStoreService } from '../../../../services/dataStore.service';
 import { IButtonClasification } from '../../model/components.interface';
 
 @Component({
@@ -23,7 +24,8 @@ export class ButtonClasificationComponent {
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
-    private _router: Router
+    private _router: Router,
+    private _dataStoreService: DataStoreService
   ) { }
 
   click(event: Event): void {
@@ -35,6 +37,9 @@ export class ButtonClasificationComponent {
     } else {
       this.hasDetallePrograma = false;
     }
+
+    // console.log('this._dataStoreService.selectedCodeRow', this._dataStoreService.selectedCodeRow);
+    // if (this._dataStoreService.selectedCodeRow){}
 
   }
 

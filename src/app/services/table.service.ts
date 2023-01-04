@@ -33,7 +33,7 @@ export class TableService {
 
         // Uso el setter
         this._dataStoreService.dataTable = sendDataTable;
-        console.log('loadDataInitial', this._dataStoreService);
+        // console.log('loadDataInitial', this._dataStoreService);
         return sendDataTable;
     }
 
@@ -42,6 +42,8 @@ export class TableService {
         filter?: { valueFilter: string, attribute: string, useStarWitch?: boolean }
     ): Promise<IDataTable> {
         const dataPropertyTable = getClasificacion(tipoClasificacion) as IDataProperty;
+        // console.log('dataPropertyTable', dataPropertyTable);
+
         const dataPropertyGraph = getClasificacionGraph(tipoClasificacion);
         let rowData: any[];
 
@@ -101,8 +103,8 @@ export class TableService {
         // Uso el setter
         this._dataStoreService.dataTable = sendDataTable;
         this._dataStoreService.dataGraph = sendDataGraph;
-        console.log('loadData sendDataTable', sendDataTable);
-        console.log('loadData sendDataGraph', sendDataGraph);
+        // console.log('loadData sendDataTable', sendDataTable);
+        // console.log('loadData sendDataGraph', sendDataGraph);
         return sendDataTable;
 
     }

@@ -68,7 +68,8 @@ export class GastosComponent implements OnInit {
     this.clickDetalle.emit();
     const target = event.target as HTMLButtonElement;
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
-
+    // console.log('  button.clasificationType', button);
+    // debugger;
     if (button) {   // Unicamente si se ha pulsado un boton que necesita actualización de la data, 
       // no grafico por ejemplo, que llaman a otros componentes.
       const dataPropertyTable = getClasificacion(button.clasificationType);
@@ -76,6 +77,7 @@ export class GastosComponent implements OnInit {
       if (this._dataStoreService.selectedCodeRowFirstLevel) {
         const useStarWitch: boolean = dataPropertyTable.useStarWitch;
         const attribute: string = dataPropertyTable.attribute;
+
         this._dataTable = await this._tableService.loadData(
           button.clasificationType,
           { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });

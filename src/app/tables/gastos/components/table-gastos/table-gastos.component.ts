@@ -36,6 +36,7 @@ export class TableGastosComponent implements OnInit {
   set event(event: Event) {
     if (event) {
       const target = event.target as HTMLButtonElement;
+      // console.log('target', target.textContent.trim());
 
       switch (target.textContent.trim()) {
         case 'Gráfico':
@@ -64,6 +65,7 @@ export class TableGastosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // console.log('TableGastosComponent OnInit');
     this._loadTable();
   }
 
@@ -150,7 +152,7 @@ export class TableGastosComponent implements OnInit {
       onRowClicked: () => {
         const selectedRows = this.agGrid.api.getSelectedNodes();
         this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-
+        console.log('onRowClicked', selectedRows[0].key);
       }
     } as GridOptions;
   }

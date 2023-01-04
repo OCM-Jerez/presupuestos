@@ -136,7 +136,8 @@ export class TableGastosGruposprogramasDetailsComponent {
     // this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.getDataTable.clasificationType))
     // .filter(x => x.CodGru == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear('gastosProgramaProgramas'))
-      .filter(x => x.CodEco == eco);
+      // .filter(x => x.CodEco == eco);
+      .filter(x => x.CodCap == eco);
 
     // setTimeout(() => {
     //   console.log(eco);

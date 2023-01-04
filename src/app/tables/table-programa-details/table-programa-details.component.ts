@@ -32,7 +32,7 @@ export class TableProgramaDetailsComponent {
   private _gridApi: GridApi;
   private _rowData: any[any];
   private _columnDefs: any[any];
-  private _dataTableGraph: IDataTable;
+  private _dataTable: IDataTable;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -42,10 +42,14 @@ export class TableProgramaDetailsComponent {
     private _location: Location,
     private _alertService: AlertService
   ) {
-    this._dataTableGraph = dataStoreService.dataTable;
+    console.log('TableProgramaDetailsComponent');
+
+    this._dataTable = dataStoreService.dataTable;
+    console.log('this._dataTable', this._dataTable);
+
     this._columnDefs = [
       {
-        headerName: this._dataTableGraph.dataPropertyTable.headerName,
+        headerName: this._dataTable.dataPropertyTable.headerName,
         children: [
           {
             headerName: 'Programa',
@@ -71,53 +75,53 @@ export class TableProgramaDetailsComponent {
                 switch (params.node.level) {
                   case 0:  // Total programa.
                     return `<span style="color: red; font-size: 14px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
-                  case -1: // Total general.
-                    return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
+                  // case -1: // Total general.
+                  //   return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
                   default:
                     return 'SIN FORMATO';
                 }
               }
             }
           },
-          {
-            headerName: 'Organico',
-            field: 'DesOrg',
-            rowGroup: true,
-            showRowGroup: 'DesOrg',
-            filter: false,
-            width: 300,
-            pinned: 'left',
-            columnGroupShow: 'close',
-            cellRenderer: 'agGroupCellRenderer',
-            valueGetter: params => {
-              if (params.data) {
-                return params.data.CodOrg + ' - ' + params.data.DesOrg;
-              } else {
-                return null;
-              }
-            },
-            cellRendererParams: {
-              suppressCount: true,
-              innerRenderer: params => {
-                if (params.node.group) {
-                  return params.value;
-                } else {
-                  return '';
-                }
-              },
-              footerValueGetter(params) {
-                const val = params.value.split(' - ')[1];
-                switch (params.node.level) {
-                  case 1:  // Total organico.
-                    return `<span style="color: red; font-size: 12px;  font-weight: bold; margin-left: 0px;"> Total ${val}</span>`;
-                  case -1: // Total general.
-                    return '';
-                  default:
-                    return 'SIN FORMATO';
-                }
-              }
-            }
-          },
+          // {
+          //   headerName: 'Organico',
+          //   field: 'DesOrg',
+          //   rowGroup: true,
+          //   showRowGroup: 'DesOrg',
+          //   filter: false,
+          //   width: 300,
+          //   pinned: 'left',
+          //   columnGroupShow: 'close',
+          //   cellRenderer: 'agGroupCellRenderer',
+          //   valueGetter: params => {
+          //     if (params.data) {
+          //       return params.data.CodOrg + ' - ' + params.data.DesOrg;
+          //     } else {
+          //       return null;
+          //     }
+          //   },
+          //   cellRendererParams: {
+          //     suppressCount: true,
+          //     innerRenderer: params => {
+          //       if (params.node.group) {
+          //         return params.value;
+          //       } else {
+          //         return '';
+          //       }
+          //     },
+          //     footerValueGetter(params) {
+          //       const val = params.value.split(' - ')[1];
+          //       switch (params.node.level) {
+          //         case 1:  // Total organico.
+          //           return `<span style="color: red; font-size: 12px;  font-weight: bold; margin-left: 0px;"> Total ${val}</span>`;
+          //         case -1: // Total general.
+          //           return '';
+          //         default:
+          //           return 'SIN FORMATO';
+          //       }
+          //     }
+          //   }
+          // },
           {
             headerName: 'Capítulo',
             field: 'DesCap',
@@ -368,17 +372,17 @@ export class TableProgramaDetailsComponent {
       {
         headerName: 'Créditos',
         children: [
-          {
-            headerName: 'Previsiones Iniciales',
-            field: `Iniciales${year}`,
-            columnGroupShow: 'close'
-          },
-          {
-            headerName: 'Total Modificaciones',
-            field: `Modificaciones${year}`,
-            width: 140,
-            columnGroupShow: 'close'
-          },
+          // {
+          //   headerName: 'Previsiones Iniciales',
+          //   field: `Iniciales${year}`,
+          //   columnGroupShow: 'close'
+          // },
+          // {
+          //   headerName: 'Total Modificaciones',
+          //   field: `Modificaciones${year}`,
+          //   width: 140,
+          //   columnGroupShow: 'close'
+          // },
           {
             headerName: 'Creditos definitivos',
             field: `Definitivas${year}`,
@@ -390,35 +394,35 @@ export class TableProgramaDetailsComponent {
       {
         headerName: 'Gastos',
         children: [
-          {
-            headerName: 'Gastos Comprometidos',
-            field: `GastosComprometidos${year}`,
-            width: 140,
-            columnGroupShow: 'close',
-          },
-          {
-            headerName: 'Obligaciones reconocidas netas',
-            field: `ObligacionesReconocidasNetas${year}`,
-            width: 135,
-            columnGroupShow: 'close'
-          },
+          // {
+          //   headerName: 'Gastos Comprometidos',
+          //   field: `GastosComprometidos${year}`,
+          //   width: 140,
+          //   columnGroupShow: 'close',
+          // },
+          // {
+          //   headerName: 'Obligaciones reconocidas netas',
+          //   field: `ObligacionesReconocidasNetas${year}`,
+          //   width: 135,
+          //   columnGroupShow: 'close'
+          // },
           {
             headerName: 'Pagos',
             field: `Pagos${year}`,
             columnGroupShow: 'close'
           },
-          {
-            headerName: 'Obligaciones pendientes de pago al final periodo',
-            field: `ObligacionesPendientePago${year}`,
-            width: 120,
-            columnGroupShow: 'close'
-          },
+          // {
+          //   headerName: 'Obligaciones pendientes de pago al final periodo',
+          //   field: `ObligacionesPendientePago${year}`,
+          //   width: 120,
+          //   columnGroupShow: 'close'
+          // },
         ]
       },
-      {
-        headerName: 'Remanente Credito',
-        field: `RemanenteCredito${year}`,
-      },
+      // {
+      //   headerName: 'Remanente Credito',
+      //   field: `RemanenteCredito${year}`,
+      // },
     ];
   }
 

@@ -74,7 +74,6 @@ export class PrepareDataTotalesPresupuestoService {
     ]
 
     // Iterar sobre cada fila de la tabla de datos
-    console.log(this._dataStoreService.dataTable);
     const rowDataIngresos = await this._dataStoreService.dataTable.rowDataIngresos;
 
     for (const row of rowDataIngresos) {
