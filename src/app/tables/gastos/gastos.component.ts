@@ -1,5 +1,4 @@
-/* #region  import */
-import { Component, ViewChild, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnApi, GridApi, GridReadyEvent } from "ag-grid-community";
@@ -12,26 +11,16 @@ import { IButtonClasification } from './model/components.interface';
 import { getClasificacion } from '../data-table';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
-/* #endregion */
 
 @Component({
   selector: 'app-gastos',
   templateUrl: './gastos.component.html',
   styleUrls: ['./gastos.component.scss']
 })
-export class GastosComponent implements OnInit {
-  /* #region  definir variables */
+export class GastosComponent {
   @Output() clickDetalle = new EventEmitter<void>();
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  // @Input() buttonsHide: string[] = [];
   @Input() hasTitle: boolean = true;
-  // @Input() hasMenu: boolean = true;
-  // @Input() hasGrafico: boolean = true;
-  // @Input() hasDetalleOrganico: boolean = true;
-  // @Input() hasDetalleEconomico: boolean = true;
-  // public hasGraficoButton = true;
-  // public hasGraphTree = true;
-  // public hasMenuButton = true;
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
   private _dataTable: IDataTable;
@@ -39,8 +28,6 @@ export class GastosComponent implements OnInit {
   buttonsAdditional = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttonsAdditional;
   showTable = true;
   event: Event;
-  // hasRowSelected: boolean = false;
-  /* #endregion */
 
   constructor(
     private _dataStoreService: DataStoreService,
@@ -53,14 +40,6 @@ export class GastosComponent implements OnInit {
     this.detalle(event);
   }
 
-  // onChangeRowSelected(hasRowSelected: boolean) {
-  //   console.log('hasRowSelected', hasRowSelected);
-  //   hasRowSelected = hasRowSelected;
-  // }
-
-  ngOnInit(): void {
-    // this._hideButtons();
-  }
 
   onGridReady = (params: GridReadyEvent) => {
     this._gridApi = params.api;
@@ -107,21 +86,10 @@ export class GastosComponent implements OnInit {
 
       this.showTable = false;
       setTimeout(() => {
-        // this._hideButtons()
         this.showTable = true;
       }, 500);
     }
   }
-
-  // private _hideButtons() {
-  //   this.buttons.forEach(() => {
-  //     for (const key in this.buttons) {
-  //       if (this.buttonsHide.includes(this.buttons[key].name)) {
-  //         this.buttons.splice(parseInt(key), 1);
-  //       }
-  //     }
-  //   });
-  // }
 
   // para usar esta opcion hay que descomentar la linea 48 de table-gastos.component.ts
   async detalle1(event: Event) {
@@ -215,8 +183,6 @@ export class GastosComponent implements OnInit {
       this.showTable = true;
     }, 500);
   }
-
-
 
 }
 
