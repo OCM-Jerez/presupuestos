@@ -1,4 +1,3 @@
-/* #region  import */
 import { IDataTotalesPresupuesto } from './../commons/interfaces/dataTotalesPresupuesto. interface';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
@@ -20,7 +19,6 @@ import { IDataTable } from '../commons/interfaces/dataTable.interface';
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
 heatmap(Highcharts)
-/* #endregion */
 
 @Component({
   selector: 'app-detalle-presupuesto',
@@ -29,7 +27,6 @@ heatmap(Highcharts)
 })
 
 export class DetallePresupuestoComponent implements OnInit {
-  /* #region  Definir variables */
   private _dataTable: IDataTable;
   liqDate = environment.liqDate;
   showGraphInTab = true;
@@ -50,7 +47,6 @@ export class DetallePresupuestoComponent implements OnInit {
   private _radioButtonSelected = 'radio-1';
   private _tabSelected: string = "tab1";
   private _treemap = 'treemap1';
-  /* #endregion */
 
   constructor(
     private _dataStoreService: DataStoreService,
@@ -93,20 +89,10 @@ export class DetallePresupuestoComponent implements OnInit {
   private async _loadData(): Promise<void> {
     // Si se recarga la pagina hay que volver a generar la data. 
     this._dataTable = await this._tableService.loadDataInitial();
-
-    // console.warn('------  Cargo esta data la recupero para usarla en este componente.
-    // console.warn('------  La misma data se almacena en el store para ser usada en otros componentes.
-    // console.warn('------  Con data.rowData se calculan los datos del treemap en la function treeGraph(data.rowData).
-    // console.warn('------  La data se almacena en store.
-    // console.warn('------  graphTreemap(data) recuperara la data del store y la usará para mostrar el grafico.
-    // console.warn('------  El AG Grid mostrara los datos adecuado recuperandolos del store.
-
     await this.setTotalesPresupuesto();
     let data = await this._tableService.loadData(this._typeClasification);
     await this.treeGraph(data.rowDataGastos)
-    // NO FUNCIONA necesitamos todos los datos porque se cambiara de pestaña
-    // await this.treeGraph(this._dataStoreService.getDataTable.rowDataGastos);
-    await this.graphTreemap();  // No es necesario pasarle la data, ya que la recupera del store.
+    await this.graphTreemap();
   }
 
   async setTotalesPresupuesto() {
@@ -195,7 +181,7 @@ export class DetallePresupuestoComponent implements OnInit {
     this._typeClasification = values[tab];
   }
 
-  clickDetalle() {
+  clickDetalle(): void {
     // Al pulsar botones grafico o detalle, como navegan a otra ruta intentan cargar el graphTreeMap y da error.
     if (this._typeClasification !== 'gastosOrganicaOrganicos' && this._typeClasification !== 'gastosProgramaPoliticas') {
       setTimeout(() => {
@@ -217,8 +203,6 @@ export class DetallePresupuestoComponent implements OnInit {
       this.showTablePresupuestos = false;
     }
 
-    // await this._loadData();
-    // this.setValues(this._tabSelected);
     let data = await this._tableService.loadData(this._typeClasification);
     await this.treeGraph(data.rowDataGastos)
 
