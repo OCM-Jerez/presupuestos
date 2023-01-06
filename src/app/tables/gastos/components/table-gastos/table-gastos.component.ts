@@ -24,7 +24,6 @@ import { FlagService } from '../../../../services/flag.service';
 })
 
 export class TableGastosComponent implements OnInit {
-  /* #region  definir variables */
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private _columnDefs: any[];
   private _dataTable: IDataTable;
@@ -33,13 +32,10 @@ export class TableGastosComponent implements OnInit {
   gridOptions: GridOptions;
   selectedCodeRowFirstLevel = '';
   private _dataGraph: IDataGraph = {} as IDataGraph;
-  // @Output() rowSelected = new EventEmitter<boolean>();
   @Input()
   set event(event: Event) {
     if (event) {
       const target = event.target as HTMLButtonElement;
-      // console.log('target', target.textContent.trim());
-
       switch (target.textContent.trim()) {
         case 'Gráfico detalladado':
           this.showGraph();
@@ -54,10 +50,8 @@ export class TableGastosComponent implements OnInit {
           this.showEconomicoDetalle();
           break;
       }
-
     }
   }
-  /* #endregion */
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -68,7 +62,6 @@ export class TableGastosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // console.log('TableGastosComponent OnInit');
     this._loadTable();
   }
 

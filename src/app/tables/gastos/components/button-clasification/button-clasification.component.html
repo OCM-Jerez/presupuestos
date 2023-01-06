@@ -1,11 +1,10 @@
 <div>
-    <h4 *ngIf="hasTitle" class="OCM-text--cabecera">Comparativa gastos {{
-        messageYears }}</h4>
 
     <div>
         <span *ngIf="!flag" style=" font-size: 16px; color:red">Selecciona un fila y podras ver las diferentes opciones
             disponibles</span>
     </div>
+
     <div *ngIf="flag" class="OCM-button--container">
         <button type="button" class="OCM-button" *ngFor="let button of buttonsAdditional" (click)="click($event)">
             {{button}}
@@ -17,29 +16,5 @@
             {{button.name}}
         </button>
     </div>
-    <!-- <button *ngIf="hasMenu" type="button" class="OCM-button" (click)="menu()">
-            Menú
-        </button> -->
 
-
-
-    <!-- <button *ngIf="hasGrafico" type="button" class="OCM-button" (click)="click($event)"
-            style="background: rgb(76, 90, 123);">
-            Gráfico
-        </button>
-
-        <button *ngIf="hasDetallePrograma" type="button" class="OCM-button" style="background: rgb(76, 90, 123);"
-            (click)="click($event)">
-            Prográma
-        </button> -->
-
-    <!-- <button *ngIf="hasDetalleOrganico" type="button" class="OCM-button" (click)="click($event)"
-            style="background: rgb(76, 90, 123);">
-            Orgánico
-        </button>
-
-        <button *ngIf="hasDetalleEconomico" type="button" class="OCM-button" (click)="click($event)"
-            style="background: rgb(76, 90, 123);">
-            Programas
-        </button>
-    </div> -->
+</div>
