@@ -219,10 +219,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 250,
         graphTitle: 'Gastos por capítulo',
         buttons: [
-            // {
-            //     name: 'Gráfico arbol',
-            //     clasificationType: 'gastosEconomicaCapitulos'
-            // },
             {
                 name: 'Por capítulo gasto',
                 clasificationType: 'gastosEconomicaCapitulos'
