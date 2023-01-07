@@ -37,8 +37,6 @@ export class TableGastosGruposprogramasDetailsComponent {
     private _prepareDataGastosService: PrepareDataGastosService
   ) {
     this._dataTableGraph = dataStoreService.dataTable;
-    console.log('this._dataTableGraph88888888888888888', dataStoreService.dataTable);
-
     this._columnDefs = [
       {
         // headerName: this._dataTableGraph.dataPropertyTable.headerName,
@@ -130,14 +128,14 @@ export class TableGastosGruposprogramasDetailsComponent {
 
   async createDataOCM(): Promise<void> {
     const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
-    console.log('codigoSearch', codigoSearch);
+    // console.log('codigoSearch', codigoSearch);
 
     const codField = this._dataTableGraph.dataPropertyTable.codField;
 
     this._rowData = (await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
       // .filter(x => x[codField] == codigoSearch);
       .filter(x => x.CodCap == codigoSearch);
-    console.log('this._rowData', this._rowData);
+    // console.log('this._rowData', this._rowData);
   }
 
   createColumnsChildren(year: number) {

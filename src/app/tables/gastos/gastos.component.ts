@@ -50,21 +50,19 @@ export class GastosComponent {
   }
 
   async detalle(event: Event) {
-    console.log("inside detalle ++++++++++++++++++")
     this._dataTable = await this._tableService.loadData(
       'gastosEconomicaCapitulos');
-    console.log(this._dataTable);
 
     this.clickDetalle.emit();
     const target = event.target as HTMLButtonElement;
-    console.log('target', target.textContent.trim());
+    // console.log('target', target.textContent.trim());
     if (target.textContent.trim() === 'Programas que gastan del elemento seleccionado') {
-      console.log('Programas que gastan del elemento seleccionado');
+      // console.log('Programas que gastan del elemento seleccionado');
       // let tipoClasificacion: CLASIFICATION_TYPE = 'gastosEconomicaCapitulos';
     }
 
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
-    console.log('button.clasificationType', button);
+    // console.log('button.clasificationType', button);
     // debugger;
     if (button) {
 
@@ -75,13 +73,10 @@ export class GastosComponent {
       if (this._dataStoreService.selectedCodeRowFirstLevel) {
         const useStarWitch: boolean = dataPropertyTable.useStarWitch;
         const attribute: string = dataPropertyTable.attribute;
-
-        console.log('if button ++++++++++++++++++++++++', button.clasificationType);
         this._dataTable = await this._tableService.loadData(
           button.clasificationType,
           { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
       } else {
-        console.log('Else +++++++++++++++++++++++++++++', button.clasificationType);
         this._dataTable = await this._tableService.loadData(
           button.clasificationType);
       }
@@ -133,7 +128,7 @@ export class GastosComponent {
       }
 
       // console.log('this._dataTable= ', this._dataTable);
-      console.log('sendDataTable= ', sendDataTable);
+      // console.log('sendDataTable= ', sendDataTable);
       this._dataStoreService.dataTable = sendDataTable;
     } else {
       const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
@@ -185,7 +180,7 @@ export class GastosComponent {
         }
 
         // console.log('this._dataTable= ', this._dataTable);
-        console.log('sendDataTable= ', sendDataTable);
+        // console.log('sendDataTable= ', sendDataTable);
         this._dataStoreService.dataTable = sendDataTable;
 
       }

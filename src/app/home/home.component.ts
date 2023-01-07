@@ -26,12 +26,10 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log("inside ngOnInit in home component ****************")
     this._randomData()
   }
 
   private async _randomData(): Promise<void> {
-    console.log("antes de loadInitial en el home !!!!!!!!!!!!!!!!!!")
     this._dataTable = await this._tableService.loadDataInitial();
 
     const ingresoGasto = (Math.random() >= 0.5) ? true : false;

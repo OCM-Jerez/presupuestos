@@ -34,7 +34,7 @@ export class TableGastosComponent implements OnInit {
   private _dataGraph: IDataGraph = {} as IDataGraph;
   @Input()
   set event(event: Event) {
-    console.log("content of emit clickDetalles: ", event);
+    // console.log("content of emit clickDetalles: ", event);
     if (event) {
       const target = event.target as HTMLButtonElement;
       switch (target.textContent.trim()) {
@@ -153,7 +153,7 @@ export class TableGastosComponent implements OnInit {
         this._flagService.changeFlag(true);
         // const hasRowSelected = true;
         // this.rowSelected.emit(hasRowSelected);
-        console.log('onRowClicked', selectedRows[0].key);
+        // console.log('onRowClicked', selectedRows[0].key);
       }
     } as GridOptions;
   }
@@ -270,7 +270,7 @@ export class TableGastosComponent implements OnInit {
     const selectedRows = this.agGrid.api.getSelectedNodes();
 
     // if (selectedRows.length > 0) {
-    console.log('Has pulsado Programas que gastan del elemento seleccionado', selectedRows[0].key);
+    // console.log('Has pulsado Programas que gastan del elemento seleccionado', selectedRows[0].key);
     this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
     // this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
     //   this._router.navigate(['tableGrupoProgramaDetails']);
