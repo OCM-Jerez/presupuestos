@@ -88,7 +88,8 @@ export class DetallePresupuestoComponent implements OnInit {
 
   private async _loadData(): Promise<void> {
     // Si se recarga la pagina hay que volver a generar la data. 
-    this._dataTable = await this._tableService.loadDataInitial();
+    //this._dataTable = await this._tableService.loadDataInitial();
+
     await this.setTotalesPresupuesto();
     let data = await this._tableService.loadData(this._typeClasification);
     await this.treeGraph(data.rowDataGastos)
@@ -183,7 +184,11 @@ export class DetallePresupuestoComponent implements OnInit {
 
   clickDetalle(): void {
     // Al pulsar botones grafico o detalle, como navegan a otra ruta intentan cargar el graphTreeMap y da error.
-    if (this._typeClasification !== 'gastosOrganicaOrganicos' && this._typeClasification !== 'gastosProgramaPoliticas') {
+    console.log('clickDetalle', this._typeClasification);
+
+    if (this._typeClasification !== 'gastosOrganicaOrganicos'
+      && this._typeClasification !== 'gastosProgramaPoliticas'
+      && this._typeClasification !== 'gastosEconomicaCapitulos') {
       setTimeout(() => {
         this.graphTreemap()
       }, 0);
