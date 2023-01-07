@@ -312,13 +312,11 @@ export class TableProgramaDetailsComponent {
         headerName: 'Creditos definitivos',
         field: `Definitivas${year}`,
         width: 120,
-        // columnGroupShow: 'close'
       },
       {
         headerName: 'Pagos',
         field: `Pagos${year}`,
         width: 120,
-        // columnGroupShow: 'close'
       },
     ];
   }
