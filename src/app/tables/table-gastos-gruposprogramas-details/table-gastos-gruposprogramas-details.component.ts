@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnState, GridReadyEvent } from 'ag-grid-community';
@@ -9,13 +10,9 @@ import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
+import { PrepareDataGastosService } from '../../services/prepareDataGastos.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
-
-// import { PrepareDataGastosDetailsService } from '../../services/prepareDataGastosDetails.service';
-import { Router } from '@angular/router';
-import { AlertService } from '../../services/alert.service';
-import { PrepareDataGastosService } from '../../services/prepareDataGastos.service';
 
 @Component({
   selector: 'app-table-gastos-gruposprogramas-details',
@@ -35,10 +32,8 @@ export class TableGastosGruposprogramasDetailsComponent {
 
   constructor(
     private _router: Router,
-    private _alertService: AlertService,
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
-    // private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
     private _prepareDataGastosService: PrepareDataGastosService
   ) {
     this._dataTableGraph = dataStoreService.dataTable;
@@ -197,24 +192,10 @@ export class TableGastosGruposprogramasDetailsComponent {
     ];
   }
 
-  // expandAll() {
-  //   this._gridApi.expandAll();
-  //   this.isExpanded = true;
-  // }
-
-  // collapseAll() {
-  //   this._gridApi.collapseAll();
-  //   this.isExpanded = false;
-  // }
-
   showProgramaDetails() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
-    // if (selectedRows.length > 0) {
     this.dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
     this._router.navigateByUrl("/tableProgramaDetails")
-    // } else {
-    //   this._alertService.showAlert(`Selecciona programa`);
-    // }
   }
 
 }
