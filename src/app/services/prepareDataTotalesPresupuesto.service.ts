@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
+
 import { DataStoreService } from './dataStore.service';
-// import { TableService } from './table.service';
+import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,63 +11,17 @@ export class PrepareDataTotalesPresupuestoService {
   private _totalPresupuestoGastos: any;
 
   constructor(
-    // private _tableService: TableService,
     private _dataStoreService: DataStoreService,
   ) { }
 
   async calcTotales() {
     await this.calcPresupuestoIngresos();
     await this.calcPresupuestoGastos();
-    // await no funciona
-    // Si no se hacen los dos setTimeout no funciona
-    // setTimeout(() => {
-    //   this.calcPresupuestoIngresos();
-    // }, 0);
-
-    // setTimeout(() => {
-    //   this.calcPresupuestoGastos();
-    // }, 0);
-
     this.setTotalesPresupuesto();
   }
 
   async calcPresupuestoIngresos() {
-    // await this._tableService.loadData('ingresosEconomicaArticulos');
-
-
-    // this._totalPresupuestoIngresos = this._dataStoreService.getDataTable.rowData.reduce((acc, curr) => {
-    //   Object.keys(curr).forEach((key, index) => {
-    //     if (!acc[key]) {
-    //       acc[key] = 0
-    //     }
-    //     acc[key] += curr[key]
-    //   })
-    //   return acc
-    // }, {})
-    // console.log(this._totalPresupuestoIngresos);
-
-    // Propuesto por ChatGPT
-    // Este código utiliza un bucle for en lugar de la función reduce para
-    // iterar sobre las filas de la tabla de datos. Esto puede mejorar el 
-    // rendimiento ya que evita la creación de una función anónima en cada
-    // iteración del bucle. Además, se utiliza un bucle for-in en lugar de 
-    //la función Object.keys para iterar sobre las claves del objeto que
-    // representa la fila de datos actual, lo que también puede mejorar el rendimiento.
     this._totalPresupuestoIngresos = {};
-    // const exclude = [
-    //   'CodArt',
-    //   'CodEco',
-    //   'DerechosAnulados2022',
-    //   'DerechosCancelados2022',
-    //   'DerechosPendienteCobro2022',
-    //   'DerechosReconocidos2022',
-    //   'DesArt',
-    //   'DiferenciaPrevision2022',
-    //   'Iniciales2022',
-    //   'Modificaciones2022',
-    //   'RecaudacionNeta2022'
-    // ];
-
     const include = [
       'Definitivas2022',
       'DerechosReconocidosNetos2022'
@@ -94,7 +48,6 @@ export class PrepareDataTotalesPresupuestoService {
   }
 
   async calcPresupuestoGastos() {
-    // await this._tableService.loadData('gastosOrganicaOrganicos');
     this._totalPresupuestoGastos = {};
     const include = [
       'Definitivas2022',
