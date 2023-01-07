@@ -34,6 +34,7 @@ export class TableGastosComponent implements OnInit {
   private _dataGraph: IDataGraph = {} as IDataGraph;
   @Input()
   set event(event: Event) {
+    console.log("content of emit clickDetalles: ", event);
     if (event) {
       const target = event.target as HTMLButtonElement;
       switch (target.textContent.trim()) {
@@ -268,13 +269,14 @@ export class TableGastosComponent implements OnInit {
   showEconomicoDetalle() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
 
-    if (selectedRows.length > 0) {
-      console.log('Has pulsado Programas que gastan del elemento seleccionado', selectedRows[0].key);
-      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this._router.navigate(['tableGrupoProgramaDetails']);
-      });
-    }
+    // if (selectedRows.length > 0) {
+    console.log('Has pulsado Programas que gastan del elemento seleccionado', selectedRows[0].key);
+    this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+    // this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    //   this._router.navigate(['tableGrupoProgramaDetails']);
+    // });
+    // }
+    this._router.navigate(['/tableGrupoProgramaDetails'])
 
   }
 
