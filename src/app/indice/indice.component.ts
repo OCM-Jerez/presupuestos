@@ -79,6 +79,7 @@ export class IndiceComponent implements OnInit {
     // si recargo la pagina cargo datos iniciales.
     if (this._dataStoreService.dataTable === undefined) {
       this._dataTable = await this._tableService.loadDataInitial();
+
     };
 
     await this.calcSumIngresos();
