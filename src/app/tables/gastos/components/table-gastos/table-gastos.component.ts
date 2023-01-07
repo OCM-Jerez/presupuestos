@@ -40,7 +40,7 @@ export class TableGastosComponent implements OnInit {
         case 'Gráfico detalladado':
           this.showGraph();
           break;
-        case 'Detalle del programa seleecionado':
+        case 'Detalle del programa seleccionado':
           this.showProgramaDetalle();
           break;
         case 'Programas que componen orgánico seleccionado':
