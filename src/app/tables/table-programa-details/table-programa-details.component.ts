@@ -11,7 +11,6 @@ import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
-
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
 import { AlertService } from '../../services/alert.service';
 
@@ -217,10 +216,10 @@ export class TableProgramaDetailsComponent {
         rowData: this._rowData,
         columnDefs: this._columnDefs,
         groupDisplayType: 'custom',
-        groupIncludeTotalFooter: true,
+        groupIncludeTotalFooter: false,
         groupIncludeFooter: true,
         groupHeaderHeight: 25,
-        headerHeight: 54,
+        headerHeight: 26,
         suppressAggFuncInHeader: true,
         rowSelection: 'single',
         localeText: localeTextESPes,
@@ -299,8 +298,6 @@ export class TableProgramaDetailsComponent {
       dataFinal.push(value)
     });
     this._rowData = dataFinal;
-    // console.log(typeof (this._rowData));
-    // console.log(this._rowData);
 
     // Necesario debido a tiempo de vida componente.
     setTimeout(() => {
@@ -370,59 +367,17 @@ export class TableProgramaDetailsComponent {
   createColumnsChildren(year: number) {
     return [
       {
-        headerName: 'Créditos',
-        children: [
-          // {
-          //   headerName: 'Previsiones Iniciales',
-          //   field: `Iniciales${year}`,
-          //   columnGroupShow: 'close'
-          // },
-          // {
-          //   headerName: 'Total Modificaciones',
-          //   field: `Modificaciones${year}`,
-          //   width: 140,
-          //   columnGroupShow: 'close'
-          // },
-          {
-            headerName: 'Creditos definitivos',
-            field: `Definitivas${year}`,
-            width: 140,
-            columnGroupShow: 'close'
-          },
-        ]
+        headerName: 'Creditos definitivos',
+        field: `Definitivas${year}`,
+        width: 120,
+        // columnGroupShow: 'close'
       },
       {
-        headerName: 'Gastos',
-        children: [
-          // {
-          //   headerName: 'Gastos Comprometidos',
-          //   field: `GastosComprometidos${year}`,
-          //   width: 140,
-          //   columnGroupShow: 'close',
-          // },
-          // {
-          //   headerName: 'Obligaciones reconocidas netas',
-          //   field: `ObligacionesReconocidasNetas${year}`,
-          //   width: 135,
-          //   columnGroupShow: 'close'
-          // },
-          {
-            headerName: 'Pagos',
-            field: `Pagos${year}`,
-            columnGroupShow: 'close'
-          },
-          // {
-          //   headerName: 'Obligaciones pendientes de pago al final periodo',
-          //   field: `ObligacionesPendientePago${year}`,
-          //   width: 120,
-          //   columnGroupShow: 'close'
-          // },
-        ]
+        headerName: 'Pagos',
+        field: `Pagos${year}`,
+        width: 120,
+        // columnGroupShow: 'close'
       },
-      // {
-      //   headerName: 'Remanente Credito',
-      //   field: `RemanenteCredito${year}`,
-      // },
     ];
   }
 
@@ -452,3 +407,64 @@ export class TableProgramaDetailsComponent {
   }
 
 }
+
+
+// createColumnsChildren(year: number) {
+//   return [
+//     {
+//       headerName: 'Créditos',
+//       children: [
+//         // {
+//         //   headerName: 'Previsiones Iniciales',
+//         //   field: `Iniciales${year}`,
+//         //   columnGroupShow: 'close'
+//         // },
+//         // {
+//         //   headerName: 'Total Modificaciones',
+//         //   field: `Modificaciones${year}`,
+//         //   width: 140,
+//         //   columnGroupShow: 'close'
+//         // },
+//         {
+//           headerName: 'Creditos definitivos',
+//           field: `Definitivas${year}`,
+//           width: 120,
+//           columnGroupShow: 'close'
+//         },
+//       ]
+//     },
+//     {
+//       headerName: 'Gastos',
+//       children: [
+//         // {
+//         //   headerName: 'Gastos Comprometidos',
+//         //   field: `GastosComprometidos${year}`,
+//         //   width: 140,
+//         //   columnGroupShow: 'close',
+//         // },
+//         // {
+//         //   headerName: 'Obligaciones reconocidas netas',
+//         //   field: `ObligacionesReconocidasNetas${year}`,
+//         //   width: 135,
+//         //   columnGroupShow: 'close'
+//         // },
+//         {
+//           headerName: 'Pagos',
+//           field: `Pagos${year}`,
+//           width: 120,
+//           columnGroupShow: 'close'
+//         },
+//         // {
+//         //   headerName: 'Obligaciones pendientes de pago al final periodo',
+//         //   field: `ObligacionesPendientePago${year}`,
+//         //   width: 120,
+//         //   columnGroupShow: 'close'
+//         // },
+//       ]
+//     },
+//     // {
+//     //   headerName: 'Remanente Credito',
+//     //   field: `RemanenteCredito${year}`,
+//     // },
+//   ];
+// }
