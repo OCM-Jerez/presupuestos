@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { IndiceComponent } from './indice/indice.component';
 
 const routes: Routes = [
-  { path: 'home', component: IndiceComponent },
+  // { path: 'home', component: IndiceComponent },
 
   { path: 'homeNew', component: HomeComponent },
   { path: 'detallePresupuesto', component: DetallePresupuestoComponent },
@@ -44,6 +44,7 @@ const routes: Routes = [
   { path: 'graphGastos', loadChildren: () => import('./graphs/graph-gastos/graph-gastos.module').then((m) => m.GraphGastosModule) },
   { path: 'graphTree', loadChildren: () => import('./graphs/graph-tree/graph-tree.module').then((m) => m.GraphTreeModule) },
   { path: '**', pathMatch: 'full', redirectTo: 'homeNew' }
+
 ];
 @NgModule({
   imports: [
