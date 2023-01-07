@@ -139,6 +139,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ],
         buttonsAdditional: [
             'Gráfico detalladado',
+            'Detalle del programa seleccionado'
         ]
     },
     gastosProgramaGrupos: {
@@ -206,7 +207,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ],
         buttonsAdditional: [
             'Gráfico detalladado',
-            'Detalle del programa seleecionado'
+            'Detalle del programa seleccionado'
         ]
     },
     gastosEconomicaCapitulos: {
