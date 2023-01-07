@@ -17,6 +17,7 @@ import { AlertService } from '../../services/alert.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { accumulate } from '../../commons/util/util';
+import { PrepareDataGastosService } from '../../services/prepareDataGastos.service';
 
 @Component({
   selector: 'app-table-programa-details',
@@ -39,7 +40,8 @@ export class TableProgramaDetailsComponent {
     private _router: Router,
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
     private _location: Location,
-    private _alertService: AlertService
+    private _alertService: AlertService,
+    private _prepareDataGastosService: PrepareDataGastosService
   ) {
     console.log('TableProgramaDetailsComponent');
 
@@ -238,9 +240,19 @@ export class TableProgramaDetailsComponent {
     params.columnApi.applyColumnState({ state: defaultSortModel });
   }
 
+
   async createDataOCM(): Promise<void> {
-    this._rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
-      .filter(x => x.CodPro == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    // this._rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
+    //   .filter(x => x.CodPro == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+
+    const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
+    const codField = this._dataTable.dataPropertyTable.codField;
+    this._rowData = (await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
+      .filter(x => x[codField] == codigoSearch);
+    console.log('this._rowData', this._rowData);
+
+
+
 
     // Acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
     let aplicacionesPresupuestarias = []
