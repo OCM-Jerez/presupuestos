@@ -40,7 +40,6 @@ export class GastosComponent {
     this.detalle(event);
   }
 
-
   onGridReady = (params: GridReadyEvent) => {
     this._gridApi = params.api;
     this._columnApi = params.columnApi;
@@ -54,7 +53,7 @@ export class GastosComponent {
     this.clickDetalle.emit();
     const target = event.target as HTMLButtonElement;
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
-    // console.log('  button.clasificationType', button);
+    console.log('button.clasificationType', button);
     // debugger;
     if (button) {   // Unicamente si se ha pulsado un boton que necesita actualización de la data, 
       // no grafico por ejemplo, que llaman a otros componentes.
@@ -179,7 +178,6 @@ export class GastosComponent {
     }
     this.showTable = false;
     setTimeout(() => {
-      // this._hideButtons()
       this.showTable = true;
     }, 500);
   }
