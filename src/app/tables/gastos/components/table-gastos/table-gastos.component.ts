@@ -270,7 +270,6 @@ export class TableGastosComponent implements OnInit {
 
     if (selectedRows.length > 0) {
       console.log('Has pulsado Programas que gastan del elemento seleccionado', selectedRows[0].key);
-
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
       this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
         this._router.navigate(['tableGrupoProgramaDetails']);
