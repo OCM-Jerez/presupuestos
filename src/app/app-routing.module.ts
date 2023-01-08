@@ -17,13 +17,12 @@ const routes: Routes = [
 
   { path: 'explicamos', component: ExplicamosComponent },
   { path: 'glosario', component: GlosarioComponent },
-
   { path: 'empleados', component: EmpleadosComponent },
 
 
   { path: 'tableIngresos', loadChildren: () => import('./tables/table-ingresos/table-ingresos.module').then((m) => m.TableIngresosModule) },
 
-  { path: 'tableGastos', loadChildren: () => import('./tables/table-gastos/table-gastos.module').then((m) => m.TableGastosModule) },
+  // { path: 'tableGastos', loadChildren: () => import('./tables/table-gastos/table-gastos.module').then((m) => m.TableGastosModule) },
   { path: 'newGastos', loadChildren: () => import('./tables/gastos/gastos.module').then((m) => m.GastosModule) },
 
   { path: 'tableAplicacionPresupuestaria', loadChildren: () => import('./tables/table-gastos-aplicacion-presupuestaria/table-gastos-aplicacion-presupuestaria.module').then((m) => m.TableGastosAplicacionPresupuestariaModule) },
