@@ -29,6 +29,7 @@ export class TableProgramaDetailsComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
   public isExpanded = true;
+  public subHeaderName: string = ""
   private _gridApi: GridApi;
   private _rowData: any[any];
   private _columnDefs: any[any];
@@ -47,147 +48,148 @@ export class TableProgramaDetailsComponent {
 
     this._dataTable = dataStoreService.dataTable;
     console.log('this._dataTable', this._dataTable);
+    this.subHeaderName = this._dataTable.dataPropertyTable.subHeaderName,
 
-    this._columnDefs = [
-      {
-        headerName: this._dataTable.dataPropertyTable.headerName,
-        children: [
-          {
-            headerName: 'Programa',
-            field: 'DesPro',
-            rowGroup: true,
-            showRowGroup: 'DesPro',
-            filter: true,
-            width: 500,
-            pinned: 'left',
-            columnGroupShow: 'close',
-            cellRenderer: 'agGroupCellRenderer',
-            valueGetter: params => {
-              if (params.data) {
-                return params.data.CodPro + ' - ' + params.data.DesPro;
-              } else {
-                return null;
-              }
-            },
-            cellRendererParams: {
-              suppressCount: true,
-              innerRenderer: params => params.node.group ? `<span style="color: black; font-size: 12px; margin-left: 0px;">${params.value}</span>` : null,
-              footerValueGetter(params) {
-                switch (params.node.level) {
-                  case 0:  // Total programa.
-                    return `<span style="color: red; font-size: 14px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
-                  // case -1: // Total general.
-                  //   return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
-                  default:
-                    return 'SIN FORMATO';
-                }
-              }
-            }
-          },
-          // {
-          //   headerName: 'Organico',
-          //   field: 'DesOrg',
-          //   rowGroup: true,
-          //   showRowGroup: 'DesOrg',
-          //   filter: false,
-          //   width: 300,
-          //   pinned: 'left',
-          //   columnGroupShow: 'close',
-          //   cellRenderer: 'agGroupCellRenderer',
-          //   valueGetter: params => {
-          //     if (params.data) {
-          //       return params.data.CodOrg + ' - ' + params.data.DesOrg;
-          //     } else {
-          //       return null;
-          //     }
-          //   },
-          //   cellRendererParams: {
-          //     suppressCount: true,
-          //     innerRenderer: params => {
-          //       if (params.node.group) {
-          //         return params.value;
-          //       } else {
-          //         return '';
-          //       }
-          //     },
-          //     footerValueGetter(params) {
-          //       const val = params.value.split(' - ')[1];
-          //       switch (params.node.level) {
-          //         case 1:  // Total organico.
-          //           return `<span style="color: red; font-size: 12px;  font-weight: bold; margin-left: 0px;"> Total ${val}</span>`;
-          //         case -1: // Total general.
-          //           return '';
-          //         default:
-          //           return 'SIN FORMATO';
-          //       }
-          //     }
-          //   }
-          // },
-          {
-            headerName: 'Capítulo',
-            field: 'DesCap',
-            rowGroup: true,
-            showRowGroup: 'DesCap',
-            filter: false,
-            width: 300,
-            pinned: 'left',
-            columnGroupShow: 'close',
-            cellRenderer: 'agGroupCellRenderer',
-            valueGetter: params => {
-              if (params.data) {
-                return params.data.CodCap + ' - ' + params.data.DesCap;
-              } else {
-                return null;
-              }
-            },
-            cellRendererParams: {
-              suppressCount: true,
-              innerRenderer: params => {
-                if (params.node.group) {
-                  return params.value;
+      this._columnDefs = [
+        {
+          headerName: this._dataTable.dataPropertyTable.headerName,
+          children: [
+            {
+              headerName: this.subHeaderName,
+              field: 'DesPro',
+              rowGroup: true,
+              showRowGroup: 'DesPro',
+              filter: true,
+              width: 500,
+              pinned: 'left',
+              columnGroupShow: 'close',
+              cellRenderer: 'agGroupCellRenderer',
+              valueGetter: params => {
+                if (params.data) {
+                  return params.data.CodPro + ' - ' + params.data.DesPro;
                 } else {
-                  return '';
+                  return null;
                 }
               },
-              footerValueGetter(params) {
-                const val = params.value.split(' - ')[1];
-                switch (params.node.level) {
-                  case 2:  // Total capítulo.
-                    return `<span style="color: red; font-size: 12px;  font-weight: bold; margin-left: 0px;"> Total ${val}</span>`;
-                  case -1: // Total general.
-                    return '';
-                  default:
-                    return 'SIN FORMATO';
+              cellRendererParams: {
+                suppressCount: true,
+                innerRenderer: params => params.node.group ? `<span style="color: black; font-size: 12px; margin-left: 0px;">${params.value}</span>` : null,
+                footerValueGetter(params) {
+                  switch (params.node.level) {
+                    case 0:  // Total programa.
+                      return `<span style="color: red; font-size: 14px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
+                    // case -1: // Total general.
+                    //   return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
+                    default:
+                      return 'SIN FORMATO';
+                  }
                 }
               }
-            }
-          },
-          {
-            headerName: 'Económico',
-            field: 'DesEco',
-            width: 500,
-            pinned: 'left',
-            filter: true,
-            cellRenderer: "",
-            valueGetter: params => {
-              if (params.data) {
-                return params.data.CodEco + ' - ' + params.data.DesEco;
-              } else {
-                return null;
+            },
+            // {
+            //   headerName: 'Organico',
+            //   field: 'DesOrg',
+            //   rowGroup: true,
+            //   showRowGroup: 'DesOrg',
+            //   filter: false,
+            //   width: 300,
+            //   pinned: 'left',
+            //   columnGroupShow: 'close',
+            //   cellRenderer: 'agGroupCellRenderer',
+            //   valueGetter: params => {
+            //     if (params.data) {
+            //       return params.data.CodOrg + ' - ' + params.data.DesOrg;
+            //     } else {
+            //       return null;
+            //     }
+            //   },
+            //   cellRendererParams: {
+            //     suppressCount: true,
+            //     innerRenderer: params => {
+            //       if (params.node.group) {
+            //         return params.value;
+            //       } else {
+            //         return '';
+            //       }
+            //     },
+            //     footerValueGetter(params) {
+            //       const val = params.value.split(' - ')[1];
+            //       switch (params.node.level) {
+            //         case 1:  // Total organico.
+            //           return `<span style="color: red; font-size: 12px;  font-weight: bold; margin-left: 0px;"> Total ${val}</span>`;
+            //         case -1: // Total general.
+            //           return '';
+            //         default:
+            //           return 'SIN FORMATO';
+            //       }
+            //     }
+            //   }
+            // },
+            {
+              headerName: 'Capítulo',
+              field: 'DesCap',
+              rowGroup: true,
+              showRowGroup: 'DesCap',
+              filter: false,
+              width: 300,
+              pinned: 'left',
+              columnGroupShow: 'close',
+              cellRenderer: 'agGroupCellRenderer',
+              valueGetter: params => {
+                if (params.data) {
+                  return params.data.CodCap + ' - ' + params.data.DesCap;
+                } else {
+                  return null;
+                }
+              },
+              cellRendererParams: {
+                suppressCount: true,
+                innerRenderer: params => {
+                  if (params.node.group) {
+                    return params.value;
+                  } else {
+                    return '';
+                  }
+                },
+                footerValueGetter(params) {
+                  const val = params.value.split(' - ')[1];
+                  switch (params.node.level) {
+                    case 2:  // Total capítulo.
+                      return `<span style="color: red; font-size: 12px;  font-weight: bold; margin-left: 0px;"> Total ${val}</span>`;
+                    case -1: // Total general.
+                      return '';
+                    default:
+                      return 'SIN FORMATO';
+                  }
+                }
               }
             },
-          },
-        ]
-      },
+            {
+              headerName: 'Económico',
+              field: 'DesEco',
+              width: 500,
+              pinned: 'left',
+              filter: true,
+              cellRenderer: "",
+              valueGetter: params => {
+                if (params.data) {
+                  return params.data.CodEco + ' - ' + params.data.DesEco;
+                } else {
+                  return null;
+                }
+              },
+            },
+          ]
+        },
 
-      ...this.avalaibleYearsService.getYearsSelected().map(year => {
-        return {
-          headerName: year,
-          children: this.createColumnsChildren(year),
-        }
-      })
+        ...this.avalaibleYearsService.getYearsSelected().map(year => {
+          return {
+            headerName: year,
+            children: this.createColumnsChildren(year),
+          }
+        })
 
-    ];
+      ];
 
     this.createDataOCM().then(() => {
       this.gridOptions = {
@@ -247,12 +249,11 @@ export class TableProgramaDetailsComponent {
 
     const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
     const codField = this._dataTable.dataPropertyTable.codField;
+    console.log('codigoSearch', codigoSearch);
+    console.log('codField', codField);
     this._rowData = (await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
       .filter(x => x[codField] == codigoSearch);
     console.log('this._rowData', this._rowData);
-
-
-
 
     // Acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
     let aplicacionesPresupuestarias = []
