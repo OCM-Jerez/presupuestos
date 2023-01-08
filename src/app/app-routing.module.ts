@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { IndiceComponent } from './indice/indice.component';
 
 const routes: Routes = [
-  // { path: 'home', component: IndiceComponent },
+  { path: 'home', component: IndiceComponent },
 
   { path: 'homeNew', component: HomeComponent },
   { path: 'detallePresupuesto', component: DetallePresupuestoComponent },
