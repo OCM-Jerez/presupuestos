@@ -32,6 +32,7 @@ export class TableGastosComponent implements OnInit {
   gridOptions: GridOptions;
   selectedCodeRowFirstLevel = '';
   private _dataGraph: IDataGraph = {} as IDataGraph;
+  private subHeaderName: string = "";
   @Input()
   set event(event: Event) {
     // console.log("content of emit clickDetalles: ", event);
@@ -73,7 +74,8 @@ export class TableGastosComponent implements OnInit {
 
   private async _loadTable() {
     this._dataTable = this._dataStoreService.dataTable;
-    this.setColumnDefs()
+    this.subHeaderName = this._dataTable.dataPropertyTable.subHeaderName,
+      this.setColumnDefs()
     this.setGridOptions();
   }
 
@@ -83,7 +85,7 @@ export class TableGastosComponent implements OnInit {
         headerName: this._dataTable.dataPropertyTable.headerName,
         children: [
           {
-            headerName: this._dataTable.dataPropertyTable.subHeaderName,
+            headerName: this.subHeaderName,
             field: this._dataTable.dataPropertyTable.codField,
             // width: this._dataTable.dataPropertyTable.width,
             width: 220,
@@ -251,9 +253,10 @@ export class TableGastosComponent implements OnInit {
 
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this._router.navigate(['tableProgramaDetails']);
-      });
+      // this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      //   this._router.navigate(['tableProgramaDetails']);
+      // });
+      this._router.navigate(['tableProgramaDetails']);
     }
 
   }
@@ -261,9 +264,10 @@ export class TableGastosComponent implements OnInit {
   showOrganicoDetalle() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this._router.navigate(['tableOrganicoDetails']);
-    });
+    // this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    //   this._router.navigate(['tableOrganicoDetails']);
+    // });
+    this._router.navigate(['tableOrganicoDetails']);
   }
 
   showEconomicoDetalle() {
