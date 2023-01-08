@@ -30,11 +30,11 @@ const routes: Routes = [
   { path: 'tableOrganicoDetails', loadChildren: () => import('./tables/table-gastos-organicos-details/table-gastos-organicos-details.module').then((m) => m.TableGastosOrganicosDetailsModule) },
 
   // { path: 'tableAreaDetails', loadChildren: () => import('./tables/table-gastos-areas-details/table-gastos-areas-details.module').then((m) => m.TableGastosAreasDetailsModule) },
-  { path: 'tablePoliticaDetails', loadChildren: () => import('./tables/table-gastos-politicas-details/table-gastos-politicas-details.module').then((m) => m.TableGastosPoliticasDetailsModule) },
+  // { path: 'tablePoliticaDetails', loadChildren: () => import('./tables/table-gastos-politicas-details/table-gastos-politicas-details.module').then((m) => m.TableGastosPoliticasDetailsModule) },
   { path: 'tableGrupoProgramaDetails', loadChildren: () => import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.module').then((m) => m.TableGastosGruposprogramasDetailsModule) },
   { path: 'tableProgramaDetails', loadChildren: () => import('./tables/table-programa-details/table-programa-details.module').then((m) => m.TableProgramaDetailsModule) },
 
-  { path: 'tableCapituloDetails', loadChildren: () => import('./tables/table-gastos-capitulos-details/table-gastos-capitulos-details.module').then((m) => m.TableGastosCapitulosDetailsModule) },
+  // { path: 'tableCapituloDetails', loadChildren: () => import('./tables/table-gastos-capitulos-details/table-gastos-capitulos-details.module').then((m) => m.TableGastosCapitulosDetailsModule) },
   { path: 'tableArticuloDetails', loadChildren: () => import('./tables/table-gastos-articulos-details/table-gastos-articulos-details.module').then((m) => m.TableGastosArticulosDetailsModule) },
   { path: 'tableConceptoDetails', loadChildren: () => import('./tables/table-gastos-conceptos-details/table-gastos-conceptos-details.module').then((m) => m.TableGastosConceptosDetailsModule) },
   { path: 'tableEconomicoDetails', loadChildren: () => import('./tables/table-economico-details/table-economico-details.module').then((m) => m.TableEconomicoDetailsModule) },
