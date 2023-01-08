@@ -184,8 +184,6 @@ export class DetallePresupuestoComponent implements OnInit {
 
   clickDetalle(): void {
     // Al pulsar botones grafico o detalle, como navegan a otra ruta intentan cargar el graphTreeMap y da error.
-    // console.log('clickDetalle', this._typeClasification);
-
     if (this._typeClasification !== 'gastosOrganicaOrganicos'
       && this._typeClasification !== 'gastosProgramaPoliticas'
       && this._typeClasification !== 'gastosEconomicaCapitulos') {
