@@ -88,7 +88,7 @@ export class DetallePresupuestoComponent implements OnInit {
 
   private async _loadData(): Promise<void> {
     // Si se recarga la pagina hay que volver a generar la data. 
-    //this._dataTable = await this._tableService.loadDataInitial();
+    this._dataTable = await this._tableService.loadDataInitial();
 
     await this.setTotalesPresupuesto();
     let data = await this._tableService.loadData(this._typeClasification);
