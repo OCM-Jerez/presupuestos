@@ -85,13 +85,13 @@ export class GastosComponent {
       // this._dataTable = await this._tableService.loadData(
       //   'gastosEconomicaCapitulos');
     } else {
-      console.log('target =>', target.textContent.trim());
+      // console.log('target =>', target.textContent.trim());
       this._tabselected = target.textContent.trim();
-      console.log('tabselected =>', this._tabselected);
+      // console.log('tabselected =>', this._tabselected);
     }
 
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
-    console.log('button.clasificationType', button);
+    // console.log('button.clasificationType', button);
 
     if (button) {
       // Unicamente si se ha pulsado un boton que necesita actualización de la data, 
