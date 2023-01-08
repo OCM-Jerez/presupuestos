@@ -1,4 +1,4 @@
-import { IDataTotalesPresupuesto } from './../commons/interfaces/dataTotalesPresupuesto. interface';
+import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { DataStoreService } from '../services/dataStore.service';
@@ -22,11 +22,11 @@ heatmap(Highcharts)
 
 @Component({
   selector: 'app-detalle-presupuesto',
-  templateUrl: './detalle-presupuesto.component.html',
-  styleUrls: ['./detalle-presupuesto.component.scss']
+  templateUrl: './detalle.component.html',
+  styleUrls: ['./detalle.component.scss']
 })
 
-export class DetallePresupuestoComponent implements OnInit {
+export class DetalleComponent implements OnInit {
   private _dataTable: IDataTable;
   liqDate = environment.liqDate;
   showGraphInTab = true;

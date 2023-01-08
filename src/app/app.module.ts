@@ -16,7 +16,7 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { IndiceComponent } from './indice/indice.component';
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
 import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.component';
-import { DetallePresupuestoModule } from './detalle-presupuesto/detalle-presupuesto.module';
+import { DetallePresupuestoModule } from './detalle/detalle.module';
 import { CheckboxModule } from './commons/components/checkbox/checkbox.module';
 
 @NgModule({
