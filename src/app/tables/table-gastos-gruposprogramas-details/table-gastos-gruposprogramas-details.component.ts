@@ -40,7 +40,8 @@ export class TableGastosGruposprogramasDetailsComponent {
     this._columnDefs = [
       {
         // headerName: this._dataTableGraph.dataPropertyTable.headerName,
-        headerName: 'Clasificado por capítulo',
+        // headerName: 'Clasificado por capítulo',
+        headerName: '',
         children: [
           {
             headerName: 'Programa',
@@ -109,7 +110,7 @@ export class TableGastosGruposprogramasDetailsComponent {
         groupIncludeTotalFooter: true,
         groupIncludeFooter: true,
         groupHeaderHeight: 25,
-        headerHeight: 54,
+        headerHeight: 26,
         suppressAggFuncInHeader: true,
         rowSelection: 'single',
         localeText: localeTextESPes,
@@ -128,17 +129,16 @@ export class TableGastosGruposprogramasDetailsComponent {
 
   async createDataOCM(): Promise<void> {
     const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
-    // console.log('codigoSearch', codigoSearch);
-
+    console.log('codigoSearch', codigoSearch);
     const codField = this._dataTableGraph.dataPropertyTable.codField;
-
+    console.log('codField', codField);
     this._rowData = (await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
-      // .filter(x => x[codField] == codigoSearch);
-      .filter(x => x.CodCap == codigoSearch);
+      .filter(x => x[codField] == codigoSearch);
+    // .filter(x => x.CodEco == codigoSearch);
     // console.log('this._rowData', this._rowData);
   }
 
-  createColumnsChildren(year: number) {
+  createColumnsChildrenDetalle(year: number) {
     return [
       {
         headerName: 'Créditos',
@@ -195,6 +195,23 @@ export class TableGastosGruposprogramasDetailsComponent {
         field: `RemanenteCredito${year}`,
       },
     ];
+  }
+
+  createColumnsChildren(year: number) {
+    return [
+      {
+        headerName: 'Creditos definitivos',
+        field: `Definitivas${year}`,
+        width: 110,
+        columnGroupShow: 'close'
+      },
+      {
+        headerName: 'Pagos',
+        field: `Pagos${year}`,
+        columnGroupShow: 'close',
+        width: 110,
+      }
+    ]
   }
 
   showProgramaDetails() {
