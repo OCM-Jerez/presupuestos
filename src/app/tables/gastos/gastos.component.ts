@@ -18,12 +18,13 @@ import { CLASIFICATION_TYPE } from '../../commons/util/util';
   styleUrls: ['./gastos.component.scss']
 })
 export class GastosComponent {
-  @Output() clickDetalle = new EventEmitter<void>();
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   @Input() hasTitle: boolean = true;
+  @Output() clickDetalle = new EventEmitter<void>();
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
   private _dataTable: IDataTable;
+  private _tabselected = 'Por capítulo gasto';
   buttons = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttons;
   buttonsAdditional = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttonsAdditional;
   showTable = true;
@@ -50,22 +51,49 @@ export class GastosComponent {
   }
 
   async detalle(event: Event) {
-    this._dataTable = await this._tableService.loadData(
-      'gastosEconomicaCapitulos');
-
+    let tipoClasificacion: CLASIFICATION_TYPE = 'gastosEconomicaCapitulos'
     this.clickDetalle.emit();
     const target = event.target as HTMLButtonElement;
-    // console.log('target', target.textContent.trim());
+    // console.log('target =>', target.textContent.trim());
     if (target.textContent.trim() === 'Programas que gastan del elemento seleccionado') {
-      // console.log('Programas que gastan del elemento seleccionado');
-      // let tipoClasificacion: CLASIFICATION_TYPE = 'gastosEconomicaCapitulos';
+      console.log('Programas que gastan del elemento seleccionado');
+      console.log('tabselected =>', this._tabselected);
+
+      // tengo que saber de que pestaña viene el evento para cargar una tipoClasificacion u otro.
+      switch (this._tabselected) {
+        case 'Por capítulo gasto':
+          tipoClasificacion = 'gastosEconomicaCapitulos';
+          break;
+        case 'Por artículo':
+          tipoClasificacion = 'gastosEconomicaArticulos';
+          break;
+        case 'Por concepto':
+          tipoClasificacion = 'gastosEconomicaConceptos';
+          break;
+        case 'Por económico':
+          tipoClasificacion = 'gastosEconomicaEconomicos';
+          break;
+      }
+
+      console.log('tipoClasificacion =>', tipoClasificacion);
+
+      this._dataTable = await this._tableService.loadData(tipoClasificacion);
+      console.log('this._dataTable =>', this._dataTable);
+      console.log('codField =>', this._dataTable.dataPropertyTable.codField);
+
+      // // let tipoClasificacion: CLASIFICATION_TYPE = 'gastosEconomicaCapitulos';
+      // this._dataTable = await this._tableService.loadData(
+      //   'gastosEconomicaCapitulos');
+    } else {
+      console.log('target =>', target.textContent.trim());
+      this._tabselected = target.textContent.trim();
+      console.log('tabselected =>', this._tabselected);
     }
 
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
-    // console.log('button.clasificationType', button);
-    // debugger;
-    if (button) {
+    console.log('button.clasificationType', button);
 
+    if (button) {
       // Unicamente si se ha pulsado un boton que necesita actualización de la data, 
       // no grafico por ejemplo, que llaman a otros componentes.
       const dataPropertyTable = getClasificacion(button.clasificationType);
@@ -98,98 +126,6 @@ export class GastosComponent {
         this.showTable = true;
       }, 500);
     }
-  }
-
-  // para usar esta opcion hay que descomentar la linea 48 de table-gastos.component.ts
-  async detalle1(event: Event) {
-    this.clickDetalle.emit();
-    const target = event.target as HTMLButtonElement;
-
-    if (target.textContent.trim() === 'Orgánico') {
-      console.log('Orgánico');
-      let tipoClasificacion: CLASIFICATION_TYPE = 'gastosProgramaProgramas';
-      this._dataTable = (await this._tableService.loadData(tipoClasificacion))
-      this._dataTable.rowDataGastos = this._dataTable.rowDataGastos.filter(x => x.CodOrg == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-
-      const sendDataTable: IDataTable = {
-        dataPropertyTable: {
-          headerName: '',
-          subHeaderName: '',
-          codField: 'CodPro',
-          desField: 'DesPro',
-          width: 500,
-          graphTitle: '',
-          attribute: '',
-          useStarWitch: false
-        },
-        clasificationType: 'gastosProgramaProgramas',
-        rowDataGastos: this._dataTable.rowDataGastos,
-        rowDataIngresos: []
-      }
-
-      // console.log('this._dataTable= ', this._dataTable);
-      // console.log('sendDataTable= ', sendDataTable);
-      this._dataStoreService.dataTable = sendDataTable;
-    } else {
-      const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
-
-      if (button) {   // Unicamente si se ha pulsado un boton que necesita actualización de la data,
-        // no grafico por ejemplo, que llaman a otros componentes.
-
-        console.log('has pulsado el boton: ', target.innerText);
-        const dataPropertyTable = getClasificacion(button.clasificationType);
-
-        if (this._dataStoreService.selectedCodeRowFirstLevel) {
-          const useStarWitch: boolean = dataPropertyTable.useStarWitch;
-          const attribute: string = dataPropertyTable.attribute;
-          this._dataTable = await this._tableService.loadData(
-            button.clasificationType,
-            { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
-        } else {
-          this._dataTable = await this._tableService.loadData(
-            button.clasificationType);
-        }
-
-        this._dataStoreService.selectedCodeRowFirstLevel = '';
-
-        // console.log('Actualizo datos treemap en función del boton pulsado');
-        await this._prepareDataTreemapService.calcSeries(
-          this._dataTable.rowDataGastos,
-          getClasificacion(this._dataTable.clasificationType).codField,
-          getClasificacion(this._dataTable.clasificationType).desField,
-          'Definitivas2022'
-        );
-
-        this.buttons = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttons;
-        this.buttonsAdditional = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttonsAdditional;
-
-        const sendDataTable: IDataTable = {
-          dataPropertyTable: {
-            headerName: '',
-            subHeaderName: '',
-            codField: dataPropertyTable.codField,
-            desField: dataPropertyTable.desField,
-            width: 500,
-            graphTitle: '',
-            attribute: dataPropertyTable.attribute,
-            useStarWitch: dataPropertyTable.useStarWitch
-          },
-          clasificationType: this._dataTable.clasificationType,
-          rowDataGastos: this._dataTable.rowDataGastos,
-          rowDataIngresos: []
-        }
-
-        // console.log('this._dataTable= ', this._dataTable);
-        // console.log('sendDataTable= ', sendDataTable);
-        this._dataStoreService.dataTable = sendDataTable;
-
-      }
-
-    }
-    this.showTable = false;
-    setTimeout(() => {
-      this.showTable = true;
-    }, 500);
   }
 
 }
