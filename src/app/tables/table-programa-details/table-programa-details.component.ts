@@ -44,10 +44,10 @@ export class TableProgramaDetailsComponent {
     private _alertService: AlertService,
     private _prepareDataGastosService: PrepareDataGastosService
   ) {
-    console.log('TableProgramaDetailsComponent');
+    // console.log('TableProgramaDetailsComponent');
 
     this._dataTable = dataStoreService.dataTable;
-    console.log('this._dataTable', this._dataTable);
+    // console.log('this._dataTable', this._dataTable);
     this.subHeaderName = this._dataTable.dataPropertyTable.subHeaderName,
 
       this._columnDefs = [
@@ -249,11 +249,12 @@ export class TableProgramaDetailsComponent {
 
     const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
     const codField = this._dataTable.dataPropertyTable.codField;
-    console.log('codigoSearch', codigoSearch);
-    console.log('codField', codField);
+    // console.log('codigoSearch', codigoSearch);
+    // console.log('codField', codField);
     this._rowData = (await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
-      .filter(x => x[codField] == codigoSearch);
-    console.log('this._rowData', this._rowData);
+      .filter(x => x.CodPro == codigoSearch);
+    // .filter(x => x[codField] == codigoSearch);
+    // console.log('this._rowData', this._rowData);
 
     // Acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
     let aplicacionesPresupuestarias = []
