@@ -1,20 +1,9 @@
 <div>
-    <h4 style="font-size:20px; text-align: center;">Programas que gastan del económico {{
-        dataStoreService.selectedCodeRowFirstLevel}}. {{
-        messageYears }}
+    <!-- <h4 style="font-size:20px; text-align: center;">Programas que gastan del económico {{ -->
+    <h4 style="font-size:20px; text-align: center;">
+        {{ dataStoreService.selectedCodeRowFirstLevel }}.
+        {{ messageYears }}
     </h4>
-
-    <!-- <button *ngIf="!isExpanded" type="button" class="OCM-button" (click)="expandAll()">
-        <span class="shadow"></span>
-        <span class="depth"></span>
-        <span class="content">Expandir todo</span>
-    </button>
-
-    <button *ngIf="isExpanded" type="button" class="OCM-button" (click)="collapseAll()">
-        <span class="shadow"></span>
-        <span class="depth"></span>
-        <span class="content">Colapsar todo</span>
-    </button> -->
 
     <button type="button" (click)="showProgramaDetails()" class="OCM-button">
         <span class="shadow"></span>
