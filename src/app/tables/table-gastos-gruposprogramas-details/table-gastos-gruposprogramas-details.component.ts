@@ -12,10 +12,6 @@ import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
 import { PrepareDataGastosService } from '../../services/prepareDataGastos.service';
 
-
-
-import { IDataTable } from '../../commons/interfaces/dataTable.interface';
-
 @Component({
   selector: 'app-table-gastos-gruposprogramas-details',
   templateUrl: './table-gastos-gruposprogramas-details.component.html',
@@ -27,9 +23,7 @@ export class TableGastosGruposprogramasDetailsComponent {
   public gridOptions: GridOptions;
   private _columnDefs: any[any];
   private _gridApi: GridApi;
-  public isExpanded = false;
   private _rowData: any[any];
-  private _dataTable: IDataTable;
   messageYears = this.avalaibleYearsService.message;
 
   constructor(
@@ -38,12 +32,9 @@ export class TableGastosGruposprogramasDetailsComponent {
     public dataStoreService: DataStoreService,
     private _prepareDataGastosService: PrepareDataGastosService
   ) {
-    this._dataTable = dataStoreService.dataTable;
 
     this._columnDefs = [
       {
-        // headerName: this._dataTable.dataPropertyTable.headerName,
-        // headerName: 'Clasificado por capítulo',
         headerName: '',
         children: [
           {
@@ -132,11 +123,8 @@ export class TableGastosGruposprogramasDetailsComponent {
 
   async createDataOCM(): Promise<void> {
     const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
-    // console.log('codigoSearch', codigoSearch);
-    const codField = this._dataTable.dataPropertyTable.codField;
-    // console.log('codField', codField);
     this._rowData = (await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
-      .filter(x => x[codField] == codigoSearch);
+      .filter(x => x.CodEco == codigoSearch);
   }
 
   createColumnsChildrenDetalle(year: number) {
