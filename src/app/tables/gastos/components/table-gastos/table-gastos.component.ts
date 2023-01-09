@@ -1,9 +1,8 @@
-
-/* #region  import */
 import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
+
 import { ColumnApi, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import { CellRendererOCM, CellRendererOCMtext } from '../../../../ag-grid/CellRendererOCM';
@@ -12,10 +11,10 @@ import localeTextESPes from '../../../../../assets/data/localeTextESPes.json';
 import { AvalaibleYearsService } from '../../../../services/avalaibleYears.service';
 import { DataStoreService } from '../../../../services/dataStore.service';
 
+
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
 import { FlagService } from '../../../../services/flag.service';
-/* #endregion */
 
 @Component({
   selector: 'app-table-gastos',
@@ -35,7 +34,6 @@ export class TableGastosComponent implements OnInit {
   private subHeaderName: string = "";
   @Input()
   set event(event: Event) {
-    // console.log("content of emit clickDetalles: ", event);
     if (event) {
       const target = event.target as HTMLButtonElement;
       switch (target.textContent.trim()) {
@@ -43,13 +41,13 @@ export class TableGastosComponent implements OnInit {
           this.showGraph();
           break;
         case 'Detalle del programa seleccionado':
-          this.showProgramaDetalle();
+          this._router.navigate(['tableProgramaDetails']);
           break;
         case 'Programas que componen orgánico seleccionado':
-          this.showOrganicoDetalle();
+          this._router.navigate(['tableOrganicoDetails']);
           break;
         case 'Programas que gastan del elemento seleccionado':
-          this.showEconomicoDetalle();
+          this._router.navigate(['/tableGrupoProgramaDetails'])
           break;
       }
     }
@@ -74,8 +72,8 @@ export class TableGastosComponent implements OnInit {
 
   private async _loadTable() {
     this._dataTable = this._dataStoreService.dataTable;
-    this.subHeaderName = this._dataTable.dataPropertyTable.subHeaderName,
-      this.setColumnDefs()
+    this.subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
+    this.setColumnDefs();
     this.setGridOptions();
   }
 
@@ -231,57 +229,16 @@ export class TableGastosComponent implements OnInit {
 
   showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
-    if (selectedRows.length > 0) {
-      this._dataStoreService.selectedCodeRow = selectedRows[0].key;
-      this._dataGraph.rowDataGastos = this._dataTable.rowDataGastos
-      this._router.navigateByUrl("/graphGastos").then(() => {
-        this._dataStoreService.setData(
-          {
-            ...this._dataStoreService.dataGraph, graphSubTitle: selectedRows[0].key
-          }
-        );
-      })
-      this._dataStoreService.selectedCodeRowFirstLevel = '';
-    } else {
-      console.log('No hay ninguna fila seleccionada');
-      // this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
-    }
-  }
-
-  showProgramaDetalle() {
-    const selectedRows = this.agGrid.api.getSelectedNodes();
-
-    if (selectedRows.length > 0) {
-      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      // this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      //   this._router.navigate(['tableProgramaDetails']);
-      // });
-      this._router.navigate(['tableProgramaDetails']);
-    }
-
-  }
-
-  showOrganicoDetalle() {
-    const selectedRows = this.agGrid.api.getSelectedNodes();
-    this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-    // this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-    //   this._router.navigate(['tableOrganicoDetails']);
-    // });
-    this._router.navigate(['tableOrganicoDetails']);
-  }
-
-  showEconomicoDetalle() {
-    const selectedRows = this.agGrid.api.getSelectedNodes();
-
-    // if (selectedRows.length > 0) {
-    // console.log('Has pulsado Programas que gastan del elemento seleccionado', selectedRows[0].key);
-    this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-    // this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-    //   this._router.navigate(['tableGrupoProgramaDetails']);
-    // });
-    // }
-    this._router.navigate(['/tableGrupoProgramaDetails'])
-
+    this._dataStoreService.selectedCodeRow = selectedRows[0].key;
+    this._dataGraph.rowDataGastos = this._dataTable.rowDataGastos
+    this._router.navigateByUrl("/graphGastos").then(() => {
+      this._dataStoreService.setData(
+        {
+          ...this._dataStoreService.dataGraph, graphSubTitle: selectedRows[0].key
+        }
+      );
+    })
+    this._dataStoreService.selectedCodeRowFirstLevel = '';
   }
 
 }
