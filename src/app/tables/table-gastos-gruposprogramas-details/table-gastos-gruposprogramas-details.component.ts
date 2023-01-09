@@ -25,10 +25,10 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 export class TableGastosGruposprogramasDetailsComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
-  public isExpanded = false;
-  private _gridApi: GridApi;
-  private _rowData: any[any];
   private _columnDefs: any[any];
+  private _gridApi: GridApi;
+  public isExpanded = false;
+  private _rowData: any[any];
   private _dataTable: IDataTable;
   messageYears = this.avalaibleYearsService.message;
 
@@ -39,8 +39,6 @@ export class TableGastosGruposprogramasDetailsComponent {
     private _prepareDataGastosService: PrepareDataGastosService
   ) {
     this._dataTable = dataStoreService.dataTable;
-
-
 
     this._columnDefs = [
       {
@@ -127,20 +125,18 @@ export class TableGastosGruposprogramasDetailsComponent {
   onGridReady(params: GridReadyEvent) {
     this._gridApi = params.api;
     const defaultSortModel: ColumnState[] = [
-      { colId: 'DesEco', sort: 'asc', sortIndex: 0 },
+      { colId: `Pagos2022`, sort: 'desc', sortIndex: 0 },
     ];
     params.columnApi.applyColumnState({ state: defaultSortModel });
   }
 
   async createDataOCM(): Promise<void> {
     const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
-    console.log('codigoSearch', codigoSearch);
+    // console.log('codigoSearch', codigoSearch);
     const codField = this._dataTable.dataPropertyTable.codField;
-    console.log('codField', codField);
+    // console.log('codField', codField);
     this._rowData = (await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
       .filter(x => x[codField] == codigoSearch);
-    // .filter(x => x.CodEco == codigoSearch);
-    // console.log('this._rowData', this._rowData);
   }
 
   createColumnsChildrenDetalle(year: number) {
