@@ -86,7 +86,7 @@ export class TableGastosComponent implements OnInit {
             headerName: this.subHeaderName,
             field: this._dataTable.dataPropertyTable.codField,
             // width: this._dataTable.dataPropertyTable.width,
-            width: 220,
+            width: 350,
             rowGroup: true,
             showRowGroup: this._dataTable.dataPropertyTable.codField,
             cellRenderer: CellRendererOCMtext,
