@@ -29,7 +29,7 @@ export class TableGastosGruposprogramasDetailsComponent {
   private _gridApi: GridApi;
   private _rowData: any[any];
   private _columnDefs: any[any];
-  private _dataTableGraph: IDataTable;
+  private _dataTable: IDataTable;
   messageYears = this.avalaibleYearsService.message;
 
   constructor(
@@ -38,13 +38,13 @@ export class TableGastosGruposprogramasDetailsComponent {
     public dataStoreService: DataStoreService,
     private _prepareDataGastosService: PrepareDataGastosService
   ) {
-    this._dataTableGraph = dataStoreService.dataTable;
+    this._dataTable = dataStoreService.dataTable;
 
 
 
     this._columnDefs = [
       {
-        // headerName: this._dataTableGraph.dataPropertyTable.headerName,
+        // headerName: this._dataTable.dataPropertyTable.headerName,
         // headerName: 'Clasificado por capítulo',
         headerName: '',
         children: [
@@ -135,7 +135,7 @@ export class TableGastosGruposprogramasDetailsComponent {
   async createDataOCM(): Promise<void> {
     const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
     console.log('codigoSearch', codigoSearch);
-    const codField = this._dataTableGraph.dataPropertyTable.codField;
+    const codField = this._dataTable.dataPropertyTable.codField;
     console.log('codField', codField);
     this._rowData = (await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
       .filter(x => x[codField] == codigoSearch);
