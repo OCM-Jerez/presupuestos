@@ -5,12 +5,14 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnState, GridReadyEvent } from 'ag-grid-community';
 import { GridOptions, GridApi } from 'ag-grid-community/main';
 
-import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
+import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
 import { PrepareDataGastosService } from '../../services/prepareDataGastos.service';
+
+
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
@@ -37,6 +39,9 @@ export class TableGastosGruposprogramasDetailsComponent {
     private _prepareDataGastosService: PrepareDataGastosService
   ) {
     this._dataTableGraph = dataStoreService.dataTable;
+
+
+
     this._columnDefs = [
       {
         // headerName: this._dataTableGraph.dataPropertyTable.headerName,
