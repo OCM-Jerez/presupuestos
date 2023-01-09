@@ -1,20 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnState, GridReadyEvent } from 'ag-grid-community';
 import { GridOptions, GridApi } from 'ag-grid-community/main';
 
-import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
+import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
-
-import { IDataTable } from '../../commons/interfaces/dataTable.interface';
-
 import { PrepareDataGastosDetailsService } from '../../services/prepareDataGastosDetails.service';
-import { Router } from '@angular/router';
-import { AlertService } from '../../services/alert.service';
 
 @Component({
   selector: 'app-table-gastos-organicos-details',
@@ -25,24 +21,21 @@ import { AlertService } from '../../services/alert.service';
 export class TableGastosOrganicosDetailsComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
-  public isExpanded = false;
+  private _columnDefs: any[any];
   private _gridApi: GridApi;
   private _rowData: any[any];
-  private _columnDefs: any[any];
-  private _dataTableGraph: IDataTable;
+  // private _dataTableGraph: IDataTable;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
     private _router: Router,
-    private _alertService: AlertService,
     private _prepareDataGastosDetailsService: PrepareDataGastosDetailsService,
-    // private _location: Location,
   ) {
-    this._dataTableGraph = dataStoreService.dataTable;
+
     this._columnDefs = [
       {
-        headerName: this._dataTableGraph.dataPropertyTable.headerName,
+        headerName: '',
         children: [
           {
             headerName: 'Programa',
@@ -76,7 +69,6 @@ export class TableGastosOrganicosDetailsComponent {
           children: this.createColumnsChildren(year),
         }
       })
-
     ];
 
     this.createDataOCM().then(() => {
@@ -123,18 +115,34 @@ export class TableGastosOrganicosDetailsComponent {
   onGridReady(params: GridReadyEvent) {
     this._gridApi = params.api;
     const defaultSortModel: ColumnState[] = [
-      { colId: 'DesEco', sort: 'asc', sortIndex: 0 },
+      { colId: 'Pagos2022', sort: 'desc', sortIndex: 0 },
     ];
     params.columnApi.applyColumnState({ state: defaultSortModel });
   }
 
   async createDataOCM(): Promise<void> {
-    // console.log(+this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     this._rowData = (await this._prepareDataGastosDetailsService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
       .filter(x => x.CodOrg == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
   }
 
   createColumnsChildren(year: number) {
+    return [
+      {
+        headerName: 'Creditos definitivos',
+        field: `Definitivas${year}`,
+        width: 110,
+        columnGroupShow: 'close'
+      },
+      {
+        headerName: 'Pagos',
+        field: `Pagos${year}`,
+        columnGroupShow: 'close',
+        width: 110,
+      }
+    ]
+  }
+
+  createColumnsChildrenDetalle(year: number) {
     return [
       {
         headerName: 'Créditos',
@@ -193,24 +201,10 @@ export class TableGastosOrganicosDetailsComponent {
     ];
   }
 
-  expandAll() {
-    this._gridApi.expandAll();
-    this.isExpanded = true;
-  }
-
-  collapseAll() {
-    this._gridApi.collapseAll();
-    this.isExpanded = false;
-  }
-
   showProgramaDetails() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
-    if (selectedRows.length > 0) {
-      this.dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-      this._router.navigateByUrl("/tableProgramaDetails")
-    } else {
-      this._alertService.showAlert(`Selecciona programa`);
-    }
+    this.dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+    this._router.navigateByUrl("/tableProgramaDetails")
   }
 
 }

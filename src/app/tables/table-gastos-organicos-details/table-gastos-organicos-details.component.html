@@ -1,21 +1,13 @@
 <div>
-    <h4 style="font-size:20px; text-align: center;">Detalle orgánico {{ dataStoreService.selectedCodeRowFirstLevel}}.
-        {{
-        avalaibleYearsService.getAvalaibleYear() | async }}</h4>
-
-    <button *ngIf="!isExpanded" type="button" class="OCM-button" (click)="expandAll()">
-        Expandir todo
-    </button>
-
-    <button *ngIf="isExpanded" type="button" class="OCM-button" (click)="collapseAll()">
-        Colapsar todo
-    </button>
+    <h4 style="font-size:20px; text-align: center;">
+        Detalle orgánico {{ dataStoreService.selectedCodeRowFirstLevel}}.
+        {{ avalaibleYearsService.getAvalaibleYear() | async }}
+    </h4>
 
     <button type="button" (click)="showProgramaDetails()" class="OCM-button">
         Detalle programa
     </button>
 
-    <!-- <button type="button" class="btn-54" (click)="history.back()"> // NO FUNCIONA CON (click) -->
     <button type="button" class="OCM-button" onclick="history.back()">
         Volver
     </button>
