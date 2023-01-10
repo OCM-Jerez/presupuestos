@@ -1,4 +1,3 @@
-/* #region  import */
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -23,7 +22,6 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
 import { getClasificacion } from '../data-table';
 
-/* #endregion */
 @Component({
   selector: 'app-table-ingresos',
   templateUrl: './table-ingresos.component.html',
@@ -31,7 +29,6 @@ import { getClasificacion } from '../data-table';
 })
 
 export class TableIngresosComponent implements OnInit {
-  /* #region  definir variables */
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   @Output() clickDetail = new EventEmitter();
   @Output() clickDetalle: EventEmitter<void> = new EventEmitter();
@@ -52,7 +49,6 @@ export class TableIngresosComponent implements OnInit {
   private _cellRenderer: string = '';
   showTable = true;
   messageYears = this.avalaibleYearsService.message;
-  /* #endregion */
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -81,7 +77,7 @@ export class TableIngresosComponent implements OnInit {
             headerName: this._dataTable.dataPropertyTable.subHeaderName,
             field: this._dataTable.dataPropertyTable.codField,
             // width: this._dataTable.dataPropertyTable.width,
-            width: 220,
+            width: 450,
             rowGroup: true,
             showRowGroup: this._dataTable.dataPropertyTable.codField,
             cellRenderer: CellRendererOCMtext,
