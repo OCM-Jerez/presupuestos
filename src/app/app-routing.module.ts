@@ -28,14 +28,6 @@ const routes: Routes = [
   { path: 'graphGastos', loadChildren: () => import('./graphs/graph-gastos/graph-gastos.module').then((m) => m.GraphGastosModule) },
   { path: 'graphTree', loadChildren: () => import('./graphs/graph-tree/graph-tree.module').then((m) => m.GraphTreeModule) },
   { path: '**', pathMatch: 'full', redirectTo: 'homeNew' }
-
-  // { path: 'tableGastos', loadChildren: () => import('./tables/table-gastos/table-gastos.module').then((m) => m.TableGastosModule) },
-  // { path: 'tableAreaDetails', loadChildren: () => import('./tables/table-gastos-areas-details/table-gastos-areas-details.module').then((m) => m.TableGastosAreasDetailsModule) },
-  // { path: 'tablePoliticaDetails', loadChildren: () => import('./tables/table-gastos-politicas-details/table-gastos-politicas-details.module').then((m) => m.TableGastosPoliticasDetailsModule) },
-  // { path: 'tableCapituloDetails', loadChildren: () => import('./tables/table-gastos-capitulos-details/table-gastos-capitulos-details.module').then((m) => m.TableGastosCapitulosDetailsModule) },
-  // { path: 'tableArticuloDetails', loadChildren: () => import('./tables/table-gastos-articulos-details/table-gastos-articulos-details.module').then((m) => m.TableGastosArticulosDetailsModule) },
-  // { path: 'tableConceptoDetails', loadChildren: () => import('./tables/table-gastos-conceptos-details/table-gastos-conceptos-details.module').then((m) => m.TableGastosConceptosDetailsModule) },
-  // { path: 'tableEconomicoDetails', loadChildren: () => import('./tables/table-economico-details/table-economico-details.module').then((m) => m.TableEconomicoDetailsModule) },
 ];
 @NgModule({
   imports: [
