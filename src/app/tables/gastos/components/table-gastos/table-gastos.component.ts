@@ -44,10 +44,11 @@ export class TableGastosComponent implements OnInit {
           this._router.navigate(['tableProgramaDetails']);
           break;
         case 'Programas que componen orgánico seleccionado':
-          this._router.navigate(['tableOrganicoDetails']);
+          // this._router.navigate(['tableOrganicoDetails']);
+          this._router.navigate(['/tableGrupoProgramaDetails', 'organico'])
           break;
         case 'Programas que gastan del elemento seleccionado':
-          this._router.navigate(['/tableGrupoProgramaDetails'])
+          this._router.navigate(['/tableGrupoProgramaDetails', 'gastan'])
           break;
       }
     }

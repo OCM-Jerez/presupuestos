@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnState, GridReadyEvent } from 'ag-grid-community';
@@ -11,6 +11,7 @@ import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
 import { PrepareDataGastosService } from '../../services/prepareDataGastos.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-table-gastos-gruposprogramas-details',
@@ -25,13 +26,21 @@ export class TableGastosGruposprogramasDetailsComponent {
   private _gridApi: GridApi;
   private _rowData: any[any];
   messageYears = this.avalaibleYearsService.message;
+  private sub: Subscription;
+  id: string;
 
   constructor(
     private _router: Router,
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
-    private _prepareDataGastosService: PrepareDataGastosService
+    private _prepareDataGastosService: PrepareDataGastosService,
+    private _route: ActivatedRoute
   ) {
+
+    this.sub = this._route.params.subscribe(params => {
+      this.id = params['origen']
+    });
+    console.log(this.id);
 
     this._columnDefs = [
       {
@@ -111,6 +120,11 @@ export class TableGastosGruposprogramasDetailsComponent {
         pagination: false,
       } as GridOptions;
     })
+
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   onGridReady(params: GridReadyEvent) {
@@ -123,8 +137,13 @@ export class TableGastosGruposprogramasDetailsComponent {
 
   async createDataOCM(): Promise<void> {
     const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
-    this._rowData = (await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
-      .filter(x => x.CodEco == codigoSearch);
+    if (this.id == 'gastan') {
+      this._rowData = (await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
+        .filter(x => x.CodEco == codigoSearch);
+    } else {
+      this._rowData = (await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
+        .filter(x => x.CodOrg == codigoSearch);
+    }
   }
 
   createColumnsChildrenDetalle(year: number) {
@@ -208,5 +227,7 @@ export class TableGastosGruposprogramasDetailsComponent {
     this.dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
     this._router.navigateByUrl("/tableProgramaDetails")
   }
+
+
 
 }
