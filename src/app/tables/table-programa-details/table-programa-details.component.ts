@@ -357,6 +357,7 @@ export class TableProgramaDetailsComponent {
   }
 
   volver() {
+    this.dataStoreService.selectedCodeRowFirstLevel = '';
     this._location.back();
   }
 
