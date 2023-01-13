@@ -47,6 +47,7 @@ export class DetalleComponent implements OnInit {
   private _radioButtonSelected = 'radio-1';
   private _tabSelected: string = "tab1";
   private _treemap = 'treemap1';
+  private _tabOrRadio = false;
 
   constructor(
     private _dataStoreService: DataStoreService,
@@ -78,21 +79,33 @@ export class DetalleComponent implements OnInit {
     this._treemap = `treemap${e.target.id.charAt(e.target.id.length - 1)}`;
     this.setValues(e.target.id)
     localStorage.setItem('activeTab', this._tabSelected);
+    this._tabOrRadio = true;
     this._loadData();
   }
 
   checkedRadio(e: any) {
     this._radioButtonSelected = e.target.id
+    this._tabOrRadio = true;
     this._loadData();
   }
 
   private async _loadData(): Promise<void> {
-    // Si se recarga la pagina hay que volver a generar la data. 
-    this._dataTable = await this._tableService.loadDataInitial();
+    if (this._tabOrRadio) {
+      // Si vengo de un tab o radio no hay que volver a generar la data.
+      this._tabOrRadio = false;
+    } else {
+      // Si se recarga la pagina hay que volver a generar la data. 
+      this._dataTable = await this._tableService.loadDataInitial();
+    }
 
     await this.setTotalesPresupuesto();
     let data = await this._tableService.loadData(this._typeClasification);
-    await this.treeGraph(data.rowDataGastos)
+    if (this._tabSelected === 'tab1') {
+      await this.treeGraph(data.rowDataIngresos)
+    } else {
+      await this.treeGraph(data.rowDataGastos)
+    }
+
     await this.graphTreemap();
   }
 
