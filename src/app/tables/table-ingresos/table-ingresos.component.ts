@@ -7,7 +7,7 @@ import { ColumnApi, GridApi } from "ag-grid-community/main";
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
-import { CellRendererOCM1, CellRendererOCMtext1 } from '../../ag-grid/CellRendererOCM1'
+// import { CellRendererOCM1, CellRendererOCMtext1 } from '../../ag-grid/CellRendererOCM1'
 // import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
 import { AlertService } from '../../services/alert.service';
@@ -159,7 +159,7 @@ export class TableIngresosComponent implements OnInit {
     this._columnApi = params.columnApi;
 
     let defaultSortModel: ColumnState[] = [
-      // { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
+      { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
     ];
     params.columnApi.applyColumnState({ state: defaultSortModel });
 
