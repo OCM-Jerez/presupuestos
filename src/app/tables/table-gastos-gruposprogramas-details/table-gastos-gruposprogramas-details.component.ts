@@ -4,8 +4,8 @@ import { Location } from "@angular/common";
 
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColumnState, GridReadyEvent } from 'ag-grid-community';
-import { GridOptions, GridApi } from 'ag-grid-community/main';
+// import { ColumnState, GridReadyEvent } from 'ag-grid-community';
+import { ColumnState, GridOptions, GridApi, GridReadyEvent } from 'ag-grid-community/main';
 
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
@@ -131,6 +131,8 @@ export class TableGastosGruposprogramasDetailsComponent {
   }
 
   onGridReady(params: GridReadyEvent) {
+    console.log();
+
     this._gridApi = params.api;
     const defaultSortModel: ColumnState[] = [
       { colId: `Pagos2022`, sort: 'desc', sortIndex: 0 },
