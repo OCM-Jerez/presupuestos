@@ -4,7 +4,6 @@ import { Location } from "@angular/common";
 
 
 import { AgGridAngular } from 'ag-grid-angular';
-// import { ColumnState, GridReadyEvent } from 'ag-grid-community';
 import { ColumnState, GridOptions, GridApi, GridReadyEvent } from 'ag-grid-community/main';
 
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
@@ -131,8 +130,6 @@ export class TableGastosGruposprogramasDetailsComponent {
   }
 
   onGridReady(params: GridReadyEvent) {
-    console.log();
-
     this._gridApi = params.api;
     const defaultSortModel: ColumnState[] = [
       { colId: `Pagos2022`, sort: 'desc', sortIndex: 0 },
@@ -141,14 +138,19 @@ export class TableGastosGruposprogramasDetailsComponent {
   }
 
   async createDataOCM(): Promise<void> {
+    let cod = '';
     const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
+    const clasificationType = this.dataStoreService.dataTable.clasificationType;
+
     if (this.id == 'gastan') {
-      this._rowData = (await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
-        .filter(x => x.CodEco == codigoSearch);
+      cod = (clasificationType === 'gastosEconomicaCapitulos') ? 'CodCap' : 'CodEco';
     } else {
-      this._rowData = (await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType))
-        .filter(x => x.CodOrg == codigoSearch);
+      cod = 'CodOrg'
     }
+
+    this._rowData = (await this._prepareDataGastosService.getDataAllYear(clasificationType))
+      .filter(x => x[cod] == codigoSearch);
+
   }
 
   createColumnsChildrenDetalle(year: number) {
@@ -237,7 +239,5 @@ export class TableGastosGruposprogramasDetailsComponent {
     this.dataStoreService.selectedCodeRowFirstLevel = '';
     this._location.back();
   }
-
-
 
 }
