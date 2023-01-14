@@ -77,9 +77,9 @@ export class DetalleComponent implements OnInit {
   checkedTab(e: any) {
     this._tabSelected = e.target.id;
     this._treemap = `treemap${e.target.id.charAt(e.target.id.length - 1)}`;
-    this.setValues(e.target.id)
     localStorage.setItem('activeTab', this._tabSelected);
     this._tabOrRadio = true;
+    this.setValues(e.target.id)
     this._loadData();
   }
 
