@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -22,12 +22,11 @@ import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
 
 export class TableGastosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  private _columnDefs: any[];
-  private _dataTable: IDataTable;
+  gridOptions: GridOptions;
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
-  gridOptions: GridOptions;
-  selectedCodeRowFirstLevel = '';
+  private _columnDefs: any[];
+  private _dataTable: IDataTable;
   private _dataGraph: IDataGraph = {} as IDataGraph;
   private subHeaderName: string = "";
   @Input()
@@ -52,7 +51,6 @@ export class TableGastosComponent {
   }
 
   constructor(
-    public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
     private _dataStoreService: DataStoreService,
     private _avalaibleYearsService: AvalaibleYearsService,
@@ -65,14 +63,12 @@ export class TableGastosComponent {
   // }
 
   ngOnChanges(): void {
-    console.log('ngOnChanges');
     this._loadTable();
     this._flagService.changeFlag(false);
   }
 
   private async _loadTable() {
     this._dataTable = this._dataStoreService.dataTable;
-    console.log(this._dataTable);
     this.subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
     this.setColumnDefs();
     this.setGridOptions();
@@ -152,19 +148,13 @@ export class TableGastosComponent {
         const selectedRows = this.agGrid.api.getSelectedNodes();
         this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
         this._flagService.changeFlag(true);
-        // const hasRowSelected = true;
-        // this.rowSelected.emit(hasRowSelected);
-        // console.log('onRowClicked', selectedRows[0].key);
       }
     } as GridOptions;
   }
 
-
   onGridReady = (params: GridReadyEvent) => {
-    console.log('onGridReady');
     this._gridApi = params.api;
     this._columnApi = params.columnApi;
-    console.log(this._dataTable);
 
     const defaultSortModel: ColumnState[] = [
       { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
