@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from "@angular/common";
+
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnState, GridReadyEvent } from 'ag-grid-community';
@@ -34,7 +36,8 @@ export class TableGastosGruposprogramasDetailsComponent {
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
     private _prepareDataGastosService: PrepareDataGastosService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private _location: Location,
   ) {
 
     this.sub = this._route.params.subscribe(params => {
@@ -226,6 +229,11 @@ export class TableGastosGruposprogramasDetailsComponent {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     this.dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
     this._router.navigateByUrl("/tableProgramaDetails")
+  }
+
+  volver() {
+    this.dataStoreService.selectedCodeRowFirstLevel = '';
+    this._location.back();
   }
 
 

@@ -4,17 +4,28 @@
         {{ dataStoreService.selectedCodeRowFirstLevel }}.
         {{ messageYears }}
     </h4>
-
+    <!-- 
     <button type="button" (click)="showProgramaDetails()" class="OCM-button">
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content">Detalle programa</span>
-    </button>
-
+    </button> -->
+    <!-- 
     <button type="button" class="OCM-button" onclick="history.back()">
+        (click)="volver()
         <span class="shadow"></span>
         <span class="depth"></span>
         <span class="content">Volver</span>
+    </button> -->
+
+
+
+    <button type="button" class="OCM-button" (click)="showProgramaDetails()">
+        Detalle programa
+    </button>
+
+    <button type="button" class="OCM-button" (click)="volver()">
+        Volver
     </button>
 
     <ag-grid-angular #agGrid style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"
