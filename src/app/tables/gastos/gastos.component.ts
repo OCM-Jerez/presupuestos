@@ -1,7 +1,7 @@
 import { Component, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColumnApi, GridApi, GridReadyEvent } from "ag-grid-community";
+import { ColumnApi, GridApi, GridReadyEvent, ColumnState } from "ag-grid-community";
 
 import { DataStoreService } from '../../services/dataStore.service';
 import { PrepareDataTreemapService } from '../../services/prepareDataTreemap.service';
@@ -37,17 +37,21 @@ export class GastosComponent {
   ) { }
 
   onChange(event: Event) {
+    console.log('event =>', event);
+
     this.event = event;
     this.detalle(event);
   }
 
   onGridReady = (params: GridReadyEvent) => {
+    console.log('onGridReady');
+
     this._gridApi = params.api;
     this._columnApi = params.columnApi;
-    // let defaultSortModel: ColumnState[] = [
-    //   { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
-    // ];
-    // params.columnApi.applyColumnState({ state: defaultSortModel });
+    let defaultSortModel: ColumnState[] = [
+      { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
+    ];
+    params.columnApi.applyColumnState({ state: defaultSortModel });
   }
 
   async detalle(event: Event) {
@@ -91,7 +95,7 @@ export class GastosComponent {
     }
 
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
-    // console.log('button.clasificationType', button);
+    console.log('button.clasificationType', button);
 
     if (button) {
       // Unicamente si se ha pulsado un boton que necesita actualización de la data, 
