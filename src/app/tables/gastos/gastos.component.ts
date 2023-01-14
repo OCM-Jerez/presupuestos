@@ -56,8 +56,8 @@ export class GastosComponent {
     const target = event.target as HTMLButtonElement;
     // console.log('target =>', target.textContent.trim());
     if (target.textContent.trim() === 'Programas que gastan del elemento seleccionado') {
-      console.log('Programas que gastan del elemento seleccionado');
-      console.log('tabselected =>', this._tabselected);
+      // console.log('Programas que gastan del elemento seleccionado');
+      // console.log('tabselected =>', this._tabselected);
 
       // tengo que saber de que pestaña viene el evento para cargar una tipoClasificacion u otro.
       switch (this._tabselected) {
@@ -78,8 +78,8 @@ export class GastosComponent {
       console.log('tipoClasificacion =>', tipoClasificacion);
 
       this._dataTable = await this._tableService.loadData(tipoClasificacion);
-      console.log('this._dataTable =>', this._dataTable);
-      console.log('codField =>', this._dataTable.dataPropertyTable.codField);
+      // console.log('this._dataTable =>', this._dataTable);
+      // console.log('codField =>', this._dataTable.dataPropertyTable.codField);
 
       // // let tipoClasificacion: CLASIFICATION_TYPE = 'gastosEconomicaCapitulos';
       // this._dataTable = await this._tableService.loadData(
