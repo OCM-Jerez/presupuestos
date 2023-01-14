@@ -1,20 +1,18 @@
-import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
-
-import { ColumnApi, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
+import { ColumnApi, GridApi, GridOptions, GridReadyEvent, ColumnState } from 'ag-grid-community/main';
 
 import { CellRendererOCM, CellRendererOCMtext } from '../../../../ag-grid/CellRendererOCM';
 import localeTextESPes from '../../../../../assets/data/localeTextESPes.json';
 
 import { AvalaibleYearsService } from '../../../../services/avalaibleYears.service';
 import { DataStoreService } from '../../../../services/dataStore.service';
-
+import { FlagService } from '../../../../services/flag.service';
 
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
-import { FlagService } from '../../../../services/flag.service';
 
 @Component({
   selector: 'app-table-gastos',
@@ -22,7 +20,7 @@ import { FlagService } from '../../../../services/flag.service';
   styleUrls: ['./table-gastos.component.scss']
 })
 
-export class TableGastosComponent implements OnInit {
+export class TableGastosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private _columnDefs: any[];
   private _dataTable: IDataTable;
@@ -61,17 +59,20 @@ export class TableGastosComponent implements OnInit {
     private _flagService: FlagService
   ) { }
 
-  ngOnInit(): void {
-    this._loadTable();
-  }
+  // No es necesario, ya que se ejecuta el ngOnChanges
+  // ngOnInit(): void {
+  // this._loadTable();
+  // }
 
   ngOnChanges(): void {
+    console.log('ngOnChanges');
     this._loadTable();
     this._flagService.changeFlag(false);
   }
 
   private async _loadTable() {
     this._dataTable = this._dataStoreService.dataTable;
+    console.log(this._dataTable);
     this.subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
     this.setColumnDefs();
     this.setGridOptions();
@@ -158,13 +159,17 @@ export class TableGastosComponent implements OnInit {
     } as GridOptions;
   }
 
+
   onGridReady = (params: GridReadyEvent) => {
+    console.log('onGridReady');
     this._gridApi = params.api;
     this._columnApi = params.columnApi;
-    // const defaultSortModel: ColumnState[] = [
-    //   { colId: 'CodOrg', sort: 'asc', sortIndex: 0 },
-    // ];
-    // params.columnApi.applyColumnState({ state: defaultSortModel });
+    console.log(this._dataTable);
+
+    const defaultSortModel: ColumnState[] = [
+      { colId: this._dataTable.dataPropertyTable.codField, sort: 'asc', sortIndex: 0 },
+    ];
+    params.columnApi.applyColumnState({ state: defaultSortModel });
   }
 
   private _createColumnsChildren(year: number) {
