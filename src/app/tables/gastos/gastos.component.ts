@@ -11,6 +11,7 @@ import { IButtonClasification } from './model/components.interface';
 import { getClasificacion } from '../data-table';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gastos',
@@ -33,17 +34,18 @@ export class GastosComponent {
   constructor(
     private _dataStoreService: DataStoreService,
     private _tableService: TableService,
-    private _prepareDataTreemapService: PrepareDataTreemapService
+    private _prepareDataTreemapService: PrepareDataTreemapService,
+    private _router: Router,
   ) { }
 
   onChange(event: Event) {
     console.log('event =>', event);
-
     this.event = event;
     this.detalle(event);
   }
 
   onGridReady = (params: GridReadyEvent) => {
+    console.clear();
     console.log('onGridReady');
 
     this._gridApi = params.api;
@@ -59,6 +61,7 @@ export class GastosComponent {
     this.clickDetalle.emit();
     const target = event.target as HTMLButtonElement;
     // console.log('target =>', target.textContent.trim());
+    debugger
     if (target.textContent.trim() === 'Programas que gastan del elemento seleccionado') {
       // console.log('Programas que gastan del elemento seleccionado');
       // console.log('tabselected =>', this._tabselected);
@@ -82,6 +85,8 @@ export class GastosComponent {
       console.log('tipoClasificacion =>', tipoClasificacion);
 
       this._dataTable = await this._tableService.loadData(tipoClasificacion);
+
+
       // console.log('this._dataTable =>', this._dataTable);
       // console.log('codField =>', this._dataTable.dataPropertyTable.codField);
 
@@ -89,13 +94,33 @@ export class GastosComponent {
       // this._dataTable = await this._tableService.loadData(
       //   'gastosEconomicaCapitulos');
     } else {
+
+      if (target.textContent.trim() === 'Programas que componen orgánico seleccionado') {
+        this._router.navigate(['/tableGrupoProgramaDetails', 'organico'])
+
+      }
+
+
+
+
+
+
       // console.log('target =>', target.textContent.trim());
       this._tabselected = target.textContent.trim();
       // console.log('tabselected =>', this._tabselected);
     }
 
+
+
+
+
+
+
+
+
+
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
-    console.log('button.clasificationType', button);
+    // console.log('button.clasificationType', button);
 
     if (button) {
       // Unicamente si se ha pulsado un boton que necesita actualización de la data, 
