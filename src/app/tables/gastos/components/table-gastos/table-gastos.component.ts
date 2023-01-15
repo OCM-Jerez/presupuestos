@@ -224,18 +224,18 @@ export class TableGastosComponent {
     ];
   }
 
-  showGraph() {
-    const selectedRows = this.agGrid.api.getSelectedNodes();
-    this._dataStoreService.selectedCodeRow = selectedRows[0].key;
-    this._dataGraph.rowDataGastos = this._dataTable.rowDataGastos
-    this._router.navigateByUrl("/graphGastos").then(() => {
-      this._dataStoreService.setData(
-        {
-          ...this._dataStoreService.dataGraph, graphSubTitle: selectedRows[0].key
-        }
-      );
-    })
-    this._dataStoreService.selectedCodeRowFirstLevel = '';
-  }
+  // showGraph() {
+  //   const selectedRows = this.agGrid.api.getSelectedNodes();
+  //   this._dataStoreService.selectedCodeRow = selectedRows[0].key;
+  //   this._dataGraph.rowDataGastos = this._dataTable.rowDataGastos
+  //   this._router.navigateByUrl("/graphGastos").then(() => {
+  //     this._dataStoreService.setData(
+  //       {
+  //         ...this._dataStoreService.dataGraph, graphSubTitle: selectedRows[0].key
+  //       }
+  //     );
+  //   })
+  //   this._dataStoreService.selectedCodeRowFirstLevel = '';
+  // }
 
 }
