@@ -76,7 +76,7 @@
 
                 <!-- AG-Grid -->
                 <div class="agGridContainer">
-                    <app-table-ingresos (clickDetalle)="clickDetalle()" *ngIf="showIngresos" [fieldsHide]="[
+                    <app-table-ingresos *ngIf="showIngresos" [fieldsHide]="[
                                    'Iniciales', 
                                    'Modificaciones',
                                    'DerechosReconocidos',
@@ -94,19 +94,20 @@
             <!-- Tab ¿En qué se gasta? Clasificacion económica -->
             <div class="tab__content">
                 <div *ngIf="showGraphInTab" id="treemap2" class="treemap"></div>
-                <app-gastos *ngIf="showPrograma" (clickDetalle)="clickDetalle()"></app-gastos>
+                <app-gastos *ngIf="showPrograma"></app-gastos>
             </div>
 
             <!-- Tab ¿Quién lo gasta?  -->
             <div class="tab__content">
                 <div *ngIf="showGraphInTab" id="treemap3" class="treemap"></div>
-                <app-gastos *ngIf="showOrganico" (clickDetalle)="clickDetalle()"></app-gastos>
+                <app-gastos *ngIf="showOrganico"></app-gastos>
             </div>
 
             <!-- Tab ¿Para qué gasta?  -->
             <div class="tab__content">
                 <div *ngIf="showGraphInTab" id="treemap4" class="treemap"></div>
-                <app-gastos *ngIf="showEconomica" (clickDetalle)="clickDetalle()"></app-gastos>
+                <app-gastos *ngIf="showEconomica"></app-gastos>
+                <!-- <app-gastos *ngIf="showEconomica"></app-gastos> -->
             </div>
 
         </div>
