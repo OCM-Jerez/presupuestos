@@ -1,5 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component } from '@angular/core';
 import { HasDataChangeService } from '../../services/hasDataChange.service';
 
 @Component({
@@ -7,20 +6,12 @@ import { HasDataChangeService } from '../../services/hasDataChange.service';
   templateUrl: './gastos.component.html',
   styleUrls: ['./gastos.component.scss']
 })
-export class GastosComponent implements OnDestroy {
+export class GastosComponent {
   event: Event;
-  private _subscription: Subscription;
-  public hasDataChange: boolean;
-
+  public hasDataChange$ = this.hasDataChangeService.currentHasDataChange;
   constructor(
     private hasDataChangeService: HasDataChangeService
-  ) {
-    this._subscription = this.hasDataChangeService.currentHasDataChange.subscribe(hasDataChange => this.hasDataChange = hasDataChange);
-  }
-
-  ngOnDestroy() {
-    this._subscription.unsubscribe();
-  }
+  ) { }
 
 }
 

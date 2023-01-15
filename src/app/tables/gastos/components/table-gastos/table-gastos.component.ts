@@ -9,7 +9,7 @@ import localeTextESPes from '../../../../../assets/data/localeTextESPes.json';
 
 import { AvalaibleYearsService } from '../../../../services/avalaibleYears.service';
 import { DataStoreService } from '../../../../services/dataStore.service';
-import { FlagService } from '../../../../services/flag.service';
+import { HasRowClicked } from '../../../../services/hasRowClicked.service';
 
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
@@ -56,7 +56,8 @@ export class TableGastosComponent {
     private _router: Router,
     private _dataStoreService: DataStoreService,
     private _avalaibleYearsService: AvalaibleYearsService,
-    private _flagService: FlagService
+    private _hasRowClicked: HasRowClicked,
+
   ) { }
 
   // No es necesario, ya que se ejecuta el ngOnChanges
@@ -66,7 +67,7 @@ export class TableGastosComponent {
 
   ngOnChanges(): void {
     this._loadTable();
-    this._flagService.changeFlag(false);
+    this._hasRowClicked.change(false);
   }
 
   private async _loadTable() {
@@ -149,7 +150,7 @@ export class TableGastosComponent {
       onRowClicked: () => {
         const selectedRows = this.agGrid.api.getSelectedNodes();
         this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-        this._flagService.changeFlag(true);
+        this._hasRowClicked.change(true);
       }
     } as GridOptions;
   }

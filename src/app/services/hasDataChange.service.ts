@@ -5,13 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class HasDataChangeService {
-
   private HasDataChangeSource = new BehaviorSubject<boolean>(false);
   currentHasDataChange = this.HasDataChangeSource.asObservable();
-
-  constructor() { }
-
-  change(hasDataChang: boolean) {
-    this.HasDataChangeSource.next(hasDataChang);
-  }
+  change(hasDataChange: boolean) { this.HasDataChangeSource.next(hasDataChange) };
 }

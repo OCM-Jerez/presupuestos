@@ -7,13 +7,13 @@ import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 import { CLASIFICATION_TYPE } from '../../../../commons/util/util';
 
 import { DataStoreService } from '../../../../services/dataStore.service';
-import { FlagService } from '../../../../services/flag.service';
 import { PrepareDataTreemapService } from '../../../../services/prepareDataTreemap.service';
 import { TableService } from '../../../../services/table.service';
+import { HasRowClicked } from '../../../../services/hasRowClicked.service';
+import { HasDataChangeService } from '../../../../services/hasDataChange.service';
 
 import { getClasificacion } from '../../../data-table';
 import { IButtonClasification } from '../../model/components.interface';
-import { HasDataChangeService } from '../../../../services/hasDataChange.service';
 
 @Component({
   selector: 'app-button-clasification',
@@ -25,20 +25,20 @@ export class ButtonClasificationComponent implements OnDestroy {
   private subscription: Subscription;
   private _dataTable: IDataTable;
   private _dataGraph: IDataGraph = {} as IDataGraph;
-  public flag: boolean;
+  public currentHasRowClicked;
   public showTable = true;
   buttons = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttons;
   buttonsAdditional = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttonsAdditional;
 
   constructor(
-    private _flagService: FlagService,
+    private _hasRowClicked: HasRowClicked,
     private _tableService: TableService,
     private _dataStoreService: DataStoreService,
     private _prepareDataTreemapService: PrepareDataTreemapService,
     private _router: Router,
     private _hasDataChangeService: HasDataChangeService
   ) {
-    this.subscription = this._flagService.currentFlag.subscribe(flag => this.flag = flag);
+    this.subscription = this._hasRowClicked.currentHasRowClicked.subscribe(currentHasRowClicked => this.currentHasRowClicked = currentHasRowClicked);
   }
 
   ngOnDestroy() {
