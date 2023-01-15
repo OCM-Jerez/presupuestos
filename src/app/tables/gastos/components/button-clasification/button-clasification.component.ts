@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -22,9 +22,6 @@ import { HasDataChangeService } from '../../../../services/hasDataChange.service
 })
 
 export class ButtonClasificationComponent implements OnDestroy {
-  // @Input() buttons: IButtonClasification[] = [];
-  // @Input() buttonsAdditional: string[] = [];
-  @Output() clickButton = new EventEmitter<Event>();
   private subscription: Subscription;
   private _dataTable: IDataTable;
   private _dataGraph: IDataGraph = {} as IDataGraph;
@@ -50,24 +47,12 @@ export class ButtonClasificationComponent implements OnDestroy {
 
   async click(event: Event): Promise<void> {
     const target = event.target as HTMLButtonElement;
-    console.log('target =>', target.textContent.trim());
+    // console.log('target =>', target.textContent.trim());
 
-    let tipoClasificacion: CLASIFICATION_TYPE = 'gastosEconomicaCapitulos'
+    // let tipoClasificacion: CLASIFICATION_TYPE = 'gastosEconomicaCapitulos'
 
     // tengo que saber de que pestaña viene el evento para cargar una tipoClasificacion u otro.
     switch (target.textContent.trim()) {
-      // case 'Por capítulo gasto':
-      //   tipoClasificacion = 'gastosEconomicaCapitulos';
-      //   break;
-      // case 'Por artículo':
-      //   tipoClasificacion = 'gastosEconomicaArticulos';
-      //   break;
-      // case 'Por concepto':
-      //   tipoClasificacion = 'gastosEconomicaConceptos';
-      //   break;
-      // case 'Por económico':
-      //   tipoClasificacion = 'gastosEconomicaEconomicos';
-      //   break;
       case 'Gráfico detalladado':
         this.showGraph();
         break;
@@ -82,12 +67,12 @@ export class ButtonClasificationComponent implements OnDestroy {
         break;
     }
 
-    console.log('tipoClasificacion =>', tipoClasificacion);
-    this._dataTable = await this._tableService.loadData(tipoClasificacion);
+    // console.log('tipoClasificacion =>', tipoClasificacion);
+    // this._dataTable = await this._tableService.loadData(tipoClasificacion);
 
 
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
-    console.log('button', button);
+    // console.log('button', button);
 
 
     if (button) {
@@ -100,10 +85,10 @@ export class ButtonClasificationComponent implements OnDestroy {
         const attribute: string = dataPropertyTable.attribute;
         this._dataTable = await this._tableService.loadData(
           button.clasificationType,
-          { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch });
+          { valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0], attribute, useStarWitch }
+        );
       } else {
-        this._dataTable = await this._tableService.loadData(
-          button.clasificationType);
+        this._dataTable = await this._tableService.loadData(button.clasificationType);
       }
 
       this._dataStoreService.selectedCodeRowFirstLevel = '';
@@ -119,38 +104,11 @@ export class ButtonClasificationComponent implements OnDestroy {
       // this.buttons = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttons;
       // console.log('this.buttons', this.buttons);
 
-      // this.showTable = false;
       this._hasDataChangeService.change(false);
       setTimeout(() => {
-        // this.showTable = true;
         this._hasDataChangeService.change(true);
       }, 5);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    this.clickButton.emit(event);
-
-
-
-
-
 
   }
 
