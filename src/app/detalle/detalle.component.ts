@@ -195,21 +195,6 @@ export class DetalleComponent implements OnInit {
     this._typeClasification = values[tab];
   }
 
-  // clickDetalle(e: any): void {
-  //   console.log('clickDetalle', e);
-  //   console.log('this._typeClasification', this._typeClasification);
-
-
-  //   // Al pulsar botones grafico o detalle, como navegan a otra ruta intentan cargar el graphTreeMap y da error.
-  //   if (this._typeClasification !== 'gastosOrganicaOrganicos'
-  //     && this._typeClasification !== 'gastosProgramaPoliticas'
-  //     && this._typeClasification !== 'gastosEconomicaCapitulos') {
-  //     setTimeout(() => {
-  //       this.graphTreemap()
-  //     }, 0);
-  //   }
-  // }
-
   async hasChangeCheckbox() {
     let years = this._avalaibleYearsService.getYearsSelected();
     if (years.length === 1 && years[0] === 2022) {
