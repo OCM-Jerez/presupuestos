@@ -90,11 +90,9 @@ export class DetalleComponent implements OnInit {
   }
 
   private async _loadData(): Promise<void> {
-    if (this._tabOrRadio) {
-      // Si vengo de un tab o radio no hay que volver a generar la data.
+    if (this._tabOrRadio) {                   // Si vengo de un tab o radio no hay que volver a generar la data.
       this._tabOrRadio = false;
-    } else {
-      // Si se recarga la pagina hay que volver a generar la data. 
+    } else {                                  // Si se recarga la pagina hay que volver a generar la data. 
       this._dataTable = await this._tableService.loadDataInitial();
     }
 
@@ -107,10 +105,10 @@ export class DetalleComponent implements OnInit {
     }
 
     await this.graphTreemap();
+
   }
 
-  async setTotalesPresupuesto() {
-    // Si se recarga la pagina hay que volver a calcular los totales. 
+  async setTotalesPresupuesto() {            // Si se recarga la pagina hay que volver a calcular los totales. 
     await this._prepareDataTotalesPresupuestoService.calcTotales();
     this.DataTotalesPresupuesto = this._dataStoreService.dataTotalesPresupuesto;
   }
@@ -193,6 +191,7 @@ export class DetalleComponent implements OnInit {
       tab4: 'gastosEconomicaCapitulos'
     };
     this._typeClasification = values[tab];
+    console.log(this._typeClasification, this._tabSelected);
   }
 
   async hasChangeCheckbox() {
