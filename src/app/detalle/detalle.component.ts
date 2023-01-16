@@ -191,7 +191,6 @@ export class DetalleComponent implements OnInit {
       tab4: 'gastosEconomicaCapitulos'
     };
     this._typeClasification = values[tab];
-    console.log(this._typeClasification, this._tabSelected);
   }
 
   async hasChangeCheckbox() {
