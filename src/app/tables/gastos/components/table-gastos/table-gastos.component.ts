@@ -149,7 +149,10 @@ export class TableGastosComponent {
       paginationPageSize: 20,
       onRowClicked: () => {
         const selectedRows = this.agGrid.api.getSelectedNodes();
+        console.log(selectedRows[0].key);
+
         this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+        console.log(this._dataStoreService);
         this._hasRowClicked.change(true);
       }
     } as GridOptions;
