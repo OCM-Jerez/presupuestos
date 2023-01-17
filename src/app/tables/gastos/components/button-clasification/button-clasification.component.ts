@@ -47,32 +47,18 @@ export class ButtonClasificationComponent implements OnDestroy {
 
   async click(event: Event): Promise<void> {
     const target = event.target as HTMLButtonElement;
-    // console.log('target =>', target.textContent.trim());
+    console.log('target =>', target.textContent.trim());
 
     // let tipoClasificacion: CLASIFICATION_TYPE = 'gastosEconomicaCapitulos'
 
-    // tengo que saber de que pestaña viene el evento para cargar una tipoClasificacion u otro.
-    switch (target.textContent.trim()) {
-      case 'Gráfico detalladado':
-        this.showGraph();
-        break;
-      case 'Detalle del programa seleccionado':
-        this._router.navigate(['tableProgramaDetails']);
-        break;
-      case 'Programas que componen orgánico seleccionado':
-        this._router.navigate(['/tableGrupoProgramaDetails', 'organico'])
-        break;
-      case 'Programas que gastan del elemento seleccionado':
-        this._router.navigate(['/tableGrupoProgramaDetails', 'gastan'])
-        break;
-    }
+
 
     // console.log('tipoClasificacion =>', tipoClasificacion);
     // this._dataTable = await this._tableService.loadData(tipoClasificacion);
 
 
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
-    // console.log('button', button);
+    console.log('button', button);
 
 
     if (button) {
@@ -110,6 +96,22 @@ export class ButtonClasificationComponent implements OnDestroy {
       }, 5);
     }
 
+    // tengo que saber de que pestaña viene el evento para cargar una tipoClasificacion u otro.
+    switch (target.textContent.trim()) {
+      case 'Gráfico detalladado':
+        this.showGraph();
+        break;
+      case 'Detalle del programa seleccionado':
+        this._router.navigate(['tableProgramaDetails']);
+        break;
+      case 'Programas que componen orgánico seleccionado':
+        this._router.navigate(['/tableGrupoProgramaDetails', 'organico'])
+        break;
+      case 'Programas que gastan del elemento seleccionado':
+        this._router.navigate(['/tableGrupoProgramaDetails', 'gastan'])
+        break;
+    }
+
   }
 
   showGraph() {
@@ -117,7 +119,12 @@ export class ButtonClasificationComponent implements OnDestroy {
     // this._dataStoreService.selectedCodeRow = selectedRows[0].key;
     // const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
     this._dataGraph.rowDataGastos = this._dataTable.rowDataGastos
+    // this._router.navigateByUrl("/graphGastos");
+
     this._router.navigateByUrl("/graphGastos").then(() => {
+
+      const a = { ...this._dataStoreService.dataGraph, graphSubTitle: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0] }
+      console.log(a);
       this._dataStoreService.setData(
         {
           ...this._dataStoreService.dataGraph, graphSubTitle: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]
