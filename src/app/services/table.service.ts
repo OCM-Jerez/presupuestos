@@ -33,7 +33,6 @@ export class TableService {
 
         // Uso el setter
         this._dataStoreService.dataTable = sendDataTable;
-        // console.log('loadDataInitial', this._dataStoreService);
         return sendDataTable;
     }
 
@@ -42,21 +41,12 @@ export class TableService {
         filter?: { valueFilter: string, attribute: string, useStarWitch?: boolean }
     ): Promise<IDataTable> {
         const dataPropertyTable = getClasificacion(tipoClasificacion) as IDataProperty;
-        // console.log('dataPropertyTable', dataPropertyTable);
-
         const dataPropertyGraph = getClasificacionGraph(tipoClasificacion);
         let rowData: any[];
 
         // Tengo que conservar rowData anteriores, de los contrario grabara un objeto vacio.
         const rowDataGastosPrevia = this._dataStoreService.dataTable.rowDataGastos;
         const rowDataIngresosPrevia = this._dataStoreService.dataTable.rowDataIngresos;
-
-        // if (tipoClasificacion.startsWith('ingresos')) {
-        //     // Necesito tipoClasificacion para añadir los item de diferentes clasificaciones
-        //     rowData = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion);
-        // } else {
-        //     rowData = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion);
-        // }
 
         tipoClasificacion.startsWith('ingresos')
             // Necesito tipoClasificacion para añadir los item de diferentes clasificaciones
@@ -103,8 +93,6 @@ export class TableService {
         // Uso el setter
         this._dataStoreService.dataTable = sendDataTable;
         this._dataStoreService.dataGraph = sendDataGraph;
-        // console.log('loadData sendDataTable', sendDataTable);
-        // console.log('loadData sendDataGraph', sendDataGraph);
         return sendDataTable;
 
     }
