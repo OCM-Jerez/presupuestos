@@ -61,9 +61,12 @@ export class DataStoreService {
 
   set selectedCodeRowFirstLevel(codeRow: string) {
     this._selectedCodeRowFirstLevel = codeRow;
+    console.log('SET DataStoreService selectedCodeRowFirstLevel', this._selectedCodeRowFirstLevel);
   }
 
   get selectedCodeRowFirstLevel(): string {
+    console.log('GET DataStoreService selectedCodeRowFirstLevel', this._selectedCodeRowFirstLevel);
+
     return this._selectedCodeRowFirstLevel
   }
 
