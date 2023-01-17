@@ -50,9 +50,13 @@ export class GraphGastosComponent implements OnDestroy {
 
   private async _createData() {
     console.log(this._dataGraph);
-
     if (this._dataGraph.clasificationType != "aplicacion") {
-      const codigo = this._dataStoreService.selectedCodeRow.split(" ")[0];
+
+      const codigo = this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
+      console.log(this._dataStoreService);
+      console.log(this._dataGraph);
+
+
       switch (this._dataGraph.clasificationType) {
         case 'gastosOrganicaOrganicos':
           this.datos = this._dataGraph.rowDataGastos.filter(x => x.CodOrg == codigo);
