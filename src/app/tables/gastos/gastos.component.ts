@@ -8,9 +8,9 @@ import { HasDataChangeService } from '../../services/hasDataChange.service';
 })
 export class GastosComponent {
   event: Event;
-  public hasDataChange$ = this.hasDataChangeService.currentHasDataChange;
+  public hasDataChange$ = this._hasDataChangeService.currentHasDataChange;
   constructor(
-    private hasDataChangeService: HasDataChangeService
+    private _hasDataChangeService: HasDataChangeService
   ) { }
 
 }
