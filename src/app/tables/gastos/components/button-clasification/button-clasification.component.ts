@@ -28,8 +28,8 @@ export class ButtonClasificationComponent implements OnDestroy {
   private _dataGraph: IDataGraph = {} as IDataGraph;
   public currentHasRowClicked;
   public showTable = true;
-  buttons = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttons;
-  buttonsAdditional = getClasificacion(this._dataStoreService.dataTable.clasificationType).buttonsAdditional;
+  public buttons: IButtonClasification[] = [];
+  public buttonsAdditional: string[] = [];
 
   constructor(
     private _router: Router,
@@ -40,6 +40,9 @@ export class ButtonClasificationComponent implements OnDestroy {
     private _hasDataChangeService: HasDataChangeService
   ) {
     this.subscription = this._hasRowClicked.currentHasRowClicked.subscribe(currentHasRowClicked => this.currentHasRowClicked = currentHasRowClicked);
+    const clasification = getClasificacion(this._dataStoreService.dataTable.clasificationType)
+    this.buttons = clasification.buttons;
+    this.buttonsAdditional = clasification.buttonsAdditional;
   }
 
   ngOnDestroy() {
