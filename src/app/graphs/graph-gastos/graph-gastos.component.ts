@@ -187,7 +187,8 @@ export class GraphGastosComponent implements OnDestroy {
         text: this._dataGraph.graphTitle
       },
       subtitle: {
-        text: `${this._dataGraph.graphSubTitle}`
+        // text: `${this._dataGraph.graphSubTitle}`
+        text: this.row
       },
       data: [...this.data],
       series: [
