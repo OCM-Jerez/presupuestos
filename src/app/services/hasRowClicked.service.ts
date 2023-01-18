@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class HasRowClicked {
-  private hasRowClickedSource = new BehaviorSubject<boolean>(false);
+  private hasRowClickedSource = new BehaviorSubject<string>(null);
   currentHasRowClicked = this.hasRowClickedSource.asObservable();
-  change(hasRowClicked: boolean) { this.hasRowClickedSource.next(hasRowClicked) };
+  change(hasRowClicked: string) { this.hasRowClickedSource.next(hasRowClicked) };
 }

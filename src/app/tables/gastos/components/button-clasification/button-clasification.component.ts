@@ -26,6 +26,7 @@ export class ButtonClasificationComponent {
   public buttons: IButtonClasification[] = [];
   public buttonsAdditional: string[] = [];
   public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
+  private row: string = '';
 
   constructor(
     private _router: Router,
@@ -86,17 +87,24 @@ export class ButtonClasificationComponent {
     // const selectedRows = this.agGrid.api.getSelectedNodes();
     // this._dataStoreService.selectedCodeRow = selectedRows[0].key;
     // const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
-    this._dataGraph.rowDataGastos = this._dataTable.rowDataGastos
     // this._router.navigateByUrl("/graphGastos");
 
-    this._router.navigateByUrl("/graphGastos").then(() => {
 
-      const a = { ...this._dataStoreService.dataGraph, graphSubTitle: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0] }
-      console.log(a);
-      console.log('selectedCodeRowFirstLevel', this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+
+
+    console.warn('this._dataTable ------------------------------', this._dataTable);
+    this.hasRowClicked$.subscribe(value => {
+      this.row = value;
+      console.log(value);
+    });
+
+    this._dataGraph.rowDataGastos = this._dataTable.rowDataGastos
+
+    this._router.navigateByUrl("/graphGastos").then(() => {
       this._dataStoreService.setData(
         {
-          ...this._dataStoreService.dataGraph, graphSubTitle: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]
+          // ...this._dataStoreService.dataGraph, graphSubTitle: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]
+          ...this._dataStoreService.dataGraph, graphSubTitle: this.row.split(" ")[0]
         }
       );
     })

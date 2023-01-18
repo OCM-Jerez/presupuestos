@@ -67,7 +67,7 @@ export class TableGastosComponent {
 
   ngOnChanges(): void {
     this._loadTable();
-    this._hasRowClicked.change(false);
+    this._hasRowClicked.change(null);
   }
 
   private async _loadTable() {
@@ -153,7 +153,7 @@ export class TableGastosComponent {
 
         this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
         console.log(this._dataStoreService);
-        this._hasRowClicked.change(true);
+        this._hasRowClicked.change(selectedRows[0].key);
       }
     } as GridOptions;
   }

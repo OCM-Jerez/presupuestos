@@ -10,6 +10,7 @@ import { accumulate } from '../../commons/util/util';
 import { DataStoreService } from '../../services/dataStore.service';
 import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 import { Subscription } from 'rxjs';
+import { HasRowClicked } from '../../services/hasRowClicked.service';
 
 @Component({
   selector: 'app-graph-gastos',
@@ -29,10 +30,13 @@ export class GraphGastosComponent implements OnDestroy {
   private datos: any[] = [];
   private _dataGraph: IDataGraph;
   private _subscription: Subscription;
+  public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
+  private row: string = '';
 
   constructor(
     private location: Location,
     private _dataStoreService: DataStoreService,
+    private _hasRowClicked: HasRowClicked,
   ) {
     this._subscription = this._dataStoreService.dataSource$.subscribe((data) => {
       this._dataGraph = data;
@@ -52,8 +56,16 @@ export class GraphGastosComponent implements OnDestroy {
     console.log(this._dataGraph);
     if (this._dataGraph.clasificationType != "aplicacion") {
 
-      const codigo = this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
-      console.log(this._dataStoreService);
+
+      this.hasRowClicked$.subscribe(value => {
+        this.row = value;
+        console.log(value);
+      });
+      const codigo = this.row.split(" ")[0];
+
+
+      // const codigo = this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
+      console.warn(this._dataStoreService);
       console.log(this._dataGraph);
 
 
@@ -79,6 +91,35 @@ export class GraphGastosComponent implements OnDestroy {
     } else {
       this.datos = this._dataGraph.rowDataGastos
     }
+
+
+
+    //   switch (this._dataGraph.clasificationType) {
+    //     case 'gastosOrganicaOrganicos':
+    //       this.datos = this._dataGraph.rowDataGastos.filter(x => x.CodOrg == codigo);
+    //       break;
+    //     case 'gastosProgramaAreas':
+    //     case 'gastosProgramaPoliticas':
+    //     case 'gastosProgramaGrupos':
+    //     case 'gastosProgramaProgramas':
+    //       this.datos = this._dataGraph.rowDataGastos.filter(x => x.CodPro == codigo);
+    //       break;
+    //     case 'gastosEconomicaCapitulos':
+    //       this.datos = this._dataGraph.rowDataGastos.filter(x => x.CodCap == codigo);
+    //       break;
+    //     case 'gastosEconomicaArticulos':
+    //     case 'gastosEconomicaConceptos':
+    //     case 'gastosEconomicaEconomicos':
+    //       this.datos = this._dataGraph.rowDataGastos.filter(x => x.CodEco == codigo);
+    //       break;
+    //   }
+    // } else {
+    //   this.datos = this._dataGraph.rowDataGastos
+    // }
+
+
+    console.warn(this.datos);
+
 
     const yearsIniciales = accumulate('Iniciales', this.datos);
     const yearsDefinitivas = accumulate('Definitivas', this.datos);
