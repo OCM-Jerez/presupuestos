@@ -1,12 +1,11 @@
 <div>
 
     <div>
-        <span *ngIf="!currentHasRowClicked" style=" font-size: 16px; color:red">Selecciona un fila y podras ver las
-            diferentes opciones
-            disponibles</span>
+        <span *ngIf="!(hasRowClicked$ | async) as hasRowClicked" style=" font-size: 16px; color:red">
+            Selecciona un fila y podras ver las diferentes opciones disponibles</span>
     </div>
 
-    <div *ngIf="currentHasRowClicked" class="OCM-button--container">
+    <div *ngIf="hasRowClicked$ | async as hasRowClicked" class="OCM-button--container">
         <button type="button" class="OCM-button" *ngFor="let button of buttonsAdditional" (click)="click($event)">
             {{button}}
         </button>

@@ -1,12 +1,9 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { Subscription } from 'rxjs';
 
 import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 import { IButtonClasification } from '../../model/components.interface';
-import { CLASIFICATION_TYPE } from '../../../../commons/util/util';
 
 import { DataStoreService } from '../../../../services/dataStore.service';
 import { PrepareDataTreemapService } from '../../../../services/prepareDataTreemap.service';
@@ -22,14 +19,13 @@ import { getClasificacion } from '../../../data-table';
   styleUrls: ['./button-clasification.component.scss']
 })
 
-export class ButtonClasificationComponent implements OnDestroy {
-  private subscription: Subscription;
+export class ButtonClasificationComponent {
   private _dataTable: IDataTable;
   private _dataGraph: IDataGraph = {} as IDataGraph;
-  public currentHasRowClicked;
   public showTable = true;
   public buttons: IButtonClasification[] = [];
   public buttonsAdditional: string[] = [];
+  public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
 
   constructor(
     private _router: Router,
@@ -39,14 +35,9 @@ export class ButtonClasificationComponent implements OnDestroy {
     private _prepareDataTreemapService: PrepareDataTreemapService,
     private _hasDataChangeService: HasDataChangeService
   ) {
-    this.subscription = this._hasRowClicked.currentHasRowClicked.subscribe(currentHasRowClicked => this.currentHasRowClicked = currentHasRowClicked);
     const clasification = getClasificacion(this._dataStoreService.dataTable.clasificationType)
     this.buttons = clasification.buttons;
     this.buttonsAdditional = clasification.buttonsAdditional;
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   async click(event: Event): Promise<void> {
