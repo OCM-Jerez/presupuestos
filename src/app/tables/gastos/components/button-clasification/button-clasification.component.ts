@@ -48,18 +48,12 @@ export class ButtonClasificationComponent implements OnDestroy {
   async click(event: Event): Promise<void> {
     const target = event.target as HTMLButtonElement;
     console.log('target =>', target.textContent.trim());
-
-    // let tipoClasificacion: CLASIFICATION_TYPE = 'gastosEconomicaCapitulos'
-
-
-
-    // console.log('tipoClasificacion =>', tipoClasificacion);
     // this._dataTable = await this._tableService.loadData(tipoClasificacion);
 
+    console.log('this.buttons', this.buttons);
 
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
     console.log('button', button);
-
 
     if (button) {
       // Unicamente si se ha pulsado un boton que necesita actualización de la data, 
@@ -125,6 +119,7 @@ export class ButtonClasificationComponent implements OnDestroy {
 
       const a = { ...this._dataStoreService.dataGraph, graphSubTitle: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0] }
       console.log(a);
+      console.log('selectedCodeRowFirstLevel', this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
       this._dataStoreService.setData(
         {
           ...this._dataStoreService.dataGraph, graphSubTitle: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]
