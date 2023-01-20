@@ -43,15 +43,10 @@ export class ButtonClasificationComponent {
 
   async click(event: Event): Promise<void> {
     const target = event.target as HTMLButtonElement;
-    console.log('target =>', target.textContent.trim());
-    console.log('this.buttons', this.buttons);
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
-    console.log('button', button);
-    console.log('clasification', (this._dataStoreService.dataTable.clasificationType));
 
     if (button) {
       this._dataTable = await this._tableService.loadData(button.clasificationType);
-      console.log('this._dataTable', this._dataTable);
 
       await this._prepareDataTreemapService.calcSeries(         // Actualizo datos treemap en función del boton pulsado
         this._dataTable.rowDataGastos,
@@ -86,32 +81,19 @@ export class ButtonClasificationComponent {
   }
 
   showGraph() {
-    // const selectedRows = this.agGrid.api.getSelectedNodes();
-    // this._dataStoreService.selectedCodeRow = selectedRows[0].key;
-    // const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
-    // this._router.navigateByUrl("/graphGastos");
-
-
-
-
-    console.warn('this._dataTable ------------------------------', this._dataTable);
     this.hasRowClicked$.subscribe(value => {
       this.row = value;
-      console.log(value);
     });
 
     this._dataGraph.rowDataGastos = this._dataTable.rowDataGastos
-
     this._router.navigateByUrl("/graphGastos").then(() => {
       this._dataStoreService.setData(
         {
-          // ...this._dataStoreService.dataGraph, graphSubTitle: this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]
           ...this._dataStoreService.dataGraph, graphSubTitle: this.row.split(" ")[0]
         }
       );
     })
     this._dataStoreService.selectedCodeRowFirstLevel = '';
   }
-
 
 }

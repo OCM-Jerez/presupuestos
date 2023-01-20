@@ -53,21 +53,11 @@ export class GraphGastosComponent implements OnDestroy {
   }
 
   private async _createData() {
-    console.log(this._dataGraph);
     if (this._dataGraph.clasificationType != "aplicacion") {
-
-
       this.hasRowClicked$.subscribe(value => {
         this.row = value;
-        console.log(value);
       });
       const codigo = this.row.split(" ")[0];
-
-
-      // const codigo = this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0];
-      console.warn(this._dataStoreService);
-      console.log(this._dataGraph);
-
 
       switch (this._dataGraph.clasificationType) {
         case 'gastosOrganicaOrganicos':
@@ -91,35 +81,6 @@ export class GraphGastosComponent implements OnDestroy {
     } else {
       this.datos = this._dataGraph.rowDataGastos
     }
-
-
-
-    //   switch (this._dataGraph.clasificationType) {
-    //     case 'gastosOrganicaOrganicos':
-    //       this.datos = this._dataGraph.rowDataGastos.filter(x => x.CodOrg == codigo);
-    //       break;
-    //     case 'gastosProgramaAreas':
-    //     case 'gastosProgramaPoliticas':
-    //     case 'gastosProgramaGrupos':
-    //     case 'gastosProgramaProgramas':
-    //       this.datos = this._dataGraph.rowDataGastos.filter(x => x.CodPro == codigo);
-    //       break;
-    //     case 'gastosEconomicaCapitulos':
-    //       this.datos = this._dataGraph.rowDataGastos.filter(x => x.CodCap == codigo);
-    //       break;
-    //     case 'gastosEconomicaArticulos':
-    //     case 'gastosEconomicaConceptos':
-    //     case 'gastosEconomicaEconomicos':
-    //       this.datos = this._dataGraph.rowDataGastos.filter(x => x.CodEco == codigo);
-    //       break;
-    //   }
-    // } else {
-    //   this.datos = this._dataGraph.rowDataGastos
-    // }
-
-
-    console.warn(this.datos);
-
 
     const yearsIniciales = accumulate('Iniciales', this.datos);
     const yearsDefinitivas = accumulate('Definitivas', this.datos);

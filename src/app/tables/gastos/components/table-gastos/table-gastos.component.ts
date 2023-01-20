@@ -149,10 +149,7 @@ export class TableGastosComponent {
       paginationPageSize: 20,
       onRowClicked: () => {
         const selectedRows = this.agGrid.api.getSelectedNodes();
-        console.log(selectedRows[0].key);
-
         this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-        console.log(this._dataStoreService);
         this._hasRowClicked.change(selectedRows[0].key);
       }
     } as GridOptions;
@@ -227,19 +224,5 @@ export class TableGastosComponent {
       },
     ];
   }
-
-  // showGraph() {
-  //   const selectedRows = this.agGrid.api.getSelectedNodes();
-  //   this._dataStoreService.selectedCodeRow = selectedRows[0].key;
-  //   this._dataGraph.rowDataGastos = this._dataTable.rowDataGastos
-  //   this._router.navigateByUrl("/graphGastos").then(() => {
-  //     this._dataStoreService.setData(
-  //       {
-  //         ...this._dataStoreService.dataGraph, graphSubTitle: selectedRows[0].key
-  //       }
-  //     );
-  //   })
-  //   this._dataStoreService.selectedCodeRowFirstLevel = '';
-  // }
 
 }
