@@ -47,6 +47,7 @@ export class ButtonClasificationComponent {
     console.log('this.buttons', this.buttons);
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
     console.log('button', button);
+    console.log('clasification', (this._dataStoreService.dataTable.clasificationType));
 
     if (button) {
       this._dataTable = await this._tableService.loadData(button.clasificationType);
@@ -67,6 +68,7 @@ export class ButtonClasificationComponent {
     } else {
       switch (target.textContent.trim()) {    // Si se pulsa un buttonsAdditional, se navega a la ruta correspondiente
         case 'Gráfico detalladado':
+          this._dataTable = await this._tableService.loadData(this._dataStoreService.dataTable.clasificationType);
           this.showGraph();
           break;
         case 'Detalle del programa seleccionado':
