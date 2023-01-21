@@ -1,5 +1,4 @@
 import { Component, ViewChild, Input } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnApi, GridApi, GridOptions, GridReadyEvent, ColumnState } from 'ag-grid-community/main';
@@ -27,7 +26,6 @@ export class TableGastosComponent {
   private _columnApi: ColumnApi;
   private _columnDefs: any[];
   private _dataTable: IDataTable;
-  private _dataGraph: IDataGraph = {} as IDataGraph;
   private subHeaderName: string = "";
   @Input()
   set event(event: Event) {
@@ -53,7 +51,6 @@ export class TableGastosComponent {
   // }
 
   constructor(
-    private _router: Router,
     private _dataStoreService: DataStoreService,
     private _avalaibleYearsService: AvalaibleYearsService,
     private _hasRowClicked: HasRowClicked,
