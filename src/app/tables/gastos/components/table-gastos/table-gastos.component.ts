@@ -11,7 +11,6 @@ import { DataStoreService } from '../../../../services/dataStore.service';
 import { HasRowClicked } from '../../../../services/hasRowClicked.service';
 
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
-import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-table-gastos',
