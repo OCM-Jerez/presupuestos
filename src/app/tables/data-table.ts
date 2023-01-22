@@ -58,16 +58,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         useStarWitch: false,
         width: 250,
         graphTitle: 'Gastos por orgánico',
-        buttons: [
-            // {
-            //     name: 'Gráfico arbol',
-            //     clasificationType: 'gastosOrganicaOrganicos'
-            // },
-            // {
-            //     name: 'Detalle orgánico',
-            //     clasificationType: 'gastosOrganicaOrganicos'
-            // }
-        ],
+        buttons: [],
         buttonsAdditional: [
             'Gráfico detalladado',
             'Programas que componen orgánico seleccionado'
@@ -83,25 +74,25 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         graphTitle: 'Gastos por área de programa',
         buttons: [
-            // {
-            //     name: 'Gráfico arbol',
-            //     clasificationType: 'gastosProgramaAreas'
-            // },
             {
                 name: 'Por áreas',
-                clasificationType: 'gastosProgramaAreas'
+                clasificationType: 'gastosProgramaAreas',
+                selected: false
             },
             {
                 name: 'Por política',
-                clasificationType: 'gastosProgramaPoliticas'
+                clasificationType: 'gastosProgramaPoliticas',
+                selected: true
             },
             {
                 name: 'Por grupo programas',
-                clasificationType: 'gastosProgramaGrupos'
+                clasificationType: 'gastosProgramaGrupos',
+                selected: false
             },
             {
                 name: 'Por programa',
-                clasificationType: 'gastosProgramaProgramas'
+                clasificationType: 'gastosProgramaProgramas',
+                selected: false
             }
         ],
         buttonsAdditional: [
@@ -120,13 +111,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         graphTitle: 'Gastos por política de gasto',
         buttons: [
-            // {
-            //     name: 'Gráfico arbol',
-            //     clasificationType: 'gastosProgramaAreas'
-            // },
             {
                 name: 'Por áreas',
-                clasificationType: 'gastosProgramaAreas'
+                clasificationType: 'gastosProgramaAreas',
+                selected: false
             },
             {
                 name: 'Por política',
@@ -135,11 +123,13 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             },
             {
                 name: 'Por grupo programas',
-                clasificationType: 'gastosProgramaGrupos'
+                clasificationType: 'gastosProgramaGrupos',
+                selected: false
             },
             {
                 name: 'Por programa',
-                clasificationType: 'gastosProgramaProgramas'
+                clasificationType: 'gastosProgramaProgramas',
+                selected: false
             }
         ],
         buttonsAdditional: [
@@ -157,25 +147,25 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         graphTitle: 'Gastos por grupo de programa',
         buttons: [
-            // {
-            //     name: 'Gráfico arbol',
-            //     clasificationType: 'gastosProgramaAreas'
-            // },
             {
                 name: 'Por áreas',
-                clasificationType: 'gastosProgramaAreas'
+                clasificationType: 'gastosProgramaAreas',
+                selected: false
             },
             {
                 name: 'Por política',
-                clasificationType: 'gastosProgramaPoliticas'
+                clasificationType: 'gastosProgramaPoliticas',
+                selected: true
             },
             {
                 name: 'Por grupo programas',
-                clasificationType: 'gastosProgramaGrupos'
+                clasificationType: 'gastosProgramaGrupos',
+                selected: false
             },
             {
                 name: 'Por programa',
-                clasificationType: 'gastosProgramaProgramas'
+                clasificationType: 'gastosProgramaProgramas',
+                selected: false
             }
         ],
         buttonsAdditional: [
@@ -193,25 +183,25 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         graphTitle: 'Gastos por programa',
         buttons: [
-            // {
-            //     name: 'Gráfico arbol',
-            //     clasificationType: 'gastosProgramaAreas'
-            // },
             {
                 name: 'Por áreas',
-                clasificationType: 'gastosProgramaAreas'
+                clasificationType: 'gastosProgramaAreas',
+                selected: false
             },
             {
                 name: 'Por política',
-                clasificationType: 'gastosProgramaPoliticas'
+                clasificationType: 'gastosProgramaPoliticas',
+                selected: true
             },
             {
                 name: 'Por grupo programas',
-                clasificationType: 'gastosProgramaGrupos'
+                clasificationType: 'gastosProgramaGrupos',
+                selected: false
             },
             {
                 name: 'Por programa',
-                clasificationType: 'gastosProgramaProgramas'
+                clasificationType: 'gastosProgramaProgramas',
+                selected: false
             }
         ],
         buttonsAdditional: [
@@ -231,19 +221,23 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         buttons: [
             {
                 name: 'Por capítulo gasto',
-                clasificationType: 'gastosEconomicaCapitulos'
+                clasificationType: 'gastosEconomicaCapitulos',
+                selected: false
             },
             {
                 name: 'Por artículo',
-                clasificationType: 'gastosEconomicaArticulos'
+                clasificationType: 'gastosEconomicaArticulos',
+                selected: true
             },
             {
                 name: 'Por concepto',
-                clasificationType: 'gastosEconomicaConceptos'
+                clasificationType: 'gastosEconomicaConceptos',
+                selected: false
             },
             {
                 name: 'Por económico',
-                clasificationType: 'gastosEconomicaEconomicos'
+                clasificationType: 'gastosEconomicaEconomicos',
+                selected: false
             }
         ],
         buttonsAdditional: [
@@ -260,25 +254,25 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         graphTitle: 'Gastos por artículo',
         buttons: [
-            // {
-            //     name: 'Gráfico arbol',
-            //     clasificationType: 'gastosEconomicaCapitulos'
-            // },
             {
                 name: 'Por capítulo gasto',
-                clasificationType: 'gastosEconomicaCapitulos'
+                clasificationType: 'gastosEconomicaCapitulos',
+                selected: false
             },
             {
                 name: 'Por artículo',
-                clasificationType: 'gastosEconomicaArticulos'
+                clasificationType: 'gastosEconomicaArticulos',
+                selected: true
             },
             {
                 name: 'Por concepto',
-                clasificationType: 'gastosEconomicaConceptos'
+                clasificationType: 'gastosEconomicaConceptos',
+                selected: false
             },
             {
                 name: 'Por económico',
-                clasificationType: 'gastosEconomicaEconomicos'
+                clasificationType: 'gastosEconomicaEconomicos',
+                selected: false
             }
         ],
         buttonsAdditional: [
@@ -296,25 +290,25 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         graphTitle: 'Gastos por concepto',
         buttons: [
-            // {
-            //     name: 'Gráfico arbol',
-            //     clasificationType: 'gastosEconomicaCapitulos'
-            // },
             {
                 name: 'Por capítulo gasto',
-                clasificationType: 'gastosEconomicaCapitulos'
+                clasificationType: 'gastosEconomicaCapitulos',
+                selected: false
             },
             {
                 name: 'Por artículo',
-                clasificationType: 'gastosEconomicaArticulos'
+                clasificationType: 'gastosEconomicaArticulos',
+                selected: true
             },
             {
                 name: 'Por concepto',
-                clasificationType: 'gastosEconomicaConceptos'
+                clasificationType: 'gastosEconomicaConceptos',
+                selected: false
             },
             {
                 name: 'Por económico',
-                clasificationType: 'gastosEconomicaEconomicos'
+                clasificationType: 'gastosEconomicaEconomicos',
+                selected: false
             }
         ],
         buttonsAdditional: [
@@ -331,25 +325,25 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 550,
         graphTitle: 'Gastos por económico',
         buttons: [
-            // {
-            //     name: 'Gráfico arbol',
-            //     clasificationType: 'gastosEconomicaCapitulos'
-            // },
             {
                 name: 'Por capítulo gasto',
-                clasificationType: 'gastosEconomicaCapitulos'
+                clasificationType: 'gastosEconomicaCapitulos',
+                selected: false
             },
             {
                 name: 'Por artículo',
-                clasificationType: 'gastosEconomicaArticulos'
+                clasificationType: 'gastosEconomicaArticulos',
+                selected: true
             },
             {
                 name: 'Por concepto',
-                clasificationType: 'gastosEconomicaConceptos'
+                clasificationType: 'gastosEconomicaConceptos',
+                selected: false
             },
             {
                 name: 'Por económico',
-                clasificationType: 'gastosEconomicaEconomicos'
+                clasificationType: 'gastosEconomicaEconomicos',
+                selected: false
             }
         ],
         buttonsAdditional: [
