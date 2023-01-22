@@ -99,7 +99,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             'Gráfico detalladado',
             'Detalle del programa seleccionado'
         ]
-
     },
     gastosProgramaPoliticas: {
         attribute: 'CodPro',
@@ -278,7 +277,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         buttonsAdditional: [
             'Gráfico detalladado',
             'Programas que gastan del elemento seleccionado',]
-
     },
     gastosEconomicaConceptos: {
         attribute: 'CodEco',
@@ -359,7 +357,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         useStarWitch: true,
         width: 550,
         graphTitle: 'Gastos por económico',
-
     },
 }
 
