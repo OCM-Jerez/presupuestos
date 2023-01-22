@@ -12,8 +12,11 @@
     </div>
 
     <div>
-        <button type="button" class="OCM-button" *ngFor="let button of buttons" (click)="click($event)">
+        <button type="button" [ngClass]="{'selected': button.selected}" *ngFor="let button of buttons"
+            (click)="click($event)">
             {{button.name}}
+            <!-- {{button.selectedButton}} -->
+
         </button>
     </div>
 

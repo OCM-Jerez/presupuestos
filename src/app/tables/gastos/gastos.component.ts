@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HasDataChangeService } from '../../services/hasDataChange.service';
 
 @Component({
@@ -6,12 +6,17 @@ import { HasDataChangeService } from '../../services/hasDataChange.service';
   templateUrl: './gastos.component.html',
   styleUrls: ['./gastos.component.scss']
 })
-export class GastosComponent {
+export class GastosComponent implements OnInit {
   event: Event;
   public hasDataChange$ = this._hasDataChangeService.currentHasDataChange;
   constructor(
     private _hasDataChangeService: HasDataChangeService
   ) { }
+
+  ngOnInit(): void {
+    this.hasDataChange$.subscribe(value => console.log(value));
+
+  }
 
 }
 

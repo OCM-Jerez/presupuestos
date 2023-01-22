@@ -15,6 +15,8 @@ import HighchartsTreemap from 'highcharts/modules/treemap';
 import heatmap from 'highcharts/modules/heatmap';
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
+import { SelectedButtonService } from '../services/selectedButton.service';
+import { Subscription } from 'rxjs';
 
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
@@ -48,6 +50,8 @@ export class DetalleComponent implements OnInit {
   private _tabSelected: string = "tab1";
   private _treemap = 'treemap1';
   private _tabOrRadio = false;
+  private selectedButtonSub: Subscription;
+  private _selectedButton: any;
 
   constructor(
     private _dataStoreService: DataStoreService,
@@ -55,11 +59,20 @@ export class DetalleComponent implements OnInit {
     private _prepareDataTreemapService: PrepareDataTreemapService,
     private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService,
     private _avalaibleYearsService: AvalaibleYearsService,
+    private _selectedButtonService: SelectedButtonService
   ) { }
 
   ngOnInit(): void {
     this._tabSelected = localStorage.getItem('activeTab') != null ? localStorage.getItem('activeTab') : 'tab1';
     this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
+    console.warn('ngOnInit  detalle');
+
+
+    this.selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
+      this._selectedButton = selectedButton;
+    });
+
+
     this.setValues(this._tabSelected);
     this._loadData();
 
@@ -93,7 +106,9 @@ export class DetalleComponent implements OnInit {
     if (this._tabOrRadio) {                   // Si vengo de un tab o radio no hay que volver a generar la data.
       this._tabOrRadio = false;
     } else {                                  // Si se recarga la pagina hay que volver a generar la data. 
-      this._dataTable = await this._tableService.loadDataInitial();
+      // this._dataTable = await this._tableService.loadDataInitial();
+      console.log('this._typeClasification', this._typeClasification);
+      this._dataTable = await this._tableService.loadData(this._typeClasification);
     }
 
     await this.setTotalesPresupuesto();
@@ -184,13 +199,41 @@ export class DetalleComponent implements OnInit {
   }
 
   setValues(tab) {
-    const values = {
-      tab1: 'ingresosEconomicaEconomicos',
-      tab2: 'gastosProgramaPoliticas',
-      tab3: 'gastosOrganicaOrganicos',
-      tab4: 'gastosEconomicaCapitulos'
-    };
-    this._typeClasification = values[tab];
+    console.log('tab', tab);
+    console.log('this._selectedButton', this._selectedButton);
+
+    switch (tab) {
+      case 'tab1':
+        this._typeClasification = 'ingresosEconomicaEconomicos'
+        break;
+      case 'tab2':
+        switch (this._selectedButton) {
+          case 'Por áreas':
+            console.log('Por áreas');
+            this._typeClasification = 'gastosProgramaAreas'
+            break;
+          default:
+            this._typeClasification = 'gastosProgramaPoliticas'
+            break;
+          case 'tab3':
+            this._typeClasification = 'gastosOrganicaOrganicos'
+            break;
+            this._typeClasification = 'gastosOrganicaOrganicos'
+            break;
+        }
+    }
+
+
+
+
+
+    // const values = {
+    //   tab1: 'ingresosEconomicaEconomicos',
+    //   tab2: 'gastosProgramaPoliticas',
+    //   tab3: 'gastosOrganicaOrganicos',
+    //   tab4: 'gastosOrganicaOrganicos'
+    // };
+    // this._typeClasification = values[tab];
   }
 
   async hasChangeCheckbox() {

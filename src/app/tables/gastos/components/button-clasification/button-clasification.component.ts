@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { Subscription } from 'rxjs';
+
 import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 import { IButtonClasification } from '../../model/components.interface';
@@ -12,6 +14,7 @@ import { HasRowClicked } from '../../../../services/hasRowClicked.service';
 import { HasDataChangeService } from '../../../../services/hasDataChange.service';
 
 import { getClasificacion } from '../../../data-table';
+import { SelectedButtonService } from '../../../../services/selectedButton.service';
 
 @Component({
   selector: 'app-button-clasification',
@@ -28,17 +31,30 @@ export class ButtonClasificationComponent {
   public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
   private row: string = '';
 
+  private _selectedButton: string;
+  private selectedButtonSub: Subscription;
+  selectedButton: any;
+
   constructor(
     private _router: Router,
     private _hasRowClicked: HasRowClicked,
     private _tableService: TableService,
     private _dataStoreService: DataStoreService,
     private _prepareDataTreemapService: PrepareDataTreemapService,
-    private _hasDataChangeService: HasDataChangeService
+    private _hasDataChangeService: HasDataChangeService,
+    private _selectedButtonService: SelectedButtonService
   ) {
     const clasification = getClasificacion(this._dataStoreService.dataTable.clasificationType)
     this.buttons = clasification.buttons;
+    // this.buttons = this.buttons.map(button => {
+    //   return { ...button, selected: false }
+    // });
     this.buttonsAdditional = clasification.buttonsAdditional;
+    this.selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
+      this._selectedButton = selectedButton;
+    });
+    console.log('this._selectedButton', this._selectedButton);
+
   }
 
   async click(event: Event): Promise<void> {
@@ -46,7 +62,12 @@ export class ButtonClasificationComponent {
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
 
     if (button) {
+      this.buttons.forEach(b => b.selected = false);
+      button.selected = true;
       this._dataTable = await this._tableService.loadData(button.clasificationType);
+      this._selectedButtonService.setSelectedButton(button.name);
+      console.log('this._selectedButton', this._selectedButton);
+
 
       await this._prepareDataTreemapService.calcSeries(         // Actualizo datos treemap en función del boton pulsado
         this._dataTable.rowDataGastos,

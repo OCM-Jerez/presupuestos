@@ -103,6 +103,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 name: 'Por programa',
                 clasificationType: 'gastosProgramaProgramas'
             }
+        ],
+        buttonsAdditional: [
+            'Gráfico detalladado',
+            'Detalle del programa seleccionado'
         ]
 
     },
@@ -126,7 +130,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             },
             {
                 name: 'Por política',
-                clasificationType: 'gastosProgramaPoliticas'
+                clasificationType: 'gastosProgramaPoliticas',
+                selected: true
             },
             {
                 name: 'Por grupo programas',
@@ -172,6 +177,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 name: 'Por programa',
                 clasificationType: 'gastosProgramaProgramas'
             }
+        ],
+        buttonsAdditional: [
+            'Gráfico detalladado',
+            'Detalle del programa seleccionado'
         ]
     },
     gastosProgramaProgramas: {
