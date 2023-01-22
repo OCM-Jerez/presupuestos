@@ -67,12 +67,9 @@ export class DetalleComponent implements OnInit {
     this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
     console.warn('ngOnInit  detalle');
 
-
     this.selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
       this._selectedButton = selectedButton;
     });
-
-
     this.setValues(this._tabSelected);
     this._loadData();
 
@@ -207,26 +204,55 @@ export class DetalleComponent implements OnInit {
         this._typeClasification = 'ingresosEconomicaEconomicos'
         break;
       case 'tab2':
-        switch (this._selectedButton) {
+        switch (this._selectedButton.name) {
           case 'Por áreas':
             console.log('Por áreas');
             this._typeClasification = 'gastosProgramaAreas'
             break;
+          case 'Por política':
+            console.log('Por política');
+            this._typeClasification = 'gastosProgramaPoliticas'
+            break;
+          case 'Por grupo programas':
+            console.log('Por política');
+            this._typeClasification = 'gastosProgramaGrupos'
+            break;
+          case 'Por programa':
+            console.log('Por programa');
+            this._typeClasification = 'gastosProgramaProgramas'
+            break;
           default:
             this._typeClasification = 'gastosProgramaPoliticas'
             break;
-          case 'tab3':
-            this._typeClasification = 'gastosOrganicaOrganicos'
+        }
+        break;
+      case 'tab3':
+        this._typeClasification = 'gastosOrganicaOrganicos'
+        break;
+      case 'tab4':
+        switch (this._selectedButton.name) {
+          case 'Por capítulo gasto':
+            console.log('Por capítulo gasto');
+            this._typeClasification = 'gastosEconomicaCapitulos'
             break;
-            this._typeClasification = 'gastosOrganicaOrganicos'
+          case 'Por artículo':
+            console.log('Por artículo');
+            this._typeClasification = 'gastosEconomicaArticulos'
+            break;
+          case 'Por concepto':
+            console.log('Por concepto');
+            this._typeClasification = 'gastosEconomicaConceptos'
+            break;
+          case 'Por económico':
+            console.log('Por económico');
+            this._typeClasification = 'gastosEconomicaEconomicos'
+            break;
+          default:
+            this._typeClasification = 'gastosEconomicaConceptos'
             break;
         }
+        break;
     }
-
-
-
-
-
     // const values = {
     //   tab1: 'ingresosEconomicaEconomicos',
     //   tab2: 'gastosProgramaPoliticas',

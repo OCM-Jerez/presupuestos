@@ -280,7 +280,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 name: 'Por económico',
                 clasificationType: 'gastosEconomicaEconomicos'
             }
-        ]
+        ],
+        buttonsAdditional: [
+            'Gráfico detalladado',
+            'Programas que gastan del elemento seleccionado',]
 
     },
     gastosEconomicaConceptos: {
@@ -313,7 +316,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 name: 'Por económico',
                 clasificationType: 'gastosEconomicaEconomicos'
             }
-        ]
+        ],
+        buttonsAdditional: [
+            'Gráfico detalladado',
+            'Programas que gastan del elemento seleccionado',]
     },
     gastosEconomicaEconomicos: {
         attribute: 'CodEco',
@@ -345,7 +351,10 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 name: 'Por económico',
                 clasificationType: 'gastosEconomicaEconomicos'
             }
-        ]
+        ],
+        buttonsAdditional: [
+            'Gráfico detalladado',
+            'Programas que gastan del elemento seleccionado',]
     },
     aplicacion: {
         attribute: 'CodEco',

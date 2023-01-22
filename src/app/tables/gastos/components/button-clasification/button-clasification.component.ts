@@ -31,7 +31,7 @@ export class ButtonClasificationComponent {
   public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
   private row: string = '';
 
-  private _selectedButton: string;
+  private _selectedButton: IButtonClasification;
   private selectedButtonSub: Subscription;
   selectedButton: any;
 
@@ -52,7 +52,9 @@ export class ButtonClasificationComponent {
     this.buttonsAdditional = clasification.buttonsAdditional;
     this.selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
       this._selectedButton = selectedButton;
+
     });
+
     console.log('this._selectedButton', this._selectedButton);
 
   }
@@ -65,7 +67,13 @@ export class ButtonClasificationComponent {
       this.buttons.forEach(b => b.selected = false);
       button.selected = true;
       this._dataTable = await this._tableService.loadData(button.clasificationType);
-      this._selectedButtonService.setSelectedButton(button.name);
+      this._selectedButtonService.setSelectedButton(
+        {
+          clasificationType: button.clasificationType,
+          name: button.name,
+          selected: true
+        }
+      );
       console.log('this._selectedButton', this._selectedButton);
 
 
