@@ -46,17 +46,16 @@ export class ButtonClasificationComponent {
   ) {
     const clasification = getClasificacion(this._dataStoreService.dataTable.clasificationType)
     this.buttons = clasification.buttons;
-    // this.buttons = this.buttons.map(button => {
-    //   return { ...button, selected: false }
-    // });
+
     this.buttonsAdditional = clasification.buttonsAdditional;
     this.selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
       this._selectedButton = selectedButton;
-
+      this.buttons = this.buttons.map(button => {
+        return { ...button, selected: button.name === selectedButton.name }
+      });
     });
-
+    console.log('this.buttons', this.buttons);
     console.log('this._selectedButton', this._selectedButton);
-
   }
 
   async click(event: Event): Promise<void> {
