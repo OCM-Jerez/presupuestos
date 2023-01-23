@@ -54,9 +54,9 @@ export class ButtonClasificationComponent {
     this.buttonsAdditional = clasification.buttonsAdditional;
     this.selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
       this._selectedButton = selectedButton;
-      this.buttons = this.buttons.map(button => {
-        return { ...button, selected: button.name === selectedButton.name }
-      });
+      // this.buttons = this.buttons.map(button => {
+      //   return { ...button, selected: button.name === selectedButton.name }
+      // });
     });
 
 
@@ -71,6 +71,7 @@ export class ButtonClasificationComponent {
 
   async click(event: Event): Promise<void> {
     const target = event.target as HTMLButtonElement;
+    debugger
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
 
     if (button) {
