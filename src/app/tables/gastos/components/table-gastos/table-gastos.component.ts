@@ -26,28 +26,6 @@ export class TableGastosComponent {
   private _columnDefs: any[];
   private _dataTable: IDataTable;
   private subHeaderName: string = "";
-  // @Input()
-  // set event(event: Event) {
-  // if (event) {
-  //   const target = event.target as HTMLButtonElement;
-  //   console.log(target.textContent.trim());
-  //   debugger
-  //   switch (target.textContent.trim()) {
-  //     case 'Gráfico detalladado':
-  //       this.showGraph();
-  //       break;
-  //     case 'Detalle del programa seleccionado':
-  //       this._router.navigate(['tableProgramaDetails']);
-  //       break;
-  //     case 'Programas que componen orgánico seleccionado':
-  //       this._router.navigate(['/tableGrupoProgramaDetails', 'organico'])
-  //       break;
-  //     case 'Programas que gastan del elemento seleccionado':
-  //       this._router.navigate(['/tableGrupoProgramaDetails', 'gastan'])
-  //       break;
-  // }
-  // }
-  // }
 
   constructor(
     private _dataStoreService: DataStoreService,
@@ -56,16 +34,10 @@ export class TableGastosComponent {
 
   ) { }
 
-  // No es necesario, ya que se ejecuta el ngOnChanges
   ngOnInit(): void {
     this._loadTable();
     this._hasRowClicked.change(null);
   }
-
-  // ngOnChanges(): void {
-  //   this._loadTable();
-  //   this._hasRowClicked.change(null);
-  // }
 
   private async _loadTable() {
     this._dataTable = this._dataStoreService.dataTable;

@@ -7,7 +7,6 @@ import { HasDataChangeService } from '../../services/hasDataChange.service';
   styleUrls: ['./gastos.component.scss']
 })
 export class GastosComponent implements OnInit {
-  // event: Event;
   public hasDataChange$ = this._hasDataChangeService.currentHasDataChange;
   constructor(
     private _hasDataChangeService: HasDataChangeService
