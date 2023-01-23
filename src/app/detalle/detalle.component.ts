@@ -17,6 +17,7 @@ import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
 import { SelectedButtonService } from '../services/selectedButton.service';
 import { Subscription } from 'rxjs';
+import { SelectedTabService } from '../services/selectedTab.service';
 
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
@@ -59,12 +60,14 @@ export class DetalleComponent implements OnInit {
     private _prepareDataTreemapService: PrepareDataTreemapService,
     private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService,
     private _avalaibleYearsService: AvalaibleYearsService,
-    private _selectedButtonService: SelectedButtonService
+    private _selectedButtonService: SelectedButtonService,
+    private _selectedTabService: SelectedTabService,
   ) { }
 
   ngOnInit(): void {
     this._tabSelected = localStorage.getItem('activeTab') != null ? localStorage.getItem('activeTab') : 'tab1';
     this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
+    this._selectedTabService.setSelectedTab = this._tabSelected.toString;
     console.warn('ngOnInit  detalle');
 
     this.selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
@@ -198,6 +201,11 @@ export class DetalleComponent implements OnInit {
   setValues(tab) {
     console.log('tab', tab);
     console.log('this._selectedButton', this._selectedButton);
+
+
+    this._selectedTabService.setSelectedTab = tab;
+
+
 
     switch (tab) {
       case 'tab1':

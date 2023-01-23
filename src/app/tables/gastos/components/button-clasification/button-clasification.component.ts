@@ -15,6 +15,7 @@ import { HasDataChangeService } from '../../../../services/hasDataChange.service
 
 import { getClasificacion } from '../../../data-table';
 import { SelectedButtonService } from '../../../../services/selectedButton.service';
+import { SelectedTabService } from '../../../../services/selectedTab.service';
 
 @Component({
   selector: 'app-button-clasification',
@@ -34,6 +35,8 @@ export class ButtonClasificationComponent {
   private _selectedButton: IButtonClasification;
   private selectedButtonSub: Subscription;
   selectedButton: any;
+  private _selectedTabSub: Subscription;
+  private _selectedTab: string;
 
   constructor(
     private _router: Router,
@@ -42,7 +45,8 @@ export class ButtonClasificationComponent {
     private _dataStoreService: DataStoreService,
     private _prepareDataTreemapService: PrepareDataTreemapService,
     private _hasDataChangeService: HasDataChangeService,
-    private _selectedButtonService: SelectedButtonService
+    private _selectedButtonService: SelectedButtonService,
+    private _selectedTabService: SelectedTabService,
   ) {
     const clasification = getClasificacion(this._dataStoreService.dataTable.clasificationType)
     this.buttons = clasification.buttons;
@@ -54,8 +58,15 @@ export class ButtonClasificationComponent {
         return { ...button, selected: button.name === selectedButton.name }
       });
     });
+
+
+    this._selectedTabSub = this._selectedTabService.getSelectedTab().subscribe(selectedTab => {
+      this._selectedTab = selectedTab;
+    });
+
     console.log('this.buttons', this.buttons);
     console.log('this._selectedButton', this._selectedButton);
+    console.log('this._selectedTab', this._selectedTab);
   }
 
   async click(event: Event): Promise<void> {
