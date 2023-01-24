@@ -71,7 +71,6 @@ export class ButtonClasificationComponent {
 
   async click(event: Event): Promise<void> {
     const target = event.target as HTMLButtonElement;
-    debugger
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
 
     if (button) {
