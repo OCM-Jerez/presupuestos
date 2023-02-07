@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { NgSelectModule } from '@ng-select/ng-select';
+// import { NgSelectModule } from '@ng-select/ng-select';
 import 'ag-grid-enterprise';
 
 // Rutas
@@ -32,7 +32,7 @@ import { CheckboxModule } from './commons/components/checkbox/checkbox.module';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    NgSelectModule,
+    // NgSelectModule,
     ReactiveFormsModule,
     CheckboxModule
   ],

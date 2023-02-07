@@ -9,7 +9,7 @@ import { DetalleComponent } from './detalle.component';
 import { TableIngresosModule } from '../tables/table-ingresos/table-ingresos.module';
 import { CheckboxModule } from '../commons/components/checkbox/checkbox.module';
 import { GastosModule } from '../tables/gastos/gastos.module';
-import { NgSelectModule } from '@ng-select/ng-select';
+// import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from '../app.component';
 
@@ -27,7 +27,7 @@ export const routes: Routes = [{ path: '', component: DetalleComponent }]
     CheckboxModule,
     GastosModule,
     FormsModule,
-    NgSelectModule
+    // NgSelectModule
   ],
 })
 export class DetallePresupuestoModule { }
