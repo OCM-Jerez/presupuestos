@@ -51,7 +51,7 @@ export class DetalleComponent implements OnInit {
   private _tabSelected: string = "tab1";
   private _treemap = 'treemap1';
   private _tabOrRadio = false;
-  private selectedButtonSub: Subscription;
+  private _selectedButtonSub: Subscription;
   private _selectedButton: any;
 
   constructor(
@@ -70,7 +70,7 @@ export class DetalleComponent implements OnInit {
     this._selectedTabService.setSelectedTab = this._tabSelected.toString;
     console.warn('ngOnInit  detalle');
 
-    this.selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
+    this._selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
       this._selectedButton = selectedButton;
     });
     this.setValues(this._tabSelected);
@@ -202,11 +202,7 @@ export class DetalleComponent implements OnInit {
     console.log('tab', tab);
     console.log('this._selectedButton', this._selectedButton);
 
-
     this._selectedTabService.setSelectedTab = tab;
-
-
-
     switch (tab) {
       case 'tab1':
         this._typeClasification = 'ingresosEconomicaEconomicos'

@@ -14,7 +14,6 @@ export class GastosComponent implements OnInit {
 
   ngOnInit(): void {
     this.hasDataChange$.subscribe(value => console.log(value));
-
   }
 
 }
