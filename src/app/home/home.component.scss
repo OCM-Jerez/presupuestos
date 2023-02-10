@@ -189,7 +189,7 @@
             font-size: 1.1em;
             -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
             box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-            transition: all 250ms;
+            // transition: all 250ms;
             //overflow: hidden;
             &::before {
                 // content: "";
@@ -208,19 +208,19 @@
             &:hover {
                 color: #0f0303;
                 cursor: grab;
-                padding: 20px;
-                border: unset;
-                border-radius: 15px;
-                height: 90px;
-                margin: 10px;
-                z-index: 1;
-                background: #e5c80c;
-                position: relative;
-                font-weight: 1000;
-                font-size: 1.1em;
-                -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-                box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-                transition: all 250ms;
+                // padding: 20px;
+                // border: unset;
+                // border-radius: 15px;
+                // height: 90px;
+                // margin: 10px;
+                // z-index: 1;
+                background: #d11a1a;
+                // position: relative;
+                // font-weight: 1000;
+                font-size: 1.4em;
+                // -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+                // box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+                // transition: all 250ms;
             }
             &:hover::before {
                 width: 100%;
