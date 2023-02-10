@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input } from '@angular/core';
+import { Component, ViewChild, Input, OnInit } from '@angular/core';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnApi, GridApi, GridOptions, GridReadyEvent, ColumnState } from 'ag-grid-community/main';
@@ -18,7 +18,7 @@ import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
   styleUrls: ['./table-gastos.component.scss']
 })
 
-export class TableGastosComponent {
+export class TableGastosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   gridOptions: GridOptions;
   private _gridApi: GridApi;

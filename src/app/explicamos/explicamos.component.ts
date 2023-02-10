@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,14 +6,9 @@ import { Router } from '@angular/router';
   templateUrl: './explicamos.component.html',
   styleUrls: ['./explicamos.component.scss']
 })
-export class ExplicamosComponent implements OnInit {
+export class ExplicamosComponent {
 
   constructor(
     private _router: Router,
   ) { }
-
-  ngOnInit(): void {
-  }
-
-
 }

@@ -18,6 +18,7 @@ import { IDataTable } from '../commons/interfaces/dataTable.interface';
 import { SelectedButtonService } from '../services/selectedButton.service';
 import { Subscription } from 'rxjs';
 import { SelectedTabService } from '../services/selectedTab.service';
+import { TabStateService } from '../services/tabState.service';
 
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
@@ -54,6 +55,10 @@ export class DetalleComponent implements OnInit {
   private _selectedButtonSub: Subscription;
   private _selectedButton: any;
 
+  buttonName: string;
+  tabName: string;
+
+
   constructor(
     private _dataStoreService: DataStoreService,
     private _tableService: TableService,
@@ -62,6 +67,7 @@ export class DetalleComponent implements OnInit {
     private _avalaibleYearsService: AvalaibleYearsService,
     private _selectedButtonService: SelectedButtonService,
     private _selectedTabService: SelectedTabService,
+    private _tabStateService: TabStateService
   ) { }
 
   ngOnInit(): void {
@@ -70,9 +76,16 @@ export class DetalleComponent implements OnInit {
     this._selectedTabService.setSelectedTab = this._tabSelected.toString;
     console.warn('ngOnInit  detalle');
 
-    this._selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
-      this._selectedButton = selectedButton;
-    });
+    // this._selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
+    //   this._selectedButton = selectedButton;
+    //   console.log('this._selectedButton', this._selectedButton);
+
+    // });
+
+    this.buttonName = this._tabStateService.getTabState(this._tabSelected);
+    console.log('this.buttonName', this.buttonName);
+
+
     this.setValues(this._tabSelected);
     this._loadData();
 
@@ -88,10 +101,14 @@ export class DetalleComponent implements OnInit {
   }
 
   checkedTab(e: any) {
+    console.log('checkedTab', e.target.id);
+    console.log('this.buttonName', this.buttonName);
+
     this._tabSelected = e.target.id;
     this._treemap = `treemap${e.target.id.charAt(e.target.id.length - 1)}`;
     localStorage.setItem('activeTab', this._tabSelected);
     this._tabOrRadio = true;
+    this._tabStateService.setTabState(this._tabSelected, this.buttonName);
     this.setValues(e.target.id)
     this._loadData();
   }
@@ -199,8 +216,17 @@ export class DetalleComponent implements OnInit {
   }
 
   setValues(tab) {
-    console.log('tab', tab);
-    console.log('this._selectedButton', this._selectedButton);
+    // this._selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
+    //   this._selectedButton = selectedButton;
+    // });
+
+
+
+    this.buttonName = this._tabStateService.getTabState(tab);
+    console.log('this.buttonName', this.buttonName);
+
+    // console.log('tab', tab);
+    // console.log('this._selectedButton', this._selectedButton.name);
 
     this._selectedTabService.setSelectedTab = tab;
     switch (tab) {
@@ -208,7 +234,9 @@ export class DetalleComponent implements OnInit {
         this._typeClasification = 'ingresosEconomicaEconomicos'
         break;
       case 'tab2':
-        switch (this._selectedButton.name) {
+        console.log('this._selectedButton', this.buttonName);
+
+        switch (this.buttonName) {
           case 'Por áreas':
             console.log('Por áreas');
             this._typeClasification = 'gastosProgramaAreas'
@@ -234,7 +262,7 @@ export class DetalleComponent implements OnInit {
         this._typeClasification = 'gastosOrganicaOrganicos'
         break;
       case 'tab4':
-        switch (this._selectedButton.name) {
+        switch (this.buttonName) {
           case 'Por capítulo gasto':
             console.log('Por capítulo gasto');
             this._typeClasification = 'gastosEconomicaCapitulos'

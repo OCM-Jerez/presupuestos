@@ -53,9 +53,9 @@ export class HeaderAgGridComponent implements IHeaderAngularComp {
 
   }
 
-  ngOnDestroy() {
-    // console.log(`Destroying HeaderComponent`);
-  }
+  // ngOnDestroy() {
+  //   // console.log(`Destroying HeaderComponent`);
+  // }
 
   onMenuClick() {
     this.params.showColumnMenu(this.querySelector('.customHeaderMenuButton'));

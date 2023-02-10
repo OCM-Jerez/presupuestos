@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from "@angular/common";
 
@@ -20,7 +20,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./table-gastos-gruposprogramas-details.component.scss']
 })
 
-export class TableGastosGruposprogramasDetailsComponent {
+export class TableGastosGruposprogramasDetailsComponent implements OnDestroy {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
   private _columnDefs: any[any];
