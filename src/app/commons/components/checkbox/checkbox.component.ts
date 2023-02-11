@@ -30,43 +30,23 @@ export class CheckboxComponent implements OnInit {
     this.getSelectedItem();
   }
 
-  private getSelectedItem(tipo?: string) {
-    if (this.multiYears) {   // Se pueden seleccionar varios años
-
-      if (localStorage.getItem('selected_years') === null) {
-        this.years[this._lenghtYears - 1].checked = true                              // por defecto selecciona último año disponible
-        const selectedYears = this.years.filter(item => item.checked);
-        localStorage.setItem("selected_years", JSON.stringify(selectedYears));       //store years selected
-        const yearSelecteds = selectedYears.map((year) => year.year);
-        this._avalaibleYearsService.generateMessage(yearSelecteds);
-        return;
-      }
-
-      const storedSelectedYears = JSON.parse(localStorage.getItem("selected_years")) as { year: number, checked: boolean }[];
-      // actualizo años seleccionados
-      this.years.filter((year) => storedSelectedYears.find((yearFind) => yearFind.year === year.year)).forEach((yearFilter) => yearFilter.checked = true);
-
-      if (this.years.filter.length < 0) {
-        this.years[this._lenghtYears - 1].checked = true                            // por defecto selecciona último año disponible
-      }
-      const yearSelecteds = storedSelectedYears.map((year) => year.year);
-      this._avalaibleYearsService.generateMessage(yearSelecteds);
-    } else {
-      if (localStorage.getItem('selected_years') !== null) {
-        const storedSelectedYears = JSON.parse(localStorage.getItem("selected_years")) as { year: number, checked: boolean }[];
-        this.years.filter((year) => storedSelectedYears.find((yearFind) => yearFind.year === year.year)).forEach((yearFilter) => yearFilter.checked = true);
-
-        if (storedSelectedYears.length === 1) {
-          const yearSelecteds = storedSelectedYears.map((year) => year.year);
-          this._avalaibleYearsService.generateMessage(yearSelecteds);
-        } else {
-          this.years.forEach((year) => year.checked = false);
-          this.years[this._lenghtYears - 1].checked = true                         // por defecto selecciona último año disponible
-        }
-
-      }
-
+  private getSelectedItem() {
+    if (localStorage.getItem('selected_years') === null) {
+      this.years[this._lenghtYears - 1].checked = true                             // por defecto selecciona último año disponible
+      const selectedYears = this.years.filter(item => item.checked);
+      localStorage.setItem("selected_years", JSON.stringify(selectedYears));       //store years selected
+      return;
     }
+
+    // actualizo años seleccionados
+    const storedSelectedYears = JSON.parse(localStorage.getItem("selected_years")) as { year: number, checked: boolean }[];
+    this.years.filter((year) => storedSelectedYears.find((yearFind) => yearFind.year === year.year)).forEach((yearFilter) => yearFilter.checked = true);
+
+    if (!this.multiYears && storedSelectedYears.length > 1) {   // Solo se puede seleccionar un año
+      this.years.forEach((year) => year.checked = false);
+      this.years[this._lenghtYears - 1].checked = true          // por defecto selecciona último año disponible
+    }
+
   }
 
   changeCheckbox(yearSelected: { year: number, checked: boolean }) {
@@ -86,7 +66,7 @@ export class CheckboxComponent implements OnInit {
     let selectedYears = this.years.filter(item => item.checked);
     localStorage.setItem("selected_years", JSON.stringify(selectedYears)); //store years selected
     const yearSelecteds = selectedYears.map((year) => year.year);
-    this._avalaibleYearsService.generateMessage(yearSelecteds);
+    this._avalaibleYearsService.setYearsSelected(yearSelecteds);
     this.hasChangeCheckbox.emit();
   }
 
