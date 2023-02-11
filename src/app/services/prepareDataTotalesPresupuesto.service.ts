@@ -14,13 +14,13 @@ export class PrepareDataTotalesPresupuestoService {
     private _dataStoreService: DataStoreService,
   ) { }
 
-  async calcTotales() {
-    await this.calcPresupuestoIngresos();
-    await this.calcPresupuestoGastos();
+  calcTotales() {
+    this.calcPresupuestoIngresos();
+    this.calcPresupuestoGastos();
     this.setTotalesPresupuesto();
   }
 
-  async calcPresupuestoIngresos() {
+  calcPresupuestoIngresos() {
     this._totalPresupuestoIngresos = {};
     const include = [
       'Definitivas2022',
@@ -28,7 +28,7 @@ export class PrepareDataTotalesPresupuestoService {
     ]
 
     // Iterar sobre cada fila de la tabla de datos
-    const rowDataIngresos = await this._dataStoreService.dataTable.rowDataIngresos;
+    const rowDataIngresos = this._dataStoreService.dataTable.rowDataIngresos;
 
     for (const row of rowDataIngresos) {
       // Iterar sobre cada clave del objeto que representa la fila actual
@@ -66,7 +66,7 @@ export class PrepareDataTotalesPresupuestoService {
     }
   }
 
-  async setTotalesPresupuesto() {
+  setTotalesPresupuesto() {
     try {
       const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
         year: 2022,

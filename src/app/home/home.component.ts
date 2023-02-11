@@ -36,12 +36,12 @@ export class HomeComponent implements OnInit {
     ingresoGasto
       ? this.dataTablaAleatoria = await this.getData('DesEco', 'DerechosReconocidosNetos2022', this._dataTable.rowDataIngresos)
       : this.dataTablaAleatoria = await this.getData('DesOrg', 'Pagos2022', this._dataTable.rowDataGastos);
-
     this.textoTabla = ingresoGasto ? '¿Cuánto recauda el Ayuntamiento por...?' : '¿Cuánto ha gastado la delegación de...?';
     await this.fillDatosAleatorios();
   }
 
   async getData(name: string, value: string, data: any[] = []) {
+
     const resultado = data.reduce((acc, curr) => {
       const itemName = curr[name];
       const itemValue = curr[value];

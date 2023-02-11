@@ -73,7 +73,7 @@ export class DetalleComponent implements OnInit {
   ngOnInit(): void {
     this._tabSelected = localStorage.getItem('activeTab') != null ? localStorage.getItem('activeTab') : 'tab1';
     this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
-    this._selectedTabService.setSelectedTab = this._tabSelected.toString;
+    this._selectedTabService.setSelectedTab(this._tabSelected);
     console.warn('ngOnInit  detalle');
 
     // this._selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
@@ -82,7 +82,7 @@ export class DetalleComponent implements OnInit {
 
     // });
 
-    this.buttonName = this._tabStateService.getTabState(this._tabSelected);
+    //this.buttonName = this._tabStateService.getTabState(this._tabSelected);
     console.log('this.buttonName', this.buttonName);
 
 
@@ -100,17 +100,27 @@ export class DetalleComponent implements OnInit {
 
   }
 
-  checkedTab(e: any) {
+  async checkedTab(e: any) {
     console.log('checkedTab', e.target.id);
     console.log('this.buttonName', this.buttonName);
 
     this._tabSelected = e.target.id;
     this._treemap = `treemap${e.target.id.charAt(e.target.id.length - 1)}`;
     localStorage.setItem('activeTab', this._tabSelected);
+
     this._tabOrRadio = true;
-    this._tabStateService.setTabState(this._tabSelected, this.buttonName);
+
     this.setValues(e.target.id)
-    this._loadData();
+    await this._loadData();
+
+    console.log('this._typeClasification', this._typeClasification);
+
+    setTimeout(() => {
+      this._selectedTabService.setSelectedTab(this._tabSelected);
+
+    }, 100);
+
+
   }
 
   checkedRadio(e: any) {
@@ -120,20 +130,21 @@ export class DetalleComponent implements OnInit {
   }
 
   private async _loadData(): Promise<void> {
+    const loadData = await this._tableService.loadData(this._typeClasification);
+
     if (this._tabOrRadio) {                   // Si vengo de un tab o radio no hay que volver a generar la data.
       this._tabOrRadio = false;
     } else {                                  // Si se recarga la pagina hay que volver a generar la data. 
       // this._dataTable = await this._tableService.loadDataInitial();
-      console.log('this._typeClasification', this._typeClasification);
-      this._dataTable = await this._tableService.loadData(this._typeClasification);
+      this._dataTable = loadData;
     }
 
     await this.setTotalesPresupuesto();
-    let data = await this._tableService.loadData(this._typeClasification);
+    //  let data = await this._tableService.loadData(this._typeClasification);
     if (this._tabSelected === 'tab1') {
-      await this.treeGraph(data.rowDataIngresos)
+      await this.treeGraph(loadData.rowDataIngresos)
     } else {
-      await this.treeGraph(data.rowDataGastos)
+      await this.treeGraph(loadData.rowDataGastos)
     }
 
     await this.graphTreemap();
@@ -159,27 +170,25 @@ export class DetalleComponent implements OnInit {
             await this._prepareDataTreemapService.calcSeries(data, 'CodEco', 'DesEco', 'Definitivas2022', 'DerechosReconocidosNetos2022');
             break;
         }
-        this.showIngresos = true;
         break;
       case 'tab2':
         await this._prepareDataTreemapService.calcSeries(data, 'CodPro', 'DesPro', 'Definitivas2022');
-        this.showPrograma = true;
         break;
       case 'tab3':
         await this._prepareDataTreemapService.calcSeries(data, 'CodOrg', 'DesOrg', 'Definitivas2022');
-        this.showOrganico = true;
         break;
       case 'tab4':
         await this._prepareDataTreemapService.calcSeries(data, 'CodCap', 'DesCap', 'Definitivas2022');
-        this.showEconomica = true;
         break;
     }
+
+    this._showComponent();
   }
 
   async graphTreemap() {
     if (this.showGraphInTab) {
       const data = this._dataStoreService.dataTreemap;
-      const chart = Highcharts.chart(this._treemap, {
+      Highcharts.chart(this._treemap, {
         accessibility: {
           enabled: false
         },
@@ -222,13 +231,13 @@ export class DetalleComponent implements OnInit {
 
 
 
-    this.buttonName = this._tabStateService.getTabState(tab);
+    // this.buttonName = this._tabStateService.getTabState(tab);
     console.log('this.buttonName', this.buttonName);
 
     // console.log('tab', tab);
     // console.log('this._selectedButton', this._selectedButton.name);
 
-    this._selectedTabService.setSelectedTab = tab;
+
     switch (tab) {
       case 'tab1':
         this._typeClasification = 'ingresosEconomicaEconomicos'
@@ -309,28 +318,32 @@ export class DetalleComponent implements OnInit {
 
     let data = await this._tableService.loadData(this._typeClasification);
     await this.treeGraph(data.rowDataGastos)
+    this._showComponent();
+  }
+
+  private _showComponent() {
+    this.showIngresos = false;
+    this.showPrograma = false;
+    this.showOrganico = false;
+    this.showEconomica = false;
 
     switch (this._tabSelected) {
       case 'tab1':
-        this.showIngresos = false;
         setTimeout(() => {
           this.showIngresos = true;
         }, 10);
         break;
       case 'tab2':
-        this.showPrograma = false;
         setTimeout(() => {
           this.showPrograma = true;
         }, 10);
         break;
       case 'tab3':
-        this.showOrganico = false;
         setTimeout(() => {
           this.showOrganico = true;
         }, 10);
         break;
       case 'tab4':
-        this.showEconomica = false;
         setTimeout(() => {
           this.showEconomica = true;
         }, 10);

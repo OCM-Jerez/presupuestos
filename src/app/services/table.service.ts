@@ -48,20 +48,17 @@ export class TableService {
         let rowData: any[];
 
         // Tengo que conservar rowData anteriores, de los contrario grabara un objeto vacio.
-        const rowDataGastosPrevia = [];
+        //const rowDataGastosPrevia = [];
         // const rowDataIngresosPrevia = [];
         console.log(this._dataStoreService.dataTable);
 
         if (this._dataStoreService.dataTable === undefined) {
             await this.loadDataInitial();
-            console.log(this._dataStoreService.dataTable);
-        } else {
-            const rowDataGastosPrevia = this._dataStoreService.dataTable.rowDataGastos;
         }
 
 
         const rowDataIngresosPrevia = this._dataStoreService.dataTable.rowDataIngresos;
-        // const rowDataGastosPrevia = this._dataStoreService.dataTable.rowDataGastos;
+        const rowDataGastosPrevia = this._dataStoreService.dataTable.rowDataGastos;
 
         tipoClasificacion.startsWith('ingresos')
             // Necesito tipoClasificacion para añadir los item de diferentes clasificaciones

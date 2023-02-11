@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -24,7 +24,7 @@ import { TabStateService } from '../../../../services/tabState.service';
   styleUrls: ['./button-clasification.component.scss']
 })
 
-export class ButtonClasificationComponent {
+export class ButtonClasificationComponent implements OnDestroy {
   private _dataTable: IDataTable;
   private _dataGraph: IDataGraph = {} as IDataGraph;
   public showTable = true;
@@ -57,16 +57,21 @@ export class ButtonClasificationComponent {
     this.buttons = clasification.buttons;
 
     this.buttonsAdditional = clasification.buttonsAdditional;
-    this.selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
-      this._selectedButton = selectedButton;
-      // this.buttons = this.buttons.map(button => {
-      //   return { ...button, selected: button.name === selectedButton.name }
-      // });
-    });
+    // this.selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
+    //   this._selectedButton = selectedButton;
+    // this.buttons = this.buttons.map(button => {
+    //   return { ...button, selected: button.name === selectedButton.name }
+    // });
+    // });
+    console.log('***********1***********');
 
 
     this._selectedTabSub = this._selectedTabService.getSelectedTab().subscribe(selectedTab => {
+      console.log('***********2***********');
+
       this._selectedTab = selectedTab;
+      this._loadDataFromTab()
+
     });
 
     console.log('this.buttons', this.buttons);
@@ -74,47 +79,27 @@ export class ButtonClasificationComponent {
     console.log('this._selectedTab', this._selectedTab);
   }
 
+  private async _loadDataFromTab() {
+    const tab = this._tabStateService.getTabState(this._selectedTab);
+    if (tab.subTabSelected) {
+      const button = this.buttons.find((button) => button.name === tab.subTabSelected);
+      await this._existButton(button);
+    }
+
+  }
+
+  ngOnDestroy(): void {
+    this._selectedTabSub.unsubscribe();
+  }
+
+
+
   async click(event: Event): Promise<void> {
     const target = event.target as HTMLButtonElement;
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
 
     if (button) {
-      this.buttons.forEach(b => b.selected = false);
-      button.selected = true;
-      this._dataTable = await this._tableService.loadData(button.clasificationType);
-      this._selectedButtonService.setSelectedButton(
-        {
-          clasificationType: button.clasificationType,
-          name: button.name,
-          selected: true
-        }
-      );
-
-      this._selectedTabSub = this._selectedTabService.getSelectedTab().subscribe(selectedTab => {
-        this._selectedTab = selectedTab;
-      });
-
-
-      console.log('this._selectedTab', this._selectedTab);
-      console.log('this._selectedButton', this._selectedButton);
-
-
-      this._tabStateService.setTabState(this._selectedTab, button.name);
-      this.buttonName = this._tabStateService.getTabState(this._selectedTab);
-      console.log('this.buttonName', this.buttonName);
-
-
-      await this._prepareDataTreemapService.calcSeries(         // Actualizo datos treemap en función del boton pulsado
-        this._dataTable.rowDataGastos,
-        getClasificacion(this._dataTable.clasificationType).codField,
-        getClasificacion(this._dataTable.clasificationType).desField,
-        'Definitivas2022'
-      );
-
-      this._hasDataChangeService.change(false);
-      setTimeout(() => {
-        this._hasDataChangeService.change(true);
-      }, 5);
+      await this._existButton(button);
 
     } else {
       switch (target.textContent.trim()) {    // Si se pulsa un buttonsAdditional, se navega a la ruta correspondiente
@@ -136,6 +121,48 @@ export class ButtonClasificationComponent {
 
   }
 
+
+  private async _existButton(button: IButtonClasification) {
+    this.buttons.forEach(b => b.selected = false);
+
+    this._tabStateService.setTabState(this._selectedTab, button.name);
+
+    button.selected = true;
+    this._dataTable = await this._tableService.loadData(button.clasificationType);
+    this._selectedButtonService.setSelectedButton(
+      {
+        clasificationType: button.clasificationType,
+        name: button.name,
+        selected: true
+      }
+    );
+
+    // this._selectedTabSub = this._selectedTabService.getSelectedTab().subscribe(selectedTab => {
+    //   this._selectedTab = selectedTab;
+    // });
+
+
+    console.log('this._selectedTab', this._selectedTab);
+    console.log('this._selectedButton', this._selectedButton);
+
+
+    //this._tabStateService.setTabState(this._selectedTab, button.name);
+    //this.buttonName = this._tabStateService.getTabState(this._selectedTab);
+    console.log('this.buttonName', this.buttonName);
+
+
+    await this._prepareDataTreemapService.calcSeries(         // Actualizo datos treemap en función del boton pulsado
+      this._dataTable.rowDataGastos,
+      getClasificacion(this._dataTable.clasificationType).codField,
+      getClasificacion(this._dataTable.clasificationType).desField,
+      'Definitivas2022'
+    );
+
+    this._hasDataChangeService.change(false);
+    setTimeout(() => {
+      this._hasDataChangeService.change(true);
+    }, 5);
+  }
   showGraph() {
     this.hasRowClicked$.subscribe(value => {
       this.row = value;
