@@ -54,4 +54,9 @@ export class AvalaibleYearsService {
     return this.yearsSelected;
   }
 
+  setYearsSelected(yearSelected: number[]): number[] {
+    this.yearsSelected = yearSelected;
+    return this.yearsSelected;
+  }
+
 }
