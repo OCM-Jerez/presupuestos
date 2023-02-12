@@ -50,7 +50,7 @@ export class TableService {
         // Tengo que conservar rowData anteriores, de los contrario grabara un objeto vacio.
         //const rowDataGastosPrevia = [];
         // const rowDataIngresosPrevia = [];
-        console.log(this._dataStoreService.dataTable);
+        // console.log(this._dataStoreService.dataTable);
 
         if (this._dataStoreService.dataTable === undefined) {
             await this.loadDataInitial();
