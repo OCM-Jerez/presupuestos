@@ -41,7 +41,7 @@ export class TableGastosComponent implements OnInit {
 
   private async _loadTable() {
     this._dataTable = this._dataStoreService.dataTable;
-    console.log(this._dataTable);
+    // console.log(this._dataTable);
 
     this.subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
     this.setColumnDefs();
