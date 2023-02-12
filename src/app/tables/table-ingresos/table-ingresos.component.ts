@@ -50,6 +50,11 @@ export class TableIngresosComponent implements OnInit {
   showTable = true;
   messageYears = this.avalaibleYearsService.message;
 
+  public seletedCapitulos: boolean = false;
+  public seletedArticulo: boolean = false;
+  public seletedConcepto: boolean = false;
+  public seletedEconomico: boolean = true;
+
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
@@ -289,6 +294,27 @@ export class TableIngresosComponent implements OnInit {
   }
 
   async detalle(typeClasification: CLASIFICATION_TYPE) {
+    this.seletedCapitulos = false;
+    this.seletedArticulo = false;
+    this.seletedConcepto = false;
+    this.seletedEconomico = false;
+
+    switch (typeClasification) {
+      case 'ingresosEconomicaCapitulos':
+        this.seletedCapitulos = true;
+        break;
+      case 'ingresosEconomicaArticulos':
+        this.seletedArticulo = true;
+        break;
+      case 'ingresosEconomicaConceptos':
+        this.seletedConcepto = true;
+        break;
+      case 'ingresosEconomicaEconomicos':
+        this.seletedEconomico = true;
+        break;
+    }
+
+
     this.clickDetalle.emit();
     this._dataStoreService.IsDetails = true;
     const selectedRows = this.agGrid.api.getSelectedNodes();
@@ -310,7 +336,7 @@ export class TableIngresosComponent implements OnInit {
       // this._alertService.showAlert(`Selecciona artículo`);
     }
 
-    console.log('He pulsado un botón detalles, actualizo data', this._dataTable);
+    // console.log('He pulsado un botón detalles, actualizo data', this._dataTable);
     this._dataStoreService.selectedCodeRowFirstLevel = '';
 
     // console.log('Actualizo datos treemap en función del boton pulsado');

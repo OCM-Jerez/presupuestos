@@ -12,19 +12,23 @@
             Gráfico arbol
         </button>
 
-        <button type="button" class="OCM-button" (click)="detalle('ingresosEconomicaCapitulos')">
+        <button type="button" class="OCM-button" [ngClass]="{'selected':seletedCapitulos}"
+            (click)="detalle('ingresosEconomicaCapitulos')">
             Por capítulo
         </button>
 
-        <button type="button" class="OCM-button" (click)="detalle('ingresosEconomicaArticulos')">
+        <button type="button" class="OCM-button" [ngClass]="{'selected':seletedArticulo}"
+            (click)="detalle('ingresosEconomicaArticulos')">
             Por artículo
         </button>
 
-        <button type="button" class="OCM-button" (click)="detalle('ingresosEconomicaConceptos')">
+        <button type="button" class="OCM-button" [ngClass]="{'selected':seletedConcepto}"
+            (click)="detalle('ingresosEconomicaConceptos')">
             Por concepto
         </button>
 
-        <button type="button" class="OCM-button" (click)="detalle('ingresosEconomicaEconomicos')">
+        <button type="button" class="OCM-button" [ngClass]="{'selected':seletedEconomico}"
+            (click)="detalle('ingresosEconomicaEconomicos')">
             Por económico
         </button>
 
