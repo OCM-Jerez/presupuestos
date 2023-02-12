@@ -7,3 +7,10 @@
     height: 100vh;
     margin-top: 40px;
 }
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 50%;
+}
