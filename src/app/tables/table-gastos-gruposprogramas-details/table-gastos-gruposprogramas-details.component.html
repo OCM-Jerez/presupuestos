@@ -1,4 +1,9 @@
-<div>
+<div style="margin-top: 30px">
+
+    <div class="menu">
+        <button type="button" class="OCM-button" (click)="volver()">Volver</button>
+    </div>
+
     <h4 style="font-size:20px; text-align: center;">
         {{ dataStoreService.selectedCodeRowFirstLevel }}.
         {{ messageYears }}
@@ -6,10 +11,6 @@
 
     <button type="button" class="OCM-button" (click)="showProgramaDetails()">
         Detalle programa
-    </button>
-
-    <button type="button" class="OCM-button" (click)="volver()">
-        Volver
     </button>
 
     <ag-grid-angular #agGrid style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"
