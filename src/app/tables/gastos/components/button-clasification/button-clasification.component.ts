@@ -33,9 +33,9 @@ export class ButtonClasificationComponent implements OnDestroy {
   public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
   private row: string = '';
 
-  private _selectedButton: IButtonClasification;
-  private selectedButtonSub: Subscription;
-  selectedButton: any;
+  // private _selectedButton: IButtonClasification;
+  // private selectedButtonSub: Subscription;
+  // selectedButton: any;
   private _selectedTabSub: Subscription;
   private _selectedTab: string;
 
@@ -57,30 +57,15 @@ export class ButtonClasificationComponent implements OnDestroy {
     this.buttons = clasification.buttons;
 
     this.buttonsAdditional = clasification.buttonsAdditional;
-    // this.selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
-    //   this._selectedButton = selectedButton;
-    // this.buttons = this.buttons.map(button => {
-    //   return { ...button, selected: button.name === selectedButton.name }
-    // });
-    // });
-    console.log('***********1***********');
-
-
     this._selectedTabSub = this._selectedTabService.getSelectedTab().subscribe(selectedTab => {
-      console.log('***********2***********');
-
       this._selectedTab = selectedTab;
       this._loadDataFromTab()
-
     });
-
-    console.log('this.buttons', this.buttons);
-    console.log('this._selectedButton', this._selectedButton);
-    console.log('this._selectedTab', this._selectedTab);
   }
 
   private async _loadDataFromTab() {
     const tab = this._tabStateService.getTabState(this._selectedTab);
+
     if (tab.subTabSelected) {
       const button = this.buttons.find((button) => button.name === tab.subTabSelected);
       await this._existButton(button);
@@ -92,15 +77,12 @@ export class ButtonClasificationComponent implements OnDestroy {
     this._selectedTabSub.unsubscribe();
   }
 
-
-
   async click(event: Event): Promise<void> {
     const target = event.target as HTMLButtonElement;
     const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.name === target.innerText);
 
     if (button) {
       await this._existButton(button);
-
     } else {
       switch (target.textContent.trim()) {    // Si se pulsa un buttonsAdditional, se navega a la ruta correspondiente
         case 'Gráfico detalladado':
@@ -121,12 +103,9 @@ export class ButtonClasificationComponent implements OnDestroy {
 
   }
 
-
   private async _existButton(button: IButtonClasification) {
     this.buttons.forEach(b => b.selected = false);
-
     this._tabStateService.setTabState(this._selectedTab, button.name);
-
     button.selected = true;
     this._dataTable = await this._tableService.loadData(button.clasificationType);
     this._selectedButtonService.setSelectedButton(
@@ -136,20 +115,6 @@ export class ButtonClasificationComponent implements OnDestroy {
         selected: true
       }
     );
-
-    // this._selectedTabSub = this._selectedTabService.getSelectedTab().subscribe(selectedTab => {
-    //   this._selectedTab = selectedTab;
-    // });
-
-
-    console.log('this._selectedTab', this._selectedTab);
-    console.log('this._selectedButton', this._selectedButton);
-
-
-    //this._tabStateService.setTabState(this._selectedTab, button.name);
-    //this.buttonName = this._tabStateService.getTabState(this._selectedTab);
-    console.log('this.buttonName', this.buttonName);
-
 
     await this._prepareDataTreemapService.calcSeries(         // Actualizo datos treemap en función del boton pulsado
       this._dataTable.rowDataGastos,
@@ -163,6 +128,7 @@ export class ButtonClasificationComponent implements OnDestroy {
       this._hasDataChangeService.change(true);
     }, 5);
   }
+
   showGraph() {
     this.hasRowClicked$.subscribe(value => {
       this.row = value;
