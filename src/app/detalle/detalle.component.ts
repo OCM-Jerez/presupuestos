@@ -15,10 +15,10 @@ import HighchartsTreemap from 'highcharts/modules/treemap';
 import heatmap from 'highcharts/modules/heatmap';
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
-import { SelectedButtonService } from '../services/selectedButton.service';
-import { Subscription } from 'rxjs';
+// import { SelectedButtonService } from '../services/selectedButton.service';
+// import { Subscription } from 'rxjs';
 import { SelectedTabService } from '../services/selectedTab.service';
-import { TabStateService } from '../services/tabState.service';
+// import { TabStateService } from '../services/tabState.service';
 
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
@@ -52,8 +52,8 @@ export class DetalleComponent implements OnInit {
   private _tabSelected: string = "tab1";
   private _treemap = 'treemap1';
   private _tabOrRadio = false;
-  private _selectedButtonSub: Subscription;
-  private _selectedButton: any;
+  // private _selectedButtonSub: Subscription;
+  // private _selectedButton: any;
 
   buttonName: string;
   tabName: string;
@@ -65,27 +65,15 @@ export class DetalleComponent implements OnInit {
     private _prepareDataTreemapService: PrepareDataTreemapService,
     private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService,
     private _avalaibleYearsService: AvalaibleYearsService,
-    private _selectedButtonService: SelectedButtonService,
+    // private _selectedButtonService: SelectedButtonService,
     private _selectedTabService: SelectedTabService,
-    private _tabStateService: TabStateService
+    // private _tabStateService: TabStateService
   ) { }
 
   ngOnInit(): void {
     this._tabSelected = localStorage.getItem('activeTab') != null ? localStorage.getItem('activeTab') : 'tab1';
     this._treemap = `treemap${this._tabSelected.charAt(this._tabSelected.length - 1)}`;
     this._selectedTabService.setSelectedTab(this._tabSelected);
-    console.warn('ngOnInit  detalle');
-
-    // this._selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
-    //   this._selectedButton = selectedButton;
-    //   console.log('this._selectedButton', this._selectedButton);
-
-    // });
-
-    //this.buttonName = this._tabStateService.getTabState(this._tabSelected);
-    console.log('this.buttonName', this.buttonName);
-
-
     this.setValues(this._tabSelected);
     this._loadData();
 
@@ -101,25 +89,18 @@ export class DetalleComponent implements OnInit {
   }
 
   async checkedTab(e: any) {
-    console.log('checkedTab', e.target.id);
-    console.log('this.buttonName', this.buttonName);
-
     this._tabSelected = e.target.id;
     this._treemap = `treemap${e.target.id.charAt(e.target.id.length - 1)}`;
     localStorage.setItem('activeTab', this._tabSelected);
 
     this._tabOrRadio = true;
-
     this.setValues(e.target.id)
     await this._loadData();
 
-    console.log('this._typeClasification', this._typeClasification);
-
+    // Espero a que el component se cree para enviar el tab seleccionado
     setTimeout(() => {
       this._selectedTabService.setSelectedTab(this._tabSelected);
-
     }, 100);
-
 
   }
 
@@ -225,41 +206,28 @@ export class DetalleComponent implements OnInit {
   }
 
   setValues(tab) {
-    // this._selectedButtonSub = this._selectedButtonService.getSelectedButton().subscribe(selectedButton => {
-    //   this._selectedButton = selectedButton;
-    // });
-
-
-
-    // this.buttonName = this._tabStateService.getTabState(tab);
-    console.log('this.buttonName', this.buttonName);
-
-    // console.log('tab', tab);
-    // console.log('this._selectedButton', this._selectedButton.name);
-
-
     switch (tab) {
       case 'tab1':
         this._typeClasification = 'ingresosEconomicaEconomicos'
         break;
       case 'tab2':
-        console.log('this._selectedButton', this.buttonName);
+        // console.log('this._selectedButton', this.buttonName);
 
         switch (this.buttonName) {
           case 'Por áreas':
-            console.log('Por áreas');
+            // console.log('Por áreas');
             this._typeClasification = 'gastosProgramaAreas'
             break;
           case 'Por política':
-            console.log('Por política');
+            // console.log('Por política');
             this._typeClasification = 'gastosProgramaPoliticas'
             break;
           case 'Por grupo programas':
-            console.log('Por política');
+            // console.log('Por política');
             this._typeClasification = 'gastosProgramaGrupos'
             break;
           case 'Por programa':
-            console.log('Por programa');
+            // console.log('Por programa');
             this._typeClasification = 'gastosProgramaProgramas'
             break;
           default:
@@ -273,19 +241,19 @@ export class DetalleComponent implements OnInit {
       case 'tab4':
         switch (this.buttonName) {
           case 'Por capítulo gasto':
-            console.log('Por capítulo gasto');
+            // console.log('Por capítulo gasto');
             this._typeClasification = 'gastosEconomicaCapitulos'
             break;
           case 'Por artículo':
-            console.log('Por artículo');
+            // console.log('Por artículo');
             this._typeClasification = 'gastosEconomicaArticulos'
             break;
           case 'Por concepto':
-            console.log('Por concepto');
+            // console.log('Por concepto');
             this._typeClasification = 'gastosEconomicaConceptos'
             break;
           case 'Por económico':
-            console.log('Por económico');
+            // console.log('Por económico');
             this._typeClasification = 'gastosEconomicaEconomicos'
             break;
           default:
@@ -294,13 +262,7 @@ export class DetalleComponent implements OnInit {
         }
         break;
     }
-    // const values = {
-    //   tab1: 'ingresosEconomicaEconomicos',
-    //   tab2: 'gastosProgramaPoliticas',
-    //   tab3: 'gastosOrganicaOrganicos',
-    //   tab4: 'gastosOrganicaOrganicos'
-    // };
-    // this._typeClasification = values[tab];
+
   }
 
   async hasChangeCheckbox() {
