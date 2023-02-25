@@ -49,8 +49,11 @@ export class AvalaibleYearsService {
   getYearsSelected(): number[] {
     if (this.yearsSelected.length === 0) {
       // Mientras no existan datos del 2023 resto 1 al año actual
-      this.yearsSelected.push((new Date().getFullYear()) - 1);
+      // this.yearsSelected.push((new Date().getFullYear()) - 1);
+      this.yearsSelected.push((new Date().getFullYear()));
     }
+    console.log(this.yearsSelected);
+
     return this.yearsSelected;
   }
 
