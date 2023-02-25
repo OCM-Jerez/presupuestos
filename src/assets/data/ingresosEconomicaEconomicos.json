@@ -432,6 +432,10 @@
     "descripcion": "Otros ingresos diversos por ventas"
   },
   {
+    "codigo": 39924,
+    "descripcion": "Prestac patrim carácter no tributario por act.ord.suelo rúst"
+  },
+  {
     "codigo": 42001,
     "descripcion": "Otras transferencias del Estado déficit autobuses"
   },
@@ -562,6 +566,10 @@
   {
     "codigo": 51100,
     "descripcion": "Intereses de préstamos concedios a Organ. Autónomos y a"
+  },
+  {
+    "codigo": 49701,
+    "descripcion": "Transferencias de La Unión europeaFondo Recuperación- Next Generation EU"
   },
   {
     "codigo": 51400,
