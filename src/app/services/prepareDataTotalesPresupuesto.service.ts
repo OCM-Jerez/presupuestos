@@ -23,8 +23,8 @@ export class PrepareDataTotalesPresupuestoService {
   calcPresupuestoIngresos() {
     this._totalPresupuestoIngresos = {};
     const include = [
-      'Definitivas2022',
-      'DerechosReconocidosNetos2022'
+      'Definitivas2023',
+      'DerechosReconocidosNetos2023'
     ]
 
     // Iterar sobre cada fila de la tabla de datos
@@ -50,8 +50,8 @@ export class PrepareDataTotalesPresupuestoService {
   async calcPresupuestoGastos() {
     this._totalPresupuestoGastos = {};
     const include = [
-      'Definitivas2022',
-      'Pagos2022'
+      'Definitivas2023',
+      'Pagos2023'
     ]
 
     for (const row of this._dataStoreService.dataTable.rowDataGastos) {
@@ -69,11 +69,11 @@ export class PrepareDataTotalesPresupuestoService {
   setTotalesPresupuesto() {
     try {
       const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
-        year: 2022,
-        totalPresupuestoIngresos: this._totalPresupuestoIngresos.Definitivas2022.toLocaleString(),
-        totalEjecutadoIngresos: this._totalPresupuestoIngresos.DerechosReconocidosNetos2022.toLocaleString(),
-        totalPresupuestoGastos: this._totalPresupuestoGastos.Definitivas2022.toLocaleString(),
-        totalEjecutadoGastos: this._totalPresupuestoGastos.Pagos2022.toLocaleString(),
+        year: 2023,
+        totalPresupuestoIngresos: this._totalPresupuestoIngresos.Definitivas2023.toLocaleString(),
+        totalEjecutadoIngresos: this._totalPresupuestoIngresos.DerechosReconocidosNetos2023.toLocaleString(),
+        totalPresupuestoGastos: this._totalPresupuestoGastos.Definitivas2023.toLocaleString(),
+        totalEjecutadoGastos: this._totalPresupuestoGastos.Pagos2023.toLocaleString(),
       }
       this._dataStoreService.dataTotalesPresupuesto = DataTotalesPresupuesto;
     } catch (error) {
