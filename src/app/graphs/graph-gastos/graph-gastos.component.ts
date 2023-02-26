@@ -88,14 +88,14 @@ export class GraphGastosComponent implements OnDestroy {
     const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', this.datos);
 
     this.data = [];
-    for (let index = 2015; index <= 2022; index++) {
+    for (let index = 2015; index <= 2023; index++) {
       const value = {
         "year": index,
         "Definitivas": yearsDefinitivas[index],
         "ObligacionesReconocidasNetas": yearsObligacionesNetas[index],
         "ObligacionesPendientes": yearsObligacionesPendientes[index]
       }
-      if (index === 2022) {
+      if (index === 2022 || index === 2023) {
         value.Definitivas = yearsIniciales[index]  // Se usan las iniciales ya que es el unico dato que existe.
       }
       this.data.push(value)
