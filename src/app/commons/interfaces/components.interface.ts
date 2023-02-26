@@ -7,4 +7,5 @@ export interface IYears {
     2020: number;
     2021: number;
     2022: number;
+    2023: number;
 }
