@@ -34,9 +34,9 @@ export class HomeComponent implements OnInit {
 
     const ingresoGasto = (Math.random() >= 0.5) ? true : false;
     ingresoGasto
-      ? this.dataTablaAleatoria = await this.getData('DesEco', 'DerechosReconocidosNetos2022', this._dataTable.rowDataIngresos)
-      : this.dataTablaAleatoria = await this.getData('DesOrg', 'Pagos2022', this._dataTable.rowDataGastos);
-    this.textoTabla = ingresoGasto ? '¿Cuánto recauda el Ayuntamiento por...?' : '¿Cuánto ha gastado la delegación de...?';
+      ? this.dataTablaAleatoria = await this.getData('DesEco', 'DerechosReconocidosNetos2023', this._dataTable.rowDataIngresos)
+      : this.dataTablaAleatoria = await this.getData('DesOrg', 'Pagos2023', this._dataTable.rowDataGastos);
+    this.textoTabla = ingresoGasto ? '¿Cuánto ha recaudado el Ayuntamiento por...?' : '¿Cuánto ha gastado la delegación de...?';
     await this.fillDatosAleatorios();
   }
 
