@@ -70,12 +70,14 @@
         // background-color: #d4ef0d;
         width: 99%;
         height: 100px; // Con barraBuscar 150px
+
         &--1row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background-color: map-get($OCM-colors, navBarBackground);
             height: 50px;
+
             &--logo {
                 @include OCM-logo;
                 // background: url("../../../assets/img/logoOCMyellow.svg") no-repeat center center;
@@ -83,6 +85,7 @@
                 height: 40px;
                 width: 184px;
             }
+
             &--title {
                 width: 82%;
                 @include OCM-text;
@@ -337,7 +340,8 @@
                 height: 30px;
 
                 &--logo {
-                    background: url("../../../assets/img/logoOCMyellow.svg") no-repeat center center;
+                    background: url("../../../assets/img/logoOCM.png") no-repeat center center;
+
                 }
 
                 &--text {
