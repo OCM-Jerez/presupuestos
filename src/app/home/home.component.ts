@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 import { TableService } from '../services/table.service';
 
@@ -13,6 +14,7 @@ import { IDataTable } from '../commons/interfaces/dataTable.interface';
 export class HomeComponent implements OnInit {
   private _dataTable: IDataTable;
   textoTabla: string;
+  liqDate = environment.liqDate2023;
   examples: { name: string; value: number }[] = [
     { name: '', value: 0 },
     { name: '', value: 0 },
