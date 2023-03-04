@@ -7,6 +7,7 @@
 @import "/src/app/scss/variables";
 
 @media screen and (max-width: 3399.98px) {
+
     /* #region  menu responsive */
     // https://codepen.io/mutedblues/pen/MmPNPG
     .header {
@@ -66,31 +67,21 @@
         grid-column-gap: 0px;
         grid-row-gap: 0px;
         // margin-top: 10px;
-        background-color: #d4ef0d;
+        // background-color: #d4ef0d;
         width: 99%;
-        height: 100px;  // Con barraBuscar 150px
+        height: 100px; // Con barraBuscar 150px
         &--1row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background-color: map-get($OCM-colors, navBarBackground);
             height: 50px;
-            &--brand {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                width: 18%;
-                &--logo {
-                    @include OCM-logo;
-                    background: url("../../../assets/img/logoOCMyellow.svg") no-repeat center center;
-                }
-                &--text {
-                    @include OCM-text;
-                    font-size: 12px;
-                }
-                &--text1 {
-                    display: none;
-                }
+            &--logo {
+                @include OCM-logo;
+                // background: url("../../../assets/img/logoOCMyellow.svg") no-repeat center center;
+                background: url("../../../assets/img/logoOCM.png");
+                height: 40px;
+                width: 184px;
             }
             &--title {
                 width: 82%;
@@ -98,7 +89,7 @@
                 // @include fluid-type($min_width, $max_width, $min_font, $max_font);
                 font-size: clamp(1.5rem, 5vw, 2.5rem);
             }
-                  }
+        }
 
         a {
             text-decoration: none;
@@ -126,6 +117,7 @@
         font-weight: 600;
         font-size: 18px;
         cursor: grab;
+
         &:hover {
             transform: scale(1.2);
             color: black;
@@ -144,6 +136,7 @@
         gap: 20px;
         background: #e7f2fc;
         margin-top: 0px;
+
         &--text {
             margin-top: 20px;
             font-size: 2.5rem;
@@ -178,8 +171,7 @@
     }
 }
 
-@media screen and (max-width: 1199.98px) {
-}
+@media screen and (max-width: 1199.98px) {}
 
 @media screen and (max-width: 991.98px) {
     .navMenuButton {
@@ -197,6 +189,7 @@
             font-weight: 600;
         }
     }
+
     input[type="text"],
     select {
         width: 270px;
@@ -207,6 +200,7 @@
     .navMenu {
         height: 25px;
     }
+
     /* #region  Menu responsive */
     // https://codepen.io/mutedblues/pen/MmPNPG
     .header {
@@ -308,62 +302,72 @@
         display: none;
     }
 
-    .header .menu-btn:checked ~ .menu {
+    .header .menu-btn:checked~.menu {
         max-height: 240px;
     }
 
-    .header .menu-btn:checked ~ .menu-icon .navicon {
+    .header .menu-btn:checked~.menu-icon .navicon {
         background: transparent;
     }
 
-    .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    .header .menu-btn:checked~.menu-icon .navicon:before {
         transform: rotate(-45deg);
     }
 
-    .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    .header .menu-btn:checked~.menu-icon .navicon:after {
         transform: rotate(45deg);
     }
 
-    .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-    .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    .header .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+    .header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
         top: 0;
     }
+
     /* #endregion */
 
     /* #region .navbar  */
     .navbar {
         height: 67px;
+
         &--1row {
             width: 390px;
+
             &--brand {
                 width: 90px;
                 height: 30px;
+
                 &--logo {
                     background: url("../../../assets/img/logoOCMyellow.svg") no-repeat center center;
                 }
+
                 &--text {
                     display: none;
                 }
+
                 &--text1 {
                     display: block;
                     color: white;
                     font-size: 9px;
                 }
             }
+
             &--title {
                 align-items: center;
                 width: 55%;
                 width: 300px;
                 font-size: 12px;
             }
+
             &--homeEmpty {
                 width: 0%;
             }
+
             &--home {
                 width: 0%;
             }
         }
     }
+
     /* #endregion */
 
     /* #region .barraBuscar  */
