@@ -1,7 +1,9 @@
 @media screen and (max-width: 3399.98px) {
     div {
-        width: 90%;
+        width: 60%;
         margin-top: 50px;
+        margin-left: 300px;
+        margin-right: 100px;
     }
 
     p {
@@ -13,11 +15,14 @@
 
     h3 {
         font-size: 32px;
-        color: black;
-        margin-left: 80px;
+        color: blue;
     }
 
     .term-description {
+        width: 60%;
+        margin-top: 50px;
+        margin-left: 300px;
+        margin-right: 100px;
         font-size: 22px;
         margin: 20px 20px 20px 100px;
         text-align: justify;
