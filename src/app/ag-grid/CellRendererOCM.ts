@@ -25,14 +25,8 @@ export function CellRendererOCM(params: any) {
   }
 }
 
-
 export function CellRendererOCMtext(params: any) {
-  // return params.value
-  if (params.value) {
-    return `<p style="font-size: 18px; font-family:roboto; text-align: left; margin: 0px;">${params.value}</p>`
-  } else {
-    return '';
-  }
+  return params.value ? `<p style="font-size: 18px; font-family:roboto; text-align: left; margin: 0;">${params.value}</p>` : '';
 }
 
 
