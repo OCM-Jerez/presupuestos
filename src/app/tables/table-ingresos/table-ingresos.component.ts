@@ -82,7 +82,7 @@ export class TableIngresosComponent implements OnInit {
             headerName: this._dataTable.dataPropertyTable.subHeaderName,
             field: this._dataTable.dataPropertyTable.codField,
             // width: this._dataTable.dataPropertyTable.width,
-            width: 450,
+            width: 750,
             rowGroup: true,
             showRowGroup: this._dataTable.dataPropertyTable.codField,
             cellRenderer: CellRendererOCMtext,
