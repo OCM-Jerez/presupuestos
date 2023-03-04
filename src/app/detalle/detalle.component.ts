@@ -41,7 +41,7 @@ export class DetalleComponent implements OnInit {
   showEconomica = false;
   DataTotalesPresupuesto: IDataTotalesPresupuesto =
     {
-      year: 2022,
+      year: 2023,
       totalPresupuestoIngresos: 0,
       totalPresupuestoGastos: 0,
       totalEjecutadoIngresos: 0,
@@ -78,7 +78,7 @@ export class DetalleComponent implements OnInit {
     this._loadData();
 
     let years = this._avalaibleYearsService.getYearsSelected();
-    if (years.length === 1 && years[0] === 2022) {
+    if (years.length === 1 && years[0] === 2023) {
       this.showGraphInTab = true;
       this.showTablePresupuestos = true;
     } else {
@@ -142,24 +142,24 @@ export class DetalleComponent implements OnInit {
       case 'tab1':
         switch (this._radioButtonSelected) {
           case 'radio-1': //Presupuestado
-            await this._prepareDataTreemapService.calcSeries(data, 'CodEco', 'DesEco', 'Definitivas2022');
+            await this._prepareDataTreemapService.calcSeries(data, 'CodEco', 'DesEco', 'Definitivas2023');
             break;
           case 'radio-2': //Recaudado
-            await this._prepareDataTreemapService.calcSeries(data, 'CodEco', 'DesEco', 'DerechosReconocidosNetos2022');
+            await this._prepareDataTreemapService.calcSeries(data, 'CodEco', 'DesEco', 'DerechosReconocidosNetos2023');
             break;
           case 'radio-3': //Diferencia
-            await this._prepareDataTreemapService.calcSeries(data, 'CodEco', 'DesEco', 'Definitivas2022', 'DerechosReconocidosNetos2022');
+            await this._prepareDataTreemapService.calcSeries(data, 'CodEco', 'DesEco', 'Definitivas2023', 'DerechosReconocidosNetos2023');
             break;
         }
         break;
       case 'tab2':
-        await this._prepareDataTreemapService.calcSeries(data, 'CodPro', 'DesPro', 'Definitivas2022');
+        await this._prepareDataTreemapService.calcSeries(data, 'CodPro', 'DesPro', 'Definitivas2023');
         break;
       case 'tab3':
-        await this._prepareDataTreemapService.calcSeries(data, 'CodOrg', 'DesOrg', 'Definitivas2022');
+        await this._prepareDataTreemapService.calcSeries(data, 'CodOrg', 'DesOrg', 'Definitivas2023');
         break;
       case 'tab4':
-        await this._prepareDataTreemapService.calcSeries(data, 'CodCap', 'DesCap', 'Definitivas2022');
+        await this._prepareDataTreemapService.calcSeries(data, 'CodCap', 'DesCap', 'Definitivas2023');
         break;
     }
 
