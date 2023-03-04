@@ -1,5 +1,9 @@
 <!-- <div class="container"> -->
-<div class="graph" *ngIf="options">
+<div class="OCM-graph" *ngIf="options">
+
+    <div class="OCM-menu">
+        <button type="button" class="OCM-button" (click)="volver()">Volver</button>
+    </div>
 
     <ag-charts-angular style="width: 700px; height: 300px" *ngIf="options" [options]="options"></ag-charts-angular>
     <!-- <ag-charts-angular *ngIf="options" class="graph" [options]="options"></ag-charts-angular> -->
@@ -11,6 +15,6 @@
         [groupHeaderHeight]="groupHeaderHeight" [headerHeight]="headerHeight" [localeText]="localeText"
         [suppressAggFuncInHeader]="true" (gridReady)="onGridReady($event)">
     </ag-grid-angular>
-    <button class="OCM-btnExpand" type="button" (click)="volver()">Volver</button>
+    <!-- <button class="OCM-btnExpand" type="button" (click)="volver()">Volver</button> -->
 
 </div>
