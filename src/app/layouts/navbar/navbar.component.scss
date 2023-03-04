@@ -93,23 +93,12 @@
                 }
             }
             &--title {
-                width: 64%;
+                width: 82%;
                 @include OCM-text;
                 // @include fluid-type($min_width, $max_width, $min_font, $max_font);
                 font-size: clamp(1.5rem, 5vw, 2.5rem);
             }
-            &--homeEmpty {
-                width: 18%;
-            }
-            &--home {
-                width: 18%;
-                &--logoHome {
-                    @include OCM-logo;
-                    background: url("../../..//assets/img/home.svg") no-repeat center center;
-                    margin-right: 20px;
-                }
-            }
-        }
+                  }
 
         a {
             text-decoration: none;
@@ -279,7 +268,7 @@
     .header .menu-icon {
         cursor: pointer;
         display: inline-block;
-        float: right;
+        // float: right;
         padding: 18px 20px;
         position: relative;
         user-select: none;
