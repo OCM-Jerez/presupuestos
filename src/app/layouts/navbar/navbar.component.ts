@@ -9,18 +9,18 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   collapsed = false;
   constructor(
-    public router: Router,
+    private _router: Router,
   ) { }
 
   inicio() {
-    this.router.navigateByUrl('/')
+    this._router.navigateByUrl('/')
     this.collapsed = true;
     setTimeout(() => {
       this.collapsed = false;
     }, 0);
   }
   visionGlobal() {
-    this.router.navigateByUrl('/home')
+    this._router.navigateByUrl('/home')
     this.collapsed = true;
     setTimeout(() => {
       this.collapsed = false;
@@ -28,7 +28,7 @@ export class NavbarComponent {
   }
 
   detallePresupuesto() {
-    this.router.navigateByUrl('/detallePresupuesto')
+    this._router.navigateByUrl('/detallePresupuesto')
     this.collapsed = true;
     setTimeout(() => {
       this.collapsed = false;
@@ -44,7 +44,7 @@ export class NavbarComponent {
   }
 
   empleados() {
-    this.router.navigateByUrl('/empleados')
+    this._router.navigateByUrl('/empleados')
     this.collapsed = true;
     setTimeout(() => {
       this.collapsed = false;
@@ -52,7 +52,7 @@ export class NavbarComponent {
   }
 
   explicamos() {
-    this.router.navigateByUrl('/explicamos')
+    this._router.navigateByUrl('/explicamos')
     this.collapsed = true;
     setTimeout(() => {
       this.collapsed = false;
@@ -60,7 +60,7 @@ export class NavbarComponent {
   }
 
   glosario() {
-    this.router.navigateByUrl('/glosario')
+    this._router.navigateByUrl('/glosario')
     this.collapsed = true;
     setTimeout(() => {
       this.collapsed = false;
