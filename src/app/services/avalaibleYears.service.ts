@@ -25,14 +25,29 @@ export class AvalaibleYearsService {
 
     if (this.yearsSelected.length > 1) {
       if (max === 2022) {
-        message = `Liquidaciones ${min} al ${max} (Datos 2022 = ejecución al ${environment.liqDate})`
+        message = `Liquidaciones ${min} al ${max} (Datos 2022 = ejecución al ${environment.liqDate2022})`
       } else {
         message = `Liquidaciones  ${min} al ${max}`
       }
     }
     else {
       if (max === 2022) {
-        message = `${max} ejecución al ${environment.liqDate}`
+        message = `${max} ejecución al ${environment.liqDate2022}`
+      } else {
+        message = `Liquidación ${min}`
+      }
+    };
+
+    if (this.yearsSelected.length > 1) {
+      if (max === 2023) {
+        message = `Liquidaciones ${min} al ${max} (Datos 2023 = ejecución al ${environment.liqDate2023})`
+      } else {
+        message = `Liquidaciones  ${min} al ${max}`
+      }
+    }
+    else {
+      if (max === 2023) {
+        message = `${max} ejecución al ${environment.liqDate2023}`
       } else {
         message = `Liquidación ${min}`
       }

@@ -23,7 +23,7 @@ HighchartsSankey(Highcharts);
   styleUrls: ['./indice.component.scss']
 })
 export class IndiceComponent implements OnInit {
-  public liqDate = environment.liqDate;
+  public liqDate = environment.liqDate2023;
   public totalPresupuestoIngresos: number;
   public totalPresupuestoGastos: number;
   public totalEjecutadoIngresos: number;

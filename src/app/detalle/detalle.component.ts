@@ -32,7 +32,7 @@ heatmap(Highcharts)
 
 export class DetalleComponent implements OnInit {
   private _dataTable: IDataTable;
-  liqDate = environment.liqDate;
+  liqDate = environment.liqDate2023;
   showGraphInTab = true;
   showTablePresupuestos = true;
   showIngresos = false;
@@ -267,7 +267,7 @@ export class DetalleComponent implements OnInit {
 
   async hasChangeCheckbox() {
     let years = this._avalaibleYearsService.getYearsSelected();
-    if (years.length === 1 && years[0] === 2022) {
+    if (years.length === 1 && years[0] === 2023) {
       this.showGraphInTab = true;
       this.showTablePresupuestos = true;
       setTimeout(() => {
