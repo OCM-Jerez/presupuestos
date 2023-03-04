@@ -43,6 +43,14 @@ export class NavbarComponent {
     }, 0);
   }
 
+  empleados() {
+    this.router.navigateByUrl('/empleados')
+    this.collapsed = true;
+    setTimeout(() => {
+      this.collapsed = false;
+    }, 0);
+  }
+
   explicamos() {
     this.router.navigateByUrl('/explicamos')
     this.collapsed = true;
