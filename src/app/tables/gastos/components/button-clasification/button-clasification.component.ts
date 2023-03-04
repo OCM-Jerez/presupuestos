@@ -27,20 +27,19 @@ import { TabStateService } from '../../../../services/tabState.service';
 export class ButtonClasificationComponent implements OnDestroy {
   private _dataTable: IDataTable;
   private _dataGraph: IDataGraph = {} as IDataGraph;
+  private row: string = '';
   public showTable = true;
   public buttons: IButtonClasification[] = [];
   public buttonsAdditional: string[] = [];
   public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
-  private row: string = '';
 
   // private _selectedButton: IButtonClasification;
   // private selectedButtonSub: Subscription;
   // selectedButton: any;
   private _selectedTabSub: Subscription;
   private _selectedTab: string;
-
-  tabName: string;
-  buttonName: string;
+  // tabName: string;
+  // buttonName: string;
 
   constructor(
     private _router: Router,
@@ -55,7 +54,6 @@ export class ButtonClasificationComponent implements OnDestroy {
   ) {
     const clasification = getClasificacion(this._dataStoreService.dataTable.clasificationType)
     this.buttons = clasification.buttons;
-
     this.buttonsAdditional = clasification.buttonsAdditional;
     this._selectedTabSub = this._selectedTabService.getSelectedTab().subscribe(selectedTab => {
       this._selectedTab = selectedTab;
@@ -120,7 +118,7 @@ export class ButtonClasificationComponent implements OnDestroy {
       this._dataTable.rowDataGastos,
       getClasificacion(this._dataTable.clasificationType).codField,
       getClasificacion(this._dataTable.clasificationType).desField,
-      'Definitivas2022'
+      'Definitivas2023'
     );
 
     this._hasDataChangeService.change(false);
