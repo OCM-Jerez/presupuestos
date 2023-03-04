@@ -67,7 +67,7 @@ export class AvalaibleYearsService {
       // this.yearsSelected.push((new Date().getFullYear()) - 1);
       this.yearsSelected.push((new Date().getFullYear()));
     }
-    console.log(this.yearsSelected);
+    // console.log(this.yearsSelected);
 
     return this.yearsSelected;
   }
