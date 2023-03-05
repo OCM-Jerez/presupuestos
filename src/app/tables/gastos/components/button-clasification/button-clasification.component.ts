@@ -29,14 +29,6 @@ export class ButtonClasificationComponent {
     public buttonsAdditional: string[] = [];
     public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
 
-    // private _selectedButton: IButtonClasification;
-    // private selectedButtonSub: Subscription;
-    // selectedButton: any;
-    //private _selectedTabSub: Subscription;
-    // private _selectedTab: string;
-    // tabName: string;
-    // buttonName: string;
-
     constructor(
         private _router: Router,
         private _hasRowClicked: HasRowClicked,
@@ -45,7 +37,6 @@ export class ButtonClasificationComponent {
         private _prepareDataTreemapService: PrepareDataTreemapService,
         private _hasDataChangeService: HasDataChangeService,
         private _selectedButtonService: SelectedButtonService,
-        // private _selectedTabService: SelectedTabService,
         private _tabStateService: TabStateService
     ) {
         const clasification = getClasificacion(
@@ -53,12 +44,7 @@ export class ButtonClasificationComponent {
         );
         this.buttons = clasification.buttons;
         this.buttonsAdditional = clasification.buttonsAdditional;
-        // this._selectedTabSub = this._selectedTabService
-        //     .getSelectedTab()
-        //     .subscribe((selectedTab) => {
-        //         this._selectedTab = selectedTab;
         this._loadDataFromTab();
-        //     });
     }
 
     private async _loadDataFromTab() {
@@ -111,12 +97,7 @@ export class ButtonClasificationComponent {
 
     private async _existButton(button: IButtonClasification) {
         this.buttons.forEach((b) => (b.selected = false));
-        // console.log('this._selectedTab', this._selectedTab);
-        // const tab = this._tabStateService.getTabState(this._selectedTab);
-        // console.log('const tab', tab);
-
         this._tabStateService.setTabState(button.name);
-        // this._tabStateService.setTabState(tab, button.name);
         button.selected = true;
         this._dataTable = await this._tableService.loadData(
             button.clasificationType
