@@ -1,45 +1,55 @@
 import { Injectable } from '@angular/core';
+import { TYPE_TAB } from '../commons/types/tabs.type';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class TabStateService {
     private tabState: IConfigTag[] = [
         {
-            tabSelected: 'tab1',
+            tabName: 'tab1',
             subTabSelected: 'por capitulo',
-            optionRadioSelected: 'presupuestado'
+            optionRadioSelected: 'presupuestado',
+            selected: true,
         },
         {
-            tabSelected: 'tab2',
+            tabName: 'tab2',
             subTabSelected: 'Por política',
+            selected: false,
         },
         {
-            tabSelected: 'tab3',
+            tabName: 'tab3',
+            selected: false,
         },
         {
-            tabSelected: 'tab4',
+            tabName: 'tab4',
             subTabSelected: 'Por artículo',
-        }
-    ]
+            selected: false,
+        },
+    ];
 
-    constructor() { }
+    selectedTabPrincipal(tabName: TYPE_TAB) {
+        this.tabState.forEach((tab) => (tab.selected = false));
+        this.tabState.find((tab) => tab.tabName === tabName).selected = true;
+    }
 
-    setTabState(tabName: string, subTabSelected: string, optionRadioSelected?: string) {
-        const tab = this.tabState.find((tab) => tab.tabSelected === tabName);
+    setTabState(subTabSelected: string, optionRadioSelected?: string) {
+        const tab = this.tabState.find((tab) => tab.selected);
         tab.subTabSelected = subTabSelected;
         if (tab.optionRadioSelected) {
             tab.optionRadioSelected = optionRadioSelected;
         }
     }
 
-    getTabState(tabName: string): IConfigTag {
-        return this.tabState.find((tab) => tab.tabSelected === tabName)
+    // getTabState(tabName: string): IConfigTag {
+    getTabState(): IConfigTag {
+        return this.tabState.find((tab) => tab.selected);
     }
 }
 
 interface IConfigTag {
-    tabSelected: string,
-    subTabSelected?: string
-    optionRadioSelected?: string
+    tabName: string;
+    subTabSelected?: string;
+    optionRadioSelected?: string;
+    selected?: boolean;
 }
