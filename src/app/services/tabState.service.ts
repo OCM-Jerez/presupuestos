@@ -40,8 +40,6 @@ export class TabStateService {
             tab.optionRadioSelected = optionRadioSelected;
         }
     }
-
-    // getTabState(tabName: string): IConfigTag {
     getTabState(): IConfigTag {
         return this.tabState.find((tab) => tab.selected);
     }
