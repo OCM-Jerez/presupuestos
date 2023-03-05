@@ -14,5 +14,6 @@
     "[typescript]": {
         // "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true
-    }
+    },
+    "todo-tree.tree.disableCompactFolders": true
 }
