@@ -8,7 +8,7 @@ export class TabStateService {
     private tabState: IConfigTag[] = [
         {
             tabName: 'tab1',
-            subTabSelected: 'por capitulo',
+            subTabSelected: 'Por capitulo',
             optionRadioSelected: 'presupuestado',
             selected: true,
         },
