@@ -381,10 +381,10 @@ export class TableIngresosComponent implements OnInit {
             // this._alertService.showAlert(`Selecciona artículo`);
         }
 
-        console.log(
-            'Has pulsado un botón detalles, actualizo data',
-            this._dataTable
-        );
+        // console.log(
+        //     'Has pulsado un botón detalles, actualizo data',
+        //     this._dataTable
+        // );
         this._dataStoreService.selectedCodeRowFirstLevel = '';
 
         // console.log('Actualizo datos treemap en función del boton pulsado');
@@ -394,7 +394,10 @@ export class TableIngresosComponent implements OnInit {
             getClasificacion(this._dataTable.clasificationType).desField,
             'Definitivas2023'
         );
-        // console.log('this._dataStoreService.getDataTreemap', this._dataStoreService.getDataTreemap);
+        console.log(
+            'this._dataStoreService.getDataTreemap',
+            this._dataStoreService.dataTreemap
+        );
 
         this.showTable = false;
         setTimeout(() => {
