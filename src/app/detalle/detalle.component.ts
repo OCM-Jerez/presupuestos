@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 
 import { DataStoreService } from '../services/dataStore.service';
+import { HasDataChangeService } from '../services/hasDataChange.service';
 import { PrepareDataTotalesPresupuestoService } from '../services/prepareDataTotalesPresupuesto.service';
 import { PrepareDataTreemapService } from '../services/prepareDataTreemap.service';
 import { TableService } from '../services/table.service';
@@ -53,9 +54,11 @@ export class DetalleComponent implements OnInit {
     private _tabOrRadio = false;
     // private _selectedButtonSub: Subscription;
     // private _selectedButton: any;
+    public hasDataChange$ = this._hasDataChangeService.currentHasDataChange;
 
     buttonName: string;
     tabName: string;
+    public HasDataChange: boolean = true;
 
     constructor(
         private _dataStoreService: DataStoreService,
@@ -65,7 +68,9 @@ export class DetalleComponent implements OnInit {
         private _avalaibleYearsService: AvalaibleYearsService,
         // private _selectedButtonService: SelectedButtonService,
         //private _selectedTabService: SelectedTabService,
-        private _tabStateService: TabStateService // private _tabStateService: TabStateService
+        // private _tabStateService: TabStateService
+        private _tabStateService: TabStateService,
+        private _hasDataChangeService: HasDataChangeService
     ) {}
 
     ngOnInit(): void {
@@ -79,7 +84,8 @@ export class DetalleComponent implements OnInit {
 
         this._tabStateService.selectedTabPrincipal(this._tabSelected);
 
-        this.setValues(this._tabSelected);
+        // this.setValues(this._tabSelected);
+        this.setValues1(this._tabSelected);
         console.log('this._tabSelected', this._tabSelected);
         this._loadData();
 
@@ -91,6 +97,8 @@ export class DetalleComponent implements OnInit {
             this.showGraphInTab = false;
             this.showTablePresupuestos = false;
         }
+
+        this.hasDataChange$.subscribe();
     }
 
     async checkedTab(e: any) {
@@ -99,7 +107,9 @@ export class DetalleComponent implements OnInit {
         localStorage.setItem('activeTab', this._tabSelected);
 
         this._tabOrRadio = true;
-        this.setValues(e.target.id);
+        // this.setValues(e.target.id);
+        this.setValues1(e.target.id);
+
         await this._loadData();
         this._tabStateService.selectedTabPrincipal(this._tabSelected);
     }
@@ -243,6 +253,7 @@ export class DetalleComponent implements OnInit {
     }
 
     setValues(tab: TYPE_TAB) {
+        console.log('this._selectedButton', this.buttonName);
         switch (tab) {
             case 'tab1':
                 this._typeClasification = 'ingresosEconomicaEconomicos';
@@ -268,6 +279,7 @@ export class DetalleComponent implements OnInit {
                         this._typeClasification = 'gastosProgramaProgramas';
                         break;
                     default:
+                        console.log('gastosProgramaPoliticas');
                         this._typeClasification = 'gastosProgramaPoliticas';
                         break;
                 }
@@ -297,6 +309,27 @@ export class DetalleComponent implements OnInit {
                         this._typeClasification = 'gastosEconomicaConceptos';
                         break;
                 }
+                break;
+        }
+    }
+
+    setValues1(tab: TYPE_TAB) {
+        switch (tab) {
+            case 'tab1':
+                console.log('ingresosEconomicaEconomicos');
+                this._typeClasification = 'ingresosEconomicaEconomicos';
+                break;
+            case 'tab2':
+                console.log('gastosProgramaPoliticas');
+                this._typeClasification = 'gastosProgramaPoliticas';
+                break;
+            case 'tab3':
+                console.log('gastosOrganicaOrganicos');
+                this._typeClasification = 'gastosOrganicaOrganicos';
+                break;
+            case 'tab4':
+                console.log('gastosEconomicaConceptos');
+                this._typeClasification = 'gastosEconomicaConceptos';
                 break;
         }
     }
