@@ -50,8 +50,6 @@ export class DetalleComponent implements OnInit {
     private _treemap = 'treemap1';
     private _tabOrRadio = false;
     public hasDataChange$ = this._hasDataChangeService.currentHasDataChange;
-    buttonName: string;
-    tabName: string;
     public HasDataChange: boolean = true;
 
     constructor(
@@ -80,10 +78,7 @@ export class DetalleComponent implements OnInit {
         )}`;
 
         this._tabStateService.selectedTabPrincipal(this._tabSelected);
-
-        // this.setValues(this._tabSelected);
-        this.setValues1(this._tabSelected);
-        console.log('this._tabSelected', this._tabSelected);
+        this.setValues(this._tabSelected);
         await this._loadData();
 
         let years = this._avalaibleYearsService.getYearsSelected();
@@ -100,11 +95,8 @@ export class DetalleComponent implements OnInit {
         this._tabSelected = e.target.id;
         this._treemap = `treemap${e.target.id.charAt(e.target.id.length - 1)}`;
         localStorage.setItem('activeTab', this._tabSelected);
-
         this._tabOrRadio = true;
-        // this.setValues(e.target.id);
-        this.setValues1(e.target.id);
-
+        this.setValues(e.target.id);
         await this._loadData();
         this._tabStateService.selectedTabPrincipal(this._tabSelected);
     }
@@ -248,82 +240,17 @@ export class DetalleComponent implements OnInit {
     }
 
     setValues(tab: TYPE_TAB) {
-        console.log('this._selectedButton', this.buttonName);
         switch (tab) {
             case 'tab1':
                 this._typeClasification = 'ingresosEconomicaEconomicos';
                 break;
             case 'tab2':
-                // console.log('this._selectedButton', this.buttonName);
-
-                switch (this.buttonName) {
-                    case 'Por áreas':
-                        // console.log('Por áreas');
-                        this._typeClasification = 'gastosProgramaAreas';
-                        break;
-                    case 'Por política':
-                        // console.log('Por política');
-                        this._typeClasification = 'gastosProgramaPoliticas';
-                        break;
-                    case 'Por grupo programas':
-                        // console.log('Por política');
-                        this._typeClasification = 'gastosProgramaGrupos';
-                        break;
-                    case 'Por programa':
-                        // console.log('Por programa');
-                        this._typeClasification = 'gastosProgramaProgramas';
-                        break;
-                    default:
-                        console.log('gastosProgramaPoliticas');
-                        this._typeClasification = 'gastosProgramaPoliticas';
-                        break;
-                }
-                break;
-            case 'tab3':
-                this._typeClasification = 'gastosOrganicaOrganicos';
-                break;
-            case 'tab4':
-                switch (this.buttonName) {
-                    case 'Por capítulo gasto':
-                        // console.log('Por capítulo gasto');
-                        this._typeClasification = 'gastosEconomicaCapitulos';
-                        break;
-                    case 'Por artículo':
-                        // console.log('Por artículo');
-                        this._typeClasification = 'gastosEconomicaArticulos';
-                        break;
-                    case 'Por concepto':
-                        // console.log('Por concepto');
-                        this._typeClasification = 'gastosEconomicaConceptos';
-                        break;
-                    case 'Por económico':
-                        // console.log('Por económico');
-                        this._typeClasification = 'gastosEconomicaEconomicos';
-                        break;
-                    default:
-                        this._typeClasification = 'gastosEconomicaConceptos';
-                        break;
-                }
-                break;
-        }
-    }
-
-    setValues1(tab: TYPE_TAB) {
-        switch (tab) {
-            case 'tab1':
-                console.log('ingresosEconomicaEconomicos');
-                this._typeClasification = 'ingresosEconomicaEconomicos';
-                break;
-            case 'tab2':
-                console.log('gastosProgramaPoliticas');
                 this._typeClasification = 'gastosProgramaPoliticas';
                 break;
             case 'tab3':
-                console.log('gastosOrganicaOrganicos');
                 this._typeClasification = 'gastosOrganicaOrganicos';
                 break;
             case 'tab4':
-                console.log('gastosEconomicaConceptos');
                 this._typeClasification = 'gastosEconomicaConceptos';
                 break;
         }
