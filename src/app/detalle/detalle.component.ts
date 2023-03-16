@@ -1,27 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 
+import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { DataStoreService } from '../services/dataStore.service';
 import { HasDataChangeService } from '../services/hasDataChange.service';
 import { PrepareDataTotalesPresupuestoService } from '../services/prepareDataTotalesPresupuesto.service';
 import { PrepareDataTreemapService } from '../services/prepareDataTreemap.service';
 import { TableService } from '../services/table.service';
+import { TabStateService } from '../services/tabState.service';
+
+import { IDataTable } from '../commons/interfaces/dataTable.interface';
+import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
+import { TYPE_TAB } from '../commons/types/tabs.type';
+import { CLASIFICATION_TYPE } from '../commons/util/util';
 
 import { environment } from '../../environments/environment';
-import { CLASIFICATION_TYPE } from '../commons/util/util';
 
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import heatmap from 'highcharts/modules/heatmap';
 import HighchartsTreemap from 'highcharts/modules/treemap';
-import { IDataTable } from '../commons/interfaces/dataTable.interface';
-import { AvalaibleYearsService } from '../services/avalaibleYears.service';
-// import { SelectedButtonService } from '../services/selectedButton.service';
-// import { Subscription } from 'rxjs';
-import { TYPE_TAB } from '../commons/types/tabs.type';
-import { TabStateService } from '../services/tabState.service';
-// import { TabStateService } from '../services/tabState.service';
-
 HighchartsMore(Highcharts);
 HighchartsTreemap(Highcharts);
 heatmap(Highcharts);
@@ -52,10 +49,7 @@ export class DetalleComponent implements OnInit {
     private _tabSelected: TYPE_TAB = 'tab1';
     private _treemap = 'treemap1';
     private _tabOrRadio = false;
-    // private _selectedButtonSub: Subscription;
-    // private _selectedButton: any;
     public hasDataChange$ = this._hasDataChangeService.currentHasDataChange;
-
     buttonName: string;
     tabName: string;
     public HasDataChange: boolean = true;
@@ -66,9 +60,6 @@ export class DetalleComponent implements OnInit {
         private _prepareDataTreemapService: PrepareDataTreemapService,
         private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService,
         private _avalaibleYearsService: AvalaibleYearsService,
-        // private _selectedButtonService: SelectedButtonService,
-        //private _selectedTabService: SelectedTabService,
-        // private _tabStateService: TabStateService
         private _tabStateService: TabStateService,
         private _hasDataChangeService: HasDataChangeService
     ) {}
@@ -76,8 +67,6 @@ export class DetalleComponent implements OnInit {
     async ngOnInit(): Promise<void> {
         this.hasDataChange$.subscribe(async (response) => {
             if (response) {
-                console.log('response', response);
-
                 await this.graphTreemap();
             }
         });
@@ -141,7 +130,6 @@ export class DetalleComponent implements OnInit {
         }
 
         await this.setTotalesPresupuesto();
-        //  let data = await this._tableService.loadData(this._typeClasification);
 
         if (this._tabSelected === 'tab1') {
             await this.treeGraph(loadData.rowDataIngresos);
