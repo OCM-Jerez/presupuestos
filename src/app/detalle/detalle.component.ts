@@ -3,13 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { DataStoreService } from '../services/dataStore.service';
 import { HasDataChangeService } from '../services/hasDataChange.service';
-import { PrepareDataTotalesPresupuestoService } from '../services/prepareDataTotalesPresupuesto.service';
 import { PrepareDataTreemapService } from '../services/prepareDataTreemap.service';
 import { TableService } from '../services/table.service';
 import { TabStateService } from '../services/tabState.service';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
-import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 import { TYPE_TAB } from '../commons/types/tabs.type';
 import { CLASIFICATION_TYPE } from '../commons/util/util';
 
@@ -32,18 +30,10 @@ export class DetalleComponent implements OnInit {
     private _dataTable: IDataTable;
     liqDate = environment.liqDate2023;
     showGraphInTab = true;
-    showTablePresupuestos = true;
     showIngresos = false;
     showPrograma = false;
     showOrganico = false;
     showEconomica = false;
-    DataTotalesPresupuesto: IDataTotalesPresupuesto = {
-        year: 2023,
-        totalPresupuestoIngresos: 0,
-        totalPresupuestoGastos: 0,
-        totalEjecutadoIngresos: 0,
-        totalEjecutadoGastos: 0,
-    };
     private _typeClasification: CLASIFICATION_TYPE;
     private _radioButtonSelected = 'radio-1';
     private _tabSelected: TYPE_TAB = 'tab1';
@@ -56,7 +46,6 @@ export class DetalleComponent implements OnInit {
         private _dataStoreService: DataStoreService,
         private _tableService: TableService,
         private _prepareDataTreemapService: PrepareDataTreemapService,
-        private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService,
         private _avalaibleYearsService: AvalaibleYearsService,
         private _tabStateService: TabStateService,
         private _hasDataChangeService: HasDataChangeService
@@ -84,10 +73,8 @@ export class DetalleComponent implements OnInit {
         let years = this._avalaibleYearsService.getYearsSelected();
         if (years.length === 1 && years[0] === 2023) {
             this.showGraphInTab = true;
-            this.showTablePresupuestos = true;
         } else {
             this.showGraphInTab = false;
-            this.showTablePresupuestos = false;
         }
     }
 
@@ -121,8 +108,6 @@ export class DetalleComponent implements OnInit {
             this._dataTable = loadData;
         }
 
-        await this.setTotalesPresupuesto();
-
         if (this._tabSelected === 'tab1') {
             await this.dataTreemap(loadData.rowDataIngresos);
         } else {
@@ -130,13 +115,6 @@ export class DetalleComponent implements OnInit {
         }
 
         await this.showTreemap();
-    }
-
-    async setTotalesPresupuesto() {
-        // Si se recarga la pagina hay que volver a calcular los totales.
-        await this._prepareDataTotalesPresupuestoService.calcTotales();
-        this.DataTotalesPresupuesto =
-            this._dataStoreService.dataTotalesPresupuesto;
     }
 
     async dataTreemap(data) {
@@ -260,13 +238,13 @@ export class DetalleComponent implements OnInit {
         let years = this._avalaibleYearsService.getYearsSelected();
         if (years.length === 1 && years[0] === 2023) {
             this.showGraphInTab = true;
-            this.showTablePresupuestos = true;
+            // this.showTablePresupuestos = true;
             setTimeout(() => {
                 this.showTreemap();
             }, 10);
         } else {
             this.showGraphInTab = false;
-            this.showTablePresupuestos = false;
+            // this.showTablePresupuestos = false;
         }
 
         let data = await this._tableService.loadData(this._typeClasification);

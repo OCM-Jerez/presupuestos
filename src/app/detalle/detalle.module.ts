@@ -12,11 +12,13 @@ import { GastosModule } from '../tables/gastos/gastos.module';
 // import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from '../app.component';
+import { TablePresupuestoComponent } from './components/table-presupuesto/table-presupuesto.component';
 
 export const routes: Routes = [{ path: '', component: DetalleComponent }]
 @NgModule({
   declarations: [
-    DetalleComponent
+    DetalleComponent,
+    TablePresupuestoComponent
   ],
   imports: [
     CommonModule,

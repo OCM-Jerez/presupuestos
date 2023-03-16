@@ -1,7 +1,6 @@
 <!-- <div class="flex-container"> -->
 <div class="container">
     <h2 class="OCM-title">Detalle del presupuesto</h2>
-    <!-- <div class="datosAnuales"> -->
 
     <!-- Seleccion año a mostrar -->
     <div class="selectYear">
@@ -11,31 +10,7 @@
         ></app-checkbox>
     </div>
 
-    <!-- Tabla totales -->
-    <table *ngIf="showTablePresupuestos" class="paleBlueRows">
-        <thead>
-            <tr>
-                <th style="width: 300px">2023 (ejecución al {{ liqDate }})</th>
-                <th>PRESUPUESTO INGRESOS</th>
-                <th>RECAUDADO</th>
-                <th>PRESUPUESTO GASTOS</th>
-                <th>GASTADO</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td>TOTAL</td>
-                <td>
-                    {{ DataTotalesPresupuesto.totalPresupuestoIngresos }}
-                </td>
-                <td>{{ DataTotalesPresupuesto.totalEjecutadoIngresos }}</td>
-                <td>{{ DataTotalesPresupuesto.totalPresupuestoGastos }}</td>
-                <td>{{ DataTotalesPresupuesto.totalEjecutadoGastos }}</td>
-            </tr>
-        </tbody>
-    </table>
-    <!-- </div> -->
+    <app-table-presupuesto></app-table-presupuesto>
 
     <div #itemElement class="tab-wrap">
         <input
@@ -156,5 +131,4 @@
             <!-- <app-gastos *ngIf="showEconomica"></app-gastos> -->
         </div>
     </div>
-    <!-- </div> -->
 </div>
