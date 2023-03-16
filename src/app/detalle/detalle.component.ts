@@ -73,7 +73,15 @@ export class DetalleComponent implements OnInit {
         private _hasDataChangeService: HasDataChangeService
     ) {}
 
-    ngOnInit(): void {
+    async ngOnInit(): Promise<void> {
+        this.hasDataChange$.subscribe(async (response) => {
+            if (response) {
+                console.log('response', response);
+
+                await this.graphTreemap();
+            }
+        });
+
         if (localStorage.getItem('activeTab') != null) {
             this._tabSelected = localStorage.getItem('activeTab') as TYPE_TAB;
         }
@@ -87,7 +95,7 @@ export class DetalleComponent implements OnInit {
         // this.setValues(this._tabSelected);
         this.setValues1(this._tabSelected);
         console.log('this._tabSelected', this._tabSelected);
-        this._loadData();
+        await this._loadData();
 
         let years = this._avalaibleYearsService.getYearsSelected();
         if (years.length === 1 && years[0] === 2023) {
@@ -97,8 +105,6 @@ export class DetalleComponent implements OnInit {
             this.showGraphInTab = false;
             this.showTablePresupuestos = false;
         }
-
-        this.hasDataChange$.subscribe();
     }
 
     async checkedTab(e: any) {
@@ -136,6 +142,7 @@ export class DetalleComponent implements OnInit {
 
         await this.setTotalesPresupuesto();
         //  let data = await this._tableService.loadData(this._typeClasification);
+
         if (this._tabSelected === 'tab1') {
             await this.treeGraph(loadData.rowDataIngresos);
         } else {
