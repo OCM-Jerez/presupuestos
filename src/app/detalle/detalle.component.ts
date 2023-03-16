@@ -65,7 +65,7 @@ export class DetalleComponent implements OnInit {
     async ngOnInit(): Promise<void> {
         this.hasDataChange$.subscribe(async (response) => {
             if (response) {
-                await this.graphTreemap();
+                await this.showTreemap();
             }
         });
 
@@ -124,12 +124,12 @@ export class DetalleComponent implements OnInit {
         await this.setTotalesPresupuesto();
 
         if (this._tabSelected === 'tab1') {
-            await this.treeGraph(loadData.rowDataIngresos);
+            await this.dataTreemap(loadData.rowDataIngresos);
         } else {
-            await this.treeGraph(loadData.rowDataGastos);
+            await this.dataTreemap(loadData.rowDataGastos);
         }
 
-        await this.graphTreemap();
+        await this.showTreemap();
     }
 
     async setTotalesPresupuesto() {
@@ -139,7 +139,7 @@ export class DetalleComponent implements OnInit {
             this._dataStoreService.dataTotalesPresupuesto;
     }
 
-    async treeGraph(data) {
+    async dataTreemap(data) {
         // Datos para grafico
         switch (this._tabSelected) {
             case 'tab1':
@@ -200,7 +200,7 @@ export class DetalleComponent implements OnInit {
         this._showComponent();
     }
 
-    async graphTreemap() {
+    async showTreemap() {
         if (this.showGraphInTab) {
             const data = this._dataStoreService.dataTreemap;
             Highcharts.chart(this._treemap, {
@@ -262,7 +262,7 @@ export class DetalleComponent implements OnInit {
             this.showGraphInTab = true;
             this.showTablePresupuestos = true;
             setTimeout(() => {
-                this.graphTreemap();
+                this.showTreemap();
             }, 10);
         } else {
             this.showGraphInTab = false;
@@ -270,7 +270,7 @@ export class DetalleComponent implements OnInit {
         }
 
         let data = await this._tableService.loadData(this._typeClasification);
-        await this.treeGraph(data.rowDataGastos);
+        await this.dataTreemap(data.rowDataGastos);
         this._showComponent();
     }
 
