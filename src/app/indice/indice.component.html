@@ -3,36 +3,61 @@
 
 <div class="flex-container">
     <div class="flex-items">
-        <div class="OCM-cardV" style=" background-image: url('../../assets/img/indice/busget-stream-1.webp') ; background-size:
-            80px 100px;">
+        <div
+            class="OCM-cardV"
+            style="
+                background-image: url('../../assets/img/indice/busget-stream-1.webp');
+                background-size: 80px 100px;
+            "
+        >
             <span class="OCM-cardV__indice">1.</span>
             <!-- <span class="OCM-cardV__svg">1.</span> -->
             <span class="OCM-cardV__title">La recaudación local</span>
-            <p class="OCM-cardV__footer">Se realiza a través de impuestos directos,
-                como el impuesto de bienes inmuebles (IBI) o el
-                de vehículos de tracción mecánica (IVTM), y de tasas.</p>
+            <p class="OCM-cardV__footer">
+                Se realiza a través de impuestos directos, como el impuesto de
+                bienes inmuebles (IBI) o el de vehículos de tracción mecánica
+                (IVTM), y de tasas.
+            </p>
         </div>
     </div>
 
     <div class="flex-items">
-        <div class="OCM-cardV" style=" background-image: url('../../assets/img/indice/busget-stream-2.webp')">
+        <div
+            class="OCM-cardV"
+            style="
+                background-image: url('../../assets/img/indice/busget-stream-2.webp');
+            "
+        >
             <span class="OCM-cardV__indice">2.</span>
             <!-- <span class="OCM-cardV__svg">1.</span> -->
-            <span class="OCM-cardV__title">Otras fuentes de <br> ingresos</span>
-            <p class="OCM-cardV__footer">El dinero recaudado localmente
-                se complementa con las transferencias de la
-                Administración General del Estado y de la Junta de Andalucía, que son las encargadas de recaudar otros
-                ingresos como el IVA y el IRPF.</p>
+            <span class="OCM-cardV__title"
+                >Otras fuentes de <br />
+                ingresos</span
+            >
+            <p class="OCM-cardV__footer">
+                El dinero recaudado localmente se complementa con las
+                transferencias de la Administración General del Estado y de la
+                Junta de Andalucía, que son las encargadas de recaudar otros
+                ingresos como el IVA y el IRPF.
+            </p>
         </div>
     </div>
 
     <div class="flex-items">
-        <div class="OCM-cardV" style=" background-image: url('../../assets/img/indice/busget-stream-3.webp')">
+        <div
+            class="OCM-cardV"
+            style="
+                background-image: url('../../assets/img/indice/busget-stream-3.webp');
+            "
+        >
             <span class="OCM-cardV__indice">3.</span>
             <!-- <span class="OCM-cardV__svg">1.</span> -->
             <span class="OCM-cardV__title">¿En qué se emplea?</span>
-            <p class="OCM-cardV__footer">El ayuntamiento utiliza el dinero recaudado, junto con otras fuentes de
-                financiación como la deuda, para mantener los servicios públicos y la infraestructura de la ciudad.</p>
+            <p class="OCM-cardV__footer">
+                El ayuntamiento utiliza el dinero recaudado, junto con otras
+                fuentes de financiación como la deuda, para mantener los
+                servicios públicos y la infraestructura de la ciudad.
+            </p>
         </div>
     </div>
 </div>
@@ -42,7 +67,7 @@
     <div id="sankey1"></div>
 </div>
 
-<app-checkbox [multiYears]=false></app-checkbox>
+<app-checkbox [multiYears]="false"></app-checkbox>
 
 <h3 class="datosPresupuestarios">Datos presupuestarios año seleccionado</h3>
 
@@ -59,44 +84,35 @@
         <tbody>
             <tr>
                 <td>TOTAL PRESUPUESTADO</td>
-                <td>{{ totalPresupuestoIngresos }}
-                </td>
-                <td>{{ totalPresupuestoGastos }}
-                </td>
+                <td>{{ totalPresupuestoIngresos }}</td>
+                <td>{{ totalPresupuestoGastos }}</td>
             </tr>
             <tr>
-                <td>TOTAL EJECUTADO <span>Hasta noviembre</span></td>
-                <td>{{
-                    totalEjecutadoIngresos }}</td>
-                <td>{{
-                    totalEjecutadoGastos }}</td>
+                <td>
+                    TOTAL EJECUTADO <span>(ejecución al {{ liqDate }})</span>
+                </td>
+                <td>{{ totalEjecutadoIngresos }}</td>
+                <td>{{ totalEjecutadoGastos }}</td>
             </tr>
             <tr>
                 <td>Subtotal no financiero <span> Capítulos 1 a 7</span></td>
                 <td>{{ noFinancieroIngresos }}</td>
                 <td>{{ noFinancieroGastos }}</td>
-
             </tr>
             <tr>
-                <td>Subtotal corriente<span> Capítulos 1
-                        a 5</span> </td>
-                <td>{{ corrientesIngresos}}</td>
+                <td>Subtotal corriente<span> Capítulos 1 a 5</span></td>
+                <td>{{ corrientesIngresos }}</td>
                 <td>{{ corrientesGastos }}</td>
-
             </tr>
             <tr>
-                <td>Subtotal de capital<span> Capítulos
-                        6 y 7</span></td>
+                <td>Subtotal de capital<span> Capítulos 6 y 7</span></td>
                 <td>{{ capitalIngresos }}</td>
                 <td>{{ capitalGastos }}</td>
-
             </tr>
             <tr>
-                <td>Subtotal financiero<span> Capítulos 8
-                        y 9</span> </td>
+                <td>Subtotal financiero<span> Capítulos 8 y 9</span></td>
                 <td>{{ financierosIngresos }}</td>
                 <td>{{ financierosGastos }}</td>
-
             </tr>
         </tbody>
     </table>
@@ -106,41 +122,45 @@
             <tr>
                 <th>INDICADORES PRESUPUESTARIOS</th>
                 <th></th>
-
             </tr>
         </thead>
 
         <tbody>
             <tr>
-                <td>AHORRO BRUTO <span> Ingresos
-                        corrientes - gastos corrientes</span></td>
+                <td>
+                    AHORRO BRUTO
+                    <span> Ingresos corrientes - gastos corrientes</span>
+                </td>
                 <td>{{ ahorroBruto }}</td>
             </tr>
             <tr>
-                <td>AHORRO NETO <span style="font-size: 14px; margin-left: 10px">
-                        Ahorro neto -
-                        capitulo 9 de gastos</span></td>
+                <td>
+                    AHORRO NETO
+                    <span style="font-size: 14px; margin-left: 10px">
+                        Ahorro neto - capitulo 9 de gastos</span
+                    >
+                </td>
                 <td>{{ ahorroNeto }}</td>
-
             </tr>
             <tr>
-                <td>CAPACIDAD/NECESIDAD DE FINANCIACIÓN <span> Ingresos no financieros -
-                        gastos no financieros</span></td>
+                <td>
+                    CAPACIDAD/NECESIDAD DE FINANCIACIÓN
+                    <span>
+                        Ingresos no financieros - gastos no financieros</span
+                    >
+                </td>
                 <td>{{ capacidadFinanciacion }}</td>
             </tr>
-
-
         </tbody>
     </table>
 </div>
 
-
 <!-- ==================  Menu anterior   ================================================     -->
 <div class="OCM-indice">
-    <hr style="color:white">
-    <app-checkbox [multiYears]=true></app-checkbox>
+    <hr style="color: white" />
+    <app-checkbox [multiYears]="true"></app-checkbox>
     <div class="OCM-comment">
-        Los datos del año 2022 corresponden a la ejecución al {{liqDate}}
+        Los datos del año 2022 corresponden a la ejecución al {{ liqDate }}
     </div>
 
     <div class="OCM-containerNew">
@@ -149,7 +169,10 @@
         <!-- <div class="OCM-economicaIngreso">Clasificación económica</div> -->
 
         <div class="OCM-economicaIngreso">
-            <div (click)="openTable('ingresosEconomicaCapitulos')" class="OCM-card1">
+            <div
+                (click)="openTable('ingresosEconomicaCapitulos')"
+                class="OCM-card1"
+            >
                 <span class="OCM-economica">Clasificación económica</span>
             </div>
         </div>
@@ -182,7 +205,11 @@
         <div class="OCM-programas">Clasificación por programas</div>
         <div class="OCM-economica">Clasificación económica</div>
         <div class="OCM-organico">
-            <div (click)="openTable('gastosOrganicaOrganicos')" class="OCM-card" style="margin-left: 4rem">
+            <div
+                (click)="openTable('gastosOrganicaOrganicos')"
+                class="OCM-card"
+                style="margin-left: 4rem"
+            >
                 <span class="OCM-card__title">Por orgánico</span>
             </div>
         </div>
@@ -192,7 +219,10 @@
                 <span class="OCM-card__title">Por área</span>
             </div>
         </div>
-        <div (click)="openTable('gastosProgramaPoliticas')" class="OCM-politica">
+        <div
+            (click)="openTable('gastosProgramaPoliticas')"
+            class="OCM-politica"
+        >
             <div class="OCM-card">
                 <span class="OCM-card__title">Por política</span>
             </div>
@@ -202,38 +232,50 @@
                 <span class="OCM-card__title">Por grupo programas</span>
             </div>
         </div>
-        <div (click)="openTable('gastosProgramaProgramas')" class="OCM-programa">
+        <div
+            (click)="openTable('gastosProgramaProgramas')"
+            class="OCM-programa"
+        >
             <div class="OCM-card">
                 <span class="OCM-card__title">Por programa</span>
             </div>
         </div>
-        <div (click)="openTable('gastosEconomicaCapitulos')" class="OCM-capitulo1">
+        <div
+            (click)="openTable('gastosEconomicaCapitulos')"
+            class="OCM-capitulo1"
+        >
             <div class="OCM-card">
                 <span class="OCM-card__title">Por capítulos</span>
             </div>
         </div>
-        <div (click)="openTable('gastosEconomicaArticulos')" class="OCM-articulo1">
+        <div
+            (click)="openTable('gastosEconomicaArticulos')"
+            class="OCM-articulo1"
+        >
             <div class="OCM-card">
                 <span class="OCM-card__title">Por articulo</span>
             </div>
         </div>
-        <div (click)="openTable('gastosEconomicaConceptos')" class="OCM-concepto1">
+        <div
+            (click)="openTable('gastosEconomicaConceptos')"
+            class="OCM-concepto1"
+        >
             <div class="OCM-card">
                 <span class="OCM-card__title">Por concepto</span>
             </div>
         </div>
-        <div (click)="openTable('gastosEconomicaEconomicos')" class="OCM-subconcepto1">
+        <div
+            (click)="openTable('gastosEconomicaEconomicos')"
+            class="OCM-subconcepto1"
+        >
             <div class="OCM-card">
                 <span class="OCM-card__title">Por económico</span>
             </div>
         </div>
 
-        <br>
-        <br>
-        <br>
-
-
-
+        <br />
+        <br />
+        <br />
     </div>
 
     <!-- <div class="OCM-gastos">Gastos</div>
@@ -253,8 +295,10 @@
     <br>
  -->
 
-
-    <div (click)="newGastos('gastosOrganicaOrganicos')" class="OCM-subconcepto1">
+    <div
+        (click)="newGastos('gastosOrganicaOrganicos')"
+        class="OCM-subconcepto1"
+    >
         <div class="OCM-card">
             <span class="OCM-card__title">Clasificación orgánica</span>
         </div>
@@ -266,10 +310,12 @@
         </div>
     </div>
 
-    <div (click)="newGastos('gastosEconomicaCapitulos')" class="OCM-subconcepto1">
+    <div
+        (click)="newGastos('gastosEconomicaCapitulos')"
+        class="OCM-subconcepto1"
+    >
         <div class="OCM-card">
             <span class="OCM-card__title">Clasificación económica</span>
         </div>
     </div>
-
 </div>
