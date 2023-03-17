@@ -12,7 +12,11 @@
 
     <app-table-presupuesto></app-table-presupuesto>
 
-    <div #itemElement class="tab-wrap">
+    <div
+        #itemElement
+        class="tab-wrap"
+        style="background-color: #d6a2a2; padding-top: 20px"
+    >
         <input
             type="radio"
             id="tab1"
@@ -52,10 +56,16 @@
             (change)="checkedTab($event)"
         />
         <label for="tab4">¿Para qué se gasta?</label>
+        <!-- </div>
 
+    <div class="tab-wrap" style="background-color: #c0309c; padding-top: 20px"> -->
         <!-- Tab Ingresos -->
         <div class="tab__content">
-            <div *ngIf="showGraphInTab" class="radioButtonsGroup">
+            <div
+                *ngIf="showGraphInTab"
+                style="background-color: rgb(137, 177, 96)"
+                class="radioButtonsGroup"
+            >
                 <div class="radio">
                     <input
                         id="radio-1"
