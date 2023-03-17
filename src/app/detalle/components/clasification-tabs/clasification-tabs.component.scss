@@ -1,0 +1,267 @@
+@media screen and (max-width: 3399.98px) {
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        width: 99%;
+        height: 100%;
+        background-color: whitesmoke;
+        margin-top: 10px;
+    }
+
+    .container {
+        margin: 0 auto;
+        display: block;
+        max-width: 98%;
+
+        > *:not(.tab-wrap) {
+            padding: 0 80px;
+        }
+    }
+
+    // .datosAnuales {
+    //     display: flex;
+    //     flex-direction: row;
+    //     width: 99%;
+    //     background-color: whitesmoke;
+    // }
+
+    .selectYear {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .treemap {
+        display: block;
+        min-width: 150px;
+        max-width: 100%;
+        height: 450px;
+        width: 1250px;
+        margin: 0 auto;
+    }
+
+    /* #region  Tabs */
+    // https://codepen.io/alvarotrigo/pen/GRMbzBR
+    $max-tab-count: 4;
+    $tab-wrap-border-radius: 6px;
+
+    .tab-wrap {
+        transition: 0.3s box-shadow ease;
+        border-radius: $tab-wrap-border-radius;
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        list-style: none;
+        background-color: #fff;
+        // margin: 20px 0;
+
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+        &:hover {
+            box-shadow: 0 12px 23px rgba(0, 0, 0, 0.23),
+                0 10px 10px rgba(0, 0, 0, 0.19);
+        }
+    }
+
+    .tab {
+        display: none;
+
+        @for $i from 1 through $max-tab-count {
+            &:checked:nth-of-type(#{$i}) ~ .tab__content:nth-of-type(#{$i}) {
+                opacity: 1;
+                transition: 0.5s opacity ease-in, 0.8s transform ease;
+                position: relative;
+                top: 0;
+                z-index: 100;
+                transform: translateY(0px);
+                text-shadow: 0 0 0;
+            }
+        }
+
+        &:first-of-type:not(:last-of-type) + label {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:not(:first-of-type):not(:last-of-type) + label {
+            border-radius: 0;
+        }
+
+        &:last-of-type:not(:first-of-type) + label {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:checked + label {
+            background-color: red;
+            box-shadow: 0 -1px 0 #fff inset;
+            cursor: default;
+            // &:hover {
+            //     box-shadow: 0 -1px 0 #fff inset;
+            //     background-color: #fff;
+            // }
+        }
+
+        + label {
+            box-shadow: 0 -1px 0 #eee inset;
+            border-radius: $tab-wrap-border-radius $tab-wrap-border-radius 0 0;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            font-size: 32px;
+            color: #333;
+            flex-grow: 3;
+            text-align: center;
+            background-color: #f2f2f2;
+            user-select: none;
+            text-align: center;
+            transition: 0.3s background-color ease, 0.3s box-shadow ease;
+            height: 50px;
+            box-sizing: border-box;
+            padding: 15px;
+            // &:hover {
+            //     background-color: #f9f9f9;
+            //     box-shadow: 0 1px 0 #f4f4f4 inset;
+            // }
+        }
+
+        &__content {
+            padding: 10px 25px;
+            background-color: transparent;
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+            opacity: 0;
+            left: 0;
+            transform: translateY(-3px);
+            border-radius: $tab-wrap-border-radius;
+        }
+    }
+
+    /* #endregion */
+
+    /* #region  radioButtons */
+    // https://codepen.io/triss90/pen/XNEdRe
+    $color1: #f4f4f4;
+    $color2: #3197ee;
+
+    .radioButtonsGroup {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .radio {
+        margin: 0.5rem;
+
+        input[type='radio'] {
+            position: absolute;
+            opacity: 0;
+
+            + .radio-label {
+                &:before {
+                    content: '';
+                    background: $color1;
+                    border-radius: 100%;
+                    border: 1px solid darken($color1, 25%);
+                    display: inline-block;
+                    width: 2.4em;
+                    height: 2.4em;
+                    position: relative;
+                    top: -0.2em;
+                    margin-right: 1em;
+                    vertical-align: top;
+                    cursor: pointer;
+                    text-align: center;
+                    transition: all 250ms ease;
+                }
+            }
+
+            &:checked {
+                + .radio-label {
+                    &:before {
+                        background-color: $color2;
+                        box-shadow: inset 0 0 0 4px $color1;
+                    }
+                }
+            }
+
+            &:focus {
+                + .radio-label {
+                    &:before {
+                        outline: none;
+                        border-color: $color2;
+                    }
+                }
+            }
+
+            &:disabled {
+                + .radio-label {
+                    &:before {
+                        box-shadow: inset 0 0 0 4px $color1;
+                        border-color: darken($color1, 25%);
+                        background: darken($color1, 25%);
+                    }
+                }
+            }
+
+            + .radio-label {
+                &:empty {
+                    &:before {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    /* #endregion */
+
+    .agGridContainer {
+        margin-top: 2px;
+    }
+}
+
+@media screen and (max-width: 575.98px) {
+    // .datosAnuales {
+    //     background-color: whitesmoke;
+    // }
+
+    // .selectYear {
+    //     margin-left: 10px;
+    //     margin-right: 10px;
+    // }
+
+    /* #region  Tabs */
+    // https://codepen.io/alvarotrigo/pen/GRMbzBR
+    $max-tab-count: 4;
+    $tab-wrap-border-radius: 6px;
+
+    .tab-wrap {
+        max-height: 50%;
+        margin-top: 2px;
+    }
+
+    .tab {
+        + label {
+            font-size: 12px;
+            height: 25px;
+            padding: 8px;
+
+            &:hover {
+                color: red;
+                background-color: #c35151;
+                box-shadow: 0 1px 0 #d54747 inset;
+            }
+        }
+
+        &__content {
+            padding: 0px 0px;
+        }
+    }
+
+    /* #endregion */
+}
