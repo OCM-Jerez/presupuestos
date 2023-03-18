@@ -170,30 +170,30 @@ export class IndiceComponent implements OnInit {
         }, []);
     }
 
-    async calcSumPoliticasGastos() {
-        for (const item of this._dataGasto) {
-            const value = {
-                name: `${item.CodPro}-${item.DesPro}`,
-                value: item.Definitivas2023,
-                recaudado: item.Pagos2023,
-            };
-            this._politicasGastos.push(value);
-        }
+    // async calcSumPoliticasGastos() {
+    //     for (const item of this._dataGasto) {
+    //         const value = {
+    //             name: `${item.CodPro}-${item.DesPro}`,
+    //             value: item.Definitivas2023,
+    //             recaudado: item.Pagos2023,
+    //         };
+    //         this._politicasGastos.push(value);
+    //     }
 
-        // Totalizo por politicas de gasto
-        this._politicasGastos = this._politicasGastos.reduce((acc, curr) => {
-            const index = acc.findIndex((item) => item.name === curr.name);
-            index > -1
-                ? ((acc[index].value += curr.value),
-                  (acc[index].recaudado += curr.recaudado))
-                : acc.push({
-                      name: curr.name,
-                      value: curr.value,
-                      recaudado: curr.recaudado,
-                  });
-            return acc;
-        }, []);
-    }
+    //     // Totalizo por politicas de gasto
+    //     this._politicasGastos = this._politicasGastos.reduce((acc, curr) => {
+    //         const index = acc.findIndex((item) => item.name === curr.name);
+    //         index > -1
+    //             ? ((acc[index].value += curr.value),
+    //               (acc[index].recaudado += curr.recaudado))
+    //             : acc.push({
+    //                   name: curr.name,
+    //                   value: curr.value,
+    //                   recaudado: curr.recaudado,
+    //               });
+    //         return acc;
+    //     }, []);
+    // }
 
     async calcTotalesPresupuestoGastos() {
         const totalPresupuestoGastos = this._capitulosGastos.reduce(
