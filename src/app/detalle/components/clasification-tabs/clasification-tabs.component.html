@@ -80,13 +80,11 @@
             </div>
         </div>
 
-        <div *ngIf="showGraphInTab" id="treemap1" class="treemap"></div>
+        <!-- <div *ngIf="showGraphInTab" id="treemap1" class="treemap"></div> -->
         <div class="agGridContainer">
             <app-table-ingresos
                 *ngIf="showIngresos"
                 [fieldsHide]="[
-                    'Iniciales',
-                    'Modificaciones',
                     'DerechosReconocidos',
                     'DerechosAnulados',
                     'DerechosCancelados',
