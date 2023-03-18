@@ -5,25 +5,50 @@
         </button>
     </div>
 
-
     <h4 class="OCM-text--cabecera">
-        {{ subHeaderName }}.
-        {{ dataStoreService.selectedCodeRowFirstLevel}}.
-        {{ messageYears }}</h4>
+        <!-- {{ subHeaderName }}. -->
+        Programa
+        {{ dataStoreService.selectedCodeRowFirstLevel }}. {{ messageYears }}
+    </h4>
 
-    <button *ngIf="!isExpanded" type="button" class="OCM-button" (click)="expandAll()">
+    <button
+        *ngIf="!isExpanded"
+        type="button"
+        class="OCM-button"
+        (click)="expandAll()"
+    >
         Expandir todo
     </button>
 
-    <button *ngIf="isExpanded" type="button" class="OCM-button" (click)="collapseAll()">
+    <button
+        *ngIf="isExpanded"
+        type="button"
+        class="OCM-button"
+        (click)="collapseAll()"
+    >
         Colapsar todo
     </button>
 
-    <button type="button" (click)="showAplicacionPresupuestaria()" class="OCM-button" style="padding: 1.2rem 8.6rem;">
+    <button
+        type="button"
+        (click)="showAplicacionPresupuestaria()"
+        class="OCM-button"
+        style="padding: 1.2rem 8.6rem"
+    >
         Detalle aplicación presupuestaria
     </button>
 
-    <ag-grid-angular #agGrid style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"
-        class="ag-theme-balham" [gridOptions]="gridOptions" (gridReady)="onGridReady($event)">
+    <ag-grid-angular
+        #agGrid
+        style="
+            width: 100%;
+            height: 90vh;
+            padding-right: 20px;
+            margin-left: 10px;
+        "
+        class="ag-theme-balham"
+        [gridOptions]="gridOptions"
+        (gridReady)="onGridReady($event)"
+    >
     </ag-grid-angular>
 </div>
