@@ -14,13 +14,15 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from '../app.component';
 import { TablePresupuestoComponent } from './components/table-presupuesto/table-presupuesto.component';
 import { ClasificationTabsComponent } from './components/clasification-tabs/clasification-tabs.component';
+import { BarClasificationTabsComponent } from './components/clasification-tabs/components/bar-clasification-tabs/bar-clasification-tabs.component';
 
 export const routes: Routes = [{ path: '', component: DetalleComponent }]
 @NgModule({
   declarations: [
     DetalleComponent,
     TablePresupuestoComponent,
-    ClasificationTabsComponent
+    ClasificationTabsComponent,
+    BarClasificationTabsComponent
   ],
   imports: [
     CommonModule,

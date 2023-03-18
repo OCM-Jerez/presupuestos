@@ -1,8 +1,4 @@
-<div
-    #itemElement
-    class="tab-wrap"
-    style="background-color: #d6a2a2; padding-top: 20px"
->
+<div class="tab-wrap" style="background-color: #d6a2a2; padding-top: 20px">
     <input
         type="radio"
         id="tab1"
@@ -42,9 +38,9 @@
         (change)="checkedTab($event)"
     />
     <label for="tab4">¿Para qué se gasta?</label>
-    <!-- </div>
 
-<div class="tab-wrap" style="background-color: #c0309c; padding-top: 20px"> -->
+    <!-- <app-bar-clasification-tabs></app-bar-clasification-tabs> -->
+
     <!-- Tab Ingresos -->
     <div class="tab__content">
         <div
@@ -85,8 +81,6 @@
         </div>
 
         <div *ngIf="showGraphInTab" id="treemap1" class="treemap"></div>
-
-        <!-- AG-Grid -->
         <div class="agGridContainer">
             <app-table-ingresos
                 *ngIf="showIngresos"
@@ -122,6 +116,5 @@
     <div class="tab__content">
         <div *ngIf="showGraphInTab" id="treemap4" class="treemap"></div>
         <app-gastos *ngIf="showEconomica"></app-gastos>
-        <!-- <app-gastos *ngIf="showEconomica"></app-gastos> -->
     </div>
 </div>
