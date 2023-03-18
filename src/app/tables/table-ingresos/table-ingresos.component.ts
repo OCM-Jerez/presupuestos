@@ -35,6 +35,7 @@ import { TableService } from '../../services/table.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
+import { HasDataChangeService } from '../../services/hasDataChange.service';
 import { getClasificacion } from '../data-table';
 
 @Component({
@@ -76,7 +77,8 @@ export class TableIngresosComponent implements OnInit {
         private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
         private _prepareDataTreemapService: PrepareDataTreemapService,
         private _alertService: AlertService,
-        private _tableService: TableService
+        private _tableService: TableService,
+        private _hasDataChangeService: HasDataChangeService
     ) {
         this._loadPropertyTable();
     }
@@ -381,10 +383,6 @@ export class TableIngresosComponent implements OnInit {
             // this._alertService.showAlert(`Selecciona artículo`);
         }
 
-        // console.log(
-        //     'Has pulsado un botón detalles, actualizo data',
-        //     this._dataTable
-        // );
         this._dataStoreService.selectedCodeRowFirstLevel = '';
 
         // console.log('Actualizo datos treemap en función del boton pulsado');
@@ -394,10 +392,11 @@ export class TableIngresosComponent implements OnInit {
             getClasificacion(this._dataTable.clasificationType).desField,
             'Definitivas2023'
         );
-        console.log(
-            'this._dataStoreService.getDataTreemap',
-            this._dataStoreService.dataTreemap
-        );
+
+        this._hasDataChangeService.change(false);
+        setTimeout(() => {
+            this._hasDataChangeService.change(true);
+        }, 5);
 
         this.showTable = false;
         setTimeout(() => {
