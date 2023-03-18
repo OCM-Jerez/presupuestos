@@ -28,6 +28,7 @@ export class ButtonClasificationComponent {
     public buttons: IButtonClasification[] = [];
     public buttonsAdditional: string[] = [];
     public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
+    isDisabled = true;
 
     constructor(
         private _router: Router,

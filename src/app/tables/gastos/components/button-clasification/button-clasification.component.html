@@ -1,18 +1,19 @@
-<div>
-    <div>
-        <!-- eslint-disable @angular-eslint/template/no-negated-async -->
-        <span
-            *ngIf="!(hasRowClicked$ | async) as hasRowClicked"
-            style="font-size: 16px; color: red"
+<div class="OCM-bar-container">
+    <div class="OCM-button-container">
+        <button
+            type="button"
+            class="OCM-button"
+            [ngClass]="{ selected: button.selected }"
+            *ngFor="let button of buttons"
+            (click)="click($event)"
         >
-            Selecciona un fila y podras ver las diferentes opciones
-            disponibles</span
-        >
+            {{ button.name }}
+        </button>
     </div>
 
     <div
+        class="OCM-button-container"
         *ngIf="hasRowClicked$ | async as hasRowClicked"
-        class="OCM-button--container"
     >
         <button
             type="button"
@@ -24,16 +25,19 @@
         </button>
     </div>
 
-    <div>
+    <!-- eslint-disable @angular-eslint/template/no-negated-async -->
+    <div
+        class="OCM-button-container"
+        *ngIf="!(hasRowClicked$ | async) as hasRowClicked"
+        [ngClass]="{ disabled: isDisabled }"
+    >
         <button
             type="button"
             class="OCM-button"
-            [ngClass]="{ selected: button.selected }"
-            *ngFor="let button of buttons"
+            *ngFor="let button of buttonsAdditional"
             (click)="click($event)"
         >
-            {{ button.name }}
-            <!-- {{button.selectedButton}} -->
+            {{ 'Al seleccionar fila se activa opción' }}
         </button>
     </div>
 </div>
