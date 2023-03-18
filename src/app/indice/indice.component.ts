@@ -1,18 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
+import { DataStoreService } from '../services/dataStore.service';
 import { TableService } from '../services/table.service';
 
+import { IDataTable } from '../commons/interfaces/dataTable.interface';
+
 import { environment } from '../../environments/environment';
-import { CLASIFICATION_TYPE } from '../commons/util/util';
 
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSankey from 'highcharts/modules/sankey';
-
-import { IDataTable } from '../commons/interfaces/dataTable.interface';
-import { DataStoreService } from '../services/dataStore.service';
-// import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto. interface';
 
 HighchartsMore(Highcharts);
 HighchartsSankey(Highcharts);
@@ -50,30 +47,12 @@ export class IndiceComponent implements OnInit {
 
     constructor(
         private _dataStoreService: DataStoreService,
-        private _router: Router,
         private _tableService: TableService
     ) {}
 
     ngOnInit(): void {
         this._loadData();
     }
-
-    /* #region  Esto es para el menu original */
-    async openTable(tipoClasificacion: CLASIFICATION_TYPE): Promise<void> {
-        // await this._tableService.loadData(tipoClasificacion);
-
-        if (tipoClasificacion.startsWith('ingresos')) {
-            this._router.navigateByUrl('/tableIngresos');
-        } else {
-            this._router.navigateByUrl('/tableGastos');
-        }
-    }
-
-    async newGastos(tipoClasificacion: CLASIFICATION_TYPE) {
-        // await this._tableService.loadData(tipoClasificacion);
-        this._router.navigateByUrl('/newGastos');
-    }
-    /* #endregion */
 
     private async _loadData(): Promise<void> {
         // si recargo la pagina cargo datos iniciales.
