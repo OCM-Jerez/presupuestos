@@ -1,200 +1,204 @@
+import { Location } from '@angular/common';
 import { Component, OnDestroy, ViewChild } from '@angular/core';
-import { Location } from "@angular/common";
 
+import { AgChartOptions } from 'ag-charts-community';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community';
-import { AgChartOptions } from 'ag-charts-community';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { accumulate } from '../../commons/util/util';
 
-import { DataStoreService } from '../../services/dataStore.service';
-import { IDataTable } from '../../commons/interfaces/dataTable.interface';
-import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 import { Subscription } from 'rxjs';
+import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
+import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
+import { DataStoreService } from '../../services/dataStore.service';
 
 @Component({
-  selector: 'app-graph-ingresos',
-  templateUrl: './graph-ingresos.component.html',
-  styleUrls: ['./graph-ingresos.component.scss']
+    selector: 'app-graph-ingresos',
+    templateUrl: './graph-ingresos.component.html',
+    styleUrls: ['./graph-ingresos.component.scss'],
 })
 export class GraphIngresosComponent implements OnDestroy {
-  options: AgChartOptions;
-  rowData: any;
-  data: any;
+    options: AgChartOptions;
+    rowData: any;
+    data: any;
 
-  @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  private gridApi;
-  public gridColumnApi;
-  public columnDefs;
-  public defaultColDef;
-  public gridOptions: GridOptions;
-  public localeText;
-  public rowDataTable: any;
-  public groupHeaderHeight = 25;
-  public headerHeight = 25;
-  private datos: any[] = [];
-  private _dataTable: IDataTable;
-  private _dataGraph: IDataGraph;
-  private _subscription: Subscription;
+    @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+    private gridApi;
+    public gridColumnApi;
+    public columnDefs;
+    public defaultColDef;
+    public gridOptions: GridOptions;
+    public localeText;
+    public rowDataTable: any;
+    public groupHeaderHeight = 25;
+    public headerHeight = 25;
+    private datos: any[] = [];
+    private _dataTable: IDataTable;
+    private _dataGraph: IDataGraph;
+    private _subscription: Subscription;
 
-  constructor(
-    private avalaibleYearsService: AvalaibleYearsService,
-    private location: Location,
-    private _dataStoreService: DataStoreService,
-  ) {
-    this._dataTable = _dataStoreService.dataTable;
-    this._subscription = this._dataStoreService.dataSource$.subscribe((data) => {
-      this._dataGraph = data;
-      this._createData();
-      this._createColumns()
-      this._showGraph()
-    });
-  }
-
-  ngOnDestroy(): void {
-    if (this._subscription) {
-      this._subscription.unsubscribe()
-    }
-  }
-
-  private _createColumns(): void {
-    this.columnDefs = [
-      {
-        headerName: 'Año',
-        field: 'year',
-        width: 70,
-      },
-      {
-        headerName: 'Previsiones definitivas',
-        field: 'Definitivas',
-        width: 180,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM,
-      },
-      {
-        headerName: 'RecaudacionNeta',
-        field: 'RecaudacionNeta',
-        width: 200,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM,
-      },
-    ];
-
-    this.defaultColDef = {
-      sortable: true,
-      resizable: true,
-      filter: false,
-    };
-  }
-
-  async onGridReady(params) {
-    this.gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
-  }
-
-  private async _createData() {
-    const codigo = this._dataStoreService.selectedCodeRow.split(" ")[0];
-    switch (this._dataTable.clasificationType) {
-      case 'ingresosEconomicaCapitulos':
-        this.datos = this._dataTable.rowDataIngresos.filter(x => x.CodCap == codigo);
-        break;
-      case 'ingresosEconomicaArticulos':
-      case 'ingresosEconomicaConceptos':
-      case 'ingresosEconomicaEconomicos':
-        this.datos = this._dataTable.rowDataIngresos.filter(x => x.CodEco == codigo);
-        break;
+    constructor(
+        private avalaibleYearsService: AvalaibleYearsService,
+        private location: Location,
+        private _dataStoreService: DataStoreService
+    ) {
+        this._dataTable = _dataStoreService.dataTable;
+        this._subscription = this._dataStoreService.dataSource$.subscribe(
+            (data) => {
+                this._dataGraph = data;
+                this._createData();
+                this._createColumns();
+                this._showGraph();
+            }
+        );
     }
 
-    const yearsDefinitivas = accumulate('Definitivas', this.datos);
-    const yearsIniciales = accumulate('Iniciales', this.datos);
-    const yearsNetas = accumulate('RecaudacionNeta', this.datos);
-
-    // Convierto los valores para que sirvan de data al grafico
-    this.data = [];
-    // for (let index = 2021; index <= 2021; index++) {
-    //   const value = {
-    //     "year": index,
-    //     "Definitivas": yearsDefinitivas[index],
-    //     "RecaudacionNeta": yearsNetas[index]
-    //   }
-    //   // if (index === 2022) {
-    //   //   value.Definitivas = yearsIniciales[index]
-    //   //   value.RecaudacionNeta = yearsNetas[index - 1]
-    //   // }
-    //   this.data.push(value)
-    // }
-    // return this.data;
-
-
-    this.avalaibleYearsService.getYearsSelected().map(year => {
-      const value = {
-        "year": year,
-        "Definitivas": yearsDefinitivas[year],
-        "RecaudacionNeta": yearsNetas[year]
-      }
-      this.data.push(value)
+    ngOnDestroy(): void {
+        if (this._subscription) {
+            this._subscription.unsubscribe();
+        }
     }
-    )
-    return this.data;
 
-  }
-
-  private _showGraph(): void {
-    this.options = {
-      // theme: 'ag-default-dark',
-      autoSize: true,
-      title: {
-        text: this._dataGraph.graphTitle,
-      },
-      subtitle: {
-        text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRow}`,
-      },
-      data: [...this.data],
-      series: [
-        {
-          xKey: 'year',
-          yKey: 'Definitivas',
-        },
-        {
-          xKey: 'year',
-          yKey: 'RecaudacionNeta',
-        },
-      ],
-      axes: [
-        {
-          type: 'category',
-          position: 'bottom',
-          title: {
-            text: 'Años',
-            enabled: true,
-          },
-        },
-        {
-          type: 'number',
-          position: 'left',
-          title: {
-            text: 'en miles de Euros',
-            enabled: true,
-          },
-          label: {
-            formatter: function (params) {
-              return params.value / 1000 + '';
+    private _createColumns(): void {
+        this.columnDefs = [
+            {
+                headerName: 'Año',
+                field: 'year',
+                width: 70,
             },
-          },
-        },
-      ],
-      legend: {
-        enabled: true,
-        position: 'bottom',
-      },
+            {
+                headerName: 'Previsiones definitivas',
+                field: 'Definitivas',
+                width: 180,
+                aggFunc: 'sum',
+                cellRenderer: CellRendererOCM,
+            },
+            {
+                headerName: 'RecaudacionNeta',
+                field: 'RecaudacionNeta',
+                width: 200,
+                aggFunc: 'sum',
+                cellRenderer: CellRendererOCM,
+            },
+        ];
+
+        this.defaultColDef = {
+            sortable: true,
+            resizable: true,
+            filter: false,
+        };
     }
-  }
 
-  volver() {
-    this.location.back();
-  }
+    async onGridReady(params) {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+    }
 
+    private async _createData() {
+        const codigo = this._dataStoreService.selectedCodeRow.split(' ')[0];
+        switch (this._dataTable.clasificationType) {
+            case 'ingresosEconomicaCapitulos':
+                this.datos = this._dataTable.rowDataIngresos.filter(
+                    (x) => x.CodCap == codigo
+                );
+                break;
+            case 'ingresosEconomicaArticulos':
+            case 'ingresosEconomicaConceptos':
+            case 'ingresosEconomicaEconomicos':
+                this.datos = this._dataTable.rowDataIngresos.filter(
+                    (x) => x.CodEco == codigo
+                );
+                break;
+        }
+
+        const yearsDefinitivas = accumulate('Definitivas', this.datos);
+        const yearsIniciales = accumulate('Iniciales', this.datos);
+        const yearsNetas = accumulate('RecaudacionNeta', this.datos);
+
+        // Convierto los valores para que sirvan de data al grafico
+        this.data = [];
+        for (let index = 2015; index <= 2023; index++) {
+            // Para mostrar solo años seleccionados
+            if (yearsDefinitivas[index] > 0) {
+                const value = {
+                    year: index,
+                    Definitivas: yearsDefinitivas[index],
+                    RecaudacionNeta: yearsNetas[index],
+                };
+                if (index === 2022 || index === 2023) {
+                    value.Definitivas = yearsIniciales[index];
+                    value.RecaudacionNeta = yearsNetas[index - 1];
+                }
+                this.data.push(value);
+            }
+        }
+        return this.data;
+
+        // this.avalaibleYearsService.getYearsSelected().map((year) => {
+        //     const value = {
+        //         year: year,
+        //         Definitivas: yearsDefinitivas[year],
+        //         RecaudacionNeta: yearsNetas[year],
+        //     };
+        //     this.data.push(value);
+        // });
+        // return this.data;
+    }
+
+    private _showGraph(): void {
+        this.options = {
+            // theme: 'ag-default-dark',
+            autoSize: true,
+            title: {
+                text: this._dataGraph.graphTitle,
+            },
+            subtitle: {
+                text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRow}`,
+            },
+            data: [...this.data],
+            series: [
+                {
+                    xKey: 'year',
+                    yKey: 'Definitivas',
+                },
+                {
+                    xKey: 'year',
+                    yKey: 'RecaudacionNeta',
+                },
+            ],
+            axes: [
+                {
+                    type: 'category',
+                    position: 'bottom',
+                    title: {
+                        text: 'Años',
+                        enabled: true,
+                    },
+                },
+                {
+                    type: 'number',
+                    position: 'left',
+                    title: {
+                        text: 'en miles de Euros',
+                        enabled: true,
+                    },
+                    label: {
+                        formatter: function (params) {
+                            return params.value / 1000 + '';
+                        },
+                    },
+                },
+            ],
+            legend: {
+                enabled: true,
+                position: 'bottom',
+            },
+        };
+    }
+
+    volver() {
+        this.location.back();
+    }
 }
-
