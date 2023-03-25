@@ -28,6 +28,7 @@ export class TablePresupuestoComponent implements OnInit {
         private _avalaibleYearsService: AvalaibleYearsService,
         private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService
     ) {}
+
     async ngOnInit(): Promise<void> {
         // Si se recarga la pagina hay que volver a calcular los totales.
         await this._prepareDataTotalesPresupuestoService.calcTotales();
