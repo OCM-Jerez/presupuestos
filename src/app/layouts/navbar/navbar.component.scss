@@ -1,13 +1,12 @@
-@import "/src/app/scss/animations";
-@import "/src/app/scss/base";
-@import "/src/app/scss/functions";
-@import "/src/app/scss/mixins";
-@import "/src/app/scss/typography";
-@import "/src/app/scss/utilities";
-@import "/src/app/scss/variables";
+@import '/src/app/scss/animations';
+@import '/src/app/scss/base';
+@import '/src/app/scss/functions';
+@import '/src/app/scss/mixins';
+@import '/src/app/scss/typography';
+@import '/src/app/scss/utilities';
+@import '/src/app/scss/variables';
 
 @media screen and (max-width: 3399.98px) {
-
     /* #region  menu responsive */
     // https://codepen.io/mutedblues/pen/MmPNPG
     .header {
@@ -66,8 +65,6 @@
         grid-template-rows: repeat(3, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
-        // margin-top: 10px;
-        // background-color: #d4ef0d;
         width: 99%;
         height: 100px; // Con barraBuscar 150px
 
@@ -79,11 +76,11 @@
             height: 50px;
 
             &--logo {
-                @include OCM-logo;
-                // background: url("../../../assets/img/logoOCMyellow.svg") no-repeat center center;
-                background: url("../../../assets/img/logoOCM.png");
+                // @include OCM-logo;
+                background: url('../../../assets/img/logoOCM.png');
                 height: 40px;
                 width: 184px;
+                margin-left: 20px;
             }
 
             &--title {
@@ -162,7 +159,7 @@
         cursor: grab;
     }
 
-    input[type="text"],
+    input[type='text'],
     select {
         width: 380px;
         padding: 12px 20px;
@@ -174,7 +171,8 @@
     }
 }
 
-@media screen and (max-width: 1199.98px) {}
+@media screen and (max-width: 1199.98px) {
+}
 
 @media screen and (max-width: 991.98px) {
     .navMenuButton {
@@ -193,7 +191,7 @@
         }
     }
 
-    input[type="text"],
+    input[type='text'],
     select {
         width: 270px;
     }
@@ -283,7 +281,7 @@
     .header .menu-icon .navicon:before,
     .header .menu-icon .navicon:after {
         background: #333;
-        content: "";
+        content: '';
         display: block;
         height: 100%;
         position: absolute;
@@ -305,24 +303,24 @@
         display: none;
     }
 
-    .header .menu-btn:checked~.menu {
+    .header .menu-btn:checked ~ .menu {
         max-height: 240px;
     }
 
-    .header .menu-btn:checked~.menu-icon .navicon {
+    .header .menu-btn:checked ~ .menu-icon .navicon {
         background: transparent;
     }
 
-    .header .menu-btn:checked~.menu-icon .navicon:before {
+    .header .menu-btn:checked ~ .menu-icon .navicon:before {
         transform: rotate(-45deg);
     }
 
-    .header .menu-btn:checked~.menu-icon .navicon:after {
+    .header .menu-btn:checked ~ .menu-icon .navicon:after {
         transform: rotate(45deg);
     }
 
-    .header .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
-    .header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+    .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+    .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
         top: 0;
     }
 
@@ -340,8 +338,8 @@
                 height: 30px;
 
                 &--logo {
-                    background: url("../../../assets/img/logoOCM.png") no-repeat center center;
-
+                    background: url('../../../assets/img/logoOCM.png') no-repeat
+                        center center;
                 }
 
                 &--text {
