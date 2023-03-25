@@ -1,18 +1,19 @@
 import { Location } from '@angular/common';
 import { Component, OnDestroy, ViewChild } from '@angular/core';
 
+import { Subscription } from 'rxjs';
+
 import { AgChartOptions } from 'ag-charts-community';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
+import { DataStoreService } from '../../services/dataStore.service';
+
 import { accumulate } from '../../commons/util/util';
 
-import { Subscription } from 'rxjs';
 import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
-import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import { DataStoreService } from '../../services/dataStore.service';
 
 @Component({
     selector: 'app-graph-ingresos',
@@ -40,8 +41,7 @@ export class GraphIngresosComponent implements OnDestroy {
     private _subscription: Subscription;
 
     constructor(
-        private avalaibleYearsService: AvalaibleYearsService,
-        private location: Location,
+        private _location: Location,
         private _dataStoreService: DataStoreService
     ) {
         this._dataTable = _dataStoreService.dataTable;
@@ -201,6 +201,6 @@ export class GraphIngresosComponent implements OnDestroy {
     }
 
     volver() {
-        this.location.back();
+        this._location.back();
     }
 }
