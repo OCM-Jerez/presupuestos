@@ -29,7 +29,7 @@
     <div
         class="OCM-button-container"
         *ngIf="!(hasRowClicked$ | async) as hasRowClicked"
-        [ngClass]="{ disabled: isDisabled }"
+        [ngClass]="{ 'OCM-disabled': isDisabled }"
     >
         <button
             type="button"

@@ -38,7 +38,10 @@
     </div>
 
     <!-- eslint-disable @angular-eslint/template/no-negated-async -->
-    <div class="OCM-button-container" [ngClass]="{ disabled: isDisabled }">
+    <div
+        class="OCM-button-container"
+        [ngClass]="{ 'OCM-disabled': isDisabled }"
+    >
         <button
             id="showGraph"
             type="button"

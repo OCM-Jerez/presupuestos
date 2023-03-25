@@ -48,6 +48,11 @@
         margin-top: 20px;
     }
 
+    .OCM-disabled {
+        pointer-events: none;
+        opacity: 0.2;
+    }
+
     .OCM-button {
         color: #090909;
         padding: 0.7em 1.7em;
