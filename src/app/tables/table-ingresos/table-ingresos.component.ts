@@ -48,15 +48,11 @@ export class TableIngresosComponent implements OnInit {
     @Output() clickDetail = new EventEmitter();
     @Output() clickDetalle: EventEmitter<void> = new EventEmitter();
     @Input() fieldsHide: string[] = [];
-    @Input() buttonsHide: string[] = [];
     @Input() hasTitle: boolean = true;
-    @Input() hasGrafico: boolean = true;
     @Input() cellRenderer: boolean;
     public gridOptions: GridOptions;
     public textButton: string;
     public hasGraficoButton = true;
-    public hasGraphTree = true;
-    public hasMenuButton = true;
     private _gridApi: GridApi;
     private _columnApi: ColumnApi;
     private _columnDefs: any[];
@@ -202,7 +198,6 @@ export class TableIngresosComponent implements OnInit {
         params.columnApi.applyColumnState({ state: defaultSortModel });
 
         this._hideColumns();
-        this._hideButtons();
     };
 
     // TODO: Las colummnas disparan su altura
@@ -291,20 +286,6 @@ export class TableIngresosComponent implements OnInit {
         }
     }
 
-    private _hideButtons() {
-        if (this.buttonsHide.length > 0) {
-            if (this.buttonsHide.includes('menu')) {
-                this.hasMenuButton = false;
-            }
-            if (this.buttonsHide.includes('grafico')) {
-                this.hasGraficoButton = false;
-            }
-            if (this.buttonsHide.includes('graphTree')) {
-                this.hasGraphTree = false;
-            }
-        }
-    }
-
     showGraph() {
         const selectedRows = this.agGrid.api.getSelectedNodes();
         if (selectedRows.length > 0) {
@@ -320,15 +301,6 @@ export class TableIngresosComponent implements OnInit {
                 `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`
             );
         }
-    }
-
-    showGraphTree() {
-        this._prepareDataGraphTreeService.prepareDataGraphTree(
-            this._dataTable.rowDataIngresos
-        );
-        setTimeout(() => {
-            this._router.navigateByUrl('/graphTree');
-        }, 50);
     }
 
     async detalle(typeClasification: CLASIFICATION_TYPE) {
@@ -400,7 +372,6 @@ export class TableIngresosComponent implements OnInit {
 
         this.showTable = false;
         setTimeout(() => {
-            this._hideButtons();
             this._loadPropertyTable();
             this.showTable = true;
         }, 500);

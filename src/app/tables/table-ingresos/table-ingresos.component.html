@@ -1,44 +1,63 @@
 <div>
-    <h4 *ngIf="hasTitle" class="OCM-text--cabecera">Comparativa ingresos {{
-        messageYears }}</h4>
+    <h4 *ngIf="hasTitle" class="OCM-text--cabecera">
+        Comparativa ingresos {{ messageYears }}
+    </h4>
 
     <div class="buttonGroup">
-
-        <button *ngIf="hasGraficoButton" id="showGraph" type="button" class="OCM-button" (click)="showGraph()">
-            {{textButton}}
+        <button
+            *ngIf="hasGraficoButton"
+            id="showGraph"
+            type="button"
+            class="OCM-button"
+            (click)="showGraph()"
+        >
+            {{ textButton }}
         </button>
 
-        <button type="button" *ngIf="hasGraphTree" class="OCM-btnExpand" class="OCM-button" (click)="showGraphTree()">
-            Gráfico arbol
-        </button>
-
-        <button type="button" class="OCM-button" [ngClass]="{'selected':seletedCapitulos}"
-            (click)="detalle('ingresosEconomicaCapitulos')">
+        <button
+            type="button"
+            class="OCM-button"
+            [ngClass]="{ selected: seletedCapitulos }"
+            (click)="detalle('ingresosEconomicaCapitulos')"
+        >
             Por capítulo
         </button>
 
-        <button type="button" class="OCM-button" [ngClass]="{'selected':seletedArticulo}"
-            (click)="detalle('ingresosEconomicaArticulos')">
+        <button
+            type="button"
+            class="OCM-button"
+            [ngClass]="{ selected: seletedArticulo }"
+            (click)="detalle('ingresosEconomicaArticulos')"
+        >
             Por artículo
         </button>
 
-        <button type="button" class="OCM-button" [ngClass]="{'selected':seletedConcepto}"
-            (click)="detalle('ingresosEconomicaConceptos')">
+        <button
+            type="button"
+            class="OCM-button"
+            [ngClass]="{ selected: seletedConcepto }"
+            (click)="detalle('ingresosEconomicaConceptos')"
+        >
             Por concepto
         </button>
 
-        <button type="button" class="OCM-button" [ngClass]="{'selected':seletedEconomico}"
-            (click)="detalle('ingresosEconomicaEconomicos')">
+        <button
+            type="button"
+            class="OCM-button"
+            [ngClass]="{ selected: seletedEconomico }"
+            (click)="detalle('ingresosEconomicaEconomicos')"
+        >
             Por económico
         </button>
-
-        <button *ngIf="hasMenuButton" type="button" class="OCM-button" (click)="home()">
-            Menú
-        </button>
-
     </div>
 
-    <ag-grid-angular *ngIf="showTable" #agGrid id="agGridContainer" class="ag-theme-balham" [gridOptions]="gridOptions"
-        (gridReady)="onGridReady($event)">
+    <ag-grid-angular
+        *ngIf="showTable"
+        #agGrid
+        id="agGridContainer"
+        class="ag-theme-balham"
+        [gridOptions]="gridOptions"
+        (gridReady)="onGridReady($event)"
+    >
     </ag-grid-angular>
 </div>
