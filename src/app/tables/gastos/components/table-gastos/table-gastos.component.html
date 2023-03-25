@@ -1,5 +1,11 @@
 <div class="agGrid">
-    <ag-grid-angular *ngIf="gridOptions" #agGrid id="agGrid" class="ag-theme-balham" [gridOptions]="gridOptions"
-        (gridReady)="onGridReady($event)">
+    <ag-grid-angular
+        *ngIf="gridOptions"
+        #agGrid
+        id="agGrid"
+        class="ag-theme-balham"
+        [gridOptions]="gridOptions"
+        (gridReady)="onGridReady($event)"
+    >
     </ag-grid-angular>
 </div>
