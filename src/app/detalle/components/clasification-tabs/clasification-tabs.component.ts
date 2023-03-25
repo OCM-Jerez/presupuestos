@@ -194,6 +194,8 @@ export class ClasificationTabsComponent implements OnInit {
     }
 
     async showTreemap() {
+        console.log('showTreemap', this._treemap);
+
         if (this.showGraphInTab) {
             const data = this._dataStoreService.dataTreemap;
             Highcharts.chart(this._treemap, {
