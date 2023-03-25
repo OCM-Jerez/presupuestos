@@ -68,6 +68,14 @@
         box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
     }
 
+    .OCM-selected {
+        background-color: blue;
+        color: white;
+        border: solid 1px #ccc;
+        box-shadow: 2px 2px 2px #ccc;
+        font-weight: bold;
+    }
+
     .OCM-title {
         display: flex;
         align-items: center;

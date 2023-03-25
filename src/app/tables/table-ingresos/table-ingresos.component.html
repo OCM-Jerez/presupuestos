@@ -13,7 +13,7 @@
         <button
             type="button"
             class="OCM-button"
-            [ngClass]="{ selected: seletedCapitulos }"
+            [ngClass]="{ 'OCM-selected': seletedCapitulos }"
             (click)="detalle('ingresosEconomicaCapitulos')"
         >
             Por capítulo
@@ -22,7 +22,7 @@
         <button
             type="button"
             class="OCM-button"
-            [ngClass]="{ selected: seletedArticulo }"
+            [ngClass]="{ 'OCM-selected': seletedArticulo }"
             (click)="detalle('ingresosEconomicaArticulos')"
         >
             Por artículo
@@ -31,7 +31,7 @@
         <button
             type="button"
             class="OCM-button"
-            [ngClass]="{ selected: seletedConcepto }"
+            [ngClass]="{ 'OCM-selected': seletedConcepto }"
             (click)="detalle('ingresosEconomicaConceptos')"
         >
             Por concepto
@@ -40,7 +40,7 @@
         <button
             type="button"
             class="OCM-button"
-            [ngClass]="{ selected: seletedEconomico }"
+            [ngClass]="{ 'OCM-selected': seletedEconomico }"
             (click)="detalle('ingresosEconomicaEconomicos')"
         >
             Por económico
