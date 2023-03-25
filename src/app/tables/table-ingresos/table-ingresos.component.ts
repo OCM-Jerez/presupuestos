@@ -48,7 +48,6 @@ export class TableIngresosComponent implements OnInit {
     @Output() clickDetail = new EventEmitter();
     @Output() clickDetalle: EventEmitter<void> = new EventEmitter();
     @Input() fieldsHide: string[] = [];
-    @Input() hasTitle: boolean = true;
     @Input() cellRenderer: boolean;
     public gridOptions: GridOptions;
     public textButton: string;
