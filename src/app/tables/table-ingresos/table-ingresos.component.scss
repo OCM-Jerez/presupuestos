@@ -1,20 +1,25 @@
 @media screen and (max-width: 3399.98px) {
-    .buttonGroup {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-        margin: 0 auto;
-        padding: 0 10px;
-        .button {
-            width: 100%;
-            margin: 0 5px;
-            padding: 0;
-            .mat-button {
-                width: 100%;
-                padding: 0;
-            }
-        }
+    // .buttonGroup {
+    //     display: flex;
+    //     justify-content: flex-start;
+    //     align-items: center;
+    //     width: 100%;
+    //     margin: 0 auto;
+    //     padding: 0 10px;
+    //     .button {
+    //         width: 100%;
+    //         margin: 0 5px;
+    //         padding: 0;
+    //         .mat-button {
+    //             width: 100%;
+    //             padding: 0;
+    //         }
+    //     }
+    // }
+
+    .disabled {
+        pointer-events: none;
+        opacity: 0.2;
     }
 
     #agGridContainer {

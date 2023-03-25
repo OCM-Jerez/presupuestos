@@ -1,15 +1,5 @@
-<div>
-    <div class="buttonGroup">
-        <button
-            *ngIf="hasGraficoButton"
-            id="showGraph"
-            type="button"
-            class="OCM-button"
-            (click)="showGraph()"
-        >
-            {{ textButton }}
-        </button>
-
+<div class="OCM-bar-container">
+    <div class="OCM-button-container">
         <button
             type="button"
             class="OCM-button"
@@ -47,13 +37,25 @@
         </button>
     </div>
 
-    <ag-grid-angular
-        *ngIf="showTable"
-        #agGrid
-        id="agGridContainer"
-        class="ag-theme-balham"
-        [gridOptions]="gridOptions"
-        (gridReady)="onGridReady($event)"
-    >
-    </ag-grid-angular>
+    <!-- eslint-disable @angular-eslint/template/no-negated-async -->
+    <div class="OCM-button-container" [ngClass]="{ disabled: isDisabled }">
+        <button
+            id="showGraph"
+            type="button"
+            class="OCM-button"
+            (click)="showGraph()"
+        >
+            {{ textButton }}
+        </button>
+    </div>
 </div>
+
+<ag-grid-angular
+    *ngIf="showTable"
+    #agGrid
+    id="agGridContainer"
+    class="ag-theme-balham"
+    [gridOptions]="gridOptions"
+    (gridReady)="onGridReady($event)"
+>
+</ag-grid-angular>

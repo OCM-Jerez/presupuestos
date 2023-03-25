@@ -25,17 +25,15 @@ import {
 // import { CellRendererOCM1, CellRendererOCMtext1 } from '../../ag-grid/CellRendererOCM1'
 // import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
-import { AlertService } from '../../services/alert.service';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
-import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
+import { HasDataChangeService } from '../../services/hasDataChange.service';
 import { PrepareDataTreemapService } from '../../services/prepareDataTreemap.service';
 import { TableService } from '../../services/table.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
-import { HasDataChangeService } from '../../services/hasDataChange.service';
 import { getClasificacion } from '../data-table';
 
 @Component({
@@ -51,7 +49,6 @@ export class TableIngresosComponent implements OnInit {
     @Input() cellRenderer: boolean;
     public gridOptions: GridOptions;
     public textButton: string;
-    public hasGraficoButton = true;
     private _gridApi: GridApi;
     private _columnApi: ColumnApi;
     private _columnDefs: any[];
@@ -64,14 +61,13 @@ export class TableIngresosComponent implements OnInit {
     public seletedArticulo: boolean = false;
     public seletedConcepto: boolean = false;
     public seletedEconomico: boolean = true;
+    isDisabled = true;
 
     constructor(
         public avalaibleYearsService: AvalaibleYearsService,
         private _router: Router,
         private _dataStoreService: DataStoreService,
-        private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
         private _prepareDataTreemapService: PrepareDataTreemapService,
-        private _alertService: AlertService,
         private _tableService: TableService,
         private _hasDataChangeService: HasDataChangeService
     ) {
@@ -85,6 +81,7 @@ export class TableIngresosComponent implements OnInit {
     }
 
     private async _loadPropertyTable() {
+        this.isDisabled = true;
         this._dataTable = this._dataStoreService.dataTable;
 
         this._columnDefs = [
@@ -172,11 +169,12 @@ export class TableIngresosComponent implements OnInit {
             // onGridReady: function (event) { consoltextButtone.log('the grid is now ready'); },
             onRowClicked: () => {
                 this.textButton = 'Mostrar gráfico';
+                this.isDisabled = false;
                 // this.showGraph();
             },
         } as GridOptions;
 
-        this.textButton = `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`;
+        this.textButton = `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName} para mostrar gráfico`;
     }
 
     // Store the api for later use.
@@ -287,19 +285,13 @@ export class TableIngresosComponent implements OnInit {
 
     showGraph() {
         const selectedRows = this.agGrid.api.getSelectedNodes();
-        if (selectedRows.length > 0) {
-            this._dataStoreService.selectedCodeRow = selectedRows[0].key;
-            this._router.navigateByUrl('/graphIngresos').then(() => {
-                this._dataStoreService.setData({
-                    ...this._dataStoreService.dataGraph,
-                    graphSubTitle: selectedRows[0].key,
-                });
+        this._dataStoreService.selectedCodeRow = selectedRows[0].key;
+        this._router.navigateByUrl('/graphIngresos').then(() => {
+            this._dataStoreService.setData({
+                ...this._dataStoreService.dataGraph,
+                graphSubTitle: selectedRows[0].key,
             });
-        } else {
-            this._alertService.showAlert(
-                `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`
-            );
-        }
+        });
     }
 
     async detalle(typeClasification: CLASIFICATION_TYPE) {
