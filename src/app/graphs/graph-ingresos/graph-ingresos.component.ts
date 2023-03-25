@@ -153,9 +153,11 @@ export class GraphIngresosComponent implements OnDestroy {
             autoSize: true,
             title: {
                 text: this._dataGraph.graphTitle,
+                fontSize: 40,
             },
             subtitle: {
                 text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRow}`,
+                fontSize: 20,
             },
             data: [...this.data],
             series: [

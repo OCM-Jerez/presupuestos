@@ -162,10 +162,13 @@ export class GraphGastosComponent implements OnDestroy {
             autoSize: true,
             title: {
                 text: this._dataGraph.graphTitle,
+                fontSize: 40,
             },
+
             subtitle: {
                 // text: `${this._dataGraph.graphSubTitle}`
                 text: this.row,
+                fontSize: 30,
             },
             data: [...this.data],
             series: [
