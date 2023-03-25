@@ -375,8 +375,4 @@ export class TableIngresosComponent implements OnInit {
             this.showTable = true;
         }, 500);
     }
-
-    async home() {
-        setTimeout(() => this._router.navigateByUrl('/home'), 50);
-    }
 }
