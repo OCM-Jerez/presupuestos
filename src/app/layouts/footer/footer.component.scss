@@ -1,10 +1,10 @@
-@import "/src/app/scss/animations";
-@import "/src/app/scss/base";
-@import "/src/app/scss/functions";
-@import "/src/app/scss/mixins";
-@import "/src/app/scss/typography";
-@import "/src/app/scss/utilities";
-@import "/src/app/scss/variables";
+@import '/src/app/scss/animations';
+@import '/src/app/scss/base';
+@import '/src/app/scss/functions';
+@import '/src/app/scss/mixins';
+@import '/src/app/scss/typography';
+@import '/src/app/scss/utilities';
+@import '/src/app/scss/variables';
 
 // https://javascript.plainenglish.io/5-steps-to-adding-a-sticky-footer-to-your-angular-11-application-6c185c2ed99f
 .footer {
@@ -30,14 +30,22 @@
         justify-content: flex-start;
         align-items: center;
 
+        .logoWWW {
+            @include OCM-logo;
+            background: url('../../../assets/img/www.svg') no-repeat center
+                center;
+        }
+
         .logoFacebook {
             @include OCM-logo;
-            background: url("../../../assets/img/facebook.svg") no-repeat center center;
+            background: url('../../../assets/img/facebook.svg') no-repeat center
+                center;
         }
 
         .logoTwitter {
             @include OCM-logo;
-            background: url("../../../assets/img/twitter.svg") no-repeat center center;
+            background: url('../../../assets/img/twitter.svg') no-repeat center
+                center;
         }
     }
 
