@@ -2,15 +2,24 @@
 <div class="flex">
     <div class="flex__cardInfo">
         <div class="cardInfo">
-            <span class="cardInfo__title">¿Cómo y en qué gasta el Ayuntamiento de Jerez de la Frontera?</span>
-            <p class="cardInfo__subtitle">Te mostramos de un modo claro cómo se distribuye el presupuesto.
-                De dónde vienen los ingresos y a qué se destina el gasto.</p>
+            <span class="cardInfo__title"
+                >¿Cómo y en qué gasta el Ayuntamiento de Jerez de la
+                Frontera?</span
+            >
+            <p class="cardInfo__subtitle">
+                Te mostramos de un modo claro cómo se distribuye el presupuesto.
+                De dónde vienen los ingresos y a qué se destina el gasto.
+            </p>
         </div>
     </div>
 
     <div class="flex__cardTable">
         <div class="cardTable">
-            <span class="cardTable__title">Algunos ejemplos presupuesto 2023 (ejecución al {{liqDate}})</span>
+            <span class="cardTable__title"
+                >Algunos ejemplos presupuesto 2023 (ejecución al
+                {{ liqDate }})</span
+            >
+
             <table class="paleBlueRows">
                 <thead>
                     <tr>
@@ -23,6 +32,10 @@
                         <td>{{ examples[0].name }}</td>
                         <td>{{ examples[0].value }}</td>
                     </tr>
+                    <!-- <tr>
+                        <td>{{ _dataTablaAleatoria[0].name }}</td>
+                        <td>{{ _dataTablaAleatoria[0].value }}</td>
+                    </tr> -->
                     <tr>
                         <td>{{ examples[1].name }}</td>
                         <td>{{ examples[1].value }}</td>
@@ -33,49 +46,112 @@
                     </tr>
                 </tbody>
             </table>
+
+            <!-- <table class="paleBlueRows">
+                <thead>
+                    <tr>
+                        <th>{{ textoTabla }}</th>
+                        <th>Cantidad (€)</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let example of examples">
+                        <td>{{ example.name }}</td>
+                        <td>{{ example.value }}</td>
+                    </tr>
+                </tbody>
+
+            </table> -->
         </div>
     </div>
 
     <div class="flex__cardMenu">
         <div class="cardMenu">
-            <img src="../../assets/img/home/menu1-400x250.webp" alt="global" class="cardMenu__image">
+            <img
+                src="../../assets/img/home/menu1-400x250.webp"
+                alt="global"
+                class="cardMenu__image"
+            />
             <span class="cardMenu__title">Visión global</span>
-            <p class="cardMenu__subtitle">Para que tengas una idea general de los ingresos y gastos del Ayuntamiento
-                de Jerez.</p>
-            <button type="button" (click)="visionGlobal()" class="cardMenu__button"> Visión global</button>
+            <p class="cardMenu__subtitle">
+                Para que tengas una idea general de los ingresos y gastos del
+                Ayuntamiento de Jerez.
+            </p>
+            <button
+                type="button"
+                (click)="visionGlobal()"
+                class="cardMenu__button"
+            >
+                Visión global
+            </button>
         </div>
     </div>
 
     <div class="flex__cardMenu">
         <div class="cardMenu">
-            <img src="../../assets/img/home/menu2-400x250.webp" alt="detalles" class="cardMenu__image">
+            <img
+                src="../../assets/img/home/menu2-400x250.webp"
+                alt="detalles"
+                class="cardMenu__image"
+            />
             <span class="cardMenu__title">Detalle del presupuesto</span>
-            <p class="cardMenu__subtitle">Educación, protección y bienestar social, cultura... ¿Qué área te
-                interesa?
+            <p class="cardMenu__subtitle">
+                Educación, protección y bienestar social, cultura... ¿Qué área
+                te interesa?
             </p>
-            <button type="button" (click)="detallePresupuesto()" class="cardMenu__button">Detalle</button>
+            <button
+                type="button"
+                (click)="detallePresupuesto()"
+                class="cardMenu__button"
+            >
+                Detalle
+            </button>
         </div>
     </div>
 
     <div class="flex__cardMenu">
         <div class="cardMenu">
-            <img src="../../assets/img/home/menu3-400x250.webp" alt="licitaciones" class="cardMenu__image">
+            <img
+                src="../../assets/img/home/menu3-400x250.webp"
+                alt="licitaciones"
+                class="cardMenu__image"
+            />
             <span class="cardMenu__title">Licitaciones</span>
-            <p class="cardMenu__subtitle">Todos las licitaciones de obras, contratos menores de nuestro Ayuntamiento
+            <p class="cardMenu__subtitle">
+                Todos las licitaciones de obras, contratos menores de nuestro
+                Ayuntamiento
             </p>
-            <button type="button" (click)="licitaciones()" target="_blank"
-                class="cardMenu__button">Licitaciones</button>
+            <button
+                type="button"
+                (click)="licitaciones()"
+                target="_blank"
+                class="cardMenu__button"
+            >
+                Licitaciones
+            </button>
         </div>
     </div>
 
     <div class="flex__cardMenu">
         <div class="cardMenu">
-            <img src="../../assets/img/home/menu4-400x250.webp" alt="empleados" class="cardMenu__image">
+            <img
+                src="../../assets/img/home/menu4-400x250.webp"
+                alt="empleados"
+                class="cardMenu__image"
+            />
             <span class="cardMenu__title">Empleados municipales</span>
-            <p class="cardMenu__subtitle">Información sobre los empleados de nuestro Ayuntamiento
+            <p class="cardMenu__subtitle">
+                Información sobre los empleados de nuestro Ayuntamiento
             </p>
-            <button type="button" (click)="empleados()" target="_blank" class="cardMenu__button">Empleados</button>
+            <button
+                type="button"
+                (click)="empleados()"
+                target="_blank"
+                class="cardMenu__button"
+            >
+                Empleados
+            </button>
         </div>
     </div>
-
 </div>
