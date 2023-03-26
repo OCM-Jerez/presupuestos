@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { environment } from '../../../environments/environment';
-import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { DataStoreService } from '../../services/dataStore.service';
 import { TableService } from '../../services/table.service';
+
+import { environment } from '../../../environments/environment';
+
+import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 @Component({
     selector: 'app-table-data-presupuesto',
     templateUrl: './table-data-presupuesto.component.html',
     styleUrls: ['./table-data-presupuesto.component.scss'],
 })
-export class TableDataPresupuestoComponent {
+export class TableDataPresupuestoComponent implements OnInit {
     public liqDate = environment.liqDate2023;
     public totalPresupuestoIngresos: number;
     public totalPresupuestoGastos: number;
@@ -32,7 +34,6 @@ export class TableDataPresupuestoComponent {
     private _dataIngreso: any;
     private _dataGasto: any;
     private _capitulosGastos = [];
-    private _politicasGastos = [];
 
     constructor(
         private _dataStoreService: DataStoreService,
@@ -54,7 +55,7 @@ export class TableDataPresupuestoComponent {
         await this.calcSumGastos();
         // await this.calcSumPoliticasGastos();
         await this.calcTotalesPresupuestoGastos();
-        // await this.calcIndicadores();
+        await this.calcIndicadores();
         // this.showGraph();
     }
 
@@ -201,5 +202,25 @@ export class TableDataPresupuestoComponent {
             totalPresupuestoGastos.value.toLocaleString();
         this.totalEjecutadoGastos =
             totalPresupuestoGastos.recaudado.toLocaleString();
+    }
+
+    async calcIndicadores() {
+        this.ahorroBruto = (
+            this.corrientesIngresos - this.corrientesGastos
+        ).toLocaleString();
+
+        // Tengo que sumar capitulo 9 de gastos
+        this.ahorroNeto = (
+            this.corrientesIngresos -
+            this.corrientesGastos -
+            this._capitulosGastos[7].value
+        ).toLocaleString();
+        this.corrientesIngresos = this.corrientesIngresos.toLocaleString();
+        this.corrientesGastos = this.corrientesGastos.toLocaleString();
+        this.capacidadFinanciacion = (
+            this.financierosIngresos - this.financierosGastos
+        ).toLocaleString();
+        this.financierosIngresos = this.financierosIngresos.toLocaleString();
+        this.financierosGastos = this.financierosGastos.toLocaleString();
     }
 }
