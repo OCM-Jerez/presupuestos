@@ -45,6 +45,24 @@ export class IndiceComponent implements OnInit {
     // private _typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaCapitulos'
     // https://stackoverflow.com/questions/69549927/how-to-pass-enum-value-in-angular-template-as-an-input
 
+    items = [
+        {
+            indice: '1.',
+            title: 'La recaudación local',
+            footer: 'Se realiza a través de impuestos directos, como el impuesto de bienes inmuebles (IBI) o el de vehículos de tracción mecánica (IVTM), y de tasas.',
+        },
+        {
+            indice: '2.',
+            title: 'Otras fuentes de ingresos',
+            footer: 'El dinero recaudado localmente se complementa con las transferencias de la Administración General del Estado y de la Junta de Andalucía, que son las encargadas de recaudar otros ingresos como el IVA y el IRPF.',
+        },
+        {
+            indice: '3.',
+            title: 'Gastos',
+            footer: 'El ayuntamiento utiliza el dinero recaudado, junto con otras fuentes de financiación como la deuda, para mantener los servicios públicos y la infraestructura de la ciudad.',
+        },
+    ];
+
     constructor(
         private _dataStoreService: DataStoreService,
         private _tableService: TableService
