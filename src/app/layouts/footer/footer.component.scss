@@ -21,7 +21,7 @@
     background-color: map-get($OCM-colors, navBarBackground);
     &--text {
         @include OCM-text;
-        font-size: 12px;
+        font-size: 18px;
         margin-left: 10px;
     }
     &--rrss {
@@ -53,6 +53,7 @@
         @include OCM-text;
         text-decoration-style: none;
         margin-right: 20px;
+        font-size: 18px;
 
         a:hover {
             transform: scale(1.2);
