@@ -39,7 +39,13 @@
     />
     <label for="tab4">¿Para qué se gasta?</label>
 
-    <!-- <app-bar-clasification-tabs></app-bar-clasification-tabs> -->
+    <!-- <app-bar-clasification-tabs
+        [showEconomica]="showEconomica"
+        [showIngresos]="showIngresos"
+        [showOrganico]="showOrganico"
+        [showPrograma]="showPrograma"
+        (checkedTab)="checkedTab($event)"
+    ></app-bar-clasification-tabs> -->
 
     <!-- Tab Ingresos -->
     <div class="tab__content">

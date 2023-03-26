@@ -7,6 +7,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
 
 import { FormsModule } from '@angular/forms';
 import { CheckboxModule } from '../commons/components/checkbox/checkbox.module';
+import { DetailTabModule } from '../commons/components/detail-tab/detail-tab.module';
+import { TabsModule } from '../commons/components/tabs/tabs.module';
 import { GastosModule } from '../tables/gastos/gastos.module';
 import { TableIngresosModule } from '../tables/table-ingresos/table-ingresos.module';
 import { ClasificationTabsComponent } from './components/clasification-tabs/clasification-tabs.component';
@@ -31,6 +33,8 @@ export const routes: Routes = [{ path: '', component: DetalleComponent }];
         CheckboxModule,
         GastosModule,
         FormsModule,
+        TabsModule,
+        DetailTabModule,
     ],
 })
 export class DetallePresupuestoModule {}

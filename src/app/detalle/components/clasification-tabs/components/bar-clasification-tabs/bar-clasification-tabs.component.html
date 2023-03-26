@@ -5,7 +5,7 @@
         name="tabGroup1"
         class="tab"
         [checked]="showIngresos"
-        (change)="checkedTab($event)"
+        (change)="checkedTabEvent('tab1')"
     />
     <label for="tab1">Ingresos</label>
 
@@ -15,7 +15,7 @@
         name="tabGroup1"
         class="tab"
         [checked]="showPrograma"
-        (change)="checkedTab($event)"
+        (change)="checkedTabEvent('tab2')"
     />
     <label for="tab2">¿En qué se gasta?</label>
 
@@ -25,7 +25,7 @@
         name="tabGroup1"
         class="tab"
         [checked]="showOrganico"
-        (change)="checkedTab($event)"
+        (change)="checkedTabEvent('tab3')"
     />
     <label for="tab3">¿Quién lo gasta?</label>
 
@@ -35,7 +35,7 @@
         name="tabGroup1"
         class="tab"
         [checked]="showEconomica"
-        (change)="checkedTab($event)"
+        (change)="checkedTabEvent('tab4')"
     />
     <label for="tab4">¿Para qué se gasta?</label>
 </div>

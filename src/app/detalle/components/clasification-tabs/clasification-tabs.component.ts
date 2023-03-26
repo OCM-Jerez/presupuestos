@@ -52,6 +52,7 @@ export class ClasificationTabsComponent implements OnInit {
     async ngOnInit(): Promise<void> {
         this.hasDataChange$.subscribe(async (response) => {
             if (response) {
+                console.log(response);
                 await this.showTreemap();
             }
         });
@@ -96,7 +97,9 @@ export class ClasificationTabsComponent implements OnInit {
             await this.dataTreemap(loadData.rowDataGastos);
         }
 
-        await this.showTreemap();
+        setTimeout(() => {
+            this.showTreemap();
+        }, 15);
     }
 
     async checkedTab(e: any) {
@@ -109,6 +112,15 @@ export class ClasificationTabsComponent implements OnInit {
         this._tabStateService.selectedTabPrincipal(this._tabSelected);
     }
 
+    // async checkedTab(tabSelected: TYPE_TAB) {
+    //     this._tabSelected = tabSelected;
+    //     this._treemap = `treemap${tabSelected.charAt(tabSelected.length - 1)}`;
+    //     localStorage.setItem('activeTab', this._tabSelected);
+    //     this._tabOrRadio = true;
+    //     this.setValues(tabSelected);
+    //     await this._loadData();
+    //     this._tabStateService.selectedTabPrincipal(this._tabSelected);
+    // }
     checkedRadio(e: any) {
         this._radioButtonSelected = e.target.id;
         this._tabOrRadio = true;
@@ -193,9 +205,7 @@ export class ClasificationTabsComponent implements OnInit {
         this._showComponent();
     }
 
-    async showTreemap() {
-        console.log('showTreemap', this._treemap);
-
+    showTreemap() {
         if (this.showGraphInTab) {
             const data = this._dataStoreService.dataTreemap;
             Highcharts.chart(this._treemap, {
@@ -239,7 +249,6 @@ export class ClasificationTabsComponent implements OnInit {
         this.showPrograma = false;
         this.showOrganico = false;
         this.showEconomica = false;
-
         switch (this._tabSelected) {
             case 'tab1':
                 setTimeout(() => {

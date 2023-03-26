@@ -1,0 +1,23 @@
+.tabs-tab {
+    width: 100%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+
+    .tabs-content {
+        display: inline-flex;
+
+        .tabs-header-tab {
+            min-width: 110px;
+            white-space: nowrap;
+            padding: 15px;
+            cursor: pointer;
+            color: black;
+            font-weight: 500;
+            font-size: 20px;
+            &--selected {
+                border-bottom: 2px solid blue;
+                color: blue;
+            }
+        }
+    }
+}
