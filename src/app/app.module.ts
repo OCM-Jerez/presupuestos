@@ -20,8 +20,9 @@ import { CheckboxModule } from './commons/components/checkbox/checkbox.module';
 import { DetallePresupuestoModule } from './detalle/detalle.module';
 
 // Services
-import { AvalaibleYearsService } from './services/avalaibleYears.service';
 import { CardIndiceComponent } from './indice/card-indice/card-indice.component';
+import { TableDataPresupuestoComponent } from './indice/table-data-presupuesto/table-data-presupuesto.component';
+import { AvalaibleYearsService } from './services/avalaibleYears.service';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { CardIndiceComponent } from './indice/card-indice/card-indice.component'
         IndiceComponent,
         NavbarComponent,
         CardIndiceComponent,
+        TableDataPresupuestoComponent,
     ],
     imports: [
         AppRoutingModule,
