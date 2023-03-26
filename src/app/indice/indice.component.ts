@@ -5,8 +5,6 @@ import { TableService } from '../services/table.service';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
 
-import { environment } from '../../environments/environment';
-
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSankey from 'highcharts/modules/sankey';
@@ -20,28 +18,12 @@ HighchartsSankey(Highcharts);
     styleUrls: ['./indice.component.scss'],
 })
 export class IndiceComponent implements OnInit {
-    public liqDate = environment.liqDate2023;
-    public totalPresupuestoIngresos: number;
-    public totalPresupuestoGastos: number;
-    public totalEjecutadoIngresos: number;
-    public totalEjecutadoGastos: number;
-    public noFinancieroIngresos: number;
-    public noFinancieroGastos: number;
-    public corrientesIngresos: any;
-    public corrientesGastos: any;
-    public capitalIngresos: number;
-    public capitalGastos: number;
-    public financierosIngresos: any;
-    public financierosGastos: any;
-    public ahorroBruto: string;
-    public ahorroNeto: string;
-    public capacidadFinanciacion: any;
     // private _dataGrap: [{ name: string, va: number }] = [{ name: "", value: 0 }]
     private _dataTable: IDataTable;
     private _dataIngreso: any;
     private _dataGasto: any;
     private _capitulosGastos = [];
-    private _politicasGastos = [];
+    // private _politicasGastos = [];
     // private _typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaCapitulos'
     // https://stackoverflow.com/questions/69549927/how-to-pass-enum-value-in-angular-template-as-an-input
 
@@ -79,11 +61,8 @@ export class IndiceComponent implements OnInit {
         }
 
         await this.calcSumIngresos();
-        await this.calcTotalesPresupuestoIngresos();
         await this.calcSumGastos();
         // await this.calcSumPoliticasGastos();
-        await this.calcTotalesPresupuestoGastos();
-        await this.calcIndicadores();
         this.showGraph();
     }
 
@@ -114,50 +93,6 @@ export class IndiceComponent implements OnInit {
                   });
             return acc;
         }, []);
-
-        this.noFinancieroIngresos = (
-            this._dataIngreso[0].value +
-            this._dataIngreso[1].value +
-            this._dataIngreso[2].value +
-            this._dataIngreso[3].value +
-            this._dataIngreso[4].value +
-            this._dataIngreso[5].value +
-            this._dataIngreso[6].value
-        ).toLocaleString();
-
-        this.corrientesIngresos =
-            this._dataIngreso[0].value +
-            this._dataIngreso[1].value +
-            this._dataIngreso[2].value +
-            this._dataIngreso[3].value +
-            this._dataIngreso[4].value;
-
-        this.capitalIngresos = (
-            this._dataIngreso[5].value + this._dataIngreso[6].value
-        ).toLocaleString();
-
-        this.financierosIngresos =
-            this._dataIngreso[7].value + this._dataIngreso[8].value;
-    }
-
-    async calcTotalesPresupuestoIngresos() {
-        const totalPresupuestoIngresos = this._dataIngreso.reduce(
-            (acc, curr) => {
-                Object.keys(curr).forEach((key, index) => {
-                    if (!acc[key]) {
-                        acc[key] = 0;
-                    }
-                    acc[key] += curr[key];
-                });
-                return acc;
-            },
-            {}
-        );
-
-        this.totalPresupuestoIngresos =
-            totalPresupuestoIngresos.value.toLocaleString();
-        this.totalEjecutadoIngresos =
-            totalPresupuestoIngresos.recaudado.toLocaleString();
     }
 
     async calcSumGastos() {
@@ -212,70 +147,6 @@ export class IndiceComponent implements OnInit {
     //         return acc;
     //     }, []);
     // }
-
-    async calcTotalesPresupuestoGastos() {
-        const totalPresupuestoGastos = this._capitulosGastos.reduce(
-            (acc, curr) => {
-                Object.keys(curr).forEach((key, index) => {
-                    if (!acc[key]) {
-                        acc[key] = 0;
-                    }
-                    acc[key] += curr[key];
-                });
-                return acc;
-            },
-            {}
-        );
-
-        this.noFinancieroGastos = (
-            this._capitulosGastos[0].value +
-            this._capitulosGastos[1].value +
-            this._capitulosGastos[2].value +
-            this._capitulosGastos[3].value +
-            this._capitulosGastos[4].value +
-            this._capitulosGastos[5].value +
-            this._capitulosGastos[6].value
-        ).toLocaleString();
-
-        this.corrientesGastos =
-            this._capitulosGastos[0].value +
-            this._capitulosGastos[1].value +
-            this._capitulosGastos[2].value +
-            this._capitulosGastos[3].value +
-            this._capitulosGastos[4].value;
-
-        this.capitalGastos = (
-            this._capitulosGastos[5].value + this._capitulosGastos[6].value
-        ).toLocaleString();
-
-        this.financierosGastos =
-            this._capitulosGastos[7].value + this._capitulosGastos[8].value;
-
-        this.totalPresupuestoGastos =
-            totalPresupuestoGastos.value.toLocaleString();
-        this.totalEjecutadoGastos =
-            totalPresupuestoGastos.recaudado.toLocaleString();
-    }
-
-    async calcIndicadores() {
-        this.ahorroBruto = (
-            this.corrientesIngresos - this.corrientesGastos
-        ).toLocaleString();
-
-        // Tengo que sumar capitulo 9 de gastos
-        this.ahorroNeto = (
-            this.corrientesIngresos -
-            this.corrientesGastos -
-            this._capitulosGastos[7].value
-        ).toLocaleString();
-        this.corrientesIngresos = this.corrientesIngresos.toLocaleString();
-        this.corrientesGastos = this.corrientesGastos.toLocaleString();
-        this.capacidadFinanciacion = (
-            this.financierosIngresos - this.financierosGastos
-        ).toLocaleString();
-        this.financierosIngresos = this.financierosIngresos.toLocaleString();
-        this.financierosGastos = this.financierosGastos.toLocaleString();
-    }
 
     showGraph() {
         // Gráfico ingresos
