@@ -9,91 +9,50 @@
     </div>
 
     <div class="flex__cardMenu">
-        <div class="cardMenu">
-            <img
-                src="../../assets/img/home/menu1-400x250.webp"
-                alt="global"
-                class="cardMenu__image"
-            />
-            <span class="cardMenu__title">Visión global</span>
-            <p class="cardMenu__subtitle">
-                Para que tengas una idea general de los ingresos y gastos del
-                Ayuntamiento de Jerez.
-            </p>
-            <button
-                type="button"
-                (click)="visionGlobal()"
-                class="cardMenu__button"
-            >
-                Visión global
-            </button>
-        </div>
+        <app-card-menu
+            [rutaImagen]="'../../assets/img/home/menu1-400x250.webp'"
+            [titulo]="'Visión global'"
+            [subtitulo]="
+                'Para que tengas una idea general de los ingresos y gastos del Ayuntamiento de Jerez.'
+            "
+            (click)="visionGlobal()"
+            [textButton]="'Visión global'"
+        ></app-card-menu>
     </div>
 
     <div class="flex__cardMenu">
-        <div class="cardMenu">
-            <img
-                src="../../assets/img/home/menu2-400x250.webp"
-                alt="detalles"
-                class="cardMenu__image"
-            />
-            <span class="cardMenu__title">Detalle del presupuesto</span>
-            <p class="cardMenu__subtitle">
-                Educación, protección y bienestar social, cultura... ¿Qué área
-                te interesa?
-            </p>
-            <button
-                type="button"
-                (click)="detallePresupuesto()"
-                class="cardMenu__button"
-            >
-                Detalle
-            </button>
-        </div>
+        <app-card-menu
+            [rutaImagen]="'../../assets/img/home/menu2-400x250.webp'"
+            [titulo]="'Detalle del presupuesto'"
+            [subtitulo]="
+                'Educación, protección y bienestar social, cultura... ¿Qué área te interesa?'
+            "
+            (click)="detallePresupuesto()"
+            [textButton]="'Detalle'"
+        ></app-card-menu>
     </div>
 
     <div class="flex__cardMenu">
-        <div class="cardMenu">
-            <img
-                src="../../assets/img/home/menu3-400x250.webp"
-                alt="licitaciones"
-                class="cardMenu__image"
-            />
-            <span class="cardMenu__title">Licitaciones</span>
-            <p class="cardMenu__subtitle">
-                Todos las licitaciones de obras, contratos menores de nuestro
-                Ayuntamiento
-            </p>
-            <button
-                type="button"
-                (click)="licitaciones()"
-                target="_blank"
-                class="cardMenu__button"
-            >
-                Licitaciones
-            </button>
-        </div>
+        <app-card-menu
+            [rutaImagen]="'../../assets/img/home/menu3-400x250.webp'"
+            [titulo]="'Licitaciones'"
+            [subtitulo]="
+                'Todos las licitaciones de obras, contratos menores de nuestro Ayuntamiento'
+            "
+            (click)="licitaciones()"
+            [textButton]="'Licitaciones'"
+        ></app-card-menu>
     </div>
 
     <div class="flex__cardMenu">
-        <div class="cardMenu">
-            <img
-                src="../../assets/img/home/menu4-400x250.webp"
-                alt="empleados"
-                class="cardMenu__image"
-            />
-            <span class="cardMenu__title">Empleados municipales</span>
-            <p class="cardMenu__subtitle">
-                Información sobre los empleados de nuestro Ayuntamiento
-            </p>
-            <button
-                type="button"
-                (click)="empleados()"
-                target="_blank"
-                class="cardMenu__button"
-            >
-                Empleados
-            </button>
-        </div>
+        <app-card-menu
+            [rutaImagen]="'../../assets/img/home/menu4-400x250.webp'"
+            [titulo]="'Empleados municipales'"
+            [subtitulo]="
+                'Información sobre los empleados de nuestro Ayuntamiento'
+            "
+            (click)="empleados()"
+            [textButton]="'Empleados'"
+        ></app-card-menu>
     </div>
 </div>
