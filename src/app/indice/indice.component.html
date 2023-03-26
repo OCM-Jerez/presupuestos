@@ -3,62 +3,44 @@
 
 <div class="flex-container">
     <div class="flex-items">
-        <div
-            class="OCM-cardV"
-            style="
-                background-image: url('../../assets/img/indice/busget-stream-1.webp');
-                background-size: 80px 100px;
+        <app-card-indice
+            [indice]="'1.'"
+            [title]="'La recaudación local'"
+            [footer]="
+                '  Se realiza a través de impuestos directos, como el impuesto de bienes
+        inmuebles (IBI) o el de vehículos de tracción mecánica (IVTM), y de
+        tasas.'
             "
         >
-            <span class="OCM-cardV__indice">1.</span>
-            <!-- <span class="OCM-cardV__svg">1.</span> -->
-            <span class="OCM-cardV__title">La recaudación local</span>
-            <p class="OCM-cardV__footer">
-                Se realiza a través de impuestos directos, como el impuesto de
-                bienes inmuebles (IBI) o el de vehículos de tracción mecánica
-                (IVTM), y de tasas.
-            </p>
-        </div>
+        </app-card-indice>
     </div>
 
     <div class="flex-items">
-        <div
-            class="OCM-cardV"
-            style="
-                background-image: url('../../assets/img/indice/busget-stream-2.webp');
+        <app-card-indice
+            [indice]="'2.'"
+            [title]="'Otras fuentes de ingresos'"
+            [footer]="
+                'El dinero recaudado localmente se complementa con las
+        transferencias de la Administración General del Estado y de la Junta de
+        Andalucía, que son las encargadas de recaudar otros ingresos como el IVA
+        y el IRPF.'
             "
         >
-            <span class="OCM-cardV__indice">2.</span>
-            <!-- <span class="OCM-cardV__svg">1.</span> -->
-            <span class="OCM-cardV__title"
-                >Otras fuentes de <br />
-                ingresos</span
-            >
-            <p class="OCM-cardV__footer">
-                El dinero recaudado localmente se complementa con las
-                transferencias de la Administración General del Estado y de la
-                Junta de Andalucía, que son las encargadas de recaudar otros
-                ingresos como el IVA y el IRPF.
-            </p>
-        </div>
+        </app-card-indice>
     </div>
 
     <div class="flex-items">
-        <div
-            class="OCM-cardV"
-            style="
-                background-image: url('../../assets/img/indice/busget-stream-3.webp');
+        <app-card-indice
+            [indice]="'3.'"
+            [title]="'Gastos'"
+            [footer]="
+                '
+            El ayuntamiento utiliza el dinero recaudado, junto con otras
+            fuentes de financiación como la deuda, para mantener los
+            servicios públicos y la infraestructura de la ciudad.'
             "
         >
-            <span class="OCM-cardV__indice">3.</span>
-            <!-- <span class="OCM-cardV__svg">1.</span> -->
-            <span class="OCM-cardV__title">¿En qué se emplea?</span>
-            <p class="OCM-cardV__footer">
-                El ayuntamiento utiliza el dinero recaudado, junto con otras
-                fuentes de financiación como la deuda, para mantener los
-                servicios públicos y la infraestructura de la ciudad.
-            </p>
-        </div>
+        </app-card-indice>
     </div>
 </div>
 

@@ -21,6 +21,7 @@ import { DetallePresupuestoModule } from './detalle/detalle.module';
 
 // Services
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
+import { CardIndiceComponent } from './indice/card-indice/card-indice.component';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { AvalaibleYearsService } from './services/avalaibleYears.service';
         HeaderAgGridComponent,
         IndiceComponent,
         NavbarComponent,
+        CardIndiceComponent,
     ],
     imports: [
         AppRoutingModule,
