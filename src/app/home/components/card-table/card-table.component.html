@@ -1,1 +1,49 @@
-<p>card-table works!</p>
+<div class="cardTable">
+    <span class="cardTable__title"
+        >Algunos ejemplos presupuesto 2023 (ejecución al {{ liqDate }})</span
+    >
+
+    <table class="paleBlueRows">
+        <thead>
+            <tr>
+                <th>{{ textoTabla }}</th>
+                <th>Cantidad (€)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ examples[0].name }}</td>
+                <td>{{ examples[0].value }}</td>
+            </tr>
+            <!-- <tr>
+                <td>{{ _dataTablaAleatoria[0].name }}</td>
+                <td>{{ _dataTablaAleatoria[0].value }}</td>
+            </tr> -->
+            <tr>
+                <td>{{ examples[1].name }}</td>
+                <td>{{ examples[1].value }}</td>
+            </tr>
+            <tr>
+                <td>{{ examples[2].name }}</td>
+                <td>{{ examples[2].value }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- <table class="paleBlueRows">
+        <thead>
+            <tr>
+                <th>{{ textoTabla }}</th>
+                <th>Cantidad (€)</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let example of examples">
+                <td>{{ example.name }}</td>
+                <td>{{ example.value }}</td>
+            </tr>
+        </tbody>
+
+    </table> -->
+</div>

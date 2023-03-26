@@ -27,7 +27,8 @@
 
     .flex__cardTable {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        // justify-content: center;
         flex-basis: 60%;
         padding: 1em;
         border: 1px solid #fff;
@@ -44,90 +45,6 @@
         transition: 0.3s;
         border-radius: 10px;
     }
-
-    /* #region cardInfo         */
-    .cardInfo {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-        padding: 0px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-        border-radius: 10px;
-        &__title {
-            display: flex;
-            width: 90%;
-            justify-content: center;
-            text-align: justify;
-            color: rgba(1, 0, 3, 0.913);
-            font-weight: 600;
-            font-family: var(--fuente-principal);
-            // font-size: clamp(1.8rem, 3rem, 3.6rem);
-            font-size: 2rem;
-            margin-top: 10px;
-            margin-left: 20px;
-        }
-        &__subtitle {
-            display: flex;
-            justify-content: center;
-            height: 100%;
-            margin-bottom: 0px;
-            color: black;
-            font-weight: 500;
-            font-family: var(--fuente-principal);
-            font-size: 1.7rem;
-            text-align: left;
-            background: white;
-            line-height: 1.3;
-            margin-left: 20px;
-            margin-right: 20px;
-            // padding-left: 20px;
-            // padding-right: 20px;
-        }
-    }
-    /* #endregion */
-
-    /* #region cardTable        */
-    .cardTable {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-        border-radius: 10px;
-        &__title {
-            display: flex;
-            justify-content: center;
-            color: rgba(1, 0, 3, 0.913);
-            font-weight: 600;
-            font-family: var(--fuente-principal);
-            font-size: 2rem;
-            margin-bottom: 10px;
-            margin-left: 20px;
-            line-height: 1.2;
-        }
-        &__subtitle {
-            display: flex;
-            justify-content: center;
-            height: 100%;
-            margin-bottom: 0px;
-            padding-top: 20px;
-            color: black;
-            font-weight: 300;
-            font-family: var(--fuente-principal);
-            font-size: 1.5rem;
-            text-align: left;
-            background: white;
-            line-height: 1.3;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-    }
-    /* #endregion */
 
     /* #region cardMenu         */
     .cardMenu {
@@ -228,55 +145,6 @@
         }
     }
     /* #endregion */
-
-    /* #region  Table           */
-    table.paleBlueRows {
-        // font-family: "Times New Roman", Times, serif;
-        border: 1px solid #ffffff;
-        width: 95%;
-        height: 80%;
-        text-align: center;
-        border-collapse: collapse;
-        margin-left: 20px;
-    }
-    table.paleBlueRows thead {
-        background: #003df6;
-        border-bottom: 5px solid #ffffff;
-        height: 20px;
-    }
-    table.paleBlueRows thead th {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #ffffff;
-        text-align: center;
-        width: 50px;
-        border-left: 2px solid #ffffff;
-    }
-    table.paleBlueRows tbody td {
-        font-size: 1.8rem;
-        text-align: right;
-    }
-
-    // table.paleBlueRows td,
-    // table.paleBlueRows th {
-    //     border: 1px solid #ffffff;
-    //     padding: 3px 2px;
-    // }
-
-    table.paleBlueRows tr:nth-child(even) {
-        background: #84c4c8;
-    }
-
-    // table.paleBlueRows thead th:first-child {
-    //     font-size: 2.5rem;
-    //     border-left: none;
-    //     width: 1000px;
-    //     text-align: left;
-    // }
-
-    table.paleBlueRows tbody td:first-child {
-        text-align: left;
-    }
 }
 
 @media screen and (max-width: 1199.98px) {
