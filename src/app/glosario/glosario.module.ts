@@ -1,15 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
 import { GlosarioComponent } from './glosario.component';
 
-
-
 @NgModule({
-  declarations: [
-    GlosarioComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+    declarations: [GlosarioComponent],
+    imports: [CommonModule],
 })
-export class GlosarioModule { }
+export class GlosarioModule {}
