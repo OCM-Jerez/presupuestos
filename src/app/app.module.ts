@@ -11,31 +11,34 @@ import { AppRoutingModule } from './app-routing.module';
 // Components
 import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.component';
 import { AppComponent } from './app.component';
-import { CheckboxModule } from './commons/components/checkbox/checkbox.module';
-import { DetallePresupuestoModule } from './detalle/detalle.module';
 import { IndiceComponent } from './indice/indice.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
+
+// Modules
+import { CheckboxModule } from './commons/components/checkbox/checkbox.module';
+import { DetallePresupuestoModule } from './detalle/detalle.module';
+
+// Services
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
 
 @NgModule({
     declarations: [
         AppComponent,
         FooterComponent,
-        NavbarComponent,
-        IndiceComponent,
         HeaderAgGridComponent,
+        IndiceComponent,
+        NavbarComponent,
     ],
     imports: [
-        BrowserModule,
-        HttpClientModule,
         AppRoutingModule,
+        BrowserModule,
         FormsModule,
+        HttpClientModule,
         ReactiveFormsModule,
         CheckboxModule,
         DetallePresupuestoModule,
     ],
-
     providers: [AvalaibleYearsService],
     bootstrap: [AppComponent],
 })
