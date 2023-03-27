@@ -15,8 +15,9 @@
             font-weight: 500;
             font-size: 20px;
             &--selected {
-                border-bottom: 2px solid blue;
+                border-bottom: 8px solid blue;
                 color: blue;
+                background-color: burlywood;
             }
         }
     }
