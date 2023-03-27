@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
+import { PrepareDataTreemapService } from '../services/prepareDataTreemap.service';
 import { TableService } from '../services/table.service';
 
 import { CLASIFICATION_TYPE } from '../commons/util/util';
-import { PrepareDataTreemapService } from '../services/prepareDataTreemap.service';
 
 @Component({
     selector: 'app-detalle-presupuesto',
@@ -12,8 +12,8 @@ import { PrepareDataTreemapService } from '../services/prepareDataTreemap.servic
 })
 export class DetalleComponent {
     constructor(
-        private _tableService: TableService,
-        private _prepareDataTreemapService: PrepareDataTreemapService
+        private _prepareDataTreemapService: PrepareDataTreemapService,
+        private _tableService: TableService
     ) {}
 
     private _typeClasification: CLASIFICATION_TYPE;
