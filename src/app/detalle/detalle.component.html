@@ -2,10 +2,7 @@
     <h2 class="OCM-title">Detalle del presupuesto</h2>
 
     <div class="selectYear">
-        <app-checkbox
-            (hasChangeCheckbox)="hasChangeCheckbox()"
-            [multiYears]="true"
-        ></app-checkbox>
+        <app-checkbox (hasChangeCheckbox)="hasChangeCheckbox()" [multiYears]="true"></app-checkbox>
     </div>
 
     <app-table-presupuesto></app-table-presupuesto>
@@ -13,9 +10,11 @@
     <app-tabs (selectedTab)="selectedTab($event)">
         <app-tab tabTitle="Ingresos" [idTab]="1">
             <app-detail-tab [dataTreeMap]="dataTreeMap"></app-detail-tab>
+            ingresos
         </app-tab>
         <app-tab tabTitle="¿En qué se gasta?" [idTab]="2">
             <app-detail-tab [dataTreeMap]="dataTreeMap"></app-detail-tab>
+            ¿En qué se gasta?
         </app-tab>
         <app-tab tabTitle="¿Quién lo gasta?" [idTab]="3">
             <app-detail-tab [dataTreeMap]="dataTreeMap"></app-detail-tab>
@@ -26,4 +25,4 @@
     </app-tabs>
 </div>
 
-<app-clasification-tabs></app-clasification-tabs>
+<!-- <app-clasification-tabs></app-clasification-tabs> -->
