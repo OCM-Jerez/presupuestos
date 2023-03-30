@@ -15,6 +15,8 @@ import { TabComponent } from './tab/tab.component';
     styleUrls: ['./tabs.component.scss'],
 })
 export class TabsComponent implements AfterContentInit {
+    // El operador de aserción de no nulo ! se utiliza para asegurar
+    // que la variable tabs no será nula en tiempo de ejecución.
     @ContentChildren(TabComponent) tabs!: QueryList<TabComponent>;
     @Output() selectedTab = new EventEmitter();
 
