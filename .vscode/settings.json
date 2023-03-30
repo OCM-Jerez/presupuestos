@@ -15,6 +15,12 @@
         // "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true
     },
+    "workbench.colorCustomizations": {
+        "tab.activeBorder": "#5bc1f8",
+        "tab.unfocusedActiveBorder": "#f6f5f5",
+        "tab.activeBackground": "#348cff"
+    },
+
     "todo-tree.tree.disableCompactFolders": true,
     "explorer.compactFolders": false
 }
