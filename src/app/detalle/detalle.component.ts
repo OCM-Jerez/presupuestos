@@ -23,25 +23,24 @@ export class DetalleComponent {
         let data = await this._tableService.loadData(this._typeClasification);
     }
 
-    selectedIndex = 1;
+    // selectedIndex = 1;
 
     async selectedTab(idTab: number) {
-        this.selectedIndex = idTab;
+        // this.selectedIndex = idTab;
 
         const typeClasification = this.getTypeClasification(idTab);
         const loadData = await this._tableService.loadData(typeClasification);
 
         if (idTab === 1) {
-            this.dataTreeMap = await this.dataTreemap(
-                idTab,
-                loadData.rowDataIngresos
-            );
+            this.dataTreeMap = await this.dataTreemap(idTab, loadData.rowDataIngresos);
         } else {
-            this.dataTreeMap = await this.dataTreemap(
-                idTab,
-                loadData.rowDataGastos
-            );
+            this.dataTreeMap = await this.dataTreemap(idTab, loadData.rowDataGastos);
         }
+
+        // this.dataTreeMap = await this.dataTreemap(
+        //     idTab,
+        //     idTab === 1 ? loadData.rowDataIngresos : loadData.rowDataGastos
+        // );
     }
 
     getTypeClasification(idTab: number): CLASIFICATION_TYPE {
@@ -50,10 +49,10 @@ export class DetalleComponent {
                 return 'ingresosEconomicaEconomicos';
             case 2:
                 return 'gastosProgramaPoliticas';
-            // case 3:
-            //     return 'organico';
-            // case 4:
-            //     return 'economica';
+            case 3:
+                return 'gastosOrganicaOrganicos';
+            case 4:
+                return 'gastosEconomicaConceptos';
         }
         return 'ingresosEconomicaEconomicos';
     }
@@ -92,16 +91,3 @@ export class DetalleComponent {
         }
     }
 }
-
-// case 'tab1':
-//     this._typeClasification = 'ingresosEconomicaEconomicos';
-//     break;
-// case 'tab2':
-//     this._typeClasification = '';
-//     break;
-// case 'tab3':
-//     this._typeClasification = 'gastosOrganicaOrganicos';
-//     break;
-// case 'tab4':
-//     this._typeClasification = 'gastosEconomicaConceptos';
-//     break;
