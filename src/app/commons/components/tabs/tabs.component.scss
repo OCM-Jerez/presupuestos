@@ -1,10 +1,14 @@
 .tabs-tab {
-    width: 100%;
-    overflow: hidden;
-    scroll-behavior: smooth;
+    // flex: auto;
+    // display: flex;
+    // width: 100%;
+    // overflow: hidden;
+    // scroll-behavior: smooth;
 
     .tabs-content {
         display: inline-flex;
+        justify-content: space-evenly;
+        width: 100%;
 
         .tabs-header-tab {
             min-width: 110px;
@@ -18,6 +22,9 @@
                 border-bottom: 8px solid blue;
                 color: blue;
                 background-color: burlywood;
+            }
+            &__title {
+                // background-color: burlywood;
             }
         }
     }
