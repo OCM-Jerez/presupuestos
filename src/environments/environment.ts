@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  liqDate2022: '01/12/2022',
-  liqDate2023: '14/02/2023'
+    production: false,
+    liqDate2022: '01/12/2022',
+    liqDate2023: '06/03/2023',
 };
 
 /*
