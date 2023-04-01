@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto.interface';
 import { DataStoreService } from './dataStore.service';
+
+import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -21,11 +22,9 @@ export class PrepareDataTotalesPresupuestoService {
     calcPresupuestoIngresos() {
         this._totalPresupuestoIngresos = {};
         const include = ['Definitivas2023', 'DerechosReconocidosNetos2023'];
+        const rowDataIngresos = this._dataStoreService.dataTable.rowDataIngresos;
 
         // Iterar sobre cada fila de la tabla de datos
-        const rowDataIngresos = this._dataStoreService.dataTable.rowDataIngresos;
-        console.log('rowDataIngresos: ', rowDataIngresos);
-
         for (const row of rowDataIngresos) {
             // Iterar sobre cada clave del objeto que representa la fila actual
             for (const key in row) {
@@ -46,10 +45,6 @@ export class PrepareDataTotalesPresupuestoService {
     async calcPresupuestoGastos() {
         this._totalPresupuestoGastos = {};
         const include = ['Definitivas2023', 'Pagos2023'];
-        console.log(
-            'this._dataStoreService.dataTable.rowDataGastos: ',
-            this._dataStoreService.dataTable.rowDataGastos
-        );
 
         for (const row of this._dataStoreService.dataTable.rowDataGastos) {
             for (const key in row) {
@@ -64,9 +59,6 @@ export class PrepareDataTotalesPresupuestoService {
     }
 
     setTotalesPresupuesto() {
-        console.log('this._totalPresupuestoIngresos: ', this._totalPresupuestoIngresos);
-        console.log('this._totalPresupuestoGastos: ', this._totalPresupuestoGastos);
-
         try {
             const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
                 year: 2023,
@@ -79,7 +71,6 @@ export class PrepareDataTotalesPresupuestoService {
                 totalEjecutadoGastos: this._totalPresupuestoGastos.Pagos2023.toLocaleString(),
             };
             this._dataStoreService.dataTotalesPresupuesto = DataTotalesPresupuesto;
-            console.log('DataTotalesPresupuesto: ', DataTotalesPresupuesto);
         } catch (error) {
             // console.clear();
             console.error('error------------------- ', error);
