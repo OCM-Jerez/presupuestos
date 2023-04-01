@@ -6,7 +6,7 @@ import { PrepareDataTotalesPresupuestoService } from '../../../services/prepareD
 
 import { environment } from '../../../../environments/environment';
 
-import { IDataTotalesPresupuesto } from '../../../commons/interfaces/dataTotalesPresupuesto. interface';
+import { IDataTotalesPresupuesto } from '../../../commons/interfaces/dataTotalesPresupuesto.interface';
 
 @Component({
     selector: 'app-table-presupuesto',
@@ -32,8 +32,7 @@ export class TablePresupuestoComponent implements OnInit {
     async ngOnInit(): Promise<void> {
         // Si se recarga la pagina hay que volver a calcular los totales.
         await this._prepareDataTotalesPresupuestoService.calcTotales();
-        this.DataTotalesPresupuesto =
-            this._dataStoreService.dataTotalesPresupuesto;
+        this.DataTotalesPresupuesto = this._dataStoreService.dataTotalesPresupuesto;
 
         let years = this._avalaibleYearsService.getYearsSelected();
         if (years.length === 1 && years[0] === 2023) {
