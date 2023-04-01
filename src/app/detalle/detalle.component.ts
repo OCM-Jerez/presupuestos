@@ -27,7 +27,6 @@ export class DetalleComponent {
 
     async selectedTab(idTab: number) {
         // this.selectedIndex = idTab;
-
         const typeClasification = this.getTypeClasification(idTab);
         const loadData = await this._tableService.loadData(typeClasification);
 
@@ -36,58 +35,77 @@ export class DetalleComponent {
         } else {
             this.dataTreeMap = await this.dataTreemap(idTab, loadData.rowDataGastos);
         }
-
-        // this.dataTreeMap = await this.dataTreemap(
-        //     idTab,
-        //     idTab === 1 ? loadData.rowDataIngresos : loadData.rowDataGastos
-        // );
     }
 
     getTypeClasification(idTab: number): CLASIFICATION_TYPE {
-        switch (idTab) {
-            case 1:
-                return 'ingresosEconomicaEconomicos';
-            case 2:
-                return 'gastosProgramaPoliticas';
-            case 3:
-                return 'gastosOrganicaOrganicos';
-            case 4:
-                return 'gastosEconomicaConceptos';
-        }
-        return 'ingresosEconomicaEconomicos';
+        const classificationTypes: {
+            [key: number]: CLASIFICATION_TYPE;
+        } = {
+            1: 'ingresosEconomicaEconomicos',
+            2: 'gastosProgramaPoliticas',
+            3: 'gastosOrganicaOrganicos',
+            4: 'gastosEconomicaConceptos',
+        };
+        return classificationTypes[idTab];
     }
 
+    private readonly _tabMappings: { [id: number]: { code: string; desc: string } } = {
+        1: { code: 'CodEco', desc: 'DesEco' },
+        2: { code: 'CodPro', desc: 'DesPro' },
+        3: { code: 'CodOrg', desc: 'DesOrg' },
+        4: { code: 'CodCap', desc: 'DesCap' },
+    };
+
     async dataTreemap(idTab: number, data: any) {
-        // Datos para grafico
-        switch (idTab) {
-            case 1:
-                return await this._prepareDataTreemapService.calcSeries(
-                    data,
-                    'CodEco',
-                    'DesEco',
-                    'Definitivas2023'
-                );
-            case 2:
-                return await this._prepareDataTreemapService.calcSeries(
-                    data,
-                    'CodPro',
-                    'DesPro',
-                    'Definitivas2023'
-                );
-            case 3:
-                return await this._prepareDataTreemapService.calcSeries(
-                    data,
-                    'CodOrg',
-                    'DesOrg',
-                    'Definitivas2023'
-                );
-            case 4:
-                return await this._prepareDataTreemapService.calcSeries(
-                    data,
-                    'CodCap',
-                    'DesCap',
-                    'Definitivas2023'
-                );
-        }
+        const { code, desc } = this._tabMappings[idTab];
+        return this._prepareDataTreemapService.calcSeries(data, code, desc, 'Definitivas2023');
     }
+
+    // getTypeClasification(idTab: number): CLASIFICATION_TYPE {
+    //     switch (idTab) {
+    //         case 1:
+    //             return 'ingresosEconomicaEconomicos';
+    //         case 2:
+    //             return 'gastosProgramaPoliticas';
+    //         case 3:
+    //             return 'gastosOrganicaOrganicos';
+    //         case 4:
+    //             return 'gastosEconomicaConceptos';
+    //     }
+    //     return 'ingresosEconomicaEconomicos';
+    // }
+
+    // async dataTreemap(idTab: number, data: any) {
+    //     // Datos para grafico
+    //     switch (idTab) {
+    //         case 1:
+    //             return await this._prepareDataTreemapService.calcSeries(
+    //                 data,
+    //                 'CodEco',
+    //                 'DesEco',
+    //                 'Definitivas2023'
+    //             );
+    //         case 2:
+    //             return await this._prepareDataTreemapService.calcSeries(
+    //                 data,
+    //                 'CodPro',
+    //                 'DesPro',
+    //                 'Definitivas2023'
+    //             );
+    //         case 3:
+    //             return await this._prepareDataTreemapService.calcSeries(
+    //                 data,
+    //                 'CodOrg',
+    //                 'DesOrg',
+    //                 'Definitivas2023'
+    //             );
+    //         case 4:
+    //             return await this._prepareDataTreemapService.calcSeries(
+    //                 data,
+    //                 'CodCap',
+    //                 'DesCap',
+    //                 'Definitivas2023'
+    //             );
+    //     }
+    // }
 }
