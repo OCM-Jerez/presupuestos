@@ -66,31 +66,20 @@
             </div>
 
             <div class="radio">
-                <input
-                    id="radio-2"
-                    name="radio"
-                    type="radio"
-                    (change)="checkedRadio($event)"
-                />
+                <input id="radio-2" name="radio" type="radio" (change)="checkedRadio($event)" />
                 <label for="radio-2" class="radio-label">Recaudado</label>
             </div>
 
             <div class="radio">
-                <input
-                    id="radio-3"
-                    name="radio"
-                    type="radio"
-                    (change)="checkedRadio($event)"
-                />
+                <input id="radio-3" name="radio" type="radio" (change)="checkedRadio($event)" />
                 <label for="radio-3" class="radio-label">Diferencia</label>
             </div>
         </div>
 
-        <div *ngIf="showGraphInTab" id="treemap1" class="treemap"></div>
-
         <div class="agGridContainer">
+            <!-- <div *ngIf="showGraphInTab" id="treemap1" class="treemap"></div> -->
+            *ngIf="showIngresos"
             <app-table-ingresos
-                *ngIf="showIngresos"
                 [fieldsHide]="[
                     'DerechosReconocidos',
                     'DerechosAnulados',
@@ -105,19 +94,19 @@
 
     <!-- Tab ¿En qué se gasta? Clasificacion económica -->
     <div class="tab__content">
-        <div *ngIf="showGraphInTab" id="treemap2" class="treemap"></div>
+        <!-- <div *ngIf="showGraphInTab" id="treemap2" class="treemap"></div> -->
         <app-gastos *ngIf="showPrograma"></app-gastos>
     </div>
 
     <!-- Tab ¿Quién lo gasta?  -->
     <div class="tab__content">
-        <div *ngIf="showGraphInTab" id="treemap3" class="treemap"></div>
+        <!-- <div *ngIf="showGraphInTab" id="treemap3" class="treemap"></div> -->
         <app-gastos *ngIf="showOrganico"></app-gastos>
     </div>
 
     <!-- Tab ¿Para qué gasta?  -->
     <div class="tab__content">
-        <div *ngIf="showGraphInTab" id="treemap4" class="treemap"></div>
+        <!-- <div *ngIf="showGraphInTab" id="treemap4" class="treemap"></div> -->
         <app-gastos *ngIf="showEconomica"></app-gastos>
     </div>
 </div>

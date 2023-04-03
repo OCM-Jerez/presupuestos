@@ -7,20 +7,25 @@
 
     <app-table-presupuesto></app-table-presupuesto>
 
-    <app-tabs (selectedTab)="selectedTab($event)">
-        <app-tab tabTitle="Ingresos" [idTab]="1">
-            <app-treemap [dataTreeMap]="dataTreeMap"></app-treemap>
-        </app-tab>
-        <app-tab tabTitle="¿En qué se gasta?" [idTab]="2">
-            <app-treemap [dataTreeMap]="dataTreeMap"></app-treemap>
-        </app-tab>
-        <app-tab tabTitle="¿Quién lo gasta?" [idTab]="3">
-            <app-treemap [dataTreeMap]="dataTreeMap"></app-treemap>
-        </app-tab>
-        <app-tab tabTitle="¿Para qué se gasta?" [idTab]="4">
-            <app-treemap [dataTreeMap]="dataTreeMap"></app-treemap>
-        </app-tab>
-    </app-tabs>
+    <div>
+        <app-tabs (selectedTab)="selectedTab($event)">
+            <app-tab tabTitle="Ingresos" [idTab]="1">
+                <!-- <app-treemap [dataTreeMap]="dataTreeMap"></app-treemap> -->
+            </app-tab>
+            <app-tab tabTitle="¿En qué se gasta?" [idTab]="2">
+                <!-- <app-treemap [dataTreeMap]="dataTreeMap"></app-treemap> -->
+            </app-tab>
+            <app-tab tabTitle="¿Quién lo gasta?" [idTab]="3">
+                <!-- <app-treemap [dataTreeMap]="dataTreeMap"></app-treemap> -->
+            </app-tab>
+            <app-tab tabTitle="¿Para qué se gasta?" [idTab]="4">
+                <!-- <app-treemap [dataTreeMap]="dataTreeMap"></app-treemap> -->
+            </app-tab>
+        </app-tabs>
+    </div>
+
+    <!-- <app-treemap [idTab]="idTab"></app-treemap> -->
+    <app-treemap></app-treemap>
 </div>
 
 <app-clasification-tabs></app-clasification-tabs>
