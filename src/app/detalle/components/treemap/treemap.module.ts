@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AgGridModule } from 'ag-grid-angular';
 import { HighchartsChartModule } from 'highcharts-angular';
-import { TabsModule } from '../../../detalle/components/tabs/tabs.module';
-import { DetailTabComponent } from './detail-tab.component';
+import { TabsModule } from '../tabs/tabs.module';
+import { TreemapComponent } from './treemap.component';
 
 @NgModule({
-    declarations: [DetailTabComponent],
+    declarations: [TreemapComponent],
     imports: [CommonModule, TabsModule, AgGridModule, HighchartsChartModule],
-    exports: [DetailTabComponent],
+    exports: [TreemapComponent],
 })
-export class DetailTabModule {}
+export class TreemapModule {}

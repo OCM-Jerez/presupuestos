@@ -2,11 +2,11 @@ import { Component, Input, OnChanges } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
-    selector: 'app-detail-tab',
-    templateUrl: './detail-tab.component.html',
-    styleUrls: ['./detail-tab.component.scss'],
+    selector: 'app-treemap',
+    templateUrl: './treemap.component.html',
+    styleUrls: ['./treemap.component.scss'],
 })
-export class DetailTabComponent implements OnChanges {
+export class TreemapComponent implements OnChanges {
     @Input() dataTreeMap: any;
 
     ngOnChanges(): void {

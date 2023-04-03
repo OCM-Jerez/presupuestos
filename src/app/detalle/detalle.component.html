@@ -9,16 +9,16 @@
 
     <app-tabs (selectedTab)="selectedTab($event)">
         <app-tab tabTitle="Ingresos" [idTab]="1">
-            <app-detail-tab [dataTreeMap]="dataTreeMap"></app-detail-tab>
+            <app-treemap [dataTreeMap]="dataTreeMap"></app-treemap>
         </app-tab>
         <app-tab tabTitle="¿En qué se gasta?" [idTab]="2">
-            <app-detail-tab [dataTreeMap]="dataTreeMap"></app-detail-tab>
+            <app-treemap [dataTreeMap]="dataTreeMap"></app-treemap>
         </app-tab>
         <app-tab tabTitle="¿Quién lo gasta?" [idTab]="3">
-            <app-detail-tab [dataTreeMap]="dataTreeMap"></app-detail-tab>
+            <app-treemap [dataTreeMap]="dataTreeMap"></app-treemap>
         </app-tab>
         <app-tab tabTitle="¿Para qué se gasta?" [idTab]="4">
-            <app-detail-tab [dataTreeMap]="dataTreeMap"></app-detail-tab>
+            <app-treemap [dataTreeMap]="dataTreeMap"></app-treemap>
         </app-tab>
     </app-tabs>
 </div>

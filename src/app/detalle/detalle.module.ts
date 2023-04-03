@@ -11,9 +11,9 @@ import { GastosModule } from '../tables/gastos/gastos.module';
 import { TableIngresosModule } from '../tables/table-ingresos/table-ingresos.module';
 import { ClasificationTabsComponent } from './components/clasification-tabs/clasification-tabs.component';
 import { BarClasificationTabsComponent } from './components/clasification-tabs/components/bar-clasification-tabs/bar-clasification-tabs.component';
-import { DetailTabModule } from './components/detail-tab/detail-tab.module';
 import { TablePresupuestoComponent } from './components/table-presupuesto/table-presupuesto.component';
 import { TabsModule } from './components/tabs/tabs.module';
+import { TreemapModule } from './components/treemap/treemap.module';
 import { DetalleComponent } from './detalle.component';
 
 export const routes: Routes = [{ path: '', component: DetalleComponent }];
@@ -34,7 +34,7 @@ export const routes: Routes = [{ path: '', component: DetalleComponent }];
         GastosModule,
         FormsModule,
         TabsModule,
-        DetailTabModule,
+        TreemapModule,
     ],
 })
 export class DetallePresupuestoModule {}
