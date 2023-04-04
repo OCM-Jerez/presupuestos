@@ -40,9 +40,9 @@ export class ButtonClasificationComponent {
         private _selectedButtonService: SelectedButtonService,
         private _tabStateService: TabStateService
     ) {
-        const clasification = getClasificacion(
-            this._dataStoreService.dataTable.clasificationType
-        );
+        const clasification = getClasificacion(this._dataStoreService.dataTable.clasificationType);
+        console.log('clasification', clasification);
+
         this.buttons = clasification.buttons;
         this.buttonsAdditional = clasification.buttonsAdditional;
         this._loadDataFromTab();
@@ -52,9 +52,7 @@ export class ButtonClasificationComponent {
         const tab = this._tabStateService.getTabState();
 
         if (tab.subTabSelected) {
-            const button = this.buttons.find(
-                (button) => button.name === tab.subTabSelected
-            );
+            const button = this.buttons.find((button) => button.name === tab.subTabSelected);
             await this._existButton(button);
         }
     }
@@ -81,16 +79,10 @@ export class ButtonClasificationComponent {
                     this._router.navigate(['tableProgramaDetails']);
                     break;
                 case 'Programas que componen orgánico seleccionado':
-                    this._router.navigate([
-                        '/tableGrupoProgramaDetails',
-                        'organico',
-                    ]);
+                    this._router.navigate(['/tableGrupoProgramaDetails', 'organico']);
                     break;
                 case 'Programas que gastan del elemento seleccionado':
-                    this._router.navigate([
-                        '/tableGrupoProgramaDetails',
-                        'gastan',
-                    ]);
+                    this._router.navigate(['/tableGrupoProgramaDetails', 'gastan']);
                     break;
             }
         }
@@ -100,9 +92,7 @@ export class ButtonClasificationComponent {
         this.buttons.forEach((b) => (b.selected = false));
         this._tabStateService.setTabState(button.name);
         button.selected = true;
-        this._dataTable = await this._tableService.loadData(
-            button.clasificationType
-        );
+        this._dataTable = await this._tableService.loadData(button.clasificationType);
         this._selectedButtonService.setSelectedButton({
             clasificationType: button.clasificationType,
             name: button.name,
