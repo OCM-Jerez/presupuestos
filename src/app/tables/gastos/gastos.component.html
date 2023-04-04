@@ -1,6 +1,4 @@
 <div>
     <app-button-clasification></app-button-clasification>
-    <app-table-gastos
-        *ngIf="hasDataChange$ | async as hasDataChange"
-    ></app-table-gastos>
+    <app-table-gastos *ngIf="hasDataChange$ | async as hasDataChange"></app-table-gastos>
 </div>
