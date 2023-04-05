@@ -50,8 +50,6 @@ export class DetalleComponent {
     }
 
     async dataTreemap(idTab: number, data: any) {
-        console.log('idTab', idTab);
-
         const { code, desc } = this._tabMappings[idTab];
         return this._prepareDataTreemapService.calcSeries(data, code, desc, 'Definitivas2023');
     }
