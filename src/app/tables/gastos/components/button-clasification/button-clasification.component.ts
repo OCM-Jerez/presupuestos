@@ -9,10 +9,10 @@ import { DataStoreService } from '../../../../services/dataStore.service';
 import { HasDataChangeService } from '../../../../services/hasDataChange.service';
 import { HasRowClicked } from '../../../../services/hasRowClicked.service';
 import { PrepareDataTreemapService } from '../../../../services/prepareDataTreemap.service';
-import { TableService } from '../../../../services/table.service';
-
 import { SelectedButtonService } from '../../../../services/selectedButton.service';
 import { TabStateService } from '../../../../services/tabState.service';
+import { TableService } from '../../../../services/table.service';
+
 import { getClasificacion } from '../../../data-table';
 
 @Component({
@@ -41,8 +41,6 @@ export class ButtonClasificationComponent {
         private _tabStateService: TabStateService
     ) {
         const clasification = getClasificacion(this._dataStoreService.dataTable.clasificationType);
-        console.log('clasification', clasification);
-
         this.buttons = clasification.buttons;
         this.buttonsAdditional = clasification.buttonsAdditional;
         this._loadDataFromTab();
