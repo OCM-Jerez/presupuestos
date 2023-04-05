@@ -1,12 +1,8 @@
 <h2 class="OCM-title">Visión Global</h2>
 
-<div class="flex-container">
+<div class="flex-container-cards">
     <div class="flex-items" *ngFor="let item of items">
-        <app-card-indice
-            [indice]="item.indice"
-            [title]="item.title"
-            [footer]="item.footer"
-        ></app-card-indice>
+        <app-card-indice [indice]="item.indice" [title]="item.title" [footer]="item.footer"></app-card-indice>
     </div>
 </div>
 
