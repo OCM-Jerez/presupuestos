@@ -37,7 +37,6 @@ export class TreemapComponent implements OnInit, OnChanges {
     }
 
     async loadData() {
-        console.log('this.idTab', this.idTab);
         const typeClasification = this.getTypeClasification(this.idTab);
         const loadData = this._tableService.loadData(typeClasification);
 
@@ -63,8 +62,6 @@ export class TreemapComponent implements OnInit, OnChanges {
             3: 'gastosOrganicaOrganicos',
             4: 'gastosEconomicaConceptos',
         };
-        console.log('classificationTypes[idTab]', classificationTypes[idTab]);
-
         return classificationTypes[idTab];
     }
 
@@ -75,8 +72,6 @@ export class TreemapComponent implements OnInit, OnChanges {
 
     showTreemap() {
         const data = this._dataTreeMap;
-        console.log(data);
-
         Highcharts.chart('treemap', {
             accessibility: {
                 enabled: false,
