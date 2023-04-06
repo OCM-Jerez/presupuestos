@@ -41,13 +41,19 @@ export class ButtonClasificationComponent {
         private _tabStateService: TabStateService
     ) {
         const clasification = getClasificacion(this._dataStoreService.dataTable.clasificationType);
+        console.log('clasificationType', this._dataStoreService.dataTable.clasificationType);
+        console.log('clasification', clasification);
+
         this.buttons = clasification.buttons;
+        console.log('this.buttons', this.buttons);
+
         this.buttonsAdditional = clasification.buttonsAdditional;
         this._loadDataFromTab();
     }
 
     private async _loadDataFromTab() {
         const tab = this._tabStateService.getTabState();
+        console.log('tab', tab);
 
         if (tab.subTabSelected) {
             const button = this.buttons.find((button) => button.name === tab.subTabSelected);
