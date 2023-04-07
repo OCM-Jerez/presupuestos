@@ -1,14 +1,11 @@
-<!-- <div class="tabs-tab" #containerTabs id="demotabctm"> -->
-<div class="tabs-tab">
-    <div class="tabs-content">
-        <div
-            *ngFor="let tab of tabs"
-            class="tabs-header-tab"
-            [ngClass]="{ 'tabs-header-tab--selected': tab.active === true }"
-            (click)="selectTab(tab)"
-        >
-            <span class="tabs-header-tab__title">{{ tab.tabTitle }}</span>
-        </div>
+<div class="tabs">
+    <div
+        *ngFor="let tab of tabs"
+        class="tab"
+        [ngClass]="{ 'tab--selected': tab.active === true }"
+        (click)="selectTab(tab)"
+    >
+        <span class="tab__title">{{ tab.tabTitle }}</span>
     </div>
 </div>
 
