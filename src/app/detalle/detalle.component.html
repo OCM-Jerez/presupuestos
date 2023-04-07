@@ -8,8 +8,8 @@
     <app-table-presupuesto></app-table-presupuesto>
     <app-treemap></app-treemap>
 
-    <ng-container [ngSwitch]="idTab">
-        <app-tabs (selectedTab)="selectedTab($event)">
+    <app-tabs (selectedTab)="selectedTab($event)">
+        <ng-container [ngSwitch]="idTab">
             <app-tab tabTitle="Ingresos" [idTab]="1"></app-tab>
             <ng-container *ngSwitchCase="1">
                 <app-table-ingresos
@@ -27,16 +27,18 @@
             <ng-container *ngSwitchCase="2">
                 <app-gastos></app-gastos>
             </ng-container>
+
             <app-tab tabTitle="¿Quién lo gasta?" [idTab]="3"></app-tab>
             <ng-container *ngSwitchCase="3">
                 <app-gastos></app-gastos>
             </ng-container>
+
             <app-tab tabTitle="¿Para qué se gasta?" [idTab]="4"></app-tab>
             <ng-container *ngSwitchCase="4">
                 <app-gastos></app-gastos>
             </ng-container>
-        </app-tabs>
-    </ng-container>
+        </ng-container>
+    </app-tabs>
 </div>
 
 <!-- <app-clasification-tabs></app-clasification-tabs> -->
