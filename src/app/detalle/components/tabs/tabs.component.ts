@@ -1,11 +1,4 @@
-import {
-    AfterContentInit,
-    Component,
-    ContentChildren,
-    EventEmitter,
-    Output,
-    QueryList,
-} from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, EventEmitter, Output, QueryList } from '@angular/core';
 
 import { TabComponent } from './tab/tab.component';
 
@@ -21,7 +14,6 @@ export class TabsComponent implements AfterContentInit {
     @Output() selectedTab = new EventEmitter();
 
     ngAfterContentInit(): void {
-        // console.log(this.tabs);
         const activeTabs = this.tabs.filter((tab) => tab.active);
 
         if (activeTabs.length === 0) {
@@ -32,7 +24,6 @@ export class TabsComponent implements AfterContentInit {
 
     selectTab(tab: TabComponent): void {
         const tabs = this.tabs.toArray();
-        // console.log(tabs);
         const tabActive = tabs.find((tab) => tab.active);
 
         if (tabActive && tabActive.idTab !== tab.idTab) {
@@ -40,9 +31,9 @@ export class TabsComponent implements AfterContentInit {
             tab.active = true;
 
             this.selectedTab.emit(tab.idTab);
-            // this.selectedTab.subscribe((data) => {
-            //     console.log('Contenido del evento:', data);
-            // });
+            this.selectedTab.subscribe((data) => {
+                console.log('Contenido del evento:', data);
+            });
         }
     }
 }
