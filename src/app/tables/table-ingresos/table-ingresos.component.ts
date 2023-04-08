@@ -32,29 +32,30 @@ export class TableIngresosComponent implements OnInit {
     @Output() clickDetalle: EventEmitter<void> = new EventEmitter();
     @Input() fieldsHide: string[] = [];
     @Input() cellRenderer: boolean;
-    public gridOptions: GridOptions;
-    public textButton: string;
+
     private _gridApi: GridApi;
     private _columnApi: ColumnApi;
     private _columnDefs: any[];
-    private _dataTable: IDataTable;
     private _cellRenderer: string = '';
-    showTable = true;
-    messageYears = this.avalaibleYearsService.message;
+    private _dataTable: IDataTable;
 
+    public showTable = true;
+    // messageYears = this.avalaibleYearsService.message;
+    public gridOptions: GridOptions;
+    public textButton: string;
     public seletedCapitulos: boolean = false;
     public seletedArticulo: boolean = false;
     public seletedConcepto: boolean = false;
     public seletedEconomico: boolean = true;
-    isDisabled = true;
+    public isDisabled = true;
 
     constructor(
-        public avalaibleYearsService: AvalaibleYearsService,
-        private _router: Router,
+        private _avalaibleYearsService: AvalaibleYearsService,
         private _dataStoreService: DataStoreService,
+        private _hasDataChangeService: HasDataChangeService,
         private _prepareDataTreemapService: PrepareDataTreemapService,
-        private _tableService: TableService,
-        private _hasDataChangeService: HasDataChangeService
+        private _router: Router,
+        private _tableService: TableService
     ) {
         this._loadPropertyTable();
     }
@@ -94,7 +95,7 @@ export class TableIngresosComponent implements OnInit {
                 ],
             },
 
-            ...this.avalaibleYearsService.getYearsSelected().map((year) => {
+            ...this._avalaibleYearsService.getYearsSelected().map((year) => {
                 return {
                     headerName: year,
                     children: this.createColumnsChildren(year),
@@ -248,7 +249,7 @@ export class TableIngresosComponent implements OnInit {
 
     private _hideColumns() {
         if (this.fieldsHide.length > 0) {
-            const year = this.avalaibleYearsService.yearsSelected[0];
+            const year = this._avalaibleYearsService.yearsSelected[0];
             const columnsHide = this.fieldsHide.map((item) => {
                 return { colId: `${item}${year}`, hide: true };
             });
