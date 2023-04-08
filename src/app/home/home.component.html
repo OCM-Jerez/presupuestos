@@ -8,55 +8,7 @@
         <app-card-table></app-card-table>
     </div>
 
-    <div class="flex__cardMenu">
-        <app-card-menu
-            [rutaImagen]="'../../assets/img/home/menu1-400x250.webp'"
-            [titulo]="'Visión global'"
-            [subtitulo]="
-                'Para que tengas una idea general de los ingresos y gastos del Ayuntamiento de Jerez.'
-            "
-            (click)="visionGlobal()"
-            [textButton]="'Visión global'"
-        ></app-card-menu>
-    </div>
-
-    <div class="flex__cardMenu">
-        <app-card-menu
-            [rutaImagen]="'../../assets/img/home/menu2-400x250.webp'"
-            [titulo]="'Detalle del presupuesto'"
-            [subtitulo]="
-                'Educación, protección y bienestar social, cultura... ¿Qué área te interesa?'
-            "
-            (click)="detallePresupuesto()"
-            [textButton]="'Detalle'"
-        ></app-card-menu>
-    </div>
-
-    <div class="flex__cardMenu">
-        <app-card-menu
-            [rutaImagen]="'../../assets/img/home/menu3-400x250.webp'"
-            [titulo]="'Licitaciones'"
-            [subtitulo]="
-                'Todos las licitaciones de obras, contratos menores de nuestro Ayuntamiento'
-            "
-            (click)="licitaciones()"
-            [textButton]="'Licitaciones'"
-        ></app-card-menu>
-    </div>
-
-    <div class="flex__cardMenu">
-        <app-card-menu
-            [rutaImagen]="'../../assets/img/home/menu4-400x250.webp'"
-            [titulo]="'Empleados municipales'"
-            [subtitulo]="
-                'Información sobre los empleados de nuestro Ayuntamiento'
-            "
-            (click)="empleados()"
-            [textButton]="'Empleados'"
-        ></app-card-menu>
-    </div>
-</div>
-<!-- <div class="flex__cardMenu" *ngFor="let menu of cardMenus">
+    <div class="flex__cardMenu" *ngFor="let menu of cardMenus">
         <app-card-menu
             [rutaImagen]="menu.rutaImagen"
             [titulo]="menu.titulo"
@@ -64,4 +16,5 @@
             (click)="menu.funcion()"
             [textButton]="menu.textButton"
         ></app-card-menu>
-    </div> -->
+    </div>
+</div>
