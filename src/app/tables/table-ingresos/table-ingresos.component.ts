@@ -1,27 +1,12 @@
-import {
-    Component,
-    EventEmitter,
-    Input,
-    OnInit,
-    Output,
-    ViewChild,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import {
-    ColumnApi,
-    ColumnState,
-    GridApi,
-    GridOptions,
-    GridReadyEvent,
-} from 'ag-grid-community/main';
+
+import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
-import {
-    CellRendererOCM,
-    CellRendererOCMtext,
-} from '../../ag-grid/CellRendererOCM';
+import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 // import { CellRendererOCM1, CellRendererOCMtext1 } from '../../ag-grid/CellRendererOCM1'
 // import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
@@ -75,9 +60,7 @@ export class TableIngresosComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this._cellRenderer = this.cellRenderer
-            ? 'CellRendererOCM'
-            : 'CellRendererOCMtext1';
+        this._cellRenderer = this.cellRenderer ? 'CellRendererOCM' : 'CellRendererOCMtext1';
     }
 
     private async _loadPropertyTable() {
@@ -89,27 +72,19 @@ export class TableIngresosComponent implements OnInit {
                 headerName: this._dataTable.dataPropertyTable.headerName,
                 children: [
                     {
-                        headerName:
-                            this._dataTable.dataPropertyTable.subHeaderName,
+                        headerName: this._dataTable.dataPropertyTable.subHeaderName,
                         field: this._dataTable.dataPropertyTable.codField,
                         // width: this._dataTable.dataPropertyTable.width,
                         width: 750,
                         rowGroup: true,
-                        showRowGroup:
-                            this._dataTable.dataPropertyTable.codField,
+                        showRowGroup: this._dataTable.dataPropertyTable.codField,
                         cellRenderer: CellRendererOCMtext,
                         valueGetter: (params) => {
                             if (params.data) {
                                 return (
-                                    params.data[
-                                        this._dataTable.dataPropertyTable
-                                            .codField
-                                    ] +
+                                    params.data[this._dataTable.dataPropertyTable.codField] +
                                     ' - ' +
-                                    params.data[
-                                        this._dataTable.dataPropertyTable
-                                            .desField
-                                    ]
+                                    params.data[this._dataTable.dataPropertyTable.desField]
                                 );
                             } else {
                                 return null;
@@ -322,18 +297,14 @@ export class TableIngresosComponent implements OnInit {
         // console.log('dataPropertyTable', dataPropertyTable);
 
         if (selectedRows.length > 0) {
-            this._dataStoreService.selectedCodeRowFirstLevel =
-                selectedRows[0].key;
+            this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
             const useStarWitch: boolean = dataPropertyTable.useStarWitch;
             const attribute: string = dataPropertyTable.attribute;
             this._dataTable = await this._tableService.loadData(
                 // true,
                 typeClasification,
                 {
-                    valueFilter:
-                        this._dataStoreService.selectedCodeRowFirstLevel.split(
-                            ' '
-                        )[0],
+                    valueFilter: this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0],
                     attribute,
                     useStarWitch,
                 }
