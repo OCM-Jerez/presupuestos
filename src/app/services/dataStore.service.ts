@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+
 import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
 import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto.interface';
@@ -22,9 +23,6 @@ export class DataStoreService {
 
     set dataTable(data: IDataTable) {
         this._data = data;
-        // console.log('DataStoreService data que entra como parametro', data);
-        // console.log('DataStoreServic._dataSource ', this._dataSource);
-        // console.log('DataStoreServic._data', this._data);
     }
 
     get dataTable(): IDataTable {
