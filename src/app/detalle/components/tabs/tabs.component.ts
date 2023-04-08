@@ -31,9 +31,9 @@ export class TabsComponent implements AfterContentInit {
             tab.active = true;
 
             this.selectedTab.emit(tab.idTab);
-            this.selectedTab.subscribe((data) => {
-                console.log('Contenido del evento:', data);
-            });
+            // this.selectedTab.subscribe((data) => {
+            //     console.log('Contenido del evento:', data);
+            // });
         }
     }
 }
