@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
+import { TableService } from '../../../services/table.service';
 
 import { environment } from '../../../../environments/environment';
+
 import { IDataTable } from '../../../commons/interfaces/dataTable.interface';
 import { IExample } from '../../../commons/interfaces/example.interface';
 import { ITablaAleatoria } from '../../../commons/interfaces/tablaAleatoria.interface';
-import { TableService } from '../../../services/table.service';
 
 @Component({
     selector: 'app-card-table',
@@ -13,42 +14,33 @@ import { TableService } from '../../../services/table.service';
     styleUrls: ['./card-table.component.scss'],
 })
 export class CardTableComponent implements OnInit {
-    private _dataTable: IDataTable;
-    private _dataTablaAleatoria: ITablaAleatoria[] = [];
     textoTabla: string;
     liqDate = environment.liqDate2023;
-    examples: IExample[] = Array.from({ length: 3 }, () => ({
-        name: '',
-        value: 0,
-    }));
+    examples: IExample[] = Array(3).fill({ name: '', value: 0 });
 
-    constructor(private _tableService: TableService, private _router: Router) {}
+    constructor(private _tableService: TableService) {}
 
     ngOnInit(): void {
         this._randomData();
     }
 
     private async _randomData(): Promise<void> {
-        this._dataTable = await this._tableService.loadDataInitial();
-
+        const dataTable: IDataTable = await this._tableService.loadDataInitial();
+        let dataTablaAleatoria: ITablaAleatoria[] = [];
         const ingresoGasto = Math.random() >= 0.5 ? true : false;
         ingresoGasto
-            ? (this._dataTablaAleatoria = await this.getData(
+            ? (dataTablaAleatoria = await this.getData(
                   'DesEco',
                   'DerechosReconocidosNetos2023',
-                  this._dataTable.rowDataIngresos
+                  dataTable.rowDataIngresos
               ))
-            : (this._dataTablaAleatoria = await this.getData(
-                  'DesOrg',
-                  'Pagos2023',
-                  this._dataTable.rowDataGastos
-              ));
+            : (dataTablaAleatoria = await this.getData('DesOrg', 'Pagos2023', dataTable.rowDataGastos));
 
         this.textoTabla = ingresoGasto
             ? '¿Cuánto ha recaudado el Ayuntamiento por...?'
             : '¿Cuánto ha gastado la delegación de...?';
 
-        await this.fillDatosAleatorios();
+        this.fillDatosAleatorios(dataTablaAleatoria);
     }
 
     async getData(name: string, value: string, data: any[] = []) {
@@ -72,13 +64,12 @@ export class CardTableComponent implements OnInit {
         return resultado;
     }
 
-    async fillDatosAleatorios() {
-        this._dataTablaAleatoria.sort(() => Math.random() - 0.5);
-
-        for (let i = 0; i < 3; i++) {
-            this.examples[i].name = this._dataTablaAleatoria[i].name;
-            this.examples[i].value =
-                this._dataTablaAleatoria[i].value.toLocaleString('de-DE');
-        }
+    fillDatosAleatorios(dataTablaAleatoria) {
+        dataTablaAleatoria.sort(() => Math.random() - 0.5);
+        const data = dataTablaAleatoria.slice(0, 3);
+        this.examples = data.map(({ name, value }) => ({
+            name,
+            value: value.toLocaleString('de-DE'),
+        }));
     }
 }
