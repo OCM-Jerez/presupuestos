@@ -9,13 +9,13 @@ import { HomeComponent } from './home/home.component';
 import { IndiceComponent } from './indice/indice.component';
 
 const routes: Routes = [
-    { path: 'visionGlobal', component: IndiceComponent },
     { path: 'home', component: HomeComponent },
+    { path: 'visionGlobal', component: IndiceComponent },
     { path: 'detallePresupuesto', component: DetalleComponent },
     // { path: 'detallePresupuesto', loadChildren: () => import('./detalle/detalle.module').then((m) => m.DetallePresupuestoModule) },
+    { path: 'empleados', component: EmpleadosComponent },
     { path: 'explicamos', component: ExplicamosComponent },
     { path: 'glosario', component: GlosarioComponent },
-    { path: 'empleados', component: EmpleadosComponent },
     {
         path: 'home',
         loadChildren: () => import('../app/home/home.module').then((m) => m.HomeModule),
