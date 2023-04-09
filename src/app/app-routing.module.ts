@@ -19,21 +19,16 @@ const routes: Routes = [
 
     {
         path: 'homeNew',
-        loadChildren: () =>
-            import('../app/home/home.module').then((m) => m.HomeModule),
+        loadChildren: () => import('../app/home/home.module').then((m) => m.HomeModule),
     },
 
     {
         path: 'tableIngresos',
-        loadChildren: () =>
-            import('./tables/table-ingresos/table-ingresos.module').then(
-                (m) => m.TableIngresosModule
-            ),
+        loadChildren: () => import('./tables/table-ingresos/table-ingresos.module').then((m) => m.TableIngresosModule),
     },
     {
         path: 'newGastos',
-        loadChildren: () =>
-            import('./tables/gastos/gastos.module').then((m) => m.GastosModule),
+        loadChildren: () => import('./tables/gastos/gastos.module').then((m) => m.GastosModule),
     },
     {
         path: 'tableAplicacionPresupuestaria',
@@ -45,39 +40,27 @@ const routes: Routes = [
     {
         path: 'tableGrupoProgramaDetails/:origen',
         loadChildren: () =>
-            import(
-                './tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.module'
-            ).then((m) => m.TableGastosGruposprogramasDetailsModule),
+            import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.module').then(
+                (m) => m.TableGastosGruposprogramasDetailsModule
+            ),
     },
     {
         path: 'tableProgramaDetails',
         loadChildren: () =>
-            import(
-                './tables/table-programa-details/table-programa-details.module'
-            ).then((m) => m.TableProgramaDetailsModule),
+            import('./tables/table-programa-details/table-programa-details.module').then(
+                (m) => m.TableProgramaDetailsModule
+            ),
     },
 
     {
         path: 'graphIngresos',
-        loadChildren: () =>
-            import('./graphs/graph-ingresos/graph-ingresos.module').then(
-                (m) => m.GraphIngresosModule
-            ),
+        loadChildren: () => import('./graphs/graph-ingresos/graph-ingresos.module').then((m) => m.GraphIngresosModule),
     },
     {
         path: 'graphGastos',
-        loadChildren: () =>
-            import('./graphs/graph-gastos/graph-gastos.module').then(
-                (m) => m.GraphGastosModule
-            ),
+        loadChildren: () => import('./graphs/graph-gastos/graph-gastos.module').then((m) => m.GraphGastosModule),
     },
-    {
-        path: 'graphTree',
-        loadChildren: () =>
-            import('./graphs/graph-tree/graph-tree.module').then(
-                (m) => m.GraphTreeModule
-            ),
-    },
+
     { path: '**', pathMatch: 'full', redirectTo: 'homeNew' },
 ];
 @NgModule({
