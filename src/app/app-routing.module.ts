@@ -12,23 +12,17 @@ const routes: Routes = [
     { path: 'visionGlobal', component: IndiceComponent },
     { path: 'home', component: HomeComponent },
     { path: 'detallePresupuesto', component: DetalleComponent },
-    // { path: 'detallePresupuesto', loadChildren: () => import('./detalle-presupuesto/detalle-presupuesto.module').then((m) => m.DetallePresupuestoModule) },
+    // { path: 'detallePresupuesto', loadChildren: () => import('./detalle/detalle.module').then((m) => m.DetallePresupuestoModule) },
     { path: 'explicamos', component: ExplicamosComponent },
     { path: 'glosario', component: GlosarioComponent },
     { path: 'empleados', component: EmpleadosComponent },
-
     {
         path: 'home',
         loadChildren: () => import('../app/home/home.module').then((m) => m.HomeModule),
     },
-
     {
         path: 'tableIngresos',
         loadChildren: () => import('./tables/table-ingresos/table-ingresos.module').then((m) => m.TableIngresosModule),
-    },
-    {
-        path: 'newGastos',
-        loadChildren: () => import('./tables/gastos/gastos.module').then((m) => m.GastosModule),
     },
     {
         path: 'tableAplicacionPresupuestaria',
@@ -51,7 +45,6 @@ const routes: Routes = [
                 (m) => m.TableProgramaDetailsModule
             ),
     },
-
     {
         path: 'graphIngresos',
         loadChildren: () => import('./graphs/graph-ingresos/graph-ingresos.module').then((m) => m.GraphIngresosModule),
@@ -60,7 +53,6 @@ const routes: Routes = [
         path: 'graphGastos',
         loadChildren: () => import('./graphs/graph-gastos/graph-gastos.module').then((m) => m.GraphGastosModule),
     },
-
     { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 @NgModule({
