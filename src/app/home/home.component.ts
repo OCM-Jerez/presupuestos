@@ -42,7 +42,7 @@ export class HomeComponent {
     constructor(private _router: Router) {}
 
     visionGlobal() {
-        this._router.navigateByUrl('/home');
+        this._router.navigateByUrl('/visionGlobal');
     }
 
     detallePresupuesto() {

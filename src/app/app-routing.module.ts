@@ -9,8 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { IndiceComponent } from './indice/indice.component';
 
 const routes: Routes = [
-    { path: 'home', component: IndiceComponent },
-    { path: 'homeNew', component: HomeComponent },
+    { path: 'visionGlobal', component: IndiceComponent },
+    { path: 'home', component: HomeComponent },
     { path: 'detallePresupuesto', component: DetalleComponent },
     // { path: 'detallePresupuesto', loadChildren: () => import('./detalle-presupuesto/detalle-presupuesto.module').then((m) => m.DetallePresupuestoModule) },
     { path: 'explicamos', component: ExplicamosComponent },
@@ -18,7 +18,7 @@ const routes: Routes = [
     { path: 'empleados', component: EmpleadosComponent },
 
     {
-        path: 'homeNew',
+        path: 'home',
         loadChildren: () => import('../app/home/home.module').then((m) => m.HomeModule),
     },
 
@@ -61,7 +61,7 @@ const routes: Routes = [
         loadChildren: () => import('./graphs/graph-gastos/graph-gastos.module').then((m) => m.GraphGastosModule),
     },
 
-    { path: '**', pathMatch: 'full', redirectTo: 'homeNew' },
+    { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes, { useHash: true })],
