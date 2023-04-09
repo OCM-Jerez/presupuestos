@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
@@ -13,6 +13,8 @@ import { SelectedButtonService } from '../../../../services/selectedButton.servi
 import { TabStateService } from '../../../../services/tabState.service';
 import { TableService } from '../../../../services/table.service';
 
+import { CLASIFICATION_TYPE } from '../../../../commons/util/util';
+import { ChangeSubTabService } from '../../../../services/change-subtab.service';
 import { getClasificacion } from '../../../data-table';
 
 @Component({
@@ -20,7 +22,10 @@ import { getClasificacion } from '../../../data-table';
     templateUrl: './button-clasification.component.html',
     styleUrls: ['./button-clasification.component.scss'],
 })
-export class ButtonClasificationComponent {
+export class ButtonClasificationComponent implements OnInit {
+    @Input() clasificationType: CLASIFICATION_TYPE;
+    @Output() clickButton = new EventEmitter<IDataTable>();
+
     private _dataTable: IDataTable;
     private _dataGraph: IDataGraph = {} as IDataGraph;
     private row: string = '';
@@ -38,27 +43,34 @@ export class ButtonClasificationComponent {
         private _prepareDataTreemapService: PrepareDataTreemapService,
         private _hasDataChangeService: HasDataChangeService,
         private _selectedButtonService: SelectedButtonService,
-        private _tabStateService: TabStateService
+        private _tabStateService: TabStateService,
+        private _changeTabService: ChangeSubTabService
     ) {
-        const clasification = getClasificacion(this._dataStoreService.dataTable.clasificationType);
-        console.log('clasificationType', this._dataStoreService.dataTable.clasificationType);
-        console.log('clasification', clasification);
+        console.log(this._dataStoreService.dataTable);
 
+        // const clasification = getClasificacion(this._dataStoreService.dataTable.clasificationType);
+        // console.log('clasificationType', this._dataStoreService.dataTable.clasificationType);
+        // console.log('clasification', clasification);
+
+        // this.buttons = clasification.buttons;
+        // console.log('this.buttons', this.buttons);
+
+        // this.buttonsAdditional = clasification.buttonsAdditional;
+        // this._loadDataFromTab();
+    }
+    async ngOnInit(): Promise<void> {
+        const clasification = getClasificacion(this.clasificationType);
         this.buttons = clasification.buttons;
-        console.log('this.buttons', this.buttons);
-
         this.buttonsAdditional = clasification.buttonsAdditional;
-        this._loadDataFromTab();
     }
 
     private async _loadDataFromTab() {
-        const tab = this._tabStateService.getTabState();
-        console.log('tab', tab);
-
-        if (tab.subTabSelected) {
-            const button = this.buttons.find((button) => button.name === tab.subTabSelected);
-            await this._existButton(button);
-        }
+        // const tab = this._tabStateService.getTabState();
+        // console.log('tab', tab);
+        // if (tab.subTabSelected) {
+        //     const button = this.buttons.find((button) => button.name === tab.subTabSelected);
+        //     await this._existButton(button);
+        // }
     }
 
     async click(event: Event): Promise<void> {
@@ -69,6 +81,8 @@ export class ButtonClasificationComponent {
 
         if (button) {
             await this._existButton(button);
+            this.clickButton.emit(this._dataTable);
+            this._changeTabService.changeTab(button.codigo, button.descripcion);
         } else {
             switch (
                 target.textContent.trim() // Si se pulsa un buttonsAdditional, se navega a la ruta correspondiente
@@ -103,13 +117,13 @@ export class ButtonClasificationComponent {
             selected: true,
         });
 
-        await this._prepareDataTreemapService.calcSeries(
-            // Actualizo datos treemap en función del boton pulsado
-            this._dataTable.rowDataGastos,
-            getClasificacion(this._dataTable.clasificationType).codField,
-            getClasificacion(this._dataTable.clasificationType).desField,
-            'Definitivas2023'
-        );
+        // await this._prepareDataTreemapService.calcSeries(
+        //     // Actualizo datos treemap en función del boton pulsado
+        //     this._dataTable.rowDataGastos,
+        //     getClasificacion(this._dataTable.clasificationType).codField,
+        //     getClasificacion(this._dataTable.clasificationType).desField,
+        //     'Definitivas2023'
+        // );
 
         this._hasDataChangeService.change(false);
         setTimeout(() => {

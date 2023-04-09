@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
-import { DataStoreService } from './dataStore.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class PrepareDataTreemapService {
-    constructor(private _dataStoreService: DataStoreService) {}
-
-    async calcSeries(data: any, codigo, descripcion, campoSumatorio, aRestar?) {
+    calcSeries(data: any, codigo, descripcion, campoSumatorio, aRestar?) {
         let array = [];
         array = data.reduce((acc, curr) => {
             const item =
@@ -77,14 +74,11 @@ export class PrepareDataTreemapService {
         ];
         let colorIndex = -1;
 
-        data.map((item, index) => {
+        data.map((item) => {
             colorIndex += 1;
             colorIndex > 25 ? (colorIndex = 0) : colorIndex;
             item.color = colors[colorIndex];
         });
-
-        this._dataStoreService.dataTreemap = data;
-        // console.log(' this._dataStoreService.setDataTreemap', data);
 
         return data;
     }

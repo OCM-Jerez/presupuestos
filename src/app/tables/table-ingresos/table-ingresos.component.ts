@@ -19,6 +19,7 @@ import { TableService } from '../../services/table.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
+import { ChangeSubTabService } from '../../services/change-subtab.service';
 import { getClasificacion } from '../data-table';
 
 @Component({
@@ -39,7 +40,7 @@ export class TableIngresosComponent implements OnInit {
     private _cellRenderer: string = '';
     private _dataTable: IDataTable;
 
-    public showTable = true;
+    public showTable = false;
     // messageYears = this.avalaibleYearsService.message;
     public gridOptions: GridOptions;
     public textButton: string;
@@ -55,18 +56,21 @@ export class TableIngresosComponent implements OnInit {
         private _hasDataChangeService: HasDataChangeService,
         private _prepareDataTreemapService: PrepareDataTreemapService,
         private _router: Router,
-        private _tableService: TableService
-    ) {
+        private _tableService: TableService,
+        private _changeTabService: ChangeSubTabService
+    ) {}
+
+    async ngOnInit(): Promise<void> {
+        this._dataTable = await this._tableService.loadData('ingresosEconomicaEconomicos');
         this._loadPropertyTable();
-    }
-
-    ngOnInit(): void {
         this._cellRenderer = this.cellRenderer ? 'CellRendererOCM' : 'CellRendererOCMtext1';
+        this.showTable = true;
+        this._changeTabService.changeTab('CodEco', 'DesEco');
     }
 
-    private async _loadPropertyTable() {
+    private _loadPropertyTable() {
         this.isDisabled = true;
-        this._dataTable = this._dataStoreService.dataTable;
+        // this._dataTable = this._dataStoreService.dataTable;
 
         this._columnDefs = [
             {
@@ -291,7 +295,7 @@ export class TableIngresosComponent implements OnInit {
                 break;
         }
 
-        this.clickDetalle.emit();
+        // this.clickDetalle.emit();
         this._dataStoreService.IsDetails = true;
         const selectedRows = this.agGrid.api.getSelectedNodes();
         const dataPropertyTable = getClasificacion(typeClasification);
@@ -321,22 +325,23 @@ export class TableIngresosComponent implements OnInit {
         this._dataStoreService.selectedCodeRowFirstLevel = '';
 
         // console.log('Actualizo datos treemap en función del boton pulsado');
-        await this._prepareDataTreemapService.calcSeries(
-            this._dataTable.rowDataIngresos,
-            getClasificacion(this._dataTable.clasificationType).codField,
-            getClasificacion(this._dataTable.clasificationType).desField,
-            'Definitivas2023'
-        );
+        // await this._prepareDataTreemapService.calcSeries(
+        //     this._dataTable.rowDataIngresos,
+        //     getClasificacion(this._dataTable.clasificationType).codField,
+        //     getClasificacion(this._dataTable.clasificationType).desField,
+        //     'Definitivas2023'
+        // );
 
-        this._hasDataChangeService.change(false);
-        setTimeout(() => {
-            this._hasDataChangeService.change(true);
-        }, 5);
+        // this._hasDataChangeService.change(false);
+        // setTimeout(() => {
+        //     this._hasDataChangeService.change(true);
+        // }, 5);
 
         this.showTable = false;
         setTimeout(() => {
             this._loadPropertyTable();
             this.showTable = true;
+            this._changeTabService.changeTab(dataPropertyTable.codField, dataPropertyTable.desField);
         }, 500);
     }
 }

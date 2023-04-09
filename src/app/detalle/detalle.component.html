@@ -6,38 +6,32 @@
     </div>
 
     <app-table-presupuesto></app-table-presupuesto>
-    <app-treemap></app-treemap>
+    <app-treemap [idTabPrincipal]="idTab"></app-treemap>
 
     <app-tabs (selectedTab)="selectedTab($event)">
-        <ng-container [ngSwitch]="idTab">
-            <app-tab tabTitle="Ingresos" [idTab]="1"></app-tab>
-            <ng-container *ngSwitchCase="1">
-                <app-table-ingresos
-                    [fieldsHide]="[
-                        'DerechosReconocidos',
-                        'DerechosAnulados',
-                        'DerechosCancelados',
-                        'DerechosPendienteCobro'
-                    ]"
-                    [cellRenderer]="false"
-                ></app-table-ingresos>
-            </ng-container>
+        <app-tab tabTitle="Ingresos" [idTab]="1" [active]="true">
+            <app-table-ingresos
+                [fieldsHide]="[
+                    'DerechosReconocidos',
+                    'DerechosAnulados',
+                    'DerechosCancelados',
+                    'DerechosPendienteCobro'
+                ]"
+                [cellRenderer]="false"
+            ></app-table-ingresos>
+        </app-tab>
 
-            <app-tab tabTitle="¿En qué se gasta?" [idTab]="2"></app-tab>
-            <ng-container *ngSwitchCase="2">
-                <app-gastos></app-gastos>
-            </ng-container>
+        <app-tab tabTitle="¿En qué se gasta?" [idTab]="2">
+            <app-gastos clasification="gastosProgramaProgramas"></app-gastos>
+        </app-tab>
 
-            <app-tab tabTitle="¿Quién lo gasta?" [idTab]="3"></app-tab>
-            <ng-container *ngSwitchCase="3">
-                <app-gastos></app-gastos>
-            </ng-container>
+        <app-tab tabTitle="¿Quién lo gasta?" [idTab]="3">
+            <!-- <app-gastos></app-gastos> -->
+        </app-tab>
 
-            <app-tab tabTitle="¿Para qué se gasta?" [idTab]="4"></app-tab>
-            <ng-container *ngSwitchCase="4">
-                <app-gastos></app-gastos>
-            </ng-container>
-        </ng-container>
+        <app-tab tabTitle="¿Para qué se gasta?" [idTab]="4">
+            <!-- <app-gastos></app-gastos> -->
+        </app-tab>
     </app-tabs>
 </div>
 

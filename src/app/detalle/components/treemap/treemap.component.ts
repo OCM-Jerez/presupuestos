@@ -1,31 +1,43 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import { CLASIFICATION_TYPE } from '../../../commons/util/util';
+// import { CLASIFICATION_TYPE } from '../../../commons/util/util';
+import { ChangeSubTabService } from '../../../services/change-subtab.service';
+import { DataStoreService } from '../../../services/dataStore.service';
 import { PrepareDataTreemapService } from '../../../services/prepareDataTreemap.service';
-import { TableService } from '../../../services/table.service';
-
+// import { TableService } from '../../../services/table.service';
+interface ITabMapping {
+    [id: number]: { code: string; desc: string };
+}
 @Component({
     selector: 'app-treemap',
     templateUrl: './treemap.component.html',
     styleUrls: ['./treemap.component.scss'],
+    // providers: [PrepareDataTreemapService],
 })
 export class TreemapComponent implements OnInit, OnChanges {
     // @Input() dataTreeMap: any;
-    // @Input() idTab: number;
-    idTab = 1;
+    @Input() idTabPrincipal = 1;
 
     _dataTreeMap: any;
-    private readonly _tabMappings: { [id: number]: { code: string; desc: string } } = {
-        1: { code: 'CodEco', desc: 'DesEco' },
-        2: { code: 'CodPro', desc: 'DesPro' },
-        3: { code: 'CodOrg', desc: 'DesOrg' },
-        4: { code: 'CodCap', desc: 'DesCap' },
-    };
+    // private readonly _tabMappings: ITabMapping = {
+    //     1: { code: 'CodEco', desc: 'DesEco' },
+    //     2: { code: 'CodCon', desc: 'DesCon' },
+    //     3: { code: 'CodArt', desc: 'DesArt' },
+    //     4: { code: 'CodCap', desc: 'DesCap' },
+    // };
 
-    constructor(private _prepareDataTreemapService: PrepareDataTreemapService, private _tableService: TableService) {}
+    constructor(
+        private _prepareDataTreemapService: PrepareDataTreemapService,
+        // private _tableService: TableService,
+        private _changeTabService: ChangeSubTabService,
+        private _dataStoreService: DataStoreService
+    ) {}
 
     ngOnInit(): void {
-        this.loadData();
+        //this.loadData();
+        this._changeTabService.source$.subscribe((data) => {
+            this.loadData(data.codField, data.desField);
+        });
     }
 
     ngOnChanges(): void {
@@ -36,15 +48,16 @@ export class TreemapComponent implements OnInit, OnChanges {
         }
     }
 
-    async loadData() {
-        const typeClasification = this.getTypeClasification(this.idTab);
-        const loadData = this._tableService.loadData(typeClasification);
+    loadData(codField: string, desField: string) {
+        // const typeClasification = this.getTypeClasification(this.idTab);
+        // const loadData = this._tableService.loadData(typeClasification);
+        const loadData = this._dataStoreService.dataTable;
 
-        if (this.idTab === 1) {
-            this._dataTreeMap = await this.dataTreemap(this.idTab, (await loadData).rowDataIngresos);
-        } else {
-            this._dataTreeMap = await this.dataTreemap(this.idTab, (await loadData).rowDataGastos);
-        }
+        this._dataTreeMap = this.dataTreemap(
+            this.idTabPrincipal === 1 ? loadData.rowDataIngresos : loadData.rowDataGastos,
+            codField,
+            desField
+        );
 
         if (this._dataTreeMap) {
             setTimeout(() => {
@@ -53,21 +66,20 @@ export class TreemapComponent implements OnInit, OnChanges {
         }
     }
 
-    getTypeClasification(idTab: number): CLASIFICATION_TYPE {
-        const classificationTypes: {
-            [key: number]: CLASIFICATION_TYPE;
-        } = {
-            1: 'ingresosEconomicaEconomicos',
-            2: 'gastosProgramaPoliticas',
-            3: 'gastosOrganicaOrganicos',
-            4: 'gastosEconomicaConceptos',
-        };
-        return classificationTypes[idTab];
-    }
+    // getTypeClasification(idTab: number): CLASIFICATION_TYPE {
+    //     const classificationTypes: {
+    //         [key: number]: CLASIFICATION_TYPE;
+    //     } = {
+    //         1: 'ingresosEconomicaEconomicos',
+    //         2: 'gastosProgramaPoliticas',
+    //         3: 'gastosOrganicaOrganicos',
+    //         4: 'gastosEconomicaConceptos',
+    //     };
+    //     return classificationTypes[idTab];
+    // }
 
-    async dataTreemap(idTab: number, data: any) {
-        const { code, desc } = this._tabMappings[idTab];
-        return this._prepareDataTreemapService.calcSeries(data, code, desc, 'Definitivas2023');
+    dataTreemap(data: any, codField: string, desField: string) {
+        return this._prepareDataTreemapService.calcSeries(data, codField, desField, 'Definitivas2023');
     }
 
     showTreemap() {

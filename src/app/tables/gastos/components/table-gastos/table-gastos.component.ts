@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
@@ -18,6 +18,8 @@ import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
     styleUrls: ['./table-gastos.component.scss'],
 })
 export class TableGastosComponent implements OnInit {
+    @Input() dataTable: IDataTable;
+
     @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
     gridOptions: GridOptions;
     private _gridApi: GridApi;
@@ -38,7 +40,9 @@ export class TableGastosComponent implements OnInit {
     }
 
     private async _loadTable() {
-        this._dataTable = this._dataStoreService.dataTable;
+        console.log(this.dataTable);
+
+        this._dataTable = this.dataTable;
         this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
         this.setColumnDefs();
         this.setGridOptions();
