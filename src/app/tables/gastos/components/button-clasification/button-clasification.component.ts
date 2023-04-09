@@ -8,7 +8,6 @@ import { IButtonClasification } from '../../model/components.interface';
 import { DataStoreService } from '../../../../services/dataStore.service';
 import { HasDataChangeService } from '../../../../services/hasDataChange.service';
 import { HasRowClicked } from '../../../../services/hasRowClicked.service';
-import { PrepareDataTreemapService } from '../../../../services/prepareDataTreemap.service';
 import { SelectedButtonService } from '../../../../services/selectedButton.service';
 import { TabStateService } from '../../../../services/tabState.service';
 import { TableService } from '../../../../services/table.service';
@@ -40,37 +39,16 @@ export class ButtonClasificationComponent implements OnInit {
         private _hasRowClicked: HasRowClicked,
         private _tableService: TableService,
         private _dataStoreService: DataStoreService,
-        private _prepareDataTreemapService: PrepareDataTreemapService,
         private _hasDataChangeService: HasDataChangeService,
         private _selectedButtonService: SelectedButtonService,
         private _tabStateService: TabStateService,
         private _changeTabService: ChangeSubTabService
-    ) {
-        console.log(this._dataStoreService.dataTable);
+    ) {}
 
-        // const clasification = getClasificacion(this._dataStoreService.dataTable.clasificationType);
-        // console.log('clasificationType', this._dataStoreService.dataTable.clasificationType);
-        // console.log('clasification', clasification);
-
-        // this.buttons = clasification.buttons;
-        // console.log('this.buttons', this.buttons);
-
-        // this.buttonsAdditional = clasification.buttonsAdditional;
-        // this._loadDataFromTab();
-    }
     async ngOnInit(): Promise<void> {
         const clasification = getClasificacion(this.clasificationType);
         this.buttons = clasification.buttons;
         this.buttonsAdditional = clasification.buttonsAdditional;
-    }
-
-    private async _loadDataFromTab() {
-        // const tab = this._tabStateService.getTabState();
-        // console.log('tab', tab);
-        // if (tab.subTabSelected) {
-        //     const button = this.buttons.find((button) => button.name === tab.subTabSelected);
-        //     await this._existButton(button);
-        // }
     }
 
     async click(event: Event): Promise<void> {
@@ -116,14 +94,6 @@ export class ButtonClasificationComponent implements OnInit {
             name: button.name,
             selected: true,
         });
-
-        // await this._prepareDataTreemapService.calcSeries(
-        //     // Actualizo datos treemap en función del boton pulsado
-        //     this._dataTable.rowDataGastos,
-        //     getClasificacion(this._dataTable.clasificationType).codField,
-        //     getClasificacion(this._dataTable.clasificationType).desField,
-        //     'Definitivas2023'
-        // );
 
         this._hasDataChangeService.change(false);
         setTimeout(() => {
