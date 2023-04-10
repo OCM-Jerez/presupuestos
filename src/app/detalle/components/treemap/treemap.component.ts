@@ -17,12 +17,12 @@ export class TreemapComponent implements OnInit, OnChanges {
 
     constructor(
         private _prepareDataTreemapService: PrepareDataTreemapService,
-        private _changeTabService: ChangeSubTabService,
+        private _changeSubTabService: ChangeSubTabService,
         private _dataStoreService: DataStoreService
     ) {}
 
     ngOnInit(): void {
-        this._changeTabService.source$.subscribe((data) => {
+        this._changeSubTabService.source$.subscribe((data) => {
             this.loadData(data.codField, data.desField);
         });
     }
