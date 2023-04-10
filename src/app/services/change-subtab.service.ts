@@ -12,7 +12,7 @@ export class ChangeSubTabService {
     private _changeSubTab = new Subject<IChangeSubTab>();
     source$ = this._changeSubTab.asObservable();
 
-    changeTab(codField: string, desField: string) {
+    changeSubTab(codField: string, desField: string) {
         this._changeSubTab.next({ codField, desField });
     }
 }

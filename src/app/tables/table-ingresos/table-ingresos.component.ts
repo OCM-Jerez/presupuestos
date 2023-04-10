@@ -57,7 +57,7 @@ export class TableIngresosComponent implements OnInit {
         private _prepareDataTreemapService: PrepareDataTreemapService,
         private _router: Router,
         private _tableService: TableService,
-        private _changeTabService: ChangeSubTabService
+        private _changeSubTabService: ChangeSubTabService
     ) {}
 
     async ngOnInit(): Promise<void> {
@@ -65,7 +65,7 @@ export class TableIngresosComponent implements OnInit {
         this._loadPropertyTable();
         this._cellRenderer = this.cellRenderer ? 'CellRendererOCM' : 'CellRendererOCMtext1';
         this.showTable = true;
-        this._changeTabService.changeTab('CodEco', 'DesEco');
+        this._changeSubTabService.changeSubTab('CodEco', 'DesEco');
     }
 
     private _loadPropertyTable() {
@@ -341,7 +341,7 @@ export class TableIngresosComponent implements OnInit {
         setTimeout(() => {
             this._loadPropertyTable();
             this.showTable = true;
-            this._changeTabService.changeTab(dataPropertyTable.codField, dataPropertyTable.desField);
+            this._changeSubTabService.changeSubTab(dataPropertyTable.codField, dataPropertyTable.desField);
         }, 500);
     }
 }

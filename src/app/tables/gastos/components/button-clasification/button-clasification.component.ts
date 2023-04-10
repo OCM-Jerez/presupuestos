@@ -42,7 +42,7 @@ export class ButtonClasificationComponent implements OnInit {
         private _hasDataChangeService: HasDataChangeService,
         private _selectedButtonService: SelectedButtonService,
         private _tabStateService: TabStateService,
-        private _changeTabService: ChangeSubTabService
+        private _changeSubTabService: ChangeSubTabService
     ) {}
 
     async ngOnInit(): Promise<void> {
@@ -60,7 +60,7 @@ export class ButtonClasificationComponent implements OnInit {
         if (button) {
             await this._existButton(button);
             this.clickButton.emit(this._dataTable);
-            this._changeTabService.changeTab(button.codigo, button.descripcion);
+            this._changeSubTabService.changeSubTab(button.codigo, button.descripcion);
         } else {
             switch (
                 target.textContent.trim() // Si se pulsa un buttonsAdditional, se navega a la ruta correspondiente
