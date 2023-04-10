@@ -70,29 +70,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         useStarWitch: true,
         width: 550,
         graphTitle: 'Gastos por área de programa',
-        buttons: [
-            {
-                name: 'Por áreas',
-                clasificationType: 'gastosProgramaAreas',
-                selected: false,
-            },
-            {
-                name: 'Por política',
-                clasificationType: 'gastosProgramaPoliticas',
-                selected: true,
-            },
-            {
-                name: 'Por grupo programas',
-                clasificationType: 'gastosProgramaGrupos',
-                selected: false,
-            },
-            {
-                name: 'Por programa',
-                clasificationType: 'gastosProgramaProgramas',
-                selected: false,
-            },
-        ],
-        buttonsAdditional: ['Gráfico detalladado', 'Detalle del programa seleccionado'],
     },
     gastosProgramaPoliticas: {
         attribute: 'CodPro',
@@ -103,29 +80,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         useStarWitch: true,
         width: 550,
         graphTitle: 'Gastos por política de gasto',
-        buttons: [
-            {
-                name: 'Por áreas',
-                clasificationType: 'gastosProgramaAreas',
-                selected: false,
-            },
-            {
-                name: 'Por política',
-                clasificationType: 'gastosProgramaPoliticas',
-                selected: true,
-            },
-            {
-                name: 'Por grupo programas',
-                clasificationType: 'gastosProgramaGrupos',
-                selected: false,
-            },
-            {
-                name: 'Por programa',
-                clasificationType: 'gastosProgramaProgramas',
-                selected: false,
-            },
-        ],
-        buttonsAdditional: ['Gráfico detalladado', 'Detalle del programa seleccionado'],
     },
     gastosProgramaGrupos: {
         attribute: 'CodPro',
@@ -136,29 +90,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         useStarWitch: true,
         width: 550,
         graphTitle: 'Gastos por grupo de programa',
-        buttons: [
-            {
-                name: 'Por áreas',
-                clasificationType: 'gastosProgramaAreas',
-                selected: false,
-            },
-            {
-                name: 'Por política',
-                clasificationType: 'gastosProgramaPoliticas',
-                selected: true,
-            },
-            {
-                name: 'Por grupo programas',
-                clasificationType: 'gastosProgramaGrupos',
-                selected: false,
-            },
-            {
-                name: 'Por programa',
-                clasificationType: 'gastosProgramaProgramas',
-                selected: false,
-            },
-        ],
-        buttonsAdditional: ['Gráfico detalladado', 'Detalle del programa seleccionado'],
     },
     gastosProgramaProgramas: {
         attribute: 'CodPro',
@@ -180,7 +111,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por política',
                 clasificationType: 'gastosProgramaPoliticas',
-                selected: true,
+                selected: false,
                 codigo: 'CodPro',
                 descripcion: 'DesPro',
             },
@@ -194,7 +125,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por programa',
                 clasificationType: 'gastosProgramaProgramas',
-                selected: false,
+                selected: true,
                 codigo: 'CodPro',
                 descripcion: 'DesPro',
             },
@@ -210,31 +141,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         useStarWitch: true,
         width: 250,
         graphTitle: 'Gastos por capítulo',
-        buttons: [
-            {
-                name: 'Por capítulo gasto',
-                clasificationType: 'gastosEconomicaCapitulos',
-                selected: false,
-                codigo: 'CodCap',
-                descripcion: 'DesCap',
-            },
-            {
-                name: 'Por artículo',
-                clasificationType: 'gastosEconomicaArticulos',
-                selected: true,
-            },
-            {
-                name: 'Por concepto',
-                clasificationType: 'gastosEconomicaConceptos',
-                selected: false,
-            },
-            {
-                name: 'Por económico',
-                clasificationType: 'gastosEconomicaEconomicos',
-                selected: false,
-            },
-        ],
-        buttonsAdditional: ['Gráfico detalladado', 'Programas que gastan del elemento seleccionado'],
     },
     gastosEconomicaArticulos: {
         attribute: 'CodEco',
@@ -245,37 +151,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         useStarWitch: true,
         width: 550,
         graphTitle: 'Gastos por artículo',
-        buttons: [
-            {
-                name: 'Por capítulo gasto',
-                clasificationType: 'gastosEconomicaCapitulos',
-                selected: false,
-                codigo: 'CodEco',
-                descripcion: 'DesEco',
-            },
-            {
-                name: 'Por artículo',
-                clasificationType: 'gastosEconomicaArticulos',
-                selected: true,
-                codigo: 'CodEco',
-                descripcion: 'DesEco',
-            },
-            {
-                name: 'Por concepto',
-                clasificationType: 'gastosEconomicaConceptos',
-                selected: false,
-                codigo: 'CodEco',
-                descripcion: 'DesEco',
-            },
-            {
-                name: 'Por económico',
-                clasificationType: 'gastosEconomicaEconomicos',
-                selected: false,
-                codigo: 'CodEco',
-                descripcion: 'DesEco',
-            },
-        ],
-        buttonsAdditional: ['Gráfico detalladado', 'Programas que gastan del elemento seleccionado'],
     },
     gastosEconomicaConceptos: {
         attribute: 'CodEco',
@@ -295,7 +170,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por artículo',
                 clasificationType: 'gastosEconomicaArticulos',
-                selected: true,
+                selected: false,
             },
             {
                 name: 'Por concepto',
@@ -305,7 +180,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por económico',
                 clasificationType: 'gastosEconomicaEconomicos',
-                selected: false,
+                selected: true,
             },
         ],
         buttonsAdditional: ['Gráfico detalladado', 'Programas que gastan del elemento seleccionado'],
@@ -330,7 +205,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por artículo',
                 clasificationType: 'gastosEconomicaArticulos',
-                selected: true,
+                selected: false,
                 codigo: 'CodEco',
                 descripcion: 'DesEco',
             },
@@ -344,7 +219,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por económico',
                 clasificationType: 'gastosEconomicaEconomicos',
-                selected: false,
+                selected: true,
                 codigo: 'CodPro',
                 descripcion: 'DesPro',
             },
