@@ -40,8 +40,6 @@ export class TableGastosComponent implements OnInit {
     }
 
     private async _loadTable() {
-        console.log(this.dataTable);
-
         this._dataTable = this.dataTable;
         this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
         this.setColumnDefs();
