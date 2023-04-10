@@ -5,6 +5,7 @@ import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 import { IButtonClasification } from '../../model/components.interface';
 
+import { ChangeSubTabService } from '../../../../services/change-subtab.service';
 import { DataStoreService } from '../../../../services/dataStore.service';
 import { HasDataChangeService } from '../../../../services/hasDataChange.service';
 import { HasRowClicked } from '../../../../services/hasRowClicked.service';
@@ -13,7 +14,6 @@ import { TabStateService } from '../../../../services/tabState.service';
 import { TableService } from '../../../../services/table.service';
 
 import { CLASIFICATION_TYPE } from '../../../../commons/util/util';
-import { ChangeSubTabService } from '../../../../services/change-subtab.service';
 import { getClasificacion } from '../../../data-table';
 
 @Component({
