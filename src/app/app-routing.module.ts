@@ -12,7 +12,10 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'visionGlobal', component: IndiceComponent },
     { path: 'detallePresupuesto', component: DetalleComponent },
-    // { path: 'detallePresupuesto', loadChildren: () => import('./detalle/detalle.module').then((m) => m.DetallePresupuestoModule) },
+    // {
+    //     path: 'detallePresupuesto',
+    //     loadChildren: () => import('./detalle/detalle.module').then((m) => m.DetallePresupuestoModule),
+    // },
     { path: 'empleados', component: EmpleadosComponent },
     { path: 'explicamos', component: ExplicamosComponent },
     { path: 'glosario', component: GlosarioComponent },
