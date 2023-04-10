@@ -28,6 +28,8 @@ export class ButtonClasificationComponent implements OnInit {
     private _dataTable: IDataTable;
     private _dataGraph: IDataGraph = {} as IDataGraph;
     private row: string = '';
+    private _clasificationType: CLASIFICATION_TYPE;
+
     public showTable = true;
     public buttons: IButtonClasification[] = [];
     public buttonsAdditional: string[] = [];
@@ -61,6 +63,7 @@ export class ButtonClasificationComponent implements OnInit {
             await this._existButton(button);
             this.clickButton.emit(this._dataTable);
             this._changeSubTabService.changeSubTab(button.codigo, button.descripcion);
+            this._clasificationType = button.clasificationType;
         } else {
             switch (
                 target.textContent.trim() // Si se pulsa un buttonsAdditional, se navega a la ruta correspondiente
@@ -107,6 +110,7 @@ export class ButtonClasificationComponent implements OnInit {
         });
 
         this._dataGraph.rowDataGastos = this._dataTable.rowDataGastos;
+        this._dataGraph.clasificationType = this._clasificationType;
         this._router.navigateByUrl('/graphGastos').then(() => {
             this._dataStoreService.setData({
                 ...this._dataStoreService.dataGraph,

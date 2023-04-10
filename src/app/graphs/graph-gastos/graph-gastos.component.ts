@@ -37,14 +37,12 @@ export class GraphGastosComponent implements OnDestroy {
         private _dataStoreService: DataStoreService,
         private _hasRowClicked: HasRowClicked
     ) {
-        this._subscription = this._dataStoreService.dataSource$.subscribe(
-            (data) => {
-                this._dataGraph = data;
-                this._createData();
-                this._createColumns();
-                this._showGraph();
-            }
-        );
+        this._subscription = this._dataStoreService.dataSource$.subscribe((data) => {
+            this._dataGraph = data;
+            this._createData();
+            this._createColumns();
+            this._showGraph();
+        });
     }
 
     ngOnDestroy(): void {
@@ -54,37 +52,37 @@ export class GraphGastosComponent implements OnDestroy {
     }
 
     private async _createData() {
+        console.log('this._dataGraph', this._dataGraph);
+
         if (this._dataGraph.clasificationType != 'aplicacion') {
             this.hasRowClicked$.subscribe((value) => {
                 this.row = value;
             });
             const codigo = this.row.split(' ')[0];
+            console.log('codigo', codigo);
+            console.log('this._dataGraph.clasificationType', this._dataGraph.clasificationType);
 
             switch (this._dataGraph.clasificationType) {
                 case 'gastosOrganicaOrganicos':
-                    this.datos = this._dataGraph.rowDataGastos.filter(
-                        (x) => x.CodOrg == codigo
-                    );
+                    this.datos = this._dataGraph.rowDataGastos.filter((x) => x.CodOrg == codigo);
                     break;
                 case 'gastosProgramaAreas':
                 case 'gastosProgramaPoliticas':
                 case 'gastosProgramaGrupos':
                 case 'gastosProgramaProgramas':
-                    this.datos = this._dataGraph.rowDataGastos.filter(
-                        (x) => x.CodPro == codigo
-                    );
+                    console.log('this._dataGraph.rowDataGastos', this._dataGraph.rowDataGastos);
+
+                    this.datos = this._dataGraph.rowDataGastos.filter((x) => x.CodPro == codigo);
+                    console.log('this.datos', this.datos);
                     break;
                 case 'gastosEconomicaCapitulos':
-                    this.datos = this._dataGraph.rowDataGastos.filter(
-                        (x) => x.CodCap == codigo
-                    );
+                    this.datos = this._dataGraph.rowDataGastos.filter((x) => x.CodCap == codigo);
                     break;
                 case 'gastosEconomicaArticulos':
                 case 'gastosEconomicaConceptos':
                 case 'gastosEconomicaEconomicos':
-                    this.datos = this._dataGraph.rowDataGastos.filter(
-                        (x) => x.CodEco == codigo
-                    );
+                    this.datos = this._dataGraph.rowDataGastos.filter((x) => x.CodEco == codigo);
+
                     break;
             }
         } else {
@@ -92,14 +90,8 @@ export class GraphGastosComponent implements OnDestroy {
         }
         const yearsIniciales = accumulate('Iniciales', this.datos);
         const yearsDefinitivas = accumulate('Definitivas', this.datos);
-        const yearsObligacionesNetas = accumulate(
-            'ObligacionesReconocidasNetas',
-            this.datos
-        );
-        const yearsObligacionesPendientes = accumulate(
-            'ObligacionesPendientePago',
-            this.datos
-        );
+        const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', this.datos);
+        const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', this.datos);
 
         this.data = [];
         for (let index = 2015; index <= 2023; index++) {
