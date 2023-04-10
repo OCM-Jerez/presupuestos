@@ -6,9 +6,6 @@ HighchartsTreemap(Highcharts);
 import { ChangeSubTabService } from '../../../services/change-subtab.service';
 import { DataStoreService } from '../../../services/dataStore.service';
 import { PrepareDataTreemapService } from '../../../services/prepareDataTreemap.service';
-// interface ITabMapping {
-//     [id: number]: { code: string; desc: string };
-// }
 @Component({
     selector: 'app-treemap',
     templateUrl: './treemap.component.html',
@@ -25,8 +22,6 @@ export class TreemapComponent implements OnInit, OnChanges {
     ) {}
 
     ngOnInit(): void {
-        console.log(HighchartsTreemap);
-
         this._changeTabService.source$.subscribe((data) => {
             this.loadData(data.codField, data.desField);
         });
@@ -61,8 +56,6 @@ export class TreemapComponent implements OnInit, OnChanges {
 
     showTreemap() {
         const data = this._dataTreeMap;
-        console.log('data', data);
-
         Highcharts.chart('treemap', {
             accessibility: {
                 enabled: false,
