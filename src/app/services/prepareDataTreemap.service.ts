@@ -10,13 +10,11 @@ export class PrepareDataTreemapService {
             const item =
                 aRestar === undefined
                     ? {
-                          name:
-                              curr[codigo] +
-                              '-' +
-                              curr[descripcion] +
-                              '  ' +
-                              curr[campoSumatorio].toLocaleString('de-DE') +
-                              ' €',
+                          name: curr[codigo] + '-' + curr[descripcion],
+                          //    +
+                          //   '  ' +
+                          //   curr[campoSumatorio].toLocaleString('de-DE') +
+                          //   ' €',
                           value: curr[campoSumatorio],
                       }
                     : {
@@ -85,6 +83,7 @@ export class PrepareDataTreemapService {
             colorIndex > 25 ? (colorIndex = 0) : colorIndex;
             item.color = colors[colorIndex];
             item.euros = item.value.toLocaleString('de-DE') + ' €';
+            item.name = item.name + '  ' + item.euros;
         });
 
         return data;

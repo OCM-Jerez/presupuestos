@@ -82,7 +82,6 @@ export class TreemapComponent implements OnInit, OnChanges {
                 enabled: true,
                 headerFormat: `<span class="mb-2">{point.key}</span>`,
                 pointFormat: `<span class="mb-2">{point.key}</span>`,
-                // pointFormat: '<span>Euros: {point.value}</span></br><span>Color: {point.colorValue}</span>',
                 // pointFormat: '<span>Euros: {point.euros}</span>',
                 useHTML: true,
             },
