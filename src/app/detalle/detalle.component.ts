@@ -18,6 +18,8 @@ export class DetalleComponent {
     }
 
     async selectedTab(idTab: number) {
+        console.log('idTab', idTab);
+
         this.idTab = idTab;
     }
 }
