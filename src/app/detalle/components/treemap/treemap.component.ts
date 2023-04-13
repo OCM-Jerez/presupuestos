@@ -11,13 +11,16 @@ import { DataStoreService } from '../../../services/dataStore.service';
 import { PrepareDataTreemapService } from '../../../services/prepareDataTreemap.service';
 import { SelectedTabNewService } from '../../../services/selectedTabNew.service';
 
+import { IGastos } from '../../../commons/interfaces/gastos.interface';
+import { IIngresos } from '../../../commons/interfaces/ingresos.interface';
+
 @Component({
     selector: 'app-treemap',
     templateUrl: './treemap.component.html',
     styleUrls: ['./treemap.component.scss'],
 })
 export class TreemapComponent implements OnInit {
-    _dataTreeMap: any;
+    _dataTreeMap: IIngresos | IGastos;
     private _tabSelected: number;
     private _unsubscribe$ = new Subject<void>();
     private tabMapping = {
@@ -66,8 +69,6 @@ export class TreemapComponent implements OnInit {
 
     loadData(codField: string, desField: string) {
         const loadData = this._dataStoreService.dataTable;
-        console.log('loadData', loadData);
-
         this._dataTreeMap = this.dataTreemap(
             this._tabSelected === 1 ? loadData.rowDataIngresos : loadData.rowDataGastos,
             codField,
