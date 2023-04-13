@@ -152,17 +152,13 @@ End Sub
     -   Saldo de Pagos Ordenados
     -   Total gastado
     -   Saldo de Créditos disponibles
+
     -   Saldo de Créditos disp. a nivel de Vinculación
     -   % de Realizacion del Presupuesto
     -   Facturas consumen disp. Pend. Contabilizar
     -   Gastado en Fase Definitiva
 
--   Añadir columnas a partir de la columna D inclusive
-    ⋅⋅⋅CodCap
-    ⋅⋅⋅DesCap
-    ⋅⋅⋅DesOrg
-    ⋅⋅⋅DesPro
-    ⋅⋅⋅DesEco
+-   Añadir 5 columna DEWSPUES de la columna C
 
 -   Insertar fila para copiar los datos de la caabecera aanterior.
 -   Copiar cabecera de fichero anterior. ES IMPORTANTE QUE COINCIDAN LAS COLUMNAS.
@@ -236,7 +232,7 @@ End Sub
 -   En el csv dejar unicamente las dos primeras columnas antes de convertir a JSON
 -   Solo guardo el Excel actualizado el JSON actualizado lo muevo a assets.
 
-**\*\***\*\*\***\*\*** INGRESOS **\*\*\*\***\*\*\*\***\*\*\*\***
+**\*\***\*\*\***\*\*** INGRESOS **\*\*\*\***\*\*\*\***\*\*\*\*\*\***\*\*\*\***\*\*\*\*\*\***\*\*\*\***\*\*\*\*\*\***\*\*\*\***\*\*\*\*\*\***\*\*\*\***\*\*\*\***
 
 -   Abrir Excel original
 -   Guardar en carpeta OCM.
@@ -252,7 +248,7 @@ End Sub
 -   Copiar primera fila Excel anterior.
 -   Copiar formulas 3 nuevas columnas a partir columna B.
 -   Es importante que el ultimo valor sea 0 para que sea busqueda exacta y en caso de faltar algun valor en la tabla de #N/D
--   Comprobar #N/D.
+-   Comprobar #N/D
 -   Cambiar formato columnas F a O inclusive para que en alineación no haya nada combinado.
 -   Copiar Cabecera columnas F a O inclusive y pegar a partir de Q
 -   Multiplicar \* 1 columnas F a O inclusive.
