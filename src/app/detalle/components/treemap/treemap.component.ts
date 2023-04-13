@@ -1,4 +1,6 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil, tap } from 'rxjs/operators';
 
 import * as Highcharts from 'highcharts';
 import HighchartsTreemap from 'highcharts/modules/treemap';
@@ -13,10 +15,11 @@ import { SelectedTabNewService } from '../../../services/selectedTabNew.service'
     templateUrl: './treemap.component.html',
     styleUrls: ['./treemap.component.scss'],
 })
-export class TreemapComponent implements OnInit, OnChanges {
+export class TreemapComponent implements OnInit {
     @Input() idTabPrincipal: number;
     _dataTreeMap: any;
     private _tabSelected: number;
+    private _unsubscribe$: Subject<void> = new Subject<void>();
 
     constructor(
         private _changeSubTabService: ChangeSubTabService,
@@ -25,31 +28,44 @@ export class TreemapComponent implements OnInit, OnChanges {
         private _selectedTabNewService: SelectedTabNewService
     ) {}
 
-    ngOnInit(): void {}
+    ngOnInit() {
+        this._selectedTabNewService.source$
+            .pipe(
+                takeUntil(this._unsubscribe$),
+                tap((data) => {
+                    this._tabSelected = data;
+                    this.changeSubTabByTabSelected();
+                })
+            )
+            .subscribe();
 
-    ngOnChanges(): void {
-        this._selectedTabNewService.source$.subscribe((data) => {
-            this._tabSelected = data;
-        });
-        switch (this._tabSelected) {
-            case 1:
-                this._changeSubTabService.changeSubTab('CodEco', 'DesEco');
-                break;
-            case 2:
-                this._changeSubTabService.changeSubTab('CodPro', 'DesPro');
-                break;
-            case 3:
-                this._changeSubTabService.changeSubTab('CodOrg', 'DesOrg');
-                break;
-            case 4:
-                this._changeSubTabService.changeSubTab('CodEco', 'DesEco');
-                break;
+        this._changeSubTabService.source$
+            .pipe(
+                takeUntil(this._unsubscribe$),
+                tap((data) => {
+                    this.loadData(data.codField, data.desField);
+                })
+            )
+            .subscribe();
+    }
+
+    ngOnDestroy() {
+        this._unsubscribe$.next();
+        this._unsubscribe$.complete();
+    }
+
+    private changeSubTabByTabSelected() {
+        const tabMapping = {
+            1: { code: 'CodEco', description: 'DesEco' },
+            2: { code: 'CodPro', description: 'DesPro' },
+            3: { code: 'CodOrg', description: 'DesOrg' },
+            4: { code: 'CodEco', description: 'DesEco' },
+        };
+
+        const tabInfo = tabMapping[this._tabSelected];
+        if (tabInfo) {
+            this._changeSubTabService.changeSubTab(tabInfo.code, tabInfo.description);
         }
-
-        this._changeSubTabService.source$.subscribe((data) => {
-            this.loadData(data.codField, data.desField);
-            this.loadData(data.codField, data.desField);
-        });
     }
 
     loadData(codField: string, desField: string) {
