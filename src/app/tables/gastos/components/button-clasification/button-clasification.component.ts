@@ -60,6 +60,8 @@ export class ButtonClasificationComponent implements OnInit {
         );
 
         if (button) {
+            // console.log('button', button);
+
             await this._existButton(button);
             this.clickButton.emit(this._dataTable);
             this._changeSubTabService.changeSubTab(button.codigo, button.descripcion);
