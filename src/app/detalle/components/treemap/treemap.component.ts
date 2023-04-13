@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, merge } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 
 import * as Highcharts from 'highcharts';
@@ -10,6 +10,7 @@ import { ChangeSubTabService } from '../../../services/change-subtab.service';
 import { DataStoreService } from '../../../services/dataStore.service';
 import { PrepareDataTreemapService } from '../../../services/prepareDataTreemap.service';
 import { SelectedTabNewService } from '../../../services/selectedTabNew.service';
+
 @Component({
     selector: 'app-treemap',
     templateUrl: './treemap.component.html',
@@ -19,7 +20,13 @@ export class TreemapComponent implements OnInit {
     @Input() idTabPrincipal: number;
     _dataTreeMap: any;
     private _tabSelected: number;
-    private _unsubscribe$: Subject<void> = new Subject<void>();
+    private _unsubscribe$ = new Subject<void>();
+    private tabMapping = {
+        1: { code: 'CodEco', description: 'DesEco' },
+        2: { code: 'CodPro', description: 'DesPro' },
+        3: { code: 'CodOrg', description: 'DesOrg' },
+        4: { code: 'CodEco', description: 'DesEco' },
+    };
 
     constructor(
         private _changeSubTabService: ChangeSubTabService,
@@ -29,23 +36,20 @@ export class TreemapComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this._selectedTabNewService.source$
-            .pipe(
-                takeUntil(this._unsubscribe$),
+        merge(
+            this._selectedTabNewService.source$.pipe(
                 tap((data) => {
                     this._tabSelected = data;
                     this.changeSubTabByTabSelected();
                 })
-            )
-            .subscribe();
-
-        this._changeSubTabService.source$
-            .pipe(
-                takeUntil(this._unsubscribe$),
+            ),
+            this._changeSubTabService.source$.pipe(
                 tap((data) => {
                     this.loadData(data.codField, data.desField);
                 })
             )
+        )
+            .pipe(takeUntil(this._unsubscribe$))
             .subscribe();
     }
 
@@ -55,14 +59,7 @@ export class TreemapComponent implements OnInit {
     }
 
     private changeSubTabByTabSelected() {
-        const tabMapping = {
-            1: { code: 'CodEco', description: 'DesEco' },
-            2: { code: 'CodPro', description: 'DesPro' },
-            3: { code: 'CodOrg', description: 'DesOrg' },
-            4: { code: 'CodEco', description: 'DesEco' },
-        };
-
-        const tabInfo = tabMapping[this._tabSelected];
+        const tabInfo = this.tabMapping[this._tabSelected];
         if (tabInfo) {
             this._changeSubTabService.changeSubTab(tabInfo.code, tabInfo.description);
         }
