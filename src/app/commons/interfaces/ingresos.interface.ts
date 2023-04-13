@@ -1,4 +1,3 @@
-// datos.interface.ts
 export interface IIngresos {
     CodArt: number;
     CodCap: number;

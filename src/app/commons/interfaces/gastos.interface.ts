@@ -1,4 +1,3 @@
-// proyecto.interface.ts
 export interface IGastos {
     CodCap: number;
     CodEco?: number;
