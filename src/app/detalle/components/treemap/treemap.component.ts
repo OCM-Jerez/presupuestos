@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subject, merge } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 
@@ -17,7 +17,6 @@ import { SelectedTabNewService } from '../../../services/selectedTabNew.service'
     styleUrls: ['./treemap.component.scss'],
 })
 export class TreemapComponent implements OnInit {
-    @Input() idTabPrincipal: number;
     _dataTreeMap: any;
     private _tabSelected: number;
     private _unsubscribe$ = new Subject<void>();
@@ -67,6 +66,8 @@ export class TreemapComponent implements OnInit {
 
     loadData(codField: string, desField: string) {
         const loadData = this._dataStoreService.dataTable;
+        console.log('loadData', loadData);
+
         this._dataTreeMap = this.dataTreemap(
             this._tabSelected === 1 ? loadData.rowDataIngresos : loadData.rowDataGastos,
             codField,

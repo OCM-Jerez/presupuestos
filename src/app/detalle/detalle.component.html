@@ -6,11 +6,10 @@
     </div>
 
     <app-table-presupuesto></app-table-presupuesto>
-    <app-treemap [idTabPrincipal]="idTab"></app-treemap>
+    <app-treemap></app-treemap>
 
     <app-tabs (selectedTab)="selectedTab($event)">
         <app-tab tabTitle="Ingresos" [idTab]="1" [active]="true">
-            <app-treemap [idTabPrincipal]="1"></app-treemap>
             <app-table-ingresos
                 [fieldsHide]="[
                     'DerechosReconocidos',
