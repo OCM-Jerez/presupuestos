@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+
 import * as Highcharts from 'highcharts';
 import HighchartsTreemap from 'highcharts/modules/treemap';
 HighchartsTreemap(Highcharts);
@@ -18,51 +19,16 @@ export class TreemapComponent implements OnInit, OnChanges {
     private _tabSelected: number;
 
     constructor(
-        private _prepareDataTreemapService: PrepareDataTreemapService,
         private _changeSubTabService: ChangeSubTabService,
         private _dataStoreService: DataStoreService,
+        private _prepareDataTreemapService: PrepareDataTreemapService,
         private _selectedTabNewService: SelectedTabNewService
     ) {}
 
-    ngOnInit(): void {
-        this._changeSubTabService.source$.subscribe((data) => {
-            this.loadData(data.codField, data.desField);
-            // console.log(data.codField, data.desField);
-        });
-        this._selectedTabNewService.source$.subscribe((data) => {
-            // console.log(data);
-            this._tabSelected = data;
-        });
-        // switch (this._tabSelected) {
-        //     case 1:
-        //         this._changeSubTabService.changeSubTab('CodEco', 'DesEco');
-        //         break;
-        //     case 2:
-        //         this._changeSubTabService.changeSubTab('CodPro', 'DesPro');
-        //         break;
-        //     case 3:
-        //         this._changeSubTabService.changeSubTab('CodOrg', 'DesOrg');
-        //         break;
-        //     case 4:
-        //         this._changeSubTabService.changeSubTab('CodEco', 'DesEco');
-        //         break;
-
-        //     default:
-        //         break;
-        // }
-    }
+    ngOnInit(): void {}
 
     ngOnChanges(): void {
-        // console.log('ngOnChanges');
-        // this.loadData(data.codField, data.desField);
-        // this.loadData('CodEco"', 'desEco');
-        this._changeSubTabService.source$.subscribe((data) => {
-            this.loadData(data.codField, data.desField);
-            // console.log(data.codField, data.desField);
-        });
-
         this._selectedTabNewService.source$.subscribe((data) => {
-            // console.log(data);
             this._tabSelected = data;
         });
         switch (this._tabSelected) {
@@ -78,32 +44,17 @@ export class TreemapComponent implements OnInit, OnChanges {
             case 4:
                 this._changeSubTabService.changeSubTab('CodEco', 'DesEco');
                 break;
-
-            default:
-                break;
         }
 
         this._changeSubTabService.source$.subscribe((data) => {
             this.loadData(data.codField, data.desField);
-            // console.log(data.codField, data.desField);
             this.loadData(data.codField, data.desField);
         });
-
-        this.showTreemap();
-
-        // if (this._dataTreeMap) {
-        //     setTimeout(() => {
-        //         this.showTreemap();
-        //     }, 0);
-        // }
     }
 
     loadData(codField: string, desField: string) {
-        // console.log(this._dataStoreService.dataTable);
-
         const loadData = this._dataStoreService.dataTable;
         this._dataTreeMap = this.dataTreemap(
-            // this.idTabPrincipal === 1 ? loadData.rowDataIngresos : loadData.rowDataGastos,
             this._tabSelected === 1 ? loadData.rowDataIngresos : loadData.rowDataGastos,
             codField,
             desField
@@ -119,7 +70,6 @@ export class TreemapComponent implements OnInit, OnChanges {
     }
 
     dataTreemap(data: any, codField: string, desField: string) {
-        // console.log(this.idTabPrincipal, data, codField, desField);
         return this._prepareDataTreemapService.calcSeries(data, codField, desField, 'Definitivas2023');
     }
 
