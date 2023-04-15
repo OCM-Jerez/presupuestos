@@ -20,6 +20,7 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
 import { ChangeSubTabService } from '../../services/change-subtab.service';
+import { SelectedSubTab1Service } from '../../services/selectedSubTab1.service';
 import { getClasificacion } from '../data-table';
 
 @Component({
@@ -57,7 +58,8 @@ export class TableIngresosComponent implements OnInit {
         private _prepareDataTreemapService: PrepareDataTreemapService,
         private _router: Router,
         private _tableService: TableService,
-        private _changeSubTabService: ChangeSubTabService
+        private _changeSubTabService: ChangeSubTabService,
+        private _selectedSubTab1Service: SelectedSubTab1Service
     ) {}
 
     async ngOnInit(): Promise<void> {
@@ -323,6 +325,7 @@ export class TableIngresosComponent implements OnInit {
         }
 
         this._dataStoreService.selectedCodeRowFirstLevel = '';
+        this._selectedSubTab1Service.setSelectedSubTab1(typeClasification);
 
         // console.log('Actualizo datos treemap en función del boton pulsado');
         // await this._prepareDataTreemapService.calcSeries(
