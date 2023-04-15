@@ -5,10 +5,10 @@ import { BehaviorSubject } from 'rxjs';
     providedIn: 'root',
 })
 export class SelectedSubTab1Service {
-    private SelectedSubTab1 = new BehaviorSubject<number>(1);
+    private SelectedSubTab1 = new BehaviorSubject<string>('ingresosEconomicaEconomicos');
     source$ = this.SelectedSubTab1.asObservable();
 
-    setSelectedSubTab1(selectedSubTab1: number) {
+    setSelectedSubTab1(selectedSubTab1: string) {
         this.SelectedSubTab1.next(selectedSubTab1);
     }
 }
