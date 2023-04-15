@@ -39,8 +39,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        // padding: 20px 20px;
-        // margin-left: 50%;
         border-right: 1px solid #f4f4f4;
         text-decoration: none;
         color: rgb(46, 40, 40);
@@ -53,10 +51,6 @@
     .header .menu-btn:hover {
         color: rgb(216, 175, 175);
     }
-
-    // .header {
-    //     display: none;
-    // }
     /* #endregion */
 
     .navbar {
@@ -67,14 +61,12 @@
         grid-row-gap: 0px;
         width: 99%;
         height: 100px; // Con barraBuscar 150px
-
         &--1row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background-color: map-get($OCM-colors, navBarBackground);
             height: 50px;
-
             &--logo {
                 // @include OCM-logo;
                 background: url('../../../assets/img/logoOCM.png');
@@ -82,7 +74,6 @@
                 width: 184px;
                 margin-left: 20px;
             }
-
             &--title {
                 width: 82%;
                 @include OCM-text;
@@ -117,7 +108,6 @@
         font-weight: 600;
         font-size: 18px;
         cursor: grab;
-
         &:hover {
             transform: scale(1.2);
             color: black;
@@ -136,7 +126,6 @@
         gap: 20px;
         background: #e7f2fc;
         margin-top: 0px;
-
         &--text {
             margin-top: 20px;
             font-size: 2.5rem;
@@ -211,8 +200,6 @@
         position: fixed;
         width: 100%;
         height: 0rem;
-        // margin-bottom: 10px;
-        // z-index: 3;
     }
 
     .header ul {
@@ -221,12 +208,10 @@
         list-style: none;
         overflow: hidden;
         background-color: #fff;
-        // border: 1px solid #130303;
     }
 
     .header li a {
         display: block;
-        // padding: 20px 20px;
         margin-left: 5%;
         text-decoration: none;
         color: rgb(9, 10, 1);
@@ -237,14 +222,6 @@
     .header .menu-btn:hover {
         background-color: #ea0f0f;
     }
-
-    // .header .logo {
-    //     display: block;
-    //     float: left;
-    //     font-size: 2em;
-    //     padding: 10px 20px;
-    //     text-decoration: none;
-    // }
 
     /* menu */
 
@@ -263,7 +240,6 @@
     .header .menu-icon {
         cursor: pointer;
         display: inline-block;
-        // float: right;
         padding: 18px 20px;
         position: relative;
         user-select: none;
@@ -298,7 +274,6 @@
     }
 
     /* menu btn */
-
     .header .menu-btn {
         display: none;
     }
@@ -323,7 +298,6 @@
     .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
         top: 0;
     }
-
     /* #endregion */
 
     /* #region .navbar  */
@@ -336,16 +310,12 @@
             &--brand {
                 width: 90px;
                 height: 30px;
-
                 &--logo {
-                    background: url('../../../assets/img/logoOCM.png') no-repeat
-                        center center;
+                    background: url('../../../assets/img/logoOCM.png') no-repeat center center;
                 }
-
                 &--text {
                     display: none;
                 }
-
                 &--text1 {
                     display: block;
                     color: white;
@@ -359,11 +329,9 @@
                 width: 300px;
                 font-size: 12px;
             }
-
             &--homeEmpty {
                 width: 0%;
             }
-
             &--home {
                 width: 0%;
             }
