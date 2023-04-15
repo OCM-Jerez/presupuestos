@@ -74,14 +74,7 @@ export class TreemapComponent implements OnInit {
             codField,
             desField
         );
-
         this.showTreemap();
-
-        // if (this._dataTreeMap) {
-        //     setTimeout(() => {
-        //         this.showTreemap();
-        //     }, 0);
-        // }
     }
 
     dataTreemap(data: any, codField: string, desField: string) {
