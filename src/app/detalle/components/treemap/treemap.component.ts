@@ -20,7 +20,7 @@ import { IIngresos } from '../../../commons/interfaces/ingresos.interface';
     styleUrls: ['./treemap.component.scss'],
 })
 export class TreemapComponent implements OnInit {
-    _dataTreeMap: IIngresos | IGastos;
+    private _dataTreeMap: IIngresos | IGastos;
     private _tabSelected: number;
     private _unsubscribe$ = new Subject<void>();
     private tabMapping = {
