@@ -10,8 +10,8 @@ import { DataStoreService } from '../../../../services/dataStore.service';
 import { HasDataChangeService } from '../../../../services/hasDataChange.service';
 import { HasRowClicked } from '../../../../services/hasRowClicked.service';
 import { SelectedButtonService } from '../../../../services/selectedButton.service';
-import { TabStateService } from '../../../../services/tabState.service';
 import { TableService } from '../../../../services/table.service';
+import { TabStateService } from '../../../../services/tabState.service';
 
 import { CLASIFICATION_TYPE } from '../../../../commons/util/util';
 import { getClasificacion } from '../../../data-table';
@@ -25,26 +25,26 @@ export class ButtonClasificationComponent implements OnInit {
     @Input() clasificationType: CLASIFICATION_TYPE;
     @Output() clickButton = new EventEmitter<IDataTable>();
 
-    private _dataTable: IDataTable;
-    private _dataGraph: IDataGraph = {} as IDataGraph;
-    private row: string = '';
-    private _clasificationType: CLASIFICATION_TYPE;
-
-    public showTable = true;
     public buttons: IButtonClasification[] = [];
     public buttonsAdditional: string[] = [];
     public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
-    isDisabled = true;
+    public isDisabled = true;
+    // public showTable = true;
+
+    private _clasificationType: CLASIFICATION_TYPE;
+    private _dataGraph: IDataGraph = {} as IDataGraph;
+    private _dataTable: IDataTable;
+    private _row: string = '';
 
     constructor(
         private _router: Router,
-        private _hasRowClicked: HasRowClicked,
-        private _tableService: TableService,
+        private _changeSubTabService: ChangeSubTabService,
         private _dataStoreService: DataStoreService,
         private _hasDataChangeService: HasDataChangeService,
+        private _hasRowClicked: HasRowClicked,
         private _selectedButtonService: SelectedButtonService,
-        private _tabStateService: TabStateService,
-        private _changeSubTabService: ChangeSubTabService
+        private _tableService: TableService,
+        private _tabStateService: TabStateService
     ) {}
 
     async ngOnInit(): Promise<void> {
@@ -108,7 +108,7 @@ export class ButtonClasificationComponent implements OnInit {
 
     showGraph() {
         this.hasRowClicked$.subscribe((value) => {
-            this.row = value;
+            this._row = value;
         });
 
         this._dataGraph.rowDataGastos = this._dataTable.rowDataGastos;
@@ -116,7 +116,7 @@ export class ButtonClasificationComponent implements OnInit {
         this._router.navigateByUrl('/graphGastos').then(() => {
             this._dataStoreService.setData({
                 ...this._dataStoreService.dataGraph,
-                graphSubTitle: this.row.split(' ')[0],
+                graphSubTitle: this._row.split(' ')[0],
             });
         });
         this._dataStoreService.selectedCodeRowFirstLevel = '';
