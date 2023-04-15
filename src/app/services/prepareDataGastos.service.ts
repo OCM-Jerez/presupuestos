@@ -71,11 +71,9 @@ export class PrepareDataGastosService {
                     [this.dataGasto.Modificaciones]: currentValue[1]['Modificaciones'],
                     [this.dataGasto.Definitivas]: currentValue[1]['Definitivas'],
                     [this.dataGasto.GastosComprometidos]: currentValue[1]['GastosComprometidos'],
-                    [this.dataGasto.ObligacionesReconocidasNetas]:
-                        currentValue[1]['ObligacionesReconocidasNetas'],
+                    [this.dataGasto.ObligacionesReconocidasNetas]: currentValue[1]['ObligacionesReconocidasNetas'],
                     [this.dataGasto.Pagos]: currentValue[1]['Pagos'],
-                    [this.dataGasto.ObligacionesPendientePago]:
-                        currentValue[1]['ObligacionesPendientePago'],
+                    [this.dataGasto.ObligacionesPendientePago]: currentValue[1]['ObligacionesPendientePago'],
                     [this.dataGasto.RemanenteCredito]: currentValue[1]['RemanenteCredito'],
                 });
             });
@@ -85,9 +83,7 @@ export class PrepareDataGastosService {
             case 'gastosProgramaAreas':
                 result.map((item) => {
                     item.CodPro = Math.floor(item.CodPro / 10000);
-                    item.DesPro = gastosProgramaAreas.find(
-                        (area) => area.codigo === item.CodPro
-                    ).descripcion;
+                    item.DesPro = gastosProgramaAreas.find((area) => area.codigo === item.CodPro).descripcion;
                 });
                 break;
             case 'gastosProgramaPoliticas':
@@ -139,7 +135,6 @@ export class PrepareDataGastosService {
                 });
                 break;
         }
-
         return result;
     }
 
