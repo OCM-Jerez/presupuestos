@@ -12,12 +12,6 @@
 @import '../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/legacy/ag-theme-balham-v22-compat.scss';
 
 // #region OCM
-
-// .app-footer {
-//   background-color: #d31f1f;
-//   height: 80px;
-// }
-
 // #region @media screen
 @media screen and (max-width: 6000px) {
     .OCM-app-root {
@@ -175,25 +169,20 @@
             font-size: clamp(1.5rem, 5vw, 2.5rem); // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
             text-align: center;
         }
-
         &--subtitulo {
             text-align: center;
             font-size: clamp(1rem, -0.875rem + 8.333vw, 1.5rem);
         }
-
         &--años {
             color: map-get($OCM-colors, claro);
             margin-bottom: 0.2rem;
         }
-
         &--ingresos {
             color: map-get($OCM-colors, claro);
         }
-
         &--gastos {
             color: map-get($OCM-colors, claro);
         }
-
         &--comparativas {
             color: map-get($OCM-colors, claro);
         }
