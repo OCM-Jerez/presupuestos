@@ -1,20 +1,12 @@
 import { Location } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import {
-    ColumnState,
-    GridApi,
-    GridOptions,
-    GridReadyEvent,
-} from 'ag-grid-community/main';
+import { ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
-import {
-    CellRendererOCM,
-    CellRendererOCMtext,
-} from '../../ag-grid/CellRendererOCM';
+import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 
 import { Subscription } from 'rxjs';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
@@ -26,8 +18,7 @@ import { PrepareDataGastosService } from '../../services/prepareDataGastos.servi
     templateUrl: './table-gastos-gruposprogramas-details.component.html',
     styleUrls: ['./table-gastos-gruposprogramas-details.component.scss'],
 })
-// export class TableGastosGruposprogramasDetailsComponent implements OnDestroy {
-export class TableGastosGruposprogramasDetailsComponent {
+export class TableGastosGruposprogramasDetailsComponent implements OnDestroy {
     @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
     public gridOptions: GridOptions;
     private _columnDefs: any[any];
@@ -42,13 +33,12 @@ export class TableGastosGruposprogramasDetailsComponent {
         public avalaibleYearsService: AvalaibleYearsService,
         public dataStoreService: DataStoreService,
         private _prepareDataGastosService: PrepareDataGastosService,
-        // private _route: ActivatedRoute,
+        private _route: ActivatedRoute,
         private _location: Location
     ) {
-        // this.sub = this._route.params.subscribe((params) => {
-        //     this.id = params['origen'];
-        // });
-        // console.log(this.id);
+        this.sub = this._route.params.subscribe((params) => {
+            this.id = params['origen'];
+        });
 
         this._columnDefs = [
             {
@@ -75,9 +65,7 @@ export class TableGastosGruposprogramasDetailsComponent {
                         //     }
                         // },
                         valueGetter: (params) => {
-                            return `${
-                                params.data.CodPro + ' - ' + params.data.DesPro
-                            }`;
+                            return `${params.data.CodPro + ' - ' + params.data.DesPro}`;
                         },
                     },
                 ],
@@ -86,7 +74,8 @@ export class TableGastosGruposprogramasDetailsComponent {
             ...this.avalaibleYearsService.getYearsSelected().map((year) => {
                 return {
                     headerName: year,
-                    children: this.createColumnsChildren(year),
+                    // children: this.createColumnsChildren(year),
+                    children: this.createColumnsChildrenDetalle(year),
                 };
             }),
         ];
@@ -132,39 +121,30 @@ export class TableGastosGruposprogramasDetailsComponent {
         });
     }
 
-    // ngOnDestroy(): void {
-    //     this.sub.unsubscribe();
-    // }
+    ngOnDestroy(): void {
+        this.sub.unsubscribe();
+    }
 
     onGridReady(params: GridReadyEvent) {
         this._gridApi = params.api;
-        const defaultSortModel: ColumnState[] = [
-            { colId: `Pagos2023`, sort: 'desc', sortIndex: 0 },
-        ];
+        const defaultSortModel: ColumnState[] = [{ colId: `Pagos2023`, sort: 'desc', sortIndex: 0 }];
         params.columnApi.applyColumnState({ state: defaultSortModel });
     }
 
     async createDataOCM(): Promise<void> {
         let cod = '';
-        const codigoSearch =
-            this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
-        const clasificationType =
-            this.dataStoreService.dataTable.clasificationType;
+        const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
+        const clasificationType = this.dataStoreService.dataTable.clasificationType;
 
-        if (this.id == 'gastan') {
-            cod =
-                clasificationType === 'gastosEconomicaCapitulos'
-                    ? 'CodCap'
-                    : 'CodEco';
+        if (this.id === 'gastan') {
+            cod = clasificationType === 'gastosEconomicaCapitulos' ? 'CodCap' : 'CodEco';
         } else {
             cod = 'CodOrg';
         }
 
-        this._rowData = (
-            await this._prepareDataGastosService.getDataAllYear(
-                clasificationType
-            )
-        ).filter((x) => x[cod] == codigoSearch);
+        this._rowData = (await this._prepareDataGastosService.getDataAllYear(clasificationType)).filter(
+            (x) => x[cod] == codigoSearch
+        );
     }
 
     createColumnsChildrenDetalle(year: number) {
@@ -212,8 +192,7 @@ export class TableGastosGruposprogramasDetailsComponent {
                         columnGroupShow: 'close',
                     },
                     {
-                        headerName:
-                            'Obligaciones pendientes de pago al final periodo',
+                        headerName: 'Obligaciones pendientes de pago al final periodo',
                         field: `ObligacionesPendientePago${year}`,
                         width: 120,
                         columnGroupShow: 'close',
