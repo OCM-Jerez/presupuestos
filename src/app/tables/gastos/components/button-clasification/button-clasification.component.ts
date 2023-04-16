@@ -74,6 +74,7 @@ export class ButtonClasificationComponent implements OnInit {
             await this._existButton(button);
             this.clickButton.emit(this._dataTable);
             this._changeSubTabService.changeSubTab(button.codigo, button.descripcion);
+
             this._clasificationType = button.clasificationType;
         } else {
             switch (
@@ -105,6 +106,7 @@ export class ButtonClasificationComponent implements OnInit {
         this._selectedTabNewService.source$.subscribe((value) => {
             this._tabSelected = value;
         });
+        // console.log(button.name);
 
         switch (this._tabSelected) {
             case 1:
@@ -128,6 +130,8 @@ export class ButtonClasificationComponent implements OnInit {
             name: button.name,
             selected: true,
         });
+
+        // console.log('this._dataTable', this._dataTable);
 
         this._hasDataChangeService.change(false);
         setTimeout(() => {
