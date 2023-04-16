@@ -45,36 +45,6 @@ export class TreemapComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this._selectedTabNewService.source$
-            .pipe(
-                tap((data) => {
-                    this._tabSelected = data;
-                    console.log('Has cambiado de tab: ', data);
-                    this.changeSubTabByTabSelected();
-                })
-            )
-            .pipe(takeUntil(this._unsubscribe$))
-            .subscribe();
-
-        this._changeSubTabService.source$
-            .pipe(
-                tap((data) => {
-                    console.log('Has cambiado de subtab: ', data);
-                    this._codField = data.codField;
-                    this._desField = data.desField;
-                    this.changeSubTabByTabSelected();
-                })
-            )
-            .pipe(takeUntil(this._unsubscribe$))
-            .subscribe();
-    }
-
-    ngOnDestroy() {
-        this._unsubscribe$.next();
-        this._unsubscribe$.complete();
-    }
-
-    private changeSubTabByTabSelected() {
         this._selectedSubTab1Service.source$.subscribe((data) => {
             this._subTabSelectd1 = data;
         });
@@ -92,6 +62,40 @@ export class TreemapComponent implements OnInit {
         console.log('subTabSelectd2: ', this._subTabSelectd2);
         console.log('subTabSelectd4: ', this._subTabSelectd4);
 
+        this._selectedTabNewService.source$
+            .pipe(
+                tap((data) => {
+                    this._tabSelected = data;
+                    console.log('Has cambiado de tab: ', data);
+                    this.setFields();
+                })
+            )
+            .pipe(takeUntil(this._unsubscribe$))
+            .subscribe();
+
+        this._changeSubTabService.source$
+            .pipe(
+                tap((data) => {
+                    console.log('Has cambiado de subtab: ', data);
+                    console.log('Has cambiado de subtab: ', this._subTabSelectd1);
+                    this._codField = data.codField;
+                    this._desField = data.desField;
+                    this.setFields();
+                })
+            )
+            .pipe(takeUntil(this._unsubscribe$))
+            .subscribe();
+
+        console.log('paso por aqui: ');
+    }
+
+    ngOnDestroy() {
+        this._unsubscribe$.next();
+        this._unsubscribe$.complete();
+    }
+
+    private setFields() {
+        console.log('changeSubTabByTabSelected');
         switch (this._tabSelected) {
             case 1:
                 switch (this._subTabSelectd1) {
@@ -113,6 +117,7 @@ export class TreemapComponent implements OnInit {
                 break;
 
             case 2:
+                console.log('Paso por tab 2');
                 this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
                 break;
 
@@ -136,25 +141,16 @@ export class TreemapComponent implements OnInit {
                 break;
         }
 
-        this.loadData(this._fields.codigo, this._fields.descripcion);
+        this.calcSeries(this._fields.codigo, this._fields.descripcion);
     }
 
-    loadData(codField: string, desField: string) {
-        console.log('codField: ', codField, 'desField: ', desField);
-
-        const loadData = this._dataStoreService.dataTable;
-        this._dataTreeMap = this.dataTreemap(
-            this._tabSelected === 1 ? loadData.rowDataIngresos : loadData.rowDataGastos,
-            codField,
-            desField
-        );
-        console.log('this._dataTreeMap: ', this._dataTreeMap);
-
+    calcSeries(codField: string, desField: string) {
+        const data =
+            this._tabSelected === 1
+                ? this._dataStoreService.dataTable.rowDataIngresos
+                : this._dataStoreService.dataTable.rowDataGastos;
+        this._dataTreeMap = this._prepareDataTreemapService.calcSeries(data, codField, desField, 'Definitivas2023');
         this.showTreemap();
-    }
-
-    dataTreemap(data: any, codField: string, desField: string) {
-        return this._prepareDataTreemapService.calcSeries(data, codField, desField, 'Definitivas2023');
     }
 
     showTreemap() {
