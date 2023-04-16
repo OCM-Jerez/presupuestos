@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
-
-import * as Highcharts from 'highcharts';
-import HighchartsTreemap from 'highcharts/modules/treemap';
-HighchartsTreemap(Highcharts);
 
 import { ChangeSubTabService } from '../../../services/change-subtab.service';
 import { DataStoreService } from '../../../services/dataStore.service';
@@ -15,6 +12,10 @@ import { SelectedSubTab4Service } from '../../../services/selectedSubTab4.servic
 import { SelectedTabNewService } from '../../../services/selectedTabNew.service';
 
 import { IDataTreemap } from '../../../commons/interfaces/dataTreemap.interface';
+
+import * as Highcharts from 'highcharts';
+import HighchartsTreemap from 'highcharts/modules/treemap';
+HighchartsTreemap(Highcharts);
 @Component({
     selector: 'app-treemap',
     templateUrl: './treemap.component.html',
@@ -37,10 +38,10 @@ export class TreemapComponent implements OnInit {
         private _changeSubTabService: ChangeSubTabService,
         private _dataStoreService: DataStoreService,
         private _prepareDataTreemapService: PrepareDataTreemapService,
-        private _selectedTabNewService: SelectedTabNewService,
         private _selectedSubTab1Service: SelectedSubTab1Service,
         private _selectedSubTab2Service: SelectedSubTab2Service,
-        private _selectedSubTab4Service: SelectedSubTab4Service
+        private _selectedSubTab4Service: SelectedSubTab4Service,
+        private _selectedTabNewService: SelectedTabNewService
     ) {}
 
     ngOnInit() {
