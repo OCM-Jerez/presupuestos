@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 interface IChangeSubTab {
     codField: string;
@@ -9,7 +9,7 @@ interface IChangeSubTab {
     providedIn: 'root',
 })
 export class ChangeSubTabService {
-    private _changeSubTab = new Subject<IChangeSubTab>();
+    private _changeSubTab = new BehaviorSubject<any>({ codField: 'CodEco', desField: 'DesEco' } as IChangeSubTab);
     source$ = this._changeSubTab.asObservable();
 
     changeSubTab(codField: string, desField: string) {
