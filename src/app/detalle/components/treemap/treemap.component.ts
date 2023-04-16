@@ -9,13 +9,12 @@ HighchartsTreemap(Highcharts);
 import { ChangeSubTabService } from '../../../services/change-subtab.service';
 import { DataStoreService } from '../../../services/dataStore.service';
 import { PrepareDataTreemapService } from '../../../services/prepareDataTreemap.service';
-import { SelectedTabNewService } from '../../../services/selectedTabNew.service';
-
-import { IDataTreemap } from '../../../commons/interfaces/dataTreemap.interface';
 import { SelectedSubTab1Service } from '../../../services/selectedSubTab1.service';
 import { SelectedSubTab2Service } from '../../../services/selectedSubTab2.service';
 import { SelectedSubTab4Service } from '../../../services/selectedSubTab4.service';
+import { SelectedTabNewService } from '../../../services/selectedTabNew.service';
 
+import { IDataTreemap } from '../../../commons/interfaces/dataTreemap.interface';
 @Component({
     selector: 'app-treemap',
     templateUrl: './treemap.component.html',
