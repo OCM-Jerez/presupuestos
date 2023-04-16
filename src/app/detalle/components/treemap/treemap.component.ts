@@ -25,7 +25,7 @@ export class TreemapComponent implements OnInit {
     // private _dataTreeMap: IIngresos | IGastos;
     private _dataTreeMap: IDataTreemap;
     private _tabSelected: number;
-    private _subTabSelectd: number;
+    // private _subTabSelectd: number;
     private _subTabSelectd1: string;
     private _subTabSelectd2: string;
     private _subTabSelectd4: string;
@@ -33,23 +33,6 @@ export class TreemapComponent implements OnInit {
     private _desField: string;
     private _fields = { codigo: '', descripcion: '' };
     private _unsubscribe$ = new Subject<void>();
-
-    // En prepareDataGastos.service.ts de asinan los diferentes nives a los campos CodPro o CodEco
-    // private tabMapping = {
-    //     11: { code: 'CodCap', description: 'DesCap' },
-    //     12: { code: 'CodArt', description: 'DesArt' },
-    //     13: { code: 'CodCon', description: 'DesCon' },
-    //     14: { code: 'CodEco', description: 'DesEco' },
-    //     21: { code: 'CodPro', description: 'DesPro' },
-    //     22: { code: 'CodPro', description: 'DesPro' },
-    //     23: { code: 'CodPro', description: 'DesPro' },
-    //     24: { code: 'CodPro', description: 'DesPro' },
-    //     31: { code: 'CodOrg', description: 'DesOrg' },
-    //     41: { code: 'CodEco', description: 'DesEco' },
-    //     42: { code: 'CodEco', description: 'DesEco' },
-    //     43: { code: 'CodEco', description: 'DesEco' },
-    //     44: { code: 'CodEco', description: 'DesEco' },
-    // };
 
     constructor(
         private _changeSubTabService: ChangeSubTabService,
@@ -79,7 +62,7 @@ export class TreemapComponent implements OnInit {
                     console.log('Has cambiado de subtab: ', data);
                     this._codField = data.codField;
                     this._desField = data.desField;
-                    this.loadData(data.codField, data.desField);
+                    this.changeSubTabByTabSelected();
                 })
             )
             .pipe(takeUntil(this._unsubscribe$))
@@ -114,19 +97,15 @@ export class TreemapComponent implements OnInit {
                 switch (this._subTabSelectd1) {
                     case 'ingresosEconomicaCapitulos':
                         this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
-                        // this._subTabSelectd = 11;
                         break;
                     case 'ingresosEconomicaArticulos':
                         this._fields = { codigo: 'CodArt', descripcion: 'DesArt' };
-                        // this._subTabSelectd = 12;
                         break;
                     case 'ingresosEconomicaConceptos':
-                        this._fields = { codigo: 'CodCon', descripcion: 'Descon' };
-                        // this._subTabSelectd = 13;
+                        this._fields = { codigo: 'CodCon', descripcion: 'DesCon' };
                         break;
                     case 'ingresosEconomicaEconomicos':
                         this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
-                        // this._subTabSelectd = 14;
                         break;
                     default:
                         break;
@@ -135,66 +114,29 @@ export class TreemapComponent implements OnInit {
 
             case 2:
                 this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
-                // switch (this._subTabSelectd2) {
-                //     case 'Por áreas' || 'Por programas':
-                //         // this._subTabSelectd = 21;
-                //         this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
-                //         break;
-                //     case 'Por política':
-                //         // this._subTabSelectd = 22;
-                //         this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
-                //         break;
-                //     case 'Por grupo programas':
-                //         // this._subTabSelectd = 23;
-                //         this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
-                //         break;
-                //     // case 'Por programa':
-                //     //     // this._subTabSelectd = 24;
-                //     //     break;
-                //     default:
-                //         break;
-                // }
                 break;
 
             case 3:
+                console.log('subTabSelectd3: No hay subTab');
                 this._fields = { codigo: 'CodOrg', descripcion: 'DesOrg' };
-                // this._subTabSelectd = 31;
                 break;
 
             case 4:
-                this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
-                // switch (this._subTabSelectd4) {
-                //     case 'Por capítulo gasto':
-                //         this._subTabSelectd = 41;
-                //         break;
-                //     case 'Por artículo':
-                //         this._subTabSelectd = 42;
-                //         break;
-                //     case 'Por concepto':
-                //         this._subTabSelectd = 43;
-                //         break;
-                //     case 'Por económico':
-                //         this._subTabSelectd = 44;
-                //         break;
-                //     default:
-                //         break;
-                // }
+                switch (this._subTabSelectd4) {
+                    case 'Por capítulo gasto':
+                        this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
+                        break;
+
+                    default:
+                        this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
+                        break;
+                }
                 break;
             default:
                 break;
         }
 
-        this._changeSubTabService.changeSubTab(this._fields.codigo, this._fields.descripcion);
-        console.log('this._fields: ', this._fields);
-        // this.loadData(this._fields.codigo, this._fields.descripcion);
-
-        // const tabInfo = this.tabMapping[this._subTabSelectd];
-        // if (tabInfo) {
-        //     this._changeSubTabService.changeSubTab(tabInfo.code, tabInfo.description);
-        //     console.log('tabInfo: ', tabInfo);
-
-        //     // this.loadData(tabInfo.code, tabInfo.description);
-        // }
+        this.loadData(this._fields.codigo, this._fields.descripcion);
     }
 
     loadData(codField: string, desField: string) {
