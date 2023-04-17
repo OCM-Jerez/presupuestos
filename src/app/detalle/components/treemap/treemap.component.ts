@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Subject, combineLatest } from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 
 import { ChangeSubTabService } from '../../../services/change-subtab.service';
@@ -49,38 +49,7 @@ export class TreemapComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        console.error('paso ngOnInit ');
-
-        // this._selectedTabNewService.source$
-        //     .pipe(
-        //         tap((data) => {
-        //             this._tabSelected = data;
-        //             console.log('Has cambiado de tab: ', data);
-        //             console.error('-----------------------------------------------------------------');
-        //             this.setFields();
-        //         })
-        //     )
-        //     .pipe(takeUntil(this._unsubscribe$))
-        //     .subscribe();
-
-        // this._changeSubTabService.source$
-        //     .pipe(
-        //         tap((data) => {
-        //             console.log('this._tabSelected: ', this._tabSelected);
-        //             console.log('Has cambiado de subtab: ', data);
-        //             console.log('Has cambiado de subtab: ', this._subTabSelectd1);
-        //             console.error('-----------------------------------------------------------------');
-        //             this._codField = data.codField;
-        //             this._desField = data.desField;
-        //             this.setFields();
-        //         })
-        //     )
-        //     .pipe(takeUntil(this._unsubscribe$))
-        //     .subscribe();
-
         this.subscribeToServices();
-
-        console.error('paso ngOnInit ');
     }
 
     subscribeToServices(): void {
@@ -96,37 +65,64 @@ export class TreemapComponent implements OnInit {
             this._subTabSelectd4 = data;
         });
 
-        console.log('tabSelectd: ', this._tabSelected);
-        console.log('subTabSelectd1: ', this._subTabSelectd1);
-        console.log('subTabSelectd2: ', this._subTabSelectd2);
-        console.log('subTabSelectd4: ', this._subTabSelectd4);
-        console.log('A partir de aqui me subscribo a los cambios de tab y subtab');
-        console.error('-----------------------------------------------------------------');
-
-        const selectedTab$ = this._selectedTabNewService.source$.pipe(
-            tap((data) => {
-                this._tabSelected = data;
-                console.log('Has cambiado de tab: ', data);
-                console.error('-----------------------------------------------------------------');
-            })
-        );
-
-        const changeSubTab$ = this._changeSubTabService.source$.pipe(
-            tap((data) => {
-                console.log('this._tabSelected: ', this._tabSelected);
-                console.log('Has cambiado de subtab: ', data);
-                console.log('Has cambiado de subtab: ', this._subTabSelectd1);
-                console.error('-----------------------------------------------------------------');
-                this._codField = data.codField;
-                this._desField = data.desField;
-            })
-        );
-
-        combineLatest([selectedTab$, changeSubTab$])
+        this._selectedTabNewService.source$
+            .pipe(
+                tap((data) => {
+                    this._tabSelected = data;
+                    console.log('Has cambiado de tab: ', data);
+                    console.error('-----------------------------------------------------------------');
+                    this.setFields();
+                })
+            )
             .pipe(takeUntil(this._unsubscribe$))
-            .subscribe(() => {
-                this.setFields();
-            });
+            .subscribe();
+
+        this._changeSubTabService.source$
+            .pipe(
+                tap((data) => {
+                    console.log('this._tabSelected: ', this._tabSelected);
+                    console.log('Has cambiado de subtab: ', data);
+                    console.log('Has cambiado de subtab: ', this._subTabSelectd1);
+                    console.error('-----------------------------------------------------------------');
+                    this._codField = data.codField;
+                    this._desField = data.desField;
+                    this.setFields();
+                })
+            )
+            .pipe(takeUntil(this._unsubscribe$))
+            .subscribe();
+
+        // console.log('tabSelectd: ', this._tabSelected);
+        // console.log('subTabSelectd1: ', this._subTabSelectd1);
+        // console.log('subTabSelectd2: ', this._subTabSelectd2);
+        // console.log('subTabSelectd4: ', this._subTabSelectd4);
+        // console.log('A partir de aqui me subscribo a los cambios de tab y subtab');
+        // console.error('-----------------------------------------------------------------');
+
+        // const selectedTab$ = this._selectedTabNewService.source$.pipe(
+        //     tap((data) => {
+        //         this._tabSelected = data;
+        //         console.log('Has cambiado de tab: ', data);
+        //         console.error('-----------------------------------------------------------------');
+        //     })
+        // );
+
+        // const changeSubTab$ = this._changeSubTabService.source$.pipe(
+        //     tap((data) => {
+        //         console.log('this._tabSelected: ', this._tabSelected);
+        //         console.log('Has cambiado de subtab: ', data);
+        //         console.log('Has cambiado de subtab: ', this._subTabSelectd1);
+        //         console.error('-----------------------------------------------------------------');
+        //         this._codField = data.codField;
+        //         this._desField = data.desField;
+        //     })
+        // );
+
+        // combineLatest([selectedTab$, changeSubTab$])
+        //     .pipe(takeUntil(this._unsubscribe$))
+        //     .subscribe(() => {
+        //         this.setFields();
+        //     });
     }
 
     ngOnDestroy() {
