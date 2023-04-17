@@ -45,6 +45,7 @@ export class TreemapComponent implements OnInit {
     ) {}
 
     ngOnInit() {
+        console.error('paso ngOnInit ');
         this._selectedSubTab1Service.source$.subscribe((data) => {
             this._subTabSelectd1 = data;
         });
@@ -61,12 +62,15 @@ export class TreemapComponent implements OnInit {
         console.log('subTabSelectd1: ', this._subTabSelectd1);
         console.log('subTabSelectd2: ', this._subTabSelectd2);
         console.log('subTabSelectd4: ', this._subTabSelectd4);
+        console.log('A partir de aqui me subscribo a los cambios de tab y subtab');
+        console.error('-----------------------------------------------------------------');
 
         this._selectedTabNewService.source$
             .pipe(
                 tap((data) => {
                     this._tabSelected = data;
                     console.log('Has cambiado de tab: ', data);
+                    console.error('-----------------------------------------------------------------');
                     this.setFields();
                 })
             )
@@ -76,8 +80,10 @@ export class TreemapComponent implements OnInit {
         this._changeSubTabService.source$
             .pipe(
                 tap((data) => {
+                    console.log('this._tabSelected: ', this._tabSelected);
                     console.log('Has cambiado de subtab: ', data);
                     console.log('Has cambiado de subtab: ', this._subTabSelectd1);
+                    console.error('-----------------------------------------------------------------');
                     this._codField = data.codField;
                     this._desField = data.desField;
                     this.setFields();
@@ -86,7 +92,7 @@ export class TreemapComponent implements OnInit {
             .pipe(takeUntil(this._unsubscribe$))
             .subscribe();
 
-        console.log('paso por aqui: ');
+        console.error('paso ngOnInit ');
     }
 
     ngOnDestroy() {
@@ -95,7 +101,8 @@ export class TreemapComponent implements OnInit {
     }
 
     private setFields() {
-        console.log('changeSubTabByTabSelected');
+        console.log('setFields');
+        console.error('-----------------------------------------------------------------');
         switch (this._tabSelected) {
             case 1:
                 switch (this._subTabSelectd1) {
