@@ -1,15 +1,17 @@
 import { Location } from '@angular/common';
 import { Component, OnDestroy, ViewChild } from '@angular/core';
 
+import { Subscription } from 'rxjs';
+
+import { DataStoreService } from '../../services/dataStore.service';
+import { HasRowClicked } from '../../services/hasRowClicked.service';
+
+import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
+import { accumulate } from '../../commons/util/util';
+
 import { AgChartOptions } from 'ag-charts-community';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
-
-import { Subscription } from 'rxjs';
-import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
-import { accumulate } from '../../commons/util/util';
-import { DataStoreService } from '../../services/dataStore.service';
-import { HasRowClicked } from '../../services/hasRowClicked.service';
 
 @Component({
     selector: 'app-graph-gastos',
@@ -22,18 +24,18 @@ export class GraphGastosComponent implements OnDestroy {
     public columnDefs;
     public defaultColDef;
     public localeText;
-    public rowDataTable: any;
     public groupHeaderHeight = 25;
     public headerHeight = 25;
     public options: AgChartOptions;
-    private datos: any[] = [];
+
+    private _datos: any[] = [];
     private _dataGraph: IDataGraph;
     private _subscription: Subscription;
-    public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
-    private row: string = '';
+    private _hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
+    private _row: string = '';
 
     constructor(
-        private location: Location,
+        private _location: Location,
         private _dataStoreService: DataStoreService,
         private _hasRowClicked: HasRowClicked
     ) {
@@ -55,43 +57,41 @@ export class GraphGastosComponent implements OnDestroy {
         console.log('this._dataGraph', this._dataGraph);
 
         if (this._dataGraph.clasificationType != 'aplicacion') {
-            this.hasRowClicked$.subscribe((value) => {
-                this.row = value;
+            this._hasRowClicked$.subscribe((value) => {
+                this._row = value;
             });
-            const codigo = this.row.split(' ')[0];
+            const codigo = this._row.split(' ')[0];
             console.log('codigo', codigo);
             console.log('this._dataGraph.clasificationType', this._dataGraph.clasificationType);
 
             switch (this._dataGraph.clasificationType) {
                 case 'gastosOrganicaOrganicos':
-                    this.datos = this._dataGraph.rowDataGastos.filter((x) => x.CodOrg == codigo);
+                    this._datos = this._dataGraph.rowDataGastos.filter((x) => x.CodOrg == codigo);
                     break;
                 case 'gastosProgramaAreas':
                 case 'gastosProgramaPoliticas':
                 case 'gastosProgramaGrupos':
                 case 'gastosProgramaProgramas':
                     console.log('this._dataGraph.rowDataGastos', this._dataGraph.rowDataGastos);
-
-                    this.datos = this._dataGraph.rowDataGastos.filter((x) => x.CodPro == codigo);
-                    console.log('this.datos', this.datos);
+                    this._datos = this._dataGraph.rowDataGastos.filter((x) => x.CodPro == codigo);
+                    console.log('this._datos', this._datos);
                     break;
                 case 'gastosEconomicaCapitulos':
-                    this.datos = this._dataGraph.rowDataGastos.filter((x) => x.CodCap == codigo);
+                    this._datos = this._dataGraph.rowDataGastos.filter((x) => x.CodCap == codigo);
                     break;
                 case 'gastosEconomicaArticulos':
                 case 'gastosEconomicaConceptos':
                 case 'gastosEconomicaEconomicos':
-                    this.datos = this._dataGraph.rowDataGastos.filter((x) => x.CodEco == codigo);
-
+                    this._datos = this._dataGraph.rowDataGastos.filter((x) => x.CodEco == codigo);
                     break;
             }
         } else {
-            this.datos = this._dataGraph.rowDataGastos;
+            this._datos = this._dataGraph.rowDataGastos;
         }
-        const yearsIniciales = accumulate('Iniciales', this.datos);
-        const yearsDefinitivas = accumulate('Definitivas', this.datos);
-        const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', this.datos);
-        const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', this.datos);
+        const yearsIniciales = accumulate('Iniciales', this._datos);
+        const yearsDefinitivas = accumulate('Definitivas', this._datos);
+        const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', this._datos);
+        const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', this._datos);
 
         this.data = [];
         for (let index = 2015; index <= 2023; index++) {
@@ -159,7 +159,7 @@ export class GraphGastosComponent implements OnDestroy {
 
             subtitle: {
                 // text: `${this._dataGraph.graphSubTitle}`
-                text: this.row,
+                text: this._row,
                 fontSize: 30,
             },
             data: [...this.data],
@@ -208,6 +208,6 @@ export class GraphGastosComponent implements OnDestroy {
     }
 
     volver() {
-        this.location.back();
+        this._location.back();
     }
 }
