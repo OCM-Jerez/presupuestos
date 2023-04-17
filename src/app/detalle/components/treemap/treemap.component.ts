@@ -135,7 +135,6 @@ export class TreemapComponent implements OnInit {
             case 4:
                 switch (this._subTabSelectd4) {
                     case 'Por capítulo gasto':
-                        console.log('subTabSelectd4: Por capítulo gasto');
                         this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
                         break;
                     default:
