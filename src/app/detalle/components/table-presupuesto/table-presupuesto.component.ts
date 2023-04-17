@@ -14,14 +14,14 @@ import { IDataTotalesPresupuesto } from '../../../commons/interfaces/dataTotales
     styleUrls: ['./table-presupuesto.component.scss'],
 })
 export class TablePresupuestoComponent implements OnInit {
-    showTablePresupuesto = true;
-    liqDate = environment.liqDate2023;
-    DataTotalesPresupuesto: IDataTotalesPresupuesto = {
-        year: 2023,
-        totalPresupuestoIngresos: 0,
-        totalPresupuestoGastos: 0,
-        totalEjecutadoIngresos: 0,
-        totalEjecutadoGastos: 0,
+    public showTablePresupuesto = true;
+    public liqDate = environment.liqDate2023;
+    public DataTotalesPresupuesto: IDataTotalesPresupuesto = {
+        year: '2023',
+        totalPresupuestoIngresos: '0',
+        totalPresupuestoGastos: '0',
+        totalEjecutadoIngresos: '0',
+        totalEjecutadoGastos: '0',
     };
     constructor(
         private _dataStoreService: DataStoreService,
