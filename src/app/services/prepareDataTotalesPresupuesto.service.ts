@@ -4,12 +4,21 @@ import { DataStoreService } from './dataStore.service';
 
 import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto.interface';
 
+interface ITotalPresupuestoIngresos {
+    Definitivas2023?: number;
+    DerechosReconocidosNetos2023?: number;
+}
+interface ITotalPresupuestoGastos {
+    Definitivas2023?: number;
+    Pagos2023?: number;
+}
+
 @Injectable({
     providedIn: 'root',
 })
 export class PrepareDataTotalesPresupuestoService {
-    private _totalPresupuestoIngresos: any;
-    private _totalPresupuestoGastos: any;
+    private _totalPresupuestoIngresos: ITotalPresupuestoIngresos;
+    private _totalPresupuestoGastos: ITotalPresupuestoGastos;
 
     constructor(private _dataStoreService: DataStoreService) {}
 
@@ -61,13 +70,10 @@ export class PrepareDataTotalesPresupuestoService {
     setTotalesPresupuesto() {
         try {
             const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
-                year: 2023,
-                totalPresupuestoIngresos:
-                    this._totalPresupuestoIngresos.Definitivas2023.toLocaleString(),
-                totalEjecutadoIngresos:
-                    this._totalPresupuestoIngresos.DerechosReconocidosNetos2023.toLocaleString(),
-                totalPresupuestoGastos:
-                    this._totalPresupuestoGastos.Definitivas2023.toLocaleString(),
+                year: '2023',
+                totalPresupuestoIngresos: this._totalPresupuestoIngresos.Definitivas2023.toLocaleString(),
+                totalEjecutadoIngresos: this._totalPresupuestoIngresos.DerechosReconocidosNetos2023.toLocaleString(),
+                totalPresupuestoGastos: this._totalPresupuestoGastos.Definitivas2023.toLocaleString(),
                 totalEjecutadoGastos: this._totalPresupuestoGastos.Pagos2023.toLocaleString(),
             };
             this._dataStoreService.dataTotalesPresupuesto = DataTotalesPresupuesto;
