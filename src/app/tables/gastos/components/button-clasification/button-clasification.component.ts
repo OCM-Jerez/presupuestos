@@ -14,8 +14,6 @@ import { TableService } from '../../../../services/table.service';
 import { TabStateService } from '../../../../services/tabState.service';
 
 import { CLASIFICATION_TYPE } from '../../../../commons/util/util';
-import { SelectedSubTab1Service } from '../../../../services/selectedSubTab1.service';
-import { SelectedSubTab2Service } from '../../../../services/selectedSubTab2.service';
 import { SelectedSubTab4Service } from '../../../../services/selectedSubTab4.service';
 import { SelectedTabNewService } from '../../../../services/selectedTabNew.service';
 import { getClasificacion } from '../../../data-table';
@@ -50,8 +48,8 @@ export class ButtonClasificationComponent implements OnInit {
         private _selectedButtonService: SelectedButtonService,
         private _tableService: TableService,
         private _tabStateService: TabStateService,
-        private _selectedSubTab1Service: SelectedSubTab1Service,
-        private _selectedSubTab2Service: SelectedSubTab2Service,
+        // private _selectedSubTab1Service: SelectedSubTab1Service,
+        // private _selectedSubTab2Service: SelectedSubTab2Service,
         private _selectedSubTab4Service: SelectedSubTab4Service,
         private _selectedTabNewService: SelectedTabNewService
     ) {}
@@ -102,23 +100,21 @@ export class ButtonClasificationComponent implements OnInit {
     private async _existButton(button: IButtonClasification) {
         this.buttons.forEach((b) => (b.selected = false));
         this._tabStateService.setTabState(button.name);
-
         this._selectedTabNewService.source$.subscribe((value) => {
             this._tabSelected = value;
         });
         // console.log(button.name);
 
         switch (this._tabSelected) {
-            case 1:
-                this._selectedSubTab1Service.setSelectedSubTab1(button.name);
-                break;
-            case 2:
-                this._selectedSubTab2Service.setSelectedSubTab2(button.name);
-                break;
+            // case 1:
+            //     this._selectedSubTab1Service.setSelectedSubTab1(button.name);
+            //     break;
+            // case 2:
+            //     this._selectedSubTab2Service.setSelectedSubTab2(button.name);
+            //     break;
             case 4:
                 this._selectedSubTab4Service.setSelectedSubTab4(button.name);
                 break;
-
             default:
                 break;
         }
