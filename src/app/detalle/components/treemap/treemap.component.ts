@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Subject } from 'rxjs';
+import { Subject, combineLatest } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 
 import { ChangeSubTabService } from '../../../services/change-subtab.service';
@@ -15,6 +15,8 @@ import { IDataTreemap } from '../../../commons/interfaces/dataTreemap.interface'
 
 import * as Highcharts from 'highcharts';
 import HighchartsTreemap from 'highcharts/modules/treemap';
+import { IDataTable } from '../../../commons/interfaces/dataTable.interface';
+import { TableService } from '../../../services/table.service';
 HighchartsTreemap(Highcharts);
 @Component({
     selector: 'app-treemap',
@@ -22,6 +24,7 @@ HighchartsTreemap(Highcharts);
     styleUrls: ['./treemap.component.scss'],
 })
 export class TreemapComponent implements OnInit {
+    private _dataTable: IDataTable;
     // private _dataTreeMap: IIngresos | IGastos;
     private _dataTreeMap: IDataTreemap;
     private _tabSelected: number;
@@ -37,6 +40,7 @@ export class TreemapComponent implements OnInit {
     constructor(
         private _changeSubTabService: ChangeSubTabService,
         private _dataStoreService: DataStoreService,
+        private _tableService: TableService,
         private _prepareDataTreemapService: PrepareDataTreemapService,
         private _selectedSubTab1Service: SelectedSubTab1Service,
         private _selectedSubTab2Service: SelectedSubTab2Service,
@@ -46,6 +50,40 @@ export class TreemapComponent implements OnInit {
 
     ngOnInit() {
         console.error('paso ngOnInit ');
+
+        // this._selectedTabNewService.source$
+        //     .pipe(
+        //         tap((data) => {
+        //             this._tabSelected = data;
+        //             console.log('Has cambiado de tab: ', data);
+        //             console.error('-----------------------------------------------------------------');
+        //             this.setFields();
+        //         })
+        //     )
+        //     .pipe(takeUntil(this._unsubscribe$))
+        //     .subscribe();
+
+        // this._changeSubTabService.source$
+        //     .pipe(
+        //         tap((data) => {
+        //             console.log('this._tabSelected: ', this._tabSelected);
+        //             console.log('Has cambiado de subtab: ', data);
+        //             console.log('Has cambiado de subtab: ', this._subTabSelectd1);
+        //             console.error('-----------------------------------------------------------------');
+        //             this._codField = data.codField;
+        //             this._desField = data.desField;
+        //             this.setFields();
+        //         })
+        //     )
+        //     .pipe(takeUntil(this._unsubscribe$))
+        //     .subscribe();
+
+        this.subscribeToServices();
+
+        console.error('paso ngOnInit ');
+    }
+
+    subscribeToServices(): void {
         this._selectedSubTab1Service.source$.subscribe((data) => {
             this._subTabSelectd1 = data;
         });
@@ -65,34 +103,30 @@ export class TreemapComponent implements OnInit {
         console.log('A partir de aqui me subscribo a los cambios de tab y subtab');
         console.error('-----------------------------------------------------------------');
 
-        this._selectedTabNewService.source$
-            .pipe(
-                tap((data) => {
-                    this._tabSelected = data;
-                    console.log('Has cambiado de tab: ', data);
-                    console.error('-----------------------------------------------------------------');
-                    this.setFields();
-                })
-            )
-            .pipe(takeUntil(this._unsubscribe$))
-            .subscribe();
+        const selectedTab$ = this._selectedTabNewService.source$.pipe(
+            tap((data) => {
+                this._tabSelected = data;
+                console.log('Has cambiado de tab: ', data);
+                console.error('-----------------------------------------------------------------');
+            })
+        );
 
-        this._changeSubTabService.source$
-            .pipe(
-                tap((data) => {
-                    console.log('this._tabSelected: ', this._tabSelected);
-                    console.log('Has cambiado de subtab: ', data);
-                    console.log('Has cambiado de subtab: ', this._subTabSelectd1);
-                    console.error('-----------------------------------------------------------------');
-                    this._codField = data.codField;
-                    this._desField = data.desField;
-                    this.setFields();
-                })
-            )
-            .pipe(takeUntil(this._unsubscribe$))
-            .subscribe();
+        const changeSubTab$ = this._changeSubTabService.source$.pipe(
+            tap((data) => {
+                console.log('this._tabSelected: ', this._tabSelected);
+                console.log('Has cambiado de subtab: ', data);
+                console.log('Has cambiado de subtab: ', this._subTabSelectd1);
+                console.error('-----------------------------------------------------------------');
+                this._codField = data.codField;
+                this._desField = data.desField;
+            })
+        );
 
-        console.error('paso ngOnInit ');
+        combineLatest([selectedTab$, changeSubTab$])
+            .pipe(takeUntil(this._unsubscribe$))
+            .subscribe(() => {
+                this.setFields();
+            });
     }
 
     ngOnDestroy() {
@@ -100,7 +134,7 @@ export class TreemapComponent implements OnInit {
         this._unsubscribe$.complete();
     }
 
-    private setFields() {
+    async setFields() {
         console.log('setFields');
         console.error('-----------------------------------------------------------------');
         switch (this._tabSelected) {
@@ -126,6 +160,22 @@ export class TreemapComponent implements OnInit {
             case 2:
                 console.log('Paso por tab 2');
                 this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
+                switch (this._subTabSelectd2) {
+                    case 'Por áreas':
+                        this._dataTable = await this._tableService.loadData('gastosProgramaAreas');
+                        break;
+                    case 'Por política':
+                        this._dataTable = await this._tableService.loadData('gastosProgramaPoliticas');
+                        break;
+                    case 'Por grupo programas':
+                        this._dataTable = await this._tableService.loadData('gastosProgramaGrupos');
+                        break;
+                    case 'Por programa':
+                        // this._dataTable = await this._tableService.loadData('gastosProgramaAreas');
+                        break;
+                    default:
+                        break;
+                }
                 break;
 
             case 3:
@@ -136,9 +186,9 @@ export class TreemapComponent implements OnInit {
             case 4:
                 switch (this._subTabSelectd4) {
                     case 'Por capítulo gasto':
+                        console.log('subTabSelectd4: Por capítulo gasto');
                         this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
                         break;
-
                     default:
                         this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
                         break;
@@ -151,12 +201,15 @@ export class TreemapComponent implements OnInit {
         this.calcSeries(this._fields.codigo, this._fields.descripcion);
     }
 
-    calcSeries(codField: string, desField: string) {
+    async calcSeries(codField: string, desField: string) {
         const data =
             this._tabSelected === 1
                 ? this._dataStoreService.dataTable.rowDataIngresos
                 : this._dataStoreService.dataTable.rowDataGastos;
         this._dataTreeMap = this._prepareDataTreemapService.calcSeries(data, codField, desField, 'Definitivas2023');
+        console.log('Data', data);
+        console.log('this._dataTreeMap: ', this._dataTreeMap);
+
         this.showTreemap();
     }
 
