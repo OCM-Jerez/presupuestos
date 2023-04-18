@@ -50,7 +50,7 @@ export class ButtonClasificationComponent implements OnInit {
         // private _selectedSubTab1Service: SelectedSubTab1Service,
         private _selectedSubTab2Service: SelectedSubTab2Service,
         private _selectedSubTab4Service: SelectedSubTab4Service,
-        private _selectedTabNewService: SelectedTabService
+        private _selectedTabService: SelectedTabService
     ) {}
 
     async ngOnInit(): Promise<void> {
@@ -98,7 +98,7 @@ export class ButtonClasificationComponent implements OnInit {
 
     private async _existButton(button: IButtonClasification) {
         this.buttons.forEach((b) => (b.selected = false));
-        this._selectedTabNewService.source$.subscribe((value) => {
+        this._selectedTabService.source$.subscribe((value) => {
             this._tabSelected = value;
         });
         // console.log(button.name);

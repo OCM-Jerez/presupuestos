@@ -42,7 +42,7 @@ export class TreemapComponent implements OnInit {
         private _selectedSubTab1Service: SelectedSubTab1Service,
         private _selectedSubTab2Service: SelectedSubTab2Service,
         private _selectedSubTab4Service: SelectedSubTab4Service,
-        private _selectedTabNewService: SelectedTabService,
+        private _selectedTabService: SelectedTabService,
         private _tableService: TableService
     ) {}
 
@@ -63,7 +63,7 @@ export class TreemapComponent implements OnInit {
             this._subTabSelectd4 = data;
         });
 
-        this._selectedTabNewService.source$
+        this._selectedTabService.source$
             .pipe(
                 tap((data) => {
                     this._tabSelected = data;

@@ -7,13 +7,13 @@ import { SelectedTabService } from '../services/selectedTab.service';
     styleUrls: ['./detalle.component.scss'],
 })
 export class DetalleComponent {
-    constructor(private _selectedTabNewService: SelectedTabService) {}
+    constructor(private _selectedTabService: SelectedTabService) {}
 
     async hasChangeCheckbox() {
         // await this._tableService.loadData(this._typeClasification);
     }
 
     async selectedTab(idTab: number) {
-        this._selectedTabNewService.setSelectedTabNew(idTab);
+        this._selectedTabService.setSelectedTabNew(idTab);
     }
 }
