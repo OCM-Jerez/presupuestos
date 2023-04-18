@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SelectedTabNewService } from '../services/selectedTabNew.service';
+import { SelectedTabService } from '../services/selectedTab.service';
 
 @Component({
     selector: 'app-detalle-presupuesto',
@@ -7,7 +7,7 @@ import { SelectedTabNewService } from '../services/selectedTabNew.service';
     styleUrls: ['./detalle.component.scss'],
 })
 export class DetalleComponent {
-    constructor(private _selectedTabNewService: SelectedTabNewService) {}
+    constructor(private _selectedTabNewService: SelectedTabService) {}
 
     async hasChangeCheckbox() {
         // await this._tableService.loadData(this._typeClasification);

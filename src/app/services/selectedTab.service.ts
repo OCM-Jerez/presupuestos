@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
     providedIn: 'root',
 })
-export class SelectedTabNewService {
+export class SelectedTabService {
     private _selectedTabNew = new BehaviorSubject<number>(1);
     source$ = this._selectedTabNew.asObservable();
 

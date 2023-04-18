@@ -16,7 +16,7 @@ import { TabStateService } from '../../../../services/tabState.service';
 import { CLASIFICATION_TYPE } from '../../../../commons/util/util';
 import { SelectedSubTab2Service } from '../../../../services/selectedSubTab2.service';
 import { SelectedSubTab4Service } from '../../../../services/selectedSubTab4.service';
-import { SelectedTabNewService } from '../../../../services/selectedTabNew.service';
+import { SelectedTabService } from '../../../../services/selectedTab.service';
 import { getClasificacion } from '../../../data-table';
 
 @Component({
@@ -52,7 +52,7 @@ export class ButtonClasificationComponent implements OnInit {
         // private _selectedSubTab1Service: SelectedSubTab1Service,
         private _selectedSubTab2Service: SelectedSubTab2Service,
         private _selectedSubTab4Service: SelectedSubTab4Service,
-        private _selectedTabNewService: SelectedTabNewService
+        private _selectedTabNewService: SelectedTabService
     ) {}
 
     async ngOnInit(): Promise<void> {
