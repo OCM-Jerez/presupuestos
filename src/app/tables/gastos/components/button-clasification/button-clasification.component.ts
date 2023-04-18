@@ -11,7 +11,6 @@ import { HasDataChangeService } from '../../../../services/hasDataChange.service
 import { HasRowClicked } from '../../../../services/hasRowClicked.service';
 import { SelectedButtonService } from '../../../../services/selectedButton.service';
 import { TableService } from '../../../../services/table.service';
-import { TabStateService } from '../../../../services/tabState.service';
 
 import { CLASIFICATION_TYPE } from '../../../../commons/util/util';
 import { SelectedSubTab2Service } from '../../../../services/selectedSubTab2.service';
@@ -48,7 +47,6 @@ export class ButtonClasificationComponent implements OnInit {
         private _hasRowClicked: HasRowClicked,
         private _selectedButtonService: SelectedButtonService,
         private _tableService: TableService,
-        private _tabStateService: TabStateService,
         // private _selectedSubTab1Service: SelectedSubTab1Service,
         private _selectedSubTab2Service: SelectedSubTab2Service,
         private _selectedSubTab4Service: SelectedSubTab4Service,
@@ -100,7 +98,6 @@ export class ButtonClasificationComponent implements OnInit {
 
     private async _existButton(button: IButtonClasification) {
         this.buttons.forEach((b) => (b.selected = false));
-        this._tabStateService.setTabState(button.name);
         this._selectedTabNewService.source$.subscribe((value) => {
             this._tabSelected = value;
         });
