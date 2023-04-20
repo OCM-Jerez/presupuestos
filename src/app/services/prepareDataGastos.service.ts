@@ -21,7 +21,7 @@ export class PrepareDataGastosService {
     constructor(private _avalaibleYearsService: AvalaibleYearsService) {}
 
     // Itera por cada uno de los años disponibles para gastos
-    async getDataAllYear(tipoClasificacion: string): Promise<any[]> {
+    async getDataAllYear(tipoClasificacion?: string): Promise<any[]> {
         // const startTime = performance.now();
         let rowData = [];
         const years = this._avalaibleYearsService.getYearsSelected();
@@ -81,61 +81,65 @@ export class PrepareDataGastosService {
             });
         });
 
-        switch (tipoClasificacion) {
-            case 'gastosProgramaAreas':
-                result.map((item) => {
-                    item.CodPro = Math.floor(item.CodPro / 10000);
-                    item.DesPro = gastosProgramaAreas.find((area) => area.codigo === item.CodPro).descripcion;
-                });
-                break;
-            case 'gastosProgramaPoliticas':
-                result.map((item) => {
-                    if (item.CodPro > 0) {
-                        item.CodPro = Math.floor(item.CodPro / 1000);
-                        item.DesPro = gastosProgramaPoliticas.find(
-                            (politica) => politica.codigo === item.CodPro
-                        ).descripcion;
-                    } else {
-                        // console.log(item);
-                    }
-                });
-                break;
-            case 'gastosProgramaGrupos':
-                result.map((item) => {
-                    if (item.CodPro > 0) {
-                        item.CodPro = Math.floor(item.CodPro / 100);
-                        item.DesPro = gastosProgramaGruposProgramas.find(
-                            (grupo) => grupo.codigo === item.CodPro
-                        ).descripcion;
-                    } else {
-                        // console.log(item);
-                    }
-                });
-                break;
-            case 'gastosEconomicaArticulos':
-                result.map((item) => {
-                    if (item.CodEco > 0) {
-                        item.CodEco = Math.floor(item.CodEco / 1000);
-                        item.DesEco = gastosEconomicaArticulos.find(
-                            (articulo) => articulo.codigo === item.CodEco
-                        ).descripcion;
-                    } else {
-                        console.log(item);
-                    }
-                });
-                break;
-            case 'gastosEconomicaConceptos':
-                result.map((item) => {
-                    if (item.CodEco > 0) {
-                        item.CodEco = Math.floor(item.CodEco / 100);
-                        item.DesEco = gastosEconomicaConceptos.find(
-                            (concepto) => concepto.codigo === item.CodEco
-                        ).descripcion;
-                    } else {
-                        console.log(item);
-                    }
-                });
-                break;
+        if (tipoClasificacion) {
+            console.log(tipoClasificacion);
+
+            switch (tipoClasificacion) {
+                case 'gastosProgramaAreas':
+                    result.map((item) => {
+                        item.CodPro = Math.floor(item.CodPro / 10000);
+                        item.DesPro = gastosProgramaAreas.find((area) => area.codigo === item.CodPro).descripcion;
+                    });
+                    break;
+                case 'gastosProgramaPoliticas':
+                    result.map((item) => {
+                        if (item.CodPro > 0) {
+                            item.CodPro = Math.floor(item.CodPro / 1000);
+                            item.DesPro = gastosProgramaPoliticas.find(
+                                (politica) => politica.codigo === item.CodPro
+                            ).descripcion;
+                        } else {
+                            // console.log(item);
+                        }
+                    });
+                    break;
+                case 'gastosProgramaGrupos':
+                    result.map((item) => {
+                        if (item.CodPro > 0) {
+                            item.CodPro = Math.floor(item.CodPro / 100);
+                            item.DesPro = gastosProgramaGruposProgramas.find(
+                                (grupo) => grupo.codigo === item.CodPro
+                            ).descripcion;
+                        } else {
+                            // console.log(item);
+                        }
+                    });
+                    break;
+                case 'gastosEconomicaArticulos':
+                    result.map((item) => {
+                        if (item.CodEco > 0) {
+                            item.CodEco = Math.floor(item.CodEco / 1000);
+                            item.DesEco = gastosEconomicaArticulos.find(
+                                (articulo) => articulo.codigo === item.CodEco
+                            ).descripcion;
+                        } else {
+                            console.log(item);
+                        }
+                    });
+                    break;
+                case 'gastosEconomicaConceptos':
+                    result.map((item) => {
+                        if (item.CodEco > 0) {
+                            item.CodEco = Math.floor(item.CodEco / 100);
+                            item.DesEco = gastosEconomicaConceptos.find(
+                                (concepto) => concepto.codigo === item.CodEco
+                            ).descripcion;
+                        } else {
+                            console.log(item);
+                        }
+                    });
+                    break;
+            }
         }
         return result;
     }
