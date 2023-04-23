@@ -35,6 +35,8 @@ const routes: Routes = [
             ).then((m) => m.TableGastosAplicacionPresupuestariaModule),
     },
     {
+        // tableGrupoProgramaDetails/?origen=ingresos&&id=1
+        // tableGrupoProgramaDetails
         path: 'tableGrupoProgramaDetails/:origen',
         loadChildren: () =>
             import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.module').then(
