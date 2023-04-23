@@ -82,8 +82,7 @@ export class PrepareDataGastosService {
         });
 
         if (tipoClasificacion) {
-            console.log(tipoClasificacion);
-
+            // console.log(tipoClasificacion);
             switch (tipoClasificacion) {
                 case 'gastosProgramaAreas':
                     result.map((item) => {
