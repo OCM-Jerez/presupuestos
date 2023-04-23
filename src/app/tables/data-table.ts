@@ -94,7 +94,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         width: 250,
         graphTitle: 'Gastos por orgánico',
         buttons: [],
-        // buttonsAdditional: ['Gráfico detalladado', 'Programas que componen orgánico seleccionado'],
         buttonsAdditional: [
             { name: 'Gráfico detallado', path: '/graphGastos' },
             {
@@ -147,7 +146,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 descripcion: 'DesPro',
             },
         ],
-        // buttonsAdditional: ['Gráfico detalladado', 'Detalle del programa seleccionado'],
         buttonsAdditional: [
             { name: 'Gráfico detallado', path: '/graphGastos' },
             { name: 'Detalle del programa seleccionado', path: '/tableGrupoProgramaDetails', param: 'gastan' },
@@ -196,7 +194,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 descripcion: 'DesPro',
             },
         ],
-        // buttonsAdditional: ['Gráfico detalladado', 'Detalle del programa seleccionado'],
         buttonsAdditional: [
             { name: 'Gráfico detallado', path: '/graphGastos' },
             { name: 'Detalle del programa seleccionado', path: '/tableGrupoProgramaDetails', param: 'gastan' },
@@ -245,7 +242,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 descripcion: 'DesPro',
             },
         ],
-        // buttonsAdditional: ['Gráfico detalladado', 'Detalle del programa seleccionado'],
         buttonsAdditional: [
             { name: 'Gráfico detallado', path: '/graphGastos' },
             { name: 'Detalle del programa seleccionado', path: '/tableGrupoProgramaDetails', param: 'gastan' },
@@ -294,7 +290,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 descripcion: 'DesPro',
             },
         ],
-        // buttonsAdditional: ['Gráfico detalladado', 'Detalle del programa seleccionado'],
         buttonsAdditional: [
             { name: 'Gráfico detallado', path: '/graphGastos' },
             { name: 'Detalle del programa seleccionado', path: '/tableGrupoProgramaDetails', param: 'gastan' },
@@ -355,7 +350,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 selected: true,
             },
         ],
-        // buttonsAdditional: ['Gráfico detalladado', 'Programas que gastan del elemento seleccionado'],
         buttonsAdditional: [
             { name: 'Gráfico detallado', path: '/graphGastos' },
             {
@@ -408,7 +402,6 @@ const CLASIFICATION: { [key: string]: IClasification } = {
                 descripcion: 'DesPro',
             },
         ],
-        // buttonsAdditional: ['Gráfico detalladado', 'Programas que gastan del elemento seleccionado'],
         buttonsAdditional: [
             { name: 'Gráfico detallado', path: '/graphGastos' },
             {
