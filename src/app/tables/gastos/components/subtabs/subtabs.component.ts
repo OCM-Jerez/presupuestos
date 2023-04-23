@@ -20,10 +20,10 @@ import { getClasificacion } from '../../../data-table';
 
 @Component({
     selector: 'app-subtabs',
-    templateUrl: './button-clasification.component.html',
-    styleUrls: ['./button-clasification.component.scss'],
+    templateUrl: './subtabs.component.html',
+    styleUrls: ['./subtabs.component.scss'],
 })
-export class ButtonClasificationComponent implements OnInit {
+export class SubtabsComponent implements OnInit {
     @Input() clasificationType: CLASIFICATION_TYPE;
     @Output() clickButton = new EventEmitter<IDataTable>();
 
