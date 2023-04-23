@@ -9,6 +9,7 @@ import { IButtonClasification } from '../tables/gastos/model/components.interfac
 export class SelectedButtonService {
     private SelectedButton = new BehaviorSubject<IButtonClasification>({
         clasificationType: 'gastosProgramaPoliticas',
+        key: 'politicas',
         name: 'Por política',
         selected: true,
     });
