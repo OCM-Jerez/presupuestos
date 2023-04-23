@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
@@ -17,7 +17,7 @@ import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
     templateUrl: './table-gastos.component.html',
     styleUrls: ['./table-gastos.component.scss'],
 })
-export class TableGastosComponent implements OnInit {
+export class TableGastosComponent implements OnInit, OnChanges {
     @Input() dataTable: IDataTable;
 
     @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
@@ -34,8 +34,16 @@ export class TableGastosComponent implements OnInit {
         private _hasRowClicked: HasRowClicked
     ) {}
 
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes && changes['dataTable']) {
+            this._loadTable();
+            if (!changes['dataTable'].firstChange) {
+                this._gridApi.setRowData(this._dataTable.rowDataGastos);
+            }
+        }
+    }
+
     ngOnInit(): void {
-        this._loadTable();
         this._hasRowClicked.change(null);
     }
 
