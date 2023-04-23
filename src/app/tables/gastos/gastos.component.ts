@@ -21,4 +21,8 @@ export class GastosComponent implements OnInit {
     async ngOnInit(): Promise<void> {
         this.dataTable = await this._tableService.loadData(this.clasification);
     }
+
+    clickSubTab(dataTable: IDataTable): void {
+        this.dataTable = { ...dataTable };
+    }
 }
