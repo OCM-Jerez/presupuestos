@@ -19,7 +19,7 @@ import { SelectedTabService } from '../../../../services/selectedTab.service';
 import { getClasificacion } from '../../../data-table';
 
 @Component({
-    selector: 'app-button-clasification',
+    selector: 'app-subtabs',
     templateUrl: './button-clasification.component.html',
     styleUrls: ['./button-clasification.component.scss'],
 })

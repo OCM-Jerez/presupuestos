@@ -1,7 +1,4 @@
 <div *ngIf="dataTable">
-    <app-button-clasification
-        [clasificationType]="clasification"
-        (clickButton)="dataTable = $event"
-    ></app-button-clasification>
+    <app-subtabs [clasificationType]="clasification" (clickButton)="dataTable = $event"></app-subtabs>
     <app-table-gastos [dataTable]="dataTable" *ngIf="hasDataChange$ | async as hasDataChange"></app-table-gastos>
 </div>
