@@ -5,7 +5,7 @@
             class="OCM-button"
             [ngClass]="{ 'OCM-selected': button.selected }"
             *ngFor="let button of buttons"
-            (click)="click($event)"
+            (click)="click(button)"
         >
             {{ button.name }}
         </button>
@@ -16,9 +16,9 @@
             type="button"
             class="OCM-button"
             *ngFor="let button of buttonsAdditional"
-            (click)="click($event)"
+            (click)="clickButtonAditional(button)"
         >
-            {{ button }}
+            {{ button.name }}
         </button>
     </div>
 
@@ -32,7 +32,7 @@
             type="button"
             class="OCM-button"
             *ngFor="let button of buttonsAdditional"
-            (click)="click($event)"
+            (click)="clickButtonAditional(button)"
         >
             {{ 'Al seleccionar fila se activa opción' }}
         </button>

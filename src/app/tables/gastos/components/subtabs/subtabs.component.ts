@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
-import { IButtonClasification } from '../../model/components.interface';
+import { IButtonAdicional, IButtonClasification } from '../../model/components.interface';
 
 import { ChangeSubTabService } from '../../../../services/change-subtab.service';
 import { DataStoreService } from '../../../../services/dataStore.service';
@@ -28,7 +28,7 @@ export class SubtabsComponent implements OnInit {
     @Output() clickButton = new EventEmitter<IDataTable>();
 
     public buttons: IButtonClasification[] = [];
-    public buttonsAdditional: string[] = [];
+    public buttonsAdditional: IButtonAdicional[] = [];
     public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
     public isDisabled = true;
     // public showTable = true;
@@ -59,41 +59,21 @@ export class SubtabsComponent implements OnInit {
         this.buttonsAdditional = clasification.buttonsAdditional;
     }
 
-    async click(event: Event): Promise<void> {
-        const target = event.target as HTMLButtonElement;
+    async click(event: IButtonClasification): Promise<void> {
         const button: IButtonClasification = this.buttons.find(
-            (button: IButtonClasification) => button.name === target.innerText
+            (button: IButtonClasification) => button.key === event.key
         );
 
-        if (button) {
-            // console.log('button', button);
+        await this._existButton(button);
+        this.clickButton.emit(this._dataTable);
+        this._changeSubTabService.changeSubTab(button.codigo, button.descripcion);
+        this._clasificationType = button.clasificationType;
+    }
 
-            await this._existButton(button);
-            this.clickButton.emit(this._dataTable);
-            this._changeSubTabService.changeSubTab(button.codigo, button.descripcion);
-
-            this._clasificationType = button.clasificationType;
-        } else {
-            switch (
-                target.textContent.trim() // Si se pulsa un buttonsAdditional, se navega a la ruta correspondiente
-            ) {
-                case 'Gráfico detalladado':
-                    this._dataTable = await this._tableService.loadData(
-                        this._dataStoreService.dataTable.clasificationType
-                    );
-                    this.showGraph();
-                    break;
-                case 'Detalle del programa seleccionado':
-                    this._router.navigate(['tableProgramaDetails']);
-                    break;
-                case 'Programas que componen orgánico seleccionado':
-                    this._router.navigate(['/tableGrupoProgramaDetails', 'organico']);
-                    break;
-                case 'Programas que gastan del elemento seleccionado':
-                    this._router.navigate(['/tableGrupoProgramaDetails', 'gastan']);
-                    break;
-            }
-        }
+    clickButtonAditional(event: IButtonAdicional) {
+        // agregar logica para cargar el frafico "showGraph()"
+        const path = event.param ? event.path + '/' + event.param : event.path;
+        this._router.navigateByUrl(path);
     }
 
     private async _existButton(button: IButtonClasification) {
@@ -103,43 +83,32 @@ export class SubtabsComponent implements OnInit {
         });
         // console.log(button.name);
 
-        switch (this._tabSelected) {
-            // case 1:
-            //     this._selectedSubTab1Service.setSelectedSubTab1(button.name);
-            //     break;
-            case 2:
-                this._selectedSubTab2Service.setSelectedSubTab2(button.name);
-                break;
-            case 4:
-                this._selectedSubTab4Service.setSelectedSubTab4(button.name);
-                break;
-            default:
-                break;
-        }
+        // switch (this._tabSelected) {
+        //     // case 1:
+        //     //     this._selectedSubTab1Service.setSelectedSubTab1(button.name);
+        //     //     break;
+        //     case 2:
+        //         this._selectedSubTab2Service.setSelectedSubTab2(button.name);
+        //         break;
+        //     case 4:
+        //         this._selectedSubTab4Service.setSelectedSubTab4(button.name);
+        //         break;
+        //     default:
+        //         break;
+        // }
 
         button.selected = true;
         this._dataTable = await this._tableService.loadData(button.clasificationType);
-        this._selectedButtonService.setSelectedButton({
-            clasificationType: button.clasificationType,
-            name: button.name,
-            selected: true,
-        });
-
-        // console.log('this._dataTable', this._dataTable);
-
-        this._hasDataChangeService.change(false);
-        setTimeout(() => {
-            this._hasDataChangeService.change(true);
-        }, 5);
     }
 
-    showGraph() {
+    async showGraph(path: string) {
+        const dataTable = await this._tableService.loadData(this._dataStoreService.dataTable.clasificationType);
         this.hasRowClicked$.subscribe((value) => {
             this._row = value;
         });
 
-        this._dataGraph.rowDataGastos = this._dataTable.rowDataGastos;
-        this._dataGraph.clasificationType = this._clasificationType;
+        // this._dataGraph.rowDataGastos = dataTable.rowDataGastos;
+        // this._dataGraph.clasificationType = this._clasificationType;
         this._router.navigateByUrl('/graphGastos').then(() => {
             this._dataStoreService.setData({
                 ...this._dataStoreService.dataGraph,
