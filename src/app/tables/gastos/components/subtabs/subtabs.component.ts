@@ -1,22 +1,19 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { getClasificacion } from '../../../data-table';
+
 import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 import { IButtonAdicional, IButtonClasification } from '../../model/components.interface';
 
 import { ChangeSubTabService } from '../../../../services/change-subtab.service';
 import { DataStoreService } from '../../../../services/dataStore.service';
-import { HasDataChangeService } from '../../../../services/hasDataChange.service';
 import { HasRowClicked } from '../../../../services/hasRowClicked.service';
-import { SelectedButtonService } from '../../../../services/selectedButton.service';
+import { SelectedTabService } from '../../../../services/selectedTab.service';
 import { TableService } from '../../../../services/table.service';
 
 import { CLASIFICATION_TYPE } from '../../../../commons/util/util';
-import { SelectedSubTab2Service } from '../../../../services/selectedSubTab2.service';
-import { SelectedSubTab4Service } from '../../../../services/selectedSubTab4.service';
-import { SelectedTabService } from '../../../../services/selectedTab.service';
-import { getClasificacion } from '../../../data-table';
 
 @Component({
     selector: 'app-subtabs',
@@ -43,13 +40,8 @@ export class SubtabsComponent implements OnInit {
         private _router: Router,
         private _changeSubTabService: ChangeSubTabService,
         private _dataStoreService: DataStoreService,
-        private _hasDataChangeService: HasDataChangeService,
         private _hasRowClicked: HasRowClicked,
-        private _selectedButtonService: SelectedButtonService,
         private _tableService: TableService,
-        // private _selectedSubTab1Service: SelectedSubTab1Service,
-        private _selectedSubTab2Service: SelectedSubTab2Service,
-        private _selectedSubTab4Service: SelectedSubTab4Service,
         private _selectedTabService: SelectedTabService
     ) {}
 
