@@ -3,15 +3,15 @@ import { Router } from '@angular/router';
 
 import { getClasificacion } from '../../../data-table';
 
-import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
-import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
-import { IButtonAdicional, IButtonClasification } from '../../model/components.interface';
-
 import { ChangeSubTabService } from '../../../../services/change-subtab.service';
 import { DataStoreService } from '../../../../services/dataStore.service';
 import { HasRowClicked } from '../../../../services/hasRowClicked.service';
 import { SelectedTabService } from '../../../../services/selectedTab.service';
 import { TableService } from '../../../../services/table.service';
+
+import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
+import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
+import { IButtonAdicional, IButtonClasification } from '../../model/components.interface';
 
 import { CLASIFICATION_TYPE } from '../../../../commons/util/util';
 
@@ -23,13 +23,10 @@ import { CLASIFICATION_TYPE } from '../../../../commons/util/util';
 export class SubtabsComponent implements OnInit {
     @Input() clasificationType: CLASIFICATION_TYPE;
     @Output() clickButton = new EventEmitter<IDataTable>();
-
     public buttons: IButtonClasification[] = [];
     public buttonsAdditional: IButtonAdicional[] = [];
     public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
     public isDisabled = true;
-    // public showTable = true;
-
     private _clasificationType: CLASIFICATION_TYPE;
     private _dataGraph: IDataGraph = {} as IDataGraph;
     private _dataTable: IDataTable;
@@ -41,8 +38,8 @@ export class SubtabsComponent implements OnInit {
         private _changeSubTabService: ChangeSubTabService,
         private _dataStoreService: DataStoreService,
         private _hasRowClicked: HasRowClicked,
-        private _tableService: TableService,
-        private _selectedTabService: SelectedTabService
+        private _selectedTabService: SelectedTabService,
+        private _tableService: TableService
     ) {}
 
     async ngOnInit(): Promise<void> {
