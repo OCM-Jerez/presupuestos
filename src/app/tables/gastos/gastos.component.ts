@@ -5,6 +5,7 @@ import { TableService } from '../../services/table.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
+
 @Component({
     selector: 'app-gastos',
     templateUrl: './gastos.component.html',
