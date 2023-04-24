@@ -3,15 +3,17 @@ import { Component, OnDestroy, ViewChild } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 
+import { AgChartOptions } from 'ag-charts-community';
+import { AgGridAngular } from 'ag-grid-angular';
+
+import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
+
 import { DataStoreService } from '../../services/dataStore.service';
 import { HasRowClicked } from '../../services/hasRowClicked.service';
 
-import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 import { accumulate } from '../../commons/util/util';
 
-import { AgChartOptions } from 'ag-charts-community';
-import { AgGridAngular } from 'ag-grid-angular';
-import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
+import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
     selector: 'app-graph-gastos',
@@ -27,7 +29,6 @@ export class GraphGastosComponent implements OnDestroy {
     public groupHeaderHeight = 25;
     public headerHeight = 25;
     public options: AgChartOptions;
-
     private _datos: any[] = [];
     private _dataGraph: IDataGraph;
     private _subscription: Subscription;
@@ -55,7 +56,6 @@ export class GraphGastosComponent implements OnDestroy {
 
     private async _createData() {
         console.log('this._dataGraph', this._dataGraph);
-
         if (this._dataGraph.clasificationType != 'aplicacion') {
             this._hasRowClicked$.subscribe((value) => {
                 this._row = value;
