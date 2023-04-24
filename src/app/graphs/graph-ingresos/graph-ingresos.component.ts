@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { AgChartOptions } from 'ag-charts-community';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community';
+
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { DataStoreService } from '../../services/dataStore.service';
@@ -21,11 +22,10 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
     styleUrls: ['./graph-ingresos.component.scss'],
 })
 export class GraphIngresosComponent implements OnDestroy {
-    options: AgChartOptions;
-    rowData: any;
-    data: any;
-
     @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+    public options: AgChartOptions;
+    public rowData: any;
+    public data: any;
     private gridApi;
     public gridColumnApi;
     public columnDefs;
@@ -40,55 +40,20 @@ export class GraphIngresosComponent implements OnDestroy {
     private _dataGraph: IDataGraph;
     private _subscription: Subscription;
 
-    constructor(
-        private _location: Location,
-        private _dataStoreService: DataStoreService
-    ) {
+    constructor(private _location: Location, private _dataStoreService: DataStoreService) {
         this._dataTable = _dataStoreService.dataTable;
-        this._subscription = this._dataStoreService.dataSource$.subscribe(
-            (data) => {
-                this._dataGraph = data;
-                this._createData();
-                this._createColumns();
-                this._showGraph();
-            }
-        );
+        this._subscription = this._dataStoreService.dataSource$.subscribe((data) => {
+            this._dataGraph = data;
+            this._createData();
+            this._createColumns();
+            this._showGraph();
+        });
     }
 
     ngOnDestroy(): void {
         if (this._subscription) {
             this._subscription.unsubscribe();
         }
-    }
-
-    private _createColumns(): void {
-        this.columnDefs = [
-            {
-                headerName: 'Año',
-                field: 'year',
-                width: 70,
-            },
-            {
-                headerName: 'Previsiones definitivas',
-                field: 'Definitivas',
-                width: 180,
-                aggFunc: 'sum',
-                cellRenderer: CellRendererOCM,
-            },
-            {
-                headerName: 'RecaudacionNeta',
-                field: 'RecaudacionNeta',
-                width: 200,
-                aggFunc: 'sum',
-                cellRenderer: CellRendererOCM,
-            },
-        ];
-
-        this.defaultColDef = {
-            sortable: true,
-            resizable: true,
-            filter: false,
-        };
     }
 
     async onGridReady(params) {
@@ -100,16 +65,12 @@ export class GraphIngresosComponent implements OnDestroy {
         const codigo = this._dataStoreService.selectedCodeRow.split(' ')[0];
         switch (this._dataTable.clasificationType) {
             case 'ingresosEconomicaCapitulos':
-                this.datos = this._dataTable.rowDataIngresos.filter(
-                    (x) => x.CodCap == codigo
-                );
+                this.datos = this._dataTable.rowDataIngresos.filter((x) => x.CodCap == codigo);
                 break;
             case 'ingresosEconomicaArticulos':
             case 'ingresosEconomicaConceptos':
             case 'ingresosEconomicaEconomicos':
-                this.datos = this._dataTable.rowDataIngresos.filter(
-                    (x) => x.CodEco == codigo
-                );
+                this.datos = this._dataTable.rowDataIngresos.filter((x) => x.CodEco == codigo);
                 break;
         }
 
@@ -147,9 +108,38 @@ export class GraphIngresosComponent implements OnDestroy {
         // return this.data;
     }
 
+    private _createColumns(): void {
+        this.columnDefs = [
+            {
+                headerName: 'Año',
+                field: 'year',
+                width: 70,
+            },
+            {
+                headerName: 'Previsiones definitivas',
+                field: 'Definitivas',
+                width: 180,
+                aggFunc: 'sum',
+                cellRenderer: CellRendererOCM,
+            },
+            {
+                headerName: 'RecaudacionNeta',
+                field: 'RecaudacionNeta',
+                width: 200,
+                aggFunc: 'sum',
+                cellRenderer: CellRendererOCM,
+            },
+        ];
+
+        this.defaultColDef = {
+            sortable: true,
+            resizable: true,
+            filter: false,
+        };
+    }
+
     private _showGraph(): void {
         this.options = {
-            // theme: 'ag-default-dark',
             autoSize: true,
             title: {
                 text: this._dataGraph.graphTitle,
