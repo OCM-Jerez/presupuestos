@@ -26,6 +26,7 @@ export class TableGastosComponent implements OnInit, OnChanges {
     private _columnDefs: any[];
     private _dataTable: IDataTable;
     private _subHeaderName: string = '';
+    private _isIngreso: boolean = true;
 
     constructor(
         private _avalaibleYearsService: AvalaibleYearsService,
@@ -34,15 +35,24 @@ export class TableGastosComponent implements OnInit, OnChanges {
     ) {}
 
     ngOnChanges(changes: SimpleChanges): void {
+        this._dataTable = this.dataTable;
+        const ingresosClasificaciones = [
+            'ingresosEconomicaEconomicos',
+            'ingresosEconomicaConceptos',
+            'ingresosEconomicaArticulos',
+            'ingresosEconomicaCapitulos',
+        ];
+
+        if (ingresosClasificaciones.includes(this._dataTable.clasificationType)) {
+            this._isIngreso = true;
+        } else {
+            this._isIngreso = false;
+        }
+
         if (changes && changes['dataTable']) {
             this._loadTable();
             if (!changes['dataTable'].firstChange) {
-                if (
-                    this._dataTable.clasificationType === 'ingresosEconomicaEconomicos' ||
-                    this._dataTable.clasificationType === 'ingresosEconomicaConceptos' ||
-                    this._dataTable.clasificationType === 'ingresosEconomicaArticulos' ||
-                    this._dataTable.clasificationType === 'ingresosEconomicaCapitulos'
-                ) {
+                if (this._isIngreso) {
                     this._gridApi.setRowData(this._dataTable.rowDataIngresos);
                 } else {
                     this._gridApi.setRowData(this._dataTable.rowDataGastos);
@@ -56,27 +66,18 @@ export class TableGastosComponent implements OnInit, OnChanges {
     }
 
     private async _loadTable() {
-        this._dataTable = this.dataTable;
+        // this._dataTable = this.dataTable;
         this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
-        if (
-            this._dataTable.clasificationType === 'ingresosEconomicaEconomicos' ||
-            this._dataTable.clasificationType === 'ingresosEconomicaConceptos' ||
-            this._dataTable.clasificationType === 'ingresosEconomicaArticulos' ||
-            this._dataTable.clasificationType === 'ingresosEconomicaCapitulos'
-        ) {
-            console.log(this._dataTable.clasificationType);
+        if (this._isIngreso) {
             this.setColumnDefsIngresos();
             this.setGridOptionsIngresos();
         } else {
-            console.log(this._dataTable.clasificationType);
             this.setColumnDefs();
             this.setGridOptions();
         }
     }
 
     setColumnDefs() {
-        console.log('setColumnDefs');
-
         this._columnDefs = [
             {
                 headerName: this._dataTable.dataPropertyTable.headerName,
@@ -218,8 +219,6 @@ export class TableGastosComponent implements OnInit, OnChanges {
     }
 
     setColumnDefsIngresos() {
-        console.log('setColumnDefsIngresos');
-
         this._columnDefs = [
             {
                 headerName: this._dataTable.dataPropertyTable.headerName,
