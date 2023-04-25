@@ -7,8 +7,8 @@ import { CLASIFICATION_TYPE } from '../../commons/util/util';
 
 @Component({
     selector: 'app-gastos',
-    templateUrl: './gastos.component.html',
-    styleUrls: ['./gastos.component.scss'],
+    templateUrl: './subtabs-table.component.html',
+    styleUrls: ['./subtabs-table.component.scss'],
 })
 export class GastosComponent implements OnInit {
     @Input() clasification: CLASIFICATION_TYPE;

@@ -6,7 +6,7 @@ import { AgGridModule } from 'ag-grid-angular';
 
 import { SubtabsComponent } from './components/subtabs/subtabs.component';
 import { TableGastosComponent } from './components/table-gastos/table-gastos.component';
-import { GastosComponent } from './gastos.component';
+import { GastosComponent } from './subtabs-table.component';
 
 const routes: Routes = [{ path: '', component: GastosComponent }];
 @NgModule({
