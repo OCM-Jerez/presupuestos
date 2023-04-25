@@ -14,8 +14,8 @@ import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 
 @Component({
     selector: 'app-table-gastos',
-    templateUrl: './table-gastos.component.html',
-    styleUrls: ['./table-gastos.component.scss'],
+    templateUrl: './table.component.html',
+    styleUrls: ['./table.component.scss'],
 })
 export class TableGastosComponent implements OnInit, OnChanges {
     @Input() dataTable: IDataTable;
