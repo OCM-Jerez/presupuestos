@@ -13,7 +13,7 @@ import { HasRowClicked } from '../../../../services/hasRowClicked.service';
 import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 
 @Component({
-    selector: 'app-table-gastos',
+    selector: 'app-table',
     templateUrl: './table.component.html',
     styleUrls: ['./table.component.scss'],
 })
