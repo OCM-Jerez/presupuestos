@@ -6,8 +6,8 @@ import { AgGridModule } from 'ag-grid-angular';
 import { HighchartsChartModule } from 'highcharts-angular';
 
 import { CheckboxModule } from '../commons/components/checkbox/checkbox.module';
-import { GastosModule } from '../tables/gastos/gastos.module';
 import { TableIngresosModule } from '../tables/table-ingresos/table-ingresos.module';
+import { GastosModule } from '../tables/table/gastos.module';
 import { TabsModule } from './components/tabs/tabs.module';
 import { TreemapModule } from './components/treemap/treemap.module';
 
