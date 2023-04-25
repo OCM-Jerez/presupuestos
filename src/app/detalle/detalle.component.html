@@ -10,7 +10,8 @@
 
     <app-tabs (selectedTab)="selectedTab($event)">
         <app-tab tabTitle="Ingresos" [idTab]="1" [active]="true">
-            <app-table-ingresos
+            <app-gastos clasification="ingresosEconomicaEconomicos"></app-gastos>
+            <!-- <app-table-ingresos
                 [fieldsHide]="[
                     'DerechosReconocidos',
                     'DerechosAnulados',
@@ -18,7 +19,7 @@
                     'DerechosPendienteCobro'
                 ]"
                 [cellRenderer]="false"
-            ></app-table-ingresos>
+            ></app-table-ingresos> -->
         </app-tab>
 
         <app-tab tabTitle="¿En qué se gasta?" [idTab]="2">

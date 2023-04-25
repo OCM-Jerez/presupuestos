@@ -19,7 +19,6 @@ import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
 })
 export class TableGastosComponent implements OnInit, OnChanges {
     @Input() dataTable: IDataTable;
-
     @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
     gridOptions: GridOptions;
     private _gridApi: GridApi;
@@ -38,7 +37,16 @@ export class TableGastosComponent implements OnInit, OnChanges {
         if (changes && changes['dataTable']) {
             this._loadTable();
             if (!changes['dataTable'].firstChange) {
-                this._gridApi.setRowData(this._dataTable.rowDataGastos);
+                if (
+                    this._dataTable.clasificationType === 'ingresosEconomicaEconomicos' ||
+                    this._dataTable.clasificationType === 'ingresosEconomicaConceptos' ||
+                    this._dataTable.clasificationType === 'ingresosEconomicaArticulos' ||
+                    this._dataTable.clasificationType === 'ingresosEconomicaCapitulos'
+                ) {
+                    this._gridApi.setRowData(this._dataTable.rowDataIngresos);
+                } else {
+                    this._gridApi.setRowData(this._dataTable.rowDataGastos);
+                }
             }
         }
     }
@@ -50,11 +58,25 @@ export class TableGastosComponent implements OnInit, OnChanges {
     private async _loadTable() {
         this._dataTable = this.dataTable;
         this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
-        this.setColumnDefs();
-        this.setGridOptions();
+        if (
+            this._dataTable.clasificationType === 'ingresosEconomicaEconomicos' ||
+            this._dataTable.clasificationType === 'ingresosEconomicaConceptos' ||
+            this._dataTable.clasificationType === 'ingresosEconomicaArticulos' ||
+            this._dataTable.clasificationType === 'ingresosEconomicaCapitulos'
+        ) {
+            console.log(this._dataTable.clasificationType);
+            this.setColumnDefsIngresos();
+            this.setGridOptionsIngresos();
+        } else {
+            console.log(this._dataTable.clasificationType);
+            this.setColumnDefs();
+            this.setGridOptions();
+        }
     }
 
     setColumnDefs() {
+        console.log('setColumnDefs');
+
         this._columnDefs = [
             {
                 headerName: this._dataTable.dataPropertyTable.headerName,
@@ -135,20 +157,6 @@ export class TableGastosComponent implements OnInit, OnChanges {
         } as GridOptions;
     }
 
-    onGridReady = (params: GridReadyEvent) => {
-        this._gridApi = params.api;
-        this._columnApi = params.columnApi;
-
-        const defaultSortModel: ColumnState[] = [
-            {
-                colId: this._dataTable.dataPropertyTable.codField,
-                sort: 'asc',
-                sortIndex: 0,
-            },
-        ];
-        params.columnApi.applyColumnState({ state: defaultSortModel });
-    };
-
     private _createColumnsChildren(year: number) {
         return [
             {
@@ -208,4 +216,161 @@ export class TableGastosComponent implements OnInit, OnChanges {
             },
         ];
     }
+
+    setColumnDefsIngresos() {
+        console.log('setColumnDefsIngresos');
+
+        this._columnDefs = [
+            {
+                headerName: this._dataTable.dataPropertyTable.headerName,
+                children: [
+                    {
+                        headerName: this._subHeaderName,
+                        field: this._dataTable.dataPropertyTable.codField,
+                        // width: this._dataTable.dataPropertyTable.width,
+                        width: 550,
+                        rowGroup: true,
+                        showRowGroup: this._dataTable.dataPropertyTable.codField,
+                        cellRenderer: CellRendererOCMtext,
+                        valueGetter: (params) => {
+                            if (params.data) {
+                                return (
+                                    params.data[this._dataTable.dataPropertyTable.codField] +
+                                    ' - ' +
+                                    params.data[this._dataTable.dataPropertyTable.desField]
+                                );
+                            } else {
+                                return null;
+                            }
+                        },
+                    },
+                ],
+            },
+
+            ...this._avalaibleYearsService.getYearsSelected().map((year) => {
+                return {
+                    headerName: year,
+                    children: this._createColumnsChildrenIngresos(year),
+                };
+            }),
+        ];
+    }
+
+    setGridOptionsIngresos() {
+        this.gridOptions = {
+            defaultColDef: {
+                width: 130,
+                sortable: true,
+                resizable: true,
+                filter: true,
+                aggFunc: 'sum',
+                cellRenderer: CellRendererOCM,
+                headerComponentParams: {
+                    template:
+                        '<div class="ag-cell-label-container" role="presentation">' +
+                        '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
+                        '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
+                        '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
+                        '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
+                        '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
+                        '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
+                        '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
+                        '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
+                        '  </div>' +
+                        '</div>',
+                },
+            },
+            rowData: this._dataTable.rowDataIngresos,
+            columnDefs: this._columnDefs,
+            groupDisplayType: 'custom',
+            groupIncludeTotalFooter: true,
+            groupIncludeFooter: true,
+            groupHeaderHeight: 25,
+            headerHeight: 54,
+            suppressAggFuncInHeader: true,
+            rowSelection: 'single',
+            localeText: localeTextESPes,
+            pagination: true,
+            paginationPageSize: 20,
+            onRowClicked: () => {
+                const selectedRows = this.agGrid.api.getSelectedNodes();
+                this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+                this._hasRowClicked.change(selectedRows[0].key);
+            },
+        } as GridOptions;
+    }
+
+    private _createColumnsChildrenIngresos(year: number) {
+        return [
+            {
+                headerName: 'Créditos',
+                children: [
+                    {
+                        headerName: 'Previsiones Iniciales',
+                        field: `Iniciales${year}`,
+                        columnGroupShow: 'open',
+                    },
+                    {
+                        headerName: 'Total Modificaciones',
+                        field: `Modificaciones${year}`,
+                        width: 140,
+                        columnGroupShow: 'open',
+                    },
+                    {
+                        headerName: 'Creditos definitivos',
+                        field: `Definitivas${year}`,
+                        width: 140,
+                        columnGroupShow: 'close',
+                        sort: 'desc',
+                    },
+                ],
+            },
+            {
+                headerName: 'Gastos',
+                children: [
+                    {
+                        headerName: 'Gastos Comprometidos',
+                        field: `GastosComprometidos${year}`,
+                        width: 140,
+                        columnGroupShow: 'open',
+                    },
+                    {
+                        headerName: 'Obligaciones reconocidas netas',
+                        field: `ObligacionesReconocidasNetas${year}`,
+                        width: 135,
+                        columnGroupShow: 'open',
+                    },
+                    {
+                        headerName: 'Pagos',
+                        field: `Pagos${year}`,
+                        columnGroupShow: 'close',
+                    },
+                    {
+                        headerName: 'Obligaciones pendientes de pago al final periodo',
+                        field: `ObligacionesPendientePago${year}`,
+                        width: 120,
+                        columnGroupShow: 'close',
+                    },
+                ],
+            },
+            {
+                headerName: 'Remanente Credito',
+                field: `RemanenteCredito${year}`,
+            },
+        ];
+    }
+
+    onGridReady = (params: GridReadyEvent) => {
+        this._gridApi = params.api;
+        this._columnApi = params.columnApi;
+
+        const defaultSortModel: ColumnState[] = [
+            {
+                colId: this._dataTable.dataPropertyTable.codField,
+                sort: 'asc',
+                sortIndex: 0,
+            },
+        ];
+        params.columnApi.applyColumnState({ state: defaultSortModel });
+    };
 }

@@ -22,7 +22,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por capítulo',
                 key: 'capitulos',
-                clasificationType: 'ingresosEconomicaEconomicos',
+                clasificationType: 'ingresosEconomicaCapitulos',
                 selected: false,
                 codigo: 'CodCap',
                 descripcion: 'DesCap',
@@ -30,7 +30,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por artículo',
                 key: 'articulos',
-                clasificationType: 'ingresosEconomicaEconomicos',
+                clasificationType: 'ingresosEconomicaArticulos',
                 selected: false,
                 codigo: 'CodArt',
                 descripcion: 'DesArt',
@@ -38,7 +38,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por concepto',
                 key: 'conceptos',
-                clasificationType: 'ingresosEconomicaEconomicos',
+                clasificationType: 'ingresosEconomicaConceptos',
                 selected: false,
                 codigo: 'CodCon',
                 descripcion: 'DesCon',
@@ -67,7 +67,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por capítulo',
                 key: 'capitulos',
-                clasificationType: 'ingresosEconomicaEconomicos',
+                clasificationType: 'ingresosEconomicaCapitulos',
                 selected: false,
                 codigo: 'CodCap',
                 descripcion: 'DesCap',
@@ -75,7 +75,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por artículo',
                 key: 'articulos',
-                clasificationType: 'ingresosEconomicaEconomicos',
+                clasificationType: 'ingresosEconomicaArticulos',
                 selected: false,
                 codigo: 'CodArt',
                 descripcion: 'DesArt',
@@ -83,7 +83,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por concepto',
                 key: 'conceptos',
-                clasificationType: 'ingresosEconomicaEconomicos',
+                clasificationType: 'ingresosEconomicaConceptos',
                 selected: false,
                 codigo: 'CodCon',
                 descripcion: 'DesCon',
@@ -110,9 +110,9 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         graphTitle: 'Ingresos por concepto',
         buttons: [
             {
-                name: 'Por capítulo',
+                name: 'Por capítulo ingreso',
                 key: 'capitulos',
-                clasificationType: 'ingresosEconomicaEconomicos',
+                clasificationType: 'ingresosEconomicaCapitulos',
                 selected: false,
                 codigo: 'CodCap',
                 descripcion: 'DesCap',
@@ -120,7 +120,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por artículo',
                 key: 'articulos',
-                clasificationType: 'ingresosEconomicaEconomicos',
+                clasificationType: 'ingresosEconomicaArticulos',
                 selected: false,
                 codigo: 'CodArt',
                 descripcion: 'DesArt',
@@ -128,7 +128,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por concepto',
                 key: 'conceptos',
-                clasificationType: 'ingresosEconomicaEconomicos',
+                clasificationType: 'ingresosEconomicaConceptos',
                 selected: false,
                 codigo: 'CodCon',
                 descripcion: 'DesCon',
@@ -155,9 +155,9 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         graphTitle: 'Ingresos por económico',
         buttons: [
             {
-                name: 'Por capítulo',
+                name: 'Por capítulo ingresos',
                 key: 'capitulos',
-                clasificationType: 'ingresosEconomicaEconomicos',
+                clasificationType: 'ingresosEconomicaCapitulos',
                 selected: false,
                 codigo: 'CodCap',
                 descripcion: 'DesCap',
@@ -165,7 +165,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por artículo',
                 key: 'articulos',
-                clasificationType: 'ingresosEconomicaEconomicos',
+                clasificationType: 'ingresosEconomicaArticulos',
                 selected: false,
                 codigo: 'CodArt',
                 descripcion: 'DesArt',
@@ -173,7 +173,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
             {
                 name: 'Por concepto',
                 key: 'conceptos',
-                clasificationType: 'ingresosEconomicaEconomicos',
+                clasificationType: 'ingresosEconomicaConceptos',
                 selected: false,
                 codigo: 'CodCon',
                 descripcion: 'DesCon',
