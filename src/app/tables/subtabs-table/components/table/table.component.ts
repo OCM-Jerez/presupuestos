@@ -17,7 +17,7 @@ import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
     templateUrl: './table.component.html',
     styleUrls: ['./table.component.scss'],
 })
-export class TableGastosComponent implements OnInit, OnChanges {
+export class TableComponent implements OnInit, OnChanges {
     @Input() dataTable: IDataTable;
     @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
     gridOptions: GridOptions;
