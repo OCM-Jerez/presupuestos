@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
 
 import { SubtabsComponent } from './components/subtabs/subtabs.component';
-import { TableGastosComponent } from './components/table-gastos/table-gastos.component';
+import { TableGastosComponent } from './components/table/table-gastos.component';
 import { GastosComponent } from './subtabs-table.component';
 
 const routes: Routes = [{ path: '', component: GastosComponent }];
