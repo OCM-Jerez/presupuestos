@@ -4,14 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AgGridModule } from 'ag-grid-angular';
 
-import { SubtabsComponent } from './components/subtabs/subtabs.component';
-import { TableComponent } from './components/table/table.component';
 import { GastosComponent } from './subtabs-table.component';
 
 const routes: Routes = [{ path: '', component: GastosComponent }];
 @NgModule({
-    declarations: [GastosComponent, SubtabsComponent, TableComponent],
-    exports: [GastosComponent, SubtabsComponent, TableComponent],
+    // declarations: [GastosComponent, SubtabsComponent, TableComponent],
+    declarations: [GastosComponent],
+
+    //    exports: [GastosComponent, SubtabsComponent, TableComponent],
+    exports: [GastosComponent],
 
     imports: [CommonModule, AgGridModule, RouterModule.forChild(routes)],
 })

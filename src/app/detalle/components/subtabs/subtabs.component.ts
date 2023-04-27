@@ -1,19 +1,19 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { getClasificacion } from '../../../data-table';
+import { getClasificacion } from '../../../tables/data-table';
 
-import { ChangeSubTabService } from '../../../../services/change-subtab.service';
-import { DataStoreService } from '../../../../services/dataStore.service';
-import { HasRowClicked } from '../../../../services/hasRowClicked.service';
-import { SelectedTabService } from '../../../../services/selectedTab.service';
-import { TableService } from '../../../../services/table.service';
+import { ChangeSubTabService } from '../../../services/change-subtab.service';
+import { DataStoreService } from '../../../services/dataStore.service';
+import { HasRowClicked } from '../../../services/hasRowClicked.service';
+import { SelectedTabService } from '../../../services/selectedTab.service';
+import { TableService } from '../../../services/table.service';
 
-import { IDataGraph } from '../../../../commons/interfaces/dataGraph.interface';
-import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
-import { IButtonAdicional, IButtonClasification } from '../../model/components.interface';
+import { IDataGraph } from '../../../commons/interfaces/dataGraph.interface';
+import { IDataTable } from '../../../commons/interfaces/dataTable.interface';
+import { IButtonAdicional, IButtonClasification } from '../../../tables/subtabs-table/model/components.interface';
 
-import { CLASIFICATION_TYPE } from '../../../../commons/util/util';
+import { CLASIFICATION_TYPE } from '../../../commons/util/util';
 
 @Component({
     selector: 'app-subtabs',

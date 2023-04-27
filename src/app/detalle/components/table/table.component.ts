@@ -3,15 +3,15 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
-import localeTextESPes from '../../../../../assets/data/localeTextESPes.json';
-import { CellRendererOCM, CellRendererOCMtext } from '../../../../ag-grid/CellRendererOCM';
+import localeTextESPes from '../../../../assets/data/localeTextESPes.json';
+import { CellRendererOCM, CellRendererOCMtext } from '../../../ag-grid/CellRendererOCM';
 
-import { AvalaibleYearsService } from '../../../../services/avalaibleYears.service';
-import { DataStoreService } from '../../../../services/dataStore.service';
-import { HasRowClicked } from '../../../../services/hasRowClicked.service';
+import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
+import { DataStoreService } from '../../../services/dataStore.service';
+import { HasRowClicked } from '../../../services/hasRowClicked.service';
 
-import { IDataTable } from '../../../../commons/interfaces/dataTable.interface';
-import { CLASIFICATION_TYPE } from '../../../../commons/util/util';
+import { IDataTable } from '../../../commons/interfaces/dataTable.interface';
+import { CLASIFICATION_TYPE } from '../../../commons/util/util';
 
 @Component({
     selector: 'app-table',

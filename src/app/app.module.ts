@@ -19,7 +19,7 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 
 // Modules
 import { CheckboxModule } from './commons/components/checkbox/checkbox.module';
-import { DetallePresupuestoModule } from './detalle/detalle.module';
+import { DetalleModule } from './detalle/detalle.module';
 
 // Services
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
@@ -41,7 +41,7 @@ import { AvalaibleYearsService } from './services/avalaibleYears.service';
         ReactiveFormsModule,
         HttpClientModule,
         CheckboxModule,
-        DetallePresupuestoModule,
+        DetalleModule,
     ],
     providers: [AvalaibleYearsService],
     bootstrap: [AppComponent],

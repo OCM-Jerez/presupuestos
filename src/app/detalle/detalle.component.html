@@ -8,30 +8,31 @@
     <app-table-presupuesto></app-table-presupuesto>
     <app-treemap></app-treemap>
 
-    <app-tabs (selectedTab)="selectedTab($event)">
+    <app-tabs (selectedTab)="clickTab($event)">
         <app-tab tabTitle="Ingresos" [idTab]="1" [active]="true">
-            <app-gastos clasification="ingresosEconomicaEconomicos"></app-gastos>
-            <!-- <app-table-ingresos
-                [fieldsHide]="[
-                    'DerechosReconocidos',
-                    'DerechosAnulados',
-                    'DerechosCancelados',
-                    'DerechosPendienteCobro'
-                ]"
-                [cellRenderer]="false"
-            ></app-table-ingresos> -->
+            <app-subtabs
+                clasificationType="ingresosEconomicaEconomicos"
+                (clickButton)="clickSubTab($event)"
+            ></app-subtabs>
+            <app-table [dataTable]="dataTable"></app-table>
         </app-tab>
 
         <app-tab tabTitle="¿En qué se gasta?" [idTab]="2">
-            <app-gastos clasification="gastosProgramaProgramas"></app-gastos>
+            <app-subtabs clasificationType="gastosProgramaProgramas" (clickButton)="clickSubTab($event)"></app-subtabs>
+            <app-table [dataTable]="dataTable"></app-table>
         </app-tab>
 
         <app-tab tabTitle="¿Quién lo gasta?" [idTab]="3">
-            <app-gastos clasification="gastosOrganicaOrganicos"></app-gastos>
+            <app-subtabs clasificationType="gastosOrganicaOrganicos" (clickButton)="clickSubTab($event)"></app-subtabs>
+            <app-table [dataTable]="dataTable"></app-table>
         </app-tab>
 
         <app-tab tabTitle="¿Para qué se gasta?" [idTab]="4">
-            <app-gastos clasification="gastosEconomicaEconomicos"></app-gastos>
+            <app-subtabs
+                clasificationType="gastosEconomicaEconomicos"
+                (clickButton)="clickSubTab($event)"
+            ></app-subtabs>
+            <app-table [dataTable]="dataTable"></app-table>
         </app-tab>
     </app-tabs>
 </div>
