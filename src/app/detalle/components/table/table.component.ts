@@ -112,7 +112,6 @@ export class TableComponent implements OnInit, OnChanges {
                 if (this._isIngreso) {
                     let children = this._createColumnsChildrenIngresos(year);
                 }
-                console.log('children', children);
 
                 return {
                     headerName: year,
@@ -167,8 +166,6 @@ export class TableComponent implements OnInit, OnChanges {
     }
 
     private _createColumnsChildren(year: number) {
-        console.log('_createColumnsChildren');
-
         return [
             {
                 headerName: 'Créditos',
