@@ -21,22 +21,6 @@ export class DetalleComponent implements OnInit {
     }
 
     async clickTab(idTab: number) {
-        // this._selectedTabService.setSelectedTabNew(idTab);
-        // switch (idTab) {
-        //     case 1:
-        //         this.dataTable = await this._tableService.loadData('ingresosEconomicaEconomicos');
-        //         break;
-        //     case 2:
-        //         this.dataTable = await this._tableService.loadData('gastosProgramaProgramas');
-        //         break;
-        //     case 3:
-        //         this.dataTable = await this._tableService.loadData('gastosOrganicaOrganicos');
-        //         break;
-        //     case 4:
-        //         this.dataTable = await this._tableService.loadData('gastosEconomicaEconomicos');
-        //         break;
-        // }
-
         const tabDataMap = {
             1: 'ingresosEconomicaEconomicos',
             2: 'gastosProgramaProgramas',
