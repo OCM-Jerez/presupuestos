@@ -48,6 +48,7 @@ export class TreemapComponent implements OnInit {
 
     ngOnInit() {
         this.subscribeToServices();
+        this.setFields();
     }
 
     subscribeToServices(): void {
@@ -113,17 +114,17 @@ export class TreemapComponent implements OnInit {
             case 2:
                 this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
                 switch (this._subTabSelectd2) {
-                    case 'Por áreas':
+                    case 'gastosProgramaAreas':
                         this._dataTable = await this._tableService.loadData('gastosProgramaAreas');
                         break;
-                    case 'Por política':
+                    case 'gastosProgramaPoliticas':
                         this._dataTable = await this._tableService.loadData('gastosProgramaPoliticas');
                         break;
-                    case 'Por grupo programas':
+                    case 'gastosProgramaGrupos':
                         this._dataTable = await this._tableService.loadData('gastosProgramaGrupos');
                         break;
-                    case 'Por programa':
-                        // this._dataTable = await this._tableService.loadData('gastosProgramaAreas');
+                    case 'gastosProgramaProgramas':
+                        this._dataTable = await this._tableService.loadData('gastosProgramaProgramas');
                         break;
                     default:
                         break;
@@ -134,7 +135,7 @@ export class TreemapComponent implements OnInit {
                 break;
             case 4:
                 switch (this._subTabSelectd4) {
-                    case 'Por capítulo gasto':
+                    case 'gastosEconomicaCapitulos':
                         this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
                         break;
                     default:

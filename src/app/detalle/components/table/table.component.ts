@@ -44,7 +44,7 @@ export class TableComponent implements OnInit, OnChanges {
             'ingresosEconomicaCapitulos',
         ];
         setTimeout(() => {
-            console.log('this._dataTable.clasificationType', this._dataTable);
+            // console.log('this._dataTable.clasificationType', this._dataTable);
             if (ingresosClasificaciones.includes(this._dataTable.clasificationType)) {
                 this._isIngreso = true;
             } else {
