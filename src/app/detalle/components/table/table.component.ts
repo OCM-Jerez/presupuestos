@@ -43,23 +43,25 @@ export class TableComponent implements OnInit, OnChanges {
             'ingresosEconomicaArticulos',
             'ingresosEconomicaCapitulos',
         ];
+        setTimeout(() => {
+            console.log('this._dataTable.clasificationType', this._dataTable);
+            if (ingresosClasificaciones.includes(this._dataTable.clasificationType)) {
+                this._isIngreso = true;
+            } else {
+                this._isIngreso = false;
+            }
 
-        if (ingresosClasificaciones.includes(this._dataTable.clasificationType)) {
-            this._isIngreso = true;
-        } else {
-            this._isIngreso = false;
-        }
-
-        if (changes && changes['dataTable']) {
-            this._loadTable();
-            if (!changes['dataTable'].firstChange) {
-                if (this._isIngreso) {
-                    this._gridApi.setRowData(this._dataTable.rowDataIngresos);
-                } else {
-                    this._gridApi.setRowData(this._dataTable.rowDataGastos);
+            if (changes && changes['dataTable']) {
+                this._loadTable();
+                if (!changes['dataTable'].firstChange) {
+                    if (this._isIngreso) {
+                        this._gridApi.setRowData(this._dataTable.rowDataIngresos);
+                    } else {
+                        this._gridApi.setRowData(this._dataTable.rowDataGastos);
+                    }
                 }
             }
-        }
+        }, 1000);
     }
 
     ngOnInit(): void {
@@ -67,12 +69,10 @@ export class TableComponent implements OnInit, OnChanges {
     }
 
     private async _loadTable() {
-        // this._dataTable = this.dataTable;
         this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
         this.setColumnDefs();
 
         if (this._isIngreso) {
-            // this.setColumnDefsIngresos();
             this.setGridOptionsIngresos();
         } else {
             this.setGridOptions();
