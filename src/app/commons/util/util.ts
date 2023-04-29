@@ -20,18 +20,3 @@ export async function asynForEach(array: Array<number>, callback: Function) {
         await callback(array[index], index, array);
     }
 }
-
-// export type CLASIFICATION_TYPE =
-//     'ingresosEconomicaCapitulos'
-//     | 'ingresosEconomicaArticulos'
-//     | 'ingresosEconomicaConceptos'
-//     | 'ingresosEconomicaEconomicos'
-//     | 'gastosOrganicaOrganicos'
-//     | 'gastosProgramaAreas'
-//     | 'gastosProgramaPoliticas'
-//     | 'gastosProgramaGrupos'
-//     | 'gastosProgramaProgramas'
-//     | 'gastosEconomicaCapitulos'
-//     | 'gastosEconomicaArticulos'
-//     | 'gastosEconomicaConceptos'
-//     | 'gastosEconomicaEconomicos';
