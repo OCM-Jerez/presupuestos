@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, ContentChildren, EventEmitter, Output, QueryList } from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, EventEmitter, OnInit, Output, QueryList } from '@angular/core';
 
 import { TabComponent } from './tab/tab.component';
 
@@ -13,7 +13,7 @@ import { CLASIFICATION_TYPE } from '../../../commons/util/util';
     templateUrl: './tabs.component.html',
     styleUrls: ['./tabs.component.scss'],
 })
-export class TabsComponent implements AfterContentInit {
+export class TabsComponent implements OnInit, AfterContentInit {
     // El operador de aserción de no nulo ! se utiliza para asegurar
     // que la variable tabs no será nula en tiempo de ejecución.
     @ContentChildren(TabComponent) tabs!: QueryList<TabComponent>;
@@ -21,6 +21,10 @@ export class TabsComponent implements AfterContentInit {
     public dataTable: IDataTable;
 
     constructor(private _tableService: TableService, private _selectedTabService: SelectedTabService) {}
+    async ngOnInit(): Promise<void> {
+        const a = await this._tableService.loadData('ingresosEconomicaEconomicos');
+        console.log('this.dataTable', a);
+    }
 
     ngAfterContentInit(): void {
         const activeTabs = this.tabs.filter((tab) => tab.active);
@@ -49,8 +53,8 @@ export class TabsComponent implements AfterContentInit {
         };
 
         const clasificationType: CLASIFICATION_TYPE = tabDataMap[tab.idTab];
-        this.dataTable = await this._tableService.loadData(clasificationType);
         // Guardar el tab seleccionado
         this._selectedTabService.setSelectedTabNew(tab.idTab);
+        this._selectedTabService.setSelectedTab(clasificationType);
     }
 }

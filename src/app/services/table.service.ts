@@ -101,6 +101,8 @@ export class TableService {
         }
 
         // Uso el setter - OJO
+        // console.log('sendDataTable', sendDataTable);
+
         this._dataStoreService.dataTable = sendDataTable;
         this._dataStoreService.dataGraph = sendDataGraph;
         return sendDataTable;

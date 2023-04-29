@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
@@ -10,8 +10,11 @@ import { AvalaibleYearsService } from '../../../services/avalaibleYears.service'
 import { DataStoreService } from '../../../services/dataStore.service';
 import { HasRowClicked } from '../../../services/hasRowClicked.service';
 
+import { Subject } from 'rxjs';
 import { IDataTable } from '../../../commons/interfaces/dataTable.interface';
 import { CLASIFICATION_TYPE } from '../../../commons/util/util';
+import { SelectedTabService } from '../../../services/selectedTab.service';
+import { TableService } from '../../../services/table.service';
 
 @Component({
     selector: 'app-table',
@@ -19,7 +22,6 @@ import { CLASIFICATION_TYPE } from '../../../commons/util/util';
     styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit, OnChanges {
-    @Input() dataTable: IDataTable;
     @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
     gridOptions: GridOptions;
     private _gridApi: GridApi;
@@ -28,47 +30,63 @@ export class TableComponent implements OnInit, OnChanges {
     private _dataTable: IDataTable;
     private _subHeaderName: string = '';
     private _isIngreso: boolean = true;
+    private _tabSelected: any;
+    private _unsubscribe$ = new Subject<void>();
 
     constructor(
+        private _tableService: TableService,
         private _avalaibleYearsService: AvalaibleYearsService,
         private _dataStoreService: DataStoreService,
-        private _hasRowClicked: HasRowClicked
+        private _hasRowClicked: HasRowClicked,
+        private _selectedTabService: SelectedTabService
     ) {}
 
-    ngOnChanges(changes: SimpleChanges): void {
-        this._dataTable = this.dataTable;
+    async ngOnChanges(changes: SimpleChanges): Promise<void> {
         const ingresosClasificaciones: CLASIFICATION_TYPE[] = [
             'ingresosEconomicaEconomicos',
             'ingresosEconomicaConceptos',
             'ingresosEconomicaArticulos',
             'ingresosEconomicaCapitulos',
         ];
-        setTimeout(() => {
-            // console.log('this._dataTable.clasificationType', this._dataTable);
-            if (ingresosClasificaciones.includes(this._dataTable.clasificationType)) {
-                this._isIngreso = true;
-            } else {
-                this._isIngreso = false;
-            }
 
-            if (changes && changes['dataTable']) {
-                this._loadTable();
-                if (!changes['dataTable'].firstChange) {
-                    if (this._isIngreso) {
-                        this._gridApi.setRowData(this._dataTable.rowDataIngresos);
-                    } else {
-                        this._gridApi.setRowData(this._dataTable.rowDataGastos);
-                    }
+        this._dataTable = await this._tableService.loadData(this._tabSelected);
+        console.log('this._dataTable', this._dataTable);
+
+        console.log('this._dataTable.clasificationType', this._dataTable);
+        if (ingresosClasificaciones.includes(this._dataTable.clasificationType)) {
+            this._isIngreso = true;
+        } else {
+            this._isIngreso = false;
+        }
+
+        if (changes && changes['dataTable']) {
+            this._loadTable();
+            if (!changes['dataTable'].firstChange) {
+                if (this._isIngreso) {
+                    this._gridApi.setRowData(this._dataTable.rowDataIngresos);
+                } else {
+                    this._gridApi.setRowData(this._dataTable.rowDataGastos);
                 }
             }
-        }, 1000);
+        }
     }
 
-    ngOnInit(): void {
+    async ngOnInit(): Promise<void> {
+        this._dataTable = await this._dataStoreService.dataTable;
+        console.log('this._dataTable', this._dataTable);
+        await this._loadTable();
+
         this._hasRowClicked.change(null);
     }
 
+    ngOnDestroy() {
+        this._unsubscribe$.next();
+        this._unsubscribe$.complete();
+    }
+
     private async _loadTable() {
+        // console.log('this._dataTable', this._dataTable.dataPropertyTable);
+
         this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
         this.setColumnDefs();
 
@@ -165,6 +183,50 @@ export class TableComponent implements OnInit, OnChanges {
         } as GridOptions;
     }
 
+    setGridOptionsIngresos() {
+        this.gridOptions = {
+            defaultColDef: {
+                width: 130,
+                sortable: true,
+                resizable: true,
+                filter: true,
+                aggFunc: 'sum',
+                cellRenderer: CellRendererOCM,
+                headerComponentParams: {
+                    template:
+                        '<div class="ag-cell-label-container" role="presentation">' +
+                        '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
+                        '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
+                        '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
+                        '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
+                        '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
+                        '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
+                        '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
+                        '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
+                        '  </div>' +
+                        '</div>',
+                },
+            },
+            rowData: this._dataTable.rowDataIngresos,
+            columnDefs: this._columnDefs,
+            groupDisplayType: 'custom',
+            groupIncludeTotalFooter: true,
+            groupIncludeFooter: true,
+            groupHeaderHeight: 25,
+            headerHeight: 54,
+            suppressAggFuncInHeader: true,
+            rowSelection: 'single',
+            localeText: localeTextESPes,
+            pagination: true,
+            paginationPageSize: 20,
+            onRowClicked: () => {
+                const selectedRows = this.agGrid.api.getSelectedNodes();
+                this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+                this._hasRowClicked.change(selectedRows[0].key);
+            },
+        } as GridOptions;
+    }
+
     private _createColumnsChildren(year: number) {
         return [
             {
@@ -224,88 +286,6 @@ export class TableComponent implements OnInit, OnChanges {
             },
         ];
     }
-
-    // setColumnDefsIngresos() {
-    //     this._columnDefs = [
-    //         {
-    //             headerName: this._dataTable.dataPropertyTable.headerName,
-    //             children: [
-    //                 {
-    //                     headerName: this._subHeaderName,
-    //                     field: this._dataTable.dataPropertyTable.codField,
-    //                     // width: this._dataTable.dataPropertyTable.width,
-    //                     width: 550,
-    //                     rowGroup: true,
-    //                     showRowGroup: this._dataTable.dataPropertyTable.codField,
-    //                     cellRenderer: CellRendererOCMtext,
-    //                     valueGetter: (params) => {
-    //                         if (params.data) {
-    //                             return (
-    //                                 params.data[this._dataTable.dataPropertyTable.codField] +
-    //                                 ' - ' +
-    //                                 params.data[this._dataTable.dataPropertyTable.desField]
-    //                             );
-    //                         } else {
-    //                             return null;
-    //                         }
-    //                     },
-    //                 },
-    //             ],
-    //         },
-
-    //         ...this._avalaibleYearsService.getYearsSelected().map((year) => {
-    //             return {
-    //                 headerName: year,
-    //                 children: this._createColumnsChildrenIngresos(year),
-    //             };
-    //         }),
-    //     ];
-    // }
-
-    setGridOptionsIngresos() {
-        this.gridOptions = {
-            defaultColDef: {
-                width: 130,
-                sortable: true,
-                resizable: true,
-                filter: true,
-                aggFunc: 'sum',
-                cellRenderer: CellRendererOCM,
-                headerComponentParams: {
-                    template:
-                        '<div class="ag-cell-label-container" role="presentation">' +
-                        '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
-                        '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
-                        '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
-                        '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
-                        '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
-                        '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
-                        '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
-                        '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
-                        '  </div>' +
-                        '</div>',
-                },
-            },
-            rowData: this._dataTable.rowDataIngresos,
-            columnDefs: this._columnDefs,
-            groupDisplayType: 'custom',
-            groupIncludeTotalFooter: true,
-            groupIncludeFooter: true,
-            groupHeaderHeight: 25,
-            headerHeight: 54,
-            suppressAggFuncInHeader: true,
-            rowSelection: 'single',
-            localeText: localeTextESPes,
-            pagination: true,
-            paginationPageSize: 20,
-            onRowClicked: () => {
-                const selectedRows = this.agGrid.api.getSelectedNodes();
-                this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-                this._hasRowClicked.change(selectedRows[0].key);
-            },
-        } as GridOptions;
-    }
-
     private _createColumnsChildrenIngresos(year: number) {
         return [
             {

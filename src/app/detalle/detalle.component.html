@@ -10,29 +10,23 @@
 
     <app-tabs>
         <app-tab tabTitle="Ingresos" [idTab]="1" [active]="true">
-            <app-subtabs
-                clasificationType="ingresosEconomicaEconomicos"
-                (clickButton)="clickSubTab($event)"
-            ></app-subtabs>
-            <app-table [dataTable]="dataTable"></app-table>
+            <app-subtabs></app-subtabs>
+            <app-table></app-table>
         </app-tab>
 
         <app-tab tabTitle="¿En qué se gasta?" [idTab]="2">
-            <app-subtabs clasificationType="gastosProgramaProgramas" (clickButton)="clickSubTab($event)"></app-subtabs>
-            <app-table [dataTable]="dataTable"></app-table>
+            <app-subtabs></app-subtabs>
+            <app-table></app-table>
         </app-tab>
 
         <app-tab tabTitle="¿Quién lo gasta?" [idTab]="3">
-            <app-subtabs clasificationType="gastosOrganicaOrganicos" (clickButton)="clickSubTab($event)"></app-subtabs>
-            <app-table [dataTable]="dataTable"></app-table>
+            <app-subtabs></app-subtabs>
+            <app-table></app-table>
         </app-tab>
 
         <app-tab tabTitle="¿Para qué se gasta?" [idTab]="4">
-            <app-subtabs
-                clasificationType="gastosEconomicaEconomicos"
-                (clickButton)="clickSubTab($event)"
-            ></app-subtabs>
-            <app-table [dataTable]="dataTable"></app-table>
+            <app-subtabs></app-subtabs>
+            <app-table></app-table>
         </app-tab>
     </app-tabs>
 </div>
