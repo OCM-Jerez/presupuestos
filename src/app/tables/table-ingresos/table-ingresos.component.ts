@@ -6,7 +6,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
-import localeTextESPes from '../../../assets/data/localeTextESPes.json';
+import localeTextESPes from '@assets/data/localeTextESPes.json';
 // import { CellRendererOCM1, CellRendererOCMtext1 } from '@ag-grid/CellRendererOCM1'
 // import { headerHeightGetter } from '@ag-grid/headerHeightGetter';
 

@@ -7,7 +7,7 @@ import { ColumnState, GridReadyEvent } from 'ag-grid-community';
 import { GridApi, GridOptions } from 'ag-grid-community/main';
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
-import localeTextESPes from '../../../assets/data/localeTextESPes.json';
+import localeTextESPes from '@assets/data/localeTextESPes.json';
 
 import { AlertService } from '../../services/alert.service';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';

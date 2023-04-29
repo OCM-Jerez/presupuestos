@@ -6,7 +6,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
-import localeTextESPes from '../../../assets/data/localeTextESPes.json';
+import localeTextESPes from '@assets/data/localeTextESPes.json';
 
 import { Subscription } from 'rxjs';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
