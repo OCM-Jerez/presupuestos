@@ -11,7 +11,9 @@ import { TableService } from '@services/table.service';
 
 import { IDataGraph } from '@interfaces/dataGraph.interface';
 import { IDataTable } from '@interfaces/dataTable.interface';
-import { IButtonAdicional, IButtonClasification } from '../../../tables/subtabs-table/model/components.interface';
+// import { IButtonAdicional, IButtonClasification } from '../../../tables/subtabs-table/model/components.interface';
+import { IButtonAdicional } from '@interfaces/buttonAdicional.interface';
+import { IButtonClasification } from '@interfaces/buttonClasification.interface';
 
 import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
 import { SelectedSubTab2Service } from '@services/selectedSubTab2.service';
