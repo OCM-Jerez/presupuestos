@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataStoreService } from '@services/dataStore.service';
 import { TableService } from '@services/table.service';
 
-import { environment } from '../../../environments/environment';
+import { environment } from '@environments/environment';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
 

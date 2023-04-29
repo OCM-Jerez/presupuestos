@@ -2,10 +2,10 @@ import { AfterContentInit, Component, ContentChildren, EventEmitter, OnInit, Out
 
 import { TabComponent } from './tab/tab.component';
 
-import { SelectedTabService } from '../../../services/selectedTab.service';
-import { TableService } from '../../../services/table.service';
+import { SelectedTabService } from '@services/selectedTab.service';
+import { TableService } from '@services/table.service';
 
-import { IDataTable } from '../../../commons/interfaces/dataTable.interface';
+import { IDataTable } from '@interfaces/dataTable.interface';
 import { CLASIFICATION_TYPE } from '../../../commons/util/util';
 
 @Component({
