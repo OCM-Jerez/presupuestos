@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { TableService } from '@services/table.service';
 
-import { environment } from '../../../../environments/environment';
+import { environment } from '@environments/environment';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { IExample } from '@interfaces/example.interface';

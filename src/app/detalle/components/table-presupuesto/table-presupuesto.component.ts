@@ -4,7 +4,7 @@ import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { PrepareDataTotalesPresupuestoService } from '@services/prepareDataTotalesPresupuesto.service';
 
-import { environment } from '../../../../environments/environment';
+import { environment } from '@environments/environment';
 
 import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.interface';
 
