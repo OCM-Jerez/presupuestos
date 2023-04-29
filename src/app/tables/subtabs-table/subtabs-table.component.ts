@@ -3,7 +3,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TableService } from '@services/table.service';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
-import { CLASIFICATION_TYPE } from '../../commons/util/util';
+// import { CLASIFICATION_TYPE } from '../../commons/util/util';
+import { CLASIFICATION_TYPE } from '../../commons/types/clasification';
 
 @Component({
     selector: 'app-gastos',

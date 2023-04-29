@@ -1,4 +1,5 @@
-import { CLASIFICATION_TYPE } from '../../../commons/util/util';
+// import { CLASIFICATION_TYPE } from '../../../commons/util/util';
+import { CLASIFICATION_TYPE } from '../../../commons/types/clasification';
 
 export interface IButtonClasification {
     clasificationType: CLASIFICATION_TYPE;

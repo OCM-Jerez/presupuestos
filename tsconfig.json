@@ -29,7 +29,8 @@
             "@interfaces/*": ["src/app/commons/interfaces/*"],
             "@assets/*": ["src/assets/*"],
             "@ag-grid/*": ["src/app/ag-grid/*"],
-            "@environments/*": ["src/environments/*"]
+            "@environments/*": ["src/environments/*"],
+            "@types/*": ["src/app/commons/types/*"]
         }
     },
     "angularCompilerOptions": {

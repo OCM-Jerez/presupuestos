@@ -17,7 +17,8 @@ import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
 import { SelectedSubTab2Service } from '@services/selectedSubTab2.service';
 import { SelectedSubTab4Service } from '@services/selectedSubTab4.service';
 import { Subject, takeUntil, tap } from 'rxjs';
-import { CLASIFICATION_TYPE } from '../../../commons/util/util';
+// import { CLASIFICATION_TYPE } from '../../../commons/util/util';
+import { CLASIFICATION_TYPE } from '../../../commons/types/clasification';
 
 @Component({
     selector: 'app-subtabs',
