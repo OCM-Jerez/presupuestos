@@ -1,5 +1,3 @@
-// import { CLASIFICATION_TYPE } from "../util/util";
-// import { CLASIFICATION_TYPE } from '@types';
 import { CLASIFICATION_TYPE } from '../types/clasification';
 
 export interface IDataTable {
