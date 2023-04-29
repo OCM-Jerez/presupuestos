@@ -4,7 +4,7 @@ import { AvalaibleYearsService } from './avalaibleYears.service';
 
 import { IDataGasto } from '@interfaces/dataGasto.interface';
 
-import { asynForEach } from '../commons/util/util';
+import { asynForEach } from '@utils/util';
 @Injectable({
     providedIn: 'root',
 })

@@ -22,7 +22,6 @@ import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 import { ChangeSubTabService } from '@services/change-subtab.service';
 import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
 
-// import { getClasificacion } from '../../data-table';
 import { getClasificacion } from '@app/data-table';
 
 @Component({

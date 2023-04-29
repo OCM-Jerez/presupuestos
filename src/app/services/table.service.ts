@@ -6,7 +6,6 @@ import { PrepareDataIngresosService } from './prepareDataIngresos.service';
 
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 
-// import { getClasificacion } from '../data-table';
 import { getClasificacion } from '@app/data-table';
 
 import { getClasificacionGraph } from '../graphs/data-graph';

@@ -1,4 +1,4 @@
-import { CLASIFICATION_TYPE } from '../types/clasification.type';
+import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 
 export interface IButtonClasification {
     clasificationType: CLASIFICATION_TYPE;

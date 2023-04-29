@@ -7,7 +7,7 @@ import ingresosEconomicaEconomicos from '@assets/data/ingresosEconomicaEconomico
 
 import { IDataIngreso } from '@interfaces/dataIngreso.interface';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
-import { asynForEach } from '../commons/util/util';
+import { asynForEach } from '@utils/util';
 
 @Injectable({
     providedIn: 'root',
