@@ -30,7 +30,8 @@
             "@assets/*": ["src/assets/*"],
             "@ag-grid/*": ["src/app/ag-grid/*"],
             "@environments/*": ["src/environments/*"],
-            "@types/*": ["src/app/commons/types/*"]
+            "@appTypes/*": ["src/app/commons/types/*"],
+            "@app/*": ["src/app/*"]
         }
     },
     "angularCompilerOptions": {

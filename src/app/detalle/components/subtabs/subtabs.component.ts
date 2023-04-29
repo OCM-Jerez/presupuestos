@@ -1,7 +1,8 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { getClasificacion } from '../../../tables/data-table';
+// import { getClasificacion } from '../../../data-table';
+import { getClasificacion } from '@app/data-table';
 
 import { ChangeSubTabService } from '@services/change-subtab.service';
 import { DataStoreService } from '@services/dataStore.service';
@@ -14,11 +15,11 @@ import { IButtonClasification } from '@interfaces/buttonClasification.interface'
 import { IDataGraph } from '@interfaces/dataGraph.interface';
 import { IDataTable } from '@interfaces/dataTable.interface';
 
+import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
 import { SelectedSubTab2Service } from '@services/selectedSubTab2.service';
 import { SelectedSubTab4Service } from '@services/selectedSubTab4.service';
 import { Subject, takeUntil, tap } from 'rxjs';
-import { CLASIFICATION_TYPE } from '../../../commons/types/clasification.type';
 
 @Component({
     selector: 'app-subtabs',

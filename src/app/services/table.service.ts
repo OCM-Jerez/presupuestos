@@ -4,10 +4,12 @@ import { DataStoreService } from './dataStore.service';
 import { PrepareDataGastosService } from './prepareDataGastos.service';
 import { PrepareDataIngresosService } from './prepareDataIngresos.service';
 
-import { CLASIFICATION_TYPE } from '../commons/types/clasification.type';
+import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
+
+// import { getClasificacion } from '../data-table';
+import { getClasificacion } from '@app/data-table';
 
 import { getClasificacionGraph } from '../graphs/data-graph';
-import { getClasificacion } from '../tables/data-table';
 
 import { IDataGraph } from '@interfaces/dataGraph.interface';
 import { IDataProperty, IDataTable } from '@interfaces/dataTable.interface';

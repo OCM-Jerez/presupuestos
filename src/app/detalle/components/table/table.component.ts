@@ -10,11 +10,11 @@ import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 
+import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
 import { Subject } from 'rxjs';
-import { CLASIFICATION_TYPE } from '../../../commons/types/clasification.type';
 
 @Component({
     selector: 'app-table',

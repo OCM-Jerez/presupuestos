@@ -5,8 +5,8 @@ import { TabComponent } from './tab/tab.component';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
 
+import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 import { IDataTable } from '@interfaces/dataTable.interface';
-import { CLASIFICATION_TYPE } from '../../../commons/types/clasification.type';
 
 @Component({
     selector: 'app-tabs',
