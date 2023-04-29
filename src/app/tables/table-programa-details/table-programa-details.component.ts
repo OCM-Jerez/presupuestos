@@ -9,15 +9,15 @@ import { GridApi, GridOptions } from 'ag-grid-community/main';
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 
-import { AlertService } from '../../services/alert.service';
-import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import { DataStoreService } from '../../services/dataStore.service';
-// import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
+import { AlertService } from '@services/alert.service';
+import { AvalaibleYearsService } from '@services/avalaibleYears.service';
+import { DataStoreService } from '@services/dataStore.service';
+// import { PrepareDataProgramaDetailsService } from '@services/prepareDataProgramaDetails.service';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
 
+import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 import { accumulate } from '../../commons/util/util';
-import { PrepareDataGastosService } from '../../services/prepareDataGastos.service';
 
 @Component({
     selector: 'app-table-programa-details',

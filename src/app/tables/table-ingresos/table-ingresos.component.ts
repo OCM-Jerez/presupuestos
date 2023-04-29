@@ -10,17 +10,17 @@ import localeTextESPes from '@assets/data/localeTextESPes.json';
 // import { CellRendererOCM1, CellRendererOCMtext1 } from '@ag-grid/CellRendererOCM1'
 // import { headerHeightGetter } from '@ag-grid/headerHeightGetter';
 
-import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import { DataStoreService } from '../../services/dataStore.service';
-import { HasDataChangeService } from '../../services/hasDataChange.service';
-import { PrepareDataTreemapService } from '../../services/prepareDataTreemap.service';
-import { TableService } from '../../services/table.service';
+import { AvalaibleYearsService } from '@services/avalaibleYears.service';
+import { DataStoreService } from '@services/dataStore.service';
+import { HasDataChangeService } from '@services/hasDataChange.service';
+import { PrepareDataTreemapService } from '@services/prepareDataTreemap.service';
+import { TableService } from '@services/table.service';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
 
+import { ChangeSubTabService } from '@services/change-subtab.service';
+import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
-import { ChangeSubTabService } from '../../services/change-subtab.service';
-import { SelectedSubTab1Service } from '../../services/selectedSubTab1.service';
 import { getClasificacion } from '../data-table';
 
 @Component({

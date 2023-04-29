@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import gastosEconomicaArticulos from '../../assets/data/gastosEconomicaArticulos.json';
-import gastosEconomicaConceptos from '../../assets/data/gastosEconomicaConceptos.json';
-import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
-import gastosProgramaGruposProgramas from '../../assets/data/gastosProgramaGruposProgramas.json';
-import gastosProgramaPoliticas from '../../assets/data/gastosProgramaPoliticas.json';
+import gastosEconomicaArticulos from '@assets/data/gastosEconomicaArticulos.json';
+import gastosEconomicaConceptos from '@assets/data/gastosEconomicaConceptos.json';
+import gastosProgramaAreas from '@assets/data/gastosProgramaAreas.json';
+import gastosProgramaGruposProgramas from '@assets/data/gastosProgramaGruposProgramas.json';
+import gastosProgramaPoliticas from '@assets/data/gastosProgramaPoliticas.json';
 
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import ingresosEconomicaArticulos from '../../assets/data/ingresosEconomicaArticulos.json';
-import ingresosEconomicaCapitulos from '../../assets/data/ingresosEconomicaCapitulos.json';
-import ingresosEconomicaConceptos from '../../assets/data/ingresosEconomicaConceptos.json';
-import ingresosEconomicaEconomicos from '../../assets/data/ingresosEconomicaEconomicos.json';
+import ingresosEconomicaArticulos from '@assets/data/ingresosEconomicaArticulos.json';
+import ingresosEconomicaCapitulos from '@assets/data/ingresosEconomicaCapitulos.json';
+import ingresosEconomicaConceptos from '@assets/data/ingresosEconomicaConceptos.json';
+import ingresosEconomicaEconomicos from '@assets/data/ingresosEconomicaEconomicos.json';
 
 import { IDataIngreso } from '../commons/interfaces/dataIngreso.interface';
 import { asynForEach } from '../commons/util/util';
@@ -49,27 +49,17 @@ export class PrepareDataIngresosService {
         await this.getYearDataJson(year).then((data) => {
             Object.entries(data).forEach((currentValue) => {
                 result.push({
-                    [this.dataIngreso.CodEco]:
-                        currentValue[1][this.dataIngreso.CodEco],
+                    [this.dataIngreso.CodEco]: currentValue[1][this.dataIngreso.CodEco],
                     [this.dataIngreso.Iniciales]: currentValue[1]['Iniciales'],
-                    [this.dataIngreso.Modificaciones]:
-                        currentValue[1]['Modificaciones'],
-                    [this.dataIngreso.Definitivas]:
-                        currentValue[1]['Definitivas'],
-                    [this.dataIngreso.DerechosReconocidos]:
-                        currentValue[1]['DerechosReconocidos'],
-                    [this.dataIngreso.DerechosAnulados]:
-                        currentValue[1]['DerechosAnulados'],
-                    [this.dataIngreso.DerechosCancelados]:
-                        currentValue[1]['DerechosCancelados'],
-                    [this.dataIngreso.DerechosReconocidosNetos]:
-                        currentValue[1]['DerechosReconocidosNetos'],
-                    [this.dataIngreso.RecaudacionNeta]:
-                        currentValue[1]['RecaudacionNeta'],
-                    [this.dataIngreso.DerechosPendienteCobro]:
-                        currentValue[1]['DerechosPendienteCobro'],
-                    [this.dataIngreso.DiferenciaPrevision]:
-                        currentValue[1]['DiferenciaPrevision'],
+                    [this.dataIngreso.Modificaciones]: currentValue[1]['Modificaciones'],
+                    [this.dataIngreso.Definitivas]: currentValue[1]['Definitivas'],
+                    [this.dataIngreso.DerechosReconocidos]: currentValue[1]['DerechosReconocidos'],
+                    [this.dataIngreso.DerechosAnulados]: currentValue[1]['DerechosAnulados'],
+                    [this.dataIngreso.DerechosCancelados]: currentValue[1]['DerechosCancelados'],
+                    [this.dataIngreso.DerechosReconocidosNetos]: currentValue[1]['DerechosReconocidosNetos'],
+                    [this.dataIngreso.RecaudacionNeta]: currentValue[1]['RecaudacionNeta'],
+                    [this.dataIngreso.DerechosPendienteCobro]: currentValue[1]['DerechosPendienteCobro'],
+                    [this.dataIngreso.DiferenciaPrevision]: currentValue[1]['DiferenciaPrevision'],
                 });
             });
         });

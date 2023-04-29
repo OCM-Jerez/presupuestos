@@ -8,8 +8,8 @@ import { AgGridAngular } from 'ag-grid-angular';
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 
-import { DataStoreService } from '../../services/dataStore.service';
-import { HasRowClicked } from '../../services/hasRowClicked.service';
+import { DataStoreService } from '@services/dataStore.service';
+import { HasRowClicked } from '@services/hasRowClicked.service';
 
 import { accumulate } from '../../commons/util/util';
 

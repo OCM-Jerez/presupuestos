@@ -8,10 +8,10 @@ import { ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-commu
 import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 
+import { AvalaibleYearsService } from '@services/avalaibleYears.service';
+import { DataStoreService } from '@services/dataStore.service';
+import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 import { Subscription } from 'rxjs';
-import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import { DataStoreService } from '../../services/dataStore.service';
-import { PrepareDataGastosService } from '../../services/prepareDataGastos.service';
 
 @Component({
     selector: 'app-table-gastos-gruposprogramas-details',

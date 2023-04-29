@@ -9,7 +9,7 @@ import { GridOptions } from 'ag-grid-community';
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 
-import { DataStoreService } from '../../services/dataStore.service';
+import { DataStoreService } from '@services/dataStore.service';
 
 import { accumulate } from '../../commons/util/util';
 
