@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, takeUntil, tap } from 'rxjs';
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
-import { CLASIFICATION_TYPE } from '../commons/util/util';
 import { SelectedSubTab1Service } from '../services/selectedSubTab1.service';
 import { SelectedSubTab2Service } from '../services/selectedSubTab2.service';
 import { SelectedSubTab4Service } from '../services/selectedSubTab4.service';
@@ -43,19 +42,19 @@ export class DetalleComponent implements OnInit {
         // await this._tableService.loadData(this._typeClasification);
     }
 
-    async clickTab(idTab: number) {
-        const tabDataMap = {
-            1: 'ingresosEconomicaEconomicos',
-            2: 'gastosProgramaProgramas',
-            3: 'gastosOrganicaOrganicos',
-            4: 'gastosEconomicaEconomicos',
-        };
+    // async clickTab(idTab: number) {
+    //     const tabDataMap = {
+    //         1: 'ingresosEconomicaEconomicos',
+    //         2: 'gastosProgramaProgramas',
+    //         3: 'gastosOrganicaOrganicos',
+    //         4: 'gastosEconomicaEconomicos',
+    //     };
 
-        const clasificationType: CLASIFICATION_TYPE = tabDataMap[idTab];
-        this.dataTable = await this._tableService.loadData(clasificationType);
-        // Guardar el tab seleccionado
-        this._selectedTabService.setSelectedTabNew(idTab);
-    }
+    //     const clasificationType: CLASIFICATION_TYPE = tabDataMap[idTab];
+    //     this.dataTable = await this._tableService.loadData(clasificationType);
+    //     // Guardar el tab seleccionado
+    //     this._selectedTabService.setSelectedTabNew(idTab);
+    // }
 
     clickSubTab(dataTable: IDataTable): void {
         this.dataTable = { ...dataTable };

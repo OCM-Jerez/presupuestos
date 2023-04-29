@@ -3,7 +3,7 @@
         *ngFor="let tab of tabs"
         class="tab"
         [ngClass]="{ 'tab--selected': tab.active === true }"
-        (click)="selectTab(tab)"
+        (click)="clickTab(tab)"
     >
         <span class="tab__title">{{ tab.tabTitle }}</span>
     </div>
