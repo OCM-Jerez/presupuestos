@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
-// import { getClasificacion } from '../../../data-table';
 import { getClasificacion } from '@app/data-table';
 
 import { ChangeSubTabService } from '@services/change-subtab.service';
