@@ -20,7 +20,7 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 
 import { ChangeSubTabService } from '@services/change-subtab.service';
 import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
-import { CLASIFICATION_TYPE } from '../../commons/types/clasification';
+import { CLASIFICATION_TYPE } from '../../commons/types/clasification.type';
 
 import { getClasificacion } from '../data-table';
 

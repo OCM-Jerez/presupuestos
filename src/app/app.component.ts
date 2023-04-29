@@ -1,27 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from './services/alert.service';
+import { AlertService } from '@services/alert.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+    selector: 'app-root',
+    templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
-  message = '';
-  showAlert = false;
+    message = '';
+    showAlert = false;
 
-  constructor(private _alertService: AlertService) {
-  }
+    constructor(private _alertService: AlertService) {}
 
-  ngOnInit(): void {
-    localStorage.removeItem("selected_years");
-    this._alertService.alert$.subscribe((res) => {
-      this.message = res.message;
-      this.showAlert = true;
-      setTimeout(() => {
-        this.showAlert = false;
-      }, res.time);
-
-    })
-  }
-
+    ngOnInit(): void {
+        localStorage.removeItem('selected_years');
+        this._alertService.alert$.subscribe((res) => {
+            this.message = res.message;
+            this.showAlert = true;
+            setTimeout(() => {
+                this.showAlert = false;
+            }, res.time);
+        });
+    }
 }

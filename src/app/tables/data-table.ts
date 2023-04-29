@@ -1,5 +1,5 @@
 import { IDataProperty } from '../commons/interfaces/dataTable.interface';
-import { CLASIFICATION_TYPE } from '../commons/types/clasification';
+import { CLASIFICATION_TYPE } from '../commons/types/clasification.type';
 
 import { IButtonAdicional } from '@interfaces/buttonAdicional.interface';
 import { IButtonClasification } from '@interfaces/buttonClasification.interface';

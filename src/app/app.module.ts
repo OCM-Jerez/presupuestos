@@ -22,7 +22,7 @@ import { CheckboxModule } from './commons/components/checkbox/checkbox.module';
 import { DetalleModule } from './detalle/detalle.module';
 
 // Services
-import { AvalaibleYearsService } from './services/avalaibleYears.service';
+import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 
 @NgModule({
     declarations: [

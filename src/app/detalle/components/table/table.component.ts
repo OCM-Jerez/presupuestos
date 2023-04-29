@@ -14,7 +14,7 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
 import { Subject } from 'rxjs';
-import { CLASIFICATION_TYPE } from '../../../commons/types/clasification';
+import { CLASIFICATION_TYPE } from '../../../commons/types/clasification.type';
 
 @Component({
     selector: 'app-table',
