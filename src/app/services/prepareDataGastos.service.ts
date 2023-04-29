@@ -8,7 +8,7 @@ import gastosProgramaPoliticas from '@assets/data/gastosProgramaPoliticas.json';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 
-import { IDataGasto } from '../commons/interfaces/dataGasto.interface';
+import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 import { asynForEach } from '../commons/util/util';
 

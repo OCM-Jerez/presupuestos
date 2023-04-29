@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { DataStoreService } from './dataStore.service';
 
-import { IDataTotalesPresupuesto } from '../commons/interfaces/dataTotalesPresupuesto.interface';
+import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.interface';
 
 interface ITotalPresupuestoIngresos {
     Definitivas2023?: number;

@@ -9,8 +9,8 @@ import { CLASIFICATION_TYPE } from '../commons/types/clasification.type';
 import { getClasificacionGraph } from '../graphs/data-graph';
 import { getClasificacion } from '../tables/data-table';
 
-import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
-import { IDataProperty, IDataTable } from '../commons/interfaces/dataTable.interface';
+import { IDataGraph } from '@interfaces/dataGraph.interface';
+import { IDataProperty, IDataTable } from '@interfaces/dataTable.interface';
 
 @Injectable({
     providedIn: 'root',

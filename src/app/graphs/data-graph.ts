@@ -1,4 +1,4 @@
-import { IDataProperty } from "../commons/interfaces/dataTable.interface";
+import { IDataProperty } from '@interfaces/dataTable.interface';
 
 const CLASIFICATION_GRAPH = {
     ingresosEconomicaCapitulos: {
@@ -40,8 +40,8 @@ const CLASIFICATION_GRAPH = {
     gastosEconomicaEconomicos: {
         graphTitle: 'Gastos por económico',
     },
-}
+};
 
 export const getClasificacionGraph = (tipo: string): IDataProperty => {
     return CLASIFICATION_GRAPH[tipo];
-}
+};

@@ -1,4 +1,4 @@
-import { IDataProperty } from '../commons/interfaces/dataTable.interface';
+import { IDataProperty } from '@interfaces/dataTable.interface';
 import { CLASIFICATION_TYPE } from '../commons/types/clasification.type';
 
 import { IButtonAdicional } from '@interfaces/buttonAdicional.interface';

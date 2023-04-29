@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { AvalaibleYearsService } from './avalaibleYears.service';
 
-import { IDataGasto } from '../commons/interfaces/dataGasto.interface';
+import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 import { asynForEach } from '../commons/util/util';
 @Injectable({

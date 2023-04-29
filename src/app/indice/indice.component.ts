@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataStoreService } from '@services/dataStore.service';
 import { TableService } from '@services/table.service';
 
-import { IDataTable } from '../commons/interfaces/dataTable.interface';
+import { IDataTable } from '@interfaces/dataTable.interface';
 
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
