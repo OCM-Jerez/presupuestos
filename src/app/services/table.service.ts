@@ -4,7 +4,6 @@ import { DataStoreService } from './dataStore.service';
 import { PrepareDataGastosService } from './prepareDataGastos.service';
 import { PrepareDataIngresosService } from './prepareDataIngresos.service';
 
-// import { CLASIFICATION_TYPE } from '../commons/util/util';
 import { CLASIFICATION_TYPE } from '../commons/types/clasification';
 
 import { getClasificacionGraph } from '../graphs/data-graph';
