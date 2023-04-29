@@ -3,18 +3,18 @@ import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
+import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '../../../../assets/data/localeTextESPes.json';
-import { CellRendererOCM, CellRendererOCMtext } from '../../../ag-grid/CellRendererOCM';
 
-import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
-import { DataStoreService } from '../../../services/dataStore.service';
-import { HasRowClicked } from '../../../services/hasRowClicked.service';
+import { AvalaibleYearsService } from '@services/avalaibleYears.service';
+import { DataStoreService } from '@services/dataStore.service';
+import { HasRowClicked } from '@services/hasRowClicked.service';
 
+import { IDataTable } from '@interfaces/dataTable.interface';
+import { SelectedTabService } from '@services/selectedTab.service';
+import { TableService } from '@services/table.service';
 import { Subject } from 'rxjs';
-import { IDataTable } from '../../../commons/interfaces/dataTable.interface';
 import { CLASIFICATION_TYPE } from '../../../commons/util/util';
-import { SelectedTabService } from '../../../services/selectedTab.service';
-import { TableService } from '../../../services/table.service';
 
 @Component({
     selector: 'app-table',

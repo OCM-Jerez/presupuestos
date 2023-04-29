@@ -7,7 +7,7 @@ import { AgChartOptions } from 'ag-charts-community';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community';
 
-import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
+import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 
 import { DataStoreService } from '../../services/dataStore.service';
 

@@ -3,20 +3,20 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 
-import { ChangeSubTabService } from '../../../services/change-subtab.service';
-import { DataStoreService } from '../../../services/dataStore.service';
-import { PrepareDataTreemapService } from '../../../services/prepareDataTreemap.service';
-import { SelectedSubTab1Service } from '../../../services/selectedSubTab1.service';
-import { SelectedSubTab2Service } from '../../../services/selectedSubTab2.service';
-import { SelectedSubTab4Service } from '../../../services/selectedSubTab4.service';
-import { SelectedTabService } from '../../../services/selectedTab.service';
+import { ChangeSubTabService } from '@services/change-subtab.service';
+import { DataStoreService } from '@services/dataStore.service';
+import { PrepareDataTreemapService } from '@services/prepareDataTreemap.service';
+import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
+import { SelectedSubTab2Service } from '@services/selectedSubTab2.service';
+import { SelectedSubTab4Service } from '@services/selectedSubTab4.service';
+import { SelectedTabService } from '@services/selectedTab.service';
 
-import { IDataTreemap } from '../../../commons/interfaces/dataTreemap.interface';
+import { IDataTreemap } from '@interfaces/dataTreemap.interface';
 
+import { IDataTable } from '@interfaces/dataTable.interface';
+import { TableService } from '@services/table.service';
 import * as Highcharts from 'highcharts';
 import HighchartsTreemap from 'highcharts/modules/treemap';
-import { IDataTable } from '../../../commons/interfaces/dataTable.interface';
-import { TableService } from '../../../services/table.service';
 HighchartsTreemap(Highcharts);
 @Component({
     selector: 'app-treemap',

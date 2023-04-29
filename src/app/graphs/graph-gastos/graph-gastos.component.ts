@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { AgChartOptions } from 'ag-charts-community';
 import { AgGridAngular } from 'ag-grid-angular';
 
-import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
+import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 
 import { DataStoreService } from '../../services/dataStore.service';
 import { HasRowClicked } from '../../services/hasRowClicked.service';

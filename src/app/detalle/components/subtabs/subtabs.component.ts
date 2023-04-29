@@ -3,21 +3,21 @@ import { Router } from '@angular/router';
 
 import { getClasificacion } from '../../../tables/data-table';
 
-import { ChangeSubTabService } from '../../../services/change-subtab.service';
-import { DataStoreService } from '../../../services/dataStore.service';
-import { HasRowClicked } from '../../../services/hasRowClicked.service';
-import { SelectedTabService } from '../../../services/selectedTab.service';
-import { TableService } from '../../../services/table.service';
+import { ChangeSubTabService } from '@services/change-subtab.service';
+import { DataStoreService } from '@services/dataStore.service';
+import { HasRowClicked } from '@services/hasRowClicked.service';
+import { SelectedTabService } from '@services/selectedTab.service';
+import { TableService } from '@services/table.service';
 
-import { IDataGraph } from '../../../commons/interfaces/dataGraph.interface';
-import { IDataTable } from '../../../commons/interfaces/dataTable.interface';
+import { IDataGraph } from '@interfaces/dataGraph.interface';
+import { IDataTable } from '@interfaces/dataTable.interface';
 import { IButtonAdicional, IButtonClasification } from '../../../tables/subtabs-table/model/components.interface';
 
+import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
+import { SelectedSubTab2Service } from '@services/selectedSubTab2.service';
+import { SelectedSubTab4Service } from '@services/selectedSubTab4.service';
 import { Subject, takeUntil, tap } from 'rxjs';
 import { CLASIFICATION_TYPE } from '../../../commons/util/util';
-import { SelectedSubTab1Service } from '../../../services/selectedSubTab1.service';
-import { SelectedSubTab2Service } from '../../../services/selectedSubTab2.service';
-import { SelectedSubTab4Service } from '../../../services/selectedSubTab4.service';
 
 @Component({
     selector: 'app-subtabs',

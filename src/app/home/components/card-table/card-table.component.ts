@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TableService } from '../../../services/table.service';
+import { TableService } from '@services/table.service';
 
 import { environment } from '../../../../environments/environment';
 
-import { IDataTable } from '../../../commons/interfaces/dataTable.interface';
-import { IExample } from '../../../commons/interfaces/example.interface';
-import { ITablaAleatoria } from '../../../commons/interfaces/tablaAleatoria.interface';
+import { IDataTable } from '@interfaces/dataTable.interface';
+import { IExample } from '@interfaces/example.interface';
+import { ITablaAleatoria } from '@interfaces/tablaAleatoria.interface';
 
 @Component({
     selector: 'app-card-table',

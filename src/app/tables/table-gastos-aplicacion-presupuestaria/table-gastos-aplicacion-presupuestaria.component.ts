@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
+import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
-import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { AlertService } from '../../services/alert.service';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
