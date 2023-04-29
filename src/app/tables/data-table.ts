@@ -1,8 +1,6 @@
 import { IDataProperty } from '../commons/interfaces/dataTable.interface';
-// import { CLASIFICATION_TYPE } from '../commons/util/util';
 import { CLASIFICATION_TYPE } from '../commons/types/clasification';
 
-// import { IButtonAdicional, IButtonClasification } from './subtabs-table/model/components.interface';
 import { IButtonAdicional } from '@interfaces/buttonAdicional.interface';
 import { IButtonClasification } from '@interfaces/buttonClasification.interface';
 
