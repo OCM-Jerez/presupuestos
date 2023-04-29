@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DataStoreService } from '../services/dataStore.service';
-import { TableService } from '../services/table.service';
+import { DataStoreService } from '@services/dataStore.service';
+import { TableService } from '@services/table.service';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
 
@@ -45,10 +45,7 @@ export class IndiceComponent implements OnInit {
         },
     ];
 
-    constructor(
-        private _dataStoreService: DataStoreService,
-        private _tableService: TableService
-    ) {}
+    constructor(private _dataStoreService: DataStoreService, private _tableService: TableService) {}
 
     ngOnInit(): void {
         this._loadData();
@@ -84,8 +81,7 @@ export class IndiceComponent implements OnInit {
         this._dataIngreso = capitulos.reduce((acc, curr) => {
             const index = acc.findIndex((item) => item.name === curr.name);
             index > -1
-                ? ((acc[index].value += curr.value),
-                  (acc[index].recaudado += curr.recaudado))
+                ? ((acc[index].value += curr.value), (acc[index].recaudado += curr.recaudado))
                 : acc.push({
                       name: curr.name,
                       value: curr.value,
@@ -112,8 +108,7 @@ export class IndiceComponent implements OnInit {
         this._capitulosGastos = this._capitulosGastos.reduce((acc, curr) => {
             const index = acc.findIndex((item) => item.name === curr.name);
             index > -1
-                ? ((acc[index].value += curr.value),
-                  (acc[index].recaudado += curr.recaudado))
+                ? ((acc[index].value += curr.value), (acc[index].recaudado += curr.recaudado))
                 : acc.push({
                       name: curr.name,
                       value: curr.value,
@@ -162,8 +157,7 @@ export class IndiceComponent implements OnInit {
             },
             tooltip: {
                 headerFormat: null,
-                pointFormat:
-                    '{point.fromNode.name} \u2192 {point.toNode.name}: {point.weight} ',
+                pointFormat: '{point.fromNode.name} \u2192 {point.toNode.name}: {point.weight} ',
                 nodeFormat: '{point.name}: {point.sum} ',
             },
             series: [
@@ -185,51 +179,15 @@ export class IndiceComponent implements OnInit {
                     ],
                     keys: ['from', 'to', 'weight'],
                     data: [
-                        [
-                            this._dataIngreso[0].name,
-                            'Presupuesto',
-                            this._dataIngreso[0].value,
-                        ],
-                        [
-                            this._dataIngreso[1].name,
-                            'Presupuesto',
-                            this._dataIngreso[1].value,
-                        ],
-                        [
-                            this._dataIngreso[2].name,
-                            'Presupuesto',
-                            this._dataIngreso[2].value,
-                        ],
-                        [
-                            this._dataIngreso[3].name,
-                            'Presupuesto',
-                            this._dataIngreso[3].value,
-                        ],
-                        [
-                            this._dataIngreso[4].name,
-                            'Presupuesto',
-                            this._dataIngreso[4].value,
-                        ],
-                        [
-                            this._dataIngreso[5].name,
-                            'Presupuesto',
-                            this._dataIngreso[5].value,
-                        ],
-                        [
-                            this._dataIngreso[6].name,
-                            'Presupuesto',
-                            this._dataIngreso[6].value,
-                        ],
-                        [
-                            this._dataIngreso[7].name,
-                            'Presupuesto',
-                            this._dataIngreso[7].value,
-                        ],
-                        [
-                            this._dataIngreso[8].name,
-                            'Presupuesto',
-                            this._dataIngreso[8].value,
-                        ],
+                        [this._dataIngreso[0].name, 'Presupuesto', this._dataIngreso[0].value],
+                        [this._dataIngreso[1].name, 'Presupuesto', this._dataIngreso[1].value],
+                        [this._dataIngreso[2].name, 'Presupuesto', this._dataIngreso[2].value],
+                        [this._dataIngreso[3].name, 'Presupuesto', this._dataIngreso[3].value],
+                        [this._dataIngreso[4].name, 'Presupuesto', this._dataIngreso[4].value],
+                        [this._dataIngreso[5].name, 'Presupuesto', this._dataIngreso[5].value],
+                        [this._dataIngreso[6].name, 'Presupuesto', this._dataIngreso[6].value],
+                        [this._dataIngreso[7].name, 'Presupuesto', this._dataIngreso[7].value],
+                        [this._dataIngreso[8].name, 'Presupuesto', this._dataIngreso[8].value],
                     ],
                     type: 'sankey',
                     name: 'Ingresos',
@@ -258,8 +216,7 @@ export class IndiceComponent implements OnInit {
             },
             tooltip: {
                 headerFormat: null,
-                pointFormat:
-                    '{point.fromNode.name} \u2192 {point.toNode.name}: {point.weight}',
+                pointFormat: '{point.fromNode.name} \u2192 {point.toNode.name}: {point.weight}',
                 nodeFormat: '{point.name}: {point.sum}',
             },
             series: [
@@ -281,51 +238,15 @@ export class IndiceComponent implements OnInit {
                     ],
                     keys: ['from', 'to', 'weight'],
                     data: [
-                        [
-                            'Presupuesto',
-                            this._capitulosGastos[0].name,
-                            this._capitulosGastos[0].value,
-                        ],
-                        [
-                            'Presupuesto',
-                            this._capitulosGastos[1].name,
-                            this._capitulosGastos[1].value,
-                        ],
-                        [
-                            'Presupuesto',
-                            this._capitulosGastos[2].name,
-                            this._capitulosGastos[2].value,
-                        ],
-                        [
-                            'Presupuesto',
-                            this._capitulosGastos[3].name,
-                            this._capitulosGastos[3].value,
-                        ],
-                        [
-                            'Presupuesto',
-                            this._capitulosGastos[4].name,
-                            this._capitulosGastos[4].value,
-                        ],
-                        [
-                            'Presupuesto',
-                            this._capitulosGastos[5].name,
-                            this._capitulosGastos[5].value,
-                        ],
-                        [
-                            'Presupuesto',
-                            this._capitulosGastos[6].name,
-                            this._capitulosGastos[6].value,
-                        ],
-                        [
-                            'Presupuesto',
-                            this._capitulosGastos[7].name,
-                            this._capitulosGastos[7].value,
-                        ],
-                        [
-                            'Presupuesto',
-                            this._capitulosGastos[8].name,
-                            this._capitulosGastos[8].value,
-                        ],
+                        ['Presupuesto', this._capitulosGastos[0].name, this._capitulosGastos[0].value],
+                        ['Presupuesto', this._capitulosGastos[1].name, this._capitulosGastos[1].value],
+                        ['Presupuesto', this._capitulosGastos[2].name, this._capitulosGastos[2].value],
+                        ['Presupuesto', this._capitulosGastos[3].name, this._capitulosGastos[3].value],
+                        ['Presupuesto', this._capitulosGastos[4].name, this._capitulosGastos[4].value],
+                        ['Presupuesto', this._capitulosGastos[5].name, this._capitulosGastos[5].value],
+                        ['Presupuesto', this._capitulosGastos[6].name, this._capitulosGastos[6].value],
+                        ['Presupuesto', this._capitulosGastos[7].name, this._capitulosGastos[7].value],
+                        ['Presupuesto', this._capitulosGastos[8].name, this._capitulosGastos[8].value],
 
                         // ["Presupuesto", this._politicasGastos[0].name, this._politicasGastos[0].value],
                         // ["Presupuesto", this._politicasGastos[1].name, this._politicasGastos[1].value],
