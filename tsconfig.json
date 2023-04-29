@@ -31,6 +31,7 @@
             "@ag-grid/*": ["src/app/ag-grid/*"],
             "@environments/*": ["src/environments/*"],
             "@appTypes/*": ["src/app/commons/types/*"],
+            "@utils/*": ["src/app/commons/util/*"],
             "@app/*": ["src/app/*"]
         }
     },

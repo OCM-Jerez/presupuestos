@@ -17,7 +17,7 @@ import { DataStoreService } from '@services/dataStore.service';
 import { IDataTable } from '@interfaces/dataTable.interface';
 
 import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
-import { accumulate } from '../../commons/util/util';
+import { accumulate } from '@utils/util';
 
 @Component({
     selector: 'app-table-programa-details',

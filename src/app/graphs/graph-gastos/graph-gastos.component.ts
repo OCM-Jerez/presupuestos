@@ -11,7 +11,7 @@ import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import { DataStoreService } from '@services/dataStore.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 
-import { accumulate } from '../../commons/util/util';
+import { accumulate } from '@utils/util';
 
 import { IDataGraph } from '@interfaces/dataGraph.interface';
 
