@@ -13,7 +13,7 @@ import { HasRowClicked } from '../../services/hasRowClicked.service';
 
 import { accumulate } from '../../commons/util/util';
 
-import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
+import { IDataGraph } from '@interfaces/dataGraph.interface';
 
 @Component({
     selector: 'app-graph-gastos',

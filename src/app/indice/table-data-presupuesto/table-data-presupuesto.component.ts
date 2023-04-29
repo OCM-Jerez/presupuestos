@@ -5,7 +5,7 @@ import { TableService } from '../../services/table.service';
 
 import { environment } from '../../../environments/environment';
 
-import { IDataTable } from '../../commons/interfaces/dataTable.interface';
+import { IDataTable } from '@interfaces/dataTable.interface';
 
 @Component({
     selector: 'app-table-data-presupuesto',
@@ -35,10 +35,7 @@ export class TableDataPresupuestoComponent implements OnInit {
     private _dataGasto: any;
     private _capitulosGastos = [];
 
-    constructor(
-        private _dataStoreService: DataStoreService,
-        private _tableService: TableService
-    ) {}
+    constructor(private _dataStoreService: DataStoreService, private _tableService: TableService) {}
 
     ngOnInit(): void {
         this._loadData();
@@ -77,8 +74,7 @@ export class TableDataPresupuestoComponent implements OnInit {
         this._dataIngreso = capitulos.reduce((acc, curr) => {
             const index = acc.findIndex((item) => item.name === curr.name);
             index > -1
-                ? ((acc[index].value += curr.value),
-                  (acc[index].recaudado += curr.recaudado))
+                ? ((acc[index].value += curr.value), (acc[index].recaudado += curr.recaudado))
                 : acc.push({
                       name: curr.name,
                       value: curr.value,
@@ -104,32 +100,24 @@ export class TableDataPresupuestoComponent implements OnInit {
             this._dataIngreso[3].value +
             this._dataIngreso[4].value;
 
-        this.capitalIngresos = (
-            this._dataIngreso[5].value + this._dataIngreso[6].value
-        ).toLocaleString();
+        this.capitalIngresos = (this._dataIngreso[5].value + this._dataIngreso[6].value).toLocaleString();
 
-        this.financierosIngresos =
-            this._dataIngreso[7].value + this._dataIngreso[8].value;
+        this.financierosIngresos = this._dataIngreso[7].value + this._dataIngreso[8].value;
     }
 
     async calcTotalesPresupuestoIngresos() {
-        const totalPresupuestoIngresos = this._dataIngreso.reduce(
-            (acc, curr) => {
-                Object.keys(curr).forEach((key, index) => {
-                    if (!acc[key]) {
-                        acc[key] = 0;
-                    }
-                    acc[key] += curr[key];
-                });
-                return acc;
-            },
-            {}
-        );
+        const totalPresupuestoIngresos = this._dataIngreso.reduce((acc, curr) => {
+            Object.keys(curr).forEach((key, index) => {
+                if (!acc[key]) {
+                    acc[key] = 0;
+                }
+                acc[key] += curr[key];
+            });
+            return acc;
+        }, {});
 
-        this.totalPresupuestoIngresos =
-            totalPresupuestoIngresos.value.toLocaleString();
-        this.totalEjecutadoIngresos =
-            totalPresupuestoIngresos.recaudado.toLocaleString();
+        this.totalPresupuestoIngresos = totalPresupuestoIngresos.value.toLocaleString();
+        this.totalEjecutadoIngresos = totalPresupuestoIngresos.recaudado.toLocaleString();
     }
 
     async calcSumGastos() {
@@ -149,8 +137,7 @@ export class TableDataPresupuestoComponent implements OnInit {
         this._capitulosGastos = this._capitulosGastos.reduce((acc, curr) => {
             const index = acc.findIndex((item) => item.name === curr.name);
             index > -1
-                ? ((acc[index].value += curr.value),
-                  (acc[index].recaudado += curr.recaudado))
+                ? ((acc[index].value += curr.value), (acc[index].recaudado += curr.recaudado))
                 : acc.push({
                       name: curr.name,
                       value: curr.value,
@@ -161,18 +148,15 @@ export class TableDataPresupuestoComponent implements OnInit {
     }
 
     async calcTotalesPresupuestoGastos() {
-        const totalPresupuestoGastos = this._capitulosGastos.reduce(
-            (acc, curr) => {
-                Object.keys(curr).forEach((key, index) => {
-                    if (!acc[key]) {
-                        acc[key] = 0;
-                    }
-                    acc[key] += curr[key];
-                });
-                return acc;
-            },
-            {}
-        );
+        const totalPresupuestoGastos = this._capitulosGastos.reduce((acc, curr) => {
+            Object.keys(curr).forEach((key, index) => {
+                if (!acc[key]) {
+                    acc[key] = 0;
+                }
+                acc[key] += curr[key];
+            });
+            return acc;
+        }, {});
 
         this.noFinancieroGastos = (
             this._capitulosGastos[0].value +
@@ -191,23 +175,16 @@ export class TableDataPresupuestoComponent implements OnInit {
             this._capitulosGastos[3].value +
             this._capitulosGastos[4].value;
 
-        this.capitalGastos = (
-            this._capitulosGastos[5].value + this._capitulosGastos[6].value
-        ).toLocaleString();
+        this.capitalGastos = (this._capitulosGastos[5].value + this._capitulosGastos[6].value).toLocaleString();
 
-        this.financierosGastos =
-            this._capitulosGastos[7].value + this._capitulosGastos[8].value;
+        this.financierosGastos = this._capitulosGastos[7].value + this._capitulosGastos[8].value;
 
-        this.totalPresupuestoGastos =
-            totalPresupuestoGastos.value.toLocaleString();
-        this.totalEjecutadoGastos =
-            totalPresupuestoGastos.recaudado.toLocaleString();
+        this.totalPresupuestoGastos = totalPresupuestoGastos.value.toLocaleString();
+        this.totalEjecutadoGastos = totalPresupuestoGastos.recaudado.toLocaleString();
     }
 
     async calcIndicadores() {
-        this.ahorroBruto = (
-            this.corrientesIngresos - this.corrientesGastos
-        ).toLocaleString();
+        this.ahorroBruto = (this.corrientesIngresos - this.corrientesGastos).toLocaleString();
 
         // Tengo que sumar capitulo 9 de gastos
         this.ahorroNeto = (
@@ -217,9 +194,7 @@ export class TableDataPresupuestoComponent implements OnInit {
         ).toLocaleString();
         this.corrientesIngresos = this.corrientesIngresos.toLocaleString();
         this.corrientesGastos = this.corrientesGastos.toLocaleString();
-        this.capacidadFinanciacion = (
-            this.financierosIngresos - this.financierosGastos
-        ).toLocaleString();
+        this.capacidadFinanciacion = (this.financierosIngresos - this.financierosGastos).toLocaleString();
         this.financierosIngresos = this.financierosIngresos.toLocaleString();
         this.financierosGastos = this.financierosGastos.toLocaleString();
     }

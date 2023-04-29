@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { TableService } from '../../services/table.service';
 
-import { IDataTable } from '../../commons/interfaces/dataTable.interface';
+import { IDataTable } from '@interfaces/dataTable.interface';
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
 
 @Component({

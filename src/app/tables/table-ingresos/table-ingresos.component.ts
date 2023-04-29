@@ -16,7 +16,7 @@ import { HasDataChangeService } from '../../services/hasDataChange.service';
 import { PrepareDataTreemapService } from '../../services/prepareDataTreemap.service';
 import { TableService } from '../../services/table.service';
 
-import { IDataTable } from '../../commons/interfaces/dataTable.interface';
+import { IDataTable } from '@interfaces/dataTable.interface';
 
 import { CLASIFICATION_TYPE } from '../../commons/util/util';
 import { ChangeSubTabService } from '../../services/change-subtab.service';

@@ -13,8 +13,8 @@ import { DataStoreService } from '../../services/dataStore.service';
 
 import { accumulate } from '../../commons/util/util';
 
-import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
-import { IDataTable } from '../../commons/interfaces/dataTable.interface';
+import { IDataGraph } from '@interfaces/dataGraph.interface';
+import { IDataTable } from '@interfaces/dataTable.interface';
 
 @Component({
     selector: 'app-graph-ingresos',

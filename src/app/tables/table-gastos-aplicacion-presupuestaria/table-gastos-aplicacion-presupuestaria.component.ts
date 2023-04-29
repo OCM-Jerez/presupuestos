@@ -12,7 +12,7 @@ import { AlertService } from '../../services/alert.service';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
 
-import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
+import { IDataGraph } from '@interfaces/dataGraph.interface';
 import { PrepareDataGastosService } from '../../services/prepareDataGastos.service';
 
 @Component({

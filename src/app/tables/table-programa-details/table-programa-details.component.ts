@@ -14,7 +14,7 @@ import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
 // import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
 
-import { IDataTable } from '../../commons/interfaces/dataTable.interface';
+import { IDataTable } from '@interfaces/dataTable.interface';
 
 import { accumulate } from '../../commons/util/util';
 import { PrepareDataGastosService } from '../../services/prepareDataGastos.service';
