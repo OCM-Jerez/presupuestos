@@ -9,17 +9,15 @@ import { HasRowClicked } from '@services/hasRowClicked.service';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
 
-import { IDataGraph } from '@interfaces/dataGraph.interface';
-import { IDataTable } from '@interfaces/dataTable.interface';
-// import { IButtonAdicional, IButtonClasification } from '../../../tables/subtabs-table/model/components.interface';
 import { IButtonAdicional } from '@interfaces/buttonAdicional.interface';
 import { IButtonClasification } from '@interfaces/buttonClasification.interface';
+import { IDataGraph } from '@interfaces/dataGraph.interface';
+import { IDataTable } from '@interfaces/dataTable.interface';
 
 import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
 import { SelectedSubTab2Service } from '@services/selectedSubTab2.service';
 import { SelectedSubTab4Service } from '@services/selectedSubTab4.service';
 import { Subject, takeUntil, tap } from 'rxjs';
-// import { CLASIFICATION_TYPE } from '../../../commons/util/util';
 import { CLASIFICATION_TYPE } from '../../../commons/types/clasification';
 
 @Component({
