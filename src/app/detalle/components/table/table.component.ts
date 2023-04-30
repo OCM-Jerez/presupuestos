@@ -73,7 +73,7 @@ export class TableComponent implements OnInit, OnChanges {
 
     async ngOnInit(): Promise<void> {
         this._dataTable = await this._dataStoreService.dataTable;
-        console.log('this._dataTable', this._dataTable);
+        // console.log('this._dataTable', this._dataTable);
         await this._loadTable();
 
         this._hasRowClicked.change(null);
@@ -85,8 +85,7 @@ export class TableComponent implements OnInit, OnChanges {
     }
 
     private async _loadTable() {
-        // console.log('this._dataTable', this._dataTable.dataPropertyTable);
-
+        // console.log('this._dataTable', this._dataTable);
         this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
         this.setColumnDefs();
 
