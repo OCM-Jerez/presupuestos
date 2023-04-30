@@ -1,12 +1,11 @@
-import { AfterContentInit, Component, ContentChildren, EventEmitter, OnInit, Output, QueryList } from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, OnInit, QueryList } from '@angular/core';
 
 import { TabComponent } from './tab/tab.component';
 
 import { SelectedTabService } from '@services/selectedTab.service';
-import { TableService } from '@services/table.service';
 
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
-import { IDataTable } from '@interfaces/dataTable.interface';
+// import { IDataTable } from '@interfaces/dataTable.interface';
 
 @Component({
     selector: 'app-tabs',
@@ -17,21 +16,18 @@ export class TabsComponent implements OnInit, AfterContentInit {
     // El operador de aserción de no nulo ! se utiliza para asegurar
     // que la variable tabs no será nula en tiempo de ejecución.
     @ContentChildren(TabComponent) tabs!: QueryList<TabComponent>;
-    @Output() selectedTab = new EventEmitter();
-    public dataTable: IDataTable;
+    // @Output() selectedTab = new EventEmitter();
+    // public dataTable: IDataTable;
 
-    constructor(private _tableService: TableService, private _selectedTabService: SelectedTabService) {}
-    async ngOnInit(): Promise<void> {
-        // const a = await this._tableService.loadData('ingresosEconomicaEconomicos');
-        // console.log('this.dataTable', a);
-    }
+    constructor(private _selectedTabService: SelectedTabService) {}
+    async ngOnInit(): Promise<void> {}
 
     ngAfterContentInit(): void {
         const activeTabs = this.tabs.filter((tab) => tab.active);
 
         if (activeTabs.length === 0) {
             this.tabs.first.active = true;
-            this.selectedTab.emit(this.tabs.first.idTab);
+            // this.selectedTab.emit(this.tabs.first.idTab);
         }
     }
 
@@ -42,7 +38,7 @@ export class TabsComponent implements OnInit, AfterContentInit {
         if (tabActive && tabActive.idTab !== tab.idTab) {
             this.tabs.toArray().forEach((tab) => (tab.active = false));
             tab.active = true;
-            this.selectedTab.emit(tab.idTab);
+            // this.selectedTab.emit(tab.idTab);
         }
 
         const tabDataMap = {

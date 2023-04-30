@@ -14,7 +14,7 @@ import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
-import { Subject } from 'rxjs';
+import { Subject, takeUntil, tap } from 'rxjs';
 
 @Component({
     selector: 'app-table',
@@ -42,41 +42,46 @@ export class TableComponent implements OnInit, OnChanges {
     ) {}
 
     async ngOnChanges(changes: SimpleChanges): Promise<void> {
-        const ingresosClasificaciones: CLASIFICATION_TYPE[] = [
-            'ingresosEconomicaEconomicos',
-            'ingresosEconomicaConceptos',
-            'ingresosEconomicaArticulos',
-            'ingresosEconomicaCapitulos',
-        ];
-
-        this._dataTable = await this._tableService.loadData(this._tabSelected);
-        console.log('this._dataTable', this._dataTable);
-
-        console.log('this._dataTable.clasificationType', this._dataTable);
-        if (ingresosClasificaciones.includes(this._dataTable.clasificationType)) {
-            this._isIngreso = true;
-        } else {
-            this._isIngreso = false;
-        }
-
-        if (changes && changes['dataTable']) {
-            this._loadTable();
-            if (!changes['dataTable'].firstChange) {
-                if (this._isIngreso) {
-                    this._gridApi.setRowData(this._dataTable.rowDataIngresos);
-                } else {
-                    this._gridApi.setRowData(this._dataTable.rowDataGastos);
-                }
-            }
-        }
+        //     console.log('ngOnChanges', changes);
+        //     const ingresosClasificaciones: CLASIFICATION_TYPE[] = [
+        //         'ingresosEconomicaEconomicos',
+        //         'ingresosEconomicaConceptos',
+        //         'ingresosEconomicaArticulos',
+        //         'ingresosEconomicaCapitulos',
+        //     ];
+        //     this._dataTable = await this._tableService.loadData(this._tabSelected);
+        //     console.log('this._dataTable', this._dataTable);
+        //     console.log('this._dataTable.clasificationType', this._dataTable);
+        //     if (ingresosClasificaciones.includes(this._dataTable.clasificationType)) {
+        //         this._isIngreso = true;
+        //     } else {
+        //         this._isIngreso = false;
+        //     }
+        //     if (changes && changes['dataTable']) {
+        //         this._loadTable();
+        //         if (!changes['dataTable'].firstChange) {
+        //             if (this._isIngreso) {
+        //                 this._gridApi.setRowData(this._dataTable.rowDataIngresos);
+        //             } else {
+        //                 this._gridApi.setRowData(this._dataTable.rowDataGastos);
+        //             }
+        //         }
+        //     }
     }
 
     async ngOnInit(): Promise<void> {
-        this._dataTable = await this._dataStoreService.dataTable;
-        // console.log('this._dataTable', this._dataTable);
-        await this._loadTable();
-
+        console.log('ngOnInit');
         this._hasRowClicked.change(null);
+
+        this._selectedTabService.source1$
+            .pipe(
+                tap((data) => {
+                    this._tabSelected = data;
+                    this._loadTable();
+                }),
+                takeUntil(this._unsubscribe$)
+            )
+            .subscribe();
     }
 
     ngOnDestroy() {
@@ -85,14 +90,25 @@ export class TableComponent implements OnInit, OnChanges {
     }
 
     private async _loadTable() {
-        // console.log('this._dataTable', this._dataTable);
-        this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
-        this.setColumnDefs();
+        console.log('_loadTable', this._tabSelected);
 
-        if (this._isIngreso) {
-            this.setGridOptionsIngresos();
-        } else {
-            this.setGridOptions();
+        this._dataTable = await this._tableService.loadData(this._tabSelected);
+        this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
+
+        const ingresosClasificaciones: CLASIFICATION_TYPE[] = [
+            'ingresosEconomicaEconomicos',
+            'ingresosEconomicaConceptos',
+            'ingresosEconomicaArticulos',
+            'ingresosEconomicaCapitulos',
+        ];
+
+        this._isIngreso = ingresosClasificaciones.includes(this._dataTable.clasificationType);
+
+        this.setColumnDefs();
+        this._isIngreso ? this.setGridOptionsIngresos() : this.setGridOptions();
+
+        if (this._gridApi) {
+            this._gridApi.setRowData(this._isIngreso ? this._dataTable.rowDataIngresos : this._dataTable.rowDataGastos);
         }
     }
 
@@ -105,7 +121,7 @@ export class TableComponent implements OnInit, OnChanges {
                         headerName: this._subHeaderName,
                         field: this._dataTable.dataPropertyTable.codField,
                         // width: this._dataTable.dataPropertyTable.width,
-                        width: 550,
+                        width: 750,
                         rowGroup: true,
                         showRowGroup: this._dataTable.dataPropertyTable.codField,
                         cellRenderer: CellRendererOCMtext,
@@ -125,14 +141,11 @@ export class TableComponent implements OnInit, OnChanges {
             },
 
             ...this._avalaibleYearsService.getYearsSelected().map((year) => {
-                let children = this._createColumnsChildren(year);
-                if (this._isIngreso) {
-                    let children = this._createColumnsChildrenIngresos(year);
-                }
-
                 return {
                     headerName: year,
-                    children: children,
+                    children: this._isIngreso
+                        ? this._createColumnsChildrenIngresos(year)
+                        : this._createColumnsChildren(year),
                 };
             }),
         ];
@@ -285,6 +298,7 @@ export class TableComponent implements OnInit, OnChanges {
             },
         ];
     }
+
     private _createColumnsChildrenIngresos(year: number) {
         return [
             {
