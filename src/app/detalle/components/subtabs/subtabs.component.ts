@@ -38,7 +38,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     private _dataGraph: IDataGraph = {} as IDataGraph;
     private _dataTable: IDataTable;
     private _row: string = '';
-    private _tabSelected: number;
+    private _tabSelected: string;
     private _unsubscribe$ = new Subject<void>();
     private _subTabSelectd1: string;
     private _subTabSelectd2: string;
@@ -57,6 +57,8 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     ) {}
 
     async ngOnInit(): Promise<void> {
+        console.log('ngOnInit');
+
         this._clasificationType = 'ingresosEconomicaEconomicos';
         const clasification = getClasificacion(this._clasificationType);
         this.buttons = clasification.buttons;
@@ -83,7 +85,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
 
         // Guardar el subtab seleccionado
         switch (this._tabSelected) {
-            case 1:
+            case 'ingresosEconomicaEconomicos':
                 switch (this.dataTable.clasificationType) {
                     case 'ingresosEconomicaCapitulos':
                         this._selectedSubTab1Service.setSelectedSubTab1('ingresosEconomicaCapitulos');
@@ -99,7 +101,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
                         break;
                 }
                 break;
-            case 2:
+            case 'gastosProgramaProgramas':
                 switch (this.dataTable.clasificationType) {
                     case 'gastosProgramaAreas':
                         this._selectedSubTab1Service.setSelectedSubTab1('gastosProgramaAreas');
@@ -115,9 +117,9 @@ export class SubtabsComponent implements OnInit, OnDestroy {
                         break;
                 }
                 break;
-            case 3:
+            case 'gastosOrganicaOrganicos':
                 break;
-            case 4:
+            case 'gastosEconomicaEconomicos':
                 switch (this.dataTable.clasificationType) {
                     case 'gastosEconomicaCapitulos':
                         this._selectedSubTab1Service.setSelectedSubTab1('gastosEconomicaCapitulos');
@@ -137,14 +139,14 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     }
 
     clickButtonAditional(event: IButtonAdicional) {
-        // agregar logica para cargar el frafico "showGraph()"
+        // agregar logica para cargar el grafico "showGraph()"
         const path = event.param ? event.path + '/' + event.param : event.path;
         this._router.navigateByUrl(path);
     }
 
     private async _existButton(button: IButtonClasification) {
         this.buttons.forEach((b) => (b.selected = false));
-        this._selectedTabService.source$.subscribe((value) => {
+        this._selectedTabService.source1$.subscribe((value) => {
             this._tabSelected = value;
         });
 
@@ -165,7 +167,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
             this._subTabSelectd4 = data;
         });
 
-        this._selectedTabService.source$
+        this._selectedTabService.source1$
             .pipe(
                 tap((data) => {
                     this._tabSelected = data;
