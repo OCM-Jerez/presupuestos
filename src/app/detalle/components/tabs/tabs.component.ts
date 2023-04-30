@@ -35,22 +35,22 @@ export class TabsComponent implements OnInit, AfterContentInit {
         const tabs = this.tabs.toArray();
         const tabActive = tabs.find((tab) => tab.active);
 
-        if (tabActive && tabActive.idTab !== tab.idTab) {
+        if (tabActive && tabActive.title !== tab.title) {
             this.tabs.toArray().forEach((tab) => (tab.active = false));
             tab.active = true;
             // this.selectedTab.emit(tab.idTab);
         }
 
         const tabDataMap = {
-            1: 'ingresosEconomicaEconomicos',
-            2: 'gastosProgramaProgramas',
-            3: 'gastosOrganicaOrganicos',
-            4: 'gastosEconomicaEconomicos',
+            Ingresos: 'ingresosEconomicaEconomicos',
+            '¿En qué se gasta?': 'gastosProgramaProgramas',
+            '¿Quién lo gasta?': 'gastosOrganicaOrganicos',
+            '¿Para qué se gasta?': 'gastosEconomicaEconomicos',
         };
 
-        const clasificationType: CLASIFICATION_TYPE = tabDataMap[tab.idTab];
+        const clasificationType: CLASIFICATION_TYPE = tabDataMap[tab.title];
         // Guardar el tab seleccionado
-        this._selectedTabService.setSelectedTabNew(tab.idTab);
+        // this._selectedTabService.setSelectedTabNew(tab.idTab);
         this._selectedTabService.setSelectedTab(clasificationType);
     }
 }
