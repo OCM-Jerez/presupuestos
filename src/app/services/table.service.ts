@@ -31,7 +31,10 @@ export class TableService {
         // Ahora solo guardamos el ultimo objeto que se ha cargado.
         const rowDataIngresos = await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos');
         const rowDataGastos = await this._prepareDataGastosService.getDataAllYear('gastosOrganicaOrganicos');
+        const dataPropertyTable = getClasificacion('ingresosEconomicaEconomicos') as IDataProperty;
         const sendDataTable: IDataTable = {
+            dataPropertyTable,
+            clasificationType: 'ingresosEconomicaEconomicos',
             rowDataIngresos,
             rowDataGastos,
         };
@@ -103,8 +106,6 @@ export class TableService {
         }
 
         // Uso el setter - OJO
-        // console.log('sendDataTable', sendDataTable);
-
         this._dataStoreService.dataTable = sendDataTable;
         this._dataStoreService.dataGraph = sendDataGraph;
         return sendDataTable;
