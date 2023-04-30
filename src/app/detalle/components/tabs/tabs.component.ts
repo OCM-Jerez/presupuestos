@@ -22,8 +22,8 @@ export class TabsComponent implements OnInit, AfterContentInit {
 
     constructor(private _tableService: TableService, private _selectedTabService: SelectedTabService) {}
     async ngOnInit(): Promise<void> {
-        const a = await this._tableService.loadData('ingresosEconomicaEconomicos');
-        console.log('this.dataTable', a);
+        // const a = await this._tableService.loadData('ingresosEconomicaEconomicos');
+        // console.log('this.dataTable', a);
     }
 
     ngAfterContentInit(): void {
