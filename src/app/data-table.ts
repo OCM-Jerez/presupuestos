@@ -13,7 +13,7 @@ export interface IClasification extends Omit<IDataProperty, 'attribute' | 'useSt
 const createButtons = (clasificationType: CLASIFICATION_TYPE, buttonsData: any[]) => {
     return buttonsData.map((data) => ({
         ...data,
-        clasificationType: data.clasificationType as CLASIFICATION_TYPE,
+        clasificationType: clasificationType as CLASIFICATION_TYPE,
         selected: clasificationType === data.clasificationType,
     }));
 };
