@@ -5,7 +5,6 @@ import { TabComponent } from './tab/tab.component';
 import { SelectedTabService } from '@services/selectedTab.service';
 
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
-// import { IDataTable } from '@interfaces/dataTable.interface';
 
 @Component({
     selector: 'app-tabs',
@@ -16,18 +15,14 @@ export class TabsComponent implements OnInit, AfterContentInit {
     // El operador de aserción de no nulo ! se utiliza para asegurar
     // que la variable tabs no será nula en tiempo de ejecución.
     @ContentChildren(TabComponent) tabs!: QueryList<TabComponent>;
-    // @Output() selectedTab = new EventEmitter();
-    // public dataTable: IDataTable;
 
     constructor(private _selectedTabService: SelectedTabService) {}
     async ngOnInit(): Promise<void> {}
 
     ngAfterContentInit(): void {
         const activeTabs = this.tabs.filter((tab) => tab.active);
-
         if (activeTabs.length === 0) {
             this.tabs.first.active = true;
-            // this.selectedTab.emit(this.tabs.first.idTab);
         }
     }
 
@@ -38,7 +33,6 @@ export class TabsComponent implements OnInit, AfterContentInit {
         if (tabActive && tabActive.title !== tab.title) {
             this.tabs.toArray().forEach((tab) => (tab.active = false));
             tab.active = true;
-            // this.selectedTab.emit(tab.idTab);
         }
 
         const tabDataMap = {
@@ -49,8 +43,6 @@ export class TabsComponent implements OnInit, AfterContentInit {
         };
 
         const clasificationType: CLASIFICATION_TYPE = tabDataMap[tab.title];
-        // Guardar el tab seleccionado
-        // this._selectedTabService.setSelectedTabNew(tab.idTab);
         this._selectedTabService.setSelectedTab(clasificationType);
     }
 }
