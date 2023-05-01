@@ -13,6 +13,7 @@ export interface IClasification extends Omit<IDataProperty, 'attribute' | 'useSt
 
 const CLASIFICATION: { [key: string]: IClasification } = {
     ingresosEconomicaCapitulos: {
+        isIngresos: true,
         attribute: 'CodCap',
         codField: 'CodCap',
         desField: 'DesCap',
@@ -58,6 +59,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         buttonsAdditional: [{ name: 'Gráfico detallado', path: '/graphIngresos' }],
     },
     ingresosEconomicaArticulos: {
+        isIngresos: true,
         attribute: 'CodEco',
         codField: 'CodArt',
         desField: 'DesArt',
@@ -103,6 +105,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         buttonsAdditional: [{ name: 'Gráfico detallado', path: '/graphIngresos' }],
     },
     ingresosEconomicaConceptos: {
+        isIngresos: true,
         attribute: 'CodEco',
         codField: 'CodCon',
         desField: 'DesCon',
@@ -148,6 +151,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         buttonsAdditional: [{ name: 'Gráfico detallado', path: '/graphIngresos' }],
     },
     ingresosEconomicaEconomicos: {
+        isIngresos: true,
         attribute: 'CodEco',
         codField: 'CodEco',
         desField: 'DesEco',
@@ -193,6 +197,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         buttonsAdditional: [{ name: 'Gráfico detallado', path: '/graphIngresos' }],
     },
     gastosOrganicaOrganicos: {
+        isIngresos: false,
         attribute: 'CodPro',
         codField: 'CodOrg',
         desField: 'DesOrg',
@@ -212,6 +217,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ],
     },
     gastosProgramaAreas: {
+        isIngresos: false,
         attribute: 'CodPro',
         codField: 'CodPro',
         desField: 'DesPro',
@@ -260,6 +266,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ],
     },
     gastosProgramaPoliticas: {
+        isIngresos: false,
         attribute: 'CodPro',
         codField: 'CodPro',
         desField: 'DesPro',
@@ -308,6 +315,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ],
     },
     gastosProgramaGrupos: {
+        isIngresos: false,
         attribute: 'CodPro',
         codField: 'CodPro',
         desField: 'DesPro',
@@ -356,6 +364,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ],
     },
     gastosProgramaProgramas: {
+        isIngresos: false,
         attribute: 'CodPro',
         codField: 'CodPro',
         desField: 'DesPro',
@@ -404,6 +413,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ],
     },
     gastosEconomicaCapitulos: {
+        isIngresos: false,
         attribute: 'CodEco',
         codField: 'CodCap',
         desField: 'DesCap',
@@ -414,6 +424,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         graphTitle: 'Gastos por capítulo',
     },
     gastosEconomicaArticulos: {
+        isIngresos: false,
         attribute: 'CodEco',
         codField: 'CodEco',
         desField: 'DesEco',
@@ -424,6 +435,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         graphTitle: 'Gastos por artículo',
     },
     gastosEconomicaConceptos: {
+        isIngresos: false,
         attribute: 'CodEco',
         codField: 'CodEco',
         desField: 'DesEco',
@@ -468,6 +480,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ],
     },
     gastosEconomicaEconomicos: {
+        isIngresos: false,
         attribute: 'CodEco',
         codField: 'CodEco',
         desField: 'DesEco',
@@ -520,6 +533,7 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         ],
     },
     aplicacion: {
+        isIngresos: false,
         attribute: 'CodEco',
         codField: 'CodEco',
         desField: 'DesEco',

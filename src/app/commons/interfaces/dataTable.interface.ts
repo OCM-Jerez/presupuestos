@@ -8,6 +8,7 @@ export interface IDataTable {
 }
 
 export interface IDataProperty {
+    isIngresos: boolean;
     attribute: string;
     codField: string;
     desField: string;

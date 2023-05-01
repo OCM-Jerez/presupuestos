@@ -10,7 +10,6 @@ import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 
-import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
@@ -30,7 +29,7 @@ export class TableComponent implements OnInit, OnChanges {
     private _columnDefs: any[];
     private _dataTable: IDataTable;
     private _subHeaderName: string = '';
-    private _isIngreso: boolean = true;
+    private _isIngresos: boolean = true;
     private _tabSelected: any;
     private _unsubscribe$ = new Subject<void>();
 
@@ -55,14 +54,14 @@ export class TableComponent implements OnInit, OnChanges {
         //     console.log('this._dataTable', this._dataTable);
         //     console.log('this._dataTable.clasificationType', this._dataTable);
         //     if (ingresosClasificaciones.includes(this._dataTable.clasificationType)) {
-        //         this._isIngreso = true;
+        //         this._isIngresos = true;
         //     } else {
-        //         this._isIngreso = false;
+        //         this._isIngresos = false;
         //     }
         //     if (changes && changes['dataTable']) {
         //         this._loadTable();
         //         if (!changes['dataTable'].firstChange) {
-        //             if (this._isIngreso) {
+        //             if (this._isIngresos) {
         //                 this._gridApi.setRowData(this._dataTable.rowDataIngresos);
         //             } else {
         //                 this._gridApi.setRowData(this._dataTable.rowDataGastos);
@@ -79,6 +78,7 @@ export class TableComponent implements OnInit, OnChanges {
             .pipe(
                 tap((data) => {
                     this._tabSelected = data;
+                    console.log('this._selectedTabService.source$');
                     this._loadTable();
                 }),
                 takeUntil(this._unsubscribe$)
@@ -86,6 +86,8 @@ export class TableComponent implements OnInit, OnChanges {
             .subscribe();
 
         this._reloadTableService.reloadTable$.pipe(takeUntil(this._unsubscribe$)).subscribe(() => {
+            console.log('reloadTable$');
+
             this._loadTable();
         });
     }
@@ -96,26 +98,19 @@ export class TableComponent implements OnInit, OnChanges {
     }
 
     private async _loadTable() {
-        console.log('_loadTable', this._tabSelected);
-
         this._dataTable = await this._tableService.loadData(this._tabSelected);
         this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
-
-        const ingresosClasificaciones: CLASIFICATION_TYPE[] = [
-            'ingresosEconomicaEconomicos',
-            'ingresosEconomicaConceptos',
-            'ingresosEconomicaArticulos',
-            'ingresosEconomicaCapitulos',
-        ];
-
-        this._isIngreso = ingresosClasificaciones.includes(this._dataTable.clasificationType);
+        this._isIngresos = this._dataTable.dataPropertyTable.isIngresos;
 
         this.setColumnDefs();
-        this._isIngreso ? this.setGridOptionsIngresos() : this.setGridOptions();
+        this._isIngresos ? this.setGridOptionsIngresos() : this.setGridOptions();
 
         if (this._gridApi) {
-            this._gridApi.setRowData(this._isIngreso ? this._dataTable.rowDataIngresos : this._dataTable.rowDataGastos);
+            this._gridApi.setRowData(
+                this._isIngresos ? this._dataTable.rowDataIngresos : this._dataTable.rowDataGastos
+            );
         }
+        console.log('_loadTable', this._tabSelected, this._dataTable, this._isIngresos, this._gridApi);
     }
 
     setColumnDefs() {
@@ -149,7 +144,7 @@ export class TableComponent implements OnInit, OnChanges {
             ...this._avalaibleYearsService.getYearsSelected().map((year) => {
                 return {
                     headerName: year,
-                    children: this._isIngreso
+                    children: this._isIngresos
                         ? this._createColumnsChildrenIngresos(year)
                         : this._createColumnsChildren(year),
                 };
