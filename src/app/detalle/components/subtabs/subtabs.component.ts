@@ -29,7 +29,7 @@ import { ReloadTableService } from '../../../services/reloadTable.service';
 export class SubtabsComponent implements OnInit, OnDestroy {
     // @Input() clasificationType: CLASIFICATION_TYPE;
     @Output() clickButton = new EventEmitter<IDataTable>();
-    public dataTable: IDataTable;
+    // public dataTable: IDataTable;
 
     public buttons: IButtonClasification[] = [];
     public buttonsAdditional: IButtonAdicional[] = [];
@@ -59,7 +59,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     ) {}
 
     async ngOnInit(): Promise<void> {
-        console.log('ngOnInit');
+        // console.log('ngOnInit');
 
         this._clasificationType = 'ingresosEconomicaEconomicos';
         const clasification = getClasificacion(this._clasificationType);
@@ -74,21 +74,27 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     }
 
     async click(event: IButtonClasification): Promise<void> {
+        // console.log('click', event);
+
         const button: IButtonClasification = this.buttons.find(
             (button: IButtonClasification) => button.key === event.key
         );
 
+        // console.log(button);
         await this._existButton(button);
         this.clickButton.emit(this._dataTable);
         this._changeSubTabService.changeSubTab(button.codigo, button.descripcion);
+
         this._clasificationType = button.clasificationType;
 
         // this.dataTable = { ...dataTable };
 
         // Guardar el subtab seleccionado
+        console.log(this._dataTable);
+
         switch (this._tabSelected) {
             case 'ingresosEconomicaEconomicos':
-                switch (this.dataTable.clasificationType) {
+                switch (this._dataTable.clasificationType) {
                     case 'ingresosEconomicaCapitulos':
                         this._selectedSubTab1Service.setSelectedSubTab1('ingresosEconomicaCapitulos');
                         break;
@@ -104,7 +110,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
                 }
                 break;
             case 'gastosProgramaProgramas':
-                switch (this.dataTable.clasificationType) {
+                switch (this._dataTable.clasificationType) {
                     case 'gastosProgramaAreas':
                         this._selectedSubTab1Service.setSelectedSubTab1('gastosProgramaAreas');
                         break;
@@ -122,7 +128,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
             case 'gastosOrganicaOrganicos':
                 break;
             case 'gastosEconomicaEconomicos':
-                switch (this.dataTable.clasificationType) {
+                switch (this._dataTable.clasificationType) {
                     case 'gastosEconomicaCapitulos':
                         this._selectedSubTab1Service.setSelectedSubTab1('gastosEconomicaCapitulos');
                         break;
@@ -152,8 +158,12 @@ export class SubtabsComponent implements OnInit, OnDestroy {
             this._tabSelected = value;
         });
 
+        console.log(button);
+
         button.selected = true;
         this._dataTable = await this._tableService.loadData(button.clasificationType);
+        console.log(this._dataTable);
+
         this._reloadTableService.triggerReloadTable();
     }
 
