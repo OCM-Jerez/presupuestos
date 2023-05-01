@@ -86,7 +86,7 @@ export class TableComponent implements OnInit, OnChanges {
             .subscribe();
 
         this._reloadTableService.reloadTable$.pipe(takeUntil(this._unsubscribe$)).subscribe(() => {
-            console.log('reloadTable$');
+            // console.log('reloadTable$');
 
             this._loadTable();
         });
@@ -110,7 +110,7 @@ export class TableComponent implements OnInit, OnChanges {
                 this._isIngresos ? this._dataTable.rowDataIngresos : this._dataTable.rowDataGastos
             );
         }
-        console.log('_loadTable', this._tabSelected, this._dataTable, this._isIngresos, this._gridApi);
+        // console.log('_loadTable', this._tabSelected, this._dataTable, this._isIngresos, this._gridApi);
     }
 
     setColumnDefs() {
