@@ -148,7 +148,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
 
     private async _existButton(button: IButtonClasification) {
         this.buttons.forEach((b) => (b.selected = false));
-        this._selectedTabService.source1$.subscribe((value) => {
+        this._selectedTabService.source$.subscribe((value) => {
             this._tabSelected = value;
         });
 
@@ -170,7 +170,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
             this._subTabSelectd4 = data;
         });
 
-        this._selectedTabService.source1$
+        this._selectedTabService.source$
             .pipe(
                 tap((data) => {
                     this._tabSelected = data;

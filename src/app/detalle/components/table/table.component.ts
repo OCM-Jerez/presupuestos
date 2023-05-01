@@ -75,7 +75,7 @@ export class TableComponent implements OnInit, OnChanges {
         console.log('ngOnInit');
         this._hasRowClicked.change(null);
 
-        this._selectedTabService.source1$
+        this._selectedTabService.source$
             .pipe(
                 tap((data) => {
                     this._tabSelected = data;

@@ -26,7 +26,7 @@ HighchartsTreemap(Highcharts);
 export class TreemapComponent implements OnInit {
     private _dataTable: IDataTable;
     private _dataTreeMap: IDataTreemap;
-    private _tabSelected: number;
+    private _tabSelected: string;
     private _subTabSelectd1: string;
     private _subTabSelectd2: string;
     private _subTabSelectd4: string;
@@ -93,7 +93,7 @@ export class TreemapComponent implements OnInit {
 
     async setFields() {
         switch (this._tabSelected) {
-            case 1:
+            case 'ingresosEconomicaEconomicos':
                 switch (this._subTabSelectd1) {
                     case 'ingresosEconomicaCapitulos':
                         this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
@@ -111,7 +111,7 @@ export class TreemapComponent implements OnInit {
                         break;
                 }
                 break;
-            case 2:
+            case 'gastosProgramaProgramas':
                 this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
                 switch (this._subTabSelectd2) {
                     case 'gastosProgramaAreas':
@@ -130,10 +130,10 @@ export class TreemapComponent implements OnInit {
                         break;
                 }
                 break;
-            case 3:
+            case 'gastosOrganicaOrganicos':
                 this._fields = { codigo: 'CodOrg', descripcion: 'DesOrg' };
                 break;
-            case 4:
+            case 'gastosEconomicaEconomicos':
                 switch (this._subTabSelectd4) {
                     case 'gastosEconomicaCapitulos':
                         this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
@@ -152,7 +152,7 @@ export class TreemapComponent implements OnInit {
 
     async calcSeries(codField: string, desField: string) {
         const data =
-            this._tabSelected === 1
+            this._tabSelected === 'ingresosEconomicaEconomicos'
                 ? this._dataStoreService.dataTable.rowDataIngresos
                 : this._dataStoreService.dataTable.rowDataGastos;
         this._dataTreeMap = this._prepareDataTreemapService.calcSeries(data, codField, desField, 'Definitivas2023');
