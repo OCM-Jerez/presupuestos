@@ -19,6 +19,7 @@ import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
 import { SelectedSubTab2Service } from '@services/selectedSubTab2.service';
 import { SelectedSubTab4Service } from '@services/selectedSubTab4.service';
 import { Subject, takeUntil, tap } from 'rxjs';
+import { ReloadTableService } from '../../../services/reloadTable.service';
 
 @Component({
     selector: 'app-subtabs',
@@ -53,7 +54,8 @@ export class SubtabsComponent implements OnInit, OnDestroy {
         private _tableService: TableService,
         private _selectedSubTab1Service: SelectedSubTab1Service,
         private _selectedSubTab2Service: SelectedSubTab2Service,
-        private _selectedSubTab4Service: SelectedSubTab4Service
+        private _selectedSubTab4Service: SelectedSubTab4Service,
+        private _reloadTableService: ReloadTableService
     ) {}
 
     async ngOnInit(): Promise<void> {
@@ -152,6 +154,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
 
         button.selected = true;
         this._dataTable = await this._tableService.loadData(button.clasificationType);
+        this._reloadTableService.triggerReloadTable();
     }
 
     subscribeToServices(): void {

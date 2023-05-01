@@ -15,6 +15,7 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
 import { Subject, takeUntil, tap } from 'rxjs';
+import { ReloadTableService } from '../../../services/reloadTable.service';
 
 @Component({
     selector: 'app-table',
@@ -38,7 +39,8 @@ export class TableComponent implements OnInit, OnChanges {
         private _avalaibleYearsService: AvalaibleYearsService,
         private _dataStoreService: DataStoreService,
         private _hasRowClicked: HasRowClicked,
-        private _selectedTabService: SelectedTabService
+        private _selectedTabService: SelectedTabService,
+        private _reloadTableService: ReloadTableService
     ) {}
 
     async ngOnChanges(changes: SimpleChanges): Promise<void> {
@@ -82,6 +84,10 @@ export class TableComponent implements OnInit, OnChanges {
                 takeUntil(this._unsubscribe$)
             )
             .subscribe();
+
+        this._reloadTableService.reloadTable$.pipe(takeUntil(this._unsubscribe$)).subscribe(() => {
+            this._loadTable();
+        });
     }
 
     ngOnDestroy() {
