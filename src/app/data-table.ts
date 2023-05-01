@@ -422,6 +422,40 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         useStarWitch: true,
         width: 250,
         graphTitle: 'Gastos por capítulo',
+        buttons: [
+            {
+                name: 'Por capítulo gasto',
+                key: 'capitulos',
+                clasificationType: 'gastosEconomicaCapitulos',
+                selected: false,
+            },
+            {
+                name: 'Por artículo',
+                key: 'articulos',
+                clasificationType: 'gastosEconomicaArticulos',
+                selected: false,
+            },
+            {
+                name: 'Por concepto',
+                key: 'conceptos',
+                clasificationType: 'gastosEconomicaConceptos',
+                selected: false,
+            },
+            {
+                name: 'Por económico',
+                key: 'economicos',
+                clasificationType: 'gastosEconomicaEconomicos',
+                selected: true,
+            },
+        ],
+        buttonsAdditional: [
+            { name: 'Gráfico detallado', path: '/graphGastos' },
+            {
+                name: 'Programas que gastan del elemento seleccionado',
+                path: '/tableGrupoProgramaDetails',
+                param: 'gastan',
+            },
+        ],
     },
     gastosEconomicaArticulos: {
         isIngresos: false,
@@ -433,6 +467,40 @@ const CLASIFICATION: { [key: string]: IClasification } = {
         useStarWitch: true,
         width: 550,
         graphTitle: 'Gastos por artículo',
+        buttons: [
+            {
+                name: 'Por capítulo gasto',
+                key: 'capitulos',
+                clasificationType: 'gastosEconomicaCapitulos',
+                selected: false,
+            },
+            {
+                name: 'Por artículo',
+                key: 'articulos',
+                clasificationType: 'gastosEconomicaArticulos',
+                selected: false,
+            },
+            {
+                name: 'Por concepto',
+                key: 'conceptos',
+                clasificationType: 'gastosEconomicaConceptos',
+                selected: false,
+            },
+            {
+                name: 'Por económico',
+                key: 'economicos',
+                clasificationType: 'gastosEconomicaEconomicos',
+                selected: true,
+            },
+        ],
+        buttonsAdditional: [
+            { name: 'Gráfico detallado', path: '/graphGastos' },
+            {
+                name: 'Programas que gastan del elemento seleccionado',
+                path: '/tableGrupoProgramaDetails',
+                param: 'gastan',
+            },
+        ],
     },
     gastosEconomicaConceptos: {
         isIngresos: false,
