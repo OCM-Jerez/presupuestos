@@ -86,7 +86,7 @@ export class TableComponent implements OnInit, OnChanges {
             .subscribe();
 
         this._reloadTableService.reloadTable$.pipe(takeUntil(this._unsubscribe$)).subscribe(() => {
-            // console.log('reloadTable$');
+            console.log('reloadTable$');
 
             this._loadTable();
         });
