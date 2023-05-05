@@ -48,6 +48,8 @@ export class TableService {
         tipoClasificacion?: CLASIFICATION_TYPE,
         filter?: { valueFilter: string; attribute: string; useStarWitch?: boolean }
     ): Promise<IDataTable> {
+        // console.log('loadData', tipoClasificacion, filter);
+
         const dataPropertyTable = getClasificacion(tipoClasificacion) as IDataProperty;
         const dataPropertyGraph = getClasificacionGraph(tipoClasificacion);
         let rowData: any[];
