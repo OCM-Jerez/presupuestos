@@ -14,7 +14,11 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
 import { Subject, takeUntil, tap } from 'rxjs';
+import { CLASIFICATION_TYPE } from '../../../commons/types/clasification.type';
 import { ReloadTableService } from '../../../services/reloadTable.service';
+import { SelectedSubTab1Service } from '../../../services/selectedSubTab1.service';
+import { SelectedSubTab2Service } from '../../../services/selectedSubTab2.service';
+import { SelectedSubTab4Service } from '../../../services/selectedSubTab4.service';
 
 @Component({
     selector: 'app-table',
@@ -31,6 +35,12 @@ export class TableComponent implements OnInit, OnChanges {
     private _subHeaderName: string = '';
     private _isIngresos: boolean = true;
     private _tabSelected: any;
+    private _subTabSelected: any;
+    private _subTabSelectd1: string;
+    private _subTabSelectd2: string;
+    private _subTabSelectd4: string;
+    private _clasification_type: CLASIFICATION_TYPE;
+
     private _unsubscribe$ = new Subject<void>();
 
     constructor(
@@ -38,6 +48,9 @@ export class TableComponent implements OnInit, OnChanges {
         private _avalaibleYearsService: AvalaibleYearsService,
         private _dataStoreService: DataStoreService,
         private _hasRowClicked: HasRowClicked,
+        private _selectedSubTab1Service: SelectedSubTab1Service,
+        private _selectedSubTab2Service: SelectedSubTab2Service,
+        private _selectedSubTab4Service: SelectedSubTab4Service,
         private _selectedTabService: SelectedTabService,
         private _reloadTableService: ReloadTableService
     ) {}
@@ -78,16 +91,17 @@ export class TableComponent implements OnInit, OnChanges {
             .pipe(
                 tap((data) => {
                     this._tabSelected = data;
-                    console.log('this._selectedTabService.source$');
+                    // console.log('this._selectedTabService.source$');
                     this._loadTable();
                 }),
                 takeUntil(this._unsubscribe$)
             )
             .subscribe();
 
-        this._reloadTableService.reloadTable$.pipe(takeUntil(this._unsubscribe$)).subscribe(() => {
-            console.log('reloadTable$');
+        this.subscribeToServices();
 
+        this._reloadTableService.reloadTable$.pipe(takeUntil(this._unsubscribe$)).subscribe(() => {
+            // console.log('reloadTable$');
             this._loadTable();
         });
     }
@@ -98,7 +112,68 @@ export class TableComponent implements OnInit, OnChanges {
     }
 
     private async _loadTable() {
-        this._dataTable = await this._tableService.loadData(this._tabSelected);
+        console.log('this._tabSelected', this._tabSelected);
+        console.log('this._subTabSelected1', this._subTabSelectd1);
+
+        switch (this._tabSelected) {
+            case 'ingresosEconomicaEconomicos':
+                switch (this._subTabSelectd1) {
+                    case 'Por capítulo ingresos':
+                        this._clasification_type = 'ingresosEconomicaCapitulos';
+                        break;
+                    case 'Por artículo':
+                        this._clasification_type = 'ingresosEconomicaArticulos';
+                        console.log('this._subTabSelected', this._subTabSelected);
+
+                        break;
+                    case 'Por concepto':
+                        this._clasification_type = 'ingresosEconomicaConceptos';
+                        break;
+                    case 'Por económico':
+                        this._clasification_type = 'ingresosEconomicaEconomicos';
+                        break;
+                }
+                break;
+            case 'gastosProgramaProgramas':
+                switch (this._subTabSelectd2) {
+                    case 'gPor áreas':
+                        this._clasification_type = 'gastosProgramaAreas';
+                        break;
+                    case 'Por política':
+                        this._clasification_type = 'gastosProgramaPoliticas';
+                        break;
+                    case 'Por grupo programas':
+                        this._clasification_type = 'gastosProgramaGrupos';
+                        break;
+                    case 'Por programa':
+                        this._clasification_type = 'gastosProgramaProgramas';
+                        break;
+                }
+                break;
+            case 'gastosOrganicaOrganicos':
+                this._clasification_type = 'gastosOrganicaOrganicos';
+                break;
+            case 'gastosEconomicaEconomicos':
+                switch (this._subTabSelectd4) {
+                    case 'Por capítulo gasto':
+                        this._clasification_type = 'gastosEconomicaCapitulos';
+                        break;
+                    case 'Por artículo':
+                        this._clasification_type = 'gastosEconomicaArticulos';
+                        break;
+                    case 'Por concepto':
+                        this._clasification_type = 'gastosEconomicaConceptos';
+                        break;
+                    case 'Por económico':
+                        this._clasification_type = 'gastosEconomicaEconomicos';
+                        break;
+                }
+                break;
+        }
+        console.log('this._clasification_type', this._clasification_type);
+        this._dataTable = await this._tableService.loadData(this._clasification_type);
+        console.log(this._dataTable);
+
         this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
         this._isIngresos = this._dataTable.dataPropertyTable.isIngresos;
 
@@ -111,6 +186,21 @@ export class TableComponent implements OnInit, OnChanges {
             );
         }
         // console.log('_loadTable', this._tabSelected, this._dataTable, this._isIngresos, this._gridApi);
+    }
+
+    subscribeToServices(): void {
+        this._selectedSubTab1Service.source$.subscribe((data) => {
+            this._subTabSelectd1 = data;
+            console.log('this._subTabSelectd1', this._subTabSelectd1);
+        });
+
+        this._selectedSubTab2Service.source$.subscribe((data) => {
+            this._subTabSelectd2 = data;
+        });
+
+        this._selectedSubTab4Service.source$.subscribe((data) => {
+            this._subTabSelectd4 = data;
+        });
     }
 
     setColumnDefs() {

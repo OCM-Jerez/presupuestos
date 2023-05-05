@@ -67,68 +67,31 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     }
 
     async click(event: IButtonClasification): Promise<void> {
+        const subtabName = event.name;
         const button: IButtonClasification = this.buttons.find(
             (button: IButtonClasification) => button.key === event.key
         );
         this.buttons.forEach((b) => (b.selected = false));
         button.selected = true;
 
-        this._dataTable = await this._tableService.loadData(this._tabSelected as CLASIFICATION_TYPE);
         this._reloadTableService.triggerReloadTable();
 
         // this._changeSubTabService.changeSubTab(button.codigo, button.descripcion);
 
         // Guardar el subtab seleccionado
+        console.log('this._tabSelected', this._tabSelected);
+        console.log('this._subTabSelected1', subtabName);
         switch (this._tabSelected) {
             case 'ingresosEconomicaEconomicos':
-                switch (this._dataTable.clasificationType) {
-                    case 'ingresosEconomicaCapitulos':
-                        this._selectedSubTab1Service.setSelectedSubTab1('ingresosEconomicaCapitulos');
-                        break;
-                    case 'ingresosEconomicaArticulos':
-                        this._selectedSubTab1Service.setSelectedSubTab1('ingresosEconomicaArticulos');
-                        break;
-                    case 'ingresosEconomicaConceptos':
-                        this._selectedSubTab1Service.setSelectedSubTab1('ingresosEconomicaConceptos');
-                        break;
-                    case 'ingresosEconomicaEconomicos':
-                        this._selectedSubTab1Service.setSelectedSubTab1('ingresosEconomicaEconomicos');
-                        break;
-                }
+                this._selectedSubTab1Service.setSelectedSubTab1(subtabName);
                 break;
             case 'gastosProgramaProgramas':
-                switch (this._dataTable.clasificationType) {
-                    case 'gastosProgramaAreas':
-                        this._selectedSubTab2Service.setSelectedSubTab2('gastosProgramaAreas');
-                        break;
-                    case 'gastosProgramaPoliticas':
-                        this._selectedSubTab2Service.setSelectedSubTab2('gastosProgramaPoliticas');
-                        break;
-                    case 'gastosProgramaGrupos':
-                        this._selectedSubTab2Service.setSelectedSubTab2('gastosProgramaGrupos');
-                        break;
-                    case 'gastosProgramaProgramas':
-                        this._selectedSubTab2Service.setSelectedSubTab2('gastosProgramaProgramas');
-                        break;
-                }
+                this._selectedSubTab2Service.setSelectedSubTab2(subtabName);
                 break;
             case 'gastosOrganicaOrganicos':
                 break;
             case 'gastosEconomicaEconomicos':
-                switch (this._dataTable.clasificationType) {
-                    case 'gastosEconomicaCapitulos':
-                        this._selectedSubTab4Service.setSelectedSubTab4('gastosEconomicaCapitulos');
-                        break;
-                    case 'gastosEconomicaArticulos':
-                        this._selectedSubTab4Service.setSelectedSubTab4('gastosEconomicaArticulos');
-                        break;
-                    case 'gastosEconomicaConceptos':
-                        this._selectedSubTab4Service.setSelectedSubTab4('gastosEconomicaConceptos');
-                        break;
-                    case 'gastosEconomicaEconomicos':
-                        this._selectedSubTab4Service.setSelectedSubTab4('gastosEconomicaEconomicos');
-                        break;
-                }
+                this._selectedSubTab4Service.setSelectedSubTab4(subtabName);
                 break;
         }
     }
@@ -142,6 +105,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     subscribeToServices(): void {
         this._selectedSubTab1Service.source$.subscribe((data) => {
             this._subTabSelectd1 = data;
+            console.log('this._subTabSelectd1', this._subTabSelectd1);
         });
 
         this._selectedSubTab2Service.source$.subscribe((data) => {

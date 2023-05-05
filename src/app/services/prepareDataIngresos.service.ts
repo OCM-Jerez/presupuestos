@@ -80,6 +80,7 @@ export class PrepareDataIngresosService {
         // });
         // return result;
 
+        // console.log(tipoClasificacion);
         switch (tipoClasificacion) {
             case 'ingresosEconomicaCapitulos':
                 result.map((item) => {
