@@ -8,8 +8,10 @@
 @import '/src/app/scss/utilities';
 @import '/src/app/scss/variables';
 
-@import '../node_modules/ag-grid-community/src/styles/ag-grid.scss';
-@import '../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/legacy/ag-theme-balham-v22-compat.scss';
+// @import '../node_modules/ag-grid-community/src/styles/ag-grid.scss';
+// @import '../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/legacy/ag-theme-balham-v22-compat.scss';
+@import '../node_modules/ag-grid-community/styles/ag-grid.css';
+@import '../node_modules/ag-grid-community/styles/ag-theme-balham.css';
 
 // #region OCM
 // #region @media screen
