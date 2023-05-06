@@ -53,7 +53,8 @@ const routes: Routes = [
     },
     {
         path: 'graphIngresos',
-        loadChildren: () => import('./graphs/graph-ingresos/graph-ingresos.module').then((m) => m.GraphIngresosModule),
+        loadChildren: () =>
+            import('./graphs/graph-ingresos/graph-ingresos.component').then((m) => m.GraphIngresosComponent),
     },
     {
         path: 'graphGastos',
