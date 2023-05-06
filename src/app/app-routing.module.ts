@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: 'detallePresupuesto', component: DetalleComponent },
     // {
     //     path: 'detallePresupuesto',
-    //     loadChildren: () => import('./detalle/detalle.module').then((m) => m.DetallePresupuestoModule),
+    //     loadChildren: () => import('./detalle/detalle.component').then((m) => m.DetalleComponent),
     // },
     { path: 'empleados', component: EmpleadosComponent },
     { path: 'explicamos', component: ExplicamosComponent },
@@ -24,10 +24,10 @@ const routes: Routes = [
         // loadChildren: () => import('../app/home/home.module').then((m) => m.HomeModule),
         loadChildren: () => import('../app/home/home.component').then((m) => m.HomeComponent),
     },
-    {
-        path: 'tableIngresos',
-        loadChildren: () => import('./tables/table-ingresos/table-ingresos.module').then((m) => m.TableIngresosModule),
-    },
+    // {
+    //     path: 'tableIngresos',
+    //     loadChildren: () => import('./tables/table-ingresos/table-ingresos.module').then((m) => m.TableIngresosModule),
+    // },
     {
         path: 'tableAplicacionPresupuestaria',
         loadChildren: () =>
