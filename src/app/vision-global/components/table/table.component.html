@@ -1,0 +1,81 @@
+<div class="tableContainer">
+    <table class="paleBlueRows">
+        <thead>
+            <tr>
+                <th>Ejecución al {{ liqDate }}</th>
+                <th>INGRESOS</th>
+                <th>GASTOS</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>TOTAL PRESUPUESTADO</td>
+                <td>{{ totalPresupuestoIngresos }}</td>
+                <td>{{ totalPresupuestoGastos }}</td>
+            </tr>
+            <tr>
+                <td>
+                    TOTAL EJECUTADO <span>(ejecución al {{ liqDate }})</span>
+                </td>
+                <td>{{ totalEjecutadoIngresos }}</td>
+                <td>{{ totalEjecutadoGastos }}</td>
+            </tr>
+            <tr>
+                <td>Subtotal no financiero <span> Capítulos 1 a 7</span></td>
+                <td>{{ noFinancieroIngresos }}</td>
+                <td>{{ noFinancieroGastos }}</td>
+            </tr>
+            <tr>
+                <td>Subtotal corriente<span> Capítulos 1 a 5</span></td>
+                <td>{{ corrientesIngresos }}</td>
+                <td>{{ corrientesGastos }}</td>
+            </tr>
+            <tr>
+                <td>Subtotal de capital<span> Capítulos 6 y 7</span></td>
+                <td>{{ capitalIngresos }}</td>
+                <td>{{ capitalGastos }}</td>
+            </tr>
+            <tr>
+                <td>Subtotal financiero<span> Capítulos 8 y 9</span></td>
+                <td>{{ financierosIngresos }}</td>
+                <td>{{ financierosGastos }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="paleBlueRows">
+        <thead>
+            <tr>
+                <th>INDICADORES PRESUPUESTARIOS</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>
+                    AHORRO BRUTO
+                    <span> Ingresos corrientes - gastos corrientes</span>
+                </td>
+                <td>{{ ahorroBruto }}</td>
+            </tr>
+            <tr>
+                <td>
+                    AHORRO NETO
+                    <span style="font-size: 14px; margin-left: 10px">
+                        Ahorro neto - capitulo 9 de gastos</span
+                    >
+                </td>
+                <td>{{ ahorroNeto }}</td>
+            </tr>
+            <tr>
+                <td>
+                    CAPACIDAD/NECESIDAD DE FINANCIACIÓN
+                    <span> Ingresos no financieros - gastos no financieros</span>
+                </td>
+                <td>{{ capacidadFinanciacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
