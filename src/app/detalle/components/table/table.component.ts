@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
+import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
@@ -30,7 +31,8 @@ import { SelectedSubTab4Service } from '../../../services/selectedSubTab4.servic
 })
 export class TableComponent implements OnInit, OnChanges {
     @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-    gridOptions: GridOptions;
+    public modules = [RowGroupingModule];
+    public gridOptions: GridOptions;
     private _gridApi: GridApi;
     private _columnApi: ColumnApi;
     private _columnDefs: any[];
@@ -43,7 +45,6 @@ export class TableComponent implements OnInit, OnChanges {
     private _subTabSelectd2: string;
     private _subTabSelectd4: string;
     private _clasification_type: CLASIFICATION_TYPE;
-
     private _unsubscribe$ = new Subject<void>();
 
     constructor(
