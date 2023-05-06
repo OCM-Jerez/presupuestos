@@ -2,31 +2,31 @@
     <h2 class="OCM-title">Detalle del presupuesto</h2>
 
     <div class="selectYear">
-        <app-checkbox (hasChangeCheckbox)="hasChangeCheckbox()" [multiYears]="true"></app-checkbox>
+        <app-checkbox (hasChangeCheckbox)="hasChangeCheckbox()" [multiYears]="true" />
     </div>
 
-    <app-table-presupuesto></app-table-presupuesto>
-    <app-treemap></app-treemap>
+    <app-table-presupuesto />
+    <app-treemap />
 
     <app-tabs>
         <app-tab title="Ingresos" [active]="true">
-            <app-subtabs></app-subtabs>
-            <app-table></app-table>
+            <app-subtabs />
+            <app-table />
         </app-tab>
 
         <app-tab title="¿En qué se gasta?">
-            <app-subtabs></app-subtabs>
-            <app-table></app-table>
+            <app-subtabs />
+            <app-table />
         </app-tab>
 
         <app-tab title="¿Quién lo gasta?">
-            <app-subtabs></app-subtabs>
-            <app-table></app-table>
+            <app-subtabs />
+            <app-table />
         </app-tab>
 
         <app-tab title="¿Para qué se gasta?">
-            <app-subtabs></app-subtabs>
-            <app-table></app-table>
+            <app-subtabs />
+            <app-table />
         </app-tab>
     </app-tabs>
 </div>
