@@ -8,6 +8,10 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSankey from 'highcharts/modules/sankey';
+import { TableDataPresupuestoComponent } from './table-data-presupuesto/table-data-presupuesto.component';
+import { CheckboxComponent } from '../commons/components/checkbox/checkbox.component';
+import { CardIndiceComponent } from './card-indice/card-indice.component';
+import { NgFor } from '@angular/common';
 
 HighchartsMore(Highcharts);
 HighchartsSankey(Highcharts);
@@ -16,6 +20,13 @@ HighchartsSankey(Highcharts);
     selector: 'app-indice-new',
     templateUrl: './indice.component.html',
     styleUrls: ['./indice.component.scss'],
+    standalone: true,
+    imports: [
+        NgFor,
+        CardIndiceComponent,
+        CheckboxComponent,
+        TableDataPresupuestoComponent,
+    ],
 })
 export class IndiceComponent implements OnInit {
     // private _dataGrap: [{ name: string, va: number }] = [{ name: "", value: 0 }]

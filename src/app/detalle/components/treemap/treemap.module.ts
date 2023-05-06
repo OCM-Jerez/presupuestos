@@ -6,8 +6,7 @@ import { TabsModule } from '../tabs/tabs.module';
 import { TreemapComponent } from './treemap.component';
 
 @NgModule({
-    declarations: [TreemapComponent],
-    imports: [CommonModule, TabsModule, AgGridModule, HighchartsChartModule],
+    imports: [CommonModule, TabsModule, AgGridModule, HighchartsChartModule, TreemapComponent],
     exports: [TreemapComponent],
 })
 export class TreemapModule {}

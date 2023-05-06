@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { AgGridAngular } from 'ag-grid-angular';
+import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
@@ -17,6 +17,8 @@ import { Subscription } from 'rxjs';
     selector: 'app-table-gastos-gruposprogramas-details',
     templateUrl: './table-gastos-gruposprogramas-details.component.html',
     styleUrls: ['./table-gastos-gruposprogramas-details.component.scss'],
+    standalone: true,
+    imports: [AgGridModule],
 })
 export class TableGastosGruposprogramasDetailsComponent implements OnDestroy {
     @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;

@@ -1,8 +1,8 @@
-import { Location } from '@angular/common';
+import { Location, AsyncPipe } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AgGridAngular } from 'ag-grid-angular';
+import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
@@ -19,6 +19,8 @@ import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
     selector: 'app-table-gastos-aplicacion-presupuestaria',
     templateUrl: './table-gastos-aplicacion-presupuestaria.component.html',
     styleUrls: ['./table-gastos-aplicacion-presupuestaria.component.scss'],
+    standalone: true,
+    imports: [AgGridModule, AsyncPipe],
 })
 export class TableGastosAplicacionPresupuestariaComponent {
     @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;

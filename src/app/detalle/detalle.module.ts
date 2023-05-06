@@ -18,7 +18,6 @@ import { DetalleComponent } from './detalle.component';
 
 export const routes: Routes = [{ path: '', component: DetalleComponent }];
 @NgModule({
-    declarations: [DetalleComponent, SubtabsComponent, TablePresupuestoComponent, TableComponent],
     imports: [
         CommonModule,
         FormsModule,
@@ -29,6 +28,7 @@ export const routes: Routes = [{ path: '', component: DetalleComponent }];
         TableIngresosModule,
         TabsModule,
         TreemapModule,
+        DetalleComponent, SubtabsComponent, TablePresupuestoComponent, TableComponent,
     ],
 })
 export class DetalleModule {}

@@ -7,11 +7,14 @@ import { PrepareDataTotalesPresupuestoService } from '@services/prepareDataTotal
 import { environment } from '@environments/environment';
 
 import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.interface';
+import { NgIf } from '@angular/common';
 
 @Component({
     selector: 'app-table-presupuesto',
     templateUrl: './table-presupuesto.component.html',
     styleUrls: ['./table-presupuesto.component.scss'],
+    standalone: true,
+    imports: [NgIf],
 })
 export class TablePresupuestoComponent implements OnInit {
     public showTablePresupuesto = true;

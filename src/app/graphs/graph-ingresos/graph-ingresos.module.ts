@@ -9,7 +9,6 @@ import { GraphIngresosComponent } from './graph-ingresos.component';
 
 export const routes: Routes = [{ path: '', component: GraphIngresosComponent }]
 @NgModule({
-    declarations: [GraphIngresosComponent],
-    imports: [RouterModule.forChild(routes), CommonModule, AgGridModule, AgChartsAngularModule],
+    imports: [RouterModule.forChild(routes), CommonModule, AgGridModule, AgChartsAngularModule, GraphIngresosComponent],
 })
 export class GraphIngresosModule { }

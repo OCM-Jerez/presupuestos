@@ -9,7 +9,6 @@ import { TableGastosAplicacionPresupuestariaComponent } from './table-gastos-apl
 export const routes: Routes = [{ path: '', component: TableGastosAplicacionPresupuestariaComponent }]
 
 @NgModule({
-  declarations: [TableGastosAplicacionPresupuestariaComponent],
-  imports: [RouterModule.forChild(routes), CommonModule, AgGridModule],
+    imports: [RouterModule.forChild(routes), CommonModule, AgGridModule, TableGastosAplicacionPresupuestariaComponent],
 })
 export class TableGastosAplicacionPresupuestariaModule { }

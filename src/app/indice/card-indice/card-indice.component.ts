@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
     selector: 'app-card-indice',
     templateUrl: './card-indice.component.html',
     styleUrls: ['./card-indice.component.scss'],
+    standalone: true,
 })
 export class CardIndiceComponent {
     @Input() indice: string;

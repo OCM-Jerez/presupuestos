@@ -21,11 +21,19 @@ import { IButtonAdicional } from '@interfaces/buttonAdicional.interface';
 import { IButtonClasification } from '@interfaces/buttonClasification.interface';
 import { IDataGraph } from '@interfaces/dataGraph.interface';
 import { IDataTable } from '@interfaces/dataTable.interface';
+import { NgFor, NgClass, NgIf, AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'app-subtabs',
     templateUrl: './subtabs.component.html',
     styleUrls: ['./subtabs.component.scss'],
+    standalone: true,
+    imports: [
+        NgFor,
+        NgClass,
+        NgIf,
+        AsyncPipe,
+    ],
 })
 export class SubtabsComponent implements OnInit, OnDestroy {
     public buttons: IButtonClasification[] = [];

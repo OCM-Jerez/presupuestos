@@ -5,11 +5,14 @@ import { TabComponent } from './tab/tab.component';
 import { SelectedTabService } from '@services/selectedTab.service';
 
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
+import { NgFor, NgClass } from '@angular/common';
 
 @Component({
     selector: 'app-tabs',
     templateUrl: './tabs.component.html',
     styleUrls: ['./tabs.component.scss'],
+    standalone: true,
+    imports: [NgFor, NgClass],
 })
 export class TabsComponent implements OnInit, AfterContentInit {
     // El operador de aserción de no nulo ! se utiliza para asegurar

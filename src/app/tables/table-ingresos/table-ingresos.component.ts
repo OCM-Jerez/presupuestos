@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AgGridAngular } from 'ag-grid-angular';
+import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 
 import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
@@ -23,11 +23,18 @@ import { ChangeSubTabService } from '@services/change-subtab.service';
 import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
 
 import { getClasificacion } from '@app/data-table';
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
     selector: 'app-table-ingresos',
     templateUrl: './table-ingresos.component.html',
     styleUrls: ['./table-ingresos.component.scss'],
+    standalone: true,
+    imports: [
+        NgClass,
+        NgIf,
+        AgGridModule,
+    ],
 })
 export class TableIngresosComponent implements OnInit {
     @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;

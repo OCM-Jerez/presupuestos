@@ -8,9 +8,10 @@ interface MyParams extends IHeaderParams {
 }
 
 @Component({
-  selector: 'app-header-ag-grid',
-  templateUrl: './header-ag-grid.component.html',
-  styleUrls: ['./header-ag-grid.component.scss']
+    selector: 'app-header-ag-grid',
+    templateUrl: './header-ag-grid.component.html',
+    styleUrls: ['./header-ag-grid.component.scss'],
+    standalone: true
 })
 
 export class HeaderAgGridComponent implements IHeaderAngularComp {

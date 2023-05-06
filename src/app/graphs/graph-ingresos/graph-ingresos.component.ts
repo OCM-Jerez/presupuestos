@@ -1,10 +1,10 @@
-import { Location } from '@angular/common';
+import { Location, NgIf } from '@angular/common';
 import { Component, OnDestroy, ViewChild } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 
 import { AgChartOptions } from 'ag-charts-community';
-import { AgGridAngular } from 'ag-grid-angular';
+import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community';
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
@@ -15,11 +15,18 @@ import { accumulate } from '@utils/util';
 
 import { IDataGraph } from '@interfaces/dataGraph.interface';
 import { IDataTable } from '@interfaces/dataTable.interface';
+import { AgChartsAngularModule } from 'ag-charts-angular';
 
 @Component({
     selector: 'app-graph-ingresos',
     templateUrl: './graph-ingresos.component.html',
     styleUrls: ['./graph-ingresos.component.scss'],
+    standalone: true,
+    imports: [
+        NgIf,
+        AgChartsAngularModule,
+        AgGridModule,
+    ],
 })
 export class GraphIngresosComponent implements OnDestroy {
     @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;

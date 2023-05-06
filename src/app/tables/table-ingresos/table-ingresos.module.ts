@@ -9,8 +9,7 @@ import { TableIngresosComponent } from './table-ingresos.component';
 export const routes: Routes = [{ path: '', component: TableIngresosComponent }]
 
 @NgModule({
-    declarations: [TableIngresosComponent],
-    imports: [RouterModule.forChild(routes), CommonModule, AgGridModule],
+    imports: [RouterModule.forChild(routes), CommonModule, AgGridModule, TableIngresosComponent],
     exports: [TableIngresosComponent]
 })
 export class TableIngresosModule { }

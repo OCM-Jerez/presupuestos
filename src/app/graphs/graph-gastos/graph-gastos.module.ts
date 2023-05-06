@@ -9,7 +9,6 @@ import { GraphGastosComponent } from './graph-gastos.component';
 
 export const routes: Routes = [{ path: '', component: GraphGastosComponent }]
 @NgModule({
-    declarations: [GraphGastosComponent],
-    imports: [RouterModule.forChild(routes), CommonModule, AgGridModule, AgChartsAngularModule],
+    imports: [RouterModule.forChild(routes), CommonModule, AgGridModule, AgChartsAngularModule, GraphGastosComponent],
 })
 export class GraphGastosModule { }

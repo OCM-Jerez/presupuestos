@@ -22,6 +22,7 @@ HighchartsTreemap(Highcharts);
     selector: 'app-treemap',
     templateUrl: './treemap.component.html',
     styleUrls: ['./treemap.component.scss'],
+    standalone: true,
 })
 export class TreemapComponent implements OnInit {
     private _dataTable: IDataTable;

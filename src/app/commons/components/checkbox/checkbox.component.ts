@@ -1,10 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
+import { FormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
 
 @Component({
     selector: 'app-checkbox',
     templateUrl: './checkbox.component.html',
     styleUrls: ['./checkbox.component.scss'],
+    standalone: true,
+    imports: [NgFor, FormsModule],
 })
 export class CheckboxComponent implements OnInit {
     @Input() multiYears: boolean;

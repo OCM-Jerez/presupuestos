@@ -7,11 +7,14 @@ import { environment } from '@environments/environment';
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { IExample } from '@interfaces/example.interface';
 import { ITablaAleatoria } from '@interfaces/tablaAleatoria.interface';
+import { NgFor } from '@angular/common';
 
 @Component({
     selector: 'app-card-table',
     templateUrl: './card-table.component.html',
     styleUrls: ['./card-table.component.scss'],
+    standalone: true,
+    imports: [NgFor],
 })
 export class CardTableComponent implements OnInit {
     textoTabla: string;

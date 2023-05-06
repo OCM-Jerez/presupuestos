@@ -7,7 +7,6 @@ import { HomeComponent } from './home.component';
 import { CardMenuComponent } from './components/card-menu/card-menu.component';
 
 @NgModule({
-    declarations: [HomeComponent, CardInfoComponent, CardTableComponent, CardMenuComponent],
-    imports: [CommonModule],
+    imports: [CommonModule, HomeComponent, CardInfoComponent, CardTableComponent, CardMenuComponent],
 })
 export class HomeModule {}

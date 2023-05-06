@@ -9,11 +9,9 @@ import { TableGastosGruposprogramasDetailsComponent } from './table-gastos-grupo
 export const routes: Routes = [{ path: '', component: TableGastosGruposprogramasDetailsComponent }]
 
 @NgModule({
-  declarations: [
-    TableGastosGruposprogramasDetailsComponent
-  ],
-  imports: [
-    [RouterModule.forChild(routes), CommonModule, AgGridModule],
-  ]
+    imports: [
+        [RouterModule.forChild(routes), CommonModule, AgGridModule],
+        TableGastosGruposprogramasDetailsComponent,
+    ]
 })
 export class TableGastosGruposprogramasDetailsModule { }

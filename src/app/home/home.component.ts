@@ -1,10 +1,21 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CardMenuComponent } from './components/card-menu/card-menu.component';
+import { NgFor } from '@angular/common';
+import { CardTableComponent } from './components/card-table/card-table.component';
+import { CardInfoComponent } from './components/card-info/card-info.component';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
+    standalone: true,
+    imports: [
+        CardInfoComponent,
+        CardTableComponent,
+        NgFor,
+        CardMenuComponent,
+    ],
 })
 export class HomeComponent {
     cardMenus = [

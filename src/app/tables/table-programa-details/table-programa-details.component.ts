@@ -1,8 +1,8 @@
-import { Location } from '@angular/common';
+import { Location, NgIf } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AgGridAngular } from 'ag-grid-angular';
+import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { ColumnState, GridReadyEvent } from 'ag-grid-community';
 import { GridApi, GridOptions } from 'ag-grid-community/main';
 
@@ -23,6 +23,8 @@ import { accumulate } from '@utils/util';
     selector: 'app-table-programa-details',
     templateUrl: './table-programa-details.component.html',
     styleUrls: ['./table-programa-details.component.scss'],
+    standalone: true,
+    imports: [NgIf, AgGridModule],
 })
 export class TableProgramaDetailsComponent {
     @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;

@@ -1,6 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
-import { AgGridAngular } from 'ag-grid-angular';
+import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
@@ -19,11 +19,14 @@ import { ReloadTableService } from '../../../services/reloadTable.service';
 import { SelectedSubTab1Service } from '../../../services/selectedSubTab1.service';
 import { SelectedSubTab2Service } from '../../../services/selectedSubTab2.service';
 import { SelectedSubTab4Service } from '../../../services/selectedSubTab4.service';
+import { NgIf } from '@angular/common';
 
 @Component({
     selector: 'app-table',
     templateUrl: './table.component.html',
     styleUrls: ['./table.component.scss'],
+    standalone: true,
+    imports: [NgIf, AgGridModule],
 })
 export class TableComponent implements OnInit, OnChanges {
     @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;

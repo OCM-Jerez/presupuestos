@@ -25,15 +25,7 @@ import { DetalleModule } from './detalle/detalle.module';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        CardIndiceComponent,
-        FooterComponent,
-        HeaderAgGridComponent,
-        IndiceComponent,
-        NavbarComponent,
-        TableDataPresupuestoComponent,
-    ],
+    declarations: [AppComponent],
     imports: [
         AppRoutingModule,
         BrowserModule,
@@ -42,6 +34,12 @@ import { AvalaibleYearsService } from '@services/avalaibleYears.service';
         HttpClientModule,
         CheckboxModule,
         DetalleModule,
+        CardIndiceComponent,
+        FooterComponent,
+        HeaderAgGridComponent,
+        IndiceComponent,
+        NavbarComponent,
+        TableDataPresupuestoComponent,
     ],
     providers: [AvalaibleYearsService],
     bootstrap: [AppComponent],

@@ -11,6 +11,7 @@ import { IDataTable } from '@interfaces/dataTable.interface';
     selector: 'app-table-data-presupuesto',
     templateUrl: './table-data-presupuesto.component.html',
     styleUrls: ['./table-data-presupuesto.component.scss'],
+    standalone: true,
 })
 export class TableDataPresupuestoComponent implements OnInit {
     public liqDate = environment.liqDate2023;

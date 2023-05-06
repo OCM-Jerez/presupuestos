@@ -9,7 +9,6 @@ import { TableProgramaDetailsComponent } from './table-programa-details.componen
 export const routes: Routes = [{ path: '', component: TableProgramaDetailsComponent }]
 
 @NgModule({
-  declarations: [TableProgramaDetailsComponent],
-  imports: [RouterModule.forChild(routes), CommonModule, AgGridModule],
+    imports: [RouterModule.forChild(routes), CommonModule, AgGridModule, TableProgramaDetailsComponent],
 })
 export class TableProgramaDetailsModule { }
