@@ -1,8 +1,8 @@
-<h2 class="OCM-title">Visión Global</h2>
+<h2 class="OCM-title">Visión global</h2>
 
 <div class="flex-container-cards">
     <div class="flex-items" *ngFor="let item of items">
-        <app-card-indice [indice]="item.indice" [title]="item.title" [footer]="item.footer"></app-card-indice>
+        <app-card [indice]="item.indice" [title]="item.title" [footer]="item.footer" />
     </div>
 </div>
 
@@ -13,4 +13,4 @@
 
 <app-checkbox [multiYears]="false"></app-checkbox>
 <h3 class="datosPresupuestarios">Datos presupuestarios año seleccionado</h3>
-<app-table-data-presupuesto></app-table-data-presupuesto>
+<app-table />

@@ -10,16 +10,16 @@ import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSankey from 'highcharts/modules/sankey';
 import { CheckboxComponent } from '../commons/components/checkbox/checkbox.component';
-import { CardIndiceComponent } from './components/card-indice/card-indice.component';
-import { TableDataPresupuestoComponent } from './components/table-data-presupuesto/table-data-presupuesto.component';
+import { CardIndiceComponent } from './components/card/card.component';
+import { TableDataPresupuestoComponent } from './components/table/table.component';
 
 HighchartsMore(Highcharts);
 HighchartsSankey(Highcharts);
 
 @Component({
-    selector: 'app-indice-new',
-    templateUrl: './indice.component.html',
-    styleUrls: ['./indice.component.scss'],
+    selector: 'app-vision-global',
+    templateUrl: './vision-global.component.html',
+    styleUrls: ['./vision-global.component.scss'],
     standalone: true,
     imports: [NgFor, CardIndiceComponent, CheckboxComponent, TableDataPresupuestoComponent],
 })

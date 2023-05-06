@@ -6,7 +6,7 @@ import { EmpleadosComponent } from './empleados/empleados.component';
 import { ExplicamosComponent } from './explicamos/explicamos.component';
 import { GlosarioComponent } from './glosario/glosario.component';
 import { HomeComponent } from './home/home.component';
-import { IndiceComponent } from './indice/indice.component';
+import { IndiceComponent } from './vision-global/vision-global.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
