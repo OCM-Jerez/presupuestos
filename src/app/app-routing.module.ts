@@ -12,21 +12,17 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'visionGlobal', component: IndiceComponent },
     { path: 'detallePresupuesto', component: DetalleComponent },
-    // {
-    //     path: 'detallePresupuesto',
-    //     loadChildren: () => import('./detalle/detalle.component').then((m) => m.DetalleComponent),
-    // },
     { path: 'empleados', component: EmpleadosComponent },
     { path: 'explicamos', component: ExplicamosComponent },
     { path: 'glosario', component: GlosarioComponent },
-    {
-        path: 'home',
-        // loadChildren: () => import('../app/home/home.module').then((m) => m.HomeModule),
-        loadChildren: () => import('../app/home/home.component').then((m) => m.HomeComponent),
-    },
+
     // {
-    //     path: 'tableIngresos',
-    //     loadChildren: () => import('./tables/table-ingresos/table-ingresos.module').then((m) => m.TableIngresosModule),
+    //     path: 'home',
+    //     loadChildren: () => import('../app/home/home.component').then((m) => m.HomeComponent),
+    // },
+    // {
+    //     path: 'detallePresupuesto',
+    //     loadChildren: () => import('./detalle/detalle.component').then((m) => m.DetalleComponent),
     // },
     {
         path: 'tableAplicacionPresupuestaria',
@@ -36,8 +32,6 @@ const routes: Routes = [
             ).then((m) => m.TableGastosAplicacionPresupuestariaComponent),
     },
     {
-        // tableGrupoProgramaDetails/?origen=ingresos&&id=1
-        // tableGrupoProgramaDetails
         path: 'tableGrupoProgramaDetails/:origen',
         loadChildren: () =>
             import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.component').then(
