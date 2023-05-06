@@ -32,8 +32,8 @@ const routes: Routes = [
         path: 'tableAplicacionPresupuestaria',
         loadChildren: () =>
             import(
-                './tables/table-gastos-aplicacion-presupuestaria/table-gastos-aplicacion-presupuestaria.module'
-            ).then((m) => m.TableGastosAplicacionPresupuestariaModule),
+                './tables/table-gastos-aplicacion-presupuestaria/table-gastos-aplicacion-presupuestaria.component'
+            ).then((m) => m.TableGastosAplicacionPresupuestariaComponent),
     },
     {
         // tableGrupoProgramaDetails/?origen=ingresos&&id=1
