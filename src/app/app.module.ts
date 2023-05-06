@@ -18,7 +18,7 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 
 // Modules
-import { CheckboxModule } from './commons/components/checkbox/checkbox.module';
+
 import { DetalleModule } from './detalle/detalle.module';
 
 // Services
@@ -27,20 +27,19 @@ import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 @NgModule({
     declarations: [AppComponent],
     imports: [
-        AppRoutingModule,
-        BrowserModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        CheckboxModule,
-        DetalleModule,
-        CardIndiceComponent,
-        FooterComponent,
-        HeaderAgGridComponent,
-        IndiceComponent,
-        NavbarComponent,
-        TableDataPresupuestoComponent,
-    ],
+    AppRoutingModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    DetalleModule,
+    CardIndiceComponent,
+    FooterComponent,
+    HeaderAgGridComponent,
+    IndiceComponent,
+    NavbarComponent,
+    TableDataPresupuestoComponent,
+],
     providers: [AvalaibleYearsService],
     bootstrap: [AppComponent],
 })
