@@ -10,6 +10,7 @@ import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 
+import { NgIf } from '@angular/common';
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
@@ -19,7 +20,6 @@ import { ReloadTableService } from '../../../services/reloadTable.service';
 import { SelectedSubTab1Service } from '../../../services/selectedSubTab1.service';
 import { SelectedSubTab2Service } from '../../../services/selectedSubTab2.service';
 import { SelectedSubTab4Service } from '../../../services/selectedSubTab4.service';
-import { NgIf } from '@angular/common';
 
 @Component({
     selector: 'app-table',
@@ -353,7 +353,7 @@ export class TableComponent implements OnInit, OnChanges {
                         headerName: 'Creditos definitivos',
                         field: `Definitivas${year}`,
                         width: 140,
-                        columnGroupShow: 'close',
+                        columnGroupShow: 'closed',
                         sort: 'desc',
                     },
                 ],
@@ -376,13 +376,13 @@ export class TableComponent implements OnInit, OnChanges {
                     {
                         headerName: 'Pagos',
                         field: `Pagos${year}`,
-                        columnGroupShow: 'close',
+                        columnGroupShow: 'closed',
                     },
                     {
                         headerName: 'Obligaciones pendientes de pago al final periodo',
                         field: `ObligacionesPendientePago${year}`,
                         width: 120,
-                        columnGroupShow: 'close',
+                        columnGroupShow: 'closed',
                     },
                 ],
             },
@@ -411,7 +411,7 @@ export class TableComponent implements OnInit, OnChanges {
                     {
                         headerName: 'Previsiones definitivas',
                         field: `Definitivas${year}`,
-                        columnGroupShow: 'close',
+                        columnGroupShow: 'closed',
                         sort: 'desc',
                     },
                 ],
@@ -443,7 +443,7 @@ export class TableComponent implements OnInit, OnChanges {
                     {
                         headerName: 'Recaudación neta',
                         field: `RecaudacionNeta${year}`,
-                        columnGroupShow: 'close',
+                        columnGroupShow: 'closed',
                     },
                     {
                         headerName: 'Pendientes de cobro al final del periodo',
