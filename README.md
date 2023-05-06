@@ -1,27 +1,74 @@
-# PresupuestosV14
+<h2 style ="text-align: center"> App desarrollada en Angular para la consulta de las liquidaciones de presupuesto del Ayuntamiento de Jerez</h2>
+<img style="display: block; margin-left: auto; margin-right: auto;" src='https://res.cloudinary.com/dabrencx7/image/upload/v1683382273/Presupuestos/presupuestos2023_ul6ova.jpg'/>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+# Motivación 💪
 
-## Development server
+<ul>
+  <li>Contar con una aplicación WEB que nos permita mostrar los datos de las liquidaciones de presupuestos municipales de una forma facil y eficaz.</li>
+  </li>
+ </ul>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Caracteristicas ⭐
 
-## Code scaffolding
+<ul>
+  <li>Permite listar los datos agrupados por diferentes conceptos.</li>
+  <ul>
+          <li>Por capítulos.</li>
+          <li>Por orgánico.</li>
+          <li>Por programa.</li>
+          <li>Por económico.</li>
+      </ul>
+    </ul>
+<ul>
+     <li>Permite compara liquidaciones años anteriores agrupados por diferentes conceptos.</li>
+  <ul>
+          <li>Por capítulos.</li>
+          <li>Por orgánico.</li>
+          <li>Por programa.</li>
+          <li>Por económico.</li>
+      </ul>
+    </ul>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Procedencia de los datos
 
-## Build
+-   PDF publicado por el Ayuntamiento.
+-   Se pasa de PDF a JSON con procedimiento propio.
+-   Se puede consultar el procedimiento en el fichero [ mam/preparacionDatos.md](https://github.com/OCM-Jerez/OCMpre2020liq20210814/blob/master/mam/preparacionDatos.md)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Como ejecutar el código 🖥
 
-## Running unit tests
+-   Clonar el repositorio.
+-   npm install para instalar referencias.
+-   ng serve
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Sugerencias nuevas caracteristicas💎
 
-## Running end-to-end tests
+-   Crea una Issue explicando la mejora requerida.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Issues:🐛
 
-## Further help
+-   Si encuentras algun error, por favor, crea una nueva Issue.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Planes futuras mejoras 📆
+
+-
+
+# Framework desarrollo 🚀
+
+-   [Angular](https://angular.io)
+
+# Librerias usadas 📖
+
+-   <a href= 'https://www.ag-grid.com/' target="_blank"> AG Grid</a>
+-   <a href= 'https://www.highcharts.com/' target="_blank"> Hightcharts</a>
+
+# Licencia ⚖
+
+️- Distribuido bajo `MIT License`. Ver LICENSE.TXT para más información.
+
+# Contacto ☎️
+
+-   <a href= 'mailto:info@ocmjerez.org'> email </a>
+-   <a href= 'https://w.ocmjerez.org' target="_blank"> WEB</a>
+-   <a href= 'https://www.facebook.com/OcmJerez/'> Facebook </a>
+-   <a href= 'https://twitter.com/ocmjerez'> Twitter </a>
