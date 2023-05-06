@@ -31,9 +31,7 @@
 
 # Procedencia de los datos
 
--   PDF publicado por el Ayuntamiento.
--   Se pasa de PDF a JSON con procedimiento propio.
--   Se puede consultar el procedimiento en el fichero [ mam/preparacionDatos.md](https://github.com/OCM-Jerez/OCMpre2020liq20210814/blob/master/mam/preparacionDatos.md)
+-   Portal de Transparencia Ayuntamiento Jerez de la Frontera.
 
 # Como ejecutar el código 🖥
 
