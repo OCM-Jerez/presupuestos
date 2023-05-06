@@ -47,8 +47,8 @@ const routes: Routes = [
     {
         path: 'tableProgramaDetails',
         loadChildren: () =>
-            import('./tables/table-programa-details/table-programa-details.module').then(
-                (m) => m.TableProgramaDetailsModule
+            import('./tables/table-programa-details/table-programa-details.component').then(
+                (m) => m.TableProgramaDetailsComponent
             ),
     },
     {
