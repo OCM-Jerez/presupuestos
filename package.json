@@ -1,5 +1,5 @@
 {
-    "name": "presupuestos-v14",
+    "name": "presupuestos",
     "version": "1.05.06",
     "scripts": {
         "ng": "ng",
