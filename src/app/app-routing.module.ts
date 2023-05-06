@@ -57,7 +57,7 @@ const routes: Routes = [
     },
     {
         path: 'graphGastos',
-        loadChildren: () => import('./graphs/graph-gastos/graph-gastos.module').then((m) => m.GraphGastosModule),
+        loadChildren: () => import('./graphs/graph-gastos/graph-gastos.component').then((m) => m.GraphGastosComponent),
     },
     { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
