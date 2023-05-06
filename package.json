@@ -25,7 +25,7 @@
         "ag-grid-angular": "29.3.4",
         "ag-grid-community": "29.3.4",
         "ag-grid-enterprise": "29.3.4",
-        "highcharts": "10.3.1",
+        "highcharts": "11.0.0",
         "highcharts-angular": "3.0.0",
         "rxjs": "7.5.0",
         "tslib": "2.3.0",
