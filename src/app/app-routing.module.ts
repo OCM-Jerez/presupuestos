@@ -21,7 +21,8 @@ const routes: Routes = [
     { path: 'glosario', component: GlosarioComponent },
     {
         path: 'home',
-        loadChildren: () => import('../app/home/home.module').then((m) => m.HomeModule),
+        // loadChildren: () => import('../app/home/home.module').then((m) => m.HomeModule),
+        loadChildren: () => import('../app/home/home.component').then((m) => m.HomeComponent),
     },
     {
         path: 'tableIngresos',
