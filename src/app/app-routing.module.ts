@@ -40,8 +40,8 @@ const routes: Routes = [
         // tableGrupoProgramaDetails
         path: 'tableGrupoProgramaDetails/:origen',
         loadChildren: () =>
-            import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.module').then(
-                (m) => m.TableGastosGruposprogramasDetailsModule
+            import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.component').then(
+                (m) => m.TableGastosGruposprogramasDetailsComponent
             ),
     },
     {
