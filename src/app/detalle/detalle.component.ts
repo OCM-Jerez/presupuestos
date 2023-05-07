@@ -14,17 +14,15 @@ import { TreemapComponent } from './components/treemap/treemap.component';
 	standalone: true,
 	imports: [
 		CheckboxComponent,
-		TablePresupuestoComponent,
-		TreemapComponent,
-		TabsComponent,
-		TabComponent,
 		SubtabsComponent,
-		TableComponent
+		TabComponent,
+		TableComponent,
+		TablePresupuestoComponent,
+		TabsComponent,
+		TreemapComponent
 	]
 })
 export class DetalleComponent {
-	constructor() {}
-
 	async hasChangeCheckbox() {
 		// await this._tableService.loadData(this._typeClasification);
 	}
