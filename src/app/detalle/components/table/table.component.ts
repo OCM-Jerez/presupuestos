@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
@@ -29,7 +29,7 @@ import { SelectedSubTab4Service } from '../../../services/selectedSubTab4.servic
   standalone: true,
   imports: [NgIf, AgGridModule]
 })
-export class TableComponent implements OnInit, OnChanges {
+export class TableComponent implements OnInit, OnChanges, OnDestroy {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public modules = [RowGroupingModule];
   public gridOptions: GridOptions;
@@ -141,7 +141,7 @@ export class TableComponent implements OnInit, OnChanges {
         break;
       case 'gastosProgramaProgramas':
         switch (this._subTabSelectd2) {
-          case 'gPor áreas':
+          case 'Por áreas':
             this._clasification_type = 'gastosProgramaAreas';
             break;
           case 'Por política':
