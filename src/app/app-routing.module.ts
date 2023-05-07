@@ -1,63 +1,73 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DetalleComponent } from './detalle/detalle.component';
-import { EmpleadosComponent } from './empleados/empleados.component';
-import { ExplicamosComponent } from './explicamos/explicamos.component';
-import { GlosarioComponent } from './glosario/glosario.component';
-import { HomeComponent } from './home/home.component';
-import { IndiceComponent } from './vision-global/vision-global.component';
-
 const routes: Routes = [
-    { path: 'home', component: HomeComponent },
-    { path: 'visionGlobal', component: IndiceComponent },
-    { path: 'detallePresupuesto', component: DetalleComponent },
-    { path: 'empleados', component: EmpleadosComponent },
-    { path: 'explicamos', component: ExplicamosComponent },
-    { path: 'glosario', component: GlosarioComponent },
+	{
+		path: '',
+		children: [
+			{
+				path: 'home',
+				loadComponent: () => import('./home/home.component').then((m) => m.HomeComponent)
+			},
+			{
+				path: 'visionGlobal',
+				loadComponent: () => import('./vision-global/vision-global.component').then((m) => m.IndiceComponent)
+			},
+			{
+				path: 'detallePresupuesto',
+				loadComponent: () => import('./detalle/detalle.component').then((m) => m.DetalleComponent)
+			},
+			{
+				path: 'empleados',
+				loadComponent: () => import('./empleados/empleados.component').then((m) => m.EmpleadosComponent)
+			},
+			{
+				path: 'explicamos',
+				loadComponent: () => import('./explicamos/explicamos.component').then((m) => m.ExplicamosComponent)
+			},
+			{
+				path: 'glosario',
+				loadComponent: () => import('./glosario/glosario.component').then((m) => m.GlosarioComponent)
+			},
 
-    // {
-    //     path: 'home',
-    //     loadChildren: () => import('../app/home/home.component').then((m) => m.HomeComponent),
-    // },
-    // {
-    //     path: 'detallePresupuesto',
-    //     loadChildren: () => import('./detalle/detalle.component').then((m) => m.DetalleComponent),
-    // },
-    {
-        path: 'tableAplicacionPresupuestaria',
-        loadChildren: () =>
-            import(
-                './tables/table-gastos-aplicacion-presupuestaria/table-gastos-aplicacion-presupuestaria.component'
-            ).then((m) => m.TableGastosAplicacionPresupuestariaComponent),
-    },
-    {
-        path: 'tableGrupoProgramaDetails/:origen',
-        loadChildren: () =>
-            import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.component').then(
-                (m) => m.TableGastosGruposprogramasDetailsComponent
-            ),
-    },
-    {
-        path: 'tableProgramaDetails',
-        loadChildren: () =>
-            import('./tables/table-programa-details/table-programa-details.component').then(
-                (m) => m.TableProgramaDetailsComponent
-            ),
-    },
-    {
-        path: 'graphIngresos',
-        loadChildren: () =>
-            import('./graphs/graph-ingresos/graph-ingresos.component').then((m) => m.GraphIngresosComponent),
-    },
-    {
-        path: 'graphGastos',
-        loadChildren: () => import('./graphs/graph-gastos/graph-gastos.component').then((m) => m.GraphGastosComponent),
-    },
-    { path: '**', pathMatch: 'full', redirectTo: 'home' },
+			{ path: '**', pathMatch: 'full', redirectTo: 'home' }
+		]
+	}
 ];
+
+//     {
+//         path: 'tableAplicacionPresupuestaria',
+//         loadChildren: () =>
+//             import(
+//                 './tables/table-gastos-aplicacion-presupuestaria/table-gastos-aplicacion-presupuestaria.component'
+//             ).then((m) => m.TableGastosAplicacionPresupuestariaComponent),
+//     },
+//     {
+//         path: 'tableGrupoProgramaDetails/:origen',
+//         loadChildren: () =>
+//             import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.component').then(
+//                 (m) => m.TableGastosGruposprogramasDetailsComponent
+//             ),
+//     },
+//     {
+//         path: 'tableProgramaDetails',
+//         loadChildren: () =>
+//             import('./tables/table-programa-details/table-programa-details.component').then(
+//                 (m) => m.TableProgramaDetailsComponent
+//             ),
+//     },
+//     {
+//         path: 'graphIngresos',
+//         loadChildren: () =>
+//             import('./graphs/graph-ingresos/graph-ingresos.component').then((m) => m.GraphIngresosComponent),
+//     },
+//     {
+//         path: 'graphGastos',
+//         loadChildren: () => import('./graphs/graph-gastos/graph-gastos.component').then((m) => m.GraphGastosComponent),
+//     },
+// ];
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { useHash: true })],
-    exports: [RouterModule],
+	imports: [RouterModule.forRoot(routes, { useHash: true })],
+	exports: [RouterModule]
 })
 export class AppRoutingModule {}
