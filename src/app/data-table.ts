@@ -29,10 +29,10 @@ const buttonsAdditionalCommonIngresos = [{ name: 'Gráfico detallado', path: '/g
 
 const buttonsCommonGastosProgramas = (clasificationType: CLASIFICATION_TYPE) =>
   createButtons(clasificationType, [
-    { name: 'Por áreas', key: 'Areas', codField: 'CodPro', desField: 'DesPro' },
-    { name: 'Por política', key: 'Politicas', codField: 'CodPro', desField: 'DesPro' },
-    { name: 'Por grupo programas', key: 'Grupos', codField: 'CodPro', desField: 'DesPro' },
-    { name: 'Por programa', key: 'Programas', codField: 'CodPro', desField: 'DesPro' }
+    { name: 'Por áreas', key: 'Areas', codField: 'CodPro', desField: 'DesPro', selected: false },
+    { name: 'Por política', key: 'Politicas', codField: 'CodPro', desField: 'DesPro', selected: false },
+    { name: 'Por grupo programas', key: 'Grupos', codField: 'CodPro', desField: 'DesPro', selected: false },
+    { name: 'Por programa', key: 'Programas', codField: 'CodPro', desField: 'DesPro', selected: true }
   ]);
 
 const buttonsAdditionalCommonGastosProgramas = [
@@ -42,10 +42,10 @@ const buttonsAdditionalCommonGastosProgramas = [
 
 const buttonsCommonGastosEconomica = (clasificationType: CLASIFICATION_TYPE) =>
   createButtons(clasificationType, [
-    { name: 'Por capítulo gasto', key: 'Capitulos', codField: 'CodCap', desField: 'DesCap' },
-    { name: 'Por artículo', key: 'Articulos', codField: 'CodEco', desField: 'DesEco' },
-    { name: 'Por concepto', key: 'Conceptos', codField: 'CodEco', desField: 'DesEco' },
-    { name: 'Por económico', key: 'Economicos', codField: 'CodEco', desField: 'DesEco' }
+    { name: 'Por capítulo gasto', key: 'Capitulos', codField: 'CodCap', desField: 'DesCap', selected: false },
+    { name: 'Por artículo', key: 'Articulos', codField: 'CodEco', desField: 'DesEco', selected: false },
+    { name: 'Por concepto', key: 'Conceptos', codField: 'CodEco', desField: 'DesEco', selected: false },
+    { name: 'Por económico', key: 'Economicos', codField: 'CodEco', desField: 'DesEco', selected: true }
   ]);
 
 const buttonsAdditionalCommonGastosEconomica = [
