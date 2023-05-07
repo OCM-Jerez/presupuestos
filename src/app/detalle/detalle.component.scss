@@ -1,22 +1,22 @@
 @media screen and (max-width: 3399.98px) {
-    .container {
-        margin: 0 auto;
-        display: block;
-        max-width: 98%;
+  .container {
+    margin: 0 auto;
+    display: block;
+    max-width: 98%;
 
-        > *:not(.tab-wrap) {
-            padding: 0 80px;
-        }
+    > *:not(.tab-wrap) {
+      padding: 0 80px;
     }
+  }
 
-    .selectYear {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
+  .selectYear {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 
 @media screen and (max-width: 575.98px) {

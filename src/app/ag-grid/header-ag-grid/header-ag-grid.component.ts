@@ -8,12 +8,11 @@ interface MyParams extends IHeaderParams {
 }
 
 @Component({
-    selector: 'app-header-ag-grid',
-    templateUrl: './header-ag-grid.component.html',
-    styleUrls: ['./header-ag-grid.component.scss'],
-    standalone: true
+  selector: 'app-header-ag-grid',
+  templateUrl: './header-ag-grid.component.html',
+  styleUrls: ['./header-ag-grid.component.scss'],
+  standalone: true
 })
-
 export class HeaderAgGridComponent implements IHeaderAngularComp {
   public params: MyParams;
   public sorted: string;
@@ -51,7 +50,6 @@ export class HeaderAgGridComponent implements IHeaderAngularComp {
     console.log(this.myHeaderNameLinea1);
     console.log(this.myHeaderNameLinea2);
     console.log(this.myHeaderNameLinea3);
-
   }
 
   // ngOnDestroy() {
@@ -77,31 +75,6 @@ export class HeaderAgGridComponent implements IHeaderAngularComp {
   }
 
   private querySelector(selector: string) {
-    return this.elementRef.nativeElement.querySelector(
-      '.customHeaderMenuButton', selector) as HTMLElement;
+    return this.elementRef.nativeElement.querySelector('.customHeaderMenuButton', selector) as HTMLElement;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,37 +2,37 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-	{
-		path: '',
-		children: [
-			{
-				path: 'home',
-				loadComponent: () => import('./home/home.component').then((m) => m.HomeComponent)
-			},
-			{
-				path: 'visionGlobal',
-				loadComponent: () => import('./vision-global/vision-global.component').then((m) => m.IndiceComponent)
-			},
-			{
-				path: 'detallePresupuesto',
-				loadComponent: () => import('./detalle/detalle.component').then((m) => m.DetalleComponent)
-			},
-			{
-				path: 'empleados',
-				loadComponent: () => import('./empleados/empleados.component').then((m) => m.EmpleadosComponent)
-			},
-			{
-				path: 'explicamos',
-				loadComponent: () => import('./explicamos/explicamos.component').then((m) => m.ExplicamosComponent)
-			},
-			{
-				path: 'glosario',
-				loadComponent: () => import('./glosario/glosario.component').then((m) => m.GlosarioComponent)
-			},
+  {
+    path: '',
+    children: [
+      {
+        path: 'home',
+        loadComponent: () => import('./home/home.component').then((m) => m.HomeComponent)
+      },
+      {
+        path: 'visionGlobal',
+        loadComponent: () => import('./vision-global/vision-global.component').then((m) => m.IndiceComponent)
+      },
+      {
+        path: 'detallePresupuesto',
+        loadComponent: () => import('./detalle/detalle.component').then((m) => m.DetalleComponent)
+      },
+      {
+        path: 'empleados',
+        loadComponent: () => import('./empleados/empleados.component').then((m) => m.EmpleadosComponent)
+      },
+      {
+        path: 'explicamos',
+        loadComponent: () => import('./explicamos/explicamos.component').then((m) => m.ExplicamosComponent)
+      },
+      {
+        path: 'glosario',
+        loadComponent: () => import('./glosario/glosario.component').then((m) => m.GlosarioComponent)
+      },
 
-			{ path: '**', pathMatch: 'full', redirectTo: 'home' }
-		]
-	}
+      { path: '**', pathMatch: 'full', redirectTo: 'home' }
+    ]
+  }
 ];
 
 //     {
@@ -67,7 +67,7 @@ const routes: Routes = [
 //     },
 // ];
 @NgModule({
-	imports: [RouterModule.forRoot(routes, { useHash: true })],
-	exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

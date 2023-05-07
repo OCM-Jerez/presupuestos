@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root'
 })
 export class ReloadTableService {
-    private _reloadTableSubject = new Subject<void>();
+  private _reloadTableSubject = new Subject<void>();
 
-    get reloadTable$() {
-        return this._reloadTableSubject.asObservable();
-    }
+  get reloadTable$() {
+    return this._reloadTableSubject.asObservable();
+  }
 
-    triggerReloadTable() {
-        this._reloadTableSubject.next();
-    }
+  triggerReloadTable() {
+    this._reloadTableSubject.next();
+  }
 }

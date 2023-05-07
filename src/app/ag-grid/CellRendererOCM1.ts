@@ -1,6 +1,6 @@
 export function CellRendererOCM1(params: any) {
   if (params.value) {
-    const valorFormateado: number = params.value.toLocaleString("de-DE");
+    const valorFormateado: number = params.value.toLocaleString('de-DE');
 
     if (params.node.footer) {
       switch (params.node.level) {
@@ -10,7 +10,7 @@ export function CellRendererOCM1(params: any) {
           return `<p style="text-align: right; color: red; font-size: 12px; margin: 0px;font-weight: bold">${valorFormateado}</p>`;
         case 1: // Total segundo nivel.
           return `<p style="text-align: right; color: red; font-size: 12px; margin: 0px;font-weight: bold">${valorFormateado}</p>`;
-        case 0:  // Total primer nivel.
+        case 0: // Total primer nivel.
           return `<p style="text-align: right; color: red; font-size: 13px; margin: 0px;font-weight: bold">${valorFormateado}</p>`;
         case -1: // Total general.
           return `<p style="text-align: right; color: red; font-size: 24px; margin: 0px;font-weight: bold">${valorFormateado}</p>`;
@@ -25,8 +25,6 @@ export function CellRendererOCM1(params: any) {
   }
 }
 
-
 export function CellRendererOCMtext1(params: any) {
-  return params.value
+  return params.value;
 }
-

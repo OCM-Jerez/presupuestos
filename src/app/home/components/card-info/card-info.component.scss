@@ -7,50 +7,50 @@
 @import '/src/app/scss/utilities';
 
 @media screen and (max-width: 3399.98px) {
-    .flex__cardInfo {
-        display: flex;
-        justify-content: center;
-        flex-basis: 40%;
-        padding: 1em;
-        border: 1px solid #fff;
-    }
+  .flex__cardInfo {
+    display: flex;
+    justify-content: center;
+    flex-basis: 40%;
+    padding: 1em;
+    border: 1px solid #fff;
+  }
 
-    .cardInfo {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-        padding: 0px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-        border-radius: 10px;
-        &__title {
-            display: flex;
-            width: 90%;
-            justify-content: center;
-            text-align: justify;
-            color: rgba(1, 0, 3, 0.913);
-            font-weight: 600;
-            font-family: var(--fuente-principal);
-            // font-size: clamp(1.8rem, 3rem, 3.6rem);
-            font-size: 2rem;
-            margin-top: 10px;
-            margin-left: 20px;
-        }
-        &__subtitle {
-            display: flex;
-            justify-content: center;
-            height: 100%;
-            margin-bottom: 0px;
-            color: black;
-            font-weight: 500;
-            font-family: var(--fuente-principal);
-            font-size: 1.7rem;
-            text-align: left;
-            background: white;
-            line-height: 1.3;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
+  .cardInfo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 10px;
+    &__title {
+      display: flex;
+      width: 90%;
+      justify-content: center;
+      text-align: justify;
+      color: rgba(1, 0, 3, 0.913);
+      font-weight: 600;
+      font-family: var(--fuente-principal);
+      // font-size: clamp(1.8rem, 3rem, 3.6rem);
+      font-size: 2rem;
+      margin-top: 10px;
+      margin-left: 20px;
     }
+    &__subtitle {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      margin-bottom: 0px;
+      color: black;
+      font-weight: 500;
+      font-family: var(--fuente-principal);
+      font-size: 1.7rem;
+      text-align: left;
+      background: white;
+      line-height: 1.3;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
 }

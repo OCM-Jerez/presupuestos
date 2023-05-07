@@ -1,19 +1,19 @@
 <div class="cardTable">
-    <span class="cardTable__title">Algunos ejemplos presupuesto 2023 (ejecución al {{ liqDate }})</span>
+  <span class="cardTable__title">Algunos ejemplos presupuesto 2023 (ejecución al {{ liqDate }})</span>
 
-    <table class="paleBlueRows">
-        <thead>
-            <tr>
-                <th>{{ textoTabla }}</th>
-                <th>Cantidad (€)</th>
-            </tr>
-        </thead>
+  <table class="paleBlueRows">
+    <thead>
+      <tr>
+        <th>{{ textoTabla }}</th>
+        <th>Cantidad (€)</th>
+      </tr>
+    </thead>
 
-        <tbody>
-            <tr *ngFor="let example of examples">
-                <td>{{ example.name }}</td>
-                <td>{{ example.value }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <tbody>
+      <tr *ngFor="let example of examples">
+        <td>{{ example.name }}</td>
+        <td>{{ example.value }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

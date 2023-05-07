@@ -1,151 +1,151 @@
 @media screen and (max-width: 3399.98px) {
-	.checkbox {
-		display: flex;
-		flex-wrap: nowrap;
-		justify-content: center;
-	}
+  .checkbox {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
 
-	.checkbox-group {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		width: 90%;
-		margin-left: auto;
-		margin-right: auto;
-		max-width: 700px;
-		user-select: none;
-		border-style: solid;
-		border-radius: 15px;
-		& > * {
-			margin: 0.5rem 0.5rem;
-		}
-	}
+  .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    user-select: none;
+    border-style: solid;
+    border-radius: 15px;
+    & > * {
+      margin: 0.5rem 0.5rem;
+    }
+  }
 
-	.checkbox-group-legend {
-		font-size: 2rem;
-		font-weight: 700;
-		color: #500808;
-		text-align: center;
-		line-height: 1.125;
-		margin-bottom: 1.25rem;
-	}
+  .checkbox-group-legend {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #500808;
+    text-align: center;
+    line-height: 1.125;
+    margin-bottom: 1.25rem;
+  }
 
-	.checkbox-input {
-		// Code to hide the input
-		clip: rect(0 0 0 0);
-		clip-path: inset(100%);
-		height: 1px;
-		overflow: hidden;
-		position: absolute;
-		white-space: nowrap;
-		width: 1px;
+  .checkbox-input {
+    // Code to hide the input
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 
-		&:checked + .checkbox-tile {
-			border-color: #2260ff;
-			box-shadow: 0 5px 10px rgba(#000, 0.1);
-			color: #2260ff;
-			&:before {
-				transform: scale(1);
-				opacity: 1;
-				background-color: #2260ff;
-				border-color: #2260ff;
-			}
+    &:checked + .checkbox-tile {
+      border-color: #2260ff;
+      box-shadow: 0 5px 10px rgba(#000, 0.1);
+      color: #2260ff;
+      &:before {
+        transform: scale(1);
+        opacity: 1;
+        background-color: #2260ff;
+        border-color: #2260ff;
+      }
 
-			.checkbox-label {
-				color: #f40e0e;
-			}
-		}
+      .checkbox-label {
+        color: #f40e0e;
+      }
+    }
 
-		&:focus + .checkbox-tile {
-			border-color: #2260ff;
-			box-shadow: 0 5px 10px rgba(#000, 0.1), 0 0 0 4px #b5c9fc;
-			&:before {
-				transform: scale(1);
-				opacity: 1;
-			}
-		}
-	}
+    &:focus + .checkbox-tile {
+      border-color: #2260ff;
+      box-shadow: 0 5px 10px rgba(#000, 0.1), 0 0 0 4px #b5c9fc;
+      &:before {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
 
-	.checkbox-tile {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		width: 6rem;
-		height: 5rem;
-		min-height: 4rem;
-		border-radius: 0.5rem;
-		border: 2px solid #b5bfd9;
-		background-color: #fff;
-		box-shadow: 0 5px 10px rgba(#000, 0.1);
-		transition: 0.15s ease;
-		cursor: pointer;
-		position: relative;
-		margin-right: 10px;
+  .checkbox-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 6rem;
+    height: 5rem;
+    min-height: 4rem;
+    border-radius: 0.5rem;
+    border: 2px solid #b5bfd9;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(#000, 0.1);
+    transition: 0.15s ease;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
 
-		&:before {
-			content: "";
-			position: absolute;
-			display: block;
-			width: 1.25rem;
-			height: 1.25rem;
-			border: 2px solid #b5bfd9;
-			background-color: #fff;
-			border-radius: 50%;
-			top: 0.25rem;
-			left: 0.25rem;
-			opacity: 0;
-			transform: scale(0);
-			transition: 0.25s ease;
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
-			background-size: 12px;
-			background-repeat: no-repeat;
-			background-position: 50% 50%;
-		}
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 2px solid #b5bfd9;
+      background-color: #fff;
+      border-radius: 50%;
+      top: 0.25rem;
+      left: 0.25rem;
+      opacity: 0;
+      transform: scale(0);
+      transition: 0.25s ease;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
+      background-size: 12px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    }
 
-		&:hover {
-			border-color: #2260ff;
-			&:before {
-				transform: scale(1);
-				opacity: 1;
-			}
-		}
-	}
+    &:hover {
+      border-color: #2260ff;
+      &:before {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
 
-	.checkbox-label {
-		color: #707070;
-		transition: 0.375s ease;
-		text-align: center;
-		font-size: 2.5rem;
-		font-weight: bold;
-	}
+  .checkbox-label {
+    color: #707070;
+    transition: 0.375s ease;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
 }
 
 @media screen and (max-width: 575.98px) {
-	.checkbox-group {
-		width: 90%;
-		margin-left: 0px;
-		margin-right: 0pxauto;
-		border-style: none;
-		max-width: 80%vh;
-	}
-	.checkbox-group-legend {
-		font-size: 1.2rem;
-		margin-bottom: 0.7rem;
-		margin-top: 0.7rem;
-	}
+  .checkbox-group {
+    width: 90%;
+    margin-left: 0px;
+    margin-right: 0pxauto;
+    border-style: none;
+    max-width: 80%vh;
+  }
+  .checkbox-group-legend {
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+    margin-top: 0.7rem;
+  }
 
-	.checkbox-tile {
-		width: 3.6rem;
-		height: 3rem;
+  .checkbox-tile {
+    width: 3.6rem;
+    height: 3rem;
 
-		&:before {
-			top: 0.25rem;
-			left: 0.25rem;
-		}
-	}
+    &:before {
+      top: 0.25rem;
+      left: 0.25rem;
+    }
+  }
 
-	.checkbox-label {
-		font-size: 1.5rem;
-	}
+  .checkbox-label {
+    font-size: 1.5rem;
+  }
 }

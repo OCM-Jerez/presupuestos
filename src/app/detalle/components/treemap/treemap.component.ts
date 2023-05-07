@@ -19,178 +19,178 @@ import * as Highcharts from 'highcharts';
 import HighchartsTreemap from 'highcharts/modules/treemap';
 HighchartsTreemap(Highcharts);
 @Component({
-    selector: 'app-treemap',
-    templateUrl: './treemap.component.html',
-    styleUrls: ['./treemap.component.scss'],
-    standalone: true,
+  selector: 'app-treemap',
+  templateUrl: './treemap.component.html',
+  styleUrls: ['./treemap.component.scss'],
+  standalone: true
 })
 export class TreemapComponent implements OnInit {
-    private _dataTable: IDataTable;
-    private _dataTreeMap: IDataTreemap;
-    private _tabSelected: string;
-    private _subTabSelectd1: string;
-    private _subTabSelectd2: string;
-    private _subTabSelectd4: string;
-    private _codField: string;
-    private _desField: string;
-    private _fields = { codigo: '', descripcion: '' };
-    private _unsubscribe$ = new Subject<void>();
+  private _dataTable: IDataTable;
+  private _dataTreeMap: IDataTreemap;
+  private _tabSelected: string;
+  private _subTabSelectd1: string;
+  private _subTabSelectd2: string;
+  private _subTabSelectd4: string;
+  private _codField: string;
+  private _desField: string;
+  private _fields = { codigo: '', descripcion: '' };
+  private _unsubscribe$ = new Subject<void>();
 
-    constructor(
-        private _changeSubTabService: ChangeSubTabService,
-        private _dataStoreService: DataStoreService,
-        private _prepareDataTreemapService: PrepareDataTreemapService,
-        private _selectedSubTab1Service: SelectedSubTab1Service,
-        private _selectedSubTab2Service: SelectedSubTab2Service,
-        private _selectedSubTab4Service: SelectedSubTab4Service,
-        private _selectedTabService: SelectedTabService,
-        private _tableService: TableService
-    ) {}
+  constructor(
+    private _changeSubTabService: ChangeSubTabService,
+    private _dataStoreService: DataStoreService,
+    private _prepareDataTreemapService: PrepareDataTreemapService,
+    private _selectedSubTab1Service: SelectedSubTab1Service,
+    private _selectedSubTab2Service: SelectedSubTab2Service,
+    private _selectedSubTab4Service: SelectedSubTab4Service,
+    private _selectedTabService: SelectedTabService,
+    private _tableService: TableService
+  ) {}
 
-    ngOnInit() {
-        this.subscribeToServices();
-        this.setFields();
-    }
+  ngOnInit() {
+    this.subscribeToServices();
+    this.setFields();
+  }
 
-    subscribeToServices(): void {
-        this._selectedSubTab1Service.source$.subscribe((data) => {
-            this._subTabSelectd1 = data;
-        });
+  subscribeToServices(): void {
+    this._selectedSubTab1Service.source$.subscribe((data) => {
+      this._subTabSelectd1 = data;
+    });
 
-        this._selectedSubTab2Service.source$.subscribe((data) => {
-            this._subTabSelectd2 = data;
-        });
+    this._selectedSubTab2Service.source$.subscribe((data) => {
+      this._subTabSelectd2 = data;
+    });
 
-        this._selectedSubTab4Service.source$.subscribe((data) => {
-            this._subTabSelectd4 = data;
-        });
+    this._selectedSubTab4Service.source$.subscribe((data) => {
+      this._subTabSelectd4 = data;
+    });
 
-        this._selectedTabService.source$
-            .pipe(
-                tap((data) => {
-                    this._tabSelected = data;
-                    this.setFields();
-                })
-            )
-            .pipe(takeUntil(this._unsubscribe$))
-            .subscribe();
+    this._selectedTabService.source$
+      .pipe(
+        tap((data) => {
+          this._tabSelected = data;
+          this.setFields();
+        })
+      )
+      .pipe(takeUntil(this._unsubscribe$))
+      .subscribe();
 
-        this._changeSubTabService.source$
-            .pipe(
-                tap((data) => {
-                    this._codField = data.codField;
-                    this._desField = data.desField;
-                    this.setFields();
-                })
-            )
-            .pipe(takeUntil(this._unsubscribe$))
-            .subscribe();
-    }
+    this._changeSubTabService.source$
+      .pipe(
+        tap((data) => {
+          this._codField = data.codField;
+          this._desField = data.desField;
+          this.setFields();
+        })
+      )
+      .pipe(takeUntil(this._unsubscribe$))
+      .subscribe();
+  }
 
-    ngOnDestroy() {
-        this._unsubscribe$.next();
-        this._unsubscribe$.complete();
-    }
+  ngOnDestroy() {
+    this._unsubscribe$.next();
+    this._unsubscribe$.complete();
+  }
 
-    async setFields() {
-        switch (this._tabSelected) {
-            case 'ingresosEconomicaEconomicos':
-                switch (this._subTabSelectd1) {
-                    case 'ingresosEconomicaCapitulos':
-                        this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
-                        break;
-                    case 'ingresosEconomicaArticulos':
-                        this._fields = { codigo: 'CodArt', descripcion: 'DesArt' };
-                        break;
-                    case 'ingresosEconomicaConceptos':
-                        this._fields = { codigo: 'CodCon', descripcion: 'DesCon' };
-                        break;
-                    case 'ingresosEconomicaEconomicos':
-                        this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            case 'gastosProgramaProgramas':
-                this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
-                switch (this._subTabSelectd2) {
-                    case 'gastosProgramaAreas':
-                        this._dataTable = await this._tableService.loadData('gastosProgramaAreas');
-                        break;
-                    case 'gastosProgramaPoliticas':
-                        this._dataTable = await this._tableService.loadData('gastosProgramaPoliticas');
-                        break;
-                    case 'gastosProgramaGrupos':
-                        this._dataTable = await this._tableService.loadData('gastosProgramaGrupos');
-                        break;
-                    case 'gastosProgramaProgramas':
-                        this._dataTable = await this._tableService.loadData('gastosProgramaProgramas');
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            case 'gastosOrganicaOrganicos':
-                this._fields = { codigo: 'CodOrg', descripcion: 'DesOrg' };
-                break;
-            case 'gastosEconomicaEconomicos':
-                switch (this._subTabSelectd4) {
-                    case 'gastosEconomicaCapitulos':
-                        this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
-                        break;
-                    default:
-                        this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
-                        break;
-                }
-                break;
-            default:
-                break;
+  async setFields() {
+    switch (this._tabSelected) {
+      case 'ingresosEconomicaEconomicos':
+        switch (this._subTabSelectd1) {
+          case 'ingresosEconomicaCapitulos':
+            this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
+            break;
+          case 'ingresosEconomicaArticulos':
+            this._fields = { codigo: 'CodArt', descripcion: 'DesArt' };
+            break;
+          case 'ingresosEconomicaConceptos':
+            this._fields = { codigo: 'CodCon', descripcion: 'DesCon' };
+            break;
+          case 'ingresosEconomicaEconomicos':
+            this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
+            break;
+          default:
+            break;
         }
-
-        this.calcSeries(this._fields.codigo, this._fields.descripcion);
+        break;
+      case 'gastosProgramaProgramas':
+        this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
+        switch (this._subTabSelectd2) {
+          case 'gastosProgramaAreas':
+            this._dataTable = await this._tableService.loadData('gastosProgramaAreas');
+            break;
+          case 'gastosProgramaPoliticas':
+            this._dataTable = await this._tableService.loadData('gastosProgramaPoliticas');
+            break;
+          case 'gastosProgramaGrupos':
+            this._dataTable = await this._tableService.loadData('gastosProgramaGrupos');
+            break;
+          case 'gastosProgramaProgramas':
+            this._dataTable = await this._tableService.loadData('gastosProgramaProgramas');
+            break;
+          default:
+            break;
+        }
+        break;
+      case 'gastosOrganicaOrganicos':
+        this._fields = { codigo: 'CodOrg', descripcion: 'DesOrg' };
+        break;
+      case 'gastosEconomicaEconomicos':
+        switch (this._subTabSelectd4) {
+          case 'gastosEconomicaCapitulos':
+            this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
+            break;
+          default:
+            this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
+            break;
+        }
+        break;
+      default:
+        break;
     }
 
-    async calcSeries(codField: string, desField: string) {
-        const data =
-            this._tabSelected === 'ingresosEconomicaEconomicos'
-                ? this._dataStoreService.dataTable.rowDataIngresos
-                : this._dataStoreService.dataTable.rowDataGastos;
-        this._dataTreeMap = this._prepareDataTreemapService.calcSeries(data, codField, desField, 'Definitivas2023');
-        this.showTreemap();
-    }
+    this.calcSeries(this._fields.codigo, this._fields.descripcion);
+  }
 
-    showTreemap() {
-        const data: IDataTreemap = this._dataTreeMap;
-        Highcharts.chart('treemap', {
-            accessibility: {
-                enabled: false,
-            },
-            chart: {
-                type: 'treemap',
-            },
-            title: {
-                text: '',
-            },
-            credits: {
-                enabled: false,
-            },
-            legend: {
-                enabled: false,
-            },
-            tooltip: {
-                enabled: true,
-                headerFormat: `<span class="mb-2">{point.key}</span>`,
-                pointFormat: `<span class="mb-2">{point.key}</span>`,
-                useHTML: true,
-            },
-            series: [
-                {
-                    name: null,
-                    innerSize: '50%',
-                    data: data,
-                },
-            ],
-        } as any);
-    }
+  async calcSeries(codField: string, desField: string) {
+    const data =
+      this._tabSelected === 'ingresosEconomicaEconomicos'
+        ? this._dataStoreService.dataTable.rowDataIngresos
+        : this._dataStoreService.dataTable.rowDataGastos;
+    this._dataTreeMap = this._prepareDataTreemapService.calcSeries(data, codField, desField, 'Definitivas2023');
+    this.showTreemap();
+  }
+
+  showTreemap() {
+    const data: IDataTreemap = this._dataTreeMap;
+    Highcharts.chart('treemap', {
+      accessibility: {
+        enabled: false
+      },
+      chart: {
+        type: 'treemap'
+      },
+      title: {
+        text: ''
+      },
+      credits: {
+        enabled: false
+      },
+      legend: {
+        enabled: false
+      },
+      tooltip: {
+        enabled: true,
+        headerFormat: `<span class="mb-2">{point.key}</span>`,
+        pointFormat: `<span class="mb-2">{point.key}</span>`,
+        useHTML: true
+      },
+      series: [
+        {
+          name: null,
+          innerSize: '50%',
+          data: data
+        }
+      ]
+    } as any);
+  }
 }

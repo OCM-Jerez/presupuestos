@@ -1,38 +1,27 @@
 <div class="OCM-graph" *ngIf="options">
-    <div class="OCM-menu">
-        <button type="button" class="OCM-button" (click)="volver()">
-            Volver
-        </button>
-    </div>
+  <div class="OCM-menu">
+    <button type="button" class="OCM-button" (click)="volver()">Volver</button>
+  </div>
 
-    <div style="width: 1200px; height: 500px">
-        <ag-charts-angular
-            style="width: 1200px; height: 500px"
-            *ngIf="options"
-            [options]="options"
-        ></ag-charts-angular>
+  <div style="width: 1200px; height: 500px">
+    <ag-charts-angular style="width: 1200px; height: 500px" *ngIf="options" [options]="options"></ag-charts-angular>
 
-        <ag-grid-angular
-            #agGrid
-            style="
-                width: 700px;
-                height: 300px;
-                padding-right: 20px;
-                margin-left: 310px;
-            "
-            class="ag-theme-balham"
-            [rowData]="data"
-            [columnDefs]="columnDefs"
-            [defaultColDef]="defaultColDef"
-            rowSelection="multiple"
-            [groupIncludeFooter]="true"
-            [groupIncludeTotalFooter]="true"
-            [groupHeaderHeight]="groupHeaderHeight"
-            [headerHeight]="headerHeight"
-            [localeText]="localeText"
-            [suppressAggFuncInHeader]="true"
-            (gridReady)="onGridReady($event)"
-        >
-        </ag-grid-angular>
-    </div>
+    <ag-grid-angular
+      #agGrid
+      style="width: 700px; height: 300px; padding-right: 20px; margin-left: 310px"
+      class="ag-theme-balham"
+      [rowData]="data"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      rowSelection="multiple"
+      [groupIncludeFooter]="true"
+      [groupIncludeTotalFooter]="true"
+      [groupHeaderHeight]="groupHeaderHeight"
+      [headerHeight]="headerHeight"
+      [localeText]="localeText"
+      [suppressAggFuncInHeader]="true"
+      (gridReady)="onGridReady($event)"
+    >
+    </ag-grid-angular>
+  </div>
 </div>

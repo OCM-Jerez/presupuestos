@@ -6,10 +6,10 @@ import { AgGridModule } from 'ag-grid-angular';
 
 import { TableIngresosComponent } from './table-ingresos.component';
 
-export const routes: Routes = [{ path: '', component: TableIngresosComponent }]
+export const routes: Routes = [{ path: '', component: TableIngresosComponent }];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes), CommonModule, AgGridModule, TableIngresosComponent],
-    exports: [TableIngresosComponent]
+  imports: [RouterModule.forChild(routes), CommonModule, AgGridModule, TableIngresosComponent],
+  exports: [TableIngresosComponent]
 })
-export class TableIngresosModule { }
+export class TableIngresosModule {}

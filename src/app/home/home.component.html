@@ -1,20 +1,20 @@
 <!-- https://www.cssportal.com/css-flexbox-generator/ -->
 <div class="flex">
-    <div class="flex__cardInfo">
-        <app-card-info />
-    </div>
+  <div class="flex__cardInfo">
+    <app-card-info />
+  </div>
 
-    <div class="flex__cardTable">
-        <app-card-table />
-    </div>
+  <div class="flex__cardTable">
+    <app-card-table />
+  </div>
 
-    <div class="flex__cardMenu" *ngFor="let menu of cardMenus">
-        <app-card-menu
-            [rutaImagen]="menu.rutaImagen"
-            [titulo]="menu.titulo"
-            [subtitulo]="menu.subtitulo"
-            (click)="menu.funcion()"
-            [textButton]="menu.textButton"
-        />
-    </div>
+  <div class="flex__cardMenu" *ngFor="let menu of cardMenus">
+    <app-card-menu
+      [rutaImagen]="menu.rutaImagen"
+      [titulo]="menu.titulo"
+      [subtitulo]="menu.subtitulo"
+      (click)="menu.funcion()"
+      [textButton]="menu.textButton"
+    />
+  </div>
 </div>

@@ -8,22 +8,22 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { TreemapComponent } from './components/treemap/treemap.component';
 
 @Component({
-	selector: 'app-detalle',
-	templateUrl: './detalle.component.html',
-	styleUrls: ['./detalle.component.scss'],
-	standalone: true,
-	imports: [
-		CheckboxComponent,
-		SubtabsComponent,
-		TabComponent,
-		TableComponent,
-		TablePresupuestoComponent,
-		TabsComponent,
-		TreemapComponent
-	]
+  selector: 'app-detalle',
+  templateUrl: './detalle.component.html',
+  styleUrls: ['./detalle.component.scss'],
+  standalone: true,
+  imports: [
+    CheckboxComponent,
+    SubtabsComponent,
+    TabComponent,
+    TableComponent,
+    TablePresupuestoComponent,
+    TabsComponent,
+    TreemapComponent
+  ]
 })
 export class DetalleComponent {
-	async hasChangeCheckbox() {
-		// await this._tableService.loadData(this._typeClasification);
-	}
+  async hasChangeCheckbox() {
+    // await this._tableService.loadData(this._typeClasification);
+  }
 }

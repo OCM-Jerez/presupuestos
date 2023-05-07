@@ -9,7 +9,7 @@ export class AlertService {
   private _alertSource = new Subject<any>();
   alert$ = this._alertSource.asObservable();
 
-  constructor() { }
+  constructor() {}
 
   showAlert(message: string, time: number = 2500) {
     this._alertSource.next({ message, time });

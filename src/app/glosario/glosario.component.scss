@@ -1,44 +1,44 @@
 @media screen and (max-width: 3399.98px) {
-    div {
-        width: 60%;
-        margin-top: 50px;
-        margin-left: 300px;
-        margin-right: 100px;
-    }
+  div {
+    width: 60%;
+    margin-top: 50px;
+    margin-left: 300px;
+    margin-right: 100px;
+  }
 
-    p {
-        text-align: justify;
-        font-size: clamp(2rem, 2.5em, 3rem);
-        color: black;
-        line-height: 36px;
-    }
+  p {
+    text-align: justify;
+    font-size: clamp(2rem, 2.5em, 3rem);
+    color: black;
+    line-height: 36px;
+  }
 
-    h3 {
-        font-size: 32px;
-        color: blue;
-    }
+  h3 {
+    font-size: 32px;
+    color: blue;
+  }
 
-    .term-description {
-        width: 60%;
-        margin-top: 50px;
-        margin-left: 300px;
-        margin-right: 100px;
-        font-size: 22px;
-        margin: 20px 20px 20px 100px;
-        text-align: justify;
-        line-height: 26px;
-    }
+  .term-description {
+    width: 60%;
+    margin-top: 50px;
+    margin-left: 300px;
+    margin-right: 100px;
+    font-size: 22px;
+    margin: 20px 20px 20px 100px;
+    text-align: justify;
+    line-height: 26px;
+  }
 }
 
 @media screen and (max-width: 575.98px) {
-    .term-description {
-        font-size: 12px;
-        margin: 20px 20px 20px 10px;
-        line-height: 16px;
-    }
+  .term-description {
+    font-size: 12px;
+    margin: 20px 20px 20px 10px;
+    line-height: 16px;
+  }
 
-    h3 {
-        font-size: 16px;
-        margin-left: 50px;
-    }
+  h3 {
+    font-size: 16px;
+    margin-left: 50px;
+  }
 }

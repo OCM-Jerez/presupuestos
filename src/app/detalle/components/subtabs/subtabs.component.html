@@ -1,39 +1,35 @@
 <div class="OCM-bar-container">
-    <div class="OCM-button-container">
-        <button
-            type="button"
-            class="OCM-button"
-            [ngClass]="{ 'OCM-selected': button.selected }"
-            *ngFor="let button of buttons"
-            (click)="click(button)"
-        >
-            {{ button.name }}
-        </button>
-    </div>
-
-    <div class="OCM-button-container" *ngIf="hasRowClicked$ | async as hasRowClicked">
-        <button
-            type="button"
-            class="OCM-button"
-            *ngFor="let button of buttonsAdditional"
-            (click)="clickButtonAditional(button)"
-        >
-            {{ button.name }}
-        </button>
-    </div>
-
-    <div
-        class="OCM-button-container"
-        *ngIf="!(hasRowClicked$ | async) as hasRowClicked"
-        [ngClass]="{ 'OCM-disabled': isDisabled }"
+  <div class="OCM-button-container">
+    <button
+      type="button"
+      class="OCM-button"
+      *ngFor="let button of buttons"
+      [ngClass]="{ 'OCM-selected': button.selected }"
+      (click)="click(button)"
     >
-        <button
-            type="button"
-            class="OCM-button"
-            *ngFor="let button of buttonsAdditional"
-            (click)="clickButtonAditional(button)"
-        >
-            {{ 'Al seleccionar fila se activa opción' }}
-        </button>
-    </div>
+      {{ button.name + ' ' + button.selected }}
+    </button>
+  </div>
+
+  <div class="OCM-button-container" *ngIf="hasRowClicked$ | async as hasRowClicked">
+    <button
+      type="button"
+      class="OCM-button"
+      *ngFor="let button of buttonsAdditional"
+      (click)="clickButtonAditional(button)"
+    >
+      {{ button.name }}
+    </button>
+  </div>
+
+  <div class="OCM-button-container" *ngIf="(hasRowClicked$ | async) !== ''" [ngClass]="{ 'OCM-disabled': isDisabled }">
+    <button
+      type="button"
+      class="OCM-button"
+      *ngFor="let button of buttonsAdditional"
+      (click)="clickButtonAditional(button)"
+    >
+      {{ 'Al seleccionar fila se activa opción' }}
+    </button>
+  </div>
 </div>

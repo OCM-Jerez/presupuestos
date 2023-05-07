@@ -6,30 +6,25 @@ import { NgIf } from '@angular/common';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    standalone: true,
-    imports: [
-        NavbarComponent,
-        NgIf,
-        RouterOutlet,
-        FooterComponent,
-    ],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [NavbarComponent, NgIf, RouterOutlet, FooterComponent]
 })
 export class AppComponent implements OnInit {
-    message = '';
-    showAlert = false;
+  message = '';
+  showAlert = false;
 
-    constructor(private _alertService: AlertService) {}
+  constructor(private _alertService: AlertService) {}
 
-    ngOnInit(): void {
-        localStorage.removeItem('selected_years');
-        this._alertService.alert$.subscribe((res) => {
-            this.message = res.message;
-            this.showAlert = true;
-            setTimeout(() => {
-                this.showAlert = false;
-            }, res.time);
-        });
-    }
+  ngOnInit(): void {
+    localStorage.removeItem('selected_years');
+    this._alertService.alert$.subscribe((res) => {
+      this.message = res.message;
+      this.showAlert = true;
+      setTimeout(() => {
+        this.showAlert = false;
+      }, res.time);
+    });
+  }
 }

@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root'
 })
 export class SelectedSubTab4Service {
-    private SelectedSubTab4 = new BehaviorSubject<string>('Por programa');
-    source$ = this.SelectedSubTab4.asObservable();
+  private SelectedSubTab4 = new BehaviorSubject<string>('Por programa');
+  source$ = this.SelectedSubTab4.asObservable();
 
-    setSelectedSubTab4(selectedSubTab4: string) {
-        this.SelectedSubTab4.next(selectedSubTab4);
-    }
+  setSelectedSubTab4(selectedSubTab4: string) {
+    this.SelectedSubTab4.next(selectedSubTab4);
+  }
 }

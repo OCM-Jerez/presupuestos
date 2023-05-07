@@ -1,25 +1,25 @@
 <div *ngIf="showTablePresupuesto">
-    <table class="paleBlueRows">
-        <thead>
-            <tr>
-                <th style="width: 300px">2023 (ejecución al {{ liqDate }})</th>
-                <th>PRESUPUESTO INGRESOS</th>
-                <th>RECAUDADO</th>
-                <th>PRESUPUESTO GASTOS</th>
-                <th>GASTADO</th>
-            </tr>
-        </thead>
+  <table class="paleBlueRows">
+    <thead>
+      <tr>
+        <th style="width: 300px">2023 (ejecución al {{ liqDate }})</th>
+        <th>PRESUPUESTO INGRESOS</th>
+        <th>RECAUDADO</th>
+        <th>PRESUPUESTO GASTOS</th>
+        <th>GASTADO</th>
+      </tr>
+    </thead>
 
-        <tbody>
-            <tr>
-                <td>TOTAL</td>
-                <td>
-                    {{ DataTotalesPresupuesto.totalPresupuestoIngresos }}
-                </td>
-                <td>{{ DataTotalesPresupuesto.totalEjecutadoIngresos }}</td>
-                <td>{{ DataTotalesPresupuesto.totalPresupuestoGastos }}</td>
-                <td>{{ DataTotalesPresupuesto.totalEjecutadoGastos }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <tbody>
+      <tr>
+        <td>TOTAL</td>
+        <td>
+          {{ DataTotalesPresupuesto.totalPresupuestoIngresos }}
+        </td>
+        <td>{{ DataTotalesPresupuesto.totalEjecutadoIngresos }}</td>
+        <td>{{ DataTotalesPresupuesto.totalPresupuestoGastos }}</td>
+        <td>{{ DataTotalesPresupuesto.totalEjecutadoGastos }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
