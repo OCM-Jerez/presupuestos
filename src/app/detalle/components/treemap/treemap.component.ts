@@ -10,12 +10,13 @@ import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
 import { SelectedSubTab2Service } from '@services/selectedSubTab2.service';
 import { SelectedSubTab4Service } from '@services/selectedSubTab4.service';
 import { SelectedTabService } from '@services/selectedTab.service';
+import { TableService } from '@services/table.service';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { IDataTreemap } from '@interfaces/dataTreemap.interface';
-import { TableService } from '@services/table.service';
 
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
+
 import * as Highcharts from 'highcharts';
 import HighchartsTreemap from 'highcharts/modules/treemap';
 HighchartsTreemap(Highcharts);
