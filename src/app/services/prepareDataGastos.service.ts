@@ -80,19 +80,18 @@ export class PrepareDataGastosService {
         });
       });
     });
-
-    // result.map((item) => {
-    //   item.CodAre = Math.floor(item.CodPro / 10000);
-    //   item.DesAre = gastosProgramaAreas.find((area) => area.codigo === item.CodAre).descripcion;
-    //   item.CodPol = Math.floor(item.CodPro / 1000);
-    //   item.DesPol = gastosProgramaPoliticas.find((politica) => politica.codigo === item.CodPro).descripcion;
-    //   item.CodGru = Math.floor(item.CodPro / 100);
-    //   item.DesGru = gastosProgramaGruposProgramas.find((grupo) => grupo.codigo === item.CodPro).descripcion;
-    //   item.CodCon = Math.floor(item.CodEco / 1000);
-    //   item.DesCon = gastosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
-    //   item.CodArt = Math.floor(item.CodEco / 1000);
-    //   item.Desart = gastosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
-    // });
+    result.map((item) => {
+      item.CodAre = Math.floor(item.CodPro / 10000);
+      item.DesAre = gastosProgramaAreas.find((area) => area.codigo === item.CodAre).descripcion;
+      item.CodPol = Math.floor(item.CodPro / 1000);
+      item.DesPol = gastosProgramaPoliticas.find((politica) => politica.codigo === item.CodPol).descripcion;
+      item.CodGru = Math.floor(item.CodPro / 100);
+      item.DesGru = gastosProgramaGruposProgramas.find((grupo) => grupo.codigo === item.CodGru).descripcion;
+      item.CodCon = Math.floor(item.CodEco / 100);
+      item.DesCon = gastosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodCon).descripcion;
+      item.CodArt = Math.floor(item.CodEco / 1000);
+      item.DesArt = gastosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodArt).descripcion;
+    });
 
     if (tipoClasificacion) {
       // console.log(tipoClasificacion);
