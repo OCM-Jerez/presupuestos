@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
@@ -29,7 +29,7 @@ import { SelectedSubTab4Service } from '../../../services/selectedSubTab4.servic
   standalone: true,
   imports: [NgIf, AgGridModule]
 })
-export class TableComponent implements OnInit, OnChanges, OnDestroy {
+export class TableComponent implements OnInit, OnDestroy {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public modules = [RowGroupingModule];
   public gridOptions: GridOptions;
@@ -46,6 +46,7 @@ export class TableComponent implements OnInit, OnChanges, OnDestroy {
   private _subTabSelectd4: string;
   private _clasification_type: CLASIFICATION_TYPE;
   private _unsubscribe$ = new Subject<void>();
+  private _fields = { codigo: '', descripcion: '' };
 
   constructor(
     private _tableService: TableService,
@@ -59,35 +60,6 @@ export class TableComponent implements OnInit, OnChanges, OnDestroy {
     private _reloadTableService: ReloadTableService
   ) {
     this.subscribeToServices();
-  }
-
-  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
-  async ngOnChanges(changes: SimpleChanges): Promise<void> {
-    //     console.log('ngOnChanges', changes);
-    //     const ingresosClasificaciones: CLASIFICATION_TYPE[] = [
-    //         'ingresosEconomicaEconomicos',
-    //         'ingresosEconomicaConceptos',
-    //         'ingresosEconomicaArticulos',
-    //         'ingresosEconomicaCapitulos',
-    //     ];
-    //     this._dataTable = await this._tableService.loadData(this._tabSelected);
-    //     console.log('this._dataTable', this._dataTable);
-    //     console.log('this._dataTable.clasificationType', this._dataTable);
-    //     if (ingresosClasificaciones.includes(this._dataTable.clasificationType)) {
-    //         this._isIngresos = true;
-    //     } else {
-    //         this._isIngresos = false;
-    //     }
-    //     if (changes && changes['dataTable']) {
-    //         this._loadTable();
-    //         if (!changes['dataTable'].firstChange) {
-    //             if (this._isIngresos) {
-    //                 this._gridApi.setRowData(this._dataTable.rowDataIngresos);
-    //             } else {
-    //                 this._gridApi.setRowData(this._dataTable.rowDataGastos);
-    //             }
-    //         }
-    //     }
   }
 
   async ngOnInit(): Promise<void> {
@@ -177,7 +149,7 @@ export class TableComponent implements OnInit, OnChanges, OnDestroy {
     }
     // console.log('this._clasification_type', this._clasification_type);
     this._dataTable = await this._tableService.loadData(this._clasification_type);
-    // console.log(this._dataTable);
+    console.log(this._dataTable);
 
     this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
     this._isIngresos = this._dataTable.dataPropertyTable.isIngresos;
