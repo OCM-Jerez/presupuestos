@@ -28,7 +28,7 @@ HighchartsTreemap(Highcharts);
 export class TreemapComponent implements OnInit, OnDestroy {
   private _dataTable: IDataTable;
   private _dataTreeMap: IDataTreemap;
-  private _tabSelected: string;
+  private _tabSelected: CLASIFICATION_TYPE = 'ingresosEconomicaEconomicos';
   private _subTabSelectd1: string;
   private _subTabSelectd2: string;
   private _subTabSelectd4: string;
@@ -75,7 +75,7 @@ export class TreemapComponent implements OnInit, OnDestroy {
     this._selectedTabService.source$
       .pipe(
         tap((data) => {
-          this._tabSelected = data;
+          this._tabSelected = data as CLASIFICATION_TYPE;
           this.setFields();
         })
       )
@@ -185,8 +185,8 @@ export class TreemapComponent implements OnInit, OnDestroy {
     // console.log(this._subTabSelectd4);
     // console.log(clasification);
 
-    // if (this._tabSelected === undefined) {
-    //   this._tabSelected = 'ingresosEconomicaEconomicos';
+    // if (clasification === undefined) {
+    //   clasification = 'ingresosEconomicaEconomicos';
     // }
     const data = await this._tableService.loadData(clasification);
     // console.log('data', data.rowDataIngresos);
