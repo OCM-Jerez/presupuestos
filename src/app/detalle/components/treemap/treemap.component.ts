@@ -129,15 +129,15 @@ export class TreemapComponent implements OnInit, OnDestroy {
         switch (this._subTabSelectd2) {
           case 'Por áreas':
             this.clasification = 'gastosProgramaAreas';
-            this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
+            this._fields = { codigo: 'CodAre', descripcion: 'DesAre' };
             break;
           case 'Por política':
             this.clasification = 'gastosProgramaPoliticas';
-            this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
+            this._fields = { codigo: 'CodPol', descripcion: 'DesPol' };
             break;
           case 'Por grupo programas':
             this.clasification = 'gastosProgramaGrupos';
-            this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
+            this._fields = { codigo: 'CodGru', descripcion: 'DesGru' };
             break;
           case 'Por programa':
             this.clasification = 'gastosProgramaProgramas';
@@ -159,11 +159,11 @@ export class TreemapComponent implements OnInit, OnDestroy {
             break;
           case 'Por artículo':
             this.clasification = 'gastosEconomicaArticulos';
-            this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
+            this._fields = { codigo: 'CodArt', descripcion: 'DesArt' };
             break;
           case 'Por concepto':
             this.clasification = 'gastosEconomicaConceptos';
-            this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
+            this._fields = { codigo: 'CodCon', descripcion: 'DesCon' };
             break;
           case 'Por económico':
             this.clasification = 'gastosEconomicaEconomicos';
