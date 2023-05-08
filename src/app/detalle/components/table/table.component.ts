@@ -93,6 +93,7 @@ export class TableComponent implements OnInit, OnDestroy {
   private async _loadTable() {
     // console.log('this._tabSelected', this._tabSelected);
     // console.log('this._subTabSelected1', this._subTabSelectd1);
+    this._hasRowClicked.change(null);
 
     switch (this._tabSelected) {
       case 'ingresosEconomicaEconomicos':
