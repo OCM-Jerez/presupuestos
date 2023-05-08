@@ -1,4 +1,7 @@
+import { NgIf } from '@angular/common';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+
+import { Subject, takeUntil, tap } from 'rxjs';
 
 import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
@@ -10,17 +13,16 @@ import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
-
-import { NgIf } from '@angular/common';
-import { IDataTable } from '@interfaces/dataTable.interface';
+import { ReloadTableService } from '@services/reloadTable.service';
+import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
+import { SelectedSubTab2Service } from '@services/selectedSubTab2.service';
+import { SelectedSubTab4Service } from '@services/selectedSubTab4.service';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
-import { Subject, takeUntil, tap } from 'rxjs';
-import { CLASIFICATION_TYPE } from '../../../commons/types/clasification.type';
-import { ReloadTableService } from '../../../services/reloadTable.service';
-import { SelectedSubTab1Service } from '../../../services/selectedSubTab1.service';
-import { SelectedSubTab2Service } from '../../../services/selectedSubTab2.service';
-import { SelectedSubTab4Service } from '../../../services/selectedSubTab4.service';
+
+import { IDataTable } from '@interfaces/dataTable.interface';
+
+import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 
 @Component({
   selector: 'app-table',
