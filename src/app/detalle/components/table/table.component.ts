@@ -91,7 +91,7 @@ export class TableComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   async ngOnInit(): Promise<void> {
-    console.log('ngOnInit');
+    // console.log('ngOnInit');
     this._hasRowClicked.change(null);
 
     this._selectedTabService.source$
@@ -106,7 +106,7 @@ export class TableComponent implements OnInit, OnChanges, OnDestroy {
       .subscribe();
 
     this._reloadTableService.reloadTable$.pipe(takeUntil(this._unsubscribe$)).subscribe(() => {
-      console.log('reloadTable$');
+      // console.log('reloadTable$');
       this._loadTable();
     });
   }
@@ -117,8 +117,8 @@ export class TableComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   private async _loadTable() {
-    console.log('this._tabSelected', this._tabSelected);
-    console.log('this._subTabSelected1', this._subTabSelectd1);
+    // console.log('this._tabSelected', this._tabSelected);
+    // console.log('this._subTabSelected1', this._subTabSelectd1);
 
     switch (this._tabSelected) {
       case 'ingresosEconomicaEconomicos':
@@ -128,7 +128,7 @@ export class TableComponent implements OnInit, OnChanges, OnDestroy {
             break;
           case 'Por artículo':
             this._clasification_type = 'ingresosEconomicaArticulos';
-            console.log('this._subTabSelected', this._subTabSelected);
+            // console.log('this._subTabSelected', this._subTabSelected);
 
             break;
           case 'Por concepto':
@@ -175,9 +175,9 @@ export class TableComponent implements OnInit, OnChanges, OnDestroy {
         }
         break;
     }
-    console.log('this._clasification_type', this._clasification_type);
+    // console.log('this._clasification_type', this._clasification_type);
     this._dataTable = await this._tableService.loadData(this._clasification_type);
-    console.log(this._dataTable);
+    // console.log(this._dataTable);
 
     this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
     this._isIngresos = this._dataTable.dataPropertyTable.isIngresos;
@@ -194,7 +194,7 @@ export class TableComponent implements OnInit, OnChanges, OnDestroy {
   subscribeToServices(): void {
     this._selectedSubTab1Service.source$.subscribe((data) => {
       this._subTabSelectd1 = data;
-      console.log('this._subTabSelectd1', this._subTabSelectd1);
+      // console.log('this._subTabSelectd1', this._subTabSelectd1);
     });
 
     this._selectedSubTab2Service.source$.subscribe((data) => {
