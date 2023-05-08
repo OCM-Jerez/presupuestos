@@ -15,9 +15,9 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 import { IDataTreemap } from '@interfaces/dataTreemap.interface';
 import { TableService } from '@services/table.service';
 
+import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 import * as Highcharts from 'highcharts';
 import HighchartsTreemap from 'highcharts/modules/treemap';
-import { CLASIFICATION_TYPE } from '../../../commons/types/clasification.type';
 HighchartsTreemap(Highcharts);
 @Component({
   selector: 'app-treemap',
@@ -36,6 +36,7 @@ export class TreemapComponent implements OnInit, OnDestroy {
   private _desField: string;
   private _fields = { codigo: '', descripcion: '' };
   private _unsubscribe$ = new Subject<void>();
+  private clasification: CLASIFICATION_TYPE;
 
   constructor(
     private _changeSubTabService: ChangeSubTabService,
@@ -62,10 +63,13 @@ export class TreemapComponent implements OnInit, OnDestroy {
 
     this._selectedSubTab2Service.source$.subscribe((data) => {
       this._subTabSelectd2 = data;
+      // console.log('this._subTabSelectd2', this._subTabSelectd2);
+      this.setFields();
     });
 
     this._selectedSubTab4Service.source$.subscribe((data) => {
       this._subTabSelectd4 = data;
+      this.setFields();
     });
 
     this._selectedTabService.source$
@@ -96,19 +100,24 @@ export class TreemapComponent implements OnInit, OnDestroy {
   }
 
   async setFields() {
+    // console.log(this._tabSelected);
     switch (this._tabSelected) {
       case 'ingresosEconomicaEconomicos':
         switch (this._subTabSelectd1) {
           case 'Por capítulo ingresos':
+            this.clasification = 'ingresosEconomicaCapitulos';
             this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
             break;
           case 'Por artículo':
+            this.clasification = 'ingresosEconomicaArticulos';
             this._fields = { codigo: 'CodArt', descripcion: 'DesArt' };
             break;
           case 'Por concepto':
+            this.clasification = 'ingresosEconomicaConceptos';
             this._fields = { codigo: 'CodCon', descripcion: 'DesCon' };
             break;
           case 'Por económico':
+            this.clasification = 'ingresosEconomicaEconomicos';
             this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
             break;
           default:
@@ -116,34 +125,51 @@ export class TreemapComponent implements OnInit, OnDestroy {
         }
         break;
       case 'gastosProgramaProgramas':
-        this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
+        // this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
         switch (this._subTabSelectd2) {
-          case 'gastosProgramaAreas':
-            this._dataTable = await this._tableService.loadData('gastosProgramaAreas');
+          case 'Por áreas':
+            this.clasification = 'gastosProgramaAreas';
+            this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
             break;
-          case 'gastosProgramaPoliticas':
-            this._dataTable = await this._tableService.loadData('gastosProgramaPoliticas');
+          case 'Por política':
+            this.clasification = 'gastosProgramaPoliticas';
+            this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
             break;
-          case 'gastosProgramaGrupos':
-            this._dataTable = await this._tableService.loadData('gastosProgramaGrupos');
+          case 'Por grupo programas':
+            this.clasification = 'gastosProgramaGrupos';
+            this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
             break;
-          case 'gastosProgramaProgramas':
-            this._dataTable = await this._tableService.loadData('gastosProgramaProgramas');
+          case 'Por programa':
+            this.clasification = 'gastosProgramaProgramas';
+            this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
             break;
           default:
             break;
         }
         break;
       case 'gastosOrganicaOrganicos':
+        this.clasification = 'gastosOrganicaOrganicos';
         this._fields = { codigo: 'CodOrg', descripcion: 'DesOrg' };
         break;
       case 'gastosEconomicaEconomicos':
         switch (this._subTabSelectd4) {
-          case 'gastosEconomicaCapitulos':
+          case 'Por capítulo gasto':
+            this.clasification = 'gastosEconomicaCapitulos';
             this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
             break;
-          default:
+          case 'Por artículo':
+            this.clasification = 'gastosEconomicaArticulos';
             this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
+            break;
+          case 'Por concepto':
+            this.clasification = 'gastosEconomicaConceptos';
+            this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
+            break;
+          case 'Por económico':
+            this.clasification = 'gastosEconomicaEconomicos';
+            this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
+            break;
+          default:
             break;
         }
         break;
@@ -151,17 +177,18 @@ export class TreemapComponent implements OnInit, OnDestroy {
         break;
     }
 
-    this.calcSeries(this._fields.codigo, this._fields.descripcion);
+    this.calcSeries(this.clasification, this._fields.codigo, this._fields.descripcion);
   }
 
-  async calcSeries(codField: string, desField: string) {
+  async calcSeries(clasification, codField: string, desField: string) {
     // console.log(this._tabSelected);
-    // console.log(this._subTabSelectd1);
-    if (this._tabSelected === undefined) {
-      this._tabSelected = 'ingresosEconomicaEconomicos';
-    }
-    // console.log(this._tabSelected);
-    const data = await this._tableService.loadData(this._tabSelected as CLASIFICATION_TYPE);
+    // console.log(this._subTabSelectd4);
+    // console.log(clasification);
+
+    // if (this._tabSelected === undefined) {
+    //   this._tabSelected = 'ingresosEconomicaEconomicos';
+    // }
+    const data = await this._tableService.loadData(clasification);
     // console.log('data', data.rowDataIngresos);
 
     const dataGraph = this._tabSelected === 'ingresosEconomicaEconomicos' ? data.rowDataIngresos : data.rowDataGastos;
