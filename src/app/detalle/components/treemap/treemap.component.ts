@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
@@ -25,7 +25,7 @@ HighchartsTreemap(Highcharts);
   styleUrls: ['./treemap.component.scss'],
   standalone: true
 })
-export class TreemapComponent implements OnInit {
+export class TreemapComponent implements OnInit, OnDestroy {
   private _dataTable: IDataTable;
   private _dataTreeMap: IDataTreemap;
   private _tabSelected: string;
