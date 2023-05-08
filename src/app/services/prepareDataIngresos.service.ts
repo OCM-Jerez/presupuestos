@@ -63,22 +63,6 @@ export class PrepareDataIngresosService {
       });
     });
 
-    // No puedo utilizarlo aqui porque en Indice envio los datos despues de llamar a esta function.
-    // this._dataTableGraph = this._dataTableGraphService.getDataTable;
-    // console.log(this._dataTableGraph.dataPropertyTable.sufijo);
-
-    // Tengo que revisar si es mejor opcion tener un JSON con todos los datos en lugar de uno para cada clasificación.
-    // result.map(item => {
-    //   item.CodCap = Math.floor((item.CodEco / 10000));
-    //   item.DesCap = ingresosEconomicaCapitulos.find((capitulo) => capitulo.codigo === item.CodCap).descripcion;
-    //   item.CodArt = Math.floor((item.CodEco / 1000));
-    //   item.DesArt = ingresosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodArt).descripcion;
-    //   item.CodCon = Math.floor((item.CodEco / 100));
-    //   item.DesCon = ingresosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodCon).descripcion;
-    //   item.DesEco = ingresosEconomicaEconomicos.find((economico) => economico.codigo === item.CodEco).descripcion;
-    // });
-    // return result;
-
     result.map((item) => {
       item.DesEco = ingresosEconomicaEconomicos.find((economico) => economico.codigo === item.CodEco).descripcion;
       item.CodCap = Math.floor(item.CodEco / 10000);
