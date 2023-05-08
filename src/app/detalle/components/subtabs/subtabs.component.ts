@@ -78,8 +78,8 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     // this._changeSubTabService.changeSubTab(button.codigo, button.descripcion);
 
     // Guardar el subtab seleccionado
-    console.log('this._tabSelected', this._tabSelected);
-    console.log('this._subTabSelected1', subtabName);
+    // console.log('this._tabSelected', this._tabSelected);
+    // console.log('this._subTabSelected1', subtabName);
     switch (this._tabSelected) {
       case 'ingresosEconomicaEconomicos':
         this._selectedSubTab1Service.setSelectedSubTab1(subtabName);
@@ -106,7 +106,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
   subscribeToServices(): void {
     this._selectedSubTab1Service.source$.subscribe((data) => {
       this._subTabSelectd1 = data;
-      console.log('this._subTabSelectd1', this._subTabSelectd1);
+      // console.log('this._subTabSelectd1', this._subTabSelectd1);
     });
 
     this._selectedSubTab2Service.source$.subscribe((data) => {
