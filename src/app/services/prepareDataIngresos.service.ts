@@ -73,41 +73,6 @@ export class PrepareDataIngresosService {
       item.DesCon = ingresosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodCon).descripcion;
     });
 
-    // console.log(tipoClasificacion);
-    // switch (tipoClasificacion) {
-    //   case 'ingresosEconomicaCapitulos':
-    //     result.map((item) => {
-    //       item.CodCap = Math.floor(item.CodEco / 10000);
-    //       item.DesCap = ingresosEconomicaCapitulos.find((capitulo) => capitulo.codigo === item.CodCap).descripcion;
-    //     });
-    //     break;
-    //   case 'ingresosEconomicaArticulos':
-    //     result.map((item) => {
-    //       item.CodArt = Math.floor(item.CodEco / 1000);
-    //       item.DesArt = ingresosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodArt).descripcion;
-    //       // item.CodEco;
-    //       // item.DesEco = ingresosEconomicaEconomicos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
-    //     });
-    //     break;
-    //   case 'ingresosEconomicaConceptos':
-    //     result.map((item) => {
-    //       item.CodCon = Math.floor(item.CodEco / 100);
-    //       item.DesCon = ingresosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodCon).descripcion;
-    //       // item.CodEco = Math.floor((item.CodEco / 100));
-    //       // item.DesEco = ingresosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodEco).descripcion;
-    //       console.log(result);
-    //     });
-    //     break;
-    //   case 'ingresosEconomicaEconomicos':
-    //     result.map((item) => {
-    //       // console.log(item.CodEco);
-    //       item.CodCap = Math.floor(item.CodEco / 10000);
-    //       item.DesCap = ingresosEconomicaCapitulos.find((capitulo) => capitulo.codigo === item.CodCap).descripcion;
-    //       item.DesEco = ingresosEconomicaEconomicos.find((economico) => economico.codigo === item.CodEco).descripcion;
-    //     });
-    //     break;
-    // }
-    // console.log(result);
     return result;
   }
 
