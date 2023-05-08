@@ -3,15 +3,15 @@
     <button
       type="button"
       class="OCM-button"
-      *ngFor="let button of buttons"
       [ngClass]="{ 'OCM-selected': button.selected }"
+      *ngFor="let button of buttons"
       (click)="click(button)"
     >
       {{ button.name }}
     </button>
   </div>
 
-  <div class="OCM-button-container" *ngIf="hasRowClicked$ | async as hasRowClicked">
+  <div class="OCM-button-container" *ngIf="hasRowClicked$ | async">
     <button
       type="button"
       class="OCM-button"
@@ -22,7 +22,11 @@
     </button>
   </div>
 
-  <div class="OCM-button-container" *ngIf="(hasRowClicked$ | async) !== ''" [ngClass]="{ 'OCM-disabled': isDisabled }">
+  <div
+    class="OCM-button-container"
+    *ngIf="(hasRowClicked$ | async) === null"
+    [ngClass]="{ 'OCM-disabled': isDisabled }"
+  >
     <button
       type="button"
       class="OCM-button"
