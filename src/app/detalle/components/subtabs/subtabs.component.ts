@@ -1,3 +1,4 @@
+import { AsyncPipe, JsonPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -17,7 +18,6 @@ import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
 import { ReloadTableService } from '../../../services/reloadTable.service';
 
-import { AsyncPipe, JsonPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { IButtonAdicional } from '@interfaces/buttonAdicional.interface';
 import { IButtonClasification } from '@interfaces/buttonClasification.interface';
 import { IDataGraph } from '@interfaces/dataGraph.interface';
