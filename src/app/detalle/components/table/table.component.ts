@@ -44,7 +44,7 @@ export class TableComponent implements OnInit, OnDestroy {
   private _subTabSelectd1: string;
   private _subTabSelectd2: string;
   private _subTabSelectd4: string;
-  private _clasification_type: CLASIFICATION_TYPE;
+  private _clasification: CLASIFICATION_TYPE;
   private _unsubscribe$ = new Subject<void>();
   private _fields = { codigo: '', descripcion: '' };
 
@@ -96,60 +96,80 @@ export class TableComponent implements OnInit, OnDestroy {
       case 'ingresosEconomicaEconomicos':
         switch (this._subTabSelectd1) {
           case 'Por capítulo ingresos':
-            this._clasification_type = 'ingresosEconomicaCapitulos';
+            this._clasification = 'ingresosEconomicaCapitulos';
+            this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
             break;
           case 'Por artículo':
-            this._clasification_type = 'ingresosEconomicaArticulos';
-            // console.log('this._subTabSelected', this._subTabSelected);
-
+            this._clasification = 'ingresosEconomicaArticulos';
+            this._fields = { codigo: 'CodArt', descripcion: 'DesArt' };
             break;
           case 'Por concepto':
-            this._clasification_type = 'ingresosEconomicaConceptos';
+            this._clasification = 'ingresosEconomicaConceptos';
+            this._fields = { codigo: 'CodCon', descripcion: 'DesCon' };
             break;
           case 'Por económico':
-            this._clasification_type = 'ingresosEconomicaEconomicos';
+            this._clasification = 'ingresosEconomicaEconomicos';
+            this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
+            break;
+          default:
             break;
         }
         break;
       case 'gastosProgramaProgramas':
+        // this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
         switch (this._subTabSelectd2) {
           case 'Por áreas':
-            this._clasification_type = 'gastosProgramaAreas';
+            this._clasification = 'gastosProgramaAreas';
+            this._fields = { codigo: 'CodAre', descripcion: 'DesAre' };
             break;
           case 'Por política':
-            this._clasification_type = 'gastosProgramaPoliticas';
+            this._clasification = 'gastosProgramaPoliticas';
+            this._fields = { codigo: 'CodPol', descripcion: 'DesPol' };
             break;
           case 'Por grupo programas':
-            this._clasification_type = 'gastosProgramaGrupos';
+            this._clasification = 'gastosProgramaGrupos';
+            this._fields = { codigo: 'CodGru', descripcion: 'DesGru' };
             break;
           case 'Por programa':
-            this._clasification_type = 'gastosProgramaProgramas';
+            this._clasification = 'gastosProgramaProgramas';
+            this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
+            break;
+          default:
             break;
         }
         break;
       case 'gastosOrganicaOrganicos':
-        this._clasification_type = 'gastosOrganicaOrganicos';
+        this._clasification = 'gastosOrganicaOrganicos';
+        this._fields = { codigo: 'CodOrg', descripcion: 'DesOrg' };
         break;
       case 'gastosEconomicaEconomicos':
         switch (this._subTabSelectd4) {
           case 'Por capítulo gasto':
-            this._clasification_type = 'gastosEconomicaCapitulos';
+            this._clasification = 'gastosEconomicaCapitulos';
+            this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
             break;
           case 'Por artículo':
-            this._clasification_type = 'gastosEconomicaArticulos';
+            this._clasification = 'gastosEconomicaArticulos';
+            this._fields = { codigo: 'CodArt', descripcion: 'DesArt' };
             break;
           case 'Por concepto':
-            this._clasification_type = 'gastosEconomicaConceptos';
+            this._clasification = 'gastosEconomicaConceptos';
+            this._fields = { codigo: 'CodCon', descripcion: 'DesCon' };
             break;
           case 'Por económico':
-            this._clasification_type = 'gastosEconomicaEconomicos';
+            this._clasification = 'gastosEconomicaEconomicos';
+            this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
+            break;
+          default:
             break;
         }
         break;
+      default:
+        break;
     }
     // console.log('this._clasification_type', this._clasification_type);
-    this._dataTable = await this._tableService.loadData(this._clasification_type);
-    console.log(this._dataTable);
+    this._dataTable = await this._tableService.loadData(this._clasification);
+    // console.log(this._dataTable);
 
     this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
     this._isIngresos = this._dataTable.dataPropertyTable.isIngresos;
@@ -185,7 +205,8 @@ export class TableComponent implements OnInit, OnDestroy {
         children: [
           {
             headerName: this._subHeaderName,
-            field: this._dataTable.dataPropertyTable.codField,
+            // field: this._dataTable.dataPropertyTable.codField,
+            field: this._fields.codigo,
             // width: this._dataTable.dataPropertyTable.width,
             width: 750,
             rowGroup: true,
@@ -194,9 +215,10 @@ export class TableComponent implements OnInit, OnDestroy {
             valueGetter: (params) => {
               if (params.data) {
                 return (
-                  params.data[this._dataTable.dataPropertyTable.codField] +
-                  ' - ' +
-                  params.data[this._dataTable.dataPropertyTable.desField]
+                  // params.data[this._dataTable.dataPropertyTable.codField] +
+                  // ' - ' +
+                  // params.data[this._dataTable.dataPropertyTable.desField]
+                  params.data[this._fields.codigo] + ' - ' + params.data[this._fields.descripcion]
                 );
               } else {
                 return null;
