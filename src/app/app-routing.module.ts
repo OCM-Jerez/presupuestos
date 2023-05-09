@@ -29,6 +29,11 @@ const routes: Routes = [
         path: 'glosario',
         loadComponent: () => import('./glosario/glosario.component').then((m) => m.GlosarioComponent)
       },
+      {
+        path: 'graphIngresos',
+        loadComponent: () =>
+          import('./graphs/graph-ingresos/graph-ingresos.component').then((m) => m.GraphIngresosComponent)
+      },
 
       { path: '**', pathMatch: 'full', redirectTo: 'home' }
     ]
@@ -56,11 +61,7 @@ const routes: Routes = [
 //                 (m) => m.TableProgramaDetailsComponent
 //             ),
 //     },
-//     {
-//         path: 'graphIngresos',
-//         loadChildren: () =>
-//             import('./graphs/graph-ingresos/graph-ingresos.component').then((m) => m.GraphIngresosComponent),
-//     },
+
 //     {
 //         path: 'graphGastos',
 //         loadChildren: () => import('./graphs/graph-gastos/graph-gastos.component').then((m) => m.GraphGastosComponent),
