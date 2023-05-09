@@ -9,10 +9,8 @@ import { GridApi, GridOptions } from 'ag-grid-community/main';
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 
-import { AlertService } from '@services/alert.service';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
-// import { PrepareDataProgramaDetailsService } from '@services/prepareDataProgramaDetails.service';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
 
@@ -40,9 +38,7 @@ export class TableProgramaDetailsComponent {
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
     private _router: Router,
-    // private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
     private _location: Location,
-    private _alertService: AlertService,
     private _prepareDataGastosService: PrepareDataGastosService
   ) {
     this._dataTable = dataStoreService.dataTable;
@@ -306,14 +302,11 @@ export class TableProgramaDetailsComponent {
 
   showAplicacionPresupuestaria() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
-    if (selectedRows.length > 0) {
-      const aplicacionPresupuestaria =
-        selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
-      this.dataStoreService.selectedCodeRow = aplicacionPresupuestaria;
-      this._router.navigateByUrl('/tableAplicacionPresupuestaria');
-    } else {
-      this._alertService.showAlert('Selecciona un económico');
-    }
+
+    const aplicacionPresupuestaria =
+      selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
+    this.dataStoreService.selectedCodeRow = aplicacionPresupuestaria;
+    this._router.navigateByUrl('/tableAplicacionPresupuestaria');
   }
 
   volver() {

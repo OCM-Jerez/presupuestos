@@ -1,4 +1,4 @@
-import { Location, AsyncPipe } from '@angular/common';
+import { AsyncPipe, Location } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,7 +8,6 @@ import { GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 
-import { AlertService } from '@services/alert.service';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 
@@ -35,8 +34,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
     private _dataStoreService: DataStoreService,
     // private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
     private _prepareDataGastosService: PrepareDataGastosService,
-    private _location: Location,
-    private _alertService: AlertService
+    private _location: Location
   ) {
     this._columnDefs = [
       {
@@ -197,34 +195,31 @@ export class TableGastosAplicacionPresupuestariaComponent {
   showGraph() {
     this.agGrid.api.getRowNode('0').setSelected(true);
     const selectedRows = this.agGrid.api.getSelectedNodes();
-    if (selectedRows.length > 0) {
-      const sendData: IDataGraph = {
-        clasificationType: 'aplicacion',
-        rowDataGastos: this.data,
-        rowDataIngresos: [],
-        graphTitle: 'Gasto por aplicación presupuestaria',
-        graphSubTitle:
-          selectedRows[0].data.CodOrg +
-          '-' +
-          selectedRows[0].data.CodPro +
-          '-' +
-          selectedRows[0].data.CodEco +
-          '  ' +
-          selectedRows[0].data.DesOrg +
-          '-' +
-          selectedRows[0].data.DesPro +
-          '-' +
-          selectedRows[0].data.DesEco
-      };
-      // Uso el setter
-      // this._dataStoreService.setDataGraph = sendData;
-      this._dataStoreService.dataGraph = sendData;
-      this._router.navigateByUrl('/graphGastos').then(() => {
-        this._dataStoreService.setData(sendData);
-      });
-    } else {
-      this._alertService.showAlert('Selecciona una aplicación presupuestaria');
-    }
+
+    const sendData: IDataGraph = {
+      clasificationType: 'aplicacion',
+      rowDataGastos: this.data,
+      rowDataIngresos: [],
+      graphTitle: 'Gasto por aplicación presupuestaria',
+      graphSubTitle:
+        selectedRows[0].data.CodOrg +
+        '-' +
+        selectedRows[0].data.CodPro +
+        '-' +
+        selectedRows[0].data.CodEco +
+        '  ' +
+        selectedRows[0].data.DesOrg +
+        '-' +
+        selectedRows[0].data.DesPro +
+        '-' +
+        selectedRows[0].data.DesEco
+    };
+    // Uso el setter
+    // this._dataStoreService.setDataGraph = sendData;
+    this._dataStoreService.dataGraph = sendData;
+    this._router.navigateByUrl('/graphGastos').then(() => {
+      this._dataStoreService.setData(sendData);
+    });
   }
 
   volver() {
