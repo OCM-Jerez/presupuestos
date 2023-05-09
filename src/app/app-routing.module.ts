@@ -34,6 +34,10 @@ const routes: Routes = [
         loadComponent: () =>
           import('./graphs/graph-ingresos/graph-ingresos.component').then((m) => m.GraphIngresosComponent)
       },
+      {
+        path: 'graphGastos',
+        loadComponent: () => import('./graphs/graph-gastos/graph-gastos.component').then((m) => m.GraphGastosComponent)
+      },
 
       { path: '**', pathMatch: 'full', redirectTo: 'home' }
     ]
@@ -62,11 +66,6 @@ const routes: Routes = [
 //             ),
 //     },
 
-//     {
-//         path: 'graphGastos',
-//         loadChildren: () => import('./graphs/graph-gastos/graph-gastos.component').then((m) => m.GraphGastosComponent),
-//     },
-// ];
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
