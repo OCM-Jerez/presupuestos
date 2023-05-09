@@ -3,8 +3,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 
-import { ChangeSubTabService } from '@services/change-subtab.service';
-import { DataStoreService } from '@services/dataStore.service';
 import { PrepareDataTreemapService } from '@services/prepareDataTreemap.service';
 import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
 import { SelectedSubTab2Service } from '@services/selectedSubTab2.service';
@@ -12,7 +10,6 @@ import { SelectedSubTab4Service } from '@services/selectedSubTab4.service';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
 
-import { IDataTable } from '@interfaces/dataTable.interface';
 import { IDataTreemap } from '@interfaces/dataTreemap.interface';
 
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
@@ -27,21 +24,16 @@ HighchartsTreemap(Highcharts);
   standalone: true
 })
 export class TreemapComponent implements OnInit, OnDestroy {
-  private _dataTable: IDataTable;
   private _dataTreeMap: IDataTreemap;
   private _tabSelected: CLASIFICATION_TYPE = 'ingresosEconomicaEconomicos';
   private _subTabSelectd1: string;
   private _subTabSelectd2: string;
   private _subTabSelectd4: string;
-  private _codField: string;
-  private _desField: string;
   private _fields = { codigo: '', descripcion: '' };
   private _unsubscribe$ = new Subject<void>();
   private clasification: CLASIFICATION_TYPE;
 
   constructor(
-    private _changeSubTabService: ChangeSubTabService,
-    private _dataStoreService: DataStoreService,
     private _prepareDataTreemapService: PrepareDataTreemapService,
     private _selectedSubTab1Service: SelectedSubTab1Service,
     private _selectedSubTab2Service: SelectedSubTab2Service,
@@ -58,13 +50,11 @@ export class TreemapComponent implements OnInit, OnDestroy {
   subscribeToServices(): void {
     this._selectedSubTab1Service.source$.subscribe((data) => {
       this._subTabSelectd1 = data;
-      // console.log('this._subTabSelectd1', this._subTabSelectd1);
       this.setFields();
     });
 
     this._selectedSubTab2Service.source$.subscribe((data) => {
       this._subTabSelectd2 = data;
-      // console.log('this._subTabSelectd2', this._subTabSelectd2);
       this.setFields();
     });
 
@@ -82,17 +72,6 @@ export class TreemapComponent implements OnInit, OnDestroy {
       )
       .pipe(takeUntil(this._unsubscribe$))
       .subscribe();
-
-    this._changeSubTabService.source$
-      .pipe(
-        tap((data) => {
-          this._codField = data.codField;
-          this._desField = data.desField;
-          this.setFields();
-        })
-      )
-      .pipe(takeUntil(this._unsubscribe$))
-      .subscribe();
   }
 
   ngOnDestroy() {
@@ -101,7 +80,6 @@ export class TreemapComponent implements OnInit, OnDestroy {
   }
 
   async setFields() {
-    // console.log(this._tabSelected);
     switch (this._tabSelected) {
       case 'ingresosEconomicaEconomicos':
         switch (this._subTabSelectd1) {
@@ -126,7 +104,6 @@ export class TreemapComponent implements OnInit, OnDestroy {
         }
         break;
       case 'gastosProgramaProgramas':
-        // this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
         switch (this._subTabSelectd2) {
           case 'Por áreas':
             this.clasification = 'gastosProgramaAreas';
@@ -182,24 +159,9 @@ export class TreemapComponent implements OnInit, OnDestroy {
   }
 
   async calcSeries(clasification, codField: string, desField: string) {
-    // console.log(this._tabSelected);
-    // console.log(this._subTabSelectd4);
-    // console.log(clasification);
-
-    // if (clasification === undefined) {
-    //   clasification = 'ingresosEconomicaEconomicos';
-    // }
     const data = await this._tableService.loadData(clasification);
-    // console.log('data', data.rowDataIngresos);
-
     const dataGraph = this._tabSelected === 'ingresosEconomicaEconomicos' ? data.rowDataIngresos : data.rowDataGastos;
-    // console.log('dataGraph', dataGraph);
-    // console.log('codField', codField);
-    // console.log('desField', desField);
-
     this._dataTreeMap = this._prepareDataTreemapService.calcSeries(dataGraph, codField, desField, 'Definitivas2023');
-    // console.log('this._dataTreeMap', this._dataTreeMap);
-
     this.showTreemap();
   }
 
