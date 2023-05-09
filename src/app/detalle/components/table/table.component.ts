@@ -278,6 +278,8 @@ export class TableComponent implements OnInit, OnDestroy {
       paginationPageSize: 20,
       onRowClicked: () => {
         const selectedRows = this.agGrid.api.getSelectedNodes();
+        console.log('selectedRows', selectedRows[0]);
+
         this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
         this._hasRowClicked.change(selectedRows[0].key);
       }
