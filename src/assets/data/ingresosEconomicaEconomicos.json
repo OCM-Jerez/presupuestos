@@ -5,27 +5,27 @@
   },
   {
     "codigo": 11200,
-    "descripcion": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de Naturaleza Rústica."
+    "descripcion": "Impuesto sobre Bienes Inmuebles de Naturaleza Rústica"
   },
   {
     "codigo": 11300,
-    "descripcion": "Impuesto sobre Bienes Inmuebles. Bienes inmuebles de Naturaleza Urbana."
+    "descripcion": "Impuesto sobre Bienes Inmuebles de Naturaleza Urbana"
   },
   {
     "codigo": 11400,
-    "descripcion": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de características especiales."
+    "descripcion": "Impuesto sobre Bienes Inmuebles de características especiales"
   },
   {
     "codigo": 11500,
-    "descripcion": "Impuesto sobre Vehículos de Tracción Mecánica."
+    "descripcion": "Impuesto sobre Vehículos de Tracción Mecánica"
   },
   {
     "codigo": 11600,
-    "descripcion": "Impuesto sobre Incremento del Valor de los Terrenos de Naturaleza Urbana."
+    "descripcion": "Impuesto sobre Incremento del Valor de los Terrenos de Naturaleza Urbana"
   },
   {
     "codigo": 13000,
-    "descripcion": "Impuesto sobre Actividades Económicas."
+    "descripcion": "Impuesto sobre Actividades Económicas"
   },
   {
     "codigo": 13001,
