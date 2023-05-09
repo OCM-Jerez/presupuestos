@@ -1,8 +1,7 @@
 import { Location, NgIf } from '@angular/common';
-import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { Subscription } from 'rxjs';
-
+import { AgChartsAngularModule } from 'ag-charts-angular';
 import { AgChartOptions } from 'ag-charts-community';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community';
@@ -11,12 +10,9 @@ import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 
 import { DataStoreService } from '@services/dataStore.service';
 
-import { accumulate } from '@utils/util';
-
-import { IDataGraph } from '@interfaces/dataGraph.interface';
 import { IDataTable } from '@interfaces/dataTable.interface';
-import { AgChartsAngularModule } from 'ag-charts-angular';
 
+import { accumulate } from '@utils/util';
 @Component({
   selector: 'app-graph-ingresos',
   templateUrl: './graph-ingresos.component.html',
@@ -24,7 +20,7 @@ import { AgChartsAngularModule } from 'ag-charts-angular';
   standalone: true,
   imports: [NgIf, AgChartsAngularModule, AgGridModule]
 })
-export class GraphIngresosComponent implements OnDestroy {
+export class GraphIngresosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public options: AgChartOptions;
   public rowData: any;
@@ -40,23 +36,14 @@ export class GraphIngresosComponent implements OnDestroy {
   public headerHeight = 25;
   private datos: any[] = [];
   private _dataTable: IDataTable;
-  private _dataGraph: IDataGraph;
-  private _subscription: Subscription;
 
-  constructor(private _location: Location, private _dataStoreService: DataStoreService) {
-    this._dataTable = _dataStoreService.dataTable;
-    this._subscription = this._dataStoreService.dataSource$.subscribe((data) => {
-      this._dataGraph = data;
-      this._createData();
-      this._createColumns();
-      this._showGraph();
-    });
-  }
+  constructor(private _location: Location, private _dataStoreService: DataStoreService) {}
 
-  ngOnDestroy(): void {
-    if (this._subscription) {
-      this._subscription.unsubscribe();
-    }
+  ngOnInit(): void {
+    this._dataTable = this._dataStoreService.dataTable;
+    this._createData();
+    this._createColumns();
+    this._showGraph();
   }
 
   async onGridReady(params) {
@@ -65,7 +52,8 @@ export class GraphIngresosComponent implements OnDestroy {
   }
 
   private async _createData() {
-    const codigo = this._dataStoreService.selectedCodeRow.split(' ')[0];
+    const codigo = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
+
     switch (this._dataTable.clasificationType) {
       case 'ingresosEconomicaCapitulos':
         this.datos = this._dataTable.rowDataIngresos.filter((x) => x.CodCap == codigo);
@@ -99,16 +87,6 @@ export class GraphIngresosComponent implements OnDestroy {
       }
     }
     return this.data;
-
-    // this.avalaibleYearsService.getYearsSelected().map((year) => {
-    //     const value = {
-    //         year: year,
-    //         Definitivas: yearsDefinitivas[year],
-    //         RecaudacionNeta: yearsNetas[year],
-    //     };
-    //     this.data.push(value);
-    // });
-    // return this.data;
   }
 
   private _createColumns(): void {
@@ -145,11 +123,12 @@ export class GraphIngresosComponent implements OnDestroy {
     this.options = {
       autoSize: true,
       title: {
-        text: this._dataGraph.graphTitle,
+        text: this._dataTable.dataPropertyTable.graphTitle,
         fontSize: 40
       },
       subtitle: {
-        text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRow}`,
+        text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRowFirstLevel}`,
+
         fontSize: 20
       },
       data: [...this.data],
