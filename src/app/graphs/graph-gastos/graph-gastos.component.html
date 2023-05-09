@@ -1,10 +1,14 @@
-<div class="OCM-graph" *ngIf="options">
+<div class="OCM-graph" *ngIf="agChartOptions">
   <div class="OCM-menu">
     <button type="button" class="OCM-button" (click)="volver()">Volver</button>
   </div>
 
   <div style="width: 1200px; height: 500px">
-    <ag-charts-angular *ngIf="options" style="width: 1200px; height: 500px" [options]="options"></ag-charts-angular>
+    <ag-charts-angular
+      *ngIf="agChartOptions"
+      style="width: 1200px; height: 500px"
+      [options]="agChartOptions"
+    ></ag-charts-angular>
   </div>
 
   <div>

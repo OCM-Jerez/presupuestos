@@ -1,21 +1,17 @@
 import { Location, NgIf } from '@angular/common';
-import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { Subscription } from 'rxjs';
-
+import { AgChartsAngularModule } from 'ag-charts-angular';
 import { AgChartOptions } from 'ag-charts-community';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 
 import { DataStoreService } from '@services/dataStore.service';
-import { HasRowClicked } from '@services/hasRowClicked.service';
+
+import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { accumulate } from '@utils/util';
-
-import { IDataGraph } from '@interfaces/dataGraph.interface';
-import { AgChartsAngularModule } from 'ag-charts-angular';
-
 @Component({
   selector: 'app-graph-gastos',
   templateUrl: './graph-gastos.component.html',
@@ -23,75 +19,50 @@ import { AgChartsAngularModule } from 'ag-charts-angular';
   standalone: true,
   imports: [NgIf, AgChartsAngularModule, AgGridModule]
 })
-export class GraphGastosComponent implements OnDestroy {
+export class GraphGastosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  public data: any;
+  private _dataTable: IDataTable;
+  private _datos: any[] = [];
   public columnDefs;
+  public data: any;
   public defaultColDef;
-  public localeText;
   public groupHeaderHeight = 25;
   public headerHeight = 25;
-  public options: AgChartOptions;
-  private _datos: any[] = [];
-  private _dataGraph: IDataGraph;
-  private _subscription: Subscription;
-  private _hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
-  private _row: string = '';
+  public localeText;
+  public agChartOptions: AgChartOptions;
 
-  constructor(
-    private _location: Location,
-    private _dataStoreService: DataStoreService,
-    private _hasRowClicked: HasRowClicked
-  ) {
-    this._subscription = this._dataStoreService.dataSource$.subscribe((data) => {
-      this._dataGraph = data;
-      this._createData();
-      this._createColumns();
-      this._showGraph();
-    });
-  }
+  constructor(private _location: Location, private _dataStoreService: DataStoreService) {}
 
-  ngOnDestroy(): void {
-    if (this._subscription) {
-      this._subscription.unsubscribe();
-    }
+  ngOnInit(): void {
+    this._dataTable = this._dataStoreService.dataTable;
+    this._createData();
+    this._createColumns();
+    this._showGraph();
   }
 
   private async _createData() {
-    console.log('this._dataGraph', this._dataGraph);
-    if (this._dataGraph.clasificationType != 'aplicacion') {
-      this._hasRowClicked$.subscribe((value) => {
-        this._row = value;
-      });
-      const codigo = this._row.split(' ')[0];
-      console.log('codigo', codigo);
-      console.log('this._dataGraph.clasificationType', this._dataGraph.clasificationType);
+    const codigo = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
 
-      switch (this._dataGraph.clasificationType) {
-        case 'gastosOrganicaOrganicos':
-          this._datos = this._dataGraph.rowDataGastos.filter((x) => x.CodOrg == codigo);
-          break;
-        case 'gastosProgramaAreas':
-        case 'gastosProgramaPoliticas':
-        case 'gastosProgramaGrupos':
-        case 'gastosProgramaProgramas':
-          console.log('this._dataGraph.rowDataGastos', this._dataGraph.rowDataGastos);
-          this._datos = this._dataGraph.rowDataGastos.filter((x) => x.CodPro == codigo);
-          console.log('this._datos', this._datos);
-          break;
-        case 'gastosEconomicaCapitulos':
-          this._datos = this._dataGraph.rowDataGastos.filter((x) => x.CodCap == codigo);
-          break;
-        case 'gastosEconomicaArticulos':
-        case 'gastosEconomicaConceptos':
-        case 'gastosEconomicaEconomicos':
-          this._datos = this._dataGraph.rowDataGastos.filter((x) => x.CodEco == codigo);
-          break;
-      }
-    } else {
-      this._datos = this._dataGraph.rowDataGastos;
+    switch (this._dataTable.clasificationType) {
+      case 'gastosOrganicaOrganicos':
+        this._datos = this._dataTable.rowDataGastos.filter((x) => x.CodOrg == codigo);
+        break;
+      case 'gastosProgramaAreas':
+      case 'gastosProgramaPoliticas':
+      case 'gastosProgramaGrupos':
+      case 'gastosProgramaProgramas':
+        this._datos = this._dataTable.rowDataGastos.filter((x) => x.CodPro == codigo);
+        break;
+      case 'gastosEconomicaCapitulos':
+        this._datos = this._dataTable.rowDataGastos.filter((x) => x.CodCap == codigo);
+        break;
+      case 'gastosEconomicaArticulos':
+      case 'gastosEconomicaConceptos':
+      case 'gastosEconomicaEconomicos':
+        this._datos = this._dataTable.rowDataGastos.filter((x) => x.CodEco == codigo);
+        break;
     }
-    const yearsIniciales = accumulate('Iniciales', this._datos);
+
     const yearsDefinitivas = accumulate('Definitivas', this._datos);
     const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', this._datos);
     const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', this._datos);
@@ -107,7 +78,7 @@ export class GraphGastosComponent implements OnDestroy {
           ObligacionesPendientes: yearsObligacionesPendientes[index]
         };
         if (index === 2023) {
-          value.Definitivas = yearsIniciales[index]; // Se usan las iniciales ya que es el unico dato que existe.
+          // value.Definitivas = yearsIniciales[index]; // Se usan las iniciales ya que es el unico dato que existe.
         }
         this.data.push(value);
       }
@@ -153,16 +124,14 @@ export class GraphGastosComponent implements OnDestroy {
   }
 
   private _showGraph(): void {
-    this.options = {
+    this.agChartOptions = {
       autoSize: true,
       title: {
-        text: this._dataGraph.graphTitle,
+        text: this._dataTable.dataPropertyTable.graphTitle,
         fontSize: 40
       },
-
       subtitle: {
-        // text: `${this._dataGraph.graphSubTitle}`
-        text: this._row,
+        text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRowFirstLevel}`,
         fontSize: 30
       },
       data: [...this.data],
