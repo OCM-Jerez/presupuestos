@@ -8,20 +8,15 @@ import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 
 import { getClasificacion } from '@app/data-table';
 
-// import { ChangeSubTabService } from '@services/change-subtab.service';
-import { DataStoreService } from '@services/dataStore.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
 import { SelectedSubTab2Service } from '@services/selectedSubTab2.service';
 import { SelectedSubTab4Service } from '@services/selectedSubTab4.service';
 import { SelectedTabService } from '@services/selectedTab.service';
-import { TableService } from '@services/table.service';
 import { ReloadTableService } from '../../../services/reloadTable.service';
 
 import { IButtonAdicional } from '@interfaces/buttonAdicional.interface';
 import { IButtonClasification } from '@interfaces/buttonClasification.interface';
-import { IDataGraph } from '@interfaces/dataGraph.interface';
-import { IDataTable } from '@interfaces/dataTable.interface';
 
 @Component({
   selector: 'app-subtabs',
@@ -31,30 +26,24 @@ import { IDataTable } from '@interfaces/dataTable.interface';
   imports: [NgFor, NgClass, NgIf, AsyncPipe, JsonPipe]
 })
 export class SubtabsComponent implements OnInit, OnDestroy {
+  private _subTabSelectd1: string;
+  private _subTabSelectd2: string;
+  private _subTabSelectd4: string;
+  private _tabSelected: string;
+  private _unsubscribe$ = new Subject<void>();
   public buttons: IButtonClasification[] = [];
   public buttonsAdditional: IButtonAdicional[] = [];
   public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
   public isDisabled = true;
-  private _dataGraph: IDataGraph = {} as IDataGraph;
-  private _dataTable: IDataTable;
-  private _row: string = '';
-  private _tabSelected: string;
-  private _unsubscribe$ = new Subject<void>();
-  private _subTabSelectd1: string;
-  private _subTabSelectd2: string;
-  private _subTabSelectd4: string;
 
   constructor(
-    // private _changeSubTabService: ChangeSubTabService,
     private _router: Router,
-    private _dataStoreService: DataStoreService,
     private _hasRowClicked: HasRowClicked,
     private _reloadTableService: ReloadTableService,
     private _selectedSubTab1Service: SelectedSubTab1Service,
     private _selectedSubTab2Service: SelectedSubTab2Service,
     private _selectedSubTab4Service: SelectedSubTab4Service,
-    private _selectedTabService: SelectedTabService,
-    private _tableService: TableService
+    private _selectedTabService: SelectedTabService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -75,11 +64,6 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     this.buttons.forEach((b) => (b.selected = false));
     button.selected = true;
 
-    // this._changeSubTabService.changeSubTab(button.codigo, button.descripcion);
-
-    // Guardar el subtab seleccionado
-    // console.log('this._tabSelected', this._tabSelected);
-    // console.log('this._subTabSelected1', subtabName);
     switch (this._tabSelected) {
       case 'ingresosEconomicaEconomicos':
         this._selectedSubTab1Service.setSelectedSubTab1(subtabName);
@@ -98,7 +82,6 @@ export class SubtabsComponent implements OnInit, OnDestroy {
   }
 
   clickButtonAditional(event: IButtonAdicional) {
-    // agregar logica para cargar el grafico "showGraph()"
     const path = event.param ? event.path + '/' + event.param : event.path;
     this._router.navigateByUrl(path);
   }
@@ -106,7 +89,6 @@ export class SubtabsComponent implements OnInit, OnDestroy {
   subscribeToServices(): void {
     this._selectedSubTab1Service.source$.subscribe((data) => {
       this._subTabSelectd1 = data;
-      // console.log('this._subTabSelectd1', this._subTabSelectd1);
     });
 
     this._selectedSubTab2Service.source$.subscribe((data) => {
@@ -128,22 +110,5 @@ export class SubtabsComponent implements OnInit, OnDestroy {
       )
       .pipe(takeUntil(this._unsubscribe$))
       .subscribe();
-  }
-
-  async showGraph(path: string) {
-    const dataTable = await this._tableService.loadData(this._dataStoreService.dataTable.clasificationType);
-    this.hasRowClicked$.subscribe((value) => {
-      this._row = value;
-    });
-
-    // this._dataGraph.rowDataGastos = dataTable.rowDataGastos;
-    // this._dataGraph.clasificationType = this._clasificationType;
-    this._router.navigateByUrl('/graphGastos').then(() => {
-      this._dataStoreService.setData({
-        ...this._dataStoreService.dataGraph,
-        graphSubTitle: this._row.split(' ')[0]
-      });
-    });
-    this._dataStoreService.selectedCodeRowFirstLevel = '';
   }
 }
