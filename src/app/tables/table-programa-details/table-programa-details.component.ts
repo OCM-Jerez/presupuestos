@@ -55,7 +55,7 @@ export class TableProgramaDetailsComponent {
               filter: true,
               width: 500,
               pinned: 'left',
-              columnGroupShow: 'close',
+              columnGroupShow: 'closed',
               cellRenderer: 'agGroupCellRenderer',
               // cellRenderer: CellRendererOCMtext,
               valueGetter: (params) => {
@@ -91,7 +91,7 @@ export class TableProgramaDetailsComponent {
               filter: false,
               width: 300,
               pinned: 'left',
-              columnGroupShow: 'close',
+              columnGroupShow: 'closed',
               cellRenderer: 'agGroupCellRenderer',
               valueGetter: (params) => {
                 if (params.data) {
@@ -204,8 +204,8 @@ export class TableProgramaDetailsComponent {
 
     const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
     const codField = this._dataTable.dataPropertyTable.codField;
-    // console.log('codigoSearch', codigoSearch);
-    // console.log('codField', codField);
+    console.log('codigoSearch', codigoSearch);
+    console.log('codField', codField);
     this._rowData = (
       await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType)
     ).filter((x) => x.CodPro == codigoSearch);
@@ -268,11 +268,12 @@ export class TableProgramaDetailsComponent {
       dataFinal.push(value);
     });
     this._rowData = dataFinal;
+    console.log('this._rowData', this._rowData);
 
     // Necesario debido a tiempo de vida componente.
-    setTimeout(() => {
-      this.expandAll();
-    }, 10);
+    // setTimeout(() => {
+    //   this.expandAll();
+    // }, 50);
   }
 
   createColumnsChildren(year: number) {

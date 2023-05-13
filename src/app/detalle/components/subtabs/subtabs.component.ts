@@ -83,6 +83,8 @@ export class SubtabsComponent implements OnInit, OnDestroy {
 
   clickButtonAditional(event: IButtonAdicional) {
     const path = event.param ? event.path + '/' + event.param : event.path;
+    console.log(path);
+
     this._router.navigateByUrl(path);
   }
 

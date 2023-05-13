@@ -39,6 +39,21 @@ const routes: Routes = [
         loadComponent: () => import('./graphs/graph-gastos/graph-gastos.component').then((m) => m.GraphGastosComponent)
       },
 
+      {
+        path: 'tableGrupoProgramaDetails/:origen',
+        loadComponent: () =>
+          import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.component').then(
+            (m) => m.TableGastosGruposprogramasDetailsComponent
+          )
+      },
+      {
+        path: 'tableProgramaDetails',
+        loadComponent: () =>
+          import('./tables/table-programa-details/table-programa-details.component').then(
+            (m) => m.TableProgramaDetailsComponent
+          )
+      },
+
       { path: '**', pathMatch: 'full', redirectTo: 'home' }
     ]
   }
@@ -51,20 +66,16 @@ const routes: Routes = [
 //                 './tables/table-gastos-aplicacion-presupuestaria/table-gastos-aplicacion-presupuestaria.component'
 //             ).then((m) => m.TableGastosAplicacionPresupuestariaComponent),
 //     },
-//     {
-//         path: 'tableGrupoProgramaDetails/:origen',
-//         loadChildren: () =>
-//             import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.component').then(
-//                 (m) => m.TableGastosGruposprogramasDetailsComponent
-//             ),
-//     },
-//     {
-//         path: 'tableProgramaDetails',
-//         loadChildren: () =>
-//             import('./tables/table-programa-details/table-programa-details.component').then(
-//                 (m) => m.TableProgramaDetailsComponent
-//             ),
-//     },
+
+// {
+//   path: 'tableProgramaDetails',
+//   loadComponent: () =>
+//     import('./tables/table-programa-details/table-programa-details.component').then(
+//       (m) => m.TableProgramaDetailsComponent
+//     )
+// },
+
+//
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],

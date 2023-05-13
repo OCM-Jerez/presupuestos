@@ -37,7 +37,7 @@ const buttonsCommonGastosProgramas = (clasificationType: CLASIFICATION_TYPE) =>
 
 const buttonsAdditionalCommonGastosProgramas = [
   { name: 'Gráfico detallado', path: '/graphGastos' },
-  { name: 'Detalle del programa seleccionado', path: '/tableGrupoProgramaDetails', param: 'gastan' }
+  { name: 'Detalle del programa seleccionado', path: '/tableProgramaDetails' }
 ];
 
 const buttonsCommonGastosEconomica = (clasificationType: CLASIFICATION_TYPE) =>

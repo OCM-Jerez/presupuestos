@@ -54,7 +54,7 @@ export class TableGastosGruposprogramasDetailsComponent implements OnDestroy {
             filter: true,
             width: 700,
             pinned: 'left',
-            columnGroupShow: 'close',
+            columnGroupShow: 'closed',
             cellRenderer: CellRendererOCMtext,
             // cellRenderer: (params) => {
             //     switch (params.node.level) {
@@ -137,16 +137,21 @@ export class TableGastosGruposprogramasDetailsComponent implements OnDestroy {
     let cod = '';
     const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
     const clasificationType = this.dataStoreService.dataTable.clasificationType;
+    console.log(codigoSearch, clasificationType);
 
     if (this.id === 'gastan') {
       cod = clasificationType === 'gastosEconomicaCapitulos' ? 'CodCap' : 'CodEco';
     } else {
       cod = 'CodOrg';
     }
+    console.log(cod);
+    this._rowData = await this._prepareDataGastosService.getDataAllYear(clasificationType);
+    console.log(this._rowData);
 
     this._rowData = (await this._prepareDataGastosService.getDataAllYear(clasificationType)).filter(
       (x) => x[cod] == codigoSearch
     );
+    console.log(this._rowData);
   }
 
   createColumnsChildrenDetalle(year: number) {
@@ -157,19 +162,19 @@ export class TableGastosGruposprogramasDetailsComponent implements OnDestroy {
           {
             headerName: 'Previsiones Iniciales',
             field: `Iniciales${year}`,
-            columnGroupShow: 'close'
+            columnGroupShow: 'closed'
           },
           {
             headerName: 'Total Modificaciones',
             field: `Modificaciones${year}`,
             width: 140,
-            columnGroupShow: 'close'
+            columnGroupShow: 'closed'
           },
           {
             headerName: 'Creditos definitivos',
             field: `Definitivas${year}`,
             width: 140,
-            columnGroupShow: 'close'
+            columnGroupShow: 'closed'
           }
         ]
       },
@@ -180,24 +185,24 @@ export class TableGastosGruposprogramasDetailsComponent implements OnDestroy {
             headerName: 'Gastos Comprometidos',
             field: `GastosComprometidos${year}`,
             width: 140,
-            columnGroupShow: 'close'
+            columnGroupShow: 'closed'
           },
           {
             headerName: 'Obligaciones reconocidas netas',
             field: `ObligacionesReconocidasNetas${year}`,
             width: 135,
-            columnGroupShow: 'close'
+            columnGroupShow: 'closed'
           },
           {
             headerName: 'Pagos',
             field: `Pagos${year}`,
-            columnGroupShow: 'close'
+            columnGroupShow: 'closed'
           },
           {
             headerName: 'Obligaciones pendientes de pago al final periodo',
             field: `ObligacionesPendientePago${year}`,
             width: 120,
-            columnGroupShow: 'close'
+            columnGroupShow: 'closed'
           }
         ]
       },
@@ -214,12 +219,12 @@ export class TableGastosGruposprogramasDetailsComponent implements OnDestroy {
         headerName: 'Creditos definitivos',
         field: `Definitivas${year}`,
         width: 110,
-        columnGroupShow: 'close'
+        columnGroupShow: 'closed'
       },
       {
         headerName: 'Pagos',
         field: `Pagos${year}`,
-        columnGroupShow: 'close',
+        columnGroupShow: 'closed',
         width: 110
       }
     ];
