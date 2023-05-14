@@ -1,13 +1,10 @@
 import { Location, NgIf } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
-import { ColumnState, GridReadyEvent } from 'ag-grid-community';
-import { GridApi, GridOptions } from 'ag-grid-community/main';
-
-import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
-import localeTextESPes from '@assets/data/localeTextESPes.json';
+import { ColumnApi, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
@@ -15,7 +12,10 @@ import { DataStoreService } from '@services/dataStore.service';
 import { IDataTable } from '@interfaces/dataTable.interface';
 
 import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
-import { accumulate } from '@utils/util';
+
+import localeTextESPes from '@assets/data/localeTextESPes.json';
+import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
+import { accumulate } from '../../commons/util/util';
 
 @Component({
   selector: 'app-table-programa-details',
@@ -24,13 +24,16 @@ import { accumulate } from '@utils/util';
   standalone: true,
   imports: [NgIf, AgGridModule]
 })
-export class TableProgramaDetailsComponent {
+export class TableProgramaDetailsComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+  public modules = [RowGroupingModule];
   public gridOptions: GridOptions;
   public isExpanded = true;
   public subHeaderName: string = '';
+  public rowData: any[any];
+  public messageYears = this.avalaibleYearsService.message;
+  private _columnApi: ColumnApi;
   private _gridApi: GridApi;
-  private _rowData: any[any];
   private _columnDefs: any[any];
   private _dataTable: IDataTable;
 
@@ -40,116 +43,183 @@ export class TableProgramaDetailsComponent {
     private _router: Router,
     private _location: Location,
     private _prepareDataGastosService: PrepareDataGastosService
-  ) {
-    this._dataTable = dataStoreService.dataTable;
-    (this.subHeaderName = this._dataTable.dataPropertyTable.subHeaderName),
-      (this._columnDefs = [
-        {
-          headerName: this._dataTable.dataPropertyTable.headerName,
-          children: [
-            {
-              headerName: this.subHeaderName,
-              field: 'DesPro',
-              rowGroup: true,
-              showRowGroup: 'DesPro',
-              filter: true,
-              width: 500,
-              pinned: 'left',
-              columnGroupShow: 'closed',
-              cellRenderer: 'agGroupCellRenderer',
-              // cellRenderer: CellRendererOCMtext,
-              valueGetter: (params) => {
-                if (params.data) {
-                  return params.data.CodPro + ' - ' + params.data.DesPro;
-                } else {
-                  return null;
-                }
-              },
-              cellRendererParams: {
-                suppressCount: true,
-                innerRenderer: (params) =>
-                  params.node.group
-                    ? `<span style="color: black; font-size: 18px; margin-left: 0px;">${params.value}</span>`
-                    : null,
-                footerValueGetter(params) {
-                  switch (params.node.level) {
-                    case 0: // Total programa.
-                      return `<span style="color: red; font-size: 18px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
-                    // case -1: // Total general.
-                    //   return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
-                    default:
-                      return 'SIN FORMATO';
-                  }
-                }
+  ) {}
+
+  async ngOnInit(): Promise<void> {
+    await this._loadTable();
+    await this._setGridOptions();
+    this._gridApi.setRowData(this.rowData);
+    await this._setColumnDefs();
+  }
+
+  async _loadTable() {
+    this._dataTable = await this.dataStoreService.dataTable;
+    this.subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
+    const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
+    const codField = this._dataTable.dataPropertyTable.codField;
+    console.log('codigoSearch', codigoSearch);
+    console.log('codField', codField);
+    this.rowData = (
+      await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType)
+    ).filter((x) => x.CodPro == codigoSearch);
+
+    // this._pushAplicacionesPresupuestarias(this.rowData);
+    console.log('this.rowData', this.rowData);
+  }
+
+  _pushAplicacionesPresupuestarias(rowData) {
+    let aplicacionesPresupuestarias = [];
+    let dataFinal = [];
+    const years = this.avalaibleYearsService.getYearsSelected();
+    // Aplicación presupuestaria = orgánico + programa + económico.
+    // Creo item para cada uno de los aplicaciones presupuestarias existentes en programa seleccionado.
+    rowData.map((item) => {
+      item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
+      aplicacionesPresupuestarias.push(item.AplicacionPresupuestaria);
+    });
+
+    aplicacionesPresupuestarias.map((item) => {
+      const dataIntermedio = rowData.filter((x) => x.AplicacionPresupuestaria === item);
+      const value = {
+        AplicacionPresupuestaria: item,
+        CodOrg: item.split('-')[0],
+        CodPro: item.split('-')[1],
+        CodEco: item.split('-')[2],
+        CodCap: item.split('-')[2].charAt(0),
+        DesOrg: dataIntermedio[0].DesOrg,
+        DesPro: dataIntermedio[0].DesPro,
+        DesCap: dataIntermedio[0].DesCap,
+        DesEco: dataIntermedio[0].DesEco
+      };
+
+      years.forEach((year) => {
+        value[`Iniciales${year}`] = accumulate('Iniciales', dataIntermedio)[year];
+        value[`Modificaciones${year}`] = accumulate('Modificaciones', dataIntermedio)[year];
+        value[`Definitivas${year}`] = accumulate('Definitivas', dataIntermedio)[year];
+        value[`GastosComprometidos${year}`] = accumulate('GastosComprometidos', dataIntermedio)[year];
+        value[`ObligacionesReconocidasNetas${year}`] = accumulate('ObligacionesReconocidasNetas', dataIntermedio)[year];
+        value[`Pagos${year}`] = accumulate('Pagos', dataIntermedio)[year];
+        value[`ObligacionesPendientePago${year}`] = accumulate('ObligacionesPendientePago', dataIntermedio)[year];
+        value[`RemanenteCredito${year}`] = accumulate('RemanenteCredito', dataIntermedio)[year];
+      });
+      dataFinal.push(value);
+      this.rowData = dataFinal;
+    });
+  }
+
+  async _setColumnDefs() {
+    this._columnDefs = [
+      {
+        // headerName: this._dataTable.dataPropertyTable.headerName,
+        children: [
+          {
+            headerName: this.subHeaderName,
+            field: 'DesPro',
+            rowGroup: true,
+            showRowGroup: 'DesPro',
+            filter: true,
+            width: 500,
+            pinned: 'left',
+            columnGroupShow: 'closed',
+            cellRenderer: 'agGroupCellRenderer',
+            // cellRenderer: CellRendererOCMtext,
+            valueGetter: (params) => {
+              if (params.data) {
+                return params.data.CodPro + ' - ' + params.data.DesPro;
+              } else {
+                return null;
               }
             },
-            {
-              headerName: 'Capítulo',
-              field: 'DesCap',
-              rowGroup: true,
-              showRowGroup: 'DesCap',
-              filter: false,
-              width: 300,
-              pinned: 'left',
-              columnGroupShow: 'closed',
-              cellRenderer: 'agGroupCellRenderer',
-              valueGetter: (params) => {
-                if (params.data) {
-                  const valCap = params.data.CodCap + ' - ' + params.data.DesCap;
-                  return `<span style="color: black; font-size: 16px; margin-left: 0px;">${valCap}</span>`;
-                } else {
-                  return null;
-                }
-              },
-              cellRendererParams: {
-                suppressCount: true,
-                innerRenderer: (params) => {
-                  if (params.node.group) {
-                    return params.value;
-                  } else {
-                    return '';
-                  }
-                },
-                footerValueGetter(params) {
-                  const val = params.value.split(' - ')[1];
-                  switch (params.node.level) {
-                    case 2: // Total capítulo.
-                      return `<span style="color: red; font-size: 18px;  font-weight: bold; margin-left: 0px;"> Total ${val}</span>`;
-                    case -1: // Total general.
-                      return '';
-                    default:
-                      return 'SIN FORMATO';
-                  }
-                }
-              }
-            },
-            {
-              headerName: 'Económico',
-              field: 'DesEco',
-              width: 500,
-              pinned: 'left',
-              filter: true,
-              cellRenderer: '',
-              valueGetter: (params) => {
-                if (params.data) {
-                  return params.data.CodEco + ' - ' + params.data.DesEco;
-                } else {
-                  return null;
+            cellRendererParams: {
+              suppressCount: true,
+              innerRenderer: (params) =>
+                params.node.group
+                  ? `<span style="color: black; font-size: 18px; margin-left: 0px;">${params.value}</span>`
+                  : null,
+              footerValueGetter(params) {
+                switch (params.node.level) {
+                  case 0: // Total programa.
+                    return `<span style="color: red; font-size: 18px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
+                  // case -1: // Total general.
+                  //   return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
+                  default:
+                    return 'SIN FORMATO';
                 }
               }
             }
-          ]
-        },
+          },
+          {
+            headerName: 'Capítulo',
+            field: 'DesCap',
+            rowGroup: true,
+            showRowGroup: 'DesCap',
+            filter: false,
+            width: 300,
+            pinned: 'left',
+            columnGroupShow: 'closed',
+            cellRenderer: 'agGroupCellRenderer',
+            valueGetter: (params) => {
+              if (params.data) {
+                const valCap = params.data.CodCap + ' - ' + params.data.DesCap;
+                return `<span style="color: black; font-size: 16px; margin-left: 0px;">${valCap}</span>`;
+              } else {
+                return null;
+              }
+            },
+            cellRendererParams: {
+              suppressCount: true,
+              innerRenderer: (params) => {
+                if (params.node.group) {
+                  return params.value;
+                } else {
+                  return '';
+                }
+              },
+              footerValueGetter(params) {
+                const val = params.value.split(' - ')[1];
+                switch (params.node.level) {
+                  case 2: // Total capítulo.
+                    return `<span style="color: red; font-size: 18px;  font-weight: bold; margin-left: 0px;"> Total ${val}</span>`;
+                  case -1: // Total general.
+                    return '';
+                  default:
+                    return 'SIN FORMATO';
+                }
+              }
+            }
+          },
+          {
+            headerName: 'Económico',
+            field: 'DesEco',
+            width: 500,
+            pinned: 'left',
+            filter: true,
+            cellRenderer: '',
+            valueGetter: (params) => {
+              if (params.data) {
+                return params.data.CodEco + ' - ' + params.data.DesEco;
+              } else {
+                return null;
+              }
+            }
+          }
+        ]
+      },
 
-        ...this.avalaibleYearsService.getYearsSelected().map((year) => {
-          return {
-            headerName: year,
-            children: this.createColumnsChildren(year)
-          };
-        })
-      ]);
+      ...this.avalaibleYearsService.getYearsSelected().map((year) => {
+        return {
+          headerName: year,
+          children: this.createColumnsChildren(year)
+        };
+      })
+    ];
+  }
 
-    this.createDataOCM().then(() => {
+  async _setGridOptions() {
+    await this._waitForGridApi();
+    console.log(this._gridApi);
+
+    if (this._gridApi) {
       this.gridOptions = {
         defaultColDef: {
           width: 130,
@@ -173,108 +243,29 @@ export class TableProgramaDetailsComponent {
               '</div>'
           }
         },
-
-        // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
-        rowData: this._rowData,
+        // rowData: this.rowData,
         columnDefs: this._columnDefs,
         groupDisplayType: 'custom',
-        groupIncludeTotalFooter: false,
+        groupIncludeTotalFooter: true,
         groupIncludeFooter: true,
         groupHeaderHeight: 25,
-        headerHeight: 26,
+        headerHeight: 54,
         suppressAggFuncInHeader: true,
         rowSelection: 'single',
         localeText: localeTextESPes,
-        pagination: false
+        pagination: true,
+        paginationPageSize: 20
       } as GridOptions;
-    });
+    }
   }
 
-  messageYears = this.avalaibleYearsService.message;
-
-  onGridReady(params: GridReadyEvent) {
+  onGridReady = (params: GridReadyEvent) => {
+    console.log('onGridReady');
     this._gridApi = params.api;
-    const defaultSortModel: ColumnState[] = [{ colId: 'DesEco', sort: 'asc', sortIndex: 0 }];
-    params.columnApi.applyColumnState({ state: defaultSortModel });
-  }
-
-  async createDataOCM(): Promise<void> {
-    // this._rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
-    //   .filter(x => x.CodPro == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-
-    const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
-    const codField = this._dataTable.dataPropertyTable.codField;
-    console.log('codigoSearch', codigoSearch);
-    console.log('codField', codField);
-    this._rowData = (
-      await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType)
-    ).filter((x) => x.CodPro == codigoSearch);
-    // .filter(x => x[codField] == codigoSearch);
-    // console.log('this._rowData', this._rowData);
-
-    // Acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
-    let aplicacionesPresupuestarias = [];
-    // const dataIntermedio = [];
-    let dataFinal = [];
-
-    //  Crear key para cada aplicación presupuestaria.
-    const years = this.avalaibleYearsService.getYearsSelected();
-    // const keys = []
-    // console.log("years", years);
-
-    // Creo array de aplicaciones presupuestarias existentes en programa seleccionado.
-    this._rowData.map((item) => {
-      item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
-      aplicacionesPresupuestarias.push(item.AplicacionPresupuestaria);
-      // aplicacionesPresupuestarias = [...new Set(aplicacionesPresupuestarias)];
-    });
-    // console.log("aplicacionesPresupuestarias", aplicacionesPresupuestarias);
-
-    // Creo item para cada uno de los aplicaciones presupuestarias existentes en programa seleccionado.
-    aplicacionesPresupuestarias.map((item) => {
-      const dataIntermedio = this._rowData.filter((x) => x.AplicacionPresupuestaria === item);
-      const yearsIniciales = accumulate('Iniciales', dataIntermedio);
-      const yearsModificaciones = accumulate('Modificaciones', dataIntermedio);
-      const yearsDefinitivas = accumulate('Definitivas', dataIntermedio);
-      const yearsGastosComprometidos = accumulate('GastosComprometidos', dataIntermedio);
-      const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', dataIntermedio);
-      const yearsPagos = accumulate('Pagos', dataIntermedio);
-      const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', dataIntermedio);
-      const yearsRemanenteCredito = accumulate('RemanenteCredito', dataIntermedio);
-
-      const value = {
-        AplicacionPresupuestaria: item,
-        CodOrg: item.split('-')[0],
-        CodPro: item.split('-')[1],
-        CodEco: item.split('-')[2],
-        CodCap: item.split('-')[2].charAt(0),
-        DesOrg: dataIntermedio[0].DesOrg,
-        DesPro: dataIntermedio[0].DesPro,
-        DesCap: dataIntermedio[0].DesCap,
-        DesEco: dataIntermedio[0].DesEco
-      };
-
-      const years = this.avalaibleYearsService.getYearsSelected();
-      years.forEach((year) => {
-        value[`Iniciales${year}`] = yearsIniciales[year];
-        value[`Modificaciones${year}`] = yearsModificaciones[year];
-        value[`Definitivas${year}`] = yearsDefinitivas[year];
-        value[`GastosComprometidos${year}`] = yearsGastosComprometidos[year];
-        value[`ObligacionesReconocidasNetas${year}`] = yearsObligacionesNetas[year];
-        value[`Pagos${year}`] = yearsPagos[year];
-        value[`ObligacionesPendientePago${year}`] = yearsObligacionesPendientes[year];
-        value[`RemanenteCredito${year}`] = yearsRemanenteCredito[year];
-      });
-      dataFinal.push(value);
-    });
-    this._rowData = dataFinal;
-    console.log('this._rowData', this._rowData);
-
-    // Necesario debido a tiempo de vida componente.
-    // setTimeout(() => {
-    //   this.expandAll();
-    // }, 50);
-  }
+    this._columnApi = params.columnApi;
+    // const defaultSortModel: ColumnState[] = [{ colId: 'DesEco', sort: 'asc', sortIndex: 0 }];
+    // params.columnApi.applyColumnState({ state: defaultSortModel });
+  };
 
   createColumnsChildren(year: number) {
     return [
@@ -303,7 +294,6 @@ export class TableProgramaDetailsComponent {
 
   showAplicacionPresupuestaria() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
-
     const aplicacionPresupuestaria =
       selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
     this.dataStoreService.selectedCodeRow = aplicacionPresupuestaria;
@@ -313,5 +303,17 @@ export class TableProgramaDetailsComponent {
   volver() {
     this.dataStoreService.selectedCodeRowFirstLevel = '';
     this._location.back();
+  }
+
+  _waitForGridApi(): Promise<void> {
+    return new Promise((resolve) => {
+      const interval = setInterval(() => {
+        if (this._gridApi) {
+          clearInterval(interval);
+          resolve();
+        }
+        console.log('Waiting for grid api');
+      }, 50);
+    });
   }
 }
