@@ -35,20 +35,20 @@ export class TableComponent implements OnInit, OnDestroy {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public modules = [RowGroupingModule];
   public gridOptions: GridOptions;
-  private _gridApi: GridApi;
+  private _clasification: CLASIFICATION_TYPE;
   private _columnApi: ColumnApi;
+  private _gridApi: GridApi;
   private _columnDefs: any[];
   private _dataTable: IDataTable;
-  private _subHeaderName: string = '';
+  private _fields = { codigo: '', descripcion: '' };
   private _isIngresos: boolean = true;
-  private _tabSelected: any;
-  private _subTabSelected: any;
+  private _subHeaderName: string = '';
   private _subTabSelectd1: string;
   private _subTabSelectd2: string;
   private _subTabSelectd4: string;
-  private _clasification: CLASIFICATION_TYPE;
+  private _subTabSelected: any;
+  private _tabSelected: any;
   private _unsubscribe$ = new Subject<void>();
-  private _fields = { codigo: '', descripcion: '' };
 
   constructor(
     private _tableService: TableService,
@@ -65,14 +65,12 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   async ngOnInit(): Promise<void> {
-    // console.log('ngOnInit');
     this._hasRowClicked.change(null);
 
     this._selectedTabService.source$
       .pipe(
         tap((data) => {
           this._tabSelected = data;
-          // console.log('this._selectedTabService.source$');
           this._loadTable();
         }),
         takeUntil(this._unsubscribe$)
@@ -80,7 +78,6 @@ export class TableComponent implements OnInit, OnDestroy {
       .subscribe();
 
     this._reloadTableService.reloadTable$.pipe(takeUntil(this._unsubscribe$)).subscribe(() => {
-      // console.log('reloadTable$');
       this._loadTable();
     });
   }
@@ -91,8 +88,6 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   private async _loadTable() {
-    // console.log('this._tabSelected', this._tabSelected);
-    // console.log('this._subTabSelected1', this._subTabSelectd1);
     this._hasRowClicked.change(null);
 
     switch (this._tabSelected) {
@@ -170,10 +165,7 @@ export class TableComponent implements OnInit, OnDestroy {
       default:
         break;
     }
-    // console.log('this._clasification_type', this._clasification_type);
     this._dataTable = await this._tableService.loadData(this._clasification);
-    // console.log(this._dataTable);
-
     this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
     this._isIngresos = this._dataTable.dataPropertyTable.isIngresos;
 
@@ -183,13 +175,11 @@ export class TableComponent implements OnInit, OnDestroy {
     if (this._gridApi) {
       this._gridApi.setRowData(this._isIngresos ? this._dataTable.rowDataIngresos : this._dataTable.rowDataGastos);
     }
-    // console.log('_loadTable', this._tabSelected, this._dataTable, this._isIngresos, this._gridApi);
   }
 
   subscribeToServices(): void {
     this._selectedSubTab1Service.source$.subscribe((data) => {
       this._subTabSelectd1 = data;
-      // console.log('this._subTabSelectd1', this._subTabSelectd1);
     });
 
     this._selectedSubTab2Service.source$.subscribe((data) => {
@@ -208,7 +198,6 @@ export class TableComponent implements OnInit, OnDestroy {
         children: [
           {
             headerName: this._subHeaderName,
-            // field: this._dataTable.dataPropertyTable.codField,
             field: this._fields.codigo,
             // width: this._dataTable.dataPropertyTable.width,
             width: 750,
@@ -217,12 +206,7 @@ export class TableComponent implements OnInit, OnDestroy {
             cellRenderer: CellRendererOCMtext,
             valueGetter: (params) => {
               if (params.data) {
-                return (
-                  // params.data[this._dataTable.dataPropertyTable.codField] +
-                  // ' - ' +
-                  // params.data[this._dataTable.dataPropertyTable.desField]
-                  params.data[this._fields.codigo] + ' - ' + params.data[this._fields.descripcion]
-                );
+                return params.data[this._fields.codigo] + ' - ' + params.data[this._fields.descripcion];
               } else {
                 return null;
               }
@@ -279,7 +263,6 @@ export class TableComponent implements OnInit, OnDestroy {
       onRowClicked: () => {
         const selectedRows = this.agGrid.api.getSelectedNodes();
         console.log('selectedRows', selectedRows[0]);
-
         this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
         this._hasRowClicked.change(selectedRows[0].key);
       }
