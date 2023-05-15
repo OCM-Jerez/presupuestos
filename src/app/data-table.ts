@@ -1,17 +1,17 @@
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
-import { IButtonAdicional } from '@interfaces/buttonAdicional.interface';
-import { IButtonClasification } from '@interfaces/buttonClasification.interface';
 import { IDataProperty } from '@interfaces/dataTable.interface';
+import { ISubtabAdicional } from '@interfaces/subtabAdicional.interface';
+import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
 
 export interface IClasification extends Omit<IDataProperty, 'attribute' | 'useStarWitch'> {
   attribute?: string;
   useStarWitch?: boolean;
-  subtabs?: IButtonClasification[];
-  subtabsAdditional?: IButtonAdicional[];
+  subtabs?: ISubtabClasification[];
+  subtabsAdditional?: ISubtabAdicional[];
 }
 
-const createSubtabs = (clasificationType: CLASIFICATION_TYPE, buttonsData: any[]) => {
-  return buttonsData.map((data) => ({
+const createSubtabs = (clasificationType: CLASIFICATION_TYPE, subtabsData: any[]) => {
+  return subtabsData.map((data) => ({
     ...data,
     clasificationType: clasificationType as CLASIFICATION_TYPE
   }));

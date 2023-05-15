@@ -15,8 +15,8 @@ import { SelectedSubTab4Service } from '@services/selectedSubTab4.service';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { ReloadTableService } from '../../../services/reloadTable.service';
 
-import { IButtonAdicional } from '@interfaces/buttonAdicional.interface';
-import { IButtonClasification } from '@interfaces/buttonClasification.interface';
+import { ISubtabAdicional } from '@interfaces/subtabAdicional.interface';
+import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
 
 @Component({
   selector: 'app-subtabs',
@@ -31,8 +31,8 @@ export class SubtabsComponent implements OnInit, OnDestroy {
   private _subTabSelectd4: string;
   private _tabSelected: string;
   private _unsubscribe$ = new Subject<void>();
-  public subtabs: IButtonClasification[] = [];
-  public subtabsAdditional: IButtonAdicional[] = [];
+  public subtabs: ISubtabClasification[] = [];
+  public subtabsAdditional: ISubtabAdicional[] = [];
   public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
   public isDisabled = true;
 
@@ -58,9 +58,9 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     this._unsubscribe$.complete();
   }
 
-  async click(event: IButtonClasification): Promise<void> {
+  async click(event: ISubtabClasification): Promise<void> {
     const subtabName = event.name;
-    const button: IButtonClasification = this.subtabs.find((button: IButtonClasification) => button.key === event.key);
+    const button: ISubtabClasification = this.subtabs.find((button: ISubtabClasification) => button.key === event.key);
     this.subtabs.forEach((b) => (b.selected = false));
     button.selected = true;
 
@@ -81,7 +81,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     this._reloadTableService.triggerReloadTable();
   }
 
-  clickButtonAditional(event: IButtonAdicional) {
+  clickButtonAditional(event: ISubtabAdicional) {
     const path = event.param ? event.path + '/' + event.param : event.path;
     console.log(path);
 

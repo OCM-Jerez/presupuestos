@@ -1,6 +1,6 @@
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 
-export interface IButtonClasification {
+export interface ISubtabClasification {
   clasificationType: CLASIFICATION_TYPE;
   name: string;
   key: string;
