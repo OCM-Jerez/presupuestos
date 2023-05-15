@@ -31,8 +31,8 @@ export class SubtabsComponent implements OnInit, OnDestroy {
   private _subTabSelectd4: string;
   private _tabSelected: string;
   private _unsubscribe$ = new Subject<void>();
-  public buttons: IButtonClasification[] = [];
-  public buttonsAdditional: IButtonAdicional[] = [];
+  public subtabs: IButtonClasification[] = [];
+  public subtabsAdditional: IButtonAdicional[] = [];
   public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
   public isDisabled = true;
 
@@ -48,8 +48,8 @@ export class SubtabsComponent implements OnInit, OnDestroy {
 
   async ngOnInit(): Promise<void> {
     const clasification = getClasificacion('ingresosEconomicaEconomicos');
-    this.buttons = clasification.buttons;
-    this.buttonsAdditional = clasification.buttonsAdditional;
+    this.subtabs = clasification.subtabs;
+    this.subtabsAdditional = clasification.subtabsAdditional;
     this.subscribeToServices();
   }
 
@@ -60,8 +60,8 @@ export class SubtabsComponent implements OnInit, OnDestroy {
 
   async click(event: IButtonClasification): Promise<void> {
     const subtabName = event.name;
-    const button: IButtonClasification = this.buttons.find((button: IButtonClasification) => button.key === event.key);
-    this.buttons.forEach((b) => (b.selected = false));
+    const button: IButtonClasification = this.subtabs.find((button: IButtonClasification) => button.key === event.key);
+    this.subtabs.forEach((b) => (b.selected = false));
     button.selected = true;
 
     switch (this._tabSelected) {
@@ -106,8 +106,8 @@ export class SubtabsComponent implements OnInit, OnDestroy {
         tap((data) => {
           this._tabSelected = data;
           const clasification = getClasificacion(this._tabSelected as CLASIFICATION_TYPE);
-          this.buttons = clasification.buttons;
-          this.buttonsAdditional = clasification.buttonsAdditional;
+          this.subtabs = clasification.subtabs;
+          this.subtabsAdditional = clasification.subtabsAdditional;
         })
       )
       .pipe(takeUntil(this._unsubscribe$))
