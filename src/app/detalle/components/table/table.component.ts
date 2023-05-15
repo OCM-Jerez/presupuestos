@@ -45,23 +45,23 @@ export class TableComponent implements OnInit, OnDestroy {
   private _subHeaderName: string = '';
   private _subTabSelectd1: string;
   private _subTabSelectd2: string;
+  s;
   private _subTabSelectd4: string;
-  private _subTabSelected: any;
   private _tabSelected: any;
   private _unsubscribe$ = new Subject<void>();
 
   constructor(
-    private _tableService: TableService,
     private _avalaibleYearsService: AvalaibleYearsService,
     private _dataStoreService: DataStoreService,
     private _hasRowClicked: HasRowClicked,
+    private _reloadTableService: ReloadTableService,
     private _selectedSubTab1Service: SelectedSubTab1Service,
     private _selectedSubTab2Service: SelectedSubTab2Service,
     private _selectedSubTab4Service: SelectedSubTab4Service,
     private _selectedTabService: SelectedTabService,
-    private _reloadTableService: ReloadTableService
+    private _tableService: TableService
   ) {
-    this.subscribeToServices();
+    this._subscribeToServices();
   }
 
   async ngOnInit(): Promise<void> {
@@ -169,8 +169,8 @@ export class TableComponent implements OnInit, OnDestroy {
     this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
     this._isIngresos = this._dataTable.dataPropertyTable.isIngresos;
 
-    this.setColumnDefs();
-    this.setGridOptions();
+    this._setColumnDefs();
+    this._setGridOptions();
     // this._isIngresos ? this.setGridOptionsIngresos() : this.setGridOptions();
 
     if (this._gridApi) {
@@ -178,7 +178,7 @@ export class TableComponent implements OnInit, OnDestroy {
     }
   }
 
-  subscribeToServices(): void {
+  _subscribeToServices(): void {
     this._selectedSubTab1Service.source$.subscribe((data) => {
       this._subTabSelectd1 = data;
     });
@@ -192,7 +192,7 @@ export class TableComponent implements OnInit, OnDestroy {
     });
   }
 
-  setColumnDefs() {
+  _setColumnDefs() {
     this._columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,
@@ -227,7 +227,7 @@ export class TableComponent implements OnInit, OnDestroy {
     ];
   }
 
-  setGridOptions() {
+  _setGridOptions() {
     const myRowData = this._isIngresos ? this._dataTable.rowDataIngresos : this._dataTable.rowDataGastos;
     this.gridOptions = {
       defaultColDef: {
@@ -263,10 +263,9 @@ export class TableComponent implements OnInit, OnDestroy {
       rowSelection: 'single',
       localeText: localeTextESPes,
       pagination: true,
-      paginationPageSize: 20,
+      paginationPageSize: 25,
       onRowClicked: () => {
         const selectedRows = this.agGrid.api.getSelectedNodes();
-        console.log('selectedRows', selectedRows[0]);
         this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
         this._hasRowClicked.change(selectedRows[0].key);
       }
@@ -317,59 +316,33 @@ export class TableComponent implements OnInit, OnDestroy {
   //   } as GridOptions;
   // }
 
+  private _createColumnsChildrenIngresos(year: number) {
+    return [
+      this._createColumns(year),
+      this._createChildColumns(year, 'Derechos', [
+        { name: 'DerechosReconocidos', show: 'open' },
+        { name: 'DerechosAnulados', show: 'open' },
+        { name: 'DerechosCancelados', show: 'open' },
+        { name: 'DerechosReconocidosNetos', show: 'open' },
+        { name: 'RecaudacionNeta', show: 'closed' },
+        { name: 'DerechosPendienteCobro', show: 'open' }
+      ]),
+      {
+        headerName: 'Exceso o defecto previsión',
+        field: `DiferenciaPrevision${year}`
+      }
+    ];
+  }
+
   private _createColumnsChildrenGastos(year: number) {
     return [
-      {
-        headerName: 'Créditos',
-        children: [
-          {
-            headerName: 'Previsiones Iniciales',
-            field: `Iniciales${year}`,
-            columnGroupShow: 'open'
-          },
-          {
-            headerName: 'Total Modificaciones',
-            field: `Modificaciones${year}`,
-            width: 140,
-            columnGroupShow: 'open'
-          },
-          {
-            headerName: 'Creditos definitivos',
-            field: `Definitivas${year}`,
-            width: 140,
-            columnGroupShow: 'closed',
-            sort: 'desc'
-          }
-        ]
-      },
-      {
-        headerName: 'Gastos',
-        children: [
-          {
-            headerName: 'Gastos Comprometidos',
-            field: `GastosComprometidos${year}`,
-            width: 140,
-            columnGroupShow: 'open'
-          },
-          {
-            headerName: 'Obligaciones reconocidas netas',
-            field: `ObligacionesReconocidasNetas${year}`,
-            width: 135,
-            columnGroupShow: 'open'
-          },
-          {
-            headerName: 'Pagos',
-            field: `Pagos${year}`,
-            columnGroupShow: 'closed'
-          },
-          {
-            headerName: 'Obligaciones pendientes de pago al final periodo',
-            field: `ObligacionesPendientePago${year}`,
-            width: 120,
-            columnGroupShow: 'closed'
-          }
-        ]
-      },
+      this._createColumns(year),
+      this._createChildColumns(year, 'Gastos', [
+        { name: 'GastosComprometidos', width: 140, show: 'open' },
+        { name: 'ObligacionesReconocidasNetas', width: 135, show: 'open' },
+        { name: 'Pagos', show: 'closed' },
+        { name: 'ObligacionesPendientePago', width: 120, show: 'closed' }
+      ]),
       {
         headerName: 'Remanente Credito',
         field: `RemanenteCredito${year}`
@@ -377,71 +350,165 @@ export class TableComponent implements OnInit, OnDestroy {
     ];
   }
 
-  private _createColumnsChildrenIngresos(year: number) {
-    return [
-      {
-        headerName: 'Créditos',
-        children: [
-          {
-            headerName: 'Previsiones iniciales',
-            field: `Iniciales${year}`,
-            columnGroupShow: 'open'
-          },
-          {
-            headerName: 'Total modificaciones',
-            field: `Modificaciones${year}`,
-            columnGroupShow: 'open'
-          },
-          {
-            headerName: 'Previsiones definitivas',
-            field: `Definitivas${year}`,
-            columnGroupShow: 'closed',
-            sort: 'desc'
-          }
-        ]
-      },
-
-      {
-        headerName: 'Derechos',
-        children: [
-          {
-            headerName: 'Reconocidos netos',
-            field: `DerechosReconocidos${year}`,
-            columnGroupShow: 'open'
-          },
-          {
-            headerName: 'Anulados',
-            field: `DerechosAnulados${year}`,
-            columnGroupShow: 'open'
-          },
-          {
-            headerName: 'Cancelados',
-            field: `DerechosCancelados${year}`,
-            columnGroupShow: 'open'
-          },
-          {
-            headerName: 'Recaudados',
-            field: `DerechosReconocidosNetos${year}`,
-            columnGroupShow: 'open'
-          },
-          {
-            headerName: 'Recaudación neta',
-            field: `RecaudacionNeta${year}`,
-            columnGroupShow: 'closed'
-          },
-          {
-            headerName: 'Pendientes de cobro al final del periodo',
-            field: `DerechosPendienteCobro${year}`,
-            columnGroupShow: 'open'
-          }
-        ]
-      },
-      {
-        headerName: 'Exceso o defecto previsión',
-        field: `DiferenciaPrevision${year}`
-      }
-    ];
+  private _createColumns(year: number) {
+    return {
+      headerName: 'Créditos',
+      children: [
+        { headerName: 'Previsiones Iniciales', field: `Iniciales${year}`, columnGroupShow: 'open' },
+        { headerName: 'Total Modificaciones', field: `Modificaciones${year}`, width: 140, columnGroupShow: 'open' },
+        {
+          headerName: 'Creditos definitivos',
+          field: `Definitivas${year}`,
+          width: 140,
+          columnGroupShow: 'closed',
+          sort: 'desc'
+        }
+      ]
+    };
   }
+
+  private _createChildColumns(
+    year,
+    headerName: string,
+    fields: { name: string; width?: number; show: 'open' | 'closed'; sort?: 'desc' }[]
+  ) {
+    return {
+      headerName,
+      children: fields.map((field) => ({
+        headerName: field.name,
+        field: `${field.name}${year}`,
+        width: field.width,
+        columnGroupShow: field.show,
+        sort: field.sort
+      }))
+    };
+  }
+
+  // private _createColumnsChildrenGastos(year: number) {
+  //   return [
+  //     {
+  //       headerName: 'Créditos',
+  //       children: [
+  //         {
+  //           headerName: 'Previsiones Iniciales',
+  //           field: `Iniciales${year}`,
+  //           columnGroupShow: 'open'
+  //         },
+  //         {
+  //           headerName: 'Total Modificaciones',
+  //           field: `Modificaciones${year}`,
+  //           width: 140,
+  //           columnGroupShow: 'open'
+  //         },
+  //         {
+  //           headerName: 'Creditos definitivos',
+  //           field: `Definitivas${year}`,
+  //           width: 140,
+  //           columnGroupShow: 'closed',
+  //           sort: 'desc'
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       headerName: 'Gastos',
+  //       children: [
+  //         {
+  //           headerName: 'Gastos Comprometidos',
+  //           field: `GastosComprometidos${year}`,
+  //           width: 140,
+  //           columnGroupShow: 'open'
+  //         },
+  //         {
+  //           headerName: 'Obligaciones reconocidas netas',
+  //           field: `ObligacionesReconocidasNetas${year}`,
+  //           width: 135,
+  //           columnGroupShow: 'open'
+  //         },
+  //         {
+  //           headerName: 'Pagos',
+  //           field: `Pagos${year}`,
+  //           columnGroupShow: 'closed'
+  //         },
+  //         {
+  //           headerName: 'Obligaciones pendientes de pago al final periodo',
+  //           field: `ObligacionesPendientePago${year}`,
+  //           width: 120,
+  //           columnGroupShow: 'closed'
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       headerName: 'Remanente Credito',
+  //       field: `RemanenteCredito${year}`
+  //     }
+  //   ];
+  // }
+
+  // private _createColumnsChildrenIngresos(year: number) {
+  //   return [
+  //     {
+  //       headerName: 'Créditos',
+  //       children: [
+  //         {
+  //           headerName: 'Previsiones iniciales',
+  //           field: `Iniciales${year}`,
+  //           columnGroupShow: 'open'
+  //         },
+  //         {
+  //           headerName: 'Total modificaciones',
+  //           field: `Modificaciones${year}`,
+  //           columnGroupShow: 'open'
+  //         },
+  //         {
+  //           headerName: 'Previsiones definitivas',
+  //           field: `Definitivas${year}`,
+  //           columnGroupShow: 'closed',
+  //           sort: 'desc'
+  //         }
+  //       ]
+  //     },
+
+  //     {
+  //       headerName: 'Derechos',
+  //       children: [
+  //         {
+  //           headerName: 'Reconocidos netos',
+  //           field: `DerechosReconocidos${year}`,
+  //           columnGroupShow: 'open'
+  //         },
+  //         {
+  //           headerName: 'Anulados',
+  //           field: `DerechosAnulados${year}`,
+  //           columnGroupShow: 'open'
+  //         },
+  //         {
+  //           headerName: 'Cancelados',
+  //           field: `DerechosCancelados${year}`,
+  //           columnGroupShow: 'open'
+  //         },
+  //         {
+  //           headerName: 'Recaudados',
+  //           field: `DerechosReconocidosNetos${year}`,
+  //           columnGroupShow: 'open'
+  //         },
+  //         {
+  //           headerName: 'Recaudación neta',
+  //           field: `RecaudacionNeta${year}`,
+  //           columnGroupShow: 'closed'
+  //         },
+  //         {
+  //           headerName: 'Pendientes de cobro al final del periodo',
+  //           field: `DerechosPendienteCobro${year}`,
+  //           columnGroupShow: 'open'
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       headerName: 'Exceso o defecto previsión',
+  //       field: `DiferenciaPrevision${year}`
+  //     }
+  //   ];
+  // }
 
   onGridReady = (params: GridReadyEvent) => {
     this._gridApi = params.api;
