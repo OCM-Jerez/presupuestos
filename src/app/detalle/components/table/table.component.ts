@@ -14,9 +14,9 @@ import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 import { ReloadTableService } from '@services/reloadTable.service';
-import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
-import { SelectedSubTab2Service } from '@services/selectedSubTab2.service';
-import { SelectedSubTab4Service } from '@services/selectedSubTab4.service';
+import { SelectedSubtab1Service } from '@services/selectedSubtab1.service';
+import { SelectedSubtab2Service } from '@services/selectedSubtab2.service';
+import { SelectedSubtab4Service } from '@services/selectedSubtab4.service';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
 
@@ -56,9 +56,9 @@ export class TableComponent implements OnInit, OnDestroy {
     private _dataStoreService: DataStoreService,
     private _hasRowClicked: HasRowClicked,
     private _reloadTableService: ReloadTableService,
-    private _selectedSubTab1Service: SelectedSubTab1Service,
-    private _selectedSubTab2Service: SelectedSubTab2Service,
-    private _selectedSubTab4Service: SelectedSubTab4Service,
+    private _selectedSubtab1Service: SelectedSubtab1Service,
+    private _selectedSubtab2Service: SelectedSubtab2Service,
+    private _selectedSubtab4Service: SelectedSubtab4Service,
     private _selectedTabService: SelectedTabService,
     private _tableService: TableService
   ) {
@@ -182,15 +182,15 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   _subscribeToServices(): void {
-    this._selectedSubTab1Service.source$.subscribe((data) => {
+    this._selectedSubtab1Service.source$.subscribe((data) => {
       this._subTabSelectd1 = data;
     });
 
-    this._selectedSubTab2Service.source$.subscribe((data) => {
+    this._selectedSubtab2Service.source$.subscribe((data) => {
       this._subTabSelectd2 = data;
     });
 
-    this._selectedSubTab4Service.source$.subscribe((data) => {
+    this._selectedSubtab4Service.source$.subscribe((data) => {
       this._subTabSelectd4 = data;
     });
   }

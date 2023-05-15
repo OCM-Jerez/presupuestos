@@ -9,14 +9,14 @@ import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 import { getClasificacion } from '@app/data-table';
 
 import { HasRowClicked } from '@services/hasRowClicked.service';
-import { SelectedSubTab1Service } from '@services/selectedSubTab1.service';
-import { SelectedSubTab2Service } from '@services/selectedSubTab2.service';
-import { SelectedSubTab4Service } from '@services/selectedSubTab4.service';
+import { SelectedSubtab2Service } from '@services/selectedSubtab2.service';
+import { SelectedSubtab4Service } from '@services/selectedSubtab4.service';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { ReloadTableService } from '../../../services/reloadTable.service';
 
 import { ISubtabAdicional } from '@interfaces/subtabAdicional.interface';
 import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
+import { SelectedSubtab1Service } from '../../../services/selectedSubtab1.service';
 
 @Component({
   selector: 'app-subtabs',
@@ -26,9 +26,9 @@ import { ISubtabClasification } from '@interfaces/subtabClasification.interface'
   imports: [NgFor, NgClass, NgIf, AsyncPipe, JsonPipe]
 })
 export class SubtabsComponent implements OnInit, OnDestroy {
-  private _subTabSelectd1: string;
-  private _subTabSelectd2: string;
-  private _subTabSelectd4: string;
+  private _subtabSelectd1: string;
+  private _subtabSelectd2: string;
+  private _subtabSelectd4: string;
   private _tabSelected: string;
   private _unsubscribe$ = new Subject<void>();
   public subtabs: ISubtabClasification[] = [];
@@ -40,9 +40,9 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     private _router: Router,
     private _hasRowClicked: HasRowClicked,
     private _reloadTableService: ReloadTableService,
-    private _selectedSubTab1Service: SelectedSubTab1Service,
-    private _selectedSubTab2Service: SelectedSubTab2Service,
-    private _selectedSubTab4Service: SelectedSubTab4Service,
+    private _selectedSubtab1Service: SelectedSubtab1Service,
+    private _selectedSubtab2Service: SelectedSubtab2Service,
+    private _selectedSubtab4Service: SelectedSubtab4Service,
     private _selectedTabService: SelectedTabService
   ) {}
 
@@ -66,15 +66,15 @@ export class SubtabsComponent implements OnInit, OnDestroy {
 
     switch (this._tabSelected) {
       case 'ingresosEconomicaEconomicos':
-        this._selectedSubTab1Service.setSelectedSubTab1(subtabName);
+        this._selectedSubtab1Service.setSelectedSubtab1(subtabName);
         break;
       case 'gastosProgramaProgramas':
-        this._selectedSubTab2Service.setSelectedSubTab2(subtabName);
+        this._selectedSubtab2Service.setSelectedSubtab2(subtabName);
         break;
       case 'gastosOrganicaOrganicos':
         break;
       case 'gastosEconomicaEconomicos':
-        this._selectedSubTab4Service.setSelectedSubTab4(subtabName);
+        this._selectedSubtab4Service.setSelectedSubtab4(subtabName);
         break;
     }
 
@@ -89,16 +89,16 @@ export class SubtabsComponent implements OnInit, OnDestroy {
   }
 
   subscribeToServices(): void {
-    this._selectedSubTab1Service.source$.subscribe((data) => {
-      this._subTabSelectd1 = data;
+    this._selectedSubtab1Service.source$.subscribe((data) => {
+      this._subtabSelectd1 = data;
     });
 
-    this._selectedSubTab2Service.source$.subscribe((data) => {
-      this._subTabSelectd2 = data;
+    this._selectedSubtab2Service.source$.subscribe((data) => {
+      this._subtabSelectd2 = data;
     });
 
-    this._selectedSubTab4Service.source$.subscribe((data) => {
-      this._subTabSelectd4 = data;
+    this._selectedSubtab4Service.source$.subscribe((data) => {
+      this._subtabSelectd4 = data;
     });
 
     this._selectedTabService.source$

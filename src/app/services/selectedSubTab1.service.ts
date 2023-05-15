@@ -4,11 +4,11 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class SelectedSubTab1Service {
-  private SelectedSubTab1 = new BehaviorSubject<string>('Por económico');
-  source$ = this.SelectedSubTab1.asObservable();
+export class SelectedSubtab1Service {
+  private SelectedSubtab1 = new BehaviorSubject<string>('Por económico');
+  source$ = this.SelectedSubtab1.asObservable();
 
-  setSelectedSubTab1(selectedSubTab1: string) {
-    this.SelectedSubTab1.next(selectedSubTab1);
+  setSelectedSubtab1(selectedSubtab1: string) {
+    this.SelectedSubtab1.next(selectedSubtab1);
   }
 }
