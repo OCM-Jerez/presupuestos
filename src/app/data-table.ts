@@ -6,8 +6,8 @@ import { IDataProperty } from '@interfaces/dataTable.interface';
 export interface IClasification extends Omit<IDataProperty, 'attribute' | 'useStarWitch'> {
   attribute?: string;
   useStarWitch?: boolean;
-  buttons?: IButtonClasification[];
-  buttonsAdditional?: IButtonAdicional[];
+  subtabs?: IButtonClasification[];
+  subtabsAdditional?: IButtonAdicional[];
 }
 
 const createSubtabs = (clasificationType: CLASIFICATION_TYPE, buttonsData: any[]) => {
@@ -25,7 +25,7 @@ const subtabsIngresos = (clasificationType: CLASIFICATION_TYPE) =>
     { name: 'Por económico', key: 'Economicos', codField: 'CodEco', desField: 'DesEco', selected: true }
   ]);
 
-const buttonsAdditionalCommonIngresos = [{ name: 'Gráfico detallado', path: '/graphIngresos' }];
+const subtabsAdditionalIngresos = [{ name: 'Gráfico detallado', path: '/graphIngresos' }];
 
 const subtabsGastosProgramas = (clasificationType: CLASIFICATION_TYPE) =>
   createSubtabs(clasificationType, [
@@ -35,7 +35,7 @@ const subtabsGastosProgramas = (clasificationType: CLASIFICATION_TYPE) =>
     { name: 'Por programa', key: 'Programas', codField: 'CodPro', desField: 'DesPro', selected: true }
   ]);
 
-const buttonsAdditionalCommonGastosProgramas = [
+const subtabsAdditionalGastosProgramas = [
   { name: 'Gráfico detallado', path: '/graphGastos' },
   { name: 'Detalle del programa seleccionado', path: '/tableProgramaDetails' }
 ];
@@ -48,7 +48,7 @@ const subtabsGastosEconomica = (clasificationType: CLASIFICATION_TYPE) =>
     { name: 'Por económico', key: 'Economicos', codField: 'CodEco', desField: 'DesEco', selected: true }
   ]);
 
-const buttonsAdditionalCommonGastosEconomica = [
+const subtabsAdditionalGastosEconomica = [
   { name: 'Gráfico detallado', path: '/graphGastos' },
   {
     name: 'Programas que gastan del elemento seleccionado',
@@ -68,8 +68,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     subHeaderName: 'Capítulo',
     useStarWitch: true,
     width: 250,
-    buttons: subtabsIngresos('ingresosEconomicaCapitulos'),
-    buttonsAdditional: buttonsAdditionalCommonIngresos
+    subtabs: subtabsIngresos('ingresosEconomicaCapitulos'),
+    subtabsAdditional: subtabsAdditionalIngresos
   },
   ingresosEconomicaArticulos: {
     attribute: 'CodEco',
@@ -81,8 +81,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     subHeaderName: 'Articulo',
     useStarWitch: true,
     width: 550,
-    buttons: subtabsIngresos('ingresosEconomicaArticulos'),
-    buttonsAdditional: buttonsAdditionalCommonIngresos
+    subtabs: subtabsIngresos('ingresosEconomicaArticulos'),
+    subtabsAdditional: subtabsAdditionalIngresos
   },
   ingresosEconomicaConceptos: {
     attribute: 'CodEco',
@@ -94,8 +94,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     subHeaderName: 'Concepto',
     useStarWitch: true,
     width: 660,
-    buttons: subtabsIngresos('ingresosEconomicaConceptos'),
-    buttonsAdditional: buttonsAdditionalCommonIngresos
+    subtabs: subtabsIngresos('ingresosEconomicaConceptos'),
+    subtabsAdditional: subtabsAdditionalIngresos
   },
   ingresosEconomicaEconomicos: {
     attribute: 'CodEco',
@@ -107,8 +107,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     subHeaderName: 'Económico',
     useStarWitch: true,
     width: 550,
-    buttons: subtabsIngresos('ingresosEconomicaEconomicos'),
-    buttonsAdditional: buttonsAdditionalCommonIngresos
+    subtabs: subtabsIngresos('ingresosEconomicaEconomicos'),
+    subtabsAdditional: subtabsAdditionalIngresos
   },
   gastosOrganicaOrganicos: {
     attribute: 'CodPro',
@@ -120,8 +120,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     subHeaderName: 'Orgánico',
     useStarWitch: false,
     width: 250,
-    buttons: [],
-    buttonsAdditional: [
+    subtabs: [],
+    subtabsAdditional: [
       { name: 'Gráfico detallado', path: '/graphGastos' },
       {
         name: 'Programas que componen orgánico seleccionado',
@@ -140,8 +140,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     subHeaderName: 'Area de gasto',
     useStarWitch: true,
     width: 550,
-    buttons: subtabsGastosProgramas('gastosProgramaAreas'),
-    buttonsAdditional: buttonsAdditionalCommonGastosProgramas
+    subtabs: subtabsGastosProgramas('gastosProgramaAreas'),
+    subtabsAdditional: subtabsAdditionalGastosProgramas
   },
   gastosProgramaPoliticas: {
     attribute: 'CodPro',
@@ -153,8 +153,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     subHeaderName: 'Política de gasto',
     useStarWitch: true,
     width: 550,
-    buttons: subtabsGastosProgramas('gastosProgramaPoliticas'),
-    buttonsAdditional: buttonsAdditionalCommonGastosProgramas
+    subtabs: subtabsGastosProgramas('gastosProgramaPoliticas'),
+    subtabsAdditional: subtabsAdditionalGastosProgramas
   },
   gastosProgramaGrupos: {
     attribute: 'CodPro',
@@ -166,8 +166,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     subHeaderName: 'Grupo programas de gasto',
     useStarWitch: true,
     width: 550,
-    buttons: subtabsGastosProgramas('gastosProgramaGrupos'),
-    buttonsAdditional: buttonsAdditionalCommonGastosProgramas
+    subtabs: subtabsGastosProgramas('gastosProgramaGrupos'),
+    subtabsAdditional: subtabsAdditionalGastosProgramas
   },
   gastosProgramaProgramas: {
     attribute: 'CodPro',
@@ -179,8 +179,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     subHeaderName: 'Programa',
     useStarWitch: true,
     width: 550,
-    buttons: subtabsGastosProgramas('gastosProgramaProgramas'),
-    buttonsAdditional: buttonsAdditionalCommonGastosProgramas
+    subtabs: subtabsGastosProgramas('gastosProgramaProgramas'),
+    subtabsAdditional: subtabsAdditionalGastosProgramas
   },
   gastosEconomicaCapitulos: {
     attribute: 'CodEco',
@@ -192,8 +192,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     subHeaderName: 'Capítulo',
     useStarWitch: true,
     width: 250,
-    buttons: subtabsGastosEconomica('gastosEconomicaCapitulos'),
-    buttonsAdditional: buttonsAdditionalCommonGastosEconomica
+    subtabs: subtabsGastosEconomica('gastosEconomicaCapitulos'),
+    subtabsAdditional: subtabsAdditionalGastosEconomica
   },
   gastosEconomicaArticulos: {
     attribute: 'CodEco',
@@ -205,8 +205,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     subHeaderName: 'Articulo',
     useStarWitch: true,
     width: 550,
-    buttons: subtabsGastosEconomica('gastosEconomicaArticulos'),
-    buttonsAdditional: buttonsAdditionalCommonGastosEconomica
+    subtabs: subtabsGastosEconomica('gastosEconomicaArticulos'),
+    subtabsAdditional: subtabsAdditionalGastosEconomica
   },
   gastosEconomicaConceptos: {
     attribute: 'CodEco',
@@ -218,8 +218,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     subHeaderName: 'Concepto',
     useStarWitch: true,
     width: 550,
-    buttons: subtabsGastosEconomica('gastosEconomicaConceptos'),
-    buttonsAdditional: buttonsAdditionalCommonGastosEconomica
+    subtabs: subtabsGastosEconomica('gastosEconomicaConceptos'),
+    subtabsAdditional: subtabsAdditionalGastosEconomica
   },
   gastosEconomicaEconomicos: {
     attribute: 'CodEco',
@@ -231,8 +231,8 @@ const CLASIFICATION: { [key: string]: IClasification } = {
     subHeaderName: 'Económico',
     useStarWitch: true,
     width: 550,
-    buttons: subtabsGastosEconomica('gastosEconomicaEconomicos'),
-    buttonsAdditional: buttonsAdditionalCommonGastosEconomica
+    subtabs: subtabsGastosEconomica('gastosEconomicaEconomicos'),
+    subtabsAdditional: subtabsAdditionalGastosEconomica
   },
   aplicacion: {
     attribute: 'CodEco',
