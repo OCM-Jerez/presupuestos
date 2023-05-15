@@ -42,6 +42,7 @@ export class TableComponent implements OnInit, OnDestroy {
   private _dataTable: IDataTable;
   private _fields = { codigo: '', descripcion: '' };
   private _isIngresos: boolean = true;
+  private _headerName: string = '';
   private _subHeaderName: string = '';
   private _subTabSelectd1: string;
   private _subTabSelectd2: string;
@@ -89,7 +90,6 @@ export class TableComponent implements OnInit, OnDestroy {
 
   private async _loadTable() {
     this._hasRowClicked.change(null);
-
     switch (this._tabSelected) {
       case 'ingresosEconomicaEconomicos':
         switch (this._subTabSelectd1) {
@@ -165,7 +165,9 @@ export class TableComponent implements OnInit, OnDestroy {
       default:
         break;
     }
+
     this._dataTable = await this._tableService.loadData(this._clasification);
+    this._headerName = this._dataTable.dataPropertyTable.headerName;
     this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
     this._isIngresos = this._dataTable.dataPropertyTable.isIngresos;
 
@@ -175,6 +177,7 @@ export class TableComponent implements OnInit, OnDestroy {
 
     if (this._gridApi) {
       this._gridApi.setRowData(this._isIngresos ? this._dataTable.rowDataIngresos : this._dataTable.rowDataGastos);
+      this._gridApi.setColumnDefs(this._columnDefs);
     }
   }
 
@@ -195,7 +198,7 @@ export class TableComponent implements OnInit, OnDestroy {
   _setColumnDefs() {
     this._columnDefs = [
       {
-        headerName: this._dataTable.dataPropertyTable.headerName,
+        headerName: this._headerName,
         children: [
           {
             headerName: this._subHeaderName,
@@ -263,7 +266,7 @@ export class TableComponent implements OnInit, OnDestroy {
       rowSelection: 'single',
       localeText: localeTextESPes,
       pagination: true,
-      paginationPageSize: 25,
+      paginationPageSize: 26,
       onRowClicked: () => {
         const selectedRows = this.agGrid.api.getSelectedNodes();
         this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
