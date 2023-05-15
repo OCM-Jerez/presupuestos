@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SelectedSubTab4Service {
-  private SelectedSubTab4 = new BehaviorSubject<string>('Por programa');
+  private SelectedSubTab4 = new BehaviorSubject<string>('Por económico');
   source$ = this.SelectedSubTab4.asObservable();
 
   setSelectedSubTab4(selectedSubTab4: string) {
