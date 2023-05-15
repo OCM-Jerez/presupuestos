@@ -1,11 +1,9 @@
 import { NgClass, NgFor } from '@angular/common';
-import { AfterContentInit, Component, ContentChildren, QueryList, signal } from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, QueryList } from '@angular/core';
 
 import { TabComponent } from './tab/tab.component';
 
 import { SelectedTabService } from '@services/selectedTab.service';
-
-import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 
 @Component({
   selector: 'app-tabs',
@@ -19,7 +17,7 @@ export class TabsComponent implements AfterContentInit {
   // que la variable tabs no será nula en tiempo de ejecución.
   @ContentChildren(TabComponent) tabs!: QueryList<TabComponent>;
 
-  public tabSignal = signal<CLASIFICATION_TYPE>('ingresosEconomicaEconomicos');
+  // public tabSignal = signal<CLASIFICATION_TYPE>('ingresosEconomicaEconomicos');
 
   constructor(private _selectedTabService: SelectedTabService) {}
 
@@ -46,9 +44,9 @@ export class TabsComponent implements AfterContentInit {
       '¿Para qué se gasta?': 'gastosEconomicaEconomicos'
     };
 
-    this.tabSignal.set(tabDataMap[tab.title]);
-
-    const clasificationType: CLASIFICATION_TYPE = tabDataMap[tab.title];
-    this._selectedTabService.setSelectedTab(clasificationType);
+    // this.tabSignal.set(tabDataMap[tab.title]);
+    this._selectedTabService.setSelectedTab(tabDataMap[tab.title]);
+    // const clasificationType: CLASIFICATION_TYPE = tabDataMap[tab.title];
+    // this._selectedTabService.setSelectedTab(clasificationType);
   }
 }
