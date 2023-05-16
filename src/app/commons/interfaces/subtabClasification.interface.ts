@@ -5,6 +5,6 @@ export interface ISubtabClasification {
   name: string;
   key: string;
   selected: boolean;
-  codigo?: string;
-  descripcion?: string;
+  codField?: string;
+  desField?: string;
 }
