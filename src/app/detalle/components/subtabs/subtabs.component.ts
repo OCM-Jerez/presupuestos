@@ -58,7 +58,8 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     this._unsubscribe$.complete();
   }
 
-  async click(event: ISubtabClasification): Promise<void> {
+  async clickSubtab(event: ISubtabClasification): Promise<void> {
+    console.log(event);
     const subtabName = event.name;
     const button: ISubtabClasification = this.subtabs.find((button: ISubtabClasification) => button.key === event.key);
     this.subtabs.forEach((b) => (b.selected = false));
@@ -81,10 +82,8 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     this._reloadTableService.triggerReloadTable();
   }
 
-  clickButtonAditional(event: ISubtabAdicional) {
+  clickSubtabAditional(event: ISubtabAdicional) {
     const path = event.param ? event.path + '/' + event.param : event.path;
-    console.log(path);
-
     this._router.navigateByUrl(path);
   }
 
@@ -107,6 +106,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
           this._tabSelected = data;
           const clasification = getClasificacion(this._tabSelected as CLASIFICATION_TYPE);
           this.subtabs = clasification.subtabs;
+          console.log(this.subtabs);
           this.subtabsAdditional = clasification.subtabsAdditional;
         })
       )

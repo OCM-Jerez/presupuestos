@@ -5,7 +5,7 @@
       class="OCM-button"
       [ngClass]="{ 'OCM-selected': button.selected }"
       *ngFor="let button of subtabs"
-      (click)="click(button)"
+      (click)="clickSubtab(button)"
     >
       {{ button.name }}
     </button>
@@ -16,7 +16,7 @@
       type="button"
       class="OCM-button"
       *ngFor="let button of subtabsAdditional"
-      (click)="clickButtonAditional(button)"
+      (click)="clickSubtabAditional(button)"
     >
       {{ button.name }}
     </button>
@@ -31,7 +31,7 @@
       type="button"
       class="OCM-button"
       *ngFor="let button of subtabsAdditional"
-      (click)="clickButtonAditional(button)"
+      (click)="clickSubtabAditional(button)"
     >
       {{ 'Al seleccionar fila se activa opción' }}
     </button>
