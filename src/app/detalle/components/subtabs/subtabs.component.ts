@@ -30,6 +30,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
   private _subtabSelectd2: string;
   private _subtabSelectd4: string;
   private _tabSelected: string;
+  private selectedSubtab: ISubtabClasification;
   private _unsubscribe$ = new Subject<void>();
   public subtabs: ISubtabClasification[] = [];
   public subtabsAdditional: ISubtabAdicional[] = [];
@@ -61,9 +62,18 @@ export class SubtabsComponent implements OnInit, OnDestroy {
   async clickSubtab(event: ISubtabClasification): Promise<void> {
     console.log(event);
     const subtabName = event.name;
-    const button: ISubtabClasification = this.subtabs.find((button: ISubtabClasification) => button.key === event.key);
-    this.subtabs.forEach((b) => (b.selected = false));
-    button.selected = true;
+    // const subtab: ISubtabClasification = this.subtabs.find((subtab: ISubtabClasification) => subtab.key === event.key);
+    // this.subtabs.forEach((b) => (b.selected = false));
+    // event.selected = true;
+    // En lugar de recorrer todos los subtabs para deseleccionarlos, puedes mantener una referencia al subtab seleccionado
+    // y simplemente deseleccionarlo cuando se selecciona uno nuevo.
+
+    if (this.selectedSubtab) {
+      this.selectedSubtab.selected = false;
+    }
+
+    event.selected = true;
+    this.selectedSubtab = event;
 
     switch (this._tabSelected) {
       case 'ingresosEconomicaEconomicos':
