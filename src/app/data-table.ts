@@ -19,20 +19,50 @@ const createSubtabs = (clasificationType: CLASIFICATION_TYPE, subtabsData: any[]
 
 const subtabsIngresos = (clasificationType: CLASIFICATION_TYPE) =>
   createSubtabs(clasificationType, [
-    { name: 'Por capítulo ingresos', key: 'Capitulos', codField: 'CodCap', desField: 'DesCap', selected: false },
-    { name: 'Por artículo', key: 'Articulos', codField: 'CodArt', desField: 'DesArt', selected: false },
-    { name: 'Por concepto', key: 'Conceptos', codField: 'CodCon', desField: 'DesCon', selected: false },
-    { name: 'Por económico', key: 'Economicos', codField: 'CodEco', desField: 'DesEco', selected: true }
+    {
+      name: 'Por capítulo ingresos',
+      key: 'ingresosEconomicaCapitulos',
+      codField: 'CodCap',
+      desField: 'DesCap',
+      selected: false
+    },
+    {
+      name: 'Por artículo',
+      key: 'ingresosEconomicaArticulos',
+      codField: 'CodArt',
+      desField: 'DesArt',
+      selected: false
+    },
+    {
+      name: 'Por concepto',
+      key: 'ingresosEconomicaConceptos',
+      codField: 'CodCon',
+      desField: 'DesCon',
+      selected: false
+    },
+    {
+      name: 'Por económico',
+      key: 'ingresosEconomicaEconomicos',
+      codField: 'CodEco',
+      desField: 'DesEco',
+      selected: true
+    }
   ]);
 
 const subtabsAdditionalIngresos = [{ name: 'Gráfico detallado', path: '/graphIngresos' }];
 
 const subtabsGastosProgramas = (clasificationType: CLASIFICATION_TYPE) =>
   createSubtabs(clasificationType, [
-    { name: 'Por áreas', key: 'Areas', codField: 'CodAre', desField: 'DesAre', selected: false },
-    { name: 'Por política', key: 'Politicas', codField: 'CodPol', desField: 'DesPol', selected: false },
-    { name: 'Por grupo programas', key: 'Grupos', codField: 'CodGru', desField: 'DesGru', selected: false },
-    { name: 'Por programa', key: 'Programas', codField: 'CodPro', desField: 'DesPro', selected: true }
+    { name: 'Por áreas', key: 'gastosProgramaAreas', codField: 'CodAre', desField: 'DesAre', selected: false },
+    { name: 'Por política', key: 'gastosProgramaPoliticas', codField: 'CodPol', desField: 'DesPol', selected: false },
+    {
+      name: 'Por grupo programas',
+      key: 'gastosProgramaGrupos',
+      codField: 'CodGru',
+      desField: 'DesGru',
+      selected: false
+    },
+    { name: 'Por programa', key: 'gastosProgramaProgramas', codField: 'CodPro', desField: 'DesPro', selected: true }
   ]);
 
 const subtabsAdditionalGastosProgramas = [
@@ -42,10 +72,16 @@ const subtabsAdditionalGastosProgramas = [
 
 const subtabsGastosEconomica = (clasificationType: CLASIFICATION_TYPE) =>
   createSubtabs(clasificationType, [
-    { name: 'Por capítulo gasto', key: 'Capitulos', codField: 'CodCap', desField: 'DesCap', selected: false },
-    { name: 'Por artículo', key: 'Articulos', codField: 'CodArt', desField: 'DesArt', selected: false },
-    { name: 'Por concepto', key: 'Conceptos', codField: 'CodCon', desField: 'DesCon', selected: false },
-    { name: 'Por económico', key: 'Economicos', codField: 'CodEco', desField: 'DesEco', selected: true }
+    {
+      name: 'Por capítulo gasto',
+      key: 'gastosEconomicaCapitulos',
+      codField: 'CodCap',
+      desField: 'DesCap',
+      selected: false
+    },
+    { name: 'Por artículo', key: 'gastosEconomicaArticulos', codField: 'CodArt', desField: 'DesArt', selected: false },
+    { name: 'Por concepto', key: 'gastosEconomicaConceptos', codField: 'CodCon', desField: 'DesCon', selected: false },
+    { name: 'Por económico', key: 'gastosEconomicaEconomicos', codField: 'CodEco', desField: 'DesEco', selected: true }
   ]);
 
 const subtabsAdditionalGastosEconomica = [
