@@ -8,16 +8,16 @@ import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 
 import { getClasificacion } from '@app/data-table';
 
+import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
+import { DataStoreSubtabService } from '@services/dataStoreSubtab.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
+import { ReloadTableService } from '@services/reloadTable.service';
+import { SelectedSubtab1Service } from '@services/selectedSubtab1.service';
 import { SelectedSubtab2Service } from '@services/selectedSubtab2.service';
 import { SelectedSubtab4Service } from '@services/selectedSubtab4.service';
 import { SelectedTabService } from '@services/selectedTab.service';
-import { ReloadTableService } from '../../../services/reloadTable.service';
 
 import { ISubtabAdicional } from '@interfaces/subtabAdicional.interface';
-import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
-import { SelectedSubtab1Service } from '../../../services/selectedSubtab1.service';
-
 @Component({
   selector: 'app-subtabs',
   templateUrl: './subtabs.component.html',
@@ -44,7 +44,8 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     private _selectedSubtab1Service: SelectedSubtab1Service,
     private _selectedSubtab2Service: SelectedSubtab2Service,
     private _selectedSubtab4Service: SelectedSubtab4Service,
-    private _selectedTabService: SelectedTabService
+    private _selectedTabService: SelectedTabService,
+    private _dataStoreSubtabService: DataStoreSubtabService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -88,6 +89,8 @@ export class SubtabsComponent implements OnInit, OnDestroy {
         this._selectedSubtab4Service.setSelectedSubtab4(subtabName);
         break;
     }
+
+    this._dataStoreSubtabService.setData(event);
 
     this._reloadTableService.triggerReloadTable();
   }

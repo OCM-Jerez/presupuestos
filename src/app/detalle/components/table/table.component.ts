@@ -12,11 +12,9 @@ import localeTextESPes from '@assets/data/localeTextESPes.json';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
+import { DataStoreSubtabService } from '@services/dataStoreSubtab.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 import { ReloadTableService } from '@services/reloadTable.service';
-import { SelectedSubtab1Service } from '@services/selectedSubtab1.service';
-import { SelectedSubtab2Service } from '@services/selectedSubtab2.service';
-import { SelectedSubtab4Service } from '@services/selectedSubtab4.service';
 import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
 
@@ -44,10 +42,9 @@ export class TableComponent implements OnInit, OnDestroy {
   private _isIngresos: boolean = true;
   private _headerName: string = '';
   private _subHeaderName: string = '';
-  private _subTabSelectd1: string;
-  private _subTabSelectd2: string;
-  s;
-  private _subTabSelectd4: string;
+  // private _subTabSelectd1: string;
+  // private _subTabSelectd2: string;
+  // private _subTabSelectd4: string;
   private _tabSelected: any;
   private _unsubscribe$ = new Subject<void>();
 
@@ -56,13 +53,14 @@ export class TableComponent implements OnInit, OnDestroy {
     private _dataStoreService: DataStoreService,
     private _hasRowClicked: HasRowClicked,
     private _reloadTableService: ReloadTableService,
-    private _selectedSubtab1Service: SelectedSubtab1Service,
-    private _selectedSubtab2Service: SelectedSubtab2Service,
-    private _selectedSubtab4Service: SelectedSubtab4Service,
+    // private _selectedSubtab1Service: SelectedSubtab1Service,
+    // private _selectedSubtab2Service: SelectedSubtab2Service,
+    // private _selectedSubtab4Service: SelectedSubtab4Service,
     private _selectedTabService: SelectedTabService,
-    private _tableService: TableService
+    private _tableService: TableService,
+    private _dataStoreSubtabService: DataStoreSubtabService
   ) {
-    this._subscribeToServices();
+    // this._subscribeToServices();
   }
 
   async ngOnInit(): Promise<void> {
@@ -90,81 +88,90 @@ export class TableComponent implements OnInit, OnDestroy {
 
   private async _loadTable() {
     this._hasRowClicked.change(null);
-    switch (this._tabSelected) {
-      case 'ingresosEconomicaEconomicos':
-        switch (this._subTabSelectd1) {
-          case 'Por capítulo ingresos':
-            this._clasification = 'ingresosEconomicaCapitulos';
-            this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
-            break;
-          case 'Por artículo':
-            this._clasification = 'ingresosEconomicaArticulos';
-            this._fields = { codigo: 'CodArt', descripcion: 'DesArt' };
-            break;
-          case 'Por concepto':
-            this._clasification = 'ingresosEconomicaConceptos';
-            this._fields = { codigo: 'CodCon', descripcion: 'DesCon' };
-            break;
-          case 'Por económico':
-            this._clasification = 'ingresosEconomicaEconomicos';
-            this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
-            break;
-          default:
-            break;
-        }
-        break;
-      case 'gastosProgramaProgramas':
-        // this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
-        switch (this._subTabSelectd2) {
-          case 'Por áreas':
-            this._clasification = 'gastosProgramaAreas';
-            this._fields = { codigo: 'CodAre', descripcion: 'DesAre' };
-            break;
-          case 'Por política':
-            this._clasification = 'gastosProgramaPoliticas';
-            this._fields = { codigo: 'CodPol', descripcion: 'DesPol' };
-            break;
-          case 'Por grupo programas':
-            this._clasification = 'gastosProgramaGrupos';
-            this._fields = { codigo: 'CodGru', descripcion: 'DesGru' };
-            break;
-          case 'Por programa':
-            this._clasification = 'gastosProgramaProgramas';
-            this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
-            break;
-          default:
-            break;
-        }
-        break;
-      case 'gastosOrganicaOrganicos':
-        this._clasification = 'gastosOrganicaOrganicos';
-        this._fields = { codigo: 'CodOrg', descripcion: 'DesOrg' };
-        break;
-      case 'gastosEconomicaEconomicos':
-        switch (this._subTabSelectd4) {
-          case 'Por capítulo gasto':
-            this._clasification = 'gastosEconomicaCapitulos';
-            this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
-            break;
-          case 'Por artículo':
-            this._clasification = 'gastosEconomicaArticulos';
-            this._fields = { codigo: 'CodArt', descripcion: 'DesArt' };
-            break;
-          case 'Por concepto':
-            this._clasification = 'gastosEconomicaConceptos';
-            this._fields = { codigo: 'CodCon', descripcion: 'DesCon' };
-            break;
-          case 'Por económico':
-            this._clasification = 'gastosEconomicaEconomicos';
-            this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
-            break;
-          default:
-            break;
-        }
-        break;
-      default:
-        break;
-    }
+
+    const data = this._dataStoreSubtabService.getData();
+    console.log('data', data);
+    this._clasification = data.key as CLASIFICATION_TYPE;
+    this._fields.codigo = data.codField;
+    this._fields.descripcion = data.desField;
+    console.log('this._clasification', this._clasification);
+    console.log('this._fields', this._fields);
+
+    // switch (this._tabSelected) {
+    //   case 'ingresosEconomicaEconomicos':
+    //     switch (this._subTabSelectd1) {
+    //       case 'Por capítulo ingresos':
+    //         this._clasification = 'ingresosEconomicaCapitulos';
+    //         this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
+    //         break;
+    //       case 'Por artículo':
+    //         this._clasification = 'ingresosEconomicaArticulos';
+    //         this._fields = { codigo: 'CodArt', descripcion: 'DesArt' };
+    //         break;
+    //       case 'Por concepto':
+    //         this._clasification = 'ingresosEconomicaConceptos';
+    //         this._fields = { codigo: 'CodCon', descripcion: 'DesCon' };
+    //         break;
+    //       case 'Por económico':
+    //         this._clasification = 'ingresosEconomicaEconomicos';
+    //         this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
+    //         break;
+    //       default:
+    //         break;
+    //     }
+    //     break;
+    //   case 'gastosProgramaProgramas':
+    //     // this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
+    //     switch (this._subTabSelectd2) {
+    //       case 'Por áreas':
+    //         this._clasification = 'gastosProgramaAreas';
+    //         this._fields = { codigo: 'CodAre', descripcion: 'DesAre' };
+    //         break;
+    //       case 'Por política':
+    //         this._clasification = 'gastosProgramaPoliticas';
+    //         this._fields = { codigo: 'CodPol', descripcion: 'DesPol' };
+    //         break;
+    //       case 'Por grupo programas':
+    //         this._clasification = 'gastosProgramaGrupos';
+    //         this._fields = { codigo: 'CodGru', descripcion: 'DesGru' };
+    //         break;
+    //       case 'Por programa':
+    //         this._clasification = 'gastosProgramaProgramas';
+    //         this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
+    //         break;
+    //       default:
+    //         break;
+    //     }
+    //     break;
+    //   case 'gastosOrganicaOrganicos':
+    //     this._clasification = 'gastosOrganicaOrganicos';
+    //     this._fields = { codigo: 'CodOrg', descripcion: 'DesOrg' };
+    //     break;
+    //   case 'gastosEconomicaEconomicos':
+    //     switch (this._subTabSelectd4) {
+    //       case 'Por capítulo gasto':
+    //         this._clasification = 'gastosEconomicaCapitulos';
+    //         this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
+    //         break;
+    //       case 'Por artículo':
+    //         this._clasification = 'gastosEconomicaArticulos';
+    //         this._fields = { codigo: 'CodArt', descripcion: 'DesArt' };
+    //         break;
+    //       case 'Por concepto':
+    //         this._clasification = 'gastosEconomicaConceptos';
+    //         this._fields = { codigo: 'CodCon', descripcion: 'DesCon' };
+    //         break;
+    //       case 'Por económico':
+    //         this._clasification = 'gastosEconomicaEconomicos';
+    //         this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
+    //         break;
+    //       default:
+    //         break;
+    //     }
+    //     break;
+    //   default:
+    //     break;
+    // }
 
     this._dataTable = await this._tableService.loadData(this._clasification);
     this._headerName = this._dataTable.dataPropertyTable.headerName;
@@ -181,19 +188,19 @@ export class TableComponent implements OnInit, OnDestroy {
     }
   }
 
-  _subscribeToServices(): void {
-    this._selectedSubtab1Service.source$.subscribe((data) => {
-      this._subTabSelectd1 = data;
-    });
+  // _subscribeToServices(): void {
+  //   this._selectedSubtab1Service.source$.subscribe((data) => {
+  //     this._subTabSelectd1 = data;
+  //   });
 
-    this._selectedSubtab2Service.source$.subscribe((data) => {
-      this._subTabSelectd2 = data;
-    });
+  //   this._selectedSubtab2Service.source$.subscribe((data) => {
+  //     this._subTabSelectd2 = data;
+  //   });
 
-    this._selectedSubtab4Service.source$.subscribe((data) => {
-      this._subTabSelectd4 = data;
-    });
-  }
+  //   this._selectedSubtab4Service.source$.subscribe((data) => {
+  //     this._subTabSelectd4 = data;
+  //   });
+  // }
 
   _setColumnDefs() {
     this._columnDefs = [
