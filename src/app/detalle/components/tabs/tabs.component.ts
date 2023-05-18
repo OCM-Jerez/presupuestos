@@ -21,12 +21,12 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
   @ContentChildren(TabComponent) tabs!: QueryList<TabComponent>;
   private _tabSelected: ITab;
   private _unsubscribe$ = new Subject<void>();
-  private tabDataMap = {
-    Ingresos: 'ingresosEconomicaEconomicos',
-    '¿En qué se gasta?': 'gastosProgramaProgramas',
-    '¿Quién lo gasta?': 'gastosOrganicaOrganicos',
-    '¿Para qué se gasta?': 'gastosEconomicaEconomicos'
-  };
+  // private tabDataMap = {
+  //   Ingresos: 'ingresosEconomicaEconomicos',
+  //   '¿En qué se gasta?': 'gastosProgramaProgramas',
+  //   '¿Quién lo gasta?': 'gastosOrganicaOrganicos',
+  //   '¿Para qué se gasta?': 'gastosEconomicaEconomicos'
+  // };
 
   constructor(private _dataStoreTabService: DataStoreTabService) {
     this._dataStoreTabService
@@ -50,17 +50,20 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
     this.setActiveTab(tab);
 
     this._dataStoreTabService.setTab({
-      clasificationType: this.tabDataMap[tab.title],
+      // clasificationType: this.tabDataMap[tab.title],
+      clasificationType: tab.clasification
       // name: '',
       // key: '',
-      selected: false
+      // selected: false
     });
   }
 
   private setActiveTab(tab?: TabComponent): void {
     const tabsArray = this.tabs.toArray();
     tabsArray.forEach((t) => {
-      if (tab ? t.title === tab.title : this.tabDataMap[t.title] === this._tabSelected.clasificationType) {
+      // if (tab ? t.title === tab.title : this.tabDataMap[t.title] === this._tabSelected.clasificationType) {
+      // if (tab ? t.title === tab.title : t.clasification === tab.clasification) {
+      if (tab ? t.title === tab.title : t.clasification === this._tabSelected.clasificationType) {
         t.active = true;
       } else {
         t.active = false;
