@@ -2,7 +2,7 @@ import { AsyncPipe, JsonPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Subject, takeUntil, tap } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 
@@ -15,9 +15,10 @@ import { ReloadTableService } from '@services/reloadTable.service';
 import { SelectedSubtab1Service } from '@services/selectedSubtab1.service';
 import { SelectedSubtab2Service } from '@services/selectedSubtab2.service';
 import { SelectedSubtab4Service } from '@services/selectedSubtab4.service';
-import { SelectedTabService } from '@services/selectedTab.service';
+// import { SelectedTabService } from '@services/selectedTab.service';
 
 import { ISubtabAdicional } from '@interfaces/subtabAdicional.interface';
+import { DataStoreTabService } from '@services/dataStoreTab.service';
 @Component({
   selector: 'app-subtabs',
   templateUrl: './subtabs.component.html',
@@ -44,8 +45,9 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     private _selectedSubtab1Service: SelectedSubtab1Service,
     private _selectedSubtab2Service: SelectedSubtab2Service,
     private _selectedSubtab4Service: SelectedSubtab4Service,
-    private _selectedTabService: SelectedTabService,
-    private _dataStoreSubtabService: DataStoreSubtabService
+    // private _selectedTabService: SelectedTabService,
+    private _dataStoreSubtabService: DataStoreSubtabService,
+    private _dataStoreTabService: DataStoreTabService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -91,7 +93,6 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     }
 
     this._dataStoreSubtabService.setData(event);
-
     this._reloadTableService.triggerReloadTable();
   }
 
@@ -113,17 +114,28 @@ export class SubtabsComponent implements OnInit, OnDestroy {
       this._subtabSelectd4 = data;
     });
 
-    this._selectedTabService.source$
-      .pipe(
-        tap((data) => {
-          this._tabSelected = data;
-          const clasification = getClasificacion(this._tabSelected as CLASIFICATION_TYPE);
-          this.subtabs = clasification.subtabs;
-          console.log(this.subtabs);
-          this.subtabsAdditional = clasification.subtabsAdditional;
-        })
-      )
+    // this._selectedTabService.source$
+    //   .pipe(
+    //     tap((data) => {
+    //       this._tabSelected = data;
+    //       const clasification = getClasificacion(this._tabSelected as CLASIFICATION_TYPE);
+    //       this.subtabs = clasification.subtabs;
+    //       console.log(this.subtabs);
+    //       this.subtabsAdditional = clasification.subtabsAdditional;
+    //     })
+    //   )
+    //   .pipe(takeUntil(this._unsubscribe$))
+    //   .subscribe();
+
+    this._dataStoreTabService
+      .getTab()
       .pipe(takeUntil(this._unsubscribe$))
-      .subscribe();
+      .subscribe((storeTab) => {
+        this._tabSelected = storeTab.clasificationType;
+        const clasification = getClasificacion(this._tabSelected as CLASIFICATION_TYPE);
+        this.subtabs = clasification.subtabs;
+        console.log(this.subtabs);
+        this.subtabsAdditional = clasification.subtabsAdditional;
+      });
   }
 }

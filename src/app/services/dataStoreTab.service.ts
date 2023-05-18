@@ -31,8 +31,6 @@ export class DataStoreTabService {
     // Initialize with a default tab
     this.tabSubject = new BehaviorSubject<ITab>({
       clasificationType: 'ingresosEconomicaEconomicos',
-      name: '',
-      key: '',
       selected: false
     });
   }

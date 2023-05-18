@@ -51,8 +51,8 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
 
     this._dataStoreTabService.setTab({
       clasificationType: this.tabDataMap[tab.title],
-      name: '',
-      key: '',
+      // name: '',
+      // key: '',
       selected: false
     });
   }
