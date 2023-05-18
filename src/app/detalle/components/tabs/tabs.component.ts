@@ -17,8 +17,6 @@ export class TabsComponent implements AfterContentInit {
   // que la variable tabs no será nula en tiempo de ejecución.
   @ContentChildren(TabComponent) tabs!: QueryList<TabComponent>;
 
-  // public tabSignal = signal<CLASIFICATION_TYPE>('ingresosEconomicaEconomicos');
-
   constructor(private _selectedTabService: SelectedTabService) {}
 
   ngAfterContentInit(): void {
@@ -26,11 +24,6 @@ export class TabsComponent implements AfterContentInit {
     if (!this.tabs.some((tab) => tab.active)) {
       this.tabs.first.active = true;
     }
-
-    // const activeTabs = this.tabs.filter((tab) => tab.active);
-    // if (activeTabs.length === 0) {
-    //   this.tabs.first.active = true;
-    // }
   }
 
   async clickTab(tab: TabComponent): Promise<void> {
@@ -46,14 +39,6 @@ export class TabsComponent implements AfterContentInit {
       tab.active = true;
     }
 
-    // const tabs = this.tabs.toArray();
-    // const tabActive = tabs.find((tab) => tab.active);
-
-    // if (tabActive && tabActive.title !== tab.title) {
-    //   this.tabs.toArray().forEach((tab) => (tab.active = false));
-    //   tab.active = true;
-    // }
-
     const tabDataMap = {
       Ingresos: 'ingresosEconomicaEconomicos',
       '¿En qué se gasta?': 'gastosProgramaProgramas',
@@ -61,9 +46,6 @@ export class TabsComponent implements AfterContentInit {
       '¿Para qué se gasta?': 'gastosEconomicaEconomicos'
     };
 
-    // this.tabSignal.set(tabDataMap[tab.title]);
     this._selectedTabService.setSelectedTab(tabDataMap[tab.title]);
-    // const clasificationType: CLASIFICATION_TYPE = tabDataMap[tab.title];
-    // this._selectedTabService.setSelectedTab(clasificationType);
   }
 }
