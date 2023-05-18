@@ -8,46 +8,13 @@
   <app-table-presupuesto />
   <app-treemap />
 
-  <!-- <app-tabs>
-    <app-tab title="Ingresos" [active]="true">
-      <app-subtabs />
-      <app-table />
-    </app-tab>
-
-    <app-tab title="¿En qué se gasta?">
-      <app-subtabs />
-      <app-table />
-    </app-tab>
-
-    <app-tab title="¿Quién lo gasta?">
-      <app-subtabs />
-      <app-table />
-    </app-tab>
-
-    <app-tab title="¿Para qué se gasta?">
-      <app-subtabs />
-      <app-table />
-    </app-tab>
-  </app-tabs>
-</div> -->
-
   <app-tabs>
-    <app-tab title="{{ tabs[0].title }}" [clasification]="tabs[0].clasificationType" [active]="true">
-      <app-subtabs />
-      <app-table />
-    </app-tab>
-
-    <app-tab title="{{ tabs[1].title }}" [clasification]="tabs[1].clasificationType">
-      <app-subtabs />
-      <app-table />
-    </app-tab>
-
-    <app-tab title="{{ tabs[2].title }}" [clasification]="tabs[2].clasificationType">
-      <app-subtabs />
-      <app-table />
-    </app-tab>
-
-    <app-tab title="{{ tabs[3].title }}" [clasification]="tabs[3].clasificationType">
+    <app-tab
+      *ngFor="let tab of tabs; let isFirst = first"
+      [title]="tab.title"
+      [clasification]="tab.clasificationType"
+      [active]="isFirst"
+    >
       <app-subtabs />
       <app-table />
     </app-tab>

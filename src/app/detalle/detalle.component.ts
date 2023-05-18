@@ -8,7 +8,9 @@ import { TabComponent } from './components/tabs/tab/tab.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { TreemapComponent } from './components/treemap/treemap.component';
 
+import { NgFor } from '@angular/common';
 import { ITab } from '@interfaces/tab.interface';
+
 @Component({
   selector: 'app-detalle',
   templateUrl: './detalle.component.html',
@@ -21,11 +23,11 @@ import { ITab } from '@interfaces/tab.interface';
     TableComponent,
     TablePresupuestoComponent,
     TabsComponent,
-    TreemapComponent
+    TreemapComponent,
+    NgFor
   ]
 })
 export class DetalleComponent {
-  // eslint-disable-next-line prettier/prettier
   public tabs: ITab[] = [
     { clasificationType: 'ingresosEconomicaEconomicos', title: 'Ingresos', selected: true },
     { clasificationType: 'gastosProgramaProgramas', title: '¿En qué se gasta?', selected: false },
