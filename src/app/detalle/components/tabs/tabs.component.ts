@@ -5,8 +5,9 @@ import { TabComponent } from './tab/tab.component';
 
 import { Subject, takeUntil } from 'rxjs';
 
+import { DataStoreTabService } from '@services/dataStoreTab.service';
+
 import { ITab } from '@interfaces/tab.interface';
-import { DataStoreTabService } from '../../../services/dataStoreTab.service';
 
 @Component({
   selector: 'app-tabs',
@@ -16,17 +17,9 @@ import { DataStoreTabService } from '../../../services/dataStoreTab.service';
   imports: [NgFor, NgClass]
 })
 export class TabsComponent implements AfterContentInit, OnDestroy {
-  // El operador de aserción de no nulo ! se utiliza para asegurar
-  // que la variable tabs no será nula en tiempo de ejecución.
-  @ContentChildren(TabComponent) tabs!: QueryList<TabComponent>;
+  @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
   private _tabSelected: ITab;
   private _unsubscribe$ = new Subject<void>();
-  // private tabDataMap = {
-  //   Ingresos: 'ingresosEconomicaEconomicos',
-  //   '¿En qué se gasta?': 'gastosProgramaProgramas',
-  //   '¿Quién lo gasta?': 'gastosOrganicaOrganicos',
-  //   '¿Para qué se gasta?': 'gastosEconomicaEconomicos'
-  // };
 
   constructor(private _dataStoreTabService: DataStoreTabService) {
     this._dataStoreTabService
@@ -46,23 +39,16 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
     this._unsubscribe$.complete();
   }
 
-  async clickTab(tab: TabComponent): Promise<void> {
+  clickTab(tab: TabComponent): void {
     this.setActiveTab(tab);
 
     this._dataStoreTabService.setTab({
-      // clasificationType: this.tabDataMap[tab.title],
       clasificationType: tab.clasification
-      // name: '',
-      // key: '',
-      // selected: false
     });
   }
 
   private setActiveTab(tab?: TabComponent): void {
-    const tabsArray = this.tabs.toArray();
-    tabsArray.forEach((t) => {
-      // if (tab ? t.title === tab.title : this.tabDataMap[t.title] === this._tabSelected.clasificationType) {
-      // if (tab ? t.title === tab.title : t.clasification === tab.clasification) {
+    this.tabs.toArray().forEach((t) => {
       if (tab ? t.title === tab.title : t.clasification === this._tabSelected.clasificationType) {
         t.active = true;
       } else {
