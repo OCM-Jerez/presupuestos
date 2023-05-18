@@ -22,20 +22,37 @@ export class TabsComponent implements AfterContentInit {
   constructor(private _selectedTabService: SelectedTabService) {}
 
   ngAfterContentInit(): void {
-    const activeTabs = this.tabs.filter((tab) => tab.active);
-    if (activeTabs.length === 0) {
+    // Si no hay pestañas activas, activa la primera
+    if (!this.tabs.some((tab) => tab.active)) {
       this.tabs.first.active = true;
     }
+
+    // const activeTabs = this.tabs.filter((tab) => tab.active);
+    // if (activeTabs.length === 0) {
+    //   this.tabs.first.active = true;
+    // }
   }
 
   async clickTab(tab: TabComponent): Promise<void> {
+    console.log(tab);
+    console.log(this.tabs);
+    console.log(this.tabs.toArray());
+
     const tabs = this.tabs.toArray();
     const tabActive = tabs.find((tab) => tab.active);
 
     if (tabActive && tabActive.title !== tab.title) {
-      this.tabs.toArray().forEach((tab) => (tab.active = false));
+      tabs.forEach((tab) => (tab.active = false));
       tab.active = true;
     }
+
+    // const tabs = this.tabs.toArray();
+    // const tabActive = tabs.find((tab) => tab.active);
+
+    // if (tabActive && tabActive.title !== tab.title) {
+    //   this.tabs.toArray().forEach((tab) => (tab.active = false));
+    //   tab.active = true;
+    // }
 
     const tabDataMap = {
       Ingresos: 'ingresosEconomicaEconomicos',
