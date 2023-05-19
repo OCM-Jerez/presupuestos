@@ -12,9 +12,9 @@ import { ISubtabClasification } from '@interfaces/subtabClasification.interface'
 import { DataStoreSubtabService } from '@services/dataStoreSubtab.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 import { ReloadTableService } from '@services/reloadTable.service';
-import { SelectedSubtab1Service } from '@services/selectedSubtab1.service';
-import { SelectedSubtab2Service } from '@services/selectedSubtab2.service';
-import { SelectedSubtab4Service } from '@services/selectedSubtab4.service';
+// import { SelectedSubtab1Service } from '@services/selectedSubtab1.service';
+// import { SelectedSubtab2Service } from '@services/selectedSubtab2.service';
+// import { SelectedSubtab4Service } from '@services/selectedSubtab4.service';
 // import { SelectedTabService } from '@services/selectedTab.service';
 
 import { ISubtabAdicional } from '@interfaces/subtabAdicional.interface';
@@ -27,9 +27,9 @@ import { DataStoreTabService } from '@services/dataStoreTab.service';
   imports: [NgFor, NgClass, NgIf, AsyncPipe, JsonPipe]
 })
 export class SubtabsComponent implements OnInit, OnDestroy {
-  private _subtabSelectd1: string;
-  private _subtabSelectd2: string;
-  private _subtabSelectd4: string;
+  // private _subtabSelectd1: string;
+  // private _subtabSelectd2: string;
+  // private _subtabSelectd4: string;
   private _tabSelected: string;
   private selectedSubtab: ISubtabClasification;
   private _unsubscribe$ = new Subject<void>();
@@ -42,9 +42,9 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     private _router: Router,
     private _hasRowClicked: HasRowClicked,
     private _reloadTableService: ReloadTableService,
-    private _selectedSubtab1Service: SelectedSubtab1Service,
-    private _selectedSubtab2Service: SelectedSubtab2Service,
-    private _selectedSubtab4Service: SelectedSubtab4Service,
+    // private _selectedSubtab1Service: SelectedSubtab1Service,
+    // private _selectedSubtab2Service: SelectedSubtab2Service,
+    // private _selectedSubtab4Service: SelectedSubtab4Service,
     // private _selectedTabService: SelectedTabService,
     private _dataStoreSubtabService: DataStoreSubtabService,
     private _dataStoreTabService: DataStoreTabService
@@ -54,6 +54,14 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     const clasification = getClasificacion('ingresosEconomicaEconomicos');
     this.subtabs = clasification.subtabs;
     this.subtabsAdditional = clasification.subtabsAdditional;
+    this._dataStoreSubtabService.setData({
+      clasificationType: 'ingresosEconomicaEconomicos',
+      codField: 'CodEco',
+      desField: 'DesEco',
+      key: 'ingresosEconomicaEconomicos',
+      name: 'Por económico',
+      selected: true
+    });
     this.subscribeToServices();
   }
 
@@ -66,7 +74,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     console.log(event);
     const subtabName = event.name;
     // const subtab: ISubtabClasification = this.subtabs.find((subtab: ISubtabClasification) => subtab.key === event.key);
-    // this.subtabs.forEach((b) => (b.selected = false));
+    this.subtabs.forEach((b) => (b.selected = false));
     // event.selected = true;
     // En lugar de recorrer todos los subtabs para deseleccionarlos, puedes mantener una referencia al subtab seleccionado
     // y simplemente deseleccionarlo cuando se selecciona uno nuevo.
@@ -76,21 +84,21 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     }
 
     event.selected = true;
-    this.selectedSubtab = event;
+    // this.selectedSubtab = event;
 
-    switch (this._tabSelected) {
-      case 'ingresosEconomicaEconomicos':
-        this._selectedSubtab1Service.setSelectedSubtab1(subtabName);
-        break;
-      case 'gastosProgramaProgramas':
-        this._selectedSubtab2Service.setSelectedSubtab2(subtabName);
-        break;
-      case 'gastosOrganicaOrganicos':
-        break;
-      case 'gastosEconomicaEconomicos':
-        this._selectedSubtab4Service.setSelectedSubtab4(subtabName);
-        break;
-    }
+    // switch (this._tabSelected) {
+    //   case 'ingresosEconomicaEconomicos':
+    //     this._selectedSubtab1Service.setSelectedSubtab1(subtabName);
+    //     break;
+    //   case 'gastosProgramaProgramas':
+    //     this._selectedSubtab2Service.setSelectedSubtab2(subtabName);
+    //     break;
+    //   case 'gastosOrganicaOrganicos':
+    //     break;
+    //   case 'gastosEconomicaEconomicos':
+    //     this._selectedSubtab4Service.setSelectedSubtab4(subtabName);
+    //     break;
+    // }
 
     this._dataStoreSubtabService.setData(event);
     this._reloadTableService.triggerReloadTable();
@@ -102,17 +110,17 @@ export class SubtabsComponent implements OnInit, OnDestroy {
   }
 
   subscribeToServices(): void {
-    this._selectedSubtab1Service.source$.subscribe((data) => {
-      this._subtabSelectd1 = data;
-    });
+    // this._selectedSubtab1Service.source$.subscribe((data) => {
+    //   this._subtabSelectd1 = data;
+    // });
 
-    this._selectedSubtab2Service.source$.subscribe((data) => {
-      this._subtabSelectd2 = data;
-    });
+    // this._selectedSubtab2Service.source$.subscribe((data) => {
+    //   this._subtabSelectd2 = data;
+    // });
 
-    this._selectedSubtab4Service.source$.subscribe((data) => {
-      this._subtabSelectd4 = data;
-    });
+    // this._selectedSubtab4Service.source$.subscribe((data) => {
+    //   this._subtabSelectd4 = data;
+    // });
 
     // this._selectedTabService.source$
     //   .pipe(
