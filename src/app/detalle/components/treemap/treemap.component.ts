@@ -9,7 +9,7 @@ import { TableService } from '@services/table.service';
 
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 import { IDataTreemap } from '@interfaces/dataTreemap.interface';
-// import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
+import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
 import { ITab } from '@interfaces/tab.interface';
 
 import { ReloadTableService } from '@services/reloadTable.service';
@@ -23,21 +23,20 @@ HighchartsTreemap(Highcharts);
   standalone: true
 })
 export class TreemapComponent implements OnInit, OnDestroy {
+  private _clasification: CLASIFICATION_TYPE;
+  private _data: ISubtabClasification;
   private _dataTreeMap: IDataTreemap;
   private _fields = { codigo: '', descripcion: '' };
-  private _clasification: CLASIFICATION_TYPE;
   private _isIngreso = false;
   private _tabSelected: ITab;
   private _unsubscribe$ = new Subject<void>();
-  private _data: any;
-  // private _subtabSelected: ISubtabClasification;
 
   constructor(
     private _dataStoreSubtabService: DataStoreSubtabService,
     private _dataStoreTabService: DataStoreTabService,
     private _prepareDataTreemapService: PrepareDataTreemapService,
-    private _tableService: TableService,
-    private _reloadTableService: ReloadTableService
+    private _reloadTableService: ReloadTableService,
+    private _tableService: TableService
   ) {
     this._dataStoreTabService
       .getTab()
@@ -46,17 +45,12 @@ export class TreemapComponent implements OnInit, OnDestroy {
         this._tabSelected = storeTab;
         this.setFields();
       });
-
-    // this._subtabSelected = this._dataStoreSubtabService.getData1();
-    // console.log('this._subtabSelected', this._subtabSelected);
   }
 
   ngOnInit() {
-    // console.log('treemap');
     this._reloadTableService.reloadTable$.pipe(takeUntil(this._unsubscribe$)).subscribe(() => {
       this.setFields();
     });
-    // this.setFields();
   }
 
   ngOnDestroy() {
@@ -79,11 +73,10 @@ export class TreemapComponent implements OnInit, OnDestroy {
         this._data = this._dataStoreSubtabService.getData4();
         break;
     }
-    // console.log('data', this._data);
+
     this._clasification = this._data.key as CLASIFICATION_TYPE;
     this._fields.codigo = this._data.codField;
     this._fields.descripcion = this._data.desField;
-    // console.log('this._clasification', this._clasification);
 
     if (this._clasification.startsWith('ingresos')) {
       this._isIngreso = true;
@@ -95,12 +88,7 @@ export class TreemapComponent implements OnInit, OnDestroy {
 
   async calcSeries() {
     const data = await this._tableService.loadData(this._clasification);
-    // console.log('data', data);
-
     const dataTreemap = this._isIngreso ? data.rowDataIngresos : data.rowDataGastos;
-    // console.log('this._isIngreso', this._isIngreso);
-
-    // console.log('dataTreemap', dataTreemap);
     this._dataTreeMap = this._prepareDataTreemapService.calcSeries(
       dataTreemap,
       this._fields.codigo,
@@ -111,8 +99,6 @@ export class TreemapComponent implements OnInit, OnDestroy {
   }
 
   showTreemap() {
-    // console.log('dataTreeMap', this._dataTreeMap);
-
     const data: IDataTreemap = this._dataTreeMap;
     Highcharts.chart('treemap', {
       accessibility: {
