@@ -7,7 +7,7 @@ import { Subject, takeUntil } from 'rxjs';
 
 import { DataStoreSubtabService } from '@services/dataStoreSubtab.service';
 import { DataStoreTabService } from '@services/dataStoreTab.service';
-import { ReloadTableService } from '@services/reloadTable.service';
+// import { ReloadTableService } from '@services/reloadTable.service';
 
 import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
 import { ITab } from '@interfaces/tab.interface';
@@ -26,9 +26,8 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
   private _unsubscribe$ = new Subject<void>();
 
   constructor(
-    private _dataStoreTabService: DataStoreTabService,
     private _dataStoreSubtabService: DataStoreSubtabService,
-    private _reloadTableService: ReloadTableService
+    private _dataStoreTabService: DataStoreTabService // private _reloadTableService: ReloadTableService
   ) {
     this._dataStoreTabService
       .getTab()
@@ -36,42 +35,6 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
       .subscribe((storeTab) => {
         this._tabSelected = storeTab;
       });
-
-    // this._dataStoreSubtabService.setData1({
-    //   clasificationType: 'ingresosEconomicaEconomicos',
-    //   codField: 'CodEco',
-    //   desField: 'DesEco',
-    //   key: 'ingresosEconomicaEconomicos',
-    //   name: 'Por económico',
-    //   selected: true
-    // });
-
-    // this._dataStoreSubtabService.setData2({
-    //   clasificationType: 'gastosProgramaProgramas',
-    //   codField: 'CodPro',
-    //   desField: 'DesPro',
-    //   key: 'gastosProgramaProgramas',
-    //   name: 'Por programa',
-    //   selected: true
-    // });
-
-    // this._dataStoreSubtabService.setData3({
-    //   clasificationType: 'gastosOrganicaOrganicos',
-    //   codField: 'CodOrg',
-    //   desField: 'DesOrg',
-    //   key: 'gastosOrganicaOrganicos',
-    //   name: 'Orgánico',
-    //   selected: true
-    // });
-
-    // this._dataStoreSubtabService.setData4({
-    //   clasificationType: 'gastosEconomicaEconomicos',
-    //   codField: 'CodEco',
-    //   desField: 'DesEco',
-    //   key: 'gastosEconomicaEconomicos',
-    //   name: 'Económico',
-    //   selected: true
-    // });
   }
 
   ngAfterContentInit(): void {
@@ -84,11 +47,7 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
   }
 
   clickTab(tab: TabComponent): void {
-    // console.clear();
-    console.error('clickTab', tab.clasification);
-
     this.setActiveTab(tab);
-
     this._dataStoreTabService.setTab({
       clasificationType: tab.clasification
     });
@@ -108,45 +67,7 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
         this._subtabSelected = this._dataStoreSubtabService.getData4();
         break;
     }
-
-    // switch (tab.clasification) {
-    //   case 'gastosProgramaProgramas':
-    //     data = {
-    //       clasificationType: 'gastosProgramaProgramas' as CLASIFICATION_TYPE,
-    //       codField: 'CodPro',
-    //       desField: 'DesPro',
-    //       key: 'gastosProgramaProgramas',
-    //       name: 'Por programa',
-    //       selected: true
-    //     };
-    //     break;
-    //   case 'gastosOrganicaOrganicos':
-    //     data = {
-    //       clasificationType: 'gastosOrganicaOrganicos' as CLASIFICATION_TYPE,
-    //       codField: 'CodOrg',
-    //       desField: 'DesOrg',
-    //       key: 'gastosOrganicaOrganicos',
-    //       name: 'Por programa',
-    //       selected: true
-    //     };
-    //     break;
-    //   case 'gastosEconomicaEconomicos':
-    //     data = {
-    //       clasificationType: 'gastosEconomicaEconomicos' as CLASIFICATION_TYPE,
-    //       name: 'Por económico',
-    //       key: 'gastosEconomicaEconomicos',
-    //       codField: 'CodEco',
-    //       desField: 'DesEco',
-    //       selected: true
-    //     };
-    //     break;
-
-    //   default:
-    //     break;
-    // }
-
-    // this._dataStoreSubtabService.setData1(this._subtabSelected);
-    this._reloadTableService.triggerReloadTable();
+    // this._reloadTableService.triggerReloadTable();
   }
 
   private setActiveTab(tab?: TabComponent): void {
