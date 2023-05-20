@@ -50,7 +50,6 @@ export class SubtabsComponent implements OnInit, OnDestroy {
   }
 
   async clickSubtab(event: ISubtabClasification): Promise<void> {
-    console.log(event);
     const subtabName = event.name;
     this.subtabs.forEach((b) => (b.selected = false));
 
@@ -91,7 +90,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
         this._tabSelected = storeTab.clasificationType;
         const clasification = getClasificacion(this._tabSelected as CLASIFICATION_TYPE);
         this.subtabs = clasification.subtabs;
-        console.log(this.subtabs);
+        // console.log(this.subtabs);
         this.subtabsAdditional = clasification.subtabsAdditional;
       });
   }
