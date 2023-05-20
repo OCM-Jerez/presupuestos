@@ -5,10 +5,38 @@ import { ISubtabClasification } from '@interfaces/subtabClasification.interface'
   providedIn: 'root'
 })
 export class DataStoreSubtabService {
-  private data1: ISubtabClasification;
-  private data2: ISubtabClasification;
-  private data3: ISubtabClasification;
-  private data4: ISubtabClasification;
+  private data1: ISubtabClasification = {
+    clasificationType: 'ingresosEconomicaEconomicos',
+    codField: 'CodEco',
+    desField: 'DesEco',
+    key: 'ingresosEconomicaEconomicos',
+    name: 'Por económico',
+    selected: true
+  };
+  private data2: ISubtabClasification = {
+    clasificationType: 'gastosProgramaProgramas',
+    codField: 'CodPro',
+    desField: 'DesPro',
+    key: 'gastosProgramaProgramas',
+    name: 'Por programa',
+    selected: true
+  };
+  private data3: ISubtabClasification = {
+    clasificationType: 'gastosOrganicaOrganicos',
+    codField: 'CodOrg',
+    desField: 'DesOrg',
+    key: 'gastosOrganicaOrganicos',
+    name: 'Orgánico',
+    selected: true
+  };
+  private data4: ISubtabClasification = {
+    clasificationType: 'gastosEconomicaEconomicos',
+    codField: 'CodEco',
+    desField: 'DesEco',
+    key: 'gastosEconomicaEconomicos',
+    name: 'Económico',
+    selected: true
+  };
 
   setData1(data1: ISubtabClasification): void {
     this.data1 = data1;
