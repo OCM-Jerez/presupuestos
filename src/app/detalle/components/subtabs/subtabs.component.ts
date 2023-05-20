@@ -54,14 +54,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
     const clasification = getClasificacion('ingresosEconomicaEconomicos');
     this.subtabs = clasification.subtabs;
     this.subtabsAdditional = clasification.subtabsAdditional;
-    this._dataStoreSubtabService.setData({
-      clasificationType: 'ingresosEconomicaEconomicos',
-      codField: 'CodEco',
-      desField: 'DesEco',
-      key: 'ingresosEconomicaEconomicos',
-      name: 'Por económico',
-      selected: true
-    });
+
     this.subscribeToServices();
   }
 
@@ -85,22 +78,25 @@ export class SubtabsComponent implements OnInit, OnDestroy {
 
     event.selected = true;
     // this.selectedSubtab = event;
+    console.clear();
+    console.log(this._tabSelected);
 
-    // switch (this._tabSelected) {
-    //   case 'ingresosEconomicaEconomicos':
-    //     this._selectedSubtab1Service.setSelectedSubtab1(subtabName);
-    //     break;
-    //   case 'gastosProgramaProgramas':
-    //     this._selectedSubtab2Service.setSelectedSubtab2(subtabName);
-    //     break;
-    //   case 'gastosOrganicaOrganicos':
-    //     break;
-    //   case 'gastosEconomicaEconomicos':
-    //     this._selectedSubtab4Service.setSelectedSubtab4(subtabName);
-    //     break;
-    // }
+    switch (this._tabSelected) {
+      case 'ingresosEconomicaEconomicos':
+        this._dataStoreSubtabService.setData1(event);
+        break;
+      case 'gastosProgramaProgramas':
+        this._dataStoreSubtabService.setData2(event);
+        break;
+      case 'gastosOrganicaOrganicos':
+        this._dataStoreSubtabService.setData3(event);
+        break;
+      case 'gastosEconomicaEconomicos':
+        this._dataStoreSubtabService.setData4(event);
+        break;
+    }
 
-    this._dataStoreSubtabService.setData(event);
+    // this._dataStoreSubtabService.setData1(event);
     this._reloadTableService.triggerReloadTable();
   }
 

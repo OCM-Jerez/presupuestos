@@ -83,16 +83,16 @@ export class TreemapComponent implements OnInit {
   // }
 
   async setFields() {
-    const data = this._dataStoreSubtabService.getData();
-    console.log('data', data);
+    const data = this._dataStoreSubtabService.getData1();
+    // console.log('data', data);
     this._clasification = data.key as CLASIFICATION_TYPE;
     this._fields.codigo = data.codField;
     this._fields.descripcion = data.desField;
     if (this._clasification.startsWith('ingresos')) {
       this._isIngreso = true;
     }
-    console.log('this.__clasification', this._clasification);
-    console.log('this._fields', this._fields);
+    // console.log('this.__clasification', this._clasification);
+    // console.log('this._fields', this._fields);
 
     // switch (this._tabSelected) {
     //   case 'ingresosEconomicaEconomicos':

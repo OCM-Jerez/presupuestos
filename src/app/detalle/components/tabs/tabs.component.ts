@@ -9,7 +9,7 @@ import { DataStoreSubtabService } from '@services/dataStoreSubtab.service';
 import { DataStoreTabService } from '@services/dataStoreTab.service';
 import { ReloadTableService } from '@services/reloadTable.service';
 
-import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
+import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
 import { ITab } from '@interfaces/tab.interface';
 
 @Component({
@@ -22,6 +22,7 @@ import { ITab } from '@interfaces/tab.interface';
 export class TabsComponent implements AfterContentInit, OnDestroy {
   @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
   private _tabSelected: ITab;
+  private _subtabSelected: ISubtabClasification;
   private _unsubscribe$ = new Subject<void>();
 
   constructor(
@@ -35,6 +36,42 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
       .subscribe((storeTab) => {
         this._tabSelected = storeTab;
       });
+
+    this._dataStoreSubtabService.setData1({
+      clasificationType: 'ingresosEconomicaEconomicos',
+      codField: 'CodEco',
+      desField: 'DesEco',
+      key: 'ingresosEconomicaEconomicos',
+      name: 'Por económico',
+      selected: true
+    });
+
+    this._dataStoreSubtabService.setData2({
+      clasificationType: 'gastosProgramaProgramas',
+      codField: 'CodPro',
+      desField: 'DesPro',
+      key: 'gastosProgramaProgramas',
+      name: 'Por programa',
+      selected: true
+    });
+
+    this._dataStoreSubtabService.setData3({
+      clasificationType: 'gastosOrganicaOrganicos',
+      codField: 'CodOrg',
+      desField: 'DesOrg',
+      key: 'gastosOrganicaOrganicos',
+      name: 'Orgánico',
+      selected: true
+    });
+
+    this._dataStoreSubtabService.setData4({
+      clasificationType: 'gastosEconomicaEconomicos',
+      codField: 'CodEco',
+      desField: 'DesEco',
+      key: 'gastosEconomicaEconomicos',
+      name: 'Económico',
+      selected: true
+    });
   }
 
   ngAfterContentInit(): void {
@@ -47,59 +84,78 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
   }
 
   clickTab(tab: TabComponent): void {
+    // console.clear();
+    console.error('clickTab', tab.clasification);
+
     this.setActiveTab(tab);
 
     this._dataStoreTabService.setTab({
       clasificationType: tab.clasification
     });
 
-    let data = {
-      clasificationType: 'gastosProgramaProgramas' as CLASIFICATION_TYPE,
-      codField: 'CodPro',
-      desField: 'DesPro',
-      key: 'gastosProgramaProgramas',
-      name: 'Por programa',
-      selected: true
-    };
+    // Tengo que recuperar el subtab seleccionado en el tab actual
+
+    // let data = {
+    //   clasificationType: 'gastosProgramaProgramas' as CLASIFICATION_TYPE,
+    //   codField: 'CodPro',
+    //   desField: 'DesPro',
+    //   key: 'gastosProgramaProgramas',
+    //   name: 'Por programa',
+    //   selected: true
+    // };
 
     switch (tab.clasification) {
+      case 'ingresosEconomicaEconomicos':
+        this._subtabSelected = this._dataStoreSubtabService.getData1();
+        break;
       case 'gastosProgramaProgramas':
-        data = {
-          clasificationType: 'gastosProgramaProgramas' as CLASIFICATION_TYPE,
-          codField: 'CodPro',
-          desField: 'DesPro',
-          key: 'gastosProgramaProgramas',
-          name: 'Por programa',
-          selected: true
-        };
+        this._subtabSelected = this._dataStoreSubtabService.getData2();
         break;
       case 'gastosOrganicaOrganicos':
-        data = {
-          clasificationType: 'gastosOrganicaOrganicos' as CLASIFICATION_TYPE,
-          codField: 'CodOrg',
-          desField: 'DesOrg',
-          key: 'gastosOrganicaOrganicos',
-          name: 'Por programa',
-          selected: true
-        };
+        this._subtabSelected = this._dataStoreSubtabService.getData3();
         break;
       case 'gastosEconomicaEconomicos':
-        data = {
-          clasificationType: 'gastosEconomicaEconomicos' as CLASIFICATION_TYPE,
-          name: 'Por económico',
-          key: 'gastosEconomicaEconomicos',
-          codField: 'CodEco',
-          desField: 'DesEco',
-          selected: true
-        };
-        break;
-
-      default:
+        this._subtabSelected = this._dataStoreSubtabService.getData4();
         break;
     }
 
-    this._dataStoreSubtabService.setData(data);
+    // switch (tab.clasification) {
+    //   case 'gastosProgramaProgramas':
+    //     data = {
+    //       clasificationType: 'gastosProgramaProgramas' as CLASIFICATION_TYPE,
+    //       codField: 'CodPro',
+    //       desField: 'DesPro',
+    //       key: 'gastosProgramaProgramas',
+    //       name: 'Por programa',
+    //       selected: true
+    //     };
+    //     break;
+    //   case 'gastosOrganicaOrganicos':
+    //     data = {
+    //       clasificationType: 'gastosOrganicaOrganicos' as CLASIFICATION_TYPE,
+    //       codField: 'CodOrg',
+    //       desField: 'DesOrg',
+    //       key: 'gastosOrganicaOrganicos',
+    //       name: 'Por programa',
+    //       selected: true
+    //     };
+    //     break;
+    //   case 'gastosEconomicaEconomicos':
+    //     data = {
+    //       clasificationType: 'gastosEconomicaEconomicos' as CLASIFICATION_TYPE,
+    //       name: 'Por económico',
+    //       key: 'gastosEconomicaEconomicos',
+    //       codField: 'CodEco',
+    //       desField: 'DesEco',
+    //       selected: true
+    //     };
+    //     break;
 
+    //   default:
+    //     break;
+    // }
+
+    // this._dataStoreSubtabService.setData1(this._subtabSelected);
     this._reloadTableService.triggerReloadTable();
   }
 

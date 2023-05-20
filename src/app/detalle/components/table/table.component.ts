@@ -15,12 +15,12 @@ import { DataStoreService } from '@services/dataStore.service';
 import { DataStoreSubtabService } from '@services/dataStoreSubtab.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 import { ReloadTableService } from '@services/reloadTable.service';
-import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
 
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
+import { DataStoreTabService } from '../../../services/dataStoreTab.service';
 
 @Component({
   selector: 'app-table',
@@ -47,6 +47,7 @@ export class TableComponent implements OnInit, OnDestroy {
   // private _subTabSelectd4: string;
   private _tabSelected: any;
   private _unsubscribe$ = new Subject<void>();
+  private _data: any;
 
   constructor(
     private _avalaibleYearsService: AvalaibleYearsService,
@@ -56,17 +57,21 @@ export class TableComponent implements OnInit, OnDestroy {
     // private _selectedSubtab1Service: SelectedSubtab1Service,
     // private _selectedSubtab2Service: SelectedSubtab2Service,
     // private _selectedSubtab4Service: SelectedSubtab4Service,
-    private _selectedTabService: SelectedTabService,
+    // private _selectedTabService: SelectedTabService,
     private _tableService: TableService,
+    private _dataStoreTabService: DataStoreTabService,
     private _dataStoreSubtabService: DataStoreSubtabService
   ) {
     // this._subscribeToServices();
   }
 
   async ngOnInit(): Promise<void> {
+    console.log('TableComponent.ngOnInit()');
+
     this._hasRowClicked.change(null);
 
-    this._selectedTabService.source$
+    this._dataStoreTabService
+      .getTab()
       .pipe(
         tap((data) => {
           this._tabSelected = data;
@@ -88,14 +93,31 @@ export class TableComponent implements OnInit, OnDestroy {
 
   private async _loadTable() {
     this._hasRowClicked.change(null);
+    console.log('this._tabSelected', this._tabSelected);
 
-    const data = this._dataStoreSubtabService.getData();
-    console.log('data', data);
-    this._clasification = data.key as CLASIFICATION_TYPE;
-    this._fields.codigo = data.codField;
-    this._fields.descripcion = data.desField;
-    console.log('this._clasification', this._clasification);
-    console.log('this._fields', this._fields);
+    switch (this._tabSelected.clasificationType) {
+      case 'ingresosEconomicaEconomicos':
+        this._data = this._dataStoreSubtabService.getData1();
+        break;
+      case 'gastosProgramaProgramas':
+        this._data = this._dataStoreSubtabService.getData2();
+        break;
+      case 'gastosOrganicaOrganicos':
+        this._data = this._dataStoreSubtabService.getData3();
+        break;
+      case 'gastosEconomicaEconomicos':
+        this._data = this._dataStoreSubtabService.getData4();
+        break;
+    }
+
+    console.log('this._data', this._data);
+
+    // console.log('data', data);
+    this._clasification = this._data.key as CLASIFICATION_TYPE;
+    this._fields.codigo = this._data.codField;
+    this._fields.descripcion = this._data.desField;
+    // console.log('this._clasification', this._clasification);
+    // console.log('this._fields', this._fields);
 
     // switch (this._tabSelected) {
     //   case 'ingresosEconomicaEconomicos':
