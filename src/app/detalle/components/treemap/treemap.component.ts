@@ -1,19 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
-// import { Subject } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 
 import { DataStoreSubtabService } from '@services/dataStoreSubtab.service';
+import { DataStoreTabService } from '@services/dataStoreTab.service';
 import { PrepareDataTreemapService } from '@services/prepareDataTreemap.service';
-// import { SelectedSubtab1Service } from '@services/selectedSubtab1.service';
-// import { SelectedSubtab2Service } from '@services/selectedSubtab2.service';
-// import { SelectedSubtab4Service } from '@services/selectedSubtab4.service';
-// import { SelectedTabService } from '@services/selectedTab.service';
 import { TableService } from '@services/table.service';
 
-import { IDataTreemap } from '@interfaces/dataTreemap.interface';
-
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
+import { IDataTreemap } from '@interfaces/dataTreemap.interface';
+// import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
+import { ITab } from '@interfaces/tab.interface';
 
+import { ReloadTableService } from '@services/reloadTable.service';
 import * as Highcharts from 'highcharts';
 import HighchartsTreemap from 'highcharts/modules/treemap';
 HighchartsTreemap(Highcharts);
@@ -23,159 +22,85 @@ HighchartsTreemap(Highcharts);
   styleUrls: ['./treemap.component.scss'],
   standalone: true
 })
-// export class TreemapComponent implements OnInit, OnDestroy {
-export class TreemapComponent implements OnInit {
+export class TreemapComponent implements OnInit, OnDestroy {
   private _dataTreeMap: IDataTreemap;
-  // private _tabSelected: CLASIFICATION_TYPE = 'ingresosEconomicaEconomicos';
-  // private _subTabSelectd1: string;
-  // private _subTabSelectd2: string;
-  // private _subTabSelectd4: string;
   private _fields = { codigo: '', descripcion: '' };
-  // private _unsubscribe$ = new Subject<void>();
   private _clasification: CLASIFICATION_TYPE;
   private _isIngreso = false;
+  private _tabSelected: ITab;
+  private _unsubscribe$ = new Subject<void>();
+  private _data: any;
+  // private _subtabSelected: ISubtabClasification;
 
   constructor(
+    private _dataStoreSubtabService: DataStoreSubtabService,
+    private _dataStoreTabService: DataStoreTabService,
     private _prepareDataTreemapService: PrepareDataTreemapService,
-    // private _selectedSubtab1Service: SelectedSubtab1Service,
-    // private _selectedSubtab2Service: SelectedSubtab2Service,
-    // private _selectedSubtab4Service: SelectedSubtab4Service,
-    // private _selectedTabService: SelectedTabService,
     private _tableService: TableService,
-    private _dataStoreSubtabService: DataStoreSubtabService
-  ) {}
+    private _reloadTableService: ReloadTableService
+  ) {
+    this._dataStoreTabService
+      .getTab()
+      .pipe(takeUntil(this._unsubscribe$))
+      .subscribe((storeTab) => {
+        this._tabSelected = storeTab;
+        this.setFields();
+      });
 
-  ngOnInit() {
-    // this.subscribeToServices();
-    this.setFields();
+    // this._subtabSelected = this._dataStoreSubtabService.getData1();
+    // console.log('this._subtabSelected', this._subtabSelected);
   }
 
-  // subscribeToServices(): void {
-  //   this._selectedSubtab1Service.source$.subscribe((data) => {
-  //     this._subTabSelectd1 = data;
-  //     this.setFields();
-  //   });
+  ngOnInit() {
+    // console.log('treemap');
+    this._reloadTableService.reloadTable$.pipe(takeUntil(this._unsubscribe$)).subscribe(() => {
+      this.setFields();
+    });
+    // this.setFields();
+  }
 
-  //   this._selectedSubtab2Service.source$.subscribe((data) => {
-  //     this._subTabSelectd2 = data;
-  //     this.setFields();
-  //   });
-
-  //   this._selectedSubtab4Service.source$.subscribe((data) => {
-  //     this._subTabSelectd4 = data;
-  //     this.setFields();
-  //   });
-
-  //   this._selectedTabService.source$
-  //     .pipe(
-  //       tap((data) => {
-  //         this._tabSelected = data as CLASIFICATION_TYPE;
-  //         this.setFields();
-  //       })
-  //     )
-  //     .pipe(takeUntil(this._unsubscribe$))
-  //     .subscribe();
-  // }
-
-  // ngOnDestroy() {
-  //   this._unsubscribe$.next();
-  //   this._unsubscribe$.complete();
-  // }
+  ngOnDestroy() {
+    this._unsubscribe$.next();
+    this._unsubscribe$.complete();
+  }
 
   async setFields() {
-    const data = this._dataStoreSubtabService.getData1();
-    // console.log('data', data);
-    this._clasification = data.key as CLASIFICATION_TYPE;
-    this._fields.codigo = data.codField;
-    this._fields.descripcion = data.desField;
+    switch (this._tabSelected.clasificationType) {
+      case 'ingresosEconomicaEconomicos':
+        this._data = this._dataStoreSubtabService.getData1();
+        break;
+      case 'gastosProgramaProgramas':
+        this._data = this._dataStoreSubtabService.getData2();
+        break;
+      case 'gastosOrganicaOrganicos':
+        this._data = this._dataStoreSubtabService.getData3();
+        break;
+      case 'gastosEconomicaEconomicos':
+        this._data = this._dataStoreSubtabService.getData4();
+        break;
+    }
+    // console.log('data', this._data);
+    this._clasification = this._data.key as CLASIFICATION_TYPE;
+    this._fields.codigo = this._data.codField;
+    this._fields.descripcion = this._data.desField;
+    // console.log('this._clasification', this._clasification);
+
     if (this._clasification.startsWith('ingresos')) {
       this._isIngreso = true;
+    } else {
+      this._isIngreso = false;
     }
-    // console.log('this.__clasification', this._clasification);
-    // console.log('this._fields', this._fields);
-
-    // switch (this._tabSelected) {
-    //   case 'ingresosEconomicaEconomicos':
-    //     switch (this._subTabSelectd1) {
-    //       case 'Por capítulo ingresos':
-    //         this._clasification = 'ingresosEconomicaCapitulos';
-    //         this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
-    //         break;
-    //       case 'Por artículo':
-    //         this._clasification = 'ingresosEconomicaArticulos';
-    //         this._fields = { codigo: 'CodArt', descripcion: 'DesArt' };
-    //         break;
-    //       case 'Por concepto':
-    //         this._clasification = 'ingresosEconomicaConceptos';
-    //         this._fields = { codigo: 'CodCon', descripcion: 'DesCon' };
-    //         break;
-    //       case 'Por económico':
-    //         this._clasification = 'ingresosEconomicaEconomicos';
-    //         this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
-    //         break;
-    //       default:
-    //         break;
-    //     }
-    //     break;
-    //   case 'gastosProgramaProgramas':
-    //     switch (this._subTabSelectd2) {
-    //       case 'Por áreas':
-    //         this._clasification = 'gastosProgramaAreas';
-    //         this._fields = { codigo: 'CodAre', descripcion: 'DesAre' };
-    //         break;
-    //       case 'Por política':
-    //         this._clasification = 'gastosProgramaPoliticas';
-    //         this._fields = { codigo: 'CodPol', descripcion: 'DesPol' };
-    //         break;
-    //       case 'Por grupo programas':
-    //         this._clasification = 'gastosProgramaGrupos';
-    //         this._fields = { codigo: 'CodGru', descripcion: 'DesGru' };
-    //         break;
-    //       case 'Por programa':
-    //         this._clasification = 'gastosProgramaProgramas';
-    //         this._fields = { codigo: 'CodPro', descripcion: 'DesPro' };
-    //         break;
-    //       default:
-    //         break;
-    //     }
-    //     break;
-    //   case 'gastosOrganicaOrganicos':
-    //     this._clasification = 'gastosOrganicaOrganicos';
-    //     this._fields = { codigo: 'CodOrg', descripcion: 'DesOrg' };
-    //     break;
-    //   case 'gastosEconomicaEconomicos':
-    //     switch (this._subTabSelectd4) {
-    //       case 'Por capítulo gasto':
-    //         this._clasification = 'gastosEconomicaCapitulos';
-    //         this._fields = { codigo: 'CodCap', descripcion: 'DesCap' };
-    //         break;
-    //       case 'Por artículo':
-    //         this._clasification = 'gastosEconomicaArticulos';
-    //         this._fields = { codigo: 'CodArt', descripcion: 'DesArt' };
-    //         break;
-    //       case 'Por concepto':
-    //         this._clasification = 'gastosEconomicaConceptos';
-    //         this._fields = { codigo: 'CodCon', descripcion: 'DesCon' };
-    //         break;
-    //       case 'Por económico':
-    //         this._clasification = 'gastosEconomicaEconomicos';
-    //         this._fields = { codigo: 'CodEco', descripcion: 'DesEco' };
-    //         break;
-    //       default:
-    //         break;
-    //     }
-    //     break;
-    //   default:
-    //     break;
-    // }
-
     this.calcSeries();
   }
 
   async calcSeries() {
     const data = await this._tableService.loadData(this._clasification);
-    // const dataGraph = this._tabSelected === 'ingresosEconomicaEconomicos' ? data.rowDataIngresos : data.rowDataGastos;
+    // console.log('data', data);
+
     const dataTreemap = this._isIngreso ? data.rowDataIngresos : data.rowDataGastos;
+    // console.log('this._isIngreso', this._isIngreso);
+
+    // console.log('dataTreemap', dataTreemap);
     this._dataTreeMap = this._prepareDataTreemapService.calcSeries(
       dataTreemap,
       this._fields.codigo,
@@ -186,6 +111,8 @@ export class TreemapComponent implements OnInit {
   }
 
   showTreemap() {
+    // console.log('dataTreeMap', this._dataTreeMap);
+
     const data: IDataTreemap = this._dataTreeMap;
     Highcharts.chart('treemap', {
       accessibility: {
