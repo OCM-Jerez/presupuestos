@@ -16,6 +16,7 @@ import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 import { accumulate } from '../../commons/util/util';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-table-programa-details',
@@ -43,13 +44,10 @@ export class TableProgramaDetailsComponent implements OnInit {
     private _router: Router,
     private _location: Location,
     private _prepareDataGastosService: PrepareDataGastosService
-  ) {}
+  ) { }
 
-  async ngOnInit(): Promise<void> {
-    await this._loadTable();
-    await this._setGridOptions();
-    this._gridApi.setRowData(this.rowData);
-    await this._setColumnDefs();
+  ngOnInit(): void {
+    this._loadTable();
   }
 
   async _loadTable() {
@@ -65,6 +63,8 @@ export class TableProgramaDetailsComponent implements OnInit {
 
     // this._pushAplicacionesPresupuestarias(this.rowData);
     console.log('this.rowData', this.rowData);
+    this._setColumnDefs();
+    this._setGridOptions();
   }
 
   _pushAplicacionesPresupuestarias(rowData) {
@@ -107,7 +107,7 @@ export class TableProgramaDetailsComponent implements OnInit {
     });
   }
 
-  async _setColumnDefs() {
+  _setColumnDefs() {
     this._columnDefs = [
       {
         // headerName: this._dataTable.dataPropertyTable.headerName,
@@ -215,53 +215,55 @@ export class TableProgramaDetailsComponent implements OnInit {
     ];
   }
 
-  async _setGridOptions() {
-    await this._waitForGridApi();
-    console.log(this._gridApi);
-
-    if (this._gridApi) {
-      this.gridOptions = {
-        defaultColDef: {
-          width: 130,
-          sortable: true,
-          resizable: true,
-          filter: true,
-          aggFunc: 'sum',
-          cellRenderer: CellRendererOCM,
-          headerComponentParams: {
-            template:
-              '<div class="ag-cell-label-container" role="presentation">' +
-              '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
-              '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
-              '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
-              '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
-              '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
-              '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
-              '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
-              '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
-              '  </div>' +
-              '</div>'
-          }
-        },
-        // rowData: this.rowData,
-        columnDefs: this._columnDefs,
-        groupDisplayType: 'custom',
-        groupIncludeTotalFooter: true,
-        groupIncludeFooter: true,
-        groupHeaderHeight: 25,
-        headerHeight: 54,
-        suppressAggFuncInHeader: true,
-        rowSelection: 'single',
-        localeText: localeTextESPes,
-        pagination: true,
-        paginationPageSize: 20
-      } as GridOptions;
-    }
+  _setGridOptions() {
+    // await this._waitForGridApi();
+    // if (this._gridApi) {
+    this.gridOptions = {
+      defaultColDef: {
+        width: 130,
+        sortable: true,
+        resizable: true,
+        filter: true,
+        aggFunc: 'sum',
+        cellRenderer: CellRendererOCM,
+        headerComponentParams: {
+          template:
+            '<div class="ag-cell-label-container" role="presentation">' +
+            '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
+            '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
+            '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
+            '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
+            '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
+            '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
+            '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
+            '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
+            '  </div>' +
+            '</div>'
+        }
+      },
+      rowData: this.rowData,
+      columnDefs: this._columnDefs,
+      groupDisplayType: 'custom',
+      groupIncludeTotalFooter: true,
+      groupIncludeFooter: true,
+      groupHeaderHeight: 25,
+      headerHeight: 54,
+      suppressAggFuncInHeader: true,
+      rowSelection: 'single',
+      localeText: localeTextESPes,
+      pagination: true,
+      paginationPageSize: 20
+    } as GridOptions;
+    // }
+    console.log('gridOptions', this.gridOptions);
   }
 
   onGridReady = (params: GridReadyEvent) => {
     console.log('onGridReady');
     this._gridApi = params.api;
+    console.log('this._gridApi', this._gridApi);
+    this._gridApi.setRowData(this.rowData);
+
     this._columnApi = params.columnApi;
     // const defaultSortModel: ColumnState[] = [{ colId: 'DesEco', sort: 'asc', sortIndex: 0 }];
     // params.columnApi.applyColumnState({ state: defaultSortModel });
