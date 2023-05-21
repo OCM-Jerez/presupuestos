@@ -44,7 +44,37 @@ export class TableService {
     return sendDataTable;
   }
 
+
   async loadData(
+    tipoClasificacion?: CLASIFICATION_TYPE,
+    filter?: { valueFilter: string; attribute: string; useStarWitch?: boolean }
+  ): Promise<IDataTable> {
+    const dataPropertyTable = getClasificacion(tipoClasificacion) as IDataProperty;
+    let rowData: any[];
+
+    if (this._dataStoreService.dataTable === undefined) {
+      await this.loadDataInitial();
+    }
+
+    const { rowDataIngresos, rowDataGastos } = this._dataStoreService.dataTable;
+    rowData = tipoClasificacion.startsWith('ingresos')
+      ? await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion)
+      : await this._prepareDataGastosService.getDataAllYear(tipoClasificacion);
+
+    if (filter) {
+      rowData = filter.useStarWitch
+        ? rowData.filter((item) => item[filter.attribute].toString().startsWith(filter.valueFilter))
+        : rowData.filter((item) => item[filter.attribute] == filter.valueFilter);
+    }
+
+    const sendDataTable: IDataTable = tipoClasificacion.startsWith('ingresos')
+      ? { dataPropertyTable, clasificationType: tipoClasificacion, rowDataIngresos: rowData, rowDataGastos }
+      : { dataPropertyTable, clasificationType: tipoClasificacion, rowDataIngresos, rowDataGastos: rowData };
+    this._dataStoreService.dataTable = sendDataTable;
+    return sendDataTable;
+  }
+
+  async loadDataOLD(
     tipoClasificacion?: CLASIFICATION_TYPE,
     filter?: { valueFilter: string; attribute: string; useStarWitch?: boolean }
   ): Promise<IDataTable> {
