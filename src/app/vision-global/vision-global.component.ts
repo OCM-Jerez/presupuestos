@@ -10,7 +10,7 @@ import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSankey from 'highcharts/modules/sankey';
 import { CheckboxComponent } from '../commons/components/checkbox/checkbox.component';
-import { CardIndiceComponent } from './components/card/card.component';
+import { CardIndiceComponent } from '../commons/components/card/card.component';
 import { TableDataPresupuestoComponent } from './components/table/table.component';
 
 HighchartsMore(Highcharts);
