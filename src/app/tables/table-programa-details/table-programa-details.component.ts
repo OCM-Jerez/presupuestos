@@ -1,5 +1,5 @@
 import { Location, NgIf } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
@@ -16,7 +16,6 @@ import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 import { accumulate } from '../../commons/util/util';
-import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-table-programa-details',
@@ -26,8 +25,8 @@ import { timeout } from 'rxjs';
   imports: [NgIf, AgGridModule]
 })
 export class TableProgramaDetailsComponent implements OnInit {
-  @ViewChild('agGrid1', { static: false }) agGrid: AgGridAngular;
-  public modules = [RowGroupingModule];
+  @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+  // public modules = [RowGroupingModule];
   public gridOptions: GridOptions;
   public isExpanded = true;
   public subHeaderName: string = '';
@@ -37,7 +36,7 @@ export class TableProgramaDetailsComponent implements OnInit {
   private _gridApi: GridApi;
   private _columnDefs: any[any];
   private _dataTable: IDataTable;
-
+  gridReady = false;
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
@@ -46,25 +45,27 @@ export class TableProgramaDetailsComponent implements OnInit {
     private _prepareDataGastosService: PrepareDataGastosService
   ) { }
 
+
   ngOnInit(): void {
     this._loadTable();
   }
 
   async _loadTable() {
-    this._dataTable = await this.dataStoreService.dataTable;
+    this._dataTable = this.dataStoreService.dataTable;
     this.subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
     const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
     const codField = this._dataTable.dataPropertyTable.codField;
     console.log('codigoSearch', codigoSearch);
     console.log('codField', codField);
-    this.rowData = (
-      await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType)
-    ).filter((x) => x.CodPro == codigoSearch);
+    const demo = await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType);
 
-    // this._pushAplicacionesPresupuestarias(this.rowData);
-    console.log('this.rowData', this.rowData);
+    this.rowData = demo.filter((x) => x.CodPro == codigoSearch);
     this._setColumnDefs();
     this._setGridOptions();
+
+    this.gridReady = true;
+    // this._pushAplicacionesPresupuestarias(this.rowData);
+
   }
 
   _pushAplicacionesPresupuestarias(rowData) {
@@ -124,19 +125,29 @@ export class TableProgramaDetailsComponent implements OnInit {
             cellRenderer: 'agGroupCellRenderer',
             // cellRenderer: CellRendererOCMtext,
             valueGetter: (params) => {
-              if (params.data) {
+              if (params?.data) {
                 return params.data.CodPro + ' - ' + params.data.DesPro;
               } else {
-                return null;
+                return '';
               }
             },
             cellRendererParams: {
               suppressCount: true,
-              innerRenderer: (params) =>
-                params.node.group
+              innerRenderer: (params) => {
+                console.log('params-1--->', params);
+
+                return params?.node?.group && params?.value
                   ? `<span style="color: black; font-size: 18px; margin-left: 0px;">${params.value}</span>`
-                  : null,
+                  : ''
+              },
+
               footerValueGetter(params) {
+                console.log('params -2--->', params);
+
+                if (!params?.value) {
+                  return '';
+                }
+
                 switch (params.node.level) {
                   case 0: // Total programa.
                     return `<span style="color: red; font-size: 18px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
@@ -159,16 +170,20 @@ export class TableProgramaDetailsComponent implements OnInit {
             columnGroupShow: 'closed',
             cellRenderer: 'agGroupCellRenderer',
             valueGetter: (params) => {
-              if (params.data) {
+              console.log('params -3--->', params);
+              if (params?.data) {
                 const valCap = params.data.CodCap + ' - ' + params.data.DesCap;
                 return `<span style="color: black; font-size: 16px; margin-left: 0px;">${valCap}</span>`;
               } else {
-                return null;
+                return '';
               }
             },
             cellRendererParams: {
               suppressCount: true,
               innerRenderer: (params) => {
+                console.log('params -4--->', params);
+                if (!params?.value) { return '' }
+
                 if (params.node.group) {
                   return params.value;
                 } else {
@@ -176,6 +191,9 @@ export class TableProgramaDetailsComponent implements OnInit {
                 }
               },
               footerValueGetter(params) {
+                console.log('params -5--->', params);
+                if (!params?.value) return '';
+
                 const val = params.value.split(' - ')[1];
                 switch (params.node.level) {
                   case 2: // Total capítulo.
@@ -194,12 +212,14 @@ export class TableProgramaDetailsComponent implements OnInit {
             width: 500,
             pinned: 'left',
             filter: true,
-            cellRenderer: '',
+            cellRenderer: 'agGroupCellRenderer',
             valueGetter: (params) => {
-              if (params.data) {
+              console.log('params -6--->', params);
+
+              if (params?.data) {
                 return params.data.CodEco + ' - ' + params.data.DesEco;
               } else {
-                return null;
+                return '';
               }
             }
           }
@@ -251,8 +271,8 @@ export class TableProgramaDetailsComponent implements OnInit {
       suppressAggFuncInHeader: true,
       rowSelection: 'single',
       localeText: localeTextESPes,
-      pagination: true,
-      paginationPageSize: 20
+      // pagination: true,
+      // paginationPageSize: 20
     } as GridOptions;
     // }
     console.log('gridOptions', this.gridOptions);
@@ -262,9 +282,9 @@ export class TableProgramaDetailsComponent implements OnInit {
     console.log('onGridReady');
     this._gridApi = params.api;
     console.log('this._gridApi', this._gridApi);
-    this._gridApi.setRowData(this.rowData);
+    // this._gridApi.setRowData(this.rowData);
 
-    this._columnApi = params.columnApi;
+    //this._columnApi = params.columnApi;
     // const defaultSortModel: ColumnState[] = [{ colId: 'DesEco', sort: 'asc', sortIndex: 0 }];
     // params.columnApi.applyColumnState({ state: defaultSortModel });
   };
