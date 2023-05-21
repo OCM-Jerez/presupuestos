@@ -10,4 +10,5 @@ export class CardIndiceComponent {
   @Input() indice: string;
   @Input() title: string;
   @Input() footer: string;
+  @Input() img: string;
 }
