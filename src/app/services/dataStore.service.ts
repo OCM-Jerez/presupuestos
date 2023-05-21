@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
-import { IDataGraph } from '@interfaces/dataGraph.interface';
+// import { IDataGraph } from '@interfaces/dataGraph.interface';
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.interface';
 
@@ -9,11 +9,12 @@ import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.inte
   providedIn: 'root'
 })
 export class DataStoreService {
-  private _dataSource = new Subject<IDataGraph>();
+  // private _dataSource = new Subject<IDataGraph>();
+  private _dataSource = new Subject<any>();
   dataSource$ = this._dataSource.asObservable();
 
   private _data: IDataTable;
-  private _dataGraph: IDataGraph;
+  // private _dataGraph: IDataGraph;
   private _selectedCodeRow: string;
   private _dataGraphTree: any[];
   private _selectedCodeRowFirstLevel: string;
@@ -29,17 +30,17 @@ export class DataStoreService {
     return this._data;
   }
 
-  setData(data: IDataGraph) {
-    this._dataSource.next(data);
-  }
+  // setData(data: IDataGraph) {
+  //   this._dataSource.next(data);
+  // }
 
-  set dataGraph(data: IDataGraph) {
-    this._dataGraph = data;
-  }
+  // set dataGraph(data: IDataGraph) {
+  //   this._dataGraph = data;
+  // }
 
-  get dataGraph(): IDataGraph {
-    return this._dataGraph;
-  }
+  // get dataGraph(): IDataGraph {
+  //   return this._dataGraph;
+  // }
 
   set selectedCodeRow(code: string) {
     this._selectedCodeRow = code;

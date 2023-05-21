@@ -11,7 +11,7 @@ import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 
-import { IDataGraph } from '@interfaces/dataGraph.interface';
+// import { IDataGraph } from '@interfaces/dataGraph.interface';
 import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 
 @Component({
@@ -193,33 +193,36 @@ export class TableGastosAplicacionPresupuestariaComponent {
   }
 
   showGraph() {
-    this.agGrid.api.getRowNode('0').setSelected(true);
-    const selectedRows = this.agGrid.api.getSelectedNodes();
+    // Revisar this._dataStoreService.dataGraph = sendData;
+    // Lo he comentado para evitar su uso
 
-    const sendData: IDataGraph = {
-      clasificationType: 'aplicacion',
-      rowDataGastos: this.data,
-      rowDataIngresos: [],
-      graphTitle: 'Gasto por aplicación presupuestaria',
-      graphSubTitle:
-        selectedRows[0].data.CodOrg +
-        '-' +
-        selectedRows[0].data.CodPro +
-        '-' +
-        selectedRows[0].data.CodEco +
-        '  ' +
-        selectedRows[0].data.DesOrg +
-        '-' +
-        selectedRows[0].data.DesPro +
-        '-' +
-        selectedRows[0].data.DesEco
-    };
-    // Uso el setter
-    // this._dataStoreService.setDataGraph = sendData;
-    this._dataStoreService.dataGraph = sendData;
-    this._router.navigateByUrl('/graphGastos').then(() => {
-      this._dataStoreService.setData(sendData);
-    });
+    // this.agGrid.api.getRowNode('0').setSelected(true);
+    // const selectedRows = this.agGrid.api.getSelectedNodes();
+
+    // const sendData: IDataGraph = {
+    //   clasificationType: 'aplicacion',
+    //   rowDataGastos: this.data,
+    //   rowDataIngresos: [],
+    //   graphTitle: 'Gasto por aplicación presupuestaria',
+    //   graphSubTitle:
+    //     selectedRows[0].data.CodOrg +
+    //     '-' +
+    //     selectedRows[0].data.CodPro +
+    //     '-' +
+    //     selectedRows[0].data.CodEco +
+    //     '  ' +
+    //     selectedRows[0].data.DesOrg +
+    //     '-' +
+    //     selectedRows[0].data.DesPro +
+    //     '-' +
+    //     selectedRows[0].data.DesEco
+    // };
+    // // Uso el setter
+    // // this._dataStoreService.setDataGraph = sendData;
+    // this._dataStoreService.dataGraph = sendData;
+    // this._router.navigateByUrl('/graphGastos').then(() => {
+    //   this._dataStoreService.setData(sendData);
+    // });
   }
 
   volver() {
