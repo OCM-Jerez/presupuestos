@@ -6,8 +6,8 @@ import { AgChartOptions } from 'ag-charts-community';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 
 import * as Highcharts from 'highcharts';
-// import HighchartsMore from 'highcharts/highcharts-more';
-// HighchartsMore(Highcharts);
+import HighchartsMore from 'highcharts/highcharts-more';
+HighchartsMore(Highcharts);
 
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
@@ -46,10 +46,11 @@ export class GraphIngresosComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+    this.renderChartMarker();
     this.renderChart();
   }
 
-  renderChart() {
+  renderChartMarker() {
     Highcharts.chart({
       legend: {
         itemStyle: {
@@ -58,7 +59,7 @@ export class GraphIngresosComponent implements OnInit {
       },
       chart: {
         type: 'scatter',
-        renderTo: 'chart-container'
+        renderTo: 'chart-containerMarker'
       },
       title: {
         text: ''
@@ -120,6 +121,65 @@ export class GraphIngresosComponent implements OnInit {
         name: 'Recaudación neta',
         data: this.data.map((item) => item.RecaudacionNeta)
         // data: [-2.9, -3.6, -0.6, 4.8, 10.2, 14.5, 17.6, 16.5, 12.0]
+      }]
+    });
+  }
+
+
+
+
+  renderChart() {
+    Highcharts.chart('chart-container', {
+      legend: {
+        itemStyle: {
+          fontSize: '22px'
+        }
+      },
+      chart: {
+        type: 'bubble',
+      },
+      title: {
+        text: ''
+      },
+      subtitle: {
+        // text: 'Source: ' +
+        //   '<a href="https://en.wikipedia.org/wiki/List_of_cities_by_average_temperature" ' +
+        //   'target="_blank">Wikipedia.com</a>'
+      },
+      xAxis: {
+        title: {
+          text: 'Años',
+          style: {
+            fontSize: '16px',
+          }
+        },
+        categories: this.data.map((item) => item.year)
+
+      },
+      yAxis: {
+        title: {
+          text: 'en miles de Euros',
+          style: {
+            fontSize: '16px',
+          }
+        }
+      },
+      plotOptions: {
+        bubble: {
+          dataLabels: {
+            enabled: true
+          },
+          enableMouseTracking: false
+        }
+      },
+      series: [{
+        type: 'bubble',
+        name: 'Definitivas',
+        data: this.data.map((item) => [item.year, item.Definitivas, item.Definitivas / 1000])
+      }, {
+        type: 'bubble',
+        name: 'Recaudación neta',
+        data: this.data.map((item) => [item.year, item.RecaudacionNeta, item.RecaudacionNeta / 1000])
       }]
     });
   }
