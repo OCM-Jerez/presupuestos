@@ -4,7 +4,6 @@
   </div>
 
   <h4 class="OCM-text--cabecera">
-    <!-- {{ subHeaderName }}. -->
     Programa
     {{ dataStoreService.selectedCodeRowFirstLevel }}. {{ messageYears }}
   </h4>
@@ -18,7 +17,7 @@
   </button>
 
   <div class="agGrid">
-    <ag-grid-angular #agGrid *ngIf="gridReady" id="agGrid"
+    <ag-grid-angular #agGrid *ngIf="gridOptions" id="agGrid"
       style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px" class="ag-theme-balham"
       [gridOptions]="gridOptions" (gridReady)="onGridReady($event)">
     </ag-grid-angular>

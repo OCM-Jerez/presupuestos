@@ -1,17 +1,15 @@
 import { Location, NgIf } from '@angular/common';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { ColumnApi, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
+import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
-
-import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
@@ -26,25 +24,23 @@ import { accumulate } from '../../commons/util/util';
 })
 export class TableProgramaDetailsComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  // public modules = [RowGroupingModule];
   public gridOptions: GridOptions;
   public isExpanded = true;
-  public subHeaderName: string = '';
-  public rowData: any[any];
   public messageYears = this.avalaibleYearsService.message;
+  private _subHeaderName: string = '';
+  private _rowData: any[any];
   private _columnApi: ColumnApi;
   private _gridApi: GridApi;
   private _columnDefs: any[any];
   private _dataTable: IDataTable;
-  gridReady = false;
+
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     public dataStoreService: DataStoreService,
-    private _router: Router,
     private _location: Location,
-    private _prepareDataGastosService: PrepareDataGastosService
+    private _prepareDataGastosService: PrepareDataGastosService,
+    private _router: Router,
   ) { }
-
 
   ngOnInit(): void {
     this._loadTable();
@@ -52,19 +48,15 @@ export class TableProgramaDetailsComponent implements OnInit {
 
   async _loadTable() {
     this._dataTable = this.dataStoreService.dataTable;
-    this.subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
+    this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
     const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
-    const codField = this._dataTable.dataPropertyTable.codField;
-    console.log('codigoSearch', codigoSearch);
-    console.log('codField', codField);
-    const demo = await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType);
-
-    this.rowData = demo.filter((x) => x.CodPro == codigoSearch);
+    // const codField = this._dataTable.dataPropertyTable.codField;
+    this._rowData = (
+      await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType)
+    ).filter((x) => x.CodPro == codigoSearch);
     this._setColumnDefs();
     this._setGridOptions();
-
-    this.gridReady = true;
-    // this._pushAplicacionesPresupuestarias(this.rowData);
+    this._pushAplicacionesPresupuestarias(this._rowData);
 
   }
 
@@ -104,17 +96,16 @@ export class TableProgramaDetailsComponent implements OnInit {
         value[`RemanenteCredito${year}`] = accumulate('RemanenteCredito', dataIntermedio)[year];
       });
       dataFinal.push(value);
-      this.rowData = dataFinal;
+      this._rowData = dataFinal;
     });
   }
 
   _setColumnDefs() {
     this._columnDefs = [
       {
-        // headerName: this._dataTable.dataPropertyTable.headerName,
         children: [
           {
-            headerName: this.subHeaderName,
+            headerName: this._subHeaderName,
             field: 'DesPro',
             rowGroup: true,
             showRowGroup: 'DesPro',
@@ -134,16 +125,14 @@ export class TableProgramaDetailsComponent implements OnInit {
             cellRendererParams: {
               suppressCount: true,
               innerRenderer: (params) => {
-                console.log('params-1--->', params);
-
+                // console.log('params-1--->', params);
                 return params?.node?.group && params?.value
                   ? `<span style="color: black; font-size: 18px; margin-left: 0px;">${params.value}</span>`
                   : ''
               },
 
               footerValueGetter(params) {
-                console.log('params -2--->', params);
-
+                // console.log('params -2--->', params);
                 if (!params?.value) {
                   return '';
                 }
@@ -170,7 +159,7 @@ export class TableProgramaDetailsComponent implements OnInit {
             columnGroupShow: 'closed',
             cellRenderer: 'agGroupCellRenderer',
             valueGetter: (params) => {
-              console.log('params -3--->', params);
+              // console.log('params -3--->', params);
               if (params?.data) {
                 const valCap = params.data.CodCap + ' - ' + params.data.DesCap;
                 return `<span style="color: black; font-size: 16px; margin-left: 0px;">${valCap}</span>`;
@@ -181,7 +170,7 @@ export class TableProgramaDetailsComponent implements OnInit {
             cellRendererParams: {
               suppressCount: true,
               innerRenderer: (params) => {
-                console.log('params -4--->', params);
+                // console.log('params -4--->', params);
                 if (!params?.value) { return '' }
 
                 if (params.node.group) {
@@ -191,7 +180,7 @@ export class TableProgramaDetailsComponent implements OnInit {
                 }
               },
               footerValueGetter(params) {
-                console.log('params -5--->', params);
+                // console.log('params -5--->', params);
                 if (!params?.value) return '';
 
                 const val = params.value.split(' - ')[1];
@@ -214,8 +203,7 @@ export class TableProgramaDetailsComponent implements OnInit {
             filter: true,
             cellRenderer: 'agGroupCellRenderer',
             valueGetter: (params) => {
-              console.log('params -6--->', params);
-
+              // console.log('params -6--->', params);
               if (params?.data) {
                 return params.data.CodEco + ' - ' + params.data.DesEco;
               } else {
@@ -236,8 +224,6 @@ export class TableProgramaDetailsComponent implements OnInit {
   }
 
   _setGridOptions() {
-    // await this._waitForGridApi();
-    // if (this._gridApi) {
     this.gridOptions = {
       defaultColDef: {
         width: 130,
@@ -261,7 +247,7 @@ export class TableProgramaDetailsComponent implements OnInit {
             '</div>'
         }
       },
-      rowData: this.rowData,
+      rowData: this._rowData,
       columnDefs: this._columnDefs,
       groupDisplayType: 'custom',
       groupIncludeTotalFooter: true,
@@ -274,17 +260,13 @@ export class TableProgramaDetailsComponent implements OnInit {
       // pagination: true,
       // paginationPageSize: 20
     } as GridOptions;
-    // }
-    console.log('gridOptions', this.gridOptions);
+
   }
 
   onGridReady = (params: GridReadyEvent) => {
-    console.log('onGridReady');
     this._gridApi = params.api;
-    console.log('this._gridApi', this._gridApi);
-    // this._gridApi.setRowData(this.rowData);
-
-    //this._columnApi = params.columnApi;
+    this._columnApi = params.columnApi;
+    this._gridApi.expandAll();
     // const defaultSortModel: ColumnState[] = [{ colId: 'DesEco', sort: 'asc', sortIndex: 0 }];
     // params.columnApi.applyColumnState({ state: defaultSortModel });
   };
@@ -327,15 +309,4 @@ export class TableProgramaDetailsComponent implements OnInit {
     this._location.back();
   }
 
-  _waitForGridApi(): Promise<void> {
-    return new Promise((resolve) => {
-      const interval = setInterval(() => {
-        if (this._gridApi) {
-          clearInterval(interval);
-          resolve();
-        }
-        console.log('Waiting for grid api');
-      }, 50);
-    });
-  }
 }
