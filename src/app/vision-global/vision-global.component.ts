@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { NgFor } from '@angular/common';
+
+import { TableDataPresupuestoComponent } from './components/table/table.component';
+import { CheckboxComponent } from '../commons/components/checkbox/checkbox.component';
+import { CardIndiceComponent } from '../commons/components/card/card.component';
 
 import { DataStoreService } from '@services/dataStore.service';
 import { TableService } from '@services/table.service';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
 
-import { NgFor } from '@angular/common';
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSankey from 'highcharts/modules/sankey';
-import { CheckboxComponent } from '../commons/components/checkbox/checkbox.component';
-import { CardIndiceComponent } from '../commons/components/card/card.component';
-import { TableDataPresupuestoComponent } from './components/table/table.component';
 
 HighchartsMore(Highcharts);
 HighchartsSankey(Highcharts);
