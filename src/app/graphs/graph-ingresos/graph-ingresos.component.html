@@ -4,30 +4,22 @@
   </div>
 
   <div style="width: 1200px; height: 500px">
-    <ag-charts-angular
-      style="width: 1200px; height: 500px"
-      *ngIf="agChartOptions"
-      [options]="agChartOptions"
-    ></ag-charts-angular>
+    <ag-charts-angular style="width: 1200px; height: 500px" *ngIf="agChartOptions"
+      [options]="agChartOptions"></ag-charts-angular>
 
-    <ag-grid-angular
-      #agGrid
-      style="width: 700px; height: 300px; padding-right: 20px; margin-left: 310px"
-      class="ag-theme-balham"
-      [rowData]="data"
-      [columnDefs]="columnDefs"
-      [defaultColDef]="defaultColDef"
-      rowSelection="multiple"
-      [groupIncludeFooter]="true"
-      [groupIncludeTotalFooter]="true"
-      [groupHeaderHeight]="groupHeaderHeight"
-      [headerHeight]="headerHeight"
-      [localeText]="localeText"
-      [suppressAggFuncInHeader]="true"
-    >
+    <div id="chart-container"></div>
+
+    <ag-grid-angular #agGrid style="width: 700px; height: 300px; padding-right: 20px; margin-left: 310px"
+      class="ag-theme-balham" [rowData]="data" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
+      rowSelection="multiple" [groupIncludeFooter]="true" [groupIncludeTotalFooter]="true"
+      [groupHeaderHeight]="groupHeaderHeight" [headerHeight]="headerHeight" [localeText]="localeText"
+      [suppressAggFuncInHeader]="true">
     </ag-grid-angular>
   </div>
+
+
 </div>
+
 
 <!-- 
  (gridReady)="onGridReady($event)" 

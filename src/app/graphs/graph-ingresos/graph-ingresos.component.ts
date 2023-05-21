@@ -5,6 +5,11 @@ import { AgChartsAngularModule } from 'ag-charts-angular';
 import { AgChartOptions } from 'ag-charts-community';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 
+import * as Highcharts from 'highcharts';
+// import HighchartsMore from 'highcharts/highcharts-more';
+// HighchartsMore(Highcharts);
+
+
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 
 import { DataStoreService } from '@services/dataStore.service';
@@ -31,7 +36,7 @@ export class GraphIngresosComponent implements OnInit {
   public localeText;
   public agChartOptions: AgChartOptions;
 
-  constructor(private _location: Location, private _dataStoreService: DataStoreService) {}
+  constructor(private _location: Location, private _dataStoreService: DataStoreService) { }
 
   ngOnInit(): void {
     this._dataTable = this._dataStoreService.dataTable;
@@ -39,6 +44,87 @@ export class GraphIngresosComponent implements OnInit {
     this._createColumns();
     this._showGraph();
   }
+
+  ngAfterViewInit() {
+    this.renderChart();
+  }
+
+  renderChart() {
+    Highcharts.chart({
+      legend: {
+        itemStyle: {
+          fontSize: '22px'
+        }
+      },
+      chart: {
+        type: 'scatter',
+        renderTo: 'chart-container'
+      },
+      title: {
+        text: ''
+      },
+      subtitle: {
+        // text: 'Source: ' +
+        //   '<a href="https://en.wikipedia.org/wiki/List_of_cities_by_average_temperature" ' +
+        //   'target="_blank">Wikipedia.com</a>'
+      },
+      xAxis: {
+        title: {
+          text: 'Años',
+          style: {
+            fontSize: '16px',
+          }
+        },
+        // categories: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023']
+        categories: this.data.map((item) => item.year)
+
+      },
+      yAxis: {
+        title: {
+          text: 'en miles de Euros',
+          style: {
+            fontSize: '16px',
+          }
+        }
+      },
+      plotOptions: {
+        // scatter: {
+        //   marker: {
+        //     radius: 8
+        //   }
+        // },
+        line: {
+          dataLabels: {
+            enabled: true
+          },
+          enableMouseTracking: false
+        }
+      },
+      series: [{
+        type: 'scatter',
+        marker: {
+          symbol: 'circle',
+          fillColor: 'green',
+          radius: 8
+        },
+        name: 'Definitivas',
+        data: this.data.map((item) => item.Definitivas)
+        // data: [16.0, 18.2, 23.1, 27.9, 32.2, 36.4, 39.8, 38.4, this.data[0].Definitivas]
+      }, {
+        type: 'scatter',
+        marker: {
+          symbol: 'square',
+          fillColor: 'red',
+          radius: 8
+        },
+        name: 'Recaudación neta',
+        data: this.data.map((item) => item.RecaudacionNeta)
+        // data: [-2.9, -3.6, -0.6, 4.8, 10.2, 14.5, 17.6, 16.5, 12.0]
+      }]
+    });
+  }
+
+
 
   private async _createData() {
     const codigo = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
@@ -75,6 +161,8 @@ export class GraphIngresosComponent implements OnInit {
         this.data.push(value);
       }
     }
+    console.log(this.data);
+
     return this.data;
   }
 
