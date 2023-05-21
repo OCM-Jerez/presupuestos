@@ -26,7 +26,7 @@ import { timeout } from 'rxjs';
   imports: [NgIf, AgGridModule]
 })
 export class TableProgramaDetailsComponent implements OnInit {
-  @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+  @ViewChild('agGrid1', { static: false }) agGrid: AgGridAngular;
   public modules = [RowGroupingModule];
   public gridOptions: GridOptions;
   public isExpanded = true;
