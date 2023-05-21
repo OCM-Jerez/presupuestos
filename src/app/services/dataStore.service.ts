@@ -14,13 +14,13 @@ export class DataStoreService {
   dataSource$ = this._dataSource.asObservable();
 
   private _data: IDataTable;
-  // private _dataGraph: IDataGraph;
   private _selectedCodeRow: string;
-  private _dataGraphTree: any[];
   private _selectedCodeRowFirstLevel: string;
-  private _IsDetails = false;
   private _dataTotalesPresupuesto: IDataTotalesPresupuesto;
-  private _dataTreemap: any;
+  // private _dataGraph: IDataGraph;
+  // private _dataGraphTree: any[];
+  // private _IsDetails = false;
+  // private _dataTreemap: any;
 
   set dataTable(data: IDataTable) {
     this._data = data;
@@ -29,6 +29,53 @@ export class DataStoreService {
   get dataTable(): IDataTable {
     return this._data;
   }
+
+  set selectedCodeRow(code: string) {
+    this._selectedCodeRow = code;
+  }
+
+  get selectedCodeRow(): string {
+    return this._selectedCodeRow;
+  }
+  set selectedCodeRowFirstLevel(codeRow: string) {
+    this._selectedCodeRowFirstLevel = codeRow;
+  }
+
+  get selectedCodeRowFirstLevel(): string {
+    return this._selectedCodeRowFirstLevel;
+  }
+
+  set dataTotalesPresupuesto(data: IDataTotalesPresupuesto) {
+    this._dataTotalesPresupuesto = data;
+  }
+
+  get dataTotalesPresupuesto(): IDataTotalesPresupuesto {
+    return this._dataTotalesPresupuesto;
+  }
+
+  // set dataGraphTree(dateGraphTree: any[]) {
+  //   this._dataGraphTree = dateGraphTree;
+  // }
+
+  // get dataGraphTree(): any[] {
+  //   return this._dataGraphTree;
+  // }
+
+  // set IsDetails(state: boolean) {
+  //   this._IsDetails = state;
+  // }
+
+  // get IsDetails(): boolean {
+  //   return this._IsDetails;
+  // }
+
+  // set dataTreemap(data: any) {
+  //   this._dataTreemap = data;
+  // }
+
+  // get dataTreemap(): any {
+  //   return this._dataTreemap;
+  // }
 
   // setData(data: IDataGraph) {
   //   this._dataSource.next(data);
@@ -41,52 +88,4 @@ export class DataStoreService {
   // get dataGraph(): IDataGraph {
   //   return this._dataGraph;
   // }
-
-  set selectedCodeRow(code: string) {
-    this._selectedCodeRow = code;
-  }
-
-  get selectedCodeRow(): string {
-    return this._selectedCodeRow;
-  }
-
-  set dataGraphTree(dateGraphTree: any[]) {
-    this._dataGraphTree = dateGraphTree;
-  }
-
-  get dataGraphTree(): any[] {
-    return this._dataGraphTree;
-  }
-
-  set selectedCodeRowFirstLevel(codeRow: string) {
-    this._selectedCodeRowFirstLevel = codeRow;
-  }
-
-  get selectedCodeRowFirstLevel(): string {
-    return this._selectedCodeRowFirstLevel;
-  }
-
-  set IsDetails(state: boolean) {
-    this._IsDetails = state;
-  }
-
-  get IsDetails(): boolean {
-    return this._IsDetails;
-  }
-
-  set dataTotalesPresupuesto(data: IDataTotalesPresupuesto) {
-    this._dataTotalesPresupuesto = data;
-  }
-
-  get dataTotalesPresupuesto(): IDataTotalesPresupuesto {
-    return this._dataTotalesPresupuesto;
-  }
-
-  set dataTreemap(data: any) {
-    this._dataTreemap = data;
-  }
-
-  get dataTreemap(): any {
-    return this._dataTreemap;
-  }
 }
