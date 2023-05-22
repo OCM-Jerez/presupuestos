@@ -44,8 +44,6 @@ const routes: Routes = [
         loadComponent: () =>
           import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.component')
       },
-
-
       { path: '**', pathMatch: 'full', redirectTo: 'home' }
     ]
   }
