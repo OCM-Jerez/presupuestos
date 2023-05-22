@@ -1,5 +1,5 @@
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { Location, NgIf } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 
@@ -21,7 +21,11 @@ import { accumulate } from '@utils/util';
   standalone: true,
   imports: [NgIf, AgGridModule]
 })
+
 export default class GraphDetalleComponent implements OnInit {
+  private _location = inject(Location);
+  private _dataStoreService = inject(DataStoreService);
+
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public columnDefs;
   public data: any;
@@ -34,8 +38,6 @@ export default class GraphDetalleComponent implements OnInit {
   private _nameSerie1: string;
   private _nameSerie2: string;
   private _nameSerie3: string;
-
-  constructor(private _location: Location, private _dataStoreService: DataStoreService) { }
 
   ngOnInit(): void {
     this._dataTable = this._dataStoreService.dataTable;
