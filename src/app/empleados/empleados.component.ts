@@ -10,6 +10,7 @@ import { CardIndiceComponent } from '../commons/components/card/card.component';
   standalone: true,
   imports: [NgFor, CardIndiceComponent]
 })
+
 export default class EmpleadosComponent {
   items = [
     {
