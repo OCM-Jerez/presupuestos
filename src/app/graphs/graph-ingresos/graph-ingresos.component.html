@@ -1,35 +1,35 @@
-<div class="OCM-graph" *ngIf="agChartOptions">
+<!-- <div class="OCM-graph" *ngIf="agChartOptions"> -->
+<div class="OCM-graph">
   <div class="OCM-menu">
     <button type="button" class="OCM-button" (click)="volver()">Volver</button>
   </div>
 
   <div style="width: 1200px; height: 500px">
-    <ag-charts-angular style="width: 1200px; height: 500px" *ngIf="agChartOptions"
-      [options]="agChartOptions"></ag-charts-angular>
+    <!-- <ag-charts-angular
+      style="width: 1200px; height: 500px"
+      *ngIf="agChartOptions"
+      [options]="agChartOptions"
+    ></ag-charts-angular> -->
 
+    <div id="chart-containerLines"></div>
     <div id="chart-container"></div>
     <div id="chart-containerMarker"></div>
 
-    <ag-grid-angular #agGrid style="width: 700px; height: 300px; padding-right: 20px; margin-left: 310px"
-      class="ag-theme-balham" [rowData]="data" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
-      rowSelection="multiple" [groupIncludeFooter]="true" [groupIncludeTotalFooter]="true"
-      [groupHeaderHeight]="groupHeaderHeight" [headerHeight]="headerHeight" [localeText]="localeText"
-      [suppressAggFuncInHeader]="true">
+    <ag-grid-angular
+      #agGrid
+      style="width: 700px; height: 325px; padding-right: 20px; margin-left: 310px"
+      class="ag-theme-balham"
+      [rowData]="data"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      rowSelection="multiple"
+      [groupIncludeFooter]="true"
+      [groupIncludeTotalFooter]="true"
+      [groupHeaderHeight]="groupHeaderHeight"
+      [headerHeight]="headerHeight"
+      [localeText]="localeText"
+      [suppressAggFuncInHeader]="true"
+    >
     </ag-grid-angular>
   </div>
-
-
 </div>
-
-
-<!-- 
- (gridReady)="onGridReady($event)" 
- en .ts 
-// private gridApi;
-// public gridColumnApi;
-
-// async onGridReady(params) {
-  //   this.gridApi = params.api;
-  //   this.gridColumnApi = params.columnApi;
-  // }
- -->

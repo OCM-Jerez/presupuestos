@@ -1,14 +1,13 @@
 import { Location, NgIf } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { AgChartsAngularModule } from 'ag-charts-angular';
-import { AgChartOptions } from 'ag-charts-community';
+// import { AgChartsAngularModule } from 'ag-charts-angular';
+// import { AgChartOptions } from 'ag-charts-community';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 HighchartsMore(Highcharts);
-
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 
@@ -22,7 +21,7 @@ import { accumulate } from '@utils/util';
   templateUrl: './graph-ingresos.component.html',
   styleUrls: ['./graph-ingresos.component.scss'],
   standalone: true,
-  imports: [NgIf, AgChartsAngularModule, AgGridModule]
+  imports: [NgIf, AgGridModule]
 })
 export class GraphIngresosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
@@ -34,20 +33,104 @@ export class GraphIngresosComponent implements OnInit {
   public groupHeaderHeight = 25;
   public headerHeight = 25;
   public localeText;
-  public agChartOptions: AgChartOptions;
+  // public agChartOptions: AgChartOptions;
 
-  constructor(private _location: Location, private _dataStoreService: DataStoreService) { }
+  constructor(private _location: Location, private _dataStoreService: DataStoreService) {}
 
   ngOnInit(): void {
     this._dataTable = this._dataStoreService.dataTable;
     this._createData();
     this._createColumns();
-    this._showGraph();
+    // this._showGraph();
   }
 
   ngAfterViewInit() {
+    this.renderChartLines();
     this.renderChartMarker();
     this.renderChart();
+  }
+
+  renderChartLines() {
+    Highcharts.chart({
+      title: {
+        text: this._dataTable.dataPropertyTable.graphTitle
+        // fontSize: 40
+      },
+      subtitle: {
+        text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRowFirstLevel}`
+        // fontSize: 20
+      },
+      legend: {
+        itemStyle: {
+          fontSize: '22px'
+        }
+      },
+      chart: {
+        type: 'line',
+        renderTo: 'chart-containerLines'
+      },
+      // title: {
+      //   text: ''
+      // },
+      // subtitle: {
+      //   text: ''
+      // },
+      xAxis: {
+        title: {
+          text: 'Años',
+          style: {
+            fontSize: '16px'
+          }
+        },
+        // categories: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023']
+        categories: this.data.map((item) => item.year)
+      },
+      yAxis: {
+        title: {
+          text: 'en miles de Euros',
+          style: {
+            fontSize: '16px'
+          }
+        }
+      },
+      plotOptions: {
+        // scatter: {
+        //   marker: {
+        //     radius: 8
+        //   }
+        // },
+        line: {
+          dataLabels: {
+            enabled: true
+          },
+          enableMouseTracking: false
+        }
+      },
+      series: [
+        {
+          type: 'line',
+          marker: {
+            symbol: 'circle',
+            fillColor: 'green',
+            radius: 8
+          },
+          name: 'Definitivas',
+          data: this.data.map((item) => item.Definitivas)
+          // data: [16.0, 18.2, 23.1, 27.9, 32.2, 36.4, 39.8, 38.4, this.data[0].Definitivas]
+        },
+        {
+          type: 'line',
+          marker: {
+            symbol: 'square',
+            fillColor: 'red',
+            radius: 8
+          },
+          name: 'Recaudación neta',
+          data: this.data.map((item) => item.RecaudacionNeta)
+          // data: [-2.9, -3.6, -0.6, 4.8, 10.2, 14.5, 17.6, 16.5, 12.0]
+        }
+      ]
+    });
   }
 
   renderChartMarker() {
@@ -73,18 +156,17 @@ export class GraphIngresosComponent implements OnInit {
         title: {
           text: 'Años',
           style: {
-            fontSize: '16px',
+            fontSize: '16px'
           }
         },
         // categories: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023']
         categories: this.data.map((item) => item.year)
-
       },
       yAxis: {
         title: {
           text: 'en miles de Euros',
           style: {
-            fontSize: '16px',
+            fontSize: '16px'
           }
         }
       },
@@ -101,34 +183,35 @@ export class GraphIngresosComponent implements OnInit {
           enableMouseTracking: false
         }
       },
-      series: [{
-        type: 'scatter',
-        marker: {
-          symbol: 'circle',
-          fillColor: 'green',
-          radius: 8
+      series: [
+        {
+          type: 'scatter',
+          marker: {
+            symbol: 'circle',
+            fillColor: 'green',
+            radius: 8
+          },
+          name: 'Definitivas',
+          data: this.data.map((item) => item.Definitivas)
+          // data: [16.0, 18.2, 23.1, 27.9, 32.2, 36.4, 39.8, 38.4, this.data[0].Definitivas]
         },
-        name: 'Definitivas',
-        data: this.data.map((item) => item.Definitivas)
-        // data: [16.0, 18.2, 23.1, 27.9, 32.2, 36.4, 39.8, 38.4, this.data[0].Definitivas]
-      }, {
-        type: 'scatter',
-        marker: {
-          symbol: 'square',
-          fillColor: 'red',
-          radius: 8
-        },
-        name: 'Recaudación neta',
-        data: this.data.map((item) => item.RecaudacionNeta)
-        // data: [-2.9, -3.6, -0.6, 4.8, 10.2, 14.5, 17.6, 16.5, 12.0]
-      }]
+        {
+          type: 'scatter',
+          marker: {
+            symbol: 'square',
+            fillColor: 'red',
+            radius: 8
+          },
+          name: 'Recaudación neta',
+          data: this.data.map((item) => item.RecaudacionNeta)
+          // data: [-2.9, -3.6, -0.6, 4.8, 10.2, 14.5, 17.6, 16.5, 12.0]
+        }
+      ]
     });
   }
 
-
-
-
   renderChart() {
+    const name1 = 'Definitivas';
     Highcharts.chart('chart-container', {
       legend: {
         itemStyle: {
@@ -136,7 +219,7 @@ export class GraphIngresosComponent implements OnInit {
         }
       },
       chart: {
-        type: 'bubble',
+        type: 'bubble'
       },
       title: {
         text: ''
@@ -150,17 +233,16 @@ export class GraphIngresosComponent implements OnInit {
         title: {
           text: 'Años',
           style: {
-            fontSize: '16px',
+            fontSize: '16px'
           }
         },
         categories: this.data.map((item) => item.year)
-
       },
       yAxis: {
         title: {
           text: 'en miles de Euros',
           style: {
-            fontSize: '16px',
+            fontSize: '16px'
           }
         }
       },
@@ -172,19 +254,21 @@ export class GraphIngresosComponent implements OnInit {
           enableMouseTracking: false
         }
       },
-      series: [{
-        type: 'bubble',
-        name: 'Definitivas',
-        data: this.data.map((item) => [item.year, item.Definitivas, item.Definitivas / 1000])
-      }, {
-        type: 'bubble',
-        name: 'Recaudación neta',
-        data: this.data.map((item) => [item.year, item.RecaudacionNeta, item.RecaudacionNeta / 1000])
-      }]
+      series: [
+        {
+          type: 'bubble',
+          // name: 'Definitivas',
+          name: name1,
+          data: this.data.map((item) => [item.year, item.Definitivas, item.Definitivas / 1000])
+        },
+        {
+          type: 'bubble',
+          name: 'Recaudación neta',
+          data: this.data.map((item) => [item.year, item.RecaudacionNeta, item.RecaudacionNeta / 1000])
+        }
+      ]
     });
   }
-
-
 
   private async _createData() {
     const codigo = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
@@ -256,57 +340,57 @@ export class GraphIngresosComponent implements OnInit {
     };
   }
 
-  private _showGraph(): void {
-    this.agChartOptions = {
-      autoSize: true,
-      title: {
-        text: this._dataTable.dataPropertyTable.graphTitle,
-        fontSize: 40
-      },
-      subtitle: {
-        text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRowFirstLevel}`,
-        fontSize: 20
-      },
-      data: [...this.data],
-      series: [
-        {
-          xKey: 'year',
-          yKey: 'Definitivas'
-        },
-        {
-          xKey: 'year',
-          yKey: 'RecaudacionNeta'
-        }
-      ],
-      axes: [
-        {
-          type: 'category',
-          position: 'bottom',
-          title: {
-            text: 'Años',
-            enabled: true
-          }
-        },
-        {
-          type: 'number',
-          position: 'left',
-          title: {
-            text: 'en miles de Euros',
-            enabled: true
-          },
-          label: {
-            formatter: function (params) {
-              return params.value / 1000 + '';
-            }
-          }
-        }
-      ],
-      legend: {
-        enabled: true,
-        position: 'bottom'
-      }
-    };
-  }
+  // private _showGraph(): void {
+  //   this.agChartOptions = {
+  //     autoSize: true,
+  //     title: {
+  //       text: this._dataTable.dataPropertyTable.graphTitle,
+  //       fontSize: 40
+  //     },
+  //     subtitle: {
+  //       text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRowFirstLevel}`,
+  //       fontSize: 20
+  //     },
+  //     data: [...this.data],
+  //     series: [
+  //       {
+  //         xKey: 'year',
+  //         yKey: 'Definitivas'
+  //       },
+  //       {
+  //         xKey: 'year',
+  //         yKey: 'RecaudacionNeta'
+  //       }
+  //     ],
+  //     axes: [
+  //       {
+  //         type: 'category',
+  //         position: 'bottom',
+  //         title: {
+  //           text: 'Años',
+  //           enabled: true
+  //         }
+  //       },
+  //       {
+  //         type: 'number',
+  //         position: 'left',
+  //         title: {
+  //           text: 'en miles de Euros',
+  //           enabled: true
+  //         },
+  //         label: {
+  //           formatter: function (params) {
+  //             return params.value / 1000 + '';
+  //           }
+  //         }
+  //       }
+  //     ],
+  //     legend: {
+  //       enabled: true,
+  //       position: 'bottom'
+  //     }
+  //   };
+  // }
 
   volver() {
     this._location.back();
