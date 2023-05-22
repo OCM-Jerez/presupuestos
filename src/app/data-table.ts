@@ -93,17 +93,17 @@ const subtabsAdditionalGastosEconomica = [
   }
 ];
 
-const CLASIFICATION: { [key: string]: IClasification } = {
+const CLASIFICATION: { [key: string]: any } = {
   ingresosEconomicaCapitulos: {
-    attribute: 'CodCap',
     codField: 'CodCap',
     desField: 'DesCap',
     graphTitle: 'Ingresos por capítulo',
     headerName: 'Clasificado por capítulo',
-    isIngresos: true,
     subHeaderName: 'Capítulo',
-    useStarWitch: true,
-    width: 250,
+    // attribute: 'CodCap',
+    // isIngresos: true,
+    // useStarWitch: true,
+    // width: 250,
     subtabs: subtabsIngresos('ingresosEconomicaCapitulos'),
     subtabsAdditional: subtabsAdditionalIngresos
   },
