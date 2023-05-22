@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, inject } from '@angular/core';
 import { NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,9 +9,10 @@ import { NgIf } from '@angular/common';
   standalone: true,
   imports: [NgIf]
 })
+
 export class NavbarComponent {
-  collapsed = false;
-  constructor(private _router: Router) { }
+  private _router = inject(Router);
+  public collapsed = false;
 
   inicio() {
     this._router.navigateByUrl('/');
