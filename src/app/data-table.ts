@@ -49,7 +49,7 @@ const subtabsIngresos = (clasificationType: CLASIFICATION_TYPE) =>
     }
   ]);
 
-const subtabsAdditionalIngresos = [{ name: 'Gráfico detallado', path: '/graphIngresos' }];
+const subtabsAdditionalIngresos = [{ name: 'Gráfico detallado', path: '/graphDetalle' }];
 
 const subtabsGastosProgramas = (clasificationType: CLASIFICATION_TYPE) =>
   createSubtabs(clasificationType, [
@@ -66,7 +66,7 @@ const subtabsGastosProgramas = (clasificationType: CLASIFICATION_TYPE) =>
   ]);
 
 const subtabsAdditionalGastosProgramas = [
-  { name: 'Gráfico detallado', path: '/graphGastos' },
+  { name: 'Gráfico detallado', path: '/graphDetalle' },
   { name: 'Detalle del programa seleccionado', path: '/tableProgramaDetails' }
 ];
 

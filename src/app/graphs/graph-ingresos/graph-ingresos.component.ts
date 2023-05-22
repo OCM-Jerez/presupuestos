@@ -1,8 +1,6 @@
 import { Location, NgIf } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-// import { AgChartsAngularModule } from 'ag-charts-angular';
-// import { AgChartOptions } from 'ag-charts-community';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 
 import * as Highcharts from 'highcharts';
@@ -25,29 +23,120 @@ import { accumulate } from '@utils/util';
 })
 export class GraphIngresosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  private _dataTable: IDataTable;
-  private _datos: any[] = [];
   public columnDefs;
   public data: any;
   public defaultColDef;
   public groupHeaderHeight = 25;
   public headerHeight = 25;
   public localeText;
-  // public agChartOptions: AgChartOptions;
+  private _dataTable: IDataTable;
+  private _datos: any[] = [];
+  private _nameSerie1: string;
+  private _nameSerie2: string;
+  private _nameSerie3: string;
 
   constructor(private _location: Location, private _dataStoreService: DataStoreService) {}
 
   ngOnInit(): void {
     this._dataTable = this._dataStoreService.dataTable;
+    console.log(this._dataTable);
+
     this._createData();
     this._createColumns();
-    // this._showGraph();
   }
 
   ngAfterViewInit() {
     this.renderChartLines();
     this.renderChartMarker();
     this.renderChart();
+  }
+
+  private async _createData() {
+    const codigo = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
+
+    switch (this._dataTable.clasificationType) {
+      case 'ingresosEconomicaCapitulos':
+        this._datos = this._dataTable.rowDataIngresos.filter((x) => x.CodCap == codigo);
+        break;
+      case 'ingresosEconomicaArticulos':
+      case 'ingresosEconomicaConceptos':
+      case 'ingresosEconomicaEconomicos':
+        this._datos = this._dataTable.rowDataIngresos.filter((x) => x.CodEco == codigo);
+        break;
+      case 'gastosOrganicaOrganicos':
+        this._datos = this._dataTable.rowDataGastos.filter((x) => x.CodOrg == codigo);
+        break;
+      case 'gastosProgramaAreas':
+      case 'gastosProgramaPoliticas':
+      case 'gastosProgramaGrupos':
+      case 'gastosProgramaProgramas':
+        this._datos = this._dataTable.rowDataGastos.filter((x) => x.CodPro == codigo);
+        break;
+      case 'gastosEconomicaCapitulos':
+        this._datos = this._dataTable.rowDataGastos.filter((x) => x.CodCap == codigo);
+        break;
+      case 'gastosEconomicaArticulos':
+      case 'gastosEconomicaConceptos':
+      case 'gastosEconomicaEconomicos':
+        this._datos = this._dataTable.rowDataGastos.filter((x) => x.CodEco == codigo);
+        break;
+    }
+
+    if (this._dataTable.dataPropertyTable.isIngresos) {
+      const yearsDefinitivas = accumulate('Definitivas', this._datos);
+      const yearsIniciales = accumulate('Iniciales', this._datos);
+      const yearsNetas = accumulate('RecaudacionNeta', this._datos);
+
+      this._nameSerie1 = 'Definitivas';
+      this._nameSerie2 = 'RecaudacionNeta';
+      this._nameSerie3 = '';
+
+      // Convierto los valores para que sirvan de data al grafico
+      this.data = [];
+      for (let index = 2015; index <= 2023; index++) {
+        // Para mostrar solo años seleccionados
+        if (yearsDefinitivas[index] > 0) {
+          const value = {
+            year: index,
+            Definitivas: yearsDefinitivas[index],
+            Netas: yearsNetas[index] //RecaudacionNeta
+          };
+          if (index === 2022 || index === 2023) {
+            value.Definitivas = yearsIniciales[index];
+            value.Netas = yearsNetas[index - 1];
+          }
+          this.data.push(value);
+        }
+      }
+    } else {
+      const yearsDefinitivas = accumulate('Definitivas', this._datos);
+      const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', this._datos);
+      const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', this._datos);
+
+      this._nameSerie1 = 'Definitivas';
+      this._nameSerie2 = 'ObligacionesReconocidasNetas';
+      this._nameSerie3 = 'ObligacionesPendientePago';
+
+      this.data = [];
+      for (let index = 2015; index <= 2023; index++) {
+        // Para mostrar solo años seleccionados
+        if (yearsDefinitivas[index] > 0) {
+          const value = {
+            year: index,
+            Definitivas: yearsDefinitivas[index],
+            Netas: yearsObligacionesNetas[index], // ObligacionesReconocidasNetas
+            ObligacionesPendientes: yearsObligacionesPendientes[index]
+          };
+          if (index === 2023) {
+            // value.Definitivas = yearsIniciales[index]; // Se usan las iniciales ya que es el unico dato que existe.
+          }
+          this.data.push(value);
+        }
+      }
+    }
+
+    console.log(this.data);
+    return this.data;
   }
 
   renderChartLines() {
@@ -125,8 +214,8 @@ export class GraphIngresosComponent implements OnInit {
             fillColor: 'red',
             radius: 8
           },
-          name: 'Recaudación neta',
-          data: this.data.map((item) => item.RecaudacionNeta)
+          name: this._nameSerie2,
+          data: this.data.map((item) => item.Netas)
           // data: [-2.9, -3.6, -0.6, 4.8, 10.2, 14.5, 17.6, 16.5, 12.0]
         }
       ]
@@ -202,8 +291,8 @@ export class GraphIngresosComponent implements OnInit {
             fillColor: 'red',
             radius: 8
           },
-          name: 'Recaudación neta',
-          data: this.data.map((item) => item.RecaudacionNeta)
+          name: this._nameSerie2,
+          data: this.data.map((item) => item.Netas)
           // data: [-2.9, -3.6, -0.6, 4.8, 10.2, 14.5, 17.6, 16.5, 12.0]
         }
       ]
@@ -211,7 +300,6 @@ export class GraphIngresosComponent implements OnInit {
   }
 
   renderChart() {
-    const name1 = 'Definitivas';
     Highcharts.chart('chart-container', {
       legend: {
         itemStyle: {
@@ -257,57 +345,16 @@ export class GraphIngresosComponent implements OnInit {
       series: [
         {
           type: 'bubble',
-          // name: 'Definitivas',
-          name: name1,
+          name: 'Definitivas',
           data: this.data.map((item) => [item.year, item.Definitivas, item.Definitivas / 1000])
         },
         {
           type: 'bubble',
-          name: 'Recaudación neta',
-          data: this.data.map((item) => [item.year, item.RecaudacionNeta, item.RecaudacionNeta / 1000])
+          name: this._nameSerie2,
+          data: this.data.map((item) => [item.year, item.Netas, item.Netas / 1000])
         }
       ]
     });
-  }
-
-  private async _createData() {
-    const codigo = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
-
-    switch (this._dataTable.clasificationType) {
-      case 'ingresosEconomicaCapitulos':
-        this._datos = this._dataTable.rowDataIngresos.filter((x) => x.CodCap == codigo);
-        break;
-      case 'ingresosEconomicaArticulos':
-      case 'ingresosEconomicaConceptos':
-      case 'ingresosEconomicaEconomicos':
-        this._datos = this._dataTable.rowDataIngresos.filter((x) => x.CodEco == codigo);
-        break;
-    }
-
-    const yearsDefinitivas = accumulate('Definitivas', this._datos);
-    const yearsIniciales = accumulate('Iniciales', this._datos);
-    const yearsNetas = accumulate('RecaudacionNeta', this._datos);
-
-    // Convierto los valores para que sirvan de data al grafico
-    this.data = [];
-    for (let index = 2015; index <= 2023; index++) {
-      // Para mostrar solo años seleccionados
-      if (yearsDefinitivas[index] > 0) {
-        const value = {
-          year: index,
-          Definitivas: yearsDefinitivas[index],
-          RecaudacionNeta: yearsNetas[index]
-        };
-        if (index === 2022 || index === 2023) {
-          value.Definitivas = yearsIniciales[index];
-          value.RecaudacionNeta = yearsNetas[index - 1];
-        }
-        this.data.push(value);
-      }
-    }
-    console.log(this.data);
-
-    return this.data;
   }
 
   private _createColumns(): void {
@@ -325,8 +372,8 @@ export class GraphIngresosComponent implements OnInit {
         cellRenderer: CellRendererOCM
       },
       {
-        headerName: 'RecaudacionNeta',
-        field: 'RecaudacionNeta',
+        headerName: this._nameSerie2,
+        field: 'Netas',
         width: 200,
         aggFunc: 'sum',
         cellRenderer: CellRendererOCM
@@ -339,58 +386,6 @@ export class GraphIngresosComponent implements OnInit {
       filter: false
     };
   }
-
-  // private _showGraph(): void {
-  //   this.agChartOptions = {
-  //     autoSize: true,
-  //     title: {
-  //       text: this._dataTable.dataPropertyTable.graphTitle,
-  //       fontSize: 40
-  //     },
-  //     subtitle: {
-  //       text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRowFirstLevel}`,
-  //       fontSize: 20
-  //     },
-  //     data: [...this.data],
-  //     series: [
-  //       {
-  //         xKey: 'year',
-  //         yKey: 'Definitivas'
-  //       },
-  //       {
-  //         xKey: 'year',
-  //         yKey: 'RecaudacionNeta'
-  //       }
-  //     ],
-  //     axes: [
-  //       {
-  //         type: 'category',
-  //         position: 'bottom',
-  //         title: {
-  //           text: 'Años',
-  //           enabled: true
-  //         }
-  //       },
-  //       {
-  //         type: 'number',
-  //         position: 'left',
-  //         title: {
-  //           text: 'en miles de Euros',
-  //           enabled: true
-  //         },
-  //         label: {
-  //           formatter: function (params) {
-  //             return params.value / 1000 + '';
-  //           }
-  //         }
-  //       }
-  //     ],
-  //     legend: {
-  //       enabled: true,
-  //       position: 'bottom'
-  //     }
-  //   };
-  // }
 
   volver() {
     this._location.back();

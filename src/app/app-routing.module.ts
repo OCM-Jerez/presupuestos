@@ -30,15 +30,14 @@ const routes: Routes = [
         loadComponent: () => import('./glosario/glosario.component').then((m) => m.GlosarioComponent)
       },
       {
-        path: 'graphIngresos',
+        path: 'graphDetalle',
         loadComponent: () =>
           import('./graphs/graph-ingresos/graph-ingresos.component').then((m) => m.GraphIngresosComponent)
       },
-      {
-        path: 'graphGastos',
-        loadComponent: () => import('./graphs/graph-gastos/graph-gastos.component').then((m) => m.GraphGastosComponent)
-      },
-
+      // {
+      //   path: 'graphGastos',
+      //   loadComponent: () => import('./graphs/graph-gastos/graph-gastos.component').then((m) => m.GraphGastosComponent)
+      // },
       {
         path: 'tableGrupoProgramaDetails/:origen',
         loadComponent: () =>

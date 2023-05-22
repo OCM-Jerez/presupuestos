@@ -9,12 +9,12 @@
       style="width: 1200px; height: 500px"
       [options]="agChartOptions"
     ></ag-charts-angular>
-  </div>
 
-  <div>
+    <div style="width: 1200px; height: 500px" id="chart-container"></div>
+
     <ag-grid-angular
       #agGrid
-      style="width: 700px; height: 300px; padding-right: 20px; margin-left: 10px"
+      style="width: 700px; height: 325px; padding-right: 20px; margin-left: 310px"
       class="ag-theme-balham"
       [rowData]="data"
       [columnDefs]="columnDefs"

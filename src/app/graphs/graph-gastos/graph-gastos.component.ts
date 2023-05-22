@@ -5,6 +5,10 @@ import { AgChartsAngularModule } from 'ag-charts-angular';
 import { AgChartOptions } from 'ag-charts-community';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 
+import * as Highcharts from 'highcharts';
+import HighchartsMore from 'highcharts/highcharts-more';
+HighchartsMore(Highcharts);
+
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 
 import { DataStoreService } from '@services/dataStore.service';
@@ -38,6 +42,77 @@ export class GraphGastosComponent implements OnInit {
     this._createData();
     this._createColumns();
     this._showGraph();
+  }
+
+  ngAfterViewInit() {
+    this.renderChart();
+  }
+
+  renderChart() {
+    Highcharts.chart('chart-container', {
+      legend: {
+        itemStyle: {
+          fontSize: '22px'
+        }
+      },
+      chart: {
+        type: 'bubble'
+      },
+      title: {
+        text: ''
+      },
+      subtitle: {
+        // text: 'Source: ' +
+        //   '<a href="https://en.wikipedia.org/wiki/List_of_cities_by_average_temperature" ' +
+        //   'target="_blank">Wikipedia.com</a>'
+      },
+      xAxis: {
+        title: {
+          text: 'Años',
+          style: {
+            fontSize: '16px'
+          }
+        },
+        categories: this.data.map((item) => item.year)
+      },
+      yAxis: {
+        title: {
+          text: 'en miles de Euros',
+          style: {
+            fontSize: '16px'
+          }
+        }
+      },
+      plotOptions: {
+        bubble: {
+          dataLabels: {
+            enabled: true
+          },
+          enableMouseTracking: false
+        }
+      },
+      series: [
+        {
+          type: 'bubble',
+          name: 'Definitivas',
+          data: this.data.map((item) => [item.year, item.Definitivas, item.Definitivas / 100])
+        },
+        {
+          type: 'bubble',
+          name: 'Obligaciones Reconocidas Netas',
+          data: this.data.map((item) => [
+            item.year,
+            item.ObligacionesReconocidasNetas,
+            item.ObligacionesReconocidasNetas / 100
+          ])
+        },
+        {
+          type: 'bubble',
+          name: 'Obligaciones Pendiente Pago',
+          data: this.data.map((item) => [item.year, item.ObligacionesPendientes, item.ObligacionesPendientes / 100])
+        }
+      ]
+    });
   }
 
   private async _createData() {
