@@ -26,7 +26,7 @@ export default class HomeComponent {
       rutaImagen: 'assets/img/home/menu2-400x250.webp',
       titulo: 'Detalle del presupuesto',
       subtitulo: 'Educación, protección y bienestar social, cultura... ¿Qué área te interesa?',
-      funcion: () => this.detallePresupuesto(),
+      funcion: () => this.detalle(),
       textButton: 'Detalle'
     },
     {
@@ -51,8 +51,8 @@ export default class HomeComponent {
     this._router.navigateByUrl('/visionGlobal');
   }
 
-  detallePresupuesto() {
-    this._router.navigateByUrl('/detallePresupuesto');
+  detalle() {
+    this._router.navigateByUrl('/detalle');
   }
 
   licitaciones() {

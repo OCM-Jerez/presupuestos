@@ -14,7 +14,7 @@ const routes: Routes = [
         loadComponent: () => import('./vision-global/vision-global.component')
       },
       {
-        path: 'detallePresupuesto',
+        path: 'detalle',
         loadComponent: () => import('./detalle/detalle.component')
       },
       {

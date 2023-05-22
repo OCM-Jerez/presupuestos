@@ -11,7 +11,7 @@ import { NgIf } from '@angular/common';
 })
 export class NavbarComponent {
   collapsed = false;
-  constructor(private _router: Router) {}
+  constructor(private _router: Router) { }
 
   inicio() {
     this._router.navigateByUrl('/');
@@ -28,8 +28,8 @@ export class NavbarComponent {
     }, 0);
   }
 
-  detallePresupuesto() {
-    this._router.navigateByUrl('/detallePresupuesto');
+  detalle() {
+    this._router.navigateByUrl('/detalle');
     this.collapsed = true;
     setTimeout(() => {
       this.collapsed = false;
