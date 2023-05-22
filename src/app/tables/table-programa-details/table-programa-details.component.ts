@@ -1,5 +1,5 @@
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { Location, NgIf } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
@@ -22,7 +22,14 @@ import { accumulate } from '../../commons/util/util';
   standalone: true,
   imports: [NgIf, AgGridModule]
 })
+
 export default class TableProgramaDetailsComponent implements OnInit {
+  private _location = inject(Location);
+  private _router = inject(Router);
+  private _prepareDataGastosService = inject(PrepareDataGastosService);
+  public avalaibleYearsService = inject(AvalaibleYearsService);
+  public dataStoreService = inject(DataStoreService);
+
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
   public isExpanded = true;
@@ -33,14 +40,6 @@ export default class TableProgramaDetailsComponent implements OnInit {
   private _gridApi: GridApi;
   private _columnDefs: any[any];
   private _dataTable: IDataTable;
-
-  constructor(
-    public avalaibleYearsService: AvalaibleYearsService,
-    public dataStoreService: DataStoreService,
-    private _location: Location,
-    private _prepareDataGastosService: PrepareDataGastosService,
-    private _router: Router,
-  ) { }
 
   ngOnInit(): void {
     this._loadTable();
