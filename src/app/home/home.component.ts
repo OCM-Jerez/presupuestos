@@ -1,24 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { CardMenuComponent } from './components/card-menu/card-menu.component';
 import { NgFor } from '@angular/common';
-import { CardTableComponent } from './components/card-table/card-table.component';
+
 import { CardInfoComponent } from './components/card-info/card-info.component';
+import { CardMenuComponent } from './components/card-menu/card-menu.component';
+import { CardTableComponent } from './components/card-table/card-table.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [CardInfoComponent, CardTableComponent, NgFor, CardMenuComponent]
+  imports: [
+    NgFor,
+    CardMenuComponent,
+    CardTableComponent,
+    CardInfoComponent
+  ]
 })
 export default class HomeComponent {
+  private _router = inject(Router);
+  constructor() { }
+
   cardMenus = [
     {
       rutaImagen: 'assets/img/home/menu1-400x250.webp',
       titulo: 'Visión global',
       subtitulo: 'Para que tengas una idea general de los ingresos y gastos del Ayuntamiento de Jerez.',
-      // funcion: this.visionGlobal.bind(this),
       funcion: () => this.visionGlobal(),
       textButton: 'Visión global'
     },
@@ -44,8 +52,6 @@ export default class HomeComponent {
       textButton: 'Empleados'
     }
   ];
-
-  constructor(private _router: Router) { }
 
   visionGlobal() {
     this._router.navigateByUrl('/visionGlobal');

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { NgFor } from '@angular/common';
 
 import { TableService } from '@services/table.service';
 
@@ -7,7 +8,6 @@ import { environment } from '@environments/environment';
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { IExample } from '@interfaces/example.interface';
 import { ITablaAleatoria } from '@interfaces/tablaAleatoria.interface';
-import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-card-table',
@@ -17,11 +17,12 @@ import { NgFor } from '@angular/common';
   imports: [NgFor]
 })
 export class CardTableComponent implements OnInit {
+  private _tableService = inject(TableService);
+  constructor() { }
+
   textoTabla: string;
   liqDate = environment.liqDate2023;
   examples: IExample[] = Array(3).fill({ name: '', value: 0 });
-
-  constructor(private _tableService: TableService) {}
 
   ngOnInit(): void {
     this._randomData();
@@ -72,3 +73,5 @@ export class CardTableComponent implements OnInit {
     }));
   }
 }
+
+
