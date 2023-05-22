@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 import { DataStoreService } from '@services/dataStore.service';
 import { TableService } from '@services/table.service';
@@ -14,29 +14,31 @@ import { IDataTable } from '@interfaces/dataTable.interface';
   standalone: true
 })
 export class TableDataPresupuestoComponent implements OnInit {
-  public liqDate = environment.liqDate2023;
-  public totalPresupuestoIngresos: number;
-  public totalPresupuestoGastos: number;
-  public totalEjecutadoIngresos: number;
-  public totalEjecutadoGastos: number;
-  public noFinancieroIngresos: number;
-  public noFinancieroGastos: number;
-  public corrientesIngresos: any;
-  public corrientesGastos: any;
-  public capitalIngresos: number;
-  public capitalGastos: number;
-  public financierosIngresos: any;
-  public financierosGastos: any;
   public ahorroBruto: string;
   public ahorroNeto: string;
+  public capitalGastos: number;
+  public capitalIngresos: number;
+  public corrientesGastos: any;
+  public corrientesIngresos: any;
+  public financierosGastos: any;
+  public financierosIngresos: any;
+  public liqDate = environment.liqDate2023;
+  public noFinancieroGastos: number;
+  public noFinancieroIngresos: number;
+  public totalEjecutadoGastos: number;
+  public totalEjecutadoIngresos: number;
+  public totalPresupuestoGastos: number;
+  public totalPresupuestoIngresos: number;
   public capacidadFinanciacion: any;
 
-  private _dataTable: IDataTable;
-  private _dataIngreso: any;
-  private _dataGasto: any;
   private _capitulosGastos = [];
+  private _dataGasto: any;
+  private _dataIngreso: any;
+  private _dataTable: IDataTable;
 
-  constructor(private _dataStoreService: DataStoreService, private _tableService: TableService) {}
+  constructor() { }
+  private _dataStoreService = inject(DataStoreService);
+  private _tableService = inject(TableService);
 
   ngOnInit(): void {
     this._loadData();
@@ -54,7 +56,6 @@ export class TableDataPresupuestoComponent implements OnInit {
     // await this.calcSumPoliticasGastos();
     await this.calcTotalesPresupuestoGastos();
     await this.calcIndicadores();
-    // this.showGraph();
   }
 
   async calcSumIngresos() {
@@ -77,10 +78,10 @@ export class TableDataPresupuestoComponent implements OnInit {
       index > -1
         ? ((acc[index].value += curr.value), (acc[index].recaudado += curr.recaudado))
         : acc.push({
-            name: curr.name,
-            value: curr.value,
-            recaudado: curr.recaudado
-          });
+          name: curr.name,
+          value: curr.value,
+          recaudado: curr.recaudado
+        });
       return acc;
     }, []);
 
@@ -140,10 +141,10 @@ export class TableDataPresupuestoComponent implements OnInit {
       index > -1
         ? ((acc[index].value += curr.value), (acc[index].recaudado += curr.recaudado))
         : acc.push({
-            name: curr.name,
-            value: curr.value,
-            recaudado: curr.recaudado
-          });
+          name: curr.name,
+          value: curr.value,
+          recaudado: curr.recaudado
+        });
       return acc;
     }, []);
   }

@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NgFor } from '@angular/common';
 
-import { TableDataPresupuestoComponent } from './components/table/table.component';
-import { CheckboxComponent } from '../commons/components/checkbox/checkbox.component';
 import { CardIndiceComponent } from '../commons/components/card/card.component';
+import { CheckboxComponent } from '../commons/components/checkbox/checkbox.component';
+import { TableDataPresupuestoComponent } from './components/table/table.component';
 
 import { DataStoreService } from '@services/dataStore.service';
 import { TableService } from '@services/table.service';
@@ -13,7 +13,6 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSankey from 'highcharts/modules/sankey';
-
 HighchartsMore(Highcharts);
 HighchartsSankey(Highcharts);
 
@@ -25,14 +24,17 @@ HighchartsSankey(Highcharts);
   imports: [NgFor, CardIndiceComponent, CheckboxComponent, TableDataPresupuestoComponent]
 })
 export default class IndiceComponent implements OnInit {
-  // private _dataGrap: [{ name: string, va: number }] = [{ name: "", value: 0 }]
-  private _dataTable: IDataTable;
-  private _dataIngreso: any;
-  private _dataGasto: any;
   private _capitulosGastos = [];
+  private _dataGasto: any;
+  private _dataIngreso: any;
+  private _dataTable: IDataTable;
   // private _politicasGastos = [];
   // private _typeClasification: CLASIFICATION_TYPE = 'ingresosEconomicaCapitulos'
   // https://stackoverflow.com/questions/69549927/how-to-pass-enum-value-in-angular-template-as-an-input
+
+  private _dataStoreService = inject(DataStoreService);
+  private _tableService = inject(TableService);
+  constructor() { }
 
   items = [
     {
@@ -57,8 +59,6 @@ export default class IndiceComponent implements OnInit {
       img: "../../assets/img/vision-global/busget-stream-3.webp"
     }
   ];
-
-  constructor(private _dataStoreService: DataStoreService, private _tableService: TableService) { }
 
   ngOnInit(): void {
     this._loadData();
