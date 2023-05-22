@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
@@ -16,7 +16,8 @@ export class CheckboxComponent implements OnInit {
   public years: any[] = [];
   private _lenghtYears: number;
 
-  constructor(private _avalaibleYearsService: AvalaibleYearsService) {}
+  private _avalaibleYearsService = inject(AvalaibleYearsService);
+  constructor() { }
 
   ngOnInit(): void {
     this.years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023].map((year) => ({ year, checked: false }));
