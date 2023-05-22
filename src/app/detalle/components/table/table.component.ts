@@ -1,5 +1,5 @@
+import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { NgIf } from '@angular/common';
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 import { Subject, takeUntil, tap } from 'rxjs';
 
@@ -13,10 +13,10 @@ import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { DataStoreSubtabService } from '@services/dataStoreSubtab.service';
+import { DataStoreTabService } from '@services/dataStoreTab.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 import { ReloadTableService } from '@services/reloadTable.service';
 import { TableService } from '@services/table.service';
-import { DataStoreTabService } from '../../../services/dataStoreTab.service';
 
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 import { IDataTable } from '@interfaces/dataTable.interface';
@@ -28,7 +28,16 @@ import { IDataTable } from '@interfaces/dataTable.interface';
   standalone: true,
   imports: [NgIf, AgGridModule]
 })
+
 export class TableComponent implements OnInit, OnDestroy {
+  private _avalaibleYearsService = inject(AvalaibleYearsService);
+  private _dataStoreService = inject(DataStoreService);
+  private _dataStoreSubtabService = inject(DataStoreSubtabService);
+  private _dataStoreTabService = inject(DataStoreTabService);
+  private _hasRowClicked = inject(HasRowClicked);
+  private _reloadTableService = inject(ReloadTableService);
+  private _tableService = inject(TableService);
+
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public modules = [RowGroupingModule];
   public gridOptions: GridOptions;
@@ -44,16 +53,6 @@ export class TableComponent implements OnInit, OnDestroy {
   private _subHeaderName: string = '';
   private _tabSelected: any;
   private _unsubscribe$ = new Subject<void>();
-
-  constructor(
-    private _avalaibleYearsService: AvalaibleYearsService,
-    private _dataStoreService: DataStoreService,
-    private _dataStoreSubtabService: DataStoreSubtabService,
-    private _dataStoreTabService: DataStoreTabService,
-    private _hasRowClicked: HasRowClicked,
-    private _reloadTableService: ReloadTableService,
-    private _tableService: TableService
-  ) {}
 
   async ngOnInit(): Promise<void> {
     this._hasRowClicked.change(null);

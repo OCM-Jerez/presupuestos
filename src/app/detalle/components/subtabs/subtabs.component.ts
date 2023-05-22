@@ -1,18 +1,19 @@
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Subject, takeUntil } from 'rxjs';
 
-import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
 import { DataStoreSubtabService } from '@services/dataStoreSubtab.service';
 import { DataStoreTabService } from '@services/dataStoreTab.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 import { ReloadTableService } from '@services/reloadTable.service';
 
 import { getClasificacion } from '@app/data-table';
-import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
+
+import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
 import { ISubtabAdicional } from '@interfaces/subtabAdicional.interface';
+import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 @Component({
   selector: 'app-subtabs',
   templateUrl: './subtabs.component.html',
@@ -20,7 +21,14 @@ import { ISubtabAdicional } from '@interfaces/subtabAdicional.interface';
   standalone: true,
   imports: [NgFor, NgClass, NgIf, AsyncPipe]
 })
+
 export class SubtabsComponent implements OnInit, OnDestroy {
+  private _router = inject(Router);
+  private _dataStoreSubtabService = inject(DataStoreSubtabService);
+  private _dataStoreTabService = inject(DataStoreTabService);
+  private _hasRowClicked = inject(HasRowClicked);
+  private _reloadTableService = inject(ReloadTableService);
+
   public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
   public isDisabled = true;
   public subtabs: ISubtabClasification[] = [];
@@ -28,14 +36,6 @@ export class SubtabsComponent implements OnInit, OnDestroy {
   private _selectedSubtab: ISubtabClasification;
   private _tabSelected: string;
   private _unsubscribe$ = new Subject<void>();
-
-  constructor(
-    private _router: Router,
-    private _dataStoreSubtabService: DataStoreSubtabService,
-    private _dataStoreTabService: DataStoreTabService,
-    private _hasRowClicked: HasRowClicked,
-    private _reloadTableService: ReloadTableService
-  ) {}
 
   async ngOnInit(): Promise<void> {
     const clasification = getClasificacion('ingresosEconomicaEconomicos');
@@ -90,7 +90,6 @@ export class SubtabsComponent implements OnInit, OnDestroy {
         this._tabSelected = storeTab.clasificationType;
         const clasification = getClasificacion(this._tabSelected as CLASIFICATION_TYPE);
         this.subtabs = clasification.subtabs;
-        // console.log(this.subtabs);
         this.subtabsAdditional = clasification.subtabsAdditional;
       });
   }

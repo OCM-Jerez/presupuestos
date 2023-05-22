@@ -1,13 +1,12 @@
+import { AfterContentInit, Component, ContentChildren, OnDestroy, QueryList, inject } from '@angular/core';
 import { NgClass, NgFor } from '@angular/common';
-import { AfterContentInit, Component, ContentChildren, OnDestroy, QueryList } from '@angular/core';
-
-import { TabComponent } from './tab/tab.component';
 
 import { Subject, takeUntil } from 'rxjs';
 
+import { TabComponent } from './tab/tab.component';
+
 import { DataStoreSubtabService } from '@services/dataStoreSubtab.service';
 import { DataStoreTabService } from '@services/dataStoreTab.service';
-// import { ReloadTableService } from '@services/reloadTable.service';
 
 import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
 import { ITab } from '@interfaces/tab.interface';
@@ -19,16 +18,17 @@ import { ITab } from '@interfaces/tab.interface';
   standalone: true,
   imports: [NgFor, NgClass]
 })
+
 export class TabsComponent implements AfterContentInit, OnDestroy {
+  private _dataStoreSubtabService = inject(DataStoreSubtabService);
+  private _dataStoreTabService = inject(DataStoreTabService);
+
   @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
   private _tabSelected: ITab;
   private _subtabSelected: ISubtabClasification;
   private _unsubscribe$ = new Subject<void>();
 
-  constructor(
-    private _dataStoreSubtabService: DataStoreSubtabService,
-    private _dataStoreTabService: DataStoreTabService // private _reloadTableService: ReloadTableService
-  ) {
+  constructor() {
     this._dataStoreTabService
       .getTab()
       .pipe(takeUntil(this._unsubscribe$))
@@ -67,7 +67,6 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
         this._subtabSelected = this._dataStoreSubtabService.getData4();
         break;
     }
-    // this._reloadTableService.triggerReloadTable();
   }
 
   private setActiveTab(tab?: TabComponent): void {

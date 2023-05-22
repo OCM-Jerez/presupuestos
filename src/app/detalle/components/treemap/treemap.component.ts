@@ -1,18 +1,18 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 
 import { Subject, takeUntil } from 'rxjs';
 
 import { DataStoreSubtabService } from '@services/dataStoreSubtab.service';
 import { DataStoreTabService } from '@services/dataStoreTab.service';
 import { PrepareDataTreemapService } from '@services/prepareDataTreemap.service';
+import { ReloadTableService } from '@services/reloadTable.service';
 import { TableService } from '@services/table.service';
 
-import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 import { IDataTreemap } from '@interfaces/dataTreemap.interface';
 import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
 import { ITab } from '@interfaces/tab.interface';
+import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 
-import { ReloadTableService } from '@services/reloadTable.service';
 import * as Highcharts from 'highcharts';
 import HighchartsTreemap from 'highcharts/modules/treemap';
 HighchartsTreemap(Highcharts);
@@ -22,7 +22,14 @@ HighchartsTreemap(Highcharts);
   styleUrls: ['./treemap.component.scss'],
   standalone: true
 })
+
 export class TreemapComponent implements OnInit, OnDestroy {
+  private _dataStoreSubtabService = inject(DataStoreSubtabService);
+  private _dataStoreTabService = inject(DataStoreTabService);
+  private _prepareDataTreemapService = inject(PrepareDataTreemapService);
+  private _reloadTableService = inject(ReloadTableService);
+  private _tableService = inject(TableService)
+
   private _clasification: CLASIFICATION_TYPE;
   private _data: ISubtabClasification;
   private _dataTreeMap: IDataTreemap;
@@ -31,13 +38,7 @@ export class TreemapComponent implements OnInit, OnDestroy {
   private _tabSelected: ITab;
   private _unsubscribe$ = new Subject<void>();
 
-  constructor(
-    private _dataStoreSubtabService: DataStoreSubtabService,
-    private _dataStoreTabService: DataStoreTabService,
-    private _prepareDataTreemapService: PrepareDataTreemapService,
-    private _reloadTableService: ReloadTableService,
-    private _tableService: TableService
-  ) {
+  constructor() {
     this._dataStoreTabService
       .getTab()
       .pipe(takeUntil(this._unsubscribe$))

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { NgIf } from '@angular/common';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
@@ -7,7 +8,6 @@ import { PrepareDataTotalesPresupuestoService } from '@services/prepareDataTotal
 import { environment } from '@environments/environment';
 
 import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.interface';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-table-presupuesto',
@@ -16,7 +16,12 @@ import { NgIf } from '@angular/common';
   standalone: true,
   imports: [NgIf]
 })
+
 export class TablePresupuestoComponent implements OnInit {
+  private _avalaibleYearsService = inject(AvalaibleYearsService);
+  private _dataStoreService = inject(DataStoreService);
+  private _prepareDataTotalesPresupuestoService = inject(PrepareDataTotalesPresupuestoService);
+
   public showTablePresupuesto = true;
   public liqDate = environment.liqDate2023;
   public DataTotalesPresupuesto: IDataTotalesPresupuesto = {
@@ -26,11 +31,6 @@ export class TablePresupuestoComponent implements OnInit {
     totalEjecutadoIngresos: '0',
     totalEjecutadoGastos: '0'
   };
-  constructor(
-    private _dataStoreService: DataStoreService,
-    private _avalaibleYearsService: AvalaibleYearsService,
-    private _prepareDataTotalesPresupuestoService: PrepareDataTotalesPresupuestoService
-  ) {}
 
   async ngOnInit(): Promise<void> {
     // Si se recarga la pagina hay que volver a calcular los totales.
