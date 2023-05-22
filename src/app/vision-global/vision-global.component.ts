@@ -24,7 +24,7 @@ HighchartsSankey(Highcharts);
   standalone: true,
   imports: [NgFor, CardIndiceComponent, CheckboxComponent, TableDataPresupuestoComponent]
 })
-export class IndiceComponent implements OnInit {
+export default class IndiceComponent implements OnInit {
   // private _dataGrap: [{ name: string, va: number }] = [{ name: "", value: 0 }]
   private _dataTable: IDataTable;
   private _dataIngreso: any;

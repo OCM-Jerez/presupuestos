@@ -22,7 +22,7 @@ import { accumulate } from '../../commons/util/util';
   standalone: true,
   imports: [NgIf, AgGridModule]
 })
-export class TableProgramaDetailsComponent implements OnInit {
+export default class TableProgramaDetailsComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
   public isExpanded = true;

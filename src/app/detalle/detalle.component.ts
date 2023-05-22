@@ -27,7 +27,7 @@ import { ITab } from '@interfaces/tab.interface';
     NgFor
   ]
 })
-export class DetalleComponent {
+export default class DetalleComponent {
   public tabs: ITab[] = [
     { clasificationType: 'ingresosEconomicaEconomicos', title: 'Ingresos', selected: true },
     { clasificationType: 'gastosProgramaProgramas', title: '¿En qué se gasta?', selected: false },

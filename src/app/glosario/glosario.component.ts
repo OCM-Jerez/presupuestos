@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./glosario.component.scss'],
   standalone: true
 })
-export class GlosarioComponent {
-  constructor() {}
+export default class GlosarioComponent {
+  constructor() { }
 }

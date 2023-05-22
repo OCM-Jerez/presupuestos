@@ -7,6 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./explicamos.component.scss'],
   standalone: true
 })
-export class ExplicamosComponent {
-  constructor(private _router: Router) {}
+export default class ExplicamosComponent {
+  constructor(private _router: Router) { }
 }

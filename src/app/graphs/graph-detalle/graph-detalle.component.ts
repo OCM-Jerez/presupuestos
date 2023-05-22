@@ -21,7 +21,7 @@ import { accumulate } from '@utils/util';
   standalone: true,
   imports: [NgIf, AgGridModule]
 })
-export class GraphDetalleComponent implements OnInit {
+export default class GraphDetalleComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public columnDefs;
   public data: any;
@@ -35,7 +35,7 @@ export class GraphDetalleComponent implements OnInit {
   private _nameSerie2: string;
   private _nameSerie3: string;
 
-  constructor(private _location: Location, private _dataStoreService: DataStoreService) {}
+  constructor(private _location: Location, private _dataStoreService: DataStoreService) { }
 
   ngOnInit(): void {
     this._dataTable = this._dataStoreService.dataTable;

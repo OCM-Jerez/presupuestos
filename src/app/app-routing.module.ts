@@ -7,77 +7,52 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadComponent: () => import('./home/home.component').then((m) => m.HomeComponent)
+        loadComponent: () => import('./home/home.component')
       },
       {
         path: 'visionGlobal',
-        loadComponent: () => import('./vision-global/vision-global.component').then((m) => m.IndiceComponent)
+        loadComponent: () => import('./vision-global/vision-global.component')
       },
       {
         path: 'detallePresupuesto',
-        loadComponent: () => import('./detalle/detalle.component').then((m) => m.DetalleComponent)
+        loadComponent: () => import('./detalle/detalle.component')
       },
       {
         path: 'empleados',
-        loadComponent: () => import('./empleados/empleados.component').then((m) => m.EmpleadosComponent)
+        loadComponent: () => import('./empleados/empleados.component')
       },
       {
         path: 'explicamos',
-        loadComponent: () => import('./explicamos/explicamos.component').then((m) => m.ExplicamosComponent)
+        loadComponent: () => import('./explicamos/explicamos.component')
       },
       {
         path: 'glosario',
-        loadComponent: () => import('./glosario/glosario.component').then((m) => m.GlosarioComponent)
+        loadComponent: () => import('./glosario/glosario.component')
       },
       {
         path: 'graphDetalle',
         loadComponent: () =>
-          import('./graphs/graph-detalle/graph-detalle.component').then((m) => m.GraphDetalleComponent)
-      },
-      // {
-      //   path: 'graphGastos',
-      //   loadComponent: () => import('./graphs/graph-gastos/graph-gastos.component').then((m) => m.GraphGastosComponent)
-      // },
-      {
-        path: 'tableGrupoProgramaDetails/:origen',
-        loadComponent: () =>
-          import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.component').then(
-            (m) => m.TableGastosGruposprogramasDetailsComponent
-          )
+          import('./graphs/graph-detalle/graph-detalle.component')
       },
       {
         path: 'tableProgramaDetails',
         loadComponent: () =>
-          import('./tables/table-programa-details/table-programa-details.component').then(
-            (m) => m.TableProgramaDetailsComponent
-          )
+          import('./tables/table-programa-details/table-programa-details.component')
       },
+      {
+        path: 'tableGrupoProgramaDetails/:origen',
+        loadComponent: () =>
+          import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.component')
+      },
+
 
       { path: '**', pathMatch: 'full', redirectTo: 'home' }
     ]
   }
 ];
 
-//     {
-//         path: 'tableAplicacionPresupuestaria',
-//         loadChildren: () =>
-//             import(
-//                 './tables/table-gastos-aplicacion-presupuestaria/table-gastos-aplicacion-presupuestaria.component'
-//             ).then((m) => m.TableGastosAplicacionPresupuestariaComponent),
-//     },
-
-// {
-//   path: 'tableProgramaDetails',
-//   loadComponent: () =>
-//     import('./tables/table-programa-details/table-programa-details.component').then(
-//       (m) => m.TableProgramaDetailsComponent
-//     )
-// },
-
-//
-
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

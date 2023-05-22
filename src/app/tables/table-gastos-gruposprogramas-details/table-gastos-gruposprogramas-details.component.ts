@@ -20,7 +20,7 @@ import { Subscription } from 'rxjs';
   standalone: true,
   imports: [AgGridModule]
 })
-export class TableGastosGruposprogramasDetailsComponent implements OnDestroy {
+export default class TableGastosGruposprogramasDetailsComponent implements OnDestroy {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
   private _columnDefs: any[any];

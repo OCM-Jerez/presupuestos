@@ -10,28 +10,28 @@ import { CardIndiceComponent } from '../commons/components/card/card.component';
   standalone: true,
   imports: [NgFor, CardIndiceComponent]
 })
-export class EmpleadosComponent {
+export default class EmpleadosComponent {
   items = [
     {
       indice: '1.',
       title: 'Funcionarios',
       footer:
         'En desarrollo...',
-      img: "../../assets/img/indice/busget-stream-1.webp"
+      img: "../../assets/img/vision-global/busget-stream-1.webp"
     },
     {
       indice: '2.',
       title: 'Laborales',
       footer:
         'En desarrollo...',
-      img: "../../assets/img/indice/busget-stream-2.webp"
+      img: "../../assets/img/vision-global/busget-stream-2.webp"
     },
     {
       indice: '3.',
       title: 'Eventuales',
       footer:
         'En desarrollo...',
-      img: "../../assets/img/indice/busget-stream-3.webp"
+      img: "../../assets/img/vision-global/busget-stream-3.webp"
     }
   ];
 }

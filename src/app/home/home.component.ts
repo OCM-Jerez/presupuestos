@@ -12,7 +12,7 @@ import { CardInfoComponent } from './components/card-info/card-info.component';
   standalone: true,
   imports: [CardInfoComponent, CardTableComponent, NgFor, CardMenuComponent]
 })
-export class HomeComponent {
+export default class HomeComponent {
   cardMenus = [
     {
       rutaImagen: 'assets/img/home/menu1-400x250.webp',
@@ -45,7 +45,7 @@ export class HomeComponent {
     }
   ];
 
-  constructor(private _router: Router) {}
+  constructor(private _router: Router) { }
 
   visionGlobal() {
     this._router.navigateByUrl('/visionGlobal');
