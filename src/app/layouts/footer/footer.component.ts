@@ -7,6 +7,7 @@ import packageJson from '../../../../package.json';
   styleUrls: ['./footer.component.scss'],
   standalone: true
 })
+
 export class FooterComponent {
   version = packageJson.version;
 }
