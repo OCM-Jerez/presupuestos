@@ -18,7 +18,6 @@ import { ITablaAleatoria } from '@interfaces/tablaAleatoria.interface';
 })
 export class CardTableComponent implements OnInit {
   private _tableService = inject(TableService);
-  constructor() { }
 
   textoTabla: string;
   liqDate = environment.liqDate2023;

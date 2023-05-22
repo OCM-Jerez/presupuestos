@@ -36,7 +36,6 @@ export class TableDataPresupuestoComponent implements OnInit {
   private _dataIngreso: any;
   private _dataTable: IDataTable;
 
-  constructor() { }
   private _dataStoreService = inject(DataStoreService);
   private _tableService = inject(TableService);
 

@@ -17,7 +17,6 @@ export class CheckboxComponent implements OnInit {
   private _lenghtYears: number;
 
   private _avalaibleYearsService = inject(AvalaibleYearsService);
-  constructor() { }
 
   ngOnInit(): void {
     this.years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023].map((year) => ({ year, checked: false }));

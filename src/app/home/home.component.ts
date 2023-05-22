@@ -20,7 +20,6 @@ import { CardTableComponent } from './components/card-table/card-table.component
 })
 export default class HomeComponent {
   private _router = inject(Router);
-  constructor() { }
 
   cardMenus = [
     {
