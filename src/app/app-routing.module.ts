@@ -32,7 +32,7 @@ const routes: Routes = [
       {
         path: 'graphDetalle',
         loadComponent: () =>
-          import('./graphs/graph-ingresos/graph-ingresos.component').then((m) => m.GraphIngresosComponent)
+          import('./graphs/graph-detalle/graph-detalle.component').then((m) => m.GraphDetalleComponent)
       },
       // {
       //   path: 'graphGastos',

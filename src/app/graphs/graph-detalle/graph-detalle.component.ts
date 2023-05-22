@@ -15,13 +15,13 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 
 import { accumulate } from '@utils/util';
 @Component({
-  selector: 'app-graph-ingresos',
-  templateUrl: './graph-ingresos.component.html',
-  styleUrls: ['./graph-ingresos.component.scss'],
+  selector: 'app-graph-detalle',
+  templateUrl: './graph-detalle.component.html',
+  styleUrls: ['./graph-detalle.component.scss'],
   standalone: true,
   imports: [NgIf, AgGridModule]
 })
-export class GraphIngresosComponent implements OnInit {
+export class GraphDetalleComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public columnDefs;
   public data: any;
@@ -39,8 +39,6 @@ export class GraphIngresosComponent implements OnInit {
 
   ngOnInit(): void {
     this._dataTable = this._dataStoreService.dataTable;
-    console.log(this._dataTable);
-
     this._createData();
     this._createColumns();
   }
@@ -135,7 +133,6 @@ export class GraphIngresosComponent implements OnInit {
       }
     }
 
-    console.log(this.data);
     return this.data;
   }
 
