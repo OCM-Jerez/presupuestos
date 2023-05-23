@@ -1,3 +1,4 @@
 node_modules/*;
 packager-lock.json;
 src/index.html
+src/environments/*.ts
