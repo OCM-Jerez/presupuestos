@@ -3,7 +3,6 @@ import { NgIf } from '@angular/common';
 
 import { Subject, takeUntil, tap } from 'rxjs';
 
-import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
@@ -39,7 +38,6 @@ export class TableComponent implements OnInit, OnDestroy {
   private _tableService = inject(TableService);
 
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  public modules = [RowGroupingModule];
   public gridOptions: GridOptions;
   private _clasification: CLASIFICATION_TYPE;
   private _columnApi: ColumnApi;
