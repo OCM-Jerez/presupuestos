@@ -22,7 +22,6 @@
     "@angular/platform-browser": "16.0.0",
     "@angular/platform-browser-dynamic": "16.0.0",
     "@angular/router": "16.0.0",
-    "ag-charts-community": "7.3.0",
     "ag-grid-angular": "29.3.4",
     "ag-grid-community": "29.3.4",
     "ag-grid-enterprise": "29.3.4",
