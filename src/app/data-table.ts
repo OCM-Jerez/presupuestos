@@ -158,7 +158,7 @@ const CLASIFICATION: { [key: string]: any } = {
     width: 250,
     subtabs: [],
     subtabsAdditional: [
-      { name: 'Gráfico detallado', path: '/graphGastos' },
+      { name: 'Gráfico detallado', path: '/graphDetalle' },
       {
         name: 'Programas que componen orgánico seleccionado',
         path: '/tableGrupoProgramaDetails',
