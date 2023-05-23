@@ -1,23 +1,23 @@
 html {
-  box-sizing: border-box; //https://www.udemy.com/course/css-grid-y-flexbox-la-guia-definitiva-crea-10-proyectos/learn/lecture/28229796#announcements
-  font-size: 62.5%; /* 62.5% of 16px base font size is 10px */
-  max-height: 950px;
-  width: 100vw;
+	box-sizing: border-box; //https://www.udemy.com/course/css-grid-y-flexbox-la-guia-definitiva-crea-10-proyectos/learn/lecture/28229796#announcements
+	font-size: 62.5%; /* 62.5% of 16px base font size is 10px */
+	max-height: 950px;
+	width: 100vw;
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit; // https://www.udemy.com/course/css-grid-y-flexbox-la-guia-definitiva-crea-10-proyectos/learn/lecture/28229796#announcements
+	box-sizing: inherit; // https://www.udemy.com/course/css-grid-y-flexbox-la-guia-definitiva-crea-10-proyectos/learn/lecture/28229796#announcements
 }
 
 body {
-  width: 100vw; // evita que se vea la barra de scroll
-  max-height: 950px;
-  display: flex;
-  flex-direction: column;
-  line-height: 2rem;
-  // max-width: 1399px;
+	width: 100vw; // evita que se vea la barra de scroll
+	max-height: 950px;
+	display: flex;
+	flex-direction: column;
+	line-height: 2rem;
+	// max-width: 1399px;
 }
 
 // @media screen and (max-width: 1199.98px) {

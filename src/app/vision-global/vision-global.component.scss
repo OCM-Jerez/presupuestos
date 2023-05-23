@@ -3,40 +3,40 @@
 @import '/src/app/scss/variables';
 
 @media screen and (max-width: 3399.98px) {
-  .graph2 {
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-  }
+	.graph2 {
+		display: flex;
+		justify-content: flex-start;
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-top: 20px;
+	}
 
-  #sankey {
-    width: 50%;
-    max-width: 50%;
-    height: 550px;
-    margin: 0 auto;
-  }
+	#sankey {
+		width: 50%;
+		max-width: 50%;
+		height: 550px;
+		margin: 0 auto;
+	}
 
-  #sankey1 {
-    width: 50%;
-    max-width: 50%;
-    height: 550px;
-    margin: 0 auto;
-  }
+	#sankey1 {
+		width: 50%;
+		max-width: 50%;
+		height: 550px;
+		margin: 0 auto;
+	}
 
-  .datosPresupuestarios {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100 hw;
-    color: black;
-    font-weight: 700;
-    font-family: var(--fuente-principal);
-    font-size: clamp(3rem, 4rem, 5rem);
-    text-align: center;
-    margin-bottom: 20px;
-  }
+	.datosPresupuestarios {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100 hw;
+		color: black;
+		font-weight: 700;
+		font-family: var(--fuente-principal);
+		font-size: clamp(3rem, 4rem, 5rem);
+		text-align: center;
+		margin-bottom: 20px;
+	}
 }
 
 @media screen and (max-width: 1199.98px) {
@@ -49,15 +49,15 @@
 }
 
 @media screen and (max-width: 575.98px) {
-  #sankey {
-    height: 350px;
-  }
+	#sankey {
+		height: 350px;
+	}
 
-  #sankey1 {
-    height: 350px;
-  }
+	#sankey1 {
+		height: 350px;
+	}
 
-  .datosPresupuestarios {
-    font-size: 1.4rem;
-  }
+	.datosPresupuestarios {
+		font-size: 1.4rem;
+	}
 }

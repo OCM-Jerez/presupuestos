@@ -9,13 +9,13 @@ import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 
 if (environment.production) {
-  enableProdMode();
+	enableProdMode();
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [
-    importProvidersFrom(AppRoutingModule, BrowserModule, FormsModule, ReactiveFormsModule),
-    AvalaibleYearsService,
-    provideHttpClient(withInterceptorsFromDi())
-  ]
+	providers: [
+		importProvidersFrom(AppRoutingModule, BrowserModule, FormsModule, ReactiveFormsModule),
+		AvalaibleYearsService,
+		provideHttpClient(withInterceptorsFromDi())
+	]
 }).catch((err) => console.error(err));

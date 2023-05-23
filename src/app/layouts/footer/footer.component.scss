@@ -8,58 +8,58 @@
 
 // https://javascript.plainenglish.io/5-steps-to-adding-a-sticky-footer-to-your-angular-11-application-6c185c2ed99f
 .footer {
-  a {
-    text-decoration: none;
-    color: white;
-  }
+	a {
+		text-decoration: none;
+		color: white;
+	}
 
-  display: flex;
-  justify-content: space-between;
-  flex-flow: row wrap;
-  width: 100%;
-  height: 50px;
-  background-color: map-get($OCM-colors, navBarBackground);
-  &--text {
-    @include OCM-text;
-    font-size: 18px;
-    margin-left: 10px;
-  }
-  &--rrss {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
+	width: 100%;
+	height: 50px;
+	background-color: map-get($OCM-colors, navBarBackground);
+	&--text {
+		@include OCM-text;
+		font-size: 18px;
+		margin-left: 10px;
+	}
+	&--rrss {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
 
-    .logoWWW {
-      @include OCM-logo;
-      background: url('#{$assets-img-path}/www.svg') no-repeat center center;
-    }
+		.logoWWW {
+			@include OCM-logo;
+			background: url('#{$assets-img-path}/www.svg') no-repeat center center;
+		}
 
-    .logoFacebook {
-      @include OCM-logo;
-      background: url('#{$assets-img-path}/facebook.svg') no-repeat center center;
-    }
+		.logoFacebook {
+			@include OCM-logo;
+			background: url('#{$assets-img-path}/facebook.svg') no-repeat center center;
+		}
 
-    .logoTwitter {
-      @include OCM-logo;
-      background: url('#{$assets-img-path}/twitter.svg') no-repeat center center;
-    }
-  }
+		.logoTwitter {
+			@include OCM-logo;
+			background: url('#{$assets-img-path}/twitter.svg') no-repeat center center;
+		}
+	}
 
-  &--mail {
-    @include OCM-text;
-    text-decoration-style: none;
-    margin-right: 20px;
-    font-size: 18px;
+	&--mail {
+		@include OCM-text;
+		text-decoration-style: none;
+		margin-right: 20px;
+		font-size: 18px;
 
-    a:hover {
-      transform: scale(1.2);
-    }
-  }
+		a:hover {
+			transform: scale(1.2);
+		}
+	}
 }
 
 @media screen and (max-width: 844px) {
-  .footer {
-    display: none;
-  }
+	.footer {
+		display: none;
+	}
 }

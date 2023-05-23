@@ -1,98 +1,98 @@
 [
-  {
-    "codigo": 13,
-    "descripcion": "Seguridad y movilidad ciudadana."
-  },
-  {
-    "codigo": 15,
-    "descripcion": "Vivienda y urbanismo."
-  },
-  {
-    "codigo": 16,
-    "descripcion": "Bienestar comunitario."
-  },
-  {
-    "codigo": 17,
-    "descripcion": "Medio ambiente."
-  },
-  {
-    "codigo": 21,
-    "descripcion": "Pensiones."
-  },
-  {
-    "codigo": 22,
-    "descripcion": "Otras prestaciones económicas a favor de empleados."
-  },
-  {
-    "codigo": 23,
-    "descripcion": "Servicios Sociales y promoción social."
-  },
-  {
-    "codigo": 24,
-    "descripcion": "Fomento del Empleo."
-  },
-  {
-    "codigo": 31,
-    "descripcion": "Sanidad."
-  },
-  {
-    "codigo": 32,
-    "descripcion": "Educación."
-  },
-  {
-    "codigo": 33,
-    "descripcion": "Cultura."
-  },
-  {
-    "codigo": 34,
-    "descripcion": "Deporte."
-  },
-  {
-    "codigo": 41,
-    "descripcion": "Agricultura, Ganadería y Pesca."
-  },
-  {
-    "codigo": 42,
-    "descripcion": "Industria y energía."
-  },
-  {
-    "codigo": 43,
-    "descripcion": "Comercio, turismo y pequeñas y medianas empresas."
-  },
-  {
-    "codigo": 44,
-    "descripcion": "Transporte público."
-  },
-  {
-    "codigo": 45,
-    "descripcion": "Infraestructuras."
-  },
-  {
-    "codigo": 46,
-    "descripcion": "Investigación, desarrollo e innovación."
-  },
-  {
-    "codigo": 49,
-    "descripcion": "Otras actuaciones de carácter económico."
-  },
-  {
-    "codigo": 91,
-    "descripcion": "Órganos de gobierno."
-  },
-  {
-    "codigo": 92,
-    "descripcion": "Servicios de carácter general."
-  },
-  {
-    "codigo": 93,
-    "descripcion": "Administración financiera y tributaria."
-  },
-  {
-    "codigo": 94,
-    "descripcion": "Transferencias a otras Administraciones Públicas."
-  },
-  {
-    "codigo": 1,
-    "descripcion": "Deuda Pública."
-  }
+	{
+		"codigo": 13,
+		"descripcion": "Seguridad y movilidad ciudadana."
+	},
+	{
+		"codigo": 15,
+		"descripcion": "Vivienda y urbanismo."
+	},
+	{
+		"codigo": 16,
+		"descripcion": "Bienestar comunitario."
+	},
+	{
+		"codigo": 17,
+		"descripcion": "Medio ambiente."
+	},
+	{
+		"codigo": 21,
+		"descripcion": "Pensiones."
+	},
+	{
+		"codigo": 22,
+		"descripcion": "Otras prestaciones económicas a favor de empleados."
+	},
+	{
+		"codigo": 23,
+		"descripcion": "Servicios Sociales y promoción social."
+	},
+	{
+		"codigo": 24,
+		"descripcion": "Fomento del Empleo."
+	},
+	{
+		"codigo": 31,
+		"descripcion": "Sanidad."
+	},
+	{
+		"codigo": 32,
+		"descripcion": "Educación."
+	},
+	{
+		"codigo": 33,
+		"descripcion": "Cultura."
+	},
+	{
+		"codigo": 34,
+		"descripcion": "Deporte."
+	},
+	{
+		"codigo": 41,
+		"descripcion": "Agricultura, Ganadería y Pesca."
+	},
+	{
+		"codigo": 42,
+		"descripcion": "Industria y energía."
+	},
+	{
+		"codigo": 43,
+		"descripcion": "Comercio, turismo y pequeñas y medianas empresas."
+	},
+	{
+		"codigo": 44,
+		"descripcion": "Transporte público."
+	},
+	{
+		"codigo": 45,
+		"descripcion": "Infraestructuras."
+	},
+	{
+		"codigo": 46,
+		"descripcion": "Investigación, desarrollo e innovación."
+	},
+	{
+		"codigo": 49,
+		"descripcion": "Otras actuaciones de carácter económico."
+	},
+	{
+		"codigo": 91,
+		"descripcion": "Órganos de gobierno."
+	},
+	{
+		"codigo": 92,
+		"descripcion": "Servicios de carácter general."
+	},
+	{
+		"codigo": 93,
+		"descripcion": "Administración financiera y tributaria."
+	},
+	{
+		"codigo": 94,
+		"descripcion": "Transferencias a otras Administraciones Públicas."
+	},
+	{
+		"codigo": 1,
+		"descripcion": "Deuda Pública."
+	}
 ]

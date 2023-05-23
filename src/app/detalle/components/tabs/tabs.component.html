@@ -1,13 +1,13 @@
 <div class="tabs">
-  <div
-    *ngFor="let tab of tabs"
-    class="tab"
-    [ngClass]="{ 'tab--selected': tab.active === true }"
-    (click)="clickTab(tab)"
-  >
-    <span class="tab__title">{{ tab.title }}</span>
-  </div>
-  <!-- {{ tabSignal() }} -->
+	<div
+		*ngFor="let tab of tabs"
+		class="tab"
+		[ngClass]="{ 'tab--selected': tab.active === true }"
+		(click)="clickTab(tab)"
+	>
+		<span class="tab__title">{{ tab.title }}</span>
+	</div>
+	<!-- {{ tabSignal() }} -->
 </div>
 
 <ng-content></ng-content>

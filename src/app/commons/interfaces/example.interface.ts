@@ -1,4 +1,4 @@
 export interface IExample {
-  name: string;
-  value: number | string;
+	name: string;
+	value: number | string;
 }

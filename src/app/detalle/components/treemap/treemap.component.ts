@@ -17,119 +17,118 @@ import * as Highcharts from 'highcharts';
 import HighchartsTreemap from 'highcharts/modules/treemap';
 HighchartsTreemap(Highcharts);
 @Component({
-  selector: 'app-treemap',
-  templateUrl: './treemap.component.html',
-  styleUrls: ['./treemap.component.scss'],
-  standalone: true
+	selector: 'app-treemap',
+	templateUrl: './treemap.component.html',
+	styleUrls: ['./treemap.component.scss'],
+	standalone: true
 })
-
 export class TreemapComponent implements OnInit, OnDestroy {
-  private _dataStoreSubtabService = inject(DataStoreSubtabService);
-  private _dataStoreTabService = inject(DataStoreTabService);
-  private _prepareDataTreemapService = inject(PrepareDataTreemapService);
-  private _reloadTableService = inject(ReloadTableService);
-  private _tableService = inject(TableService)
+	private _dataStoreSubtabService = inject(DataStoreSubtabService);
+	private _dataStoreTabService = inject(DataStoreTabService);
+	private _prepareDataTreemapService = inject(PrepareDataTreemapService);
+	private _reloadTableService = inject(ReloadTableService);
+	private _tableService = inject(TableService);
 
-  private _clasification: CLASIFICATION_TYPE;
-  private _data: ISubtabClasification;
-  private _dataTreeMap: IDataTreemap;
-  private _fields = { codigo: '', descripcion: '' };
-  private _isIngreso = false;
-  private _tabSelected: ITab;
-  private _unsubscribe$ = new Subject<void>();
+	private _clasification: CLASIFICATION_TYPE;
+	private _data: ISubtabClasification;
+	private _dataTreeMap: IDataTreemap;
+	private _fields = { codigo: '', descripcion: '' };
+	private _isIngreso = false;
+	private _tabSelected: ITab;
+	private _unsubscribe$ = new Subject<void>();
 
-  constructor() {
-    this._dataStoreTabService
-      .getTab()
-      .pipe(takeUntil(this._unsubscribe$))
-      .subscribe((storeTab) => {
-        this._tabSelected = storeTab;
-        this.setFields();
-      });
-  }
+	constructor() {
+		this._dataStoreTabService
+			.getTab()
+			.pipe(takeUntil(this._unsubscribe$))
+			.subscribe((storeTab) => {
+				this._tabSelected = storeTab;
+				this.setFields();
+			});
+	}
 
-  ngOnInit() {
-    this._reloadTableService.reloadTable$.pipe(takeUntil(this._unsubscribe$)).subscribe(() => {
-      this.setFields();
-    });
-  }
+	ngOnInit() {
+		this._reloadTableService.reloadTable$.pipe(takeUntil(this._unsubscribe$)).subscribe(() => {
+			this.setFields();
+		});
+	}
 
-  ngOnDestroy() {
-    this._unsubscribe$.next();
-    this._unsubscribe$.complete();
-  }
+	ngOnDestroy() {
+		this._unsubscribe$.next();
+		this._unsubscribe$.complete();
+	}
 
-  async setFields() {
-    switch (this._tabSelected.clasificationType) {
-      case 'ingresosEconomicaEconomicos':
-        this._data = this._dataStoreSubtabService.getData1();
-        break;
-      case 'gastosProgramaProgramas':
-        this._data = this._dataStoreSubtabService.getData2();
-        break;
-      case 'gastosOrganicaOrganicos':
-        this._data = this._dataStoreSubtabService.getData3();
-        break;
-      case 'gastosEconomicaEconomicos':
-        this._data = this._dataStoreSubtabService.getData4();
-        break;
-    }
+	async setFields() {
+		switch (this._tabSelected.clasificationType) {
+			case 'ingresosEconomicaEconomicos':
+				this._data = this._dataStoreSubtabService.getData1();
+				break;
+			case 'gastosProgramaProgramas':
+				this._data = this._dataStoreSubtabService.getData2();
+				break;
+			case 'gastosOrganicaOrganicos':
+				this._data = this._dataStoreSubtabService.getData3();
+				break;
+			case 'gastosEconomicaEconomicos':
+				this._data = this._dataStoreSubtabService.getData4();
+				break;
+		}
 
-    this._clasification = this._data.key as CLASIFICATION_TYPE;
-    this._fields.codigo = this._data.codField;
-    this._fields.descripcion = this._data.desField;
+		this._clasification = this._data.key as CLASIFICATION_TYPE;
+		this._fields.codigo = this._data.codField;
+		this._fields.descripcion = this._data.desField;
 
-    if (this._clasification.startsWith('ingresos')) {
-      this._isIngreso = true;
-    } else {
-      this._isIngreso = false;
-    }
-    this.calcSeries();
-  }
+		if (this._clasification.startsWith('ingresos')) {
+			this._isIngreso = true;
+		} else {
+			this._isIngreso = false;
+		}
+		this.calcSeries();
+	}
 
-  async calcSeries() {
-    const data = await this._tableService.loadData(this._clasification);
-    const dataTreemap = this._isIngreso ? data.rowDataIngresos : data.rowDataGastos;
-    this._dataTreeMap = this._prepareDataTreemapService.calcSeries(
-      dataTreemap,
-      this._fields.codigo,
-      this._fields.descripcion,
-      'Definitivas2023'
-    );
-    this.showTreemap();
-  }
+	async calcSeries() {
+		const data = await this._tableService.loadData(this._clasification);
+		const dataTreemap = this._isIngreso ? data.rowDataIngresos : data.rowDataGastos;
+		this._dataTreeMap = this._prepareDataTreemapService.calcSeries(
+			dataTreemap,
+			this._fields.codigo,
+			this._fields.descripcion,
+			'Definitivas2023'
+		);
+		this.showTreemap();
+	}
 
-  showTreemap() {
-    const data: IDataTreemap = this._dataTreeMap;
-    Highcharts.chart('treemap', {
-      accessibility: {
-        enabled: false
-      },
-      chart: {
-        type: 'treemap'
-      },
-      title: {
-        text: ''
-      },
-      credits: {
-        enabled: false
-      },
-      legend: {
-        enabled: false
-      },
-      tooltip: {
-        enabled: true,
-        headerFormat: `<span class="mb-2">{point.key}</span>`,
-        pointFormat: `<span class="mb-2">{point.key}</span>`,
-        useHTML: true
-      },
-      series: [
-        {
-          name: null,
-          innerSize: '50%',
-          data: data
-        }
-      ]
-    } as any);
-  }
+	showTreemap() {
+		const data: IDataTreemap = this._dataTreeMap;
+		Highcharts.chart('treemap', {
+			accessibility: {
+				enabled: false
+			},
+			chart: {
+				type: 'treemap'
+			},
+			title: {
+				text: ''
+			},
+			credits: {
+				enabled: false
+			},
+			legend: {
+				enabled: false
+			},
+			tooltip: {
+				enabled: true,
+				headerFormat: `<span class="mb-2">{point.key}</span>`,
+				pointFormat: `<span class="mb-2">{point.key}</span>`,
+				useHTML: true
+			},
+			series: [
+				{
+					name: null,
+					innerSize: '50%',
+					data: data
+				}
+			]
+		} as any);
+	}
 }

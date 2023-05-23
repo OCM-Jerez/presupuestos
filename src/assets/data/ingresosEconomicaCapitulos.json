@@ -1,38 +1,38 @@
 [
-  {
-    "codigo": 1,
-    "descripcion": "Impuestos directos"
-  },
-  {
-    "codigo": 2,
-    "descripcion": "Impuestos indirectos"
-  },
-  {
-    "codigo": 3,
-    "descripcion": "Tasas, precios públicos y otros ingresos"
-  },
-  {
-    "codigo": 4,
-    "descripcion": "Transferencias corrientes"
-  },
-  {
-    "codigo": 5,
-    "descripcion": "Ingresos patrimoniales"
-  },
-  {
-    "codigo": 6,
-    "descripcion": "Enajenación de inversiones"
-  },
-  {
-    "codigo": 7,
-    "descripcion": "Transferencias de capital"
-  },
-  {
-    "codigo": 8,
-    "descripcion": "Activos financieros"
-  },
-  {
-    "codigo": 9,
-    "descripcion": "Pasivos financieros"
-  }
+	{
+		"codigo": 1,
+		"descripcion": "Impuestos directos"
+	},
+	{
+		"codigo": 2,
+		"descripcion": "Impuestos indirectos"
+	},
+	{
+		"codigo": 3,
+		"descripcion": "Tasas, precios públicos y otros ingresos"
+	},
+	{
+		"codigo": 4,
+		"descripcion": "Transferencias corrientes"
+	},
+	{
+		"codigo": 5,
+		"descripcion": "Ingresos patrimoniales"
+	},
+	{
+		"codigo": 6,
+		"descripcion": "Enajenación de inversiones"
+	},
+	{
+		"codigo": 7,
+		"descripcion": "Transferencias de capital"
+	},
+	{
+		"codigo": 8,
+		"descripcion": "Activos financieros"
+	},
+	{
+		"codigo": 9,
+		"descripcion": "Pasivos financieros"
+	}
 ]

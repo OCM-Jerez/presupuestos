@@ -12,30 +12,30 @@ import { NgFor } from '@angular/common';
 import { ITab } from '@interfaces/tab.interface';
 
 @Component({
-  selector: 'app-detalle',
-  templateUrl: './detalle.component.html',
-  styleUrls: ['./detalle.component.scss'],
-  standalone: true,
-  imports: [
-    CheckboxComponent,
-    SubtabsComponent,
-    TabComponent,
-    TableComponent,
-    TablePresupuestoComponent,
-    TabsComponent,
-    TreemapComponent,
-    NgFor
-  ]
+	selector: 'app-detalle',
+	templateUrl: './detalle.component.html',
+	styleUrls: ['./detalle.component.scss'],
+	standalone: true,
+	imports: [
+		CheckboxComponent,
+		SubtabsComponent,
+		TabComponent,
+		TableComponent,
+		TablePresupuestoComponent,
+		TabsComponent,
+		TreemapComponent,
+		NgFor
+	]
 })
 export default class DetalleComponent {
-  public tabs: ITab[] = [
-    { clasificationType: 'ingresosEconomicaEconomicos', title: 'Ingresos', selected: true },
-    { clasificationType: 'gastosProgramaProgramas', title: '¿En qué se gasta?', selected: false },
-    { clasificationType: 'gastosOrganicaOrganicos', title: '¿Quién lo gasta?', selected: false },
-    { clasificationType: 'gastosEconomicaEconomicos', title: '¿Para qué se gasta?', selected: false }
-  ];
+	public tabs: ITab[] = [
+		{ clasificationType: 'ingresosEconomicaEconomicos', title: 'Ingresos', selected: true },
+		{ clasificationType: 'gastosProgramaProgramas', title: '¿En qué se gasta?', selected: false },
+		{ clasificationType: 'gastosOrganicaOrganicos', title: '¿Quién lo gasta?', selected: false },
+		{ clasificationType: 'gastosEconomicaEconomicos', title: '¿Para qué se gasta?', selected: false }
+	];
 
-  async hasChangeCheckbox() {
-    // await this._tableService.loadData(this._typeClasification);
-  }
+	async hasChangeCheckbox() {
+		// await this._tableService.loadData(this._typeClasification);
+	}
 }

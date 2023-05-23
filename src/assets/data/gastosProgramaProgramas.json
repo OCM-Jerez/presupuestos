@@ -1,754 +1,754 @@
 [
-  {
-    "codigo": "01110",
-    "descripcion": "Deuda pública"
-  },
-  {
-    "codigo": 13010,
-    "descripcion": "Administración general de la seguridad y protección civil"
-  },
-  {
-    "codigo": 13210,
-    "descripcion": "Policía Local"
-  },
-  {
-    "codigo": 13220,
-    "descripcion": "Academia de Policía"
-  },
-  {
-    "codigo": 13310,
-    "descripcion": "Ordenación del tráfico y del estacionamiento"
-  },
-  {
-    "codigo": 13311,
-    "descripcion": "Caminos escolares"
-  },
-  {
-    "codigo": 13410,
-    "descripcion": "Movilidad urbana"
-  },
-  {
-    "codigo": 13510,
-    "descripcion": "Servicios Generales de Protección Civil"
-  },
-  {
-    "codigo": 15010,
-    "descripcion": "Servicios Generales de Urbanismo"
-  },
-  {
-    "codigo": 15110,
-    "descripcion": "Planeamiento y Gestión Urbanística"
-  },
-  {
-    "codigo": 15111,
-    "descripcion": "Planes Municipale de Ordenación Urbana"
-  },
-  {
-    "codigo": 15120,
-    "descripcion": "Licencias urbanísticas"
-  },
-  {
-    "codigo": 15130,
-    "descripcion": "Disciplina urbanística"
-  },
-  {
-    "codigo": 15210,
-    "descripcion": "Promoción y gestión de vivienda de protección pública"
-  },
-  {
-    "codigo": 15220,
-    "descripcion": "Edificaciones"
-  },
-  {
-    "codigo": 15221,
-    "descripcion": "Fondo estatal para el empleo y sostenibilidad local."
-  },
-  {
-    "codigo": 15310,
-    "descripcion": "Vías públicas rural"
-  },
-  {
-    "codigo": 15320,
-    "descripcion": "Vías públicas"
-  },
-  {
-    "codigo": 15321,
-    "descripcion": "Plan integral accesibilidad"
-  },
-  {
-    "codigo": 16010,
-    "descripcion": "Alcantarillado rural"
-  },
-  {
-    "codigo": 16110,
-    "descripcion": "Abastecimiento domicializado agua"
-  },
-  {
-    "codigo": 16210,
-    "descripcion": "Recogida de residuos"
-  },
-  {
-    "codigo": 16230,
-    "descripcion": "Tratamiento de residuos urbanos"
-  },
-  {
-    "codigo": 16310,
-    "descripcion": "Limpieza viaria"
-  },
-  {
-    "codigo": 16410,
-    "descripcion": "Cementerio"
-  },
-  {
-    "codigo": 16510,
-    "descripcion": "Alumbrado público"
-  },
-  {
-    "codigo": 16511,
-    "descripcion": "Otras inversiones nuevasen infraestructuras y bienes para u"
-  },
-  {
-    "codigo": 17110,
-    "descripcion": "Conservación y diseño jardines urbanos y periurbanos"
-  },
-  {
-    "codigo": 17111,
-    "descripcion": "Aparatos biosaludables parques urbanos"
-  },
-  {
-    "codigo": 17112,
-    "descripcion": "Otras inversiones en infraestructuras"
-  },
-  {
-    "codigo": 17210,
-    "descripcion": "Protección y mejora del medio ambiente"
-  },
-  {
-    "codigo": 17211,
-    "descripcion": "Otras actuacines relacionadas con medio ambiente. Educación mediambiental"
-  },
-  {
-    "codigo": 17212,
-    "descripcion": "Otras actuaciones relacionadas con medio ambiente. Prevención y calidad"
-  },
-  {
-    "codigo": 17910,
-    "descripcion": "Servicio técnico municipal"
-  },
-  {
-    "codigo": 22110,
-    "descripcion": "Otras prestaciones económicas a favor de empleados"
-  },
-  {
-    "codigo": 23110,
-    "descripcion": "Servicios generales de Bienestar Social"
-  },
-  {
-    "codigo": 23120,
-    "descripcion": "Primera atención (Plan Estrategico Servicios Sociales)"
-  },
-  {
-    "codigo": 23121,
-    "descripcion": "Intervención en zona  (Plan Estrategico Servicios Sociales)"
-  },
-  {
-    "codigo": 23122,
-    "descripcion": "Prestaciones complementarias  (Plan Estrategico Servicios Sociales)"
-  },
-  {
-    "codigo": 23123,
-    "descripcion": "Inclusion social y Solidaridad (Plan Estrategico Servicios Sociales)"
-  },
-  {
-    "codigo": 23124,
-    "descripcion": "Albergue Municipal  (Plan Estrategico Servicios Sociales)"
-  },
-  {
-    "codigo": 23125,
-    "descripcion": "Igualdad y Salud (Plan Estrategico Servicios Sociales)"
-  },
-  {
-    "codigo": 23127,
-    "descripcion": "Programa integral contra la póbreza"
-  },
-  {
-    "codigo": 23128,
-    "descripcion": "Diversidad"
-  },
-  {
-    "codigo": 23130,
-    "descripcion": "Mayores"
-  },
-  {
-    "codigo": 23131,
-    "descripcion": "Centro Dia Mayores Zona Sur"
-  },
-  {
-    "codigo": 23132,
-    "descripcion": "Centro Dia Mayores \"El Abuelo"
-  },
-  {
-    "codigo": 23133,
-    "descripcion": "Centro Dia Mayores Zona Norte"
-  },
-  {
-    "codigo": 23140,
-    "descripcion": "Tratamiento a familias con menores"
-  },
-  {
-    "codigo": 23141,
-    "descripcion": "Prevencion, promocion y reinsercion menores en riesgo social"
-  },
-  {
-    "codigo": 23142,
-    "descripcion": "Servicio de atencion socioeducativa infancia y adolescencia"
-  },
-  {
-    "codigo": 23150,
-    "descripcion": "Inmigracion  (Plan Estrategico Servicios Sociales)"
-  },
-  {
-    "codigo": 23160,
-    "descripcion": "Plan contra la Exclusion Social"
-  },
-  {
-    "codigo": 23170,
-    "descripcion": "Servicios Comunitarios de asistencia a personas dependientes"
-  },
-  {
-    "codigo": 24120,
-    "descripcion": "Politicas activas de empleo"
-  },
-  {
-    "codigo": 24121,
-    "descripcion": "Plan promocion empleo"
-  },
-  {
-    "codigo": 24130,
-    "descripcion": "Formacion y proyectos"
-  },
-  {
-    "codigo": 24131,
-    "descripcion": "Escuela de negocios"
-  },
-  {
-    "codigo": 24140,
-    "descripcion": "Promocion de emprendedores"
-  },
-  {
-    "codigo": 31110,
-    "descripcion": "Protección de la salubridad pública. Profilaxis vectoriales"
-  },
-  {
-    "codigo": 31111,
-    "descripcion": "Otras actuaciones de protección de la salubridad pública"
-  },
-  {
-    "codigo": 31112,
-    "descripcion": "Centro municipal protección animal"
-  },
-  {
-    "codigo": 32010,
-    "descripcion": "Servicios generales de Educación"
-  },
-  {
-    "codigo": 32310,
-    "descripcion": "Funcionamiento de centros docentes de enseñanza preescolar, infantil de 2º ciclo, primaria y educación especial"
-  },
-  {
-    "codigo": 32311,
-    "descripcion": "Plan 50% 50%"
-  },
-  {
-    "codigo": 32620,
-    "descripcion": "Mejoras nivel educacional estudiantes"
-  },
-  {
-    "codigo": 32621,
-    "descripcion": "Escuela de musica"
-  },
-  {
-    "codigo": 33010,
-    "descripcion": "Servicios Generales de Cultura"
-  },
-  {
-    "codigo": 33210,
-    "descripcion": "Bibliotecas"
-  },
-  {
-    "codigo": 33220,
-    "descripcion": "Archivo"
-  },
-  {
-    "codigo": 33300,
-    "descripcion": "Equipamiento cultural ELAs"
-  },
-  {
-    "codigo": 33310,
-    "descripcion": "Museo Arqueologico"
-  },
-  {
-    "codigo": 34113,
-    "descripcion": "Juegos deportivos municipales"
-  },
-  {
-    "codigo": 33410,
-    "descripcion": "Promoción cultural"
-  },
-  {
-    "codigo": 33411,
-    "descripcion": "Organización de actividades culturales"
-  },
-  {
-    "codigo": 33412,
-    "descripcion": "Banda de música"
-  },
-  {
-    "codigo": 33413,
-    "descripcion": "Escuela de tauromaquia"
-  },
-  {
-    "codigo": 33414,
-    "descripcion": "Promoción cultural"
-  },
-  {
-    "codigo": 33416,
-    "descripcion": "Promoción cultural juventud"
-  },
-  {
-    "codigo": 33417,
-    "descripcion": "Flamenco"
-  },
-  {
-    "codigo": 33418,
-    "descripcion": "Cultura y fiestas"
-  },
-  {
-    "codigo": 33419,
-    "descripcion": "Oficina de memoria demócratica"
-  },
-  {
-    "codigo": 33420,
-    "descripcion": "Politicas de infancia"
-  },
-  {
-    "codigo": 33610,
-    "descripcion": "Alcazar-Conjunto Monumental"
-  },
-  {
-    "codigo": 33611,
-    "descripcion": "Los Claustros de Santo Domingo"
-  },
-  {
-    "codigo": 33710,
-    "descripcion": "Parque zoológico"
-  },
-  {
-    "codigo": 33711,
-    "descripcion": "Casa de la Juventud"
-  },
-  {
-    "codigo": 33712,
-    "descripcion": "Parques infantiles medio rural"
-  },
-  {
-    "codigo": 33713,
-    "descripcion": "Plan de ocio juvenil"
-  },
-  {
-    "codigo": 33714,
-    "descripcion": "E-Games"
-  },
-  {
-    "codigo": 33810,
-    "descripcion": "Fiestas populares y festejos"
-  },
-  {
-    "codigo": 33811,
-    "descripcion": "Fiestas populares y festejos Medio Rural"
-  },
-  {
-    "codigo": 34010,
-    "descripcion": "Servicios Generales de Deportes"
-  },
-  {
-    "codigo": 34110,
-    "descripcion": "Promocion y fomento del deporte"
-  },
-  {
-    "codigo": 34111,
-    "descripcion": "Circuito de Jerez"
-  },
-  {
-    "codigo": 34112,
-    "descripcion": "Consejo del motor"
-  },
-  {
-    "codigo": 34210,
-    "descripcion": "Instalaciones y pistas deportivas"
-  },
-  {
-    "codigo": 34211,
-    "descripcion": "Piscinas municipales"
-  },
-  {
-    "codigo": 41910,
-    "descripcion": "Montes Propios"
-  },
-  {
-    "codigo": 43012,
-    "descripcion": "Plan actuaciones comercio local"
-  },
-  {
-    "codigo": 43120,
-    "descripcion": "Mercados"
-  },
-  {
-    "codigo": 43130,
-    "descripcion": "Comercio ambulante"
-  },
-  {
-    "codigo": 43210,
-    "descripcion": "Actividades y promoción turística"
-  },
-  {
-    "codigo": 43211,
-    "descripcion": "Actividades y promoción turística externa"
-  },
-  {
-    "codigo": 43212,
-    "descripcion": "Promoción turística Ciudad del Vino 2014"
-  },
-  {
-    "codigo": 43213,
-    "descripcion": "Ciudad Europea del Caballo 2018"
-  },
-  {
-    "codigo": 43214,
-    "descripcion": "Plan turístico Jerez grandes ciudades"
-  },
-  {
-    "codigo": 43215,
-    "descripcion": "Destino turísticos inteligentes"
-  },
-  {
-    "codigo": 43216,
-    "descripcion": "Jerez Ciudad Europea Cultural 2031"
-  },
-  {
-    "codigo": 43217,
-    "descripcion": "Jerez film Office 2020"
-  },
-  {
-    "codigo": 43311,
-    "descripcion": "Gestión administrativa impulso económico"
-  },
-  {
-    "codigo": 43312,
-    "descripcion": "Oficina de proyectos"
-  },
-  {
-    "codigo": 43313,
-    "descripcion": "Unidad de ventanilla empresarial"
-  },
-  {
-    "codigo": 43314,
-    "descripcion": "Servicios centrales de Fomento"
-  },
-  {
-    "codigo": 43315,
-    "descripcion": "Unidad de apoyo economia social"
-  },
-  {
-    "codigo": 44110,
-    "descripcion": "Transporte colectivo urbano de viajeros"
-  },
-  {
-    "codigo": 45010,
-    "descripcion": "Servicios generales de Infraestructura"
-  },
-  {
-    "codigo": 45410,
-    "descripcion": "Caminos rurales"
-  },
-  {
-    "codigo": 49110,
-    "descripcion": "Sociedad de la información"
-  },
-  {
-    "codigo": 49111,
-    "descripcion": "Servicio de radio y TV municipal"
-  },
-  {
-    "codigo": 49310,
-    "descripcion": "Servicio de consumo"
-  },
-  {
-    "codigo": 91210,
-    "descripcion": "Servicios Centrales Gobierno de la Corporación (Organos de Gobierno)"
-  },
-  {
-    "codigo": 91212,
-    "descripcion": "Servicios Generales Area de la Presidencia"
-  },
-  {
-    "codigo": 91213,
-    "descripcion": "Grupos políticos"
-  },
-  {
-    "codigo": 91214,
-    "descripcion": "Ayuda a grupos políticos"
-  },
-  {
-    "codigo": 92010,
-    "descripcion": "Servicios Generales Administración Central"
-  },
-  {
-    "codigo": 92011,
-    "descripcion": "Secretaría General"
-  },
-  {
-    "codigo": 92012,
-    "descripcion": "Secretaría-Intervención ELA"
-  },
-  {
-    "codigo": 92013,
-    "descripcion": "Asesoría Jurídica General"
-  },
-  {
-    "codigo": 92014,
-    "descripcion": "Servicio de asistencia jurídica"
-  },
-  {
-    "codigo": 92015,
-    "descripcion": "Gestión del Plan"
-  },
-  {
-    "codigo": 92020,
-    "descripcion": "Servicios Generales de Administración de Personal"
-  },
-  {
-    "codigo": 92021,
-    "descripcion": "Formación interna"
-  },
-  {
-    "codigo": 92022,
-    "descripcion": "Prevención de riesgos laborales"
-  },
-  {
-    "codigo": 92030,
-    "descripcion": "Servicios Informáticos Internos"
-  },
-  {
-    "codigo": 92031,
-    "descripcion": "Coordinación de Entidades Municipales"
-  },
-  {
-    "codigo": 92032,
-    "descripcion": "Gestión administrativa de pedanías"
-  },
-  {
-    "codigo": 92033,
-    "descripcion": "Sistema Información Geográfica"
-  },
-  {
-    "codigo": 92034,
-    "descripcion": "Servicio contratación"
-  },
-  {
-    "codigo": 92040,
-    "descripcion": "Administración medio rural"
-  },
-  {
-    "codigo": 92041,
-    "descripcion": "Desarrollo del medio rural"
-  },
-  {
-    "codigo": 92042,
-    "descripcion": "Distrito rural"
-  },
-  {
-    "codigo": 92043,
-    "descripcion": "Actuaciones planes desarrollo rural"
-  },
-  {
-    "codigo": 92044,
-    "descripcion": "OAC Cuartillos"
-  },
-  {
-    "codigo": 92050,
-    "descripcion": "Coordinación de Distritos"
-  },
-  {
-    "codigo": 92051,
-    "descripcion": "Distrito Centro"
-  },
-  {
-    "codigo": 92052,
-    "descripcion": "Distrito Norte"
-  },
-  {
-    "codigo": 92053,
-    "descripcion": "Distrito Sur"
-  },
-  {
-    "codigo": 92054,
-    "descripcion": "Distrito Este"
-  },
-  {
-    "codigo": 92055,
-    "descripcion": "Distrito Oeste"
-  },
-  {
-    "codigo": 92056,
-    "descripcion": "Distrito Noroeste"
-  },
-  {
-    "codigo": 92061,
-    "descripcion": "Imagen y diseño"
-  },
-  {
-    "codigo": 92062,
-    "descripcion": "Almacén y talleres"
-  },
-  {
-    "codigo": 92063,
-    "descripcion": "Mantenimiento de dependencias municipales"
-  },
-  {
-    "codigo": 92064,
-    "descripcion": "Plan integral fuentes"
-  },
-  {
-    "codigo": 92066,
-    "descripcion": "Iniciativa Urbana Jerez Sur"
-  },
-  {
-    "codigo": 92067,
-    "descripcion": "Servicio de mayordomía"
-  },
-  {
-    "codigo": 92068,
-    "descripcion": "Juventud. Gastos de personal"
-  },
-  {
-    "codigo": 92069,
-    "descripcion": "Otros mantenimientos"
-  },
-  {
-    "codigo": 92070,
-    "descripcion": "Parque Móvil"
-  },
-  {
-    "codigo": 92071,
-    "descripcion": "Planes especiales"
-  },
-  {
-    "codigo": 92072,
-    "descripcion": "Patrocinio"
-  },
-  {
-    "codigo": 92081,
-    "descripcion": "Unidad de auditoria de la deuda"
-  },
-  {
-    "codigo": 92082,
-    "descripcion": "Unidad de transparencia"
-  },
-  {
-    "codigo": 92083,
-    "descripcion": "Unidad de evaluación y calidad"
-  },
-  {
-    "codigo": 92410,
-    "descripcion": "Participación ciudadana"
-  },
-  {
-    "codigo": 92411,
-    "descripcion": "Presupuestos participativos"
-  },
-  {
-    "codigo": 92412,
-    "descripcion": "Consejo Económico y Social"
-  },
-  {
-    "codigo": 92510,
-    "descripcion": "Atención a la ciudadanía y modernización administrativa"
-  },
-  {
-    "codigo": 92511,
-    "descripcion": "Oficina del defensor de la ciudadanía"
-  },
-  {
-    "codigo": 92512,
-    "descripcion": "Retirbuciones  Auditoria Ciudadana"
-  },
-  {
-    "codigo": 92612,
-    "descripcion": "Coordinación, imagén y protocolo"
-  },
-  {
-    "codigo": 92910,
-    "descripcion": "Fondo de Contingencia de Ejecución Presupuestaria"
-  },
-  {
-    "codigo": 92920,
-    "descripcion": "Imprevistos y funciones no clasificadas"
-  },
-  {
-    "codigo": 92930,
-    "descripcion": "Indemnizaciones ERE"
-  },
-  {
-    "codigo": 92940,
-    "descripcion": "Programa temporal paga extra 2012"
-  },
-  {
-    "codigo": 93110,
-    "descripcion": "Administración General del Area Económica"
-  },
-  {
-    "codigo": 93111,
-    "descripcion": "Servicio de Intervención"
-  },
-  {
-    "codigo": 93210,
-    "descripcion": "Servicios Gestión Tributaria e Inspección Fiscal"
-  },
-  {
-    "codigo": 93211,
-    "descripcion": "Servicio Reclamaciones Economico Administrativas"
-  },
-  {
-    "codigo": 93310,
-    "descripcion": "Gestión del patrimonio"
-  },
-  {
-    "codigo": 93311,
-    "descripcion": "Conservación de instalaciones municipales"
-  },
-  {
-    "codigo": 93410,
-    "descripcion": "Servicio de Tesorería"
-  },
-  {
-    "codigo": 93411,
-    "descripcion": "Servicio de Recaudación"
-  },
-  {
-    "codigo": 94210,
-    "descripcion": "Transferencias a Entidades Locales territoriales"
-  },
-  {
-    "codigo": 94310,
-    "descripcion": "Transferencias a Entidades Locales Autónomas"
-  },
-  {
-    "codigo": 94320,
-    "descripcion": "Tranferencias a Mancomunidad Bahía de Cádiz"
-  },
-  {
-    "codigo": 94330,
-    "descripcion": "Transferencias a Consorcios"
-  }
+	{
+		"codigo": "01110",
+		"descripcion": "Deuda pública"
+	},
+	{
+		"codigo": 13010,
+		"descripcion": "Administración general de la seguridad y protección civil"
+	},
+	{
+		"codigo": 13210,
+		"descripcion": "Policía Local"
+	},
+	{
+		"codigo": 13220,
+		"descripcion": "Academia de Policía"
+	},
+	{
+		"codigo": 13310,
+		"descripcion": "Ordenación del tráfico y del estacionamiento"
+	},
+	{
+		"codigo": 13311,
+		"descripcion": "Caminos escolares"
+	},
+	{
+		"codigo": 13410,
+		"descripcion": "Movilidad urbana"
+	},
+	{
+		"codigo": 13510,
+		"descripcion": "Servicios Generales de Protección Civil"
+	},
+	{
+		"codigo": 15010,
+		"descripcion": "Servicios Generales de Urbanismo"
+	},
+	{
+		"codigo": 15110,
+		"descripcion": "Planeamiento y Gestión Urbanística"
+	},
+	{
+		"codigo": 15111,
+		"descripcion": "Planes Municipale de Ordenación Urbana"
+	},
+	{
+		"codigo": 15120,
+		"descripcion": "Licencias urbanísticas"
+	},
+	{
+		"codigo": 15130,
+		"descripcion": "Disciplina urbanística"
+	},
+	{
+		"codigo": 15210,
+		"descripcion": "Promoción y gestión de vivienda de protección pública"
+	},
+	{
+		"codigo": 15220,
+		"descripcion": "Edificaciones"
+	},
+	{
+		"codigo": 15221,
+		"descripcion": "Fondo estatal para el empleo y sostenibilidad local."
+	},
+	{
+		"codigo": 15310,
+		"descripcion": "Vías públicas rural"
+	},
+	{
+		"codigo": 15320,
+		"descripcion": "Vías públicas"
+	},
+	{
+		"codigo": 15321,
+		"descripcion": "Plan integral accesibilidad"
+	},
+	{
+		"codigo": 16010,
+		"descripcion": "Alcantarillado rural"
+	},
+	{
+		"codigo": 16110,
+		"descripcion": "Abastecimiento domicializado agua"
+	},
+	{
+		"codigo": 16210,
+		"descripcion": "Recogida de residuos"
+	},
+	{
+		"codigo": 16230,
+		"descripcion": "Tratamiento de residuos urbanos"
+	},
+	{
+		"codigo": 16310,
+		"descripcion": "Limpieza viaria"
+	},
+	{
+		"codigo": 16410,
+		"descripcion": "Cementerio"
+	},
+	{
+		"codigo": 16510,
+		"descripcion": "Alumbrado público"
+	},
+	{
+		"codigo": 16511,
+		"descripcion": "Otras inversiones nuevasen infraestructuras y bienes para u"
+	},
+	{
+		"codigo": 17110,
+		"descripcion": "Conservación y diseño jardines urbanos y periurbanos"
+	},
+	{
+		"codigo": 17111,
+		"descripcion": "Aparatos biosaludables parques urbanos"
+	},
+	{
+		"codigo": 17112,
+		"descripcion": "Otras inversiones en infraestructuras"
+	},
+	{
+		"codigo": 17210,
+		"descripcion": "Protección y mejora del medio ambiente"
+	},
+	{
+		"codigo": 17211,
+		"descripcion": "Otras actuacines relacionadas con medio ambiente. Educación mediambiental"
+	},
+	{
+		"codigo": 17212,
+		"descripcion": "Otras actuaciones relacionadas con medio ambiente. Prevención y calidad"
+	},
+	{
+		"codigo": 17910,
+		"descripcion": "Servicio técnico municipal"
+	},
+	{
+		"codigo": 22110,
+		"descripcion": "Otras prestaciones económicas a favor de empleados"
+	},
+	{
+		"codigo": 23110,
+		"descripcion": "Servicios generales de Bienestar Social"
+	},
+	{
+		"codigo": 23120,
+		"descripcion": "Primera atención (Plan Estrategico Servicios Sociales)"
+	},
+	{
+		"codigo": 23121,
+		"descripcion": "Intervención en zona  (Plan Estrategico Servicios Sociales)"
+	},
+	{
+		"codigo": 23122,
+		"descripcion": "Prestaciones complementarias  (Plan Estrategico Servicios Sociales)"
+	},
+	{
+		"codigo": 23123,
+		"descripcion": "Inclusion social y Solidaridad (Plan Estrategico Servicios Sociales)"
+	},
+	{
+		"codigo": 23124,
+		"descripcion": "Albergue Municipal  (Plan Estrategico Servicios Sociales)"
+	},
+	{
+		"codigo": 23125,
+		"descripcion": "Igualdad y Salud (Plan Estrategico Servicios Sociales)"
+	},
+	{
+		"codigo": 23127,
+		"descripcion": "Programa integral contra la póbreza"
+	},
+	{
+		"codigo": 23128,
+		"descripcion": "Diversidad"
+	},
+	{
+		"codigo": 23130,
+		"descripcion": "Mayores"
+	},
+	{
+		"codigo": 23131,
+		"descripcion": "Centro Dia Mayores Zona Sur"
+	},
+	{
+		"codigo": 23132,
+		"descripcion": "Centro Dia Mayores \"El Abuelo"
+	},
+	{
+		"codigo": 23133,
+		"descripcion": "Centro Dia Mayores Zona Norte"
+	},
+	{
+		"codigo": 23140,
+		"descripcion": "Tratamiento a familias con menores"
+	},
+	{
+		"codigo": 23141,
+		"descripcion": "Prevencion, promocion y reinsercion menores en riesgo social"
+	},
+	{
+		"codigo": 23142,
+		"descripcion": "Servicio de atencion socioeducativa infancia y adolescencia"
+	},
+	{
+		"codigo": 23150,
+		"descripcion": "Inmigracion  (Plan Estrategico Servicios Sociales)"
+	},
+	{
+		"codigo": 23160,
+		"descripcion": "Plan contra la Exclusion Social"
+	},
+	{
+		"codigo": 23170,
+		"descripcion": "Servicios Comunitarios de asistencia a personas dependientes"
+	},
+	{
+		"codigo": 24120,
+		"descripcion": "Politicas activas de empleo"
+	},
+	{
+		"codigo": 24121,
+		"descripcion": "Plan promocion empleo"
+	},
+	{
+		"codigo": 24130,
+		"descripcion": "Formacion y proyectos"
+	},
+	{
+		"codigo": 24131,
+		"descripcion": "Escuela de negocios"
+	},
+	{
+		"codigo": 24140,
+		"descripcion": "Promocion de emprendedores"
+	},
+	{
+		"codigo": 31110,
+		"descripcion": "Protección de la salubridad pública. Profilaxis vectoriales"
+	},
+	{
+		"codigo": 31111,
+		"descripcion": "Otras actuaciones de protección de la salubridad pública"
+	},
+	{
+		"codigo": 31112,
+		"descripcion": "Centro municipal protección animal"
+	},
+	{
+		"codigo": 32010,
+		"descripcion": "Servicios generales de Educación"
+	},
+	{
+		"codigo": 32310,
+		"descripcion": "Funcionamiento de centros docentes de enseñanza preescolar, infantil de 2º ciclo, primaria y educación especial"
+	},
+	{
+		"codigo": 32311,
+		"descripcion": "Plan 50% 50%"
+	},
+	{
+		"codigo": 32620,
+		"descripcion": "Mejoras nivel educacional estudiantes"
+	},
+	{
+		"codigo": 32621,
+		"descripcion": "Escuela de musica"
+	},
+	{
+		"codigo": 33010,
+		"descripcion": "Servicios Generales de Cultura"
+	},
+	{
+		"codigo": 33210,
+		"descripcion": "Bibliotecas"
+	},
+	{
+		"codigo": 33220,
+		"descripcion": "Archivo"
+	},
+	{
+		"codigo": 33300,
+		"descripcion": "Equipamiento cultural ELAs"
+	},
+	{
+		"codigo": 33310,
+		"descripcion": "Museo Arqueologico"
+	},
+	{
+		"codigo": 34113,
+		"descripcion": "Juegos deportivos municipales"
+	},
+	{
+		"codigo": 33410,
+		"descripcion": "Promoción cultural"
+	},
+	{
+		"codigo": 33411,
+		"descripcion": "Organización de actividades culturales"
+	},
+	{
+		"codigo": 33412,
+		"descripcion": "Banda de música"
+	},
+	{
+		"codigo": 33413,
+		"descripcion": "Escuela de tauromaquia"
+	},
+	{
+		"codigo": 33414,
+		"descripcion": "Promoción cultural"
+	},
+	{
+		"codigo": 33416,
+		"descripcion": "Promoción cultural juventud"
+	},
+	{
+		"codigo": 33417,
+		"descripcion": "Flamenco"
+	},
+	{
+		"codigo": 33418,
+		"descripcion": "Cultura y fiestas"
+	},
+	{
+		"codigo": 33419,
+		"descripcion": "Oficina de memoria demócratica"
+	},
+	{
+		"codigo": 33420,
+		"descripcion": "Politicas de infancia"
+	},
+	{
+		"codigo": 33610,
+		"descripcion": "Alcazar-Conjunto Monumental"
+	},
+	{
+		"codigo": 33611,
+		"descripcion": "Los Claustros de Santo Domingo"
+	},
+	{
+		"codigo": 33710,
+		"descripcion": "Parque zoológico"
+	},
+	{
+		"codigo": 33711,
+		"descripcion": "Casa de la Juventud"
+	},
+	{
+		"codigo": 33712,
+		"descripcion": "Parques infantiles medio rural"
+	},
+	{
+		"codigo": 33713,
+		"descripcion": "Plan de ocio juvenil"
+	},
+	{
+		"codigo": 33714,
+		"descripcion": "E-Games"
+	},
+	{
+		"codigo": 33810,
+		"descripcion": "Fiestas populares y festejos"
+	},
+	{
+		"codigo": 33811,
+		"descripcion": "Fiestas populares y festejos Medio Rural"
+	},
+	{
+		"codigo": 34010,
+		"descripcion": "Servicios Generales de Deportes"
+	},
+	{
+		"codigo": 34110,
+		"descripcion": "Promocion y fomento del deporte"
+	},
+	{
+		"codigo": 34111,
+		"descripcion": "Circuito de Jerez"
+	},
+	{
+		"codigo": 34112,
+		"descripcion": "Consejo del motor"
+	},
+	{
+		"codigo": 34210,
+		"descripcion": "Instalaciones y pistas deportivas"
+	},
+	{
+		"codigo": 34211,
+		"descripcion": "Piscinas municipales"
+	},
+	{
+		"codigo": 41910,
+		"descripcion": "Montes Propios"
+	},
+	{
+		"codigo": 43012,
+		"descripcion": "Plan actuaciones comercio local"
+	},
+	{
+		"codigo": 43120,
+		"descripcion": "Mercados"
+	},
+	{
+		"codigo": 43130,
+		"descripcion": "Comercio ambulante"
+	},
+	{
+		"codigo": 43210,
+		"descripcion": "Actividades y promoción turística"
+	},
+	{
+		"codigo": 43211,
+		"descripcion": "Actividades y promoción turística externa"
+	},
+	{
+		"codigo": 43212,
+		"descripcion": "Promoción turística Ciudad del Vino 2014"
+	},
+	{
+		"codigo": 43213,
+		"descripcion": "Ciudad Europea del Caballo 2018"
+	},
+	{
+		"codigo": 43214,
+		"descripcion": "Plan turístico Jerez grandes ciudades"
+	},
+	{
+		"codigo": 43215,
+		"descripcion": "Destino turísticos inteligentes"
+	},
+	{
+		"codigo": 43216,
+		"descripcion": "Jerez Ciudad Europea Cultural 2031"
+	},
+	{
+		"codigo": 43217,
+		"descripcion": "Jerez film Office 2020"
+	},
+	{
+		"codigo": 43311,
+		"descripcion": "Gestión administrativa impulso económico"
+	},
+	{
+		"codigo": 43312,
+		"descripcion": "Oficina de proyectos"
+	},
+	{
+		"codigo": 43313,
+		"descripcion": "Unidad de ventanilla empresarial"
+	},
+	{
+		"codigo": 43314,
+		"descripcion": "Servicios centrales de Fomento"
+	},
+	{
+		"codigo": 43315,
+		"descripcion": "Unidad de apoyo economia social"
+	},
+	{
+		"codigo": 44110,
+		"descripcion": "Transporte colectivo urbano de viajeros"
+	},
+	{
+		"codigo": 45010,
+		"descripcion": "Servicios generales de Infraestructura"
+	},
+	{
+		"codigo": 45410,
+		"descripcion": "Caminos rurales"
+	},
+	{
+		"codigo": 49110,
+		"descripcion": "Sociedad de la información"
+	},
+	{
+		"codigo": 49111,
+		"descripcion": "Servicio de radio y TV municipal"
+	},
+	{
+		"codigo": 49310,
+		"descripcion": "Servicio de consumo"
+	},
+	{
+		"codigo": 91210,
+		"descripcion": "Servicios Centrales Gobierno de la Corporación (Organos de Gobierno)"
+	},
+	{
+		"codigo": 91212,
+		"descripcion": "Servicios Generales Area de la Presidencia"
+	},
+	{
+		"codigo": 91213,
+		"descripcion": "Grupos políticos"
+	},
+	{
+		"codigo": 91214,
+		"descripcion": "Ayuda a grupos políticos"
+	},
+	{
+		"codigo": 92010,
+		"descripcion": "Servicios Generales Administración Central"
+	},
+	{
+		"codigo": 92011,
+		"descripcion": "Secretaría General"
+	},
+	{
+		"codigo": 92012,
+		"descripcion": "Secretaría-Intervención ELA"
+	},
+	{
+		"codigo": 92013,
+		"descripcion": "Asesoría Jurídica General"
+	},
+	{
+		"codigo": 92014,
+		"descripcion": "Servicio de asistencia jurídica"
+	},
+	{
+		"codigo": 92015,
+		"descripcion": "Gestión del Plan"
+	},
+	{
+		"codigo": 92020,
+		"descripcion": "Servicios Generales de Administración de Personal"
+	},
+	{
+		"codigo": 92021,
+		"descripcion": "Formación interna"
+	},
+	{
+		"codigo": 92022,
+		"descripcion": "Prevención de riesgos laborales"
+	},
+	{
+		"codigo": 92030,
+		"descripcion": "Servicios Informáticos Internos"
+	},
+	{
+		"codigo": 92031,
+		"descripcion": "Coordinación de Entidades Municipales"
+	},
+	{
+		"codigo": 92032,
+		"descripcion": "Gestión administrativa de pedanías"
+	},
+	{
+		"codigo": 92033,
+		"descripcion": "Sistema Información Geográfica"
+	},
+	{
+		"codigo": 92034,
+		"descripcion": "Servicio contratación"
+	},
+	{
+		"codigo": 92040,
+		"descripcion": "Administración medio rural"
+	},
+	{
+		"codigo": 92041,
+		"descripcion": "Desarrollo del medio rural"
+	},
+	{
+		"codigo": 92042,
+		"descripcion": "Distrito rural"
+	},
+	{
+		"codigo": 92043,
+		"descripcion": "Actuaciones planes desarrollo rural"
+	},
+	{
+		"codigo": 92044,
+		"descripcion": "OAC Cuartillos"
+	},
+	{
+		"codigo": 92050,
+		"descripcion": "Coordinación de Distritos"
+	},
+	{
+		"codigo": 92051,
+		"descripcion": "Distrito Centro"
+	},
+	{
+		"codigo": 92052,
+		"descripcion": "Distrito Norte"
+	},
+	{
+		"codigo": 92053,
+		"descripcion": "Distrito Sur"
+	},
+	{
+		"codigo": 92054,
+		"descripcion": "Distrito Este"
+	},
+	{
+		"codigo": 92055,
+		"descripcion": "Distrito Oeste"
+	},
+	{
+		"codigo": 92056,
+		"descripcion": "Distrito Noroeste"
+	},
+	{
+		"codigo": 92061,
+		"descripcion": "Imagen y diseño"
+	},
+	{
+		"codigo": 92062,
+		"descripcion": "Almacén y talleres"
+	},
+	{
+		"codigo": 92063,
+		"descripcion": "Mantenimiento de dependencias municipales"
+	},
+	{
+		"codigo": 92064,
+		"descripcion": "Plan integral fuentes"
+	},
+	{
+		"codigo": 92066,
+		"descripcion": "Iniciativa Urbana Jerez Sur"
+	},
+	{
+		"codigo": 92067,
+		"descripcion": "Servicio de mayordomía"
+	},
+	{
+		"codigo": 92068,
+		"descripcion": "Juventud. Gastos de personal"
+	},
+	{
+		"codigo": 92069,
+		"descripcion": "Otros mantenimientos"
+	},
+	{
+		"codigo": 92070,
+		"descripcion": "Parque Móvil"
+	},
+	{
+		"codigo": 92071,
+		"descripcion": "Planes especiales"
+	},
+	{
+		"codigo": 92072,
+		"descripcion": "Patrocinio"
+	},
+	{
+		"codigo": 92081,
+		"descripcion": "Unidad de auditoria de la deuda"
+	},
+	{
+		"codigo": 92082,
+		"descripcion": "Unidad de transparencia"
+	},
+	{
+		"codigo": 92083,
+		"descripcion": "Unidad de evaluación y calidad"
+	},
+	{
+		"codigo": 92410,
+		"descripcion": "Participación ciudadana"
+	},
+	{
+		"codigo": 92411,
+		"descripcion": "Presupuestos participativos"
+	},
+	{
+		"codigo": 92412,
+		"descripcion": "Consejo Económico y Social"
+	},
+	{
+		"codigo": 92510,
+		"descripcion": "Atención a la ciudadanía y modernización administrativa"
+	},
+	{
+		"codigo": 92511,
+		"descripcion": "Oficina del defensor de la ciudadanía"
+	},
+	{
+		"codigo": 92512,
+		"descripcion": "Retirbuciones  Auditoria Ciudadana"
+	},
+	{
+		"codigo": 92612,
+		"descripcion": "Coordinación, imagén y protocolo"
+	},
+	{
+		"codigo": 92910,
+		"descripcion": "Fondo de Contingencia de Ejecución Presupuestaria"
+	},
+	{
+		"codigo": 92920,
+		"descripcion": "Imprevistos y funciones no clasificadas"
+	},
+	{
+		"codigo": 92930,
+		"descripcion": "Indemnizaciones ERE"
+	},
+	{
+		"codigo": 92940,
+		"descripcion": "Programa temporal paga extra 2012"
+	},
+	{
+		"codigo": 93110,
+		"descripcion": "Administración General del Area Económica"
+	},
+	{
+		"codigo": 93111,
+		"descripcion": "Servicio de Intervención"
+	},
+	{
+		"codigo": 93210,
+		"descripcion": "Servicios Gestión Tributaria e Inspección Fiscal"
+	},
+	{
+		"codigo": 93211,
+		"descripcion": "Servicio Reclamaciones Economico Administrativas"
+	},
+	{
+		"codigo": 93310,
+		"descripcion": "Gestión del patrimonio"
+	},
+	{
+		"codigo": 93311,
+		"descripcion": "Conservación de instalaciones municipales"
+	},
+	{
+		"codigo": 93410,
+		"descripcion": "Servicio de Tesorería"
+	},
+	{
+		"codigo": 93411,
+		"descripcion": "Servicio de Recaudación"
+	},
+	{
+		"codigo": 94210,
+		"descripcion": "Transferencias a Entidades Locales territoriales"
+	},
+	{
+		"codigo": 94310,
+		"descripcion": "Transferencias a Entidades Locales Autónomas"
+	},
+	{
+		"codigo": 94320,
+		"descripcion": "Tranferencias a Mancomunidad Bahía de Cádiz"
+	},
+	{
+		"codigo": 94330,
+		"descripcion": "Transferencias a Consorcios"
+	}
 ]

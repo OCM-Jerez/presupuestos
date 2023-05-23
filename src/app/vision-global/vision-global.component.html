@@ -1,14 +1,14 @@
 <h2 class="OCM-title">Visión global</h2>
 
 <div class="flex-container-cards">
-  <div class="flex-items" *ngFor="let item of items">
-    <app-card [indice]="item.indice" [title]="item.title" [footer]="item.footer" [img]="item.img"></app-card>
-  </div>
+	<div class="flex-items" *ngFor="let item of items">
+		<app-card [indice]="item.indice" [title]="item.title" [footer]="item.footer" [img]="item.img"></app-card>
+	</div>
 </div>
 
 <div class="graph2">
-  <div id="sankey"></div>
-  <div id="sankey1"></div>
+	<div id="sankey"></div>
+	<div id="sankey1"></div>
 </div>
 
 <app-checkbox [multiYears]="false" />

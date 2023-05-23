@@ -1,29 +1,29 @@
 <nav class="navbar">
-  <div class="navbar--1row">
-    <div class="navbar--1row--logo"></div>
-    <div class="navbar--1row--title">Datos presupuestos Ayuntamiento Jerez</div>
-  </div>
+	<div class="navbar--1row">
+		<div class="navbar--1row--logo"></div>
+		<div class="navbar--1row--title">Datos presupuestos Ayuntamiento Jerez</div>
+	</div>
 
-  <div class="navMenu">
-    <header class="header">
-      <!-- <a href="" class="logo">CSS Nav</a> -->
-      <input *ngIf="!collapsed" class="menu-btn" type="checkbox" id="menu-btn" />
-      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-      <ul *ngIf="!collapsed" class="menu">
-        <li><a (click)="inicio()">Inicio</a></li>
-        <li><a (click)="visionGlobal()">Visión global</a></li>
-        <li>
-          <a (click)="detalle()">Detalle del presupuesto</a>
-        </li>
-        <li><a (click)="licitaciones()">Licitaciones</a></li>
-        <li><a (click)="empleados()">Empleados</a></li>
-        <li><a (click)="explicamos()">Te lo explicamos</a></li>
-        <li><a (click)="glosario()">¿Qué significa ...?</a></li>
-      </ul>
-    </header>
-  </div>
+	<div class="navMenu">
+		<header class="header">
+			<!-- <a href="" class="logo">CSS Nav</a> -->
+			<input *ngIf="!collapsed" class="menu-btn" type="checkbox" id="menu-btn" />
+			<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+			<ul *ngIf="!collapsed" class="menu">
+				<li><a (click)="inicio()">Inicio</a></li>
+				<li><a (click)="visionGlobal()">Visión global</a></li>
+				<li>
+					<a (click)="detalle()">Detalle del presupuesto</a>
+				</li>
+				<li><a (click)="licitaciones()">Licitaciones</a></li>
+				<li><a (click)="empleados()">Empleados</a></li>
+				<li><a (click)="explicamos()">Te lo explicamos</a></li>
+				<li><a (click)="glosario()">¿Qué significa ...?</a></li>
+			</ul>
+		</header>
+	</div>
 
-  <!-- <div class="barraBuscar">
+	<!-- <div class="barraBuscar">
     <span class="barraBuscar--text">¿Buscas algo en concreto? </span>
     <input type="text" id="searchText" name="searchText" placeholder="Escribe aquí tu termino de busqueda">
     <button type="button" (click)="glosario()" class="buttonBuscar">Buscar </button>

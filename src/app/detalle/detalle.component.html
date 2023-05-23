@@ -1,22 +1,22 @@
 <div class="container">
-  <h2 class="OCM-title">Detalle del presupuesto</h2>
+	<h2 class="OCM-title">Detalle del presupuesto</h2>
 
-  <div class="selectYear">
-    <app-checkbox (hasChangeCheckbox)="hasChangeCheckbox()" [multiYears]="true" />
-  </div>
+	<div class="selectYear">
+		<app-checkbox (hasChangeCheckbox)="hasChangeCheckbox()" [multiYears]="true" />
+	</div>
 
-  <app-table-presupuesto />
-  <app-treemap />
+	<app-table-presupuesto />
+	<app-treemap />
 
-  <app-tabs>
-    <app-tab
-      *ngFor="let tab of tabs; let isFirst = first"
-      [title]="tab.title"
-      [clasification]="tab.clasificationType"
-      [active]="isFirst"
-    >
-      <app-subtabs />
-      <app-table />
-    </app-tab>
-  </app-tabs>
+	<app-tabs>
+		<app-tab
+			*ngFor="let tab of tabs; let isFirst = first"
+			[title]="tab.title"
+			[clasification]="tab.clasificationType"
+			[active]="isFirst"
+		>
+			<app-subtabs />
+			<app-table />
+		</app-tab>
+	</app-tabs>
 </div>

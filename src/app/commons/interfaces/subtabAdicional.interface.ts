@@ -1,5 +1,5 @@
 export interface ISubtabAdicional {
-  name: string;
-  path: string;
-  param?: string;
+	name: string;
+	path: string;
+	param?: string;
 }

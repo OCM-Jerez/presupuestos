@@ -1,48 +1,48 @@
 @media screen and (max-width: 3399.98px) {
-  div {
-    width: 60%;
-    margin-top: 50px;
-    margin-left: 300px;
-    margin-right: 100px;
-  }
+	div {
+		width: 60%;
+		margin-top: 50px;
+		margin-left: 300px;
+		margin-right: 100px;
+	}
 
-  p {
-    text-align: justify;
-    font-size: clamp(2rem, 2.5em, 3rem);
-    color: black;
-    line-height: 36px;
-  }
+	p {
+		text-align: justify;
+		font-size: clamp(2rem, 2.5em, 3rem);
+		color: black;
+		line-height: 36px;
+	}
 
-  h3 {
-    font-size: 32px;
-    color: blue;
-  }
+	h3 {
+		font-size: 32px;
+		color: blue;
+	}
 }
 
 @media screen and (max-width: 575.98px) {
-  div {
-    width: 90%;
-    margin-top: 50px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+	div {
+		width: 90%;
+		margin-top: 50px;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
 
-  p {
-    text-align: justify;
-    font-size: 12px;
-    color: black;
-    line-height: 16px;
-  }
+	p {
+		text-align: justify;
+		font-size: 12px;
+		color: black;
+		line-height: 16px;
+	}
 
-  h3 {
-    font-size: 16px;
-    color: blue;
-  }
+	h3 {
+		font-size: 16px;
+		color: blue;
+	}
 
-  img {
-    width: 100%;
-    height: 20vh;
-    padding-right: 20px;
-    margin-left: 10px;
-  }
+	img {
+		width: 100%;
+		height: 20vh;
+		padding-right: 20px;
+		margin-left: 10px;
+	}
 }

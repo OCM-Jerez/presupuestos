@@ -1,802 +1,802 @@
 [
-  {
-    "codigo": 100,
-    "descripcion": "Impuestos sobre la Renta de las Personas Físicas."
-  },
-  {
-    "codigo": 101,
-    "descripcion": "Impuesto sobre Sociedades."
-  },
-  {
-    "codigo": 102,
-    "descripcion": "Impuesto sobre la Renta de No Residentes."
-  },
-  {
-    "codigo": 110,
-    "descripcion": "Impuesto sobre Sucesiones y Donaciones."
-  },
-  {
-    "codigo": 111,
-    "descripcion": "Impuesto sobre Patrimonio."
-  },
-  {
-    "codigo": 112,
-    "descripcion": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de Naturaleza Rústica."
-  },
-  {
-    "codigo": 113,
-    "descripcion": "Impuesto sobre Bienes Inmuebles. Bienes inmuebles de Naturaleza Urbana."
-  },
-  {
-    "codigo": 114,
-    "descripcion": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de características especiales."
-  },
-  {
-    "codigo": 115,
-    "descripcion": "Impuesto sobre Vehículos de Tracción Mecánica."
-  },
-  {
-    "codigo": 116,
-    "descripcion": "Impuesto sobre Incremento del Valor de los Terrenos de Naturaleza Urbana."
-  },
-  {
-    "codigo": 117,
-    "descripcion": "Impuesto sobre viviendas desocupadas."
-  },
-  {
-    "codigo": 130,
-    "descripcion": "Impuesto sobre Actividades Económicas."
-  },
-  {
-    "codigo": 160,
-    "descripcion": "Sobre impuestos del Estado."
-  },
-  {
-    "codigo": 161,
-    "descripcion": "Sobre impuestos de la Comunidad Autónoma."
-  },
-  {
-    "codigo": 170,
-    "descripcion": "En el Impuesto sobre Bienes Inmuebles."
-  },
-  {
-    "codigo": 171,
-    "descripcion": "Recargo provincial en el Impuesto sobre Actividades Económicas."
-  },
-  {
-    "codigo": 179,
-    "descripcion": "Otros recargos sobre impuestos directos de otros entes locales."
-  },
-  {
-    "codigo": 210,
-    "descripcion": "Impuesto sobre el Valor Añadido."
-  },
-  {
-    "codigo": 220,
-    "descripcion": "Impuestos Especiales."
-  },
-  {
-    "codigo": 260,
-    "descripcion": "Sobre impuestos del Estado."
-  },
-  {
-    "codigo": 261,
-    "descripcion": "Sobre impuestos de la Comunidad Autónoma."
-  },
-  {
-    "codigo": 270,
-    "descripcion": "Sobre impuestos de otros entes locales."
-  },
-  {
-    "codigo": 290,
-    "descripcion": "Impuesto sobre construcciones, instalaciones y obras."
-  },
-  {
-    "codigo": 291,
-    "descripcion": "Impuesto sobre gastos suntuarios (Cotos de caza y pesca)."
-  },
-  {
-    "codigo": 292,
-    "descripcion": "Arbitrio sobre importaciones y entregas de mercancías en Canarias (AIEM)."
-  },
-  {
-    "codigo": 293,
-    "descripcion": "Impuesto general indirecto canario (IGIC)."
-  },
-  {
-    "codigo": 294,
-    "descripcion": "Impuesto sobre la producción, los servicios y la importación (IPSI) de Ceuta y Melilla."
-  },
-  {
-    "codigo": 295,
-    "descripcion": "Impuesto sobre primas de seguros."
-  },
-  {
-    "codigo": 296,
-    "descripcion": "Impuesto sobre transmisiones patrimoniales y actos jurídicos documentados."
-  },
-  {
-    "codigo": 299,
-    "descripcion": "Otros Impuestos indirectos."
-  },
-  {
-    "codigo": 300,
-    "descripcion": "Servicio de abastecimiento de agua."
-  },
-  {
-    "codigo": 301,
-    "descripcion": "Servicio de alcantarillado."
-  },
-  {
-    "codigo": 302,
-    "descripcion": "Servicio de recogida de basuras."
-  },
-  {
-    "codigo": 303,
-    "descripcion": "Servicio de tratamiento de residuos."
-  },
-  {
-    "codigo": 304,
-    "descripcion": "Canon de saneamiento."
-  },
-  {
-    "codigo": 309,
-    "descripcion": "Otras tasas por prestación de servicios básicos."
-  },
-  {
-    "codigo": 310,
-    "descripcion": "Servicios hospitalarios."
-  },
-  {
-    "codigo": 311,
-    "descripcion": "Servicios asistenciales."
-  },
-  {
-    "codigo": 312,
-    "descripcion": "Servicios educativos."
-  },
-  {
-    "codigo": 313,
-    "descripcion": "Servicios deportivos."
-  },
-  {
-    "codigo": 319,
-    "descripcion": "Otras tasas por prestación de servicios de carácter preferente."
-  },
-  {
-    "codigo": 320,
-    "descripcion": "Licencias de caza y pesca."
-  },
-  {
-    "codigo": 321,
-    "descripcion": "Licencias urbanísticas."
-  },
-  {
-    "codigo": 322,
-    "descripcion": "Cédulas de habitabilidad y licencias de primera ocupación."
-  },
-  {
-    "codigo": 323,
-    "descripcion": "Tasas por otros servicios urbanísticos."
-  },
-  {
-    "codigo": 324,
-    "descripcion": "Tasas sobre el juego."
-  },
-  {
-    "codigo": 325,
-    "descripcion": "Tasa por expedición de documentos."
-  },
-  {
-    "codigo": 326,
-    "descripcion": "Tasa por retirada de vehículos."
-  },
-  {
-    "codigo": 329,
-    "descripcion": "Otras tasas por la realización de actividades de competencia local."
-  },
-  {
-    "codigo": 330,
-    "descripcion": "Tasa de estacionamiento de vehículos."
-  },
-  {
-    "codigo": 331,
-    "descripcion": "Tasa por entrada de vehículos."
-  },
-  {
-    "codigo": 332,
-    "descripcion": "Tasa por utilización privativa o aprovechamiento especial por empresas explotadoras de servicios de suministros."
-  },
-  {
-    "codigo": 333,
-    "descripcion": "Tasa por utilización privativa o aprovechamiento especial por empresas explotadoras de servicios de telecomunicaciones."
-  },
-  {
-    "codigo": 334,
-    "descripcion": "Tasa por apertura de calas y zanjas."
-  },
-  {
-    "codigo": 335,
-    "descripcion": "Tasa por ocupación de la vía pública con terrazas."
-  },
-  {
-    "codigo": 336,
-    "descripcion": "Tasa por ocupación de la vía pública con suspensión temporal del tráfico rodado."
-  },
-  {
-    "codigo": 337,
-    "descripcion": "Tasas por aprovechamiento del vuelo."
-  },
-  {
-    "codigo": 338,
-    "descripcion": "Compensación de Telefónica de España, S.A."
-  },
-  {
-    "codigo": 339,
-    "descripcion": "Otras tasas por utilización privativa del dominio público."
-  },
-  {
-    "codigo": 340,
-    "descripcion": "Servicios hospitalarios."
-  },
-  {
-    "codigo": 341,
-    "descripcion": "Servicios asistenciales."
-  },
-  {
-    "codigo": 342,
-    "descripcion": "Servicios educativos."
-  },
-  {
-    "codigo": 343,
-    "descripcion": "Servicios deportivos."
-  },
-  {
-    "codigo": 344,
-    "descripcion": "Entradas a museos, exposiciones, espectáculos."
-  },
-  {
-    "codigo": 345,
-    "descripcion": "Servicio de transporte público urbano."
-  },
-  {
-    "codigo": 349,
-    "descripcion": "Otros precios públicos."
-  },
-  {
-    "codigo": 350,
-    "descripcion": "Para la ejecución de obras."
-  },
-  {
-    "codigo": 351,
-    "descripcion": "Para el establecimiento o ampliación de servicios."
-  },
-  {
-    "codigo": 360,
-    "descripcion": "Ventas de libros. No existe en listado Hacienda."
-  },
-  {
-    "codigo": 364,
-    "descripcion": "Ventas por maquina expendedora. No existe en listado Hacienda."
-  },
-  {
-    "codigo": 380,
-    "descripcion": "Reintegro de avales."
-  },
-  {
-    "codigo": 388,
-    "descripcion": "Ejecución de aval incumplimiento contrato obras. No existe en listado Hacienda."
-  },
-  {
-    "codigo": 389,
-    "descripcion": "Otros reintegros de operaciones corrientes."
-  },
-  {
-    "codigo": 391,
-    "descripcion": "Multas."
-  },
-  {
-    "codigo": 392,
-    "descripcion": "Recargos del periodo ejecutivo y por declaración extemporánea sin requerimiento previo."
-  },
-  {
-    "codigo": 393,
-    "descripcion": "Intereses de demora."
-  },
-  {
-    "codigo": 394,
-    "descripcion": "Prestación personal."
-  },
-  {
-    "codigo": 395,
-    "descripcion": "Prestación de transporte."
-  },
-  {
-    "codigo": 396,
-    "descripcion": "Ingresos por actuaciones de urbanización."
-  },
-  {
-    "codigo": 397,
-    "descripcion": "Aprovechamientos urbanísticos."
-  },
-  {
-    "codigo": 398,
-    "descripcion": "Indemnizaciones de seguros de no vida."
-  },
-  {
-    "codigo": 399,
-    "descripcion": "Otros ingresos diversos."
-  },
-  {
-    "codigo": 420,
-    "descripcion": "De la Administración General del Estado."
-  },
-  {
-    "codigo": 421,
-    "descripcion": "De Organismos Autónomos y agencias estatales."
-  },
-  {
-    "codigo": 422,
-    "descripcion": "De fundaciones estatales."
-  },
-  {
-    "codigo": 423,
-    "descripcion": "De sociedades mercantiles estatales, entidades públicas empresariales y otros organismos públicos."
-  },
-  {
-    "codigo": 441,
-    "descripcion": "De sociedades mercantiles."
-  },
-  {
-    "codigo": 450,
-    "descripcion": "De la Administración General de las Comunidades Autónomas."
-  },
-  {
-    "codigo": 451,
-    "descripcion": "De Organismos Autónomos y agencias de las Comunidades Autónomas."
-  },
-  {
-    "codigo": 452,
-    "descripcion": "De fundaciones de las Comunidades Autónomas."
-  },
-  {
-    "codigo": 453,
-    "descripcion": "De sociedades mercantiles, entidades públicas empresariales y otros organismos públicos dependientes de las Comunidades Autónomas."
-  },
-  {
-    "codigo": 461,
-    "descripcion": "De Diputaciones, Consejos o Cabildos."
-  },
-  {
-    "codigo": 462,
-    "descripcion": "De Ayuntamientos."
-  },
-  {
-    "codigo": 463,
-    "descripcion": "De Mancomunidades."
-  },
-  {
-    "codigo": 464,
-    "descripcion": "De Áreas Metropolitanas."
-  },
-  {
-    "codigo": 465,
-    "descripcion": "De Comarcas."
-  },
-  {
-    "codigo": 466,
-    "descripcion": "De otras Entidades que agrupen Municipios."
-  },
-  {
-    "codigo": 467,
-    "descripcion": "De Consorcios."
-  },
-  {
-    "codigo": 468,
-    "descripcion": "De Entidades locales Menores."
-  },
-  {
-    "codigo": 470,
-    "descripcion": "De empresas privadas. No existe en listado Hacienda."
-  },
-  {
-    "codigo": 480,
-    "descripcion": "Transferencias a Instituciones sin animo de lucro. No existe en listado Hacienda."
-  },
-  {
-    "codigo": 490,
-    "descripcion": "Del Fondo Social Europeo."
-  },
-  {
-    "codigo": 491,
-    "descripcion": "Del Fondo de Desarrollo Regional."
-  },
-  {
-    "codigo": 492,
-    "descripcion": "Del Fondo de Cohesión."
-  },
-  {
-    "codigo": 493,
-    "descripcion": "Del Fondo Europeo Agrícola de Garantía (FEAGA)."
-  },
-  {
-    "codigo": 494,
-    "descripcion": "Del Fondo Europeo Agrícola de Desarrollo Rural (FEADER)."
-  },
-  {
-    "codigo": 495,
-    "descripcion": "Del FEOGA-Orientación."
-  },
-  {
-    "codigo": 496,
-    "descripcion": "Del Fondo Europeo de la Pesca (FEP)."
-  },
-  {
-    "codigo": 497,
-    "descripcion": "Otras transferencias de la Unión Europea."
-  },
-  {
-    "codigo": 499,
-    "descripcion": "Otras transferencias del exterior, excluyendo la Unión Europea."
-  },
-  {
-    "codigo": 500,
-    "descripcion": "Del Estado."
-  },
-  {
-    "codigo": 501,
-    "descripcion": "De Organismos Autónomos y agencias."
-  },
-  {
-    "codigo": 504,
-    "descripcion": "De sociedades mercantiles estatales, entidades públicas empresariales y otros organismos públicos."
-  },
-  {
-    "codigo": 505,
-    "descripcion": "De Comunidades Autónomas."
-  },
-  {
-    "codigo": 506,
-    "descripcion": "De Entidades locales."
-  },
-  {
-    "codigo": 507,
-    "descripcion": "De empresas privadas."
-  },
-  {
-    "codigo": 511,
-    "descripcion": "De Organismos Autónomos y agencias."
-  },
-  {
-    "codigo": 514,
-    "descripcion": "De sociedades mercantiles, entidades públicas empresariales y otros organismos públicos."
-  },
-  {
-    "codigo": 518,
-    "descripcion": "De familias e instituciones sin ánimo de lucro."
-  },
-  {
-    "codigo": 520,
-    "descripcion": "Intereses de depósitos. No existe en listado Hacienda."
-  },
-  {
-    "codigo": 531,
-    "descripcion": "De Organismos Autónomos y agencias."
-  },
-  {
-    "codigo": 534,
-    "descripcion": "De Sociedades mercantiles, entidades públicas empresariales y otros organismos públicos."
-  },
-  {
-    "codigo": 537,
-    "descripcion": "De empresas privadas."
-  },
-  {
-    "codigo": 541,
-    "descripcion": "Arrendamientos de fincas urbanas."
-  },
-  {
-    "codigo": 542,
-    "descripcion": "Arrendamientos de fincas rústicas."
-  },
-  {
-    "codigo": 544,
-    "descripcion": "Censos."
-  },
-  {
-    "codigo": 549,
-    "descripcion": "Otras rentas de bienes inmuebles."
-  },
-  {
-    "codigo": 550,
-    "descripcion": "De concesiones administrativas con contraprestación periódica."
-  },
-  {
-    "codigo": 551,
-    "descripcion": "De concesiones administrativas con contraprestación no periódica."
-  },
-  {
-    "codigo": 552,
-    "descripcion": "Derecho de superficie con contraprestación periódica."
-  },
-  {
-    "codigo": 553,
-    "descripcion": "Derecho de superficie con contraprestación no periódica."
-  },
-  {
-    "codigo": 554,
-    "descripcion": "Aprovechamientos agrícolas y forestales."
-  },
-  {
-    "codigo": 555,
-    "descripcion": "Aprovechamientos especiales con contraprestación."
-  },
-  {
-    "codigo": 559,
-    "descripcion": "Otras concesiones y aprovechamientos."
-  },
-  {
-    "codigo": 590,
-    "descripcion": "Patrocinio eventos de fiestas. No existe en listado Hacienda."
-  },
-  {
-    "codigo": 591,
-    "descripcion": "Beneficios por realización de inversiones financieras."
-  },
-  {
-    "codigo": 592,
-    "descripcion": "Ingresos por operaciones de intercambio financiero."
-  },
-  {
-    "codigo": 599,
-    "descripcion": "Otros ingresos patrimoniales."
-  },
-  {
-    "codigo": 600,
-    "descripcion": "Venta de solares."
-  },
-  {
-    "codigo": 601,
-    "descripcion": "Venta de fincas rústicas."
-  },
-  {
-    "codigo": 602,
-    "descripcion": "Parcelas sobrantes de la vía pública."
-  },
-  {
-    "codigo": 603,
-    "descripcion": "Patrimonio público del suelo."
-  },
-  {
-    "codigo": 609,
-    "descripcion": "Otros terrenos."
-  },
-  {
-    "codigo": 610,
-    "descripcion": "De las demás inversiones reales. No existe en listado Hacienda."
-  },
-  {
-    "codigo": 611,
-    "descripcion": "De inversiones de carácter inmaterial."
-  },
-  {
-    "codigo": 612,
-    "descripcion": "De objetos valiosos."
-  },
-  {
-    "codigo": 619,
-    "descripcion": "De otras inversiones reales."
-  },
-  {
-    "codigo": 680,
-    "descripcion": "De ejercicios cerrados."
-  },
-  {
-    "codigo": 720,
-    "descripcion": "De la Administración General del Estado."
-  },
-  {
-    "codigo": 721,
-    "descripcion": "De Organismos Autónomos y agencias estatales."
-  },
-  {
-    "codigo": 722,
-    "descripcion": "De fundaciones estatales."
-  },
-  {
-    "codigo": 723,
-    "descripcion": "De sociedades mercantiles estatales, entidades públicas empresariales y otros organismos públicos."
-  },
-  {
-    "codigo": 740,
-    "descripcion": "De entes públicos."
-  },
-  {
-    "codigo": 741,
-    "descripcion": "De sociedades mercantiles."
-  },
-  {
-    "codigo": 750,
-    "descripcion": "De la Administración General de las Comunidades Autónomas."
-  },
-  {
-    "codigo": 751,
-    "descripcion": "De Organismos Autónomos y agencias de las Comunidades Autónomas."
-  },
-  {
-    "codigo": 752,
-    "descripcion": "De fundaciones de las Comunidades Autónomas."
-  },
-  {
-    "codigo": 753,
-    "descripcion": "De sociedades mercantiles, entidades públicas empresariales y otros organismos públicos dependientes de las Comunidades Autónomas."
-  },
-  {
-    "codigo": 761,
-    "descripcion": "De Diputaciones, Consejos o Cabildos."
-  },
-  {
-    "codigo": 762,
-    "descripcion": "De Ayuntamientos."
-  },
-  {
-    "codigo": 763,
-    "descripcion": "De Mancomunidades."
-  },
-  {
-    "codigo": 764,
-    "descripcion": "De Áreas Metropolitanas."
-  },
-  {
-    "codigo": 765,
-    "descripcion": "De Comarcas."
-  },
-  {
-    "codigo": 766,
-    "descripcion": "De otras Entidades que agrupen Municipios."
-  },
-  {
-    "codigo": 767,
-    "descripcion": "De Consorcios."
-  },
-  {
-    "codigo": 768,
-    "descripcion": "De Entidades locales Menores."
-  },
-  {
-    "codigo": 770,
-    "descripcion": "De empresas privadas. No existe en listado Hacienda."
-  },
-  {
-    "codigo": 780,
-    "descripcion": "De familias e instituciones sin fines de lucro. No existe en listado Hacienda."
-  },
-  {
-    "codigo": 790,
-    "descripcion": "Del Fondo Social Europeo."
-  },
-  {
-    "codigo": 791,
-    "descripcion": "Del Fondo de Desarrollo Regional."
-  },
-  {
-    "codigo": 792,
-    "descripcion": "Del Fondo de Cohesión."
-  },
-  {
-    "codigo": 793,
-    "descripcion": "Del Fondo Europeo Agrícola de Garantía (FEAGA)."
-  },
-  {
-    "codigo": 794,
-    "descripcion": "Del Fondo Europeo Agrícola de Desarrollo Rural (FEADER)."
-  },
-  {
-    "codigo": 795,
-    "descripcion": "Del FEOGA-Orientación."
-  },
-  {
-    "codigo": 796,
-    "descripcion": "Del Fondo Europeo de la Pesca (FEP)."
-  },
-  {
-    "codigo": 797,
-    "descripcion": "Otras transferencias de la Unión Europea."
-  },
-  {
-    "codigo": 799,
-    "descripcion": "Otras transferencias del exterior, excluyendo la Unión Europea."
-  },
-  {
-    "codigo": 800,
-    "descripcion": "Enajenación de deuda del sector público a corto plazo."
-  },
-  {
-    "codigo": 801,
-    "descripcion": "Enajenación de deuda del sector público a largo plazo."
-  },
-  {
-    "codigo": 810,
-    "descripcion": "Enajenación de obligaciones y bonos fuera del sector público a corto plazo."
-  },
-  {
-    "codigo": 811,
-    "descripcion": "Enajenación de obligaciones y bonos fuera del sector público a largo plazo."
-  },
-  {
-    "codigo": 820,
-    "descripcion": "Reintegro de préstamos y anticipos concedidos al sector público a corto plazo."
-  },
-  {
-    "codigo": 821,
-    "descripcion": "Reintegro de préstamos y anticipos concedidos al sector público a largo plazo."
-  },
-  {
-    "codigo": 830,
-    "descripcion": "Reintegros de préstamos de fuera del sector público a corto plazo."
-  },
-  {
-    "codigo": 831,
-    "descripcion": "Reintegros de préstamos de fuera del sector público a largo plazo."
-  },
-  {
-    "codigo": 840,
-    "descripcion": "Devolución de depósitos."
-  },
-  {
-    "codigo": 841,
-    "descripcion": "Devolución de fianzas."
-  },
-  {
-    "codigo": 870,
-    "descripcion": "Remanente de tesorería."
-  },
-  {
-    "codigo": 900,
-    "descripcion": "Emisión de Deuda Pública en euros a corto plazo."
-  },
-  {
-    "codigo": 901,
-    "descripcion": "Emisión de Deuda Pública en euros a largo plazo."
-  },
-  {
-    "codigo": 910,
-    "descripcion": "Préstamos recibidos a corto plazo de entes del sector público."
-  },
-  {
-    "codigo": 911,
-    "descripcion": "Préstamos recibidos a largo plazo de entes del sector público."
-  },
-  {
-    "codigo": 912,
-    "descripcion": "Préstamos recibidos a corto plazo de entes de fuera del sector público."
-  },
-  {
-    "codigo": 913,
-    "descripcion": "Préstamos recibidos a largo plazo de entes de fuera del sector público."
-  },
-  {
-    "codigo": 920,
-    "descripcion": "Emisión de Deuda Pública en moneda distinta del euro a corto plazo."
-  },
-  {
-    "codigo": 921,
-    "descripcion": "Emisión de Deuda Pública en moneda distinta del euro a largo plazo."
-  },
-  {
-    "codigo": 930,
-    "descripcion": "Préstamos recibidos en moneda distinta del euro a corto plazo."
-  },
-  {
-    "codigo": 931,
-    "descripcion": "Préstamos recibidos en moneda distinta del euro a largo plazo."
-  },
-  {
-    "codigo": 940,
-    "descripcion": "Depósitos recibidos."
-  },
-  {
-    "codigo": 941,
-    "descripcion": "Fianzas recibidas."
-  }
+	{
+		"codigo": 100,
+		"descripcion": "Impuestos sobre la Renta de las Personas Físicas."
+	},
+	{
+		"codigo": 101,
+		"descripcion": "Impuesto sobre Sociedades."
+	},
+	{
+		"codigo": 102,
+		"descripcion": "Impuesto sobre la Renta de No Residentes."
+	},
+	{
+		"codigo": 110,
+		"descripcion": "Impuesto sobre Sucesiones y Donaciones."
+	},
+	{
+		"codigo": 111,
+		"descripcion": "Impuesto sobre Patrimonio."
+	},
+	{
+		"codigo": 112,
+		"descripcion": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de Naturaleza Rústica."
+	},
+	{
+		"codigo": 113,
+		"descripcion": "Impuesto sobre Bienes Inmuebles. Bienes inmuebles de Naturaleza Urbana."
+	},
+	{
+		"codigo": 114,
+		"descripcion": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de características especiales."
+	},
+	{
+		"codigo": 115,
+		"descripcion": "Impuesto sobre Vehículos de Tracción Mecánica."
+	},
+	{
+		"codigo": 116,
+		"descripcion": "Impuesto sobre Incremento del Valor de los Terrenos de Naturaleza Urbana."
+	},
+	{
+		"codigo": 117,
+		"descripcion": "Impuesto sobre viviendas desocupadas."
+	},
+	{
+		"codigo": 130,
+		"descripcion": "Impuesto sobre Actividades Económicas."
+	},
+	{
+		"codigo": 160,
+		"descripcion": "Sobre impuestos del Estado."
+	},
+	{
+		"codigo": 161,
+		"descripcion": "Sobre impuestos de la Comunidad Autónoma."
+	},
+	{
+		"codigo": 170,
+		"descripcion": "En el Impuesto sobre Bienes Inmuebles."
+	},
+	{
+		"codigo": 171,
+		"descripcion": "Recargo provincial en el Impuesto sobre Actividades Económicas."
+	},
+	{
+		"codigo": 179,
+		"descripcion": "Otros recargos sobre impuestos directos de otros entes locales."
+	},
+	{
+		"codigo": 210,
+		"descripcion": "Impuesto sobre el Valor Añadido."
+	},
+	{
+		"codigo": 220,
+		"descripcion": "Impuestos Especiales."
+	},
+	{
+		"codigo": 260,
+		"descripcion": "Sobre impuestos del Estado."
+	},
+	{
+		"codigo": 261,
+		"descripcion": "Sobre impuestos de la Comunidad Autónoma."
+	},
+	{
+		"codigo": 270,
+		"descripcion": "Sobre impuestos de otros entes locales."
+	},
+	{
+		"codigo": 290,
+		"descripcion": "Impuesto sobre construcciones, instalaciones y obras."
+	},
+	{
+		"codigo": 291,
+		"descripcion": "Impuesto sobre gastos suntuarios (Cotos de caza y pesca)."
+	},
+	{
+		"codigo": 292,
+		"descripcion": "Arbitrio sobre importaciones y entregas de mercancías en Canarias (AIEM)."
+	},
+	{
+		"codigo": 293,
+		"descripcion": "Impuesto general indirecto canario (IGIC)."
+	},
+	{
+		"codigo": 294,
+		"descripcion": "Impuesto sobre la producción, los servicios y la importación (IPSI) de Ceuta y Melilla."
+	},
+	{
+		"codigo": 295,
+		"descripcion": "Impuesto sobre primas de seguros."
+	},
+	{
+		"codigo": 296,
+		"descripcion": "Impuesto sobre transmisiones patrimoniales y actos jurídicos documentados."
+	},
+	{
+		"codigo": 299,
+		"descripcion": "Otros Impuestos indirectos."
+	},
+	{
+		"codigo": 300,
+		"descripcion": "Servicio de abastecimiento de agua."
+	},
+	{
+		"codigo": 301,
+		"descripcion": "Servicio de alcantarillado."
+	},
+	{
+		"codigo": 302,
+		"descripcion": "Servicio de recogida de basuras."
+	},
+	{
+		"codigo": 303,
+		"descripcion": "Servicio de tratamiento de residuos."
+	},
+	{
+		"codigo": 304,
+		"descripcion": "Canon de saneamiento."
+	},
+	{
+		"codigo": 309,
+		"descripcion": "Otras tasas por prestación de servicios básicos."
+	},
+	{
+		"codigo": 310,
+		"descripcion": "Servicios hospitalarios."
+	},
+	{
+		"codigo": 311,
+		"descripcion": "Servicios asistenciales."
+	},
+	{
+		"codigo": 312,
+		"descripcion": "Servicios educativos."
+	},
+	{
+		"codigo": 313,
+		"descripcion": "Servicios deportivos."
+	},
+	{
+		"codigo": 319,
+		"descripcion": "Otras tasas por prestación de servicios de carácter preferente."
+	},
+	{
+		"codigo": 320,
+		"descripcion": "Licencias de caza y pesca."
+	},
+	{
+		"codigo": 321,
+		"descripcion": "Licencias urbanísticas."
+	},
+	{
+		"codigo": 322,
+		"descripcion": "Cédulas de habitabilidad y licencias de primera ocupación."
+	},
+	{
+		"codigo": 323,
+		"descripcion": "Tasas por otros servicios urbanísticos."
+	},
+	{
+		"codigo": 324,
+		"descripcion": "Tasas sobre el juego."
+	},
+	{
+		"codigo": 325,
+		"descripcion": "Tasa por expedición de documentos."
+	},
+	{
+		"codigo": 326,
+		"descripcion": "Tasa por retirada de vehículos."
+	},
+	{
+		"codigo": 329,
+		"descripcion": "Otras tasas por la realización de actividades de competencia local."
+	},
+	{
+		"codigo": 330,
+		"descripcion": "Tasa de estacionamiento de vehículos."
+	},
+	{
+		"codigo": 331,
+		"descripcion": "Tasa por entrada de vehículos."
+	},
+	{
+		"codigo": 332,
+		"descripcion": "Tasa por utilización privativa o aprovechamiento especial por empresas explotadoras de servicios de suministros."
+	},
+	{
+		"codigo": 333,
+		"descripcion": "Tasa por utilización privativa o aprovechamiento especial por empresas explotadoras de servicios de telecomunicaciones."
+	},
+	{
+		"codigo": 334,
+		"descripcion": "Tasa por apertura de calas y zanjas."
+	},
+	{
+		"codigo": 335,
+		"descripcion": "Tasa por ocupación de la vía pública con terrazas."
+	},
+	{
+		"codigo": 336,
+		"descripcion": "Tasa por ocupación de la vía pública con suspensión temporal del tráfico rodado."
+	},
+	{
+		"codigo": 337,
+		"descripcion": "Tasas por aprovechamiento del vuelo."
+	},
+	{
+		"codigo": 338,
+		"descripcion": "Compensación de Telefónica de España, S.A."
+	},
+	{
+		"codigo": 339,
+		"descripcion": "Otras tasas por utilización privativa del dominio público."
+	},
+	{
+		"codigo": 340,
+		"descripcion": "Servicios hospitalarios."
+	},
+	{
+		"codigo": 341,
+		"descripcion": "Servicios asistenciales."
+	},
+	{
+		"codigo": 342,
+		"descripcion": "Servicios educativos."
+	},
+	{
+		"codigo": 343,
+		"descripcion": "Servicios deportivos."
+	},
+	{
+		"codigo": 344,
+		"descripcion": "Entradas a museos, exposiciones, espectáculos."
+	},
+	{
+		"codigo": 345,
+		"descripcion": "Servicio de transporte público urbano."
+	},
+	{
+		"codigo": 349,
+		"descripcion": "Otros precios públicos."
+	},
+	{
+		"codigo": 350,
+		"descripcion": "Para la ejecución de obras."
+	},
+	{
+		"codigo": 351,
+		"descripcion": "Para el establecimiento o ampliación de servicios."
+	},
+	{
+		"codigo": 360,
+		"descripcion": "Ventas de libros. No existe en listado Hacienda."
+	},
+	{
+		"codigo": 364,
+		"descripcion": "Ventas por maquina expendedora. No existe en listado Hacienda."
+	},
+	{
+		"codigo": 380,
+		"descripcion": "Reintegro de avales."
+	},
+	{
+		"codigo": 388,
+		"descripcion": "Ejecución de aval incumplimiento contrato obras. No existe en listado Hacienda."
+	},
+	{
+		"codigo": 389,
+		"descripcion": "Otros reintegros de operaciones corrientes."
+	},
+	{
+		"codigo": 391,
+		"descripcion": "Multas."
+	},
+	{
+		"codigo": 392,
+		"descripcion": "Recargos del periodo ejecutivo y por declaración extemporánea sin requerimiento previo."
+	},
+	{
+		"codigo": 393,
+		"descripcion": "Intereses de demora."
+	},
+	{
+		"codigo": 394,
+		"descripcion": "Prestación personal."
+	},
+	{
+		"codigo": 395,
+		"descripcion": "Prestación de transporte."
+	},
+	{
+		"codigo": 396,
+		"descripcion": "Ingresos por actuaciones de urbanización."
+	},
+	{
+		"codigo": 397,
+		"descripcion": "Aprovechamientos urbanísticos."
+	},
+	{
+		"codigo": 398,
+		"descripcion": "Indemnizaciones de seguros de no vida."
+	},
+	{
+		"codigo": 399,
+		"descripcion": "Otros ingresos diversos."
+	},
+	{
+		"codigo": 420,
+		"descripcion": "De la Administración General del Estado."
+	},
+	{
+		"codigo": 421,
+		"descripcion": "De Organismos Autónomos y agencias estatales."
+	},
+	{
+		"codigo": 422,
+		"descripcion": "De fundaciones estatales."
+	},
+	{
+		"codigo": 423,
+		"descripcion": "De sociedades mercantiles estatales, entidades públicas empresariales y otros organismos públicos."
+	},
+	{
+		"codigo": 441,
+		"descripcion": "De sociedades mercantiles."
+	},
+	{
+		"codigo": 450,
+		"descripcion": "De la Administración General de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 451,
+		"descripcion": "De Organismos Autónomos y agencias de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 452,
+		"descripcion": "De fundaciones de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 453,
+		"descripcion": "De sociedades mercantiles, entidades públicas empresariales y otros organismos públicos dependientes de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 461,
+		"descripcion": "De Diputaciones, Consejos o Cabildos."
+	},
+	{
+		"codigo": 462,
+		"descripcion": "De Ayuntamientos."
+	},
+	{
+		"codigo": 463,
+		"descripcion": "De Mancomunidades."
+	},
+	{
+		"codigo": 464,
+		"descripcion": "De Áreas Metropolitanas."
+	},
+	{
+		"codigo": 465,
+		"descripcion": "De Comarcas."
+	},
+	{
+		"codigo": 466,
+		"descripcion": "De otras Entidades que agrupen Municipios."
+	},
+	{
+		"codigo": 467,
+		"descripcion": "De Consorcios."
+	},
+	{
+		"codigo": 468,
+		"descripcion": "De Entidades locales Menores."
+	},
+	{
+		"codigo": 470,
+		"descripcion": "De empresas privadas. No existe en listado Hacienda."
+	},
+	{
+		"codigo": 480,
+		"descripcion": "Transferencias a Instituciones sin animo de lucro. No existe en listado Hacienda."
+	},
+	{
+		"codigo": 490,
+		"descripcion": "Del Fondo Social Europeo."
+	},
+	{
+		"codigo": 491,
+		"descripcion": "Del Fondo de Desarrollo Regional."
+	},
+	{
+		"codigo": 492,
+		"descripcion": "Del Fondo de Cohesión."
+	},
+	{
+		"codigo": 493,
+		"descripcion": "Del Fondo Europeo Agrícola de Garantía (FEAGA)."
+	},
+	{
+		"codigo": 494,
+		"descripcion": "Del Fondo Europeo Agrícola de Desarrollo Rural (FEADER)."
+	},
+	{
+		"codigo": 495,
+		"descripcion": "Del FEOGA-Orientación."
+	},
+	{
+		"codigo": 496,
+		"descripcion": "Del Fondo Europeo de la Pesca (FEP)."
+	},
+	{
+		"codigo": 497,
+		"descripcion": "Otras transferencias de la Unión Europea."
+	},
+	{
+		"codigo": 499,
+		"descripcion": "Otras transferencias del exterior, excluyendo la Unión Europea."
+	},
+	{
+		"codigo": 500,
+		"descripcion": "Del Estado."
+	},
+	{
+		"codigo": 501,
+		"descripcion": "De Organismos Autónomos y agencias."
+	},
+	{
+		"codigo": 504,
+		"descripcion": "De sociedades mercantiles estatales, entidades públicas empresariales y otros organismos públicos."
+	},
+	{
+		"codigo": 505,
+		"descripcion": "De Comunidades Autónomas."
+	},
+	{
+		"codigo": 506,
+		"descripcion": "De Entidades locales."
+	},
+	{
+		"codigo": 507,
+		"descripcion": "De empresas privadas."
+	},
+	{
+		"codigo": 511,
+		"descripcion": "De Organismos Autónomos y agencias."
+	},
+	{
+		"codigo": 514,
+		"descripcion": "De sociedades mercantiles, entidades públicas empresariales y otros organismos públicos."
+	},
+	{
+		"codigo": 518,
+		"descripcion": "De familias e instituciones sin ánimo de lucro."
+	},
+	{
+		"codigo": 520,
+		"descripcion": "Intereses de depósitos. No existe en listado Hacienda."
+	},
+	{
+		"codigo": 531,
+		"descripcion": "De Organismos Autónomos y agencias."
+	},
+	{
+		"codigo": 534,
+		"descripcion": "De Sociedades mercantiles, entidades públicas empresariales y otros organismos públicos."
+	},
+	{
+		"codigo": 537,
+		"descripcion": "De empresas privadas."
+	},
+	{
+		"codigo": 541,
+		"descripcion": "Arrendamientos de fincas urbanas."
+	},
+	{
+		"codigo": 542,
+		"descripcion": "Arrendamientos de fincas rústicas."
+	},
+	{
+		"codigo": 544,
+		"descripcion": "Censos."
+	},
+	{
+		"codigo": 549,
+		"descripcion": "Otras rentas de bienes inmuebles."
+	},
+	{
+		"codigo": 550,
+		"descripcion": "De concesiones administrativas con contraprestación periódica."
+	},
+	{
+		"codigo": 551,
+		"descripcion": "De concesiones administrativas con contraprestación no periódica."
+	},
+	{
+		"codigo": 552,
+		"descripcion": "Derecho de superficie con contraprestación periódica."
+	},
+	{
+		"codigo": 553,
+		"descripcion": "Derecho de superficie con contraprestación no periódica."
+	},
+	{
+		"codigo": 554,
+		"descripcion": "Aprovechamientos agrícolas y forestales."
+	},
+	{
+		"codigo": 555,
+		"descripcion": "Aprovechamientos especiales con contraprestación."
+	},
+	{
+		"codigo": 559,
+		"descripcion": "Otras concesiones y aprovechamientos."
+	},
+	{
+		"codigo": 590,
+		"descripcion": "Patrocinio eventos de fiestas. No existe en listado Hacienda."
+	},
+	{
+		"codigo": 591,
+		"descripcion": "Beneficios por realización de inversiones financieras."
+	},
+	{
+		"codigo": 592,
+		"descripcion": "Ingresos por operaciones de intercambio financiero."
+	},
+	{
+		"codigo": 599,
+		"descripcion": "Otros ingresos patrimoniales."
+	},
+	{
+		"codigo": 600,
+		"descripcion": "Venta de solares."
+	},
+	{
+		"codigo": 601,
+		"descripcion": "Venta de fincas rústicas."
+	},
+	{
+		"codigo": 602,
+		"descripcion": "Parcelas sobrantes de la vía pública."
+	},
+	{
+		"codigo": 603,
+		"descripcion": "Patrimonio público del suelo."
+	},
+	{
+		"codigo": 609,
+		"descripcion": "Otros terrenos."
+	},
+	{
+		"codigo": 610,
+		"descripcion": "De las demás inversiones reales. No existe en listado Hacienda."
+	},
+	{
+		"codigo": 611,
+		"descripcion": "De inversiones de carácter inmaterial."
+	},
+	{
+		"codigo": 612,
+		"descripcion": "De objetos valiosos."
+	},
+	{
+		"codigo": 619,
+		"descripcion": "De otras inversiones reales."
+	},
+	{
+		"codigo": 680,
+		"descripcion": "De ejercicios cerrados."
+	},
+	{
+		"codigo": 720,
+		"descripcion": "De la Administración General del Estado."
+	},
+	{
+		"codigo": 721,
+		"descripcion": "De Organismos Autónomos y agencias estatales."
+	},
+	{
+		"codigo": 722,
+		"descripcion": "De fundaciones estatales."
+	},
+	{
+		"codigo": 723,
+		"descripcion": "De sociedades mercantiles estatales, entidades públicas empresariales y otros organismos públicos."
+	},
+	{
+		"codigo": 740,
+		"descripcion": "De entes públicos."
+	},
+	{
+		"codigo": 741,
+		"descripcion": "De sociedades mercantiles."
+	},
+	{
+		"codigo": 750,
+		"descripcion": "De la Administración General de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 751,
+		"descripcion": "De Organismos Autónomos y agencias de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 752,
+		"descripcion": "De fundaciones de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 753,
+		"descripcion": "De sociedades mercantiles, entidades públicas empresariales y otros organismos públicos dependientes de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 761,
+		"descripcion": "De Diputaciones, Consejos o Cabildos."
+	},
+	{
+		"codigo": 762,
+		"descripcion": "De Ayuntamientos."
+	},
+	{
+		"codigo": 763,
+		"descripcion": "De Mancomunidades."
+	},
+	{
+		"codigo": 764,
+		"descripcion": "De Áreas Metropolitanas."
+	},
+	{
+		"codigo": 765,
+		"descripcion": "De Comarcas."
+	},
+	{
+		"codigo": 766,
+		"descripcion": "De otras Entidades que agrupen Municipios."
+	},
+	{
+		"codigo": 767,
+		"descripcion": "De Consorcios."
+	},
+	{
+		"codigo": 768,
+		"descripcion": "De Entidades locales Menores."
+	},
+	{
+		"codigo": 770,
+		"descripcion": "De empresas privadas. No existe en listado Hacienda."
+	},
+	{
+		"codigo": 780,
+		"descripcion": "De familias e instituciones sin fines de lucro. No existe en listado Hacienda."
+	},
+	{
+		"codigo": 790,
+		"descripcion": "Del Fondo Social Europeo."
+	},
+	{
+		"codigo": 791,
+		"descripcion": "Del Fondo de Desarrollo Regional."
+	},
+	{
+		"codigo": 792,
+		"descripcion": "Del Fondo de Cohesión."
+	},
+	{
+		"codigo": 793,
+		"descripcion": "Del Fondo Europeo Agrícola de Garantía (FEAGA)."
+	},
+	{
+		"codigo": 794,
+		"descripcion": "Del Fondo Europeo Agrícola de Desarrollo Rural (FEADER)."
+	},
+	{
+		"codigo": 795,
+		"descripcion": "Del FEOGA-Orientación."
+	},
+	{
+		"codigo": 796,
+		"descripcion": "Del Fondo Europeo de la Pesca (FEP)."
+	},
+	{
+		"codigo": 797,
+		"descripcion": "Otras transferencias de la Unión Europea."
+	},
+	{
+		"codigo": 799,
+		"descripcion": "Otras transferencias del exterior, excluyendo la Unión Europea."
+	},
+	{
+		"codigo": 800,
+		"descripcion": "Enajenación de deuda del sector público a corto plazo."
+	},
+	{
+		"codigo": 801,
+		"descripcion": "Enajenación de deuda del sector público a largo plazo."
+	},
+	{
+		"codigo": 810,
+		"descripcion": "Enajenación de obligaciones y bonos fuera del sector público a corto plazo."
+	},
+	{
+		"codigo": 811,
+		"descripcion": "Enajenación de obligaciones y bonos fuera del sector público a largo plazo."
+	},
+	{
+		"codigo": 820,
+		"descripcion": "Reintegro de préstamos y anticipos concedidos al sector público a corto plazo."
+	},
+	{
+		"codigo": 821,
+		"descripcion": "Reintegro de préstamos y anticipos concedidos al sector público a largo plazo."
+	},
+	{
+		"codigo": 830,
+		"descripcion": "Reintegros de préstamos de fuera del sector público a corto plazo."
+	},
+	{
+		"codigo": 831,
+		"descripcion": "Reintegros de préstamos de fuera del sector público a largo plazo."
+	},
+	{
+		"codigo": 840,
+		"descripcion": "Devolución de depósitos."
+	},
+	{
+		"codigo": 841,
+		"descripcion": "Devolución de fianzas."
+	},
+	{
+		"codigo": 870,
+		"descripcion": "Remanente de tesorería."
+	},
+	{
+		"codigo": 900,
+		"descripcion": "Emisión de Deuda Pública en euros a corto plazo."
+	},
+	{
+		"codigo": 901,
+		"descripcion": "Emisión de Deuda Pública en euros a largo plazo."
+	},
+	{
+		"codigo": 910,
+		"descripcion": "Préstamos recibidos a corto plazo de entes del sector público."
+	},
+	{
+		"codigo": 911,
+		"descripcion": "Préstamos recibidos a largo plazo de entes del sector público."
+	},
+	{
+		"codigo": 912,
+		"descripcion": "Préstamos recibidos a corto plazo de entes de fuera del sector público."
+	},
+	{
+		"codigo": 913,
+		"descripcion": "Préstamos recibidos a largo plazo de entes de fuera del sector público."
+	},
+	{
+		"codigo": 920,
+		"descripcion": "Emisión de Deuda Pública en moneda distinta del euro a corto plazo."
+	},
+	{
+		"codigo": 921,
+		"descripcion": "Emisión de Deuda Pública en moneda distinta del euro a largo plazo."
+	},
+	{
+		"codigo": 930,
+		"descripcion": "Préstamos recibidos en moneda distinta del euro a corto plazo."
+	},
+	{
+		"codigo": 931,
+		"descripcion": "Préstamos recibidos en moneda distinta del euro a largo plazo."
+	},
+	{
+		"codigo": 940,
+		"descripcion": "Depósitos recibidos."
+	},
+	{
+		"codigo": 941,
+		"descripcion": "Fianzas recibidas."
+	}
 ]

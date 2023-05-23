@@ -7,57 +7,57 @@
 @import '/src/app/scss/utilities';
 
 @media screen and (max-width: 3399.98px) {
-  .flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: 723px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-  }
+	.flex {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		height: 723px;
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-top: 20px;
+	}
 
-  .flex__cardInfo {
-    display: flex;
-    justify-content: center;
-    flex-basis: 40%;
-    padding: 1em;
-    border: 1px solid #fff;
-  }
+	.flex__cardInfo {
+		display: flex;
+		justify-content: center;
+		flex-basis: 40%;
+		padding: 1em;
+		border: 1px solid #fff;
+	}
 
-  .flex__cardTable {
-    display: flex;
-    flex-direction: column;
-    // justify-content: center;
-    flex-basis: 60%;
-    padding: 1em;
-    border: 1px solid #fff;
-  }
+	.flex__cardTable {
+		display: flex;
+		flex-direction: column;
+		// justify-content: center;
+		flex-basis: 60%;
+		padding: 1em;
+		border: 1px solid #fff;
+	}
 
-  .flex__cardMenu {
-    display: flex;
-    flex-basis: 20%;
-    height: 70%;
-    margin: 1.5rem;
-    padding: 1em;
-    border: 1px solid rgb(147, 138, 138);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    border-radius: 10px;
-  }
+	.flex__cardMenu {
+		display: flex;
+		flex-basis: 20%;
+		height: 70%;
+		margin: 1.5rem;
+		padding: 1em;
+		border: 1px solid rgb(147, 138, 138);
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		transition: 0.3s;
+		border-radius: 10px;
+	}
 }
 
 @media screen and (max-width: 1199.98px) {
-  /* #region cardMenu         */
-  .cardMenu {
-    &__title {
-      font-size: 2rem;
-    }
-    &__subtitle {
-      font-size: 1.7rem;
-    }
-  }
-  /* #endregion */
+	/* #region cardMenu         */
+	.cardMenu {
+		&__title {
+			font-size: 2rem;
+		}
+		&__subtitle {
+			font-size: 1.7rem;
+		}
+	}
+	/* #endregion */
 }
 
 @media screen and (max-width: 991.98px) {
@@ -68,90 +68,90 @@
 
 // =============================================================================================
 @media screen and (max-width: 575.98px) {
-  .flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: 670px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-  }
+	.flex {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		height: 670px;
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-top: 20px;
+	}
 
-  .flex__cardInfo {
-    display: flex;
-    justify-content: center;
-    flex-basis: 100%;
-    padding: 1em;
-    border: 1px solid #fff;
-  }
+	.flex__cardInfo {
+		display: flex;
+		justify-content: center;
+		flex-basis: 100%;
+		padding: 1em;
+		border: 1px solid #fff;
+	}
 
-  .flex__cardTable {
-    display: flex;
-    justify-content: center;
-    flex-basis: 100%;
-    padding: 1em;
-    border: 1px solid #fff;
-  }
+	.flex__cardTable {
+		display: flex;
+		justify-content: center;
+		flex-basis: 100%;
+		padding: 1em;
+		border: 1px solid #fff;
+	}
 
-  .flex__cardMenu {
-    display: flex;
-    flex-basis: 100%;
-    height: 30%;
-    margin: 1.5rem;
-    padding: 1em;
-    border: 1px solid rgb(11, 0, 0);
-    border-radius: 10px;
-  }
-  /* #region cardInfo         */
-  .cardInfo {
-    &__title {
-      font-size: 1.4rem;
-    }
-    &__subtitle {
-      font-size: 1.2rem;
-    }
-  }
-  /* #endregion */
+	.flex__cardMenu {
+		display: flex;
+		flex-basis: 100%;
+		height: 30%;
+		margin: 1.5rem;
+		padding: 1em;
+		border: 1px solid rgb(11, 0, 0);
+		border-radius: 10px;
+	}
+	/* #region cardInfo         */
+	.cardInfo {
+		&__title {
+			font-size: 1.4rem;
+		}
+		&__subtitle {
+			font-size: 1.2rem;
+		}
+	}
+	/* #endregion */
 
-  /* #region cardTable        */
-  .cardTable {
-    &__title {
-      font-size: 1.4rem;
-    }
-  }
-  /* #endregion */
+	/* #region cardTable        */
+	.cardTable {
+		&__title {
+			font-size: 1.4rem;
+		}
+	}
+	/* #endregion */
 
-  /* #region  Table           */
+	/* #region  Table           */
 
-  table.paleBlueRows thead th {
-    font-size: 1.2rem;
-  }
-  table.paleBlueRows tbody td {
-    font-size: 1.4rem;
-  }
+	table.paleBlueRows thead th {
+		font-size: 1.2rem;
+	}
+	table.paleBlueRows tbody td {
+		font-size: 1.4rem;
+	}
 
-  /* #region cardMenu         */
-  .cardMenu {
-    height: 38%;
-    &__image {
-      height: 100%;
-    }
-    &__title {
-      margin-top: 6px;
-      font-size: 1.9rem;
-    }
-    &__subtitle {
-      margin-top: 6px;
-      padding: 2px;
-      font-size: 1.2rem;
-    }
-    &__button {
-      width: 150px;
-      height: 40px;
-      padding: 0;
-      font-size: 1.4em;
-      margin-left: 80px;
-    }
-  }
+	/* #region cardMenu         */
+	.cardMenu {
+		height: 38%;
+		&__image {
+			height: 100%;
+		}
+		&__title {
+			margin-top: 6px;
+			font-size: 1.9rem;
+		}
+		&__subtitle {
+			margin-top: 6px;
+			padding: 2px;
+			font-size: 1.2rem;
+		}
+		&__button {
+			width: 150px;
+			height: 40px;
+			padding: 0;
+			font-size: 1.4em;
+			margin-left: 80px;
+		}
+	}
 }

@@ -1,742 +1,742 @@
 [
-  {
-    "codigo": 10000,
-    "descripcion": "Impuestos sobre la Renta de las Personas Físicas."
-  },
-  {
-    "codigo": 11200,
-    "descripcion": "Impuesto sobre Bienes Inmuebles de Naturaleza Rústica"
-  },
-  {
-    "codigo": 11300,
-    "descripcion": "Impuesto sobre Bienes Inmuebles de Naturaleza Urbana"
-  },
-  {
-    "codigo": 11400,
-    "descripcion": "Impuesto sobre Bienes Inmuebles de características especiales"
-  },
-  {
-    "codigo": 11500,
-    "descripcion": "Impuesto sobre Vehículos de Tracción Mecánica"
-  },
-  {
-    "codigo": 11600,
-    "descripcion": "Impuesto sobre Incremento del Valor de los Terrenos de Naturaleza Urbana"
-  },
-  {
-    "codigo": 13000,
-    "descripcion": "Impuesto sobre Actividades Económicas"
-  },
-  {
-    "codigo": 13001,
-    "descripcion": "Distribución cuotas nacionales IAE"
-  },
-  {
-    "codigo": 13002,
-    "descripcion": "Distribución cuotas provinciales IAE"
-  },
-  {
-    "codigo": 21000,
-    "descripcion": "Impuesto sobre el Valor Añadido"
-  },
-  {
-    "codigo": 22000,
-    "descripcion": "Impuestos sobre el alcohol y bebidas derivadas"
-  },
-  {
-    "codigo": 22001,
-    "descripcion": "Impuesto sobre la cerveza"
-  },
-  {
-    "codigo": 22003,
-    "descripcion": "Impuestos sobre las labores del tabaco"
-  },
-  {
-    "codigo": 22004,
-    "descripcion": "Impuestos sobre hidrocarburos"
-  },
-  {
-    "codigo": 22006,
-    "descripcion": "Impuestos sobre productos intermedios"
-  },
-  {
-    "codigo": 29000,
-    "descripcion": "Impuestos sobre construcciones, instalaciones y obras"
-  },
-  {
-    "codigo": 29100,
-    "descripcion": "Impuestos sobre gastos suntuarios cotos de caza y pesca"
-  },
-  {
-    "codigo": 30000,
-    "descripcion": "Tasas por servicio de"
-  },
-  {
-    "codigo": 30001,
-    "descripcion": "Servicio de abastecimiento de agua ELA Torrecera"
-  },
-  {
-    "codigo": 30100,
-    "descripcion": "Tasas por servicio de alcantarillado"
-  },
-  {
-    "codigo": 30200,
-    "descripcion": "Tasas por servicio recogida de basura"
-  },
-  {
-    "codigo": 30300,
-    "descripcion": "Tasas servicio de tratamiento de"
-  },
-  {
-    "codigo": 30901,
-    "descripcion": "Tasas prestación servicios cementerio municipal"
-  },
-  {
-    "codigo": 30902,
-    "descripcion": "Tasas extinción de incendios y salvamentos"
-  },
-  {
-    "codigo": 30903,
-    "descripcion": "Tasas servicios especiales de vigilancia, control prot."
-  },
-  {
-    "codigo": 32100,
-    "descripcion": "Tasas licencias urbanísticas"
-  },
-  {
-    "codigo": 32201,
-    "descripcion": "Tasas licencias de aperturas"
-  },
-  {
-    "codigo": 32500,
-    "descripcion": "Tasas por expedición de documentos"
-  },
-  {
-    "codigo": 32600,
-    "descripcion": "Tasas retirada de vehículos"
-  },
-  {
-    "codigo": 32901,
-    "descripcion": "Tasas por celebración de matrimonios civiles"
-  },
-  {
-    "codigo": 33000,
-    "descripcion": "Tasas de estacionamiento de vehículos"
-  },
-  {
-    "codigo": 33100,
-    "descripcion": "Tasa por entrada de vehículos"
-  },
-  {
-    "codigo": 33204,
-    "descripcion": "Tasa utilización superficies y servicios estación autobús"
-  },
-  {
-    "codigo": 33401,
-    "descripcion": "Ingresos por canalizaciones vía pública"
-  },
-  {
-    "codigo": 34402,
-    "descripcion": "Taquillas fiestas bulerias"
-  },
-  {
-    "codigo": 33501,
-    "descripcion": "Tasas ocupación vía pública gestionada por urbanismo"
-  },
-  {
-    "codigo": 33601,
-    "descripcion": "Tasas por alteración o interrupción del tráfico"
-  },
-  {
-    "codigo": 33701,
-    "descripcion": "Tasas ocupación suelo, vuelo o subsuelo por empresas"
-  },
-  {
-    "codigo": 33800,
-    "descripcion": "Compensación de Telefónica de España S.A."
-  },
-  {
-    "codigo": 33901,
-    "descripcion": "Tasas licencias autotaxi y vehículos de alquiler"
-  },
-  {
-    "codigo": 33902,
-    "descripcion": "Tasas utilización puestos en mercado de abastos"
-  },
-  {
-    "codigo": 33903,
-    "descripcion": "Tasas ocupación con mercancias, materiales de construcción"
-  },
-  {
-    "codigo": 33904,
-    "descripcion": "Tasas ocupación con kioscos"
-  },
-  {
-    "codigo": 33905,
-    "descripcion": "Tasas fijación anuncios y publicidad en el dominio público local"
-  },
-  {
-    "codigo": 33906,
-    "descripcion": "Tasas por ocupación con puestos, barracas, etc."
-  },
-  {
-    "codigo": 33907,
-    "descripcion": "Tasas por instalación fijas, puestos, espectáculos, etc."
-  },
-  {
-    "codigo": 33908,
-    "descripcion": "Ocupación vía pública con mesas y sillas"
-  },
-  {
-    "codigo": 34101,
-    "descripcion": "Precios públicos servicio ayuda a domicilio"
-  },
-  {
-    "codigo": 34201,
-    "descripcion": "Precios públicos matrículas Escuela de música"
-  },
-  {
-    "codigo": 34202,
-    "descripcion": "Servicios actividades de mayores"
-  },
-  {
-    "codigo": 34301,
-    "descripcion": "Precios públicos utilización de instalaciones deportivas"
-  },
-  {
-    "codigo": 34302,
-    "descripcion": "Precios públicos matrículas competiciones hípicas"
-  },
-  {
-    "codigo": 34303,
-    "descripcion": "Inscripciones deportivas"
-  },
-  {
-    "codigo": 34403,
-    "descripcion": "Precios públicos por ventas de entradas Museo Arqueológico"
-  },
-  {
-    "codigo": 34404,
-    "descripcion": "Precios públicos por entradas al conjunto monumental El Alcázar"
-  },
-  {
-    "codigo": 34405,
-    "descripcion": "Precios públicos venta de entradas pruebas hípicas"
-  },
-  {
-    "codigo": 34407,
-    "descripcion": "Taquilla Sala Compañía"
-  },
-  {
-    "codigo": 34409,
-    "descripcion": "Precios públicos entrada en Claustros Santo Domingo"
-  },
-  {
-    "codigo": 34410,
-    "descripcion": "Precios públicos venta de entradas Zoológico"
-  },
-  {
-    "codigo": 34902,
-    "descripcion": "Serv. Inspección Sanitaria Análisis"
-  },
-  {
-    "codigo": 34903,
-    "descripcion": "Precios públicos servicios de sanidad preventiva, desinfección, etc."
-  },
-  {
-    "codigo": 34905,
-    "descripcion": "Celebración eventos privados Alcázar, P. Villavicencio, S. Com"
-  },
-  {
-    "codigo": 34906,
-    "descripcion": "Centros Sociales"
-  },
-  {
-    "codigo": 34907,
-    "descripcion": "Celebración eventos Claustros de Santo Domingo"
-  },
-  {
-    "codigo": 34908,
-    "descripcion": "Precios públicos servicio mantenimiento animales incautados"
-  },
-  {
-    "codigo": 34909,
-    "descripcion": "Precios públicos servicios informáticos y telecomunicaciones"
-  },
-  {
-    "codigo": 34910,
-    "descripcion": "Prestación de servicio recaudación"
-  },
-  {
-    "codigo": 34911,
-    "descripcion": "Precios públicos Servicio recogida animales"
-  },
-  {
-    "codigo": 34912,
-    "descripcion": "Precios públicos publicidad Onda Jerez"
-  },
-  {
-    "codigo": 36001,
-    "descripcion": "Ventas de libros"
-  },
-  {
-    "codigo": 36002,
-    "descripcion": "Fotocopias"
-  },
-  {
-    "codigo": 36003,
-    "descripcion": "Ventas objetos Museo Arqueológico"
-  },
-  {
-    "codigo": 36400,
-    "descripcion": "Venta por máquinas expendedoras"
-  },
-  {
-    "codigo": 38000,
-    "descripcion": "Reintegro avales"
-  },
-  {
-    "codigo": 38001,
-    "descripcion": "Ejecución de aval incumplimiento contrato obras"
-  },
-  {
-    "codigo": 38801,
-    "descripcion": "Ejecución de aval incumplimiento contrato obras"
-  },
-  {
-    "codigo": 38002,
-    "descripcion": "Incautación de fianzas"
-  },
-  {
-    "codigo": 38900,
-    "descripcion": "Otros reintegros de operaciones corrientes"
-  },
-  {
-    "codigo": 38901,
-    "descripcion": "Anuncios a cargo de particulares"
-  },
-  {
-    "codigo": 38902,
-    "descripcion": "Obras e instalaciones a cargo de particulares"
-  },
-  {
-    "codigo": 39100,
-    "descripcion": "Multas por infracciones urbanísticas"
-  },
-  {
-    "codigo": 39110,
-    "descripcion": "Multas por infracciones tributarias y análogas"
-  },
-  {
-    "codigo": 39120,
-    "descripcion": "Multas por infracciones de la Ordenanza de circulación"
-  },
-  {
-    "codigo": 39190,
-    "descripcion": "Otras multas y sanciones"
-  },
-  {
-    "codigo": 39191,
-    "descripcion": "Multas de ordenanzas municipales"
-  },
-  {
-    "codigo": 39192,
-    "descripcion": "Sanción salud pública"
-  },
-  {
-    "codigo": 39211,
-    "descripcion": "Recargo de apremio"
-  },
-  {
-    "codigo": 39300,
-    "descripcion": "Intereses de demora"
-  },
-  {
-    "codigo": 39610,
-    "descripcion": "Cuotas de urbanización"
-  },
-  {
-    "codigo": 39690,
-    "descripcion": "Convenios urbanísticos"
-  },
-  {
-    "codigo": 39710,
-    "descripcion": "Otros ingresos por aprovechamientos urbanísticos"
-  },
-  {
-    "codigo": 39900,
-    "descripcion": "Otros ingresos diversos destinados PMS"
-  },
-  {
-    "codigo": 39901,
-    "descripcion": "Ingresos diversos"
-  },
-  {
-    "codigo": 39902,
-    "descripcion": "Imprevistos"
-  },
-  {
-    "codigo": 39903,
-    "descripcion": "Recursos telefonos"
-  },
-  {
-    "codigo": 39904,
-    "descripcion": "Ingresos extraordinarios derivados"
-  },
-  {
-    "codigo": 39907,
-    "descripcion": "Ingresos de fincas no urbanizables"
-  },
-  {
-    "codigo": 39909,
-    "descripcion": "Indennización por CIA"
-  },
-  {
-    "codigo": 39911,
-    "descripcion": "Ingresos costas judiciales"
-  },
-  {
-    "codigo": 39912,
-    "descripcion": "Costas contratos defensa y respresentacion juridica"
-  },
-  {
-    "codigo": 39913,
-    "descripcion": "Ingresos por publicidad a cargo de particulares"
-  },
-  {
-    "codigo": 39916,
-    "descripcion": "Aprovechamiento urbanístico PMS"
-  },
-  {
-    "codigo": 39918,
-    "descripcion": "Ingresos por ejecución obras a cargo particulares"
-  },
-  {
-    "codigo": 39919,
-    "descripcion": "Indemnizaciones en bienes y derechos"
-  },
-  {
-    "codigo": 39920,
-    "descripcion": "Servicio recogida residuos"
-  },
-  {
-    "codigo": 39921,
-    "descripcion": "Otros ingresos diversos AJEMSA"
-  },
-  {
-    "codigo": 39922,
-    "descripcion": "Ingresos por multas coercitivas"
-  },
-  {
-    "codigo": 39923,
-    "descripcion": "Otros ingresos diversos por ventas"
-  },
-  {
-    "codigo": 39924,
-    "descripcion": "Prestac patrim carácter no tributario por act.ord.suelo rúst"
-  },
-  {
-    "codigo": 42001,
-    "descripcion": "Otras transferencias del Estado déficit autobuses"
-  },
-  {
-    "codigo": 42007,
-    "descripcion": "Otros ingresos Administración General del Estado"
-  },
-  {
-    "codigo": 42009,
-    "descripcion": "Subvención Ministerio de Sanidad Plan Nacional sobre drogas"
-  },
-  {
-    "codigo": 42010,
-    "descripcion": "Fondo complementario de financiación"
-  },
-  {
-    "codigo": 42020,
-    "descripcion": "Compensación por beneficios fiscales"
-  },
-  {
-    "codigo": 42090,
-    "descripcion": "Otras transferencias corrientes de la Administración General"
-  },
-  {
-    "codigo": 42094,
-    "descripcion": "Conv. prestaciones básicas servicios sociales comunitarios"
-  },
-  {
-    "codigo": 42101,
-    "descripcion": "Transferencias Instituto Nacional de Estadística"
-  },
-  {
-    "codigo": 42107,
-    "descripcion": "Subvención IMSERSO"
-  },
-  {
-    "codigo": 42122,
-    "descripcion": "De Organismo Autónomo Programas Educativos Europeos"
-  },
-  {
-    "codigo": 42124,
-    "descripcion": "De Organismos Autónomos y agencias estatales"
-  },
-  {
-    "codigo": 42190,
-    "descripcion": "De otros Organismos Autónomos y agencias"
-  },
-  {
-    "codigo": 42201,
-    "descripcion": "De fundaciones estatales"
-  },
-  {
-    "codigo": 44100,
-    "descripcion": "De sociedades mercantiles"
-  },
-  {
-    "codigo": 45000,
-    "descripcion": "Participacion en los tributos de la Comunidad Autónoma"
-  },
-  {
-    "codigo": 45002,
-    "descripcion": "Transferencias en materia de servicios sociales y políticas de igualdad"
-  },
-  {
-    "codigo": 45030,
-    "descripcion": "Transferencias corrientes en cumplimiento de convenios suscritos"
-  },
-  {
-    "codigo": 45050,
-    "descripcion": "Transferencias corrientes"
-  },
-  {
-    "codigo": 45060,
-    "descripcion": "Otras transferencias corrientes en cumplimiento de convenios"
-  },
-  {
-    "codigo": 45080,
-    "descripcion": "Otras subvenciones corrientes de la Administración General del Estado"
-  },
-  {
-    "codigo": 45100,
-    "descripcion": "Instituto Andaluz de la Mujer"
-  },
-  {
-    "codigo": 45101,
-    "descripcion": "De FAISEM Fundación Andaluza"
-  },
-  {
-    "codigo": 45103,
-    "descripcion": "De la Agencia Andaluza de Instituciones Culturales"
-  },
-  {
-    "codigo": 45106,
-    "descripcion": "Subvenciones Instituto Andaluz de la Juventud"
-  },
-  {
-    "codigo": 45107,
-    "descripcion": "Subvenciones Servicio Andaluz de Empleo"
-  },
-  {
-    "codigo": 45108,
-    "descripcion": "Agencia de Servicios Sociales y Dependencia de Andalucía"
-  },
-  {
-    "codigo": 46117,
-    "descripcion": "Diputación Provincial de Cádiz"
-  },
-  {
-    "codigo": 46600,
-    "descripcion": "De otras entidades que agrupen municipios"
-  },
-  {
-    "codigo": 46800,
-    "descripcion": "De entidades locales autonomas"
-  },
-  {
-    "codigo": 47000,
-    "descripcion": "De empresas privadas"
-  },
-  {
-    "codigo": 48000,
-    "descripcion": "Transferencias a Instituciones sin animo de lucro"
-  },
-  {
-    "codigo": 49000,
-    "descripcion": "Transferencias de La Unión europea"
-  },
-  {
-    "codigo": 51100,
-    "descripcion": "Intereses de préstamos concedios a Organ. Autónomos y a"
-  },
-  {
-    "codigo": 49701,
-    "descripcion": "Transferencias de La Unión europeaFondo Recuperación- Next Generation EU"
-  },
-  {
-    "codigo": 51400,
-    "descripcion": "Intereses de préstamos concedidos a sociedades mercantiles,E"
-  },
-  {
-    "codigo": 52000,
-    "descripcion": "Intereses de depósito"
-  },
-  {
-    "codigo": 53410,
-    "descripcion": "De sociedades y entidades no dependientes de la entidades locales"
-  },
-  {
-    "codigo": 54100,
-    "descripcion": "Arrendamientos de fincas urbanas"
-  },
-  {
-    "codigo": 55000,
-    "descripcion": "Concesiones administrativas"
-  },
-  {
-    "codigo": 55903,
-    "descripcion": "Vallas publicitarias"
-  },
-  {
-    "codigo": 59000,
-    "descripcion": "Patrocinio y publicidad Deportes"
-  },
-  {
-    "codigo": 59002,
-    "descripcion": "Patrocinio eventos de fiestas"
-  },
-  {
-    "codigo": 59003,
-    "descripcion": "Patrocinio y publicidad zoo"
-  },
-  {
-    "codigo": 59005,
-    "descripcion": "Patrocinio y publicidad"
-  },
-  {
-    "codigo": 59900,
-    "descripcion": "Otros ingresos patrimoniales"
-  },
-  {
-    "codigo": 59901,
-    "descripcion": "Patrocinio actos culturales"
-  },
-  {
-    "codigo": 59902,
-    "descripcion": "Patrocinio eventos fiestas"
-  },
-  {
-    "codigo": 59906,
-    "descripcion": "Sponsorización eventos de Fomento"
-  },
-  {
-    "codigo": 59908,
-    "descripcion": "Ingresos publicidad TV y radio"
-  },
-  {
-    "codigo": 60000,
-    "descripcion": "Venta de solares (No PMS)"
-  },
-  {
-    "codigo": 60300,
-    "descripcion": "Enajenaciones PMS"
-  },
-  {
-    "codigo": 61000,
-    "descripcion": "De las demás inversiones reales"
-  },
-  {
-    "codigo": 61900,
-    "descripcion": "De otras inversiones reales elementos de transporte"
-  },
-  {
-    "codigo": 72000,
-    "descripcion": "Transferencias capital Administración General del Estado"
-  },
-  {
-    "codigo": 72112,
-    "descripcion": "Instituto de la Juventud"
-  },
-  {
-    "codigo": 72190,
-    "descripcion": "De otros Organismos Autónomos y agencias"
-  },
-  {
-    "codigo": 75012,
-    "descripcion": "Transferencias de capital"
-  },
-  {
-    "codigo": 75030,
-    "descripcion": "Transferencias de capital en cumplimiento de convenios suscritos"
-  },
-  {
-    "codigo": 75060,
-    "descripcion": "Otras transferencias de capital en cumplimiento de convenios"
-  },
-  {
-    "codigo": 75080,
-    "descripcion": "Otras transferencias de capital de la Administración General del Estado"
-  },
-  {
-    "codigo": 75100,
-    "descripcion": "Transferencias capital Organismos Autónomos y Agencias CCAA"
-  },
-  {
-    "codigo": 76100,
-    "descripcion": "Transferencia de capital de Diputación Provincial de Cádiz"
-  },
-  {
-    "codigo": 76117,
-    "descripcion": "De Diputaciones, Consejos o Cabildos"
-  },
-  {
-    "codigo": 76800,
-    "descripcion": "De Entidades Locales Menores"
-  },
-  {
-    "codigo": 77000,
-    "descripcion": "De empresas privadas"
-  },
-  {
-    "codigo": 78000,
-    "descripcion": "De familias e instituciones sin animo de lucro"
-  },
-  {
-    "codigo": 78001,
-    "descripcion": "De la Asociación para el desarrollo rural de la campiña de Jerez"
-  },
-  {
-    "codigo": 79007,
-    "descripcion": "Del Fondo Social Europeo"
-  },
-  {
-    "codigo": 79701,
-    "descripcion": "Fondo Recuperación-Next Generation EU"
-  },
-  {
-    "codigo": 82120,
-    "descripcion": "De Entidades locales"
-  },
-  {
-    "codigo": 83001,
-    "descripcion": "Reintegro de anticipos al personal a corto plazo"
-  },
-  {
-    "codigo": 83101,
-    "descripcion": "Reintegro de anticipos al personal a largo plazo"
-  },
-  {
-    "codigo": 87010,
-    "descripcion": "Para gastos con financiación afectada"
-  },
-  {
-    "codigo": 91100,
-    "descripcion": "Préstamos recibidos a largo plazo de entes del sector público"
-  },
-  {
-    "codigo": 91101,
-    "descripcion": "Préstamo Fondo Ordenación sentencias judiciales firmes"
-  },
-  {
-    "codigo": 91301,
-    "descripcion": "Prestamos recibidos a largo plazo de entes fuera del sector público"
-  }
+	{
+		"codigo": 10000,
+		"descripcion": "Impuestos sobre la Renta de las Personas Físicas."
+	},
+	{
+		"codigo": 11200,
+		"descripcion": "Impuesto sobre Bienes Inmuebles de Naturaleza Rústica"
+	},
+	{
+		"codigo": 11300,
+		"descripcion": "Impuesto sobre Bienes Inmuebles de Naturaleza Urbana"
+	},
+	{
+		"codigo": 11400,
+		"descripcion": "Impuesto sobre Bienes Inmuebles de características especiales"
+	},
+	{
+		"codigo": 11500,
+		"descripcion": "Impuesto sobre Vehículos de Tracción Mecánica"
+	},
+	{
+		"codigo": 11600,
+		"descripcion": "Impuesto sobre Incremento del Valor de los Terrenos de Naturaleza Urbana"
+	},
+	{
+		"codigo": 13000,
+		"descripcion": "Impuesto sobre Actividades Económicas"
+	},
+	{
+		"codigo": 13001,
+		"descripcion": "Distribución cuotas nacionales IAE"
+	},
+	{
+		"codigo": 13002,
+		"descripcion": "Distribución cuotas provinciales IAE"
+	},
+	{
+		"codigo": 21000,
+		"descripcion": "Impuesto sobre el Valor Añadido"
+	},
+	{
+		"codigo": 22000,
+		"descripcion": "Impuestos sobre el alcohol y bebidas derivadas"
+	},
+	{
+		"codigo": 22001,
+		"descripcion": "Impuesto sobre la cerveza"
+	},
+	{
+		"codigo": 22003,
+		"descripcion": "Impuestos sobre las labores del tabaco"
+	},
+	{
+		"codigo": 22004,
+		"descripcion": "Impuestos sobre hidrocarburos"
+	},
+	{
+		"codigo": 22006,
+		"descripcion": "Impuestos sobre productos intermedios"
+	},
+	{
+		"codigo": 29000,
+		"descripcion": "Impuestos sobre construcciones, instalaciones y obras"
+	},
+	{
+		"codigo": 29100,
+		"descripcion": "Impuestos sobre gastos suntuarios cotos de caza y pesca"
+	},
+	{
+		"codigo": 30000,
+		"descripcion": "Tasas por servicio de"
+	},
+	{
+		"codigo": 30001,
+		"descripcion": "Servicio de abastecimiento de agua ELA Torrecera"
+	},
+	{
+		"codigo": 30100,
+		"descripcion": "Tasas por servicio de alcantarillado"
+	},
+	{
+		"codigo": 30200,
+		"descripcion": "Tasas por servicio recogida de basura"
+	},
+	{
+		"codigo": 30300,
+		"descripcion": "Tasas servicio de tratamiento de"
+	},
+	{
+		"codigo": 30901,
+		"descripcion": "Tasas prestación servicios cementerio municipal"
+	},
+	{
+		"codigo": 30902,
+		"descripcion": "Tasas extinción de incendios y salvamentos"
+	},
+	{
+		"codigo": 30903,
+		"descripcion": "Tasas servicios especiales de vigilancia, control prot."
+	},
+	{
+		"codigo": 32100,
+		"descripcion": "Tasas licencias urbanísticas"
+	},
+	{
+		"codigo": 32201,
+		"descripcion": "Tasas licencias de aperturas"
+	},
+	{
+		"codigo": 32500,
+		"descripcion": "Tasas por expedición de documentos"
+	},
+	{
+		"codigo": 32600,
+		"descripcion": "Tasas retirada de vehículos"
+	},
+	{
+		"codigo": 32901,
+		"descripcion": "Tasas por celebración de matrimonios civiles"
+	},
+	{
+		"codigo": 33000,
+		"descripcion": "Tasas de estacionamiento de vehículos"
+	},
+	{
+		"codigo": 33100,
+		"descripcion": "Tasa por entrada de vehículos"
+	},
+	{
+		"codigo": 33204,
+		"descripcion": "Tasa utilización superficies y servicios estación autobús"
+	},
+	{
+		"codigo": 33401,
+		"descripcion": "Ingresos por canalizaciones vía pública"
+	},
+	{
+		"codigo": 34402,
+		"descripcion": "Taquillas fiestas bulerias"
+	},
+	{
+		"codigo": 33501,
+		"descripcion": "Tasas ocupación vía pública gestionada por urbanismo"
+	},
+	{
+		"codigo": 33601,
+		"descripcion": "Tasas por alteración o interrupción del tráfico"
+	},
+	{
+		"codigo": 33701,
+		"descripcion": "Tasas ocupación suelo, vuelo o subsuelo por empresas"
+	},
+	{
+		"codigo": 33800,
+		"descripcion": "Compensación de Telefónica de España S.A."
+	},
+	{
+		"codigo": 33901,
+		"descripcion": "Tasas licencias autotaxi y vehículos de alquiler"
+	},
+	{
+		"codigo": 33902,
+		"descripcion": "Tasas utilización puestos en mercado de abastos"
+	},
+	{
+		"codigo": 33903,
+		"descripcion": "Tasas ocupación con mercancias, materiales de construcción"
+	},
+	{
+		"codigo": 33904,
+		"descripcion": "Tasas ocupación con kioscos"
+	},
+	{
+		"codigo": 33905,
+		"descripcion": "Tasas fijación anuncios y publicidad en el dominio público local"
+	},
+	{
+		"codigo": 33906,
+		"descripcion": "Tasas por ocupación con puestos, barracas, etc."
+	},
+	{
+		"codigo": 33907,
+		"descripcion": "Tasas por instalación fijas, puestos, espectáculos, etc."
+	},
+	{
+		"codigo": 33908,
+		"descripcion": "Ocupación vía pública con mesas y sillas"
+	},
+	{
+		"codigo": 34101,
+		"descripcion": "Precios públicos servicio ayuda a domicilio"
+	},
+	{
+		"codigo": 34201,
+		"descripcion": "Precios públicos matrículas Escuela de música"
+	},
+	{
+		"codigo": 34202,
+		"descripcion": "Servicios actividades de mayores"
+	},
+	{
+		"codigo": 34301,
+		"descripcion": "Precios públicos utilización de instalaciones deportivas"
+	},
+	{
+		"codigo": 34302,
+		"descripcion": "Precios públicos matrículas competiciones hípicas"
+	},
+	{
+		"codigo": 34303,
+		"descripcion": "Inscripciones deportivas"
+	},
+	{
+		"codigo": 34403,
+		"descripcion": "Precios públicos por ventas de entradas Museo Arqueológico"
+	},
+	{
+		"codigo": 34404,
+		"descripcion": "Precios públicos por entradas al conjunto monumental El Alcázar"
+	},
+	{
+		"codigo": 34405,
+		"descripcion": "Precios públicos venta de entradas pruebas hípicas"
+	},
+	{
+		"codigo": 34407,
+		"descripcion": "Taquilla Sala Compañía"
+	},
+	{
+		"codigo": 34409,
+		"descripcion": "Precios públicos entrada en Claustros Santo Domingo"
+	},
+	{
+		"codigo": 34410,
+		"descripcion": "Precios públicos venta de entradas Zoológico"
+	},
+	{
+		"codigo": 34902,
+		"descripcion": "Serv. Inspección Sanitaria Análisis"
+	},
+	{
+		"codigo": 34903,
+		"descripcion": "Precios públicos servicios de sanidad preventiva, desinfección, etc."
+	},
+	{
+		"codigo": 34905,
+		"descripcion": "Celebración eventos privados Alcázar, P. Villavicencio, S. Com"
+	},
+	{
+		"codigo": 34906,
+		"descripcion": "Centros Sociales"
+	},
+	{
+		"codigo": 34907,
+		"descripcion": "Celebración eventos Claustros de Santo Domingo"
+	},
+	{
+		"codigo": 34908,
+		"descripcion": "Precios públicos servicio mantenimiento animales incautados"
+	},
+	{
+		"codigo": 34909,
+		"descripcion": "Precios públicos servicios informáticos y telecomunicaciones"
+	},
+	{
+		"codigo": 34910,
+		"descripcion": "Prestación de servicio recaudación"
+	},
+	{
+		"codigo": 34911,
+		"descripcion": "Precios públicos Servicio recogida animales"
+	},
+	{
+		"codigo": 34912,
+		"descripcion": "Precios públicos publicidad Onda Jerez"
+	},
+	{
+		"codigo": 36001,
+		"descripcion": "Ventas de libros"
+	},
+	{
+		"codigo": 36002,
+		"descripcion": "Fotocopias"
+	},
+	{
+		"codigo": 36003,
+		"descripcion": "Ventas objetos Museo Arqueológico"
+	},
+	{
+		"codigo": 36400,
+		"descripcion": "Venta por máquinas expendedoras"
+	},
+	{
+		"codigo": 38000,
+		"descripcion": "Reintegro avales"
+	},
+	{
+		"codigo": 38001,
+		"descripcion": "Ejecución de aval incumplimiento contrato obras"
+	},
+	{
+		"codigo": 38801,
+		"descripcion": "Ejecución de aval incumplimiento contrato obras"
+	},
+	{
+		"codigo": 38002,
+		"descripcion": "Incautación de fianzas"
+	},
+	{
+		"codigo": 38900,
+		"descripcion": "Otros reintegros de operaciones corrientes"
+	},
+	{
+		"codigo": 38901,
+		"descripcion": "Anuncios a cargo de particulares"
+	},
+	{
+		"codigo": 38902,
+		"descripcion": "Obras e instalaciones a cargo de particulares"
+	},
+	{
+		"codigo": 39100,
+		"descripcion": "Multas por infracciones urbanísticas"
+	},
+	{
+		"codigo": 39110,
+		"descripcion": "Multas por infracciones tributarias y análogas"
+	},
+	{
+		"codigo": 39120,
+		"descripcion": "Multas por infracciones de la Ordenanza de circulación"
+	},
+	{
+		"codigo": 39190,
+		"descripcion": "Otras multas y sanciones"
+	},
+	{
+		"codigo": 39191,
+		"descripcion": "Multas de ordenanzas municipales"
+	},
+	{
+		"codigo": 39192,
+		"descripcion": "Sanción salud pública"
+	},
+	{
+		"codigo": 39211,
+		"descripcion": "Recargo de apremio"
+	},
+	{
+		"codigo": 39300,
+		"descripcion": "Intereses de demora"
+	},
+	{
+		"codigo": 39610,
+		"descripcion": "Cuotas de urbanización"
+	},
+	{
+		"codigo": 39690,
+		"descripcion": "Convenios urbanísticos"
+	},
+	{
+		"codigo": 39710,
+		"descripcion": "Otros ingresos por aprovechamientos urbanísticos"
+	},
+	{
+		"codigo": 39900,
+		"descripcion": "Otros ingresos diversos destinados PMS"
+	},
+	{
+		"codigo": 39901,
+		"descripcion": "Ingresos diversos"
+	},
+	{
+		"codigo": 39902,
+		"descripcion": "Imprevistos"
+	},
+	{
+		"codigo": 39903,
+		"descripcion": "Recursos telefonos"
+	},
+	{
+		"codigo": 39904,
+		"descripcion": "Ingresos extraordinarios derivados"
+	},
+	{
+		"codigo": 39907,
+		"descripcion": "Ingresos de fincas no urbanizables"
+	},
+	{
+		"codigo": 39909,
+		"descripcion": "Indennización por CIA"
+	},
+	{
+		"codigo": 39911,
+		"descripcion": "Ingresos costas judiciales"
+	},
+	{
+		"codigo": 39912,
+		"descripcion": "Costas contratos defensa y respresentacion juridica"
+	},
+	{
+		"codigo": 39913,
+		"descripcion": "Ingresos por publicidad a cargo de particulares"
+	},
+	{
+		"codigo": 39916,
+		"descripcion": "Aprovechamiento urbanístico PMS"
+	},
+	{
+		"codigo": 39918,
+		"descripcion": "Ingresos por ejecución obras a cargo particulares"
+	},
+	{
+		"codigo": 39919,
+		"descripcion": "Indemnizaciones en bienes y derechos"
+	},
+	{
+		"codigo": 39920,
+		"descripcion": "Servicio recogida residuos"
+	},
+	{
+		"codigo": 39921,
+		"descripcion": "Otros ingresos diversos AJEMSA"
+	},
+	{
+		"codigo": 39922,
+		"descripcion": "Ingresos por multas coercitivas"
+	},
+	{
+		"codigo": 39923,
+		"descripcion": "Otros ingresos diversos por ventas"
+	},
+	{
+		"codigo": 39924,
+		"descripcion": "Prestac patrim carácter no tributario por act.ord.suelo rúst"
+	},
+	{
+		"codigo": 42001,
+		"descripcion": "Otras transferencias del Estado déficit autobuses"
+	},
+	{
+		"codigo": 42007,
+		"descripcion": "Otros ingresos Administración General del Estado"
+	},
+	{
+		"codigo": 42009,
+		"descripcion": "Subvención Ministerio de Sanidad Plan Nacional sobre drogas"
+	},
+	{
+		"codigo": 42010,
+		"descripcion": "Fondo complementario de financiación"
+	},
+	{
+		"codigo": 42020,
+		"descripcion": "Compensación por beneficios fiscales"
+	},
+	{
+		"codigo": 42090,
+		"descripcion": "Otras transferencias corrientes de la Administración General"
+	},
+	{
+		"codigo": 42094,
+		"descripcion": "Conv. prestaciones básicas servicios sociales comunitarios"
+	},
+	{
+		"codigo": 42101,
+		"descripcion": "Transferencias Instituto Nacional de Estadística"
+	},
+	{
+		"codigo": 42107,
+		"descripcion": "Subvención IMSERSO"
+	},
+	{
+		"codigo": 42122,
+		"descripcion": "De Organismo Autónomo Programas Educativos Europeos"
+	},
+	{
+		"codigo": 42124,
+		"descripcion": "De Organismos Autónomos y agencias estatales"
+	},
+	{
+		"codigo": 42190,
+		"descripcion": "De otros Organismos Autónomos y agencias"
+	},
+	{
+		"codigo": 42201,
+		"descripcion": "De fundaciones estatales"
+	},
+	{
+		"codigo": 44100,
+		"descripcion": "De sociedades mercantiles"
+	},
+	{
+		"codigo": 45000,
+		"descripcion": "Participacion en los tributos de la Comunidad Autónoma"
+	},
+	{
+		"codigo": 45002,
+		"descripcion": "Transferencias en materia de servicios sociales y políticas de igualdad"
+	},
+	{
+		"codigo": 45030,
+		"descripcion": "Transferencias corrientes en cumplimiento de convenios suscritos"
+	},
+	{
+		"codigo": 45050,
+		"descripcion": "Transferencias corrientes"
+	},
+	{
+		"codigo": 45060,
+		"descripcion": "Otras transferencias corrientes en cumplimiento de convenios"
+	},
+	{
+		"codigo": 45080,
+		"descripcion": "Otras subvenciones corrientes de la Administración General del Estado"
+	},
+	{
+		"codigo": 45100,
+		"descripcion": "Instituto Andaluz de la Mujer"
+	},
+	{
+		"codigo": 45101,
+		"descripcion": "De FAISEM Fundación Andaluza"
+	},
+	{
+		"codigo": 45103,
+		"descripcion": "De la Agencia Andaluza de Instituciones Culturales"
+	},
+	{
+		"codigo": 45106,
+		"descripcion": "Subvenciones Instituto Andaluz de la Juventud"
+	},
+	{
+		"codigo": 45107,
+		"descripcion": "Subvenciones Servicio Andaluz de Empleo"
+	},
+	{
+		"codigo": 45108,
+		"descripcion": "Agencia de Servicios Sociales y Dependencia de Andalucía"
+	},
+	{
+		"codigo": 46117,
+		"descripcion": "Diputación Provincial de Cádiz"
+	},
+	{
+		"codigo": 46600,
+		"descripcion": "De otras entidades que agrupen municipios"
+	},
+	{
+		"codigo": 46800,
+		"descripcion": "De entidades locales autonomas"
+	},
+	{
+		"codigo": 47000,
+		"descripcion": "De empresas privadas"
+	},
+	{
+		"codigo": 48000,
+		"descripcion": "Transferencias a Instituciones sin animo de lucro"
+	},
+	{
+		"codigo": 49000,
+		"descripcion": "Transferencias de La Unión europea"
+	},
+	{
+		"codigo": 51100,
+		"descripcion": "Intereses de préstamos concedios a Organ. Autónomos y a"
+	},
+	{
+		"codigo": 49701,
+		"descripcion": "Transferencias de La Unión europeaFondo Recuperación- Next Generation EU"
+	},
+	{
+		"codigo": 51400,
+		"descripcion": "Intereses de préstamos concedidos a sociedades mercantiles,E"
+	},
+	{
+		"codigo": 52000,
+		"descripcion": "Intereses de depósito"
+	},
+	{
+		"codigo": 53410,
+		"descripcion": "De sociedades y entidades no dependientes de la entidades locales"
+	},
+	{
+		"codigo": 54100,
+		"descripcion": "Arrendamientos de fincas urbanas"
+	},
+	{
+		"codigo": 55000,
+		"descripcion": "Concesiones administrativas"
+	},
+	{
+		"codigo": 55903,
+		"descripcion": "Vallas publicitarias"
+	},
+	{
+		"codigo": 59000,
+		"descripcion": "Patrocinio y publicidad Deportes"
+	},
+	{
+		"codigo": 59002,
+		"descripcion": "Patrocinio eventos de fiestas"
+	},
+	{
+		"codigo": 59003,
+		"descripcion": "Patrocinio y publicidad zoo"
+	},
+	{
+		"codigo": 59005,
+		"descripcion": "Patrocinio y publicidad"
+	},
+	{
+		"codigo": 59900,
+		"descripcion": "Otros ingresos patrimoniales"
+	},
+	{
+		"codigo": 59901,
+		"descripcion": "Patrocinio actos culturales"
+	},
+	{
+		"codigo": 59902,
+		"descripcion": "Patrocinio eventos fiestas"
+	},
+	{
+		"codigo": 59906,
+		"descripcion": "Sponsorización eventos de Fomento"
+	},
+	{
+		"codigo": 59908,
+		"descripcion": "Ingresos publicidad TV y radio"
+	},
+	{
+		"codigo": 60000,
+		"descripcion": "Venta de solares (No PMS)"
+	},
+	{
+		"codigo": 60300,
+		"descripcion": "Enajenaciones PMS"
+	},
+	{
+		"codigo": 61000,
+		"descripcion": "De las demás inversiones reales"
+	},
+	{
+		"codigo": 61900,
+		"descripcion": "De otras inversiones reales elementos de transporte"
+	},
+	{
+		"codigo": 72000,
+		"descripcion": "Transferencias capital Administración General del Estado"
+	},
+	{
+		"codigo": 72112,
+		"descripcion": "Instituto de la Juventud"
+	},
+	{
+		"codigo": 72190,
+		"descripcion": "De otros Organismos Autónomos y agencias"
+	},
+	{
+		"codigo": 75012,
+		"descripcion": "Transferencias de capital"
+	},
+	{
+		"codigo": 75030,
+		"descripcion": "Transferencias de capital en cumplimiento de convenios suscritos"
+	},
+	{
+		"codigo": 75060,
+		"descripcion": "Otras transferencias de capital en cumplimiento de convenios"
+	},
+	{
+		"codigo": 75080,
+		"descripcion": "Otras transferencias de capital de la Administración General del Estado"
+	},
+	{
+		"codigo": 75100,
+		"descripcion": "Transferencias capital Organismos Autónomos y Agencias CCAA"
+	},
+	{
+		"codigo": 76100,
+		"descripcion": "Transferencia de capital de Diputación Provincial de Cádiz"
+	},
+	{
+		"codigo": 76117,
+		"descripcion": "De Diputaciones, Consejos o Cabildos"
+	},
+	{
+		"codigo": 76800,
+		"descripcion": "De Entidades Locales Menores"
+	},
+	{
+		"codigo": 77000,
+		"descripcion": "De empresas privadas"
+	},
+	{
+		"codigo": 78000,
+		"descripcion": "De familias e instituciones sin animo de lucro"
+	},
+	{
+		"codigo": 78001,
+		"descripcion": "De la Asociación para el desarrollo rural de la campiña de Jerez"
+	},
+	{
+		"codigo": 79007,
+		"descripcion": "Del Fondo Social Europeo"
+	},
+	{
+		"codigo": 79701,
+		"descripcion": "Fondo Recuperación-Next Generation EU"
+	},
+	{
+		"codigo": 82120,
+		"descripcion": "De Entidades locales"
+	},
+	{
+		"codigo": 83001,
+		"descripcion": "Reintegro de anticipos al personal a corto plazo"
+	},
+	{
+		"codigo": 83101,
+		"descripcion": "Reintegro de anticipos al personal a largo plazo"
+	},
+	{
+		"codigo": 87010,
+		"descripcion": "Para gastos con financiación afectada"
+	},
+	{
+		"codigo": 91100,
+		"descripcion": "Préstamos recibidos a largo plazo de entes del sector público"
+	},
+	{
+		"codigo": 91101,
+		"descripcion": "Préstamo Fondo Ordenación sentencias judiciales firmes"
+	},
+	{
+		"codigo": 91301,
+		"descripcion": "Prestamos recibidos a largo plazo de entes fuera del sector público"
+	}
 ]
