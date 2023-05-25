@@ -24,29 +24,13 @@
 		height: 550px;
 		margin: 0 auto;
 	}
-
-	.datosPresupuestarios {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100 hw;
-		color: black;
-		font-weight: 700;
-		font-family: var(--fuente-principal);
-		font-size: clamp(3rem, 4rem, 5rem);
-		text-align: center;
-		margin-bottom: 20px;
-	}
 }
 
-@media screen and (max-width: 1199.98px) {
-}
+@media screen and (max-width: 1199.98px) {}
 
-@media screen and (max-width: 991.98px) {
-}
+@media screen and (max-width: 991.98px) {}
 
-@media screen and (max-width: 767.98px) {
-}
+@media screen and (max-width: 767.98px) {}
 
 @media screen and (max-width: 575.98px) {
 	#sankey {
@@ -57,7 +41,4 @@
 		height: 350px;
 	}
 
-	.datosPresupuestarios {
-		font-size: 1.4rem;
-	}
 }

@@ -1,3 +1,16 @@
+.datosPresupuestarios {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100 hw;
+	color: black;
+	font-weight: 700;
+	font-family: var(--fuente-principal);
+	font-size: clamp(3rem, 4rem, 5rem);
+	text-align: center;
+	margin-bottom: 20px;
+}
+
 .tableContainer {
 	display: flex;
 	flex-direction: row;
@@ -17,21 +30,26 @@ table.paleBlueRows {
 	border-collapse: collapse;
 	margin-left: 20px;
 }
+
 table.paleBlueRows td,
 table.paleBlueRows th {
 	border: 1px solid #ffffff;
 	padding: 3px 2px;
 }
+
 table.paleBlueRows tbody td {
 	font-size: 1.6rem;
 }
+
 table.paleBlueRows tr:nth-child(even) {
 	background: #d0e4f5;
 }
+
 table.paleBlueRows thead {
 	background: #003df6;
 	border-bottom: 5px solid #ffffff;
 }
+
 table.paleBlueRows thead th {
 	font-size: 14px;
 	font-weight: bold;
@@ -39,6 +57,7 @@ table.paleBlueRows thead th {
 	text-align: center;
 	border-left: 2px solid #ffffff;
 }
+
 table.paleBlueRows thead th:first-child {
 	border-left: none;
 }
@@ -50,6 +69,7 @@ table.paleBlueRows tfoot {
 	background: #d0e4f5;
 	border-top: 3px solid #444444;
 }
+
 table.paleBlueRows tfoot td {
 	font-size: 14px;
 }
