@@ -2,13 +2,18 @@
 
 <div class="flex-container-cards">
 	<div class="flex-items" *ngFor="let item of items">
-		<app-card [indice]="item.indice" [title]="item.title" [footer]="item.footer" [img]="item.img"></app-card>
+		<app-card [indice]="item.indice" [title]="item.title" [footer]="item.footer" [img]="item.img" />
 	</div>
 </div>
 
 <div class="graph2">
-	<div id="sankey"></div>
-	<div id="sankey1"></div>
+	<div id="ingresos">
+		<app-sankey-graph-ingresos />
+	</div>
+
+	<div id="gastos">
+		<app-sankey-graph-gastos />
+	</div>
 </div>
 
 <app-checkbox [multiYears]="false" />
