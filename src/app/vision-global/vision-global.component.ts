@@ -5,14 +5,21 @@ import { CardIndiceComponent } from '../commons/components/card/card.component';
 import { CheckboxComponent } from '../commons/components/checkbox/checkbox.component';
 import { TableDataPresupuestoComponent } from './components/table/table.component';
 import { SankeyGraphIngresosComponent } from './components/sankey-graph-ingresos/sankey-graph-ingresos.component';
-import { SankeyGraphGastosComponent } from "./components/sankey-graph-gastos/sankey-graph-gastos.component";
+import { SankeyGraphGastosComponent } from './components/sankey-graph-gastos/sankey-graph-gastos.component';
 
 @Component({
 	selector: 'app-vision-global',
 	templateUrl: './vision-global.component.html',
 	styleUrls: ['./vision-global.component.scss'],
 	standalone: true,
-	imports: [NgFor, CardIndiceComponent, CheckboxComponent, TableDataPresupuestoComponent, SankeyGraphIngresosComponent, SankeyGraphGastosComponent]
+	imports: [
+		NgFor,
+		CardIndiceComponent,
+		CheckboxComponent,
+		TableDataPresupuestoComponent,
+		SankeyGraphIngresosComponent,
+		SankeyGraphGastosComponent
+	]
 })
 export default class IndiceComponent {
 	items = [
