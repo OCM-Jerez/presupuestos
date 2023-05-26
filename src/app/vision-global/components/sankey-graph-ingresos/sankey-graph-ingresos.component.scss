@@ -1,0 +1,46 @@
+/* https://www.w3schools.com/cssref/css_selectors.asp */
+// https://fixu.cl/que-es-la-metodologia-bem-y-como-se-aplica-al-front-end/
+@import '/src/app/scss/variables';
+
+@media screen and (max-width: 3399.98px) {
+	.graph2 {
+		display: flex;
+		justify-content: flex-start;
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-top: 20px;
+	}
+
+	#sankey {
+		width: 50%;
+		max-width: 50%;
+		height: 550px;
+		margin: 0 auto;
+	}
+
+	#sankey1 {
+		width: 50%;
+		max-width: 50%;
+		height: 550px;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: 1199.98px) {
+}
+
+@media screen and (max-width: 991.98px) {
+}
+
+@media screen and (max-width: 767.98px) {
+}
+
+@media screen and (max-width: 575.98px) {
+	#sankey {
+		height: 350px;
+	}
+
+	#sankey1 {
+		height: 350px;
+	}
+}
