@@ -22,28 +22,32 @@ export default class HomeComponent {
 			titulo: 'Visión global',
 			subtitulo: 'Para que tengas una idea general de los ingresos y gastos del Ayuntamiento de Jerez.',
 			funcion: () => this.visionGlobal(),
-			textButton: 'Visión global'
+			textButton: 'Visión global',
+			background: 'linear-gradient(to bottom, #FFFDFC , #FCE1CB)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu2-400x250.webp',
 			titulo: 'Detalle del presupuesto',
 			subtitulo: 'Educación, protección y bienestar social, cultura... ¿Qué área te interesa?',
 			funcion: () => this.detalle(),
-			textButton: 'Detalle'
+			textButton: 'Detalle',
+			background: 'linear-gradient(to bottom, #FCFEFF , #CDE9FE)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu3-400x250.webp',
 			titulo: 'Licitaciones',
 			subtitulo: 'Todos las licitaciones de obras, contratos menores de nuestro Ayuntamiento',
 			funcion: () => this.licitaciones(),
-			textButton: 'Licitaciones'
+			textButton: 'Licitaciones',
+			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu4-400x250.webp',
 			titulo: 'Empleados municipales',
 			subtitulo: 'Información sobre los empleados de nuestro Ayuntamiento',
 			funcion: () => this.empleados(),
-			textButton: 'Empleados'
+			textButton: 'Empleados',
+			background: 'linear-gradient(to bottom, #F5F5F5 , #E0E0E0)'
 		}
 	];
 

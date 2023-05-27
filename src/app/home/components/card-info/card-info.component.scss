@@ -13,6 +13,7 @@
 		flex-basis: 40%;
 		padding: 1em;
 		border: 1px solid #fff;
+	
 	}
 
 	.cardInfo {
@@ -24,6 +25,7 @@
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 		transition: 0.3s;
 		border-radius: 10px;
+		background: linear-gradient(to bottom,  #F5F5F5 , #E0E0E0);
 		&__title {
 			display: flex;
 			width: 90%;
@@ -51,6 +53,7 @@
 			line-height: 1.3;
 			margin-left: 20px;
 			margin-right: 20px;
+			background: transparent;
 		}
 	}
 }

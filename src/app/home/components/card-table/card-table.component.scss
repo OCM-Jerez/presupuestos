@@ -4,10 +4,11 @@
 	display: flex;
 	flex-direction: column;
 	// justify-content: left;
-	padding: 0px;
+	// padding: 0px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	// transition: 0.3s;
 	border-radius: 10px;
+	background: linear-gradient(to bottom, #F5F5F5 , #E0E0E0);
 	&__title {
 		display: flex;
 		justify-content: center;
@@ -39,16 +40,16 @@
 
 /* #region  Table           */
 table.paleBlueRows {
-	border: 1px solid #ffffff;
+	// border: 1px solid #ffffff;
 	width: 95%;
-	height: 80%;
+	height: 100%;
 	text-align: center;
 	border-collapse: collapse;
 	margin-left: 20px;
 }
 table.paleBlueRows thead {
 	background: #003df6;
-	border-bottom: 5px solid #ffffff;
+	// border-bottom: 5px solid #ffffff;
 	height: 20px;
 }
 table.paleBlueRows thead th {
