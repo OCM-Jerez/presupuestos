@@ -35,7 +35,7 @@ export class HeaderAgGridComponent implements IHeaderAngularComp {
 	}
 
 	agInit(params: MyParams): void {
-		console.log(params);
+		// console.log(params);
 		this.params = params;
 		this.params.column.addEventListener('sortChanged', this.onSortChanged.bind(this));
 		this.onSortChanged();
@@ -46,14 +46,14 @@ export class HeaderAgGridComponent implements IHeaderAngularComp {
 		this.myHeaderNameLinea2 = this.myHeaderNameArray[1];
 		this.myHeaderNameLinea3 = this.myHeaderNameArray[2];
 
-		console.log(this.myHeaderNameArray);
-		console.log(this.myHeaderNameLinea1);
-		console.log(this.myHeaderNameLinea2);
-		console.log(this.myHeaderNameLinea3);
+		// console.log(this.myHeaderNameArray);
+		// console.log(this.myHeaderNameLinea1);
+		// console.log(this.myHeaderNameLinea2);
+		// console.log(this.myHeaderNameLinea3);
 	}
 
 	// ngOnDestroy() {
-	//   // console.log(`Destroying HeaderComponent`);
+	// console.log(`Destroying HeaderComponent`);
 	// }
 
 	onMenuClick() {

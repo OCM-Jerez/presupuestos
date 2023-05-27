@@ -79,9 +79,9 @@ export class PrepareDataTotalesPresupuestoService {
 			this._dataStoreService.dataTotalesPresupuesto = DataTotalesPresupuesto;
 		} catch (error) {
 			// console.clear();
-			console.error('error------------------- ', error);
-			console.log(this._totalPresupuestoIngresos);
-			console.log(this._totalPresupuestoGastos);
+			// console.error('error------------------- ', error);
+			// console.log(this._totalPresupuestoIngresos);
+			// console.log(this._totalPresupuestoGastos);
 		}
 	}
 }

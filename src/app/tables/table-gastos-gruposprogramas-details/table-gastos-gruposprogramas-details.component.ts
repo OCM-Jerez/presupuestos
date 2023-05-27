@@ -137,21 +137,21 @@ export default class TableGastosGruposprogramasDetailsComponent implements OnDes
 		let cod = '';
 		const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
 		const clasificationType = this.dataStoreService.dataTable.clasificationType;
-		console.log(codigoSearch, clasificationType);
+		// console.log(codigoSearch, clasificationType);
 
 		if (this.id === 'gastan') {
 			cod = clasificationType === 'gastosEconomicaCapitulos' ? 'CodCap' : 'CodEco';
 		} else {
 			cod = 'CodOrg';
 		}
-		console.log(cod);
+		// console.log(cod);
 		this._rowData = await this._prepareDataGastosService.getDataAllYear(clasificationType);
-		console.log(this._rowData);
+		// console.log(this._rowData);
 
 		this._rowData = (await this._prepareDataGastosService.getDataAllYear(clasificationType)).filter(
 			(x) => x[cod] == codigoSearch
 		);
-		console.log(this._rowData);
+		// console.log(this._rowData);
 	}
 
 	createColumnsChildrenDetalle(year: number) {
