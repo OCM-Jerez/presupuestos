@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-	// {
-	// path: '',
-	// children: [
 	{
 		path: 'home',
 		loadComponent: () => import('./home/home.component')
@@ -42,9 +39,11 @@ const routes: Routes = [
 		loadComponent: () =>
 			import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.component')
 	},
+	{
+		path: 'rpt',
+		loadComponent: () => import('./empleados/components/rpt/rpt.component')
+	},
 	{ path: '**', pathMatch: 'full', redirectTo: 'home' }
-	// ]
-	// }
 ];
 
 @NgModule({
