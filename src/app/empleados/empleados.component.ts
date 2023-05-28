@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { NgFor } from '@angular/common';
+
+import { CardMenuComponent } from '../commons/components/card-menu/card-menu.component';
 
 import puestos from '@assets/data/puestosLimpio.json';
 
@@ -11,21 +13,59 @@ import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag
 import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { CellRendererOCMtext1 } from '@ag-grid/CellRendererOCM1';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-empleados',
 	templateUrl: './empleados.component.html',
 	styleUrls: ['./empleados.component.scss'],
 	standalone: true,
-	imports: [NgFor, CardIndiceComponent, AgGridModule]
+	imports: [NgFor, CardIndiceComponent, CardMenuComponent, AgGridModule]
 })
 export default class EmpleadosComponent implements OnInit {
+	private _router = inject(Router);
+
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
 	private _columnDefs: any[any];
 	private _gridApi: GridApi;
 	private _columnApi: ColumnApi;
 	private _rowData: any[any];
+
+	cardMenus = [
+		{
+			rutaImagen: 'assets/img/home/menu1-400x250.webp',
+			titulo: 'Retribuciones',
+			subtitulo: 'Retribuciones 2022 empleados. Sin incluir antigüedad..',
+			funcion: () => this.visionGlobal(),
+			textButton: 'Retirbuciones',
+			background: 'linear-gradient(to bottom, #FFFDFC , #FCE1CB)'
+		},
+		{
+			rutaImagen: 'assets/img/home/menu2-400x250.webp',
+			titulo: 'RPT',
+			subtitulo: 'Relación puestos de trabajo. Incluye complemento específico anual.',
+			// funcion: () => this.detalle(),
+			textButton: 'RPT',
+			background: 'linear-gradient(to bottom, #FCFEFF , #CDE9FE)'
+		}
+		// {
+		// 	rutaImagen: 'assets/img/home/menu3-400x250.webp',
+		// 	titulo: 'Licitaciones',
+		// 	subtitulo: 'Todos las licitaciones de obras, contratos menores de nuestro Ayuntamiento',
+		// 	// funcion: () => this.licitaciones(),
+		// 	textButton: 'Licitaciones',
+		// 	background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
+		// },
+		// {
+		// 	rutaImagen: 'assets/img/home/menu4-400x250.webp',
+		// 	titulo: 'Empleados municipales',
+		// 	subtitulo: 'Información sobre los empleados de nuestro Ayuntamiento',
+		// 	// funcion: () => this.empleados(),
+		// 	textButton: 'Empleados',
+		// 	background: 'linear-gradient(to bottom, #F5F5F5 , #E0E0E0)'
+		// }
+	];
 
 	items = [
 		{
@@ -62,6 +102,10 @@ export default class EmpleadosComponent implements OnInit {
 
 	async ngOnInit(): Promise<void> {
 		this._loadTable();
+	}
+
+	visionGlobal() {
+		this._router.navigateByUrl('/visionGlobal');
 	}
 
 	private async _loadTable() {
