@@ -33,7 +33,7 @@ export default class TableProgramaDetailsComponent implements OnInit {
 	public gridOptions: GridOptions;
 	public isExpanded = true;
 	public messageYears = this.avalaibleYearsService.message;
-	private _subHeaderName: string = '';
+	private _subHeaderName = '';
 	private _rowData: any[any];
 	private _columnApi: ColumnApi;
 	private _gridApi: GridApi;
@@ -58,8 +58,8 @@ export default class TableProgramaDetailsComponent implements OnInit {
 	}
 
 	_pushAplicacionesPresupuestarias(rowData) {
-		let aplicacionesPresupuestarias = [];
-		let dataFinal = [];
+		const aplicacionesPresupuestarias = [];
+		const dataFinal = [];
 		const years = this.avalaibleYearsService.getYearsSelected();
 		// Aplicación presupuestaria = orgánico + programa + económico.
 		// Creo item para cada uno de los aplicaciones presupuestarias existentes en programa seleccionado.
