@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
-const routes: Routes = [
+export default [
 	{
 		path: 'home',
 		loadComponent: () => import('./home/home.component')
@@ -43,11 +42,9 @@ const routes: Routes = [
 		path: 'rpt',
 		loadComponent: () => import('./empleados/components/rpt/rpt.component')
 	},
+	{
+		path: 'retribuciones2022',
+		loadComponent: () => import('./empleados/components/retribuciones2022/retribuciones2022.component')
+	},
 	{ path: '**', pathMatch: 'full', redirectTo: 'home' }
-];
-
-@NgModule({
-	imports: [RouterModule.forRoot(routes, { useHash: true })],
-	exports: [RouterModule]
-})
-export class AppRoutingModule {}
+] as Routes;
