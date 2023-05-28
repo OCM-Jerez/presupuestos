@@ -19,7 +19,7 @@ export default class EmpleadosComponent {
 			rutaImagen: 'assets/img/home/menu1-400x250.webp',
 			titulo: 'Retribuciones',
 			subtitulo: 'Retribuciones 2022 empleados. Sin incluir antigüedad..',
-			// funcion: () => this.rpt(),
+			funcion: () => this.retribuciones2022(),
 			textButton: 'Retribuciones',
 			background: 'linear-gradient(to bottom, #FFFDFC , #FCE1CB)'
 		},
@@ -35,5 +35,9 @@ export default class EmpleadosComponent {
 
 	rpt() {
 		this._router.navigateByUrl('/rpt');
+	}
+
+	retribuciones2022() {
+		this._router.navigateByUrl('/retribuciones2022');
 	}
 }

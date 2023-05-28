@@ -1,24 +1,22 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import '@ag-grid-enterprise';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
-import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent, ISetFilterParams } from 'ag-grid-community/main';
+import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 
 import puestos from '@assets/data/puestosLimpio.json';
-//ModuleRegistry.registerModules([ClientSideRowModelModule, SetFilterModule, MenuModule]);
 
 @Component({
-	selector: 'app-rpt',
+	selector: 'app-retribuciones2022',
 	standalone: true,
 	imports: [CommonModule, AgGridModule],
-	templateUrl: './rpt.component.html',
-	styleUrls: ['./rpt.component.scss']
+	templateUrl: './retribuciones2022.component.html',
+	styleUrls: ['./retribuciones2022.component.scss']
 })
-export default class RptComponent implements OnInit {
+export default class Retribuciones2022Component implements OnInit {
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
 	private _columnDefs: any[any];
@@ -39,10 +37,9 @@ export default class RptComponent implements OnInit {
 			{
 				headerName: 'nivelPuesto',
 				field: 'nivelPuesto',
-				filter: 'agSetColumnFilter',
-				width: 75,
-				applyMiniFilterWhileTyping: true
-			} as ISetFilterParams,
+				filter: true,
+				width: 75
+			},
 			{
 				headerName: 'puesto',
 				field: 'puesto',
