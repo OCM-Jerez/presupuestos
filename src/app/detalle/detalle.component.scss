@@ -1,14 +1,4 @@
 @media screen and (max-width: 3399.98px) {
-	.container {
-		margin: 0 auto;
-		display: block;
-		max-width: 98%;
-
-		> *:not(.tab-wrap) {
-			padding: 0 80px;
-		}
-	}
-
 	.selectYear {
 		display: flex;
 		flex-direction: row;

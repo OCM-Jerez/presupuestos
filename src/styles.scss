@@ -16,6 +16,15 @@
 // #region OCM
 // #region @media screen
 @media screen and (max-width: 6000px) {
+	.OCM-container {
+		margin: 0 auto;
+		display: block;
+		max-width: 98%;
+
+		> *:not(.tab-wrap) {
+			padding: 0 80px;
+		}
+	}
 	.OCM-app-root {
 		display: flex;
 		flex-direction: column;
