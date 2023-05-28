@@ -1,4 +1,12 @@
 {
+	"overrides": [
+		{
+			"files": ["*.html"],
+			"options": {
+				"parser": "angular"
+			}
+		}
+	],
 	"arrowParens": "always",
 	"bracketSpacing": true,
 	"insertPragma": false,
