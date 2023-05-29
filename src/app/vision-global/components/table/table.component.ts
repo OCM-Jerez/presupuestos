@@ -150,7 +150,7 @@ export class TableDataPresupuestoComponent implements OnInit {
 
 	async calcTotalesPresupuestoGastos() {
 		const totalPresupuestoGastos = this._capitulosGastos.reduce((acc, curr) => {
-			Object.keys(curr).forEach((key) => {
+			Object.keys(curr).forEach((key, index) => {
 				if (!acc[key]) {
 					acc[key] = 0;
 				}
