@@ -3,7 +3,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
-import { GridOptions, GridReadyEvent } from 'ag-grid-community/main';
+import { GridOptions } from 'ag-grid-community/main';
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
