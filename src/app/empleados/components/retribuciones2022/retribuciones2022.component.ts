@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
@@ -7,7 +7,7 @@ import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 
-import puestos from '@assets/data/puestosLimpio.json';
+import RetribPersonal2022 from '@assets/data/RetribPersonal2022.json';
 
 @Component({
 	selector: 'app-retribuciones2022',
@@ -35,41 +35,35 @@ export default class Retribuciones2022Component implements OnInit {
 	_setColumnDefs() {
 		this._columnDefs = [
 			{
-				headerName: 'nivelPuesto',
-				field: 'nivelPuesto',
+				headerName: 'apliOrgFunc',
+				field: 'apliOrgFunc',
 				filter: true,
 				width: 75
+			},
+			{
+				headerName: 'tipoPersonal',
+				field: 'tipoPersonal',
+				filter: true,
+				width: 250
+			},
+			{
+				headerName: 'categoria',
+				field: 'categoria',
+				filter: true,
+				width: 125
 			},
 			{
 				headerName: 'puesto',
 				field: 'puesto',
 				filter: true,
-				width: 75
-			},
-			{
-				headerName: 'nombrePuesto',
-				field: 'nombrePuesto',
-				filter: true,
 				width: 425
 			},
 			{
-				headerName: 'departamento',
-				field: 'departamento',
-				filter: true,
-				width: 425
-			},
-			{
-				headerName: 'COMPLEMENTO ESPECÍFICO ANUAL',
-				field: 'complementoEspecificoEuros',
+				headerName: 'retribucionBrutaAnual',
+				field: 'retribucionBrutaAnual',
 				filter: true,
 				width: 135,
 				cellRenderer: CellRendererOCM
-			},
-			{
-				headerName: 'SITUACIÓN',
-				field: 'situacion',
-				filter: true,
-				width: 120
 			}
 		];
 	}
@@ -97,7 +91,7 @@ export default class Retribuciones2022Component implements OnInit {
 				}
 			},
 
-			rowData: puestos,
+			rowData: RetribPersonal2022,
 			columnDefs: this._columnDefs,
 			groupDisplayType: 'custom',
 			groupIncludeTotalFooter: true,
@@ -111,14 +105,14 @@ export default class Retribuciones2022Component implements OnInit {
 			paginationPageSize: 50
 		} as GridOptions;
 	}
-
+	P;
 	onGridReady(params: GridReadyEvent) {
 		this._gridApi = params.api;
 		this._columnApi = params.columnApi;
 
 		const defaultSortModel: ColumnState[] = [
 			{
-				colId: 'complementoEspecificoEuros',
+				colId: 'retribucionBrutaAnual',
 				sort: 'desc',
 				sortIndex: 0
 			}
