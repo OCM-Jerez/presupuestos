@@ -116,7 +116,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
 		} as GridOptions;
 	}
 
-	async onGridReady(params: GridReadyEvent) {
+	async onGridReady() {
 		// this.rowData = await this._prepareDataProgramaDetailsService.getDataAllYear();
 		this.rowData = await this._prepareDataGastosService.getDataAllYear();
 		const selectedRow = this._dataStoreService.selectedCodeRow;
