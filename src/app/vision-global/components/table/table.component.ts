@@ -2,11 +2,17 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 
 import { DataStoreService } from '@services/dataStore.service';
+import { PrepareDataTotalesPresupuestoService } from '@services/prepareDataTotalesPresupuesto.service';
 import { TableService } from '@services/table.service';
 
 import { environment } from '@environments/environment';
 
+import { ICapituloGasto } from '@interfaces/capituloGasto.interface';
+import { ICapituloIngreso } from '@interfaces/capituloIngreso.interface';
+import { IDataGasto2023 } from '@interfaces/dataGasto2023.interface';
+import { IDataIngreso2023 } from '@interfaces/dataIngreso2023.interface';
 import { IDataTable } from '@interfaces/dataTable.interface';
+import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.interface';
 
 @Component({
 	selector: 'app-table',
@@ -16,12 +22,18 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 	imports: [CurrencyPipe]
 })
 export class TableDataPresupuestoComponent implements OnInit {
+	private _dataStoreService = inject(DataStoreService);
+	private _prepareDataTotalesPresupuestoService = inject(PrepareDataTotalesPresupuestoService);
+	private _tableService = inject(TableService);
+
 	public ahorroBruto: number;
 	public ahorroNeto: number;
+	public capacidadFinanciacion: number;
 	public capitalGastos: number;
 	public capitalIngresos: number;
 	public corrientesGastos: number;
 	public corrientesIngresos: number;
+	public DataTotalesPresupuesto: IDataTotalesPresupuesto = {};
 	public financierosGastos: number;
 	public financierosIngresos: number;
 	public liqDate = environment.liqDate2023;
@@ -31,18 +43,17 @@ export class TableDataPresupuestoComponent implements OnInit {
 	public totalEjecutadoIngresos: number;
 	public totalPresupuestoGastos: number;
 	public totalPresupuestoIngresos: number;
-	public capacidadFinanciacion: number;
 
-	private _capitulosGastos = [];
-	private _dataGasto: any;
-	private _dataIngreso: any;
+	private _capitulosGastos: ICapituloGasto[] = [];
+	private _CapitulosIngresos: ICapituloIngreso[] = [];
+	private _dataGasto: IDataGasto2023[] = [];
+	private _dataIngreso: IDataIngreso2023[];
 	private _dataTable: IDataTable;
 
-	private _dataStoreService = inject(DataStoreService);
-	private _tableService = inject(TableService);
-
-	ngOnInit(): void {
+	async ngOnInit(): Promise<void> {
 		this._loadData();
+		await this._prepareDataTotalesPresupuestoService.calcTotales();
+		this.DataTotalesPresupuesto = this._dataStoreService.dataTotalesPresupuesto;
 	}
 
 	private async _loadData(): Promise<void> {
@@ -54,7 +65,6 @@ export class TableDataPresupuestoComponent implements OnInit {
 		await this.calcSumIngresos();
 		await this.calcTotalesPresupuestoIngresos();
 		await this.calcSumGastos();
-		// await this.calcSumPoliticasGastos();
 		await this.calcTotalesPresupuestoGastos();
 		await this.calcIndicadores();
 	}
@@ -63,62 +73,48 @@ export class TableDataPresupuestoComponent implements OnInit {
 		this._dataIngreso = this._dataStoreService.dataTable.rowDataIngresos;
 
 		// Creo array de Capitulos de ingresos.
-		const capitulos = [];
 		for (const item of this._dataIngreso) {
 			const value = {
 				name: `${item.CodCap}-${item.DesCap}`,
-				value: item.Definitivas2023,
+				presupuestado: item.Definitivas2023,
 				recaudado: item.DerechosReconocidosNetos2023
 			};
-			capitulos.push(value);
+			this._CapitulosIngresos.push(value);
 		}
 
 		// Totalizo por capitulo de ingreso
-		this._dataIngreso = capitulos.reduce((acc, curr) => {
+		this._CapitulosIngresos = this._CapitulosIngresos.reduce((acc, curr) => {
 			const index = acc.findIndex((item) => item.name === curr.name);
 			index > -1
-				? ((acc[index].value += curr.value), (acc[index].recaudado += curr.recaudado))
+				? ((acc[index].presupuestado += curr.presupuestado), (acc[index].recaudado += curr.recaudado))
 				: acc.push({
 						name: curr.name,
-						value: curr.value,
+						presupuestado: curr.presupuestado,
 						recaudado: curr.recaudado
 				  });
 			return acc;
 		}, []);
-
-		this.noFinancieroIngresos =
-			this._dataIngreso[0].value +
-			this._dataIngreso[1].value +
-			this._dataIngreso[2].value +
-			this._dataIngreso[3].value +
-			this._dataIngreso[4].value +
-			this._dataIngreso[5].value +
-			this._dataIngreso[6].value;
-
-		this.corrientesIngresos =
-			this._dataIngreso[0].value +
-			this._dataIngreso[1].value +
-			this._dataIngreso[2].value +
-			this._dataIngreso[3].value +
-			this._dataIngreso[4].value;
-
-		this.capitalIngresos = this._dataIngreso[5].value + this._dataIngreso[6].value;
-		this.financierosIngresos = this._dataIngreso[7].value + this._dataIngreso[8].value;
 	}
 
 	async calcTotalesPresupuestoIngresos() {
-		const totalPresupuestoIngresos = this._dataIngreso.reduce((acc, curr) => {
-			Object.keys(curr).forEach((key) => {
-				if (!acc[key]) {
-					acc[key] = 0;
-				}
-				acc[key] += curr[key];
-			});
-			return acc;
-		}, {});
+		this.noFinancieroIngresos =
+			this._CapitulosIngresos[0].presupuestado +
+			this._CapitulosIngresos[1].presupuestado +
+			this._CapitulosIngresos[2].presupuestado +
+			this._CapitulosIngresos[3].presupuestado +
+			this._CapitulosIngresos[4].presupuestado +
+			this._CapitulosIngresos[5].presupuestado +
+			this._CapitulosIngresos[6].presupuestado;
 
-		this.totalPresupuestoIngresos = totalPresupuestoIngresos.value;
-		this.totalEjecutadoIngresos = totalPresupuestoIngresos.recaudado;
+		this.corrientesIngresos =
+			this._CapitulosIngresos[0].presupuestado +
+			this._CapitulosIngresos[1].presupuestado +
+			this._CapitulosIngresos[2].presupuestado +
+			this._CapitulosIngresos[3].presupuestado +
+			this._CapitulosIngresos[4].presupuestado;
+
+		this.capitalIngresos = this._CapitulosIngresos[5].presupuestado + this._CapitulosIngresos[6].presupuestado;
+		this.financierosIngresos = this._CapitulosIngresos[7].presupuestado + this._CapitulosIngresos[8].presupuestado;
 	}
 
 	async calcSumGastos() {
@@ -128,65 +124,56 @@ export class TableDataPresupuestoComponent implements OnInit {
 		for (const item of this._dataGasto) {
 			const value = {
 				name: `${item.CodCap}-${item.DesCap}`,
-				value: item.Definitivas2023,
-				recaudado: item.Pagos2023
+				presupuestado: item.Definitivas2023,
+				gastado: item.Pagos2023
 			};
 			this._capitulosGastos.push(value);
 		}
 
-		// Totalizo por capitulo
+		// Totalizo por capitulo gasto
 		this._capitulosGastos = this._capitulosGastos.reduce((acc, curr) => {
 			const index = acc.findIndex((item) => item.name === curr.name);
 			index > -1
-				? ((acc[index].value += curr.value), (acc[index].recaudado += curr.recaudado))
+				? ((acc[index].presupuestado += curr.presupuestado), (acc[index].gastado += curr.gastado))
 				: acc.push({
 						name: curr.name,
-						value: curr.value,
-						recaudado: curr.recaudado
+						presupuestado: curr.presupuestado,
+						gastado: curr.gastado
 				  });
 			return acc;
 		}, []);
 	}
 
 	async calcTotalesPresupuestoGastos() {
-		const totalPresupuestoGastos = this._capitulosGastos.reduce((acc, curr) => {
-			Object.keys(curr).forEach((key) => {
-				if (!acc[key]) {
-					acc[key] = 0;
-				}
-				acc[key] += curr[key];
-			});
-			return acc;
-		}, {});
-
 		this.noFinancieroGastos =
-			this._capitulosGastos[0].value +
-			this._capitulosGastos[1].value +
-			this._capitulosGastos[2].value +
-			this._capitulosGastos[3].value +
-			this._capitulosGastos[4].value +
-			this._capitulosGastos[5].value +
-			this._capitulosGastos[6].value;
+			this._capitulosGastos[0].presupuestado +
+			this._capitulosGastos[1].presupuestado +
+			this._capitulosGastos[2].presupuestado +
+			this._capitulosGastos[3].presupuestado +
+			this._capitulosGastos[4].presupuestado +
+			this._capitulosGastos[5].presupuestado +
+			this._capitulosGastos[6].presupuestado;
 
 		this.corrientesGastos =
-			this._capitulosGastos[0].value +
-			this._capitulosGastos[1].value +
-			this._capitulosGastos[2].value +
-			this._capitulosGastos[3].value +
-			this._capitulosGastos[4].value;
+			this._capitulosGastos[0].presupuestado +
+			this._capitulosGastos[1].presupuestado +
+			this._capitulosGastos[2].presupuestado +
+			this._capitulosGastos[3].presupuestado +
+			this._capitulosGastos[4].presupuestado;
 
-		this.capitalGastos = this._capitulosGastos[5].value + this._capitulosGastos[6].value;
-		this.financierosGastos = this._capitulosGastos[7].value + this._capitulosGastos[8].value;
-		this.totalPresupuestoGastos = totalPresupuestoGastos.value;
-		this.totalEjecutadoGastos = totalPresupuestoGastos.recaudado;
+		this.capitalGastos = this._capitulosGastos[5].presupuestado + this._capitulosGastos[6].presupuestado;
+		this.financierosGastos = this._capitulosGastos[7].presupuestado + this._capitulosGastos[8].presupuestado;
 	}
 
 	async calcIndicadores() {
+		this.totalPresupuestoIngresos = this.DataTotalesPresupuesto.totalPresupuestoIngresos;
+		this.totalEjecutadoIngresos = this.DataTotalesPresupuesto.totalEjecutadoIngresos;
+		this.totalPresupuestoGastos = this.DataTotalesPresupuesto.totalPresupuestoGastos;
+		this.totalEjecutadoGastos = this.DataTotalesPresupuesto.totalEjecutadoGastos;
+
 		this.ahorroBruto = this.corrientesIngresos - this.corrientesGastos;
 		// Tengo que sumar capitulo 9 de gastos
-		this.ahorroNeto = this.corrientesIngresos - this.corrientesGastos - this._capitulosGastos[7].value;
+		this.ahorroNeto = this.corrientesIngresos - this.corrientesGastos - this._capitulosGastos[7].presupuestado;
 		this.capacidadFinanciacion = this.financierosIngresos - this.financierosGastos;
-		this.financierosIngresos = this.financierosIngresos;
-		this.financierosGastos = this.financierosGastos;
 	}
 }
