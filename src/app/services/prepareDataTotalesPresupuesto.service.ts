@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 
 import { DataStoreService } from './dataStore.service';
 
@@ -17,10 +17,10 @@ interface ITotalPresupuestoGastos {
 	providedIn: 'root'
 })
 export class PrepareDataTotalesPresupuestoService {
+	private _dataStoreService = inject(DataStoreService);
+
 	private _totalPresupuestoIngresos: ITotalPresupuestoIngresos;
 	private _totalPresupuestoGastos: ITotalPresupuestoGastos;
-
-	constructor(private _dataStoreService: DataStoreService) {}
 
 	calcTotales() {
 		this.calcPresupuestoIngresos();
