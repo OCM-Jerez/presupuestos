@@ -108,7 +108,7 @@ export class TableDataPresupuestoComponent implements OnInit {
 
 	async calcTotalesPresupuestoIngresos() {
 		const totalPresupuestoIngresos = this._dataIngreso.reduce((acc, curr) => {
-			Object.keys(curr).forEach((key, index) => {
+			Object.keys(curr).forEach((key) => {
 				if (!acc[key]) {
 					acc[key] = 0;
 				}
@@ -150,7 +150,7 @@ export class TableDataPresupuestoComponent implements OnInit {
 
 	async calcTotalesPresupuestoGastos() {
 		const totalPresupuestoGastos = this._capitulosGastos.reduce((acc, curr) => {
-			Object.keys(curr).forEach((key, index) => {
+			Object.keys(curr).forEach((key) => {
 				if (!acc[key]) {
 					acc[key] = 0;
 				}
