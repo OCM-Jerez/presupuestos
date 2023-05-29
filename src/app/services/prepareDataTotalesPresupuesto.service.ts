@@ -71,10 +71,10 @@ export class PrepareDataTotalesPresupuestoService {
 		try {
 			const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
 				year: '2023',
-				totalPresupuestoIngresos: this._totalPresupuestoIngresos.Definitivas2023.toLocaleString(),
-				totalEjecutadoIngresos: this._totalPresupuestoIngresos.DerechosReconocidosNetos2023.toLocaleString(),
-				totalPresupuestoGastos: this._totalPresupuestoGastos.Definitivas2023.toLocaleString(),
-				totalEjecutadoGastos: this._totalPresupuestoGastos.Pagos2023.toLocaleString()
+				totalPresupuestoIngresos: this._totalPresupuestoIngresos.Definitivas2023,
+				totalEjecutadoIngresos: this._totalPresupuestoIngresos.DerechosReconocidosNetos2023,
+				totalPresupuestoGastos: this._totalPresupuestoGastos.Definitivas2023,
+				totalEjecutadoGastos: this._totalPresupuestoGastos.Pagos2023
 			};
 			this._dataStoreService.dataTotalesPresupuesto = DataTotalesPresupuesto;
 		} catch (error) {
