@@ -49,14 +49,14 @@ export class TableService {
 		// filter?: { valueFilter: string; attribute: string; useStarWitch?: boolean }
 	): Promise<IDataTable> {
 		const dataPropertyTable = getClasificacion(tipoClasificacion) as IDataProperty;
-		let rowData: any[];
+		// let rowData: any[];
 
 		if (this._dataStoreService.dataTable === undefined) {
 			await this.loadDataInitial();
 		}
 
 		const { rowDataIngresos, rowDataGastos } = this._dataStoreService.dataTable;
-		rowData = tipoClasificacion.startsWith('ingresos')
+		const rowData = tipoClasificacion.startsWith('ingresos')
 			? await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion)
 			: await this._prepareDataGastosService.getDataAllYear(tipoClasificacion);
 
