@@ -1,4 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
 
 import { DataStoreService } from '@services/dataStore.service';
 import { TableService } from '@services/table.service';
@@ -11,17 +12,18 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 	selector: 'app-table',
 	templateUrl: './table.component.html',
 	styleUrls: ['./table.component.scss'],
-	standalone: true
+	standalone: true,
+	imports: [CurrencyPipe]
 })
 export class TableDataPresupuestoComponent implements OnInit {
-	public ahorroBruto: string;
-	public ahorroNeto: string;
+	public ahorroBruto: number;
+	public ahorroNeto: number;
 	public capitalGastos: number;
 	public capitalIngresos: number;
-	public corrientesGastos: any;
-	public corrientesIngresos: any;
-	public financierosGastos: any;
-	public financierosIngresos: any;
+	public corrientesGastos: number;
+	public corrientesIngresos: number;
+	public financierosGastos: number;
+	public financierosIngresos: number;
 	public liqDate = environment.liqDate2023;
 	public noFinancieroGastos: number;
 	public noFinancieroIngresos: number;
@@ -29,7 +31,7 @@ export class TableDataPresupuestoComponent implements OnInit {
 	public totalEjecutadoIngresos: number;
 	public totalPresupuestoGastos: number;
 	public totalPresupuestoIngresos: number;
-	public capacidadFinanciacion: any;
+	public capacidadFinanciacion: number;
 
 	private _capitulosGastos = [];
 	private _dataGasto: any;
@@ -84,15 +86,14 @@ export class TableDataPresupuestoComponent implements OnInit {
 			return acc;
 		}, []);
 
-		this.noFinancieroIngresos = (
+		this.noFinancieroIngresos =
 			this._dataIngreso[0].value +
 			this._dataIngreso[1].value +
 			this._dataIngreso[2].value +
 			this._dataIngreso[3].value +
 			this._dataIngreso[4].value +
 			this._dataIngreso[5].value +
-			this._dataIngreso[6].value
-		).toLocaleString();
+			this._dataIngreso[6].value;
 
 		this.corrientesIngresos =
 			this._dataIngreso[0].value +
@@ -101,8 +102,7 @@ export class TableDataPresupuestoComponent implements OnInit {
 			this._dataIngreso[3].value +
 			this._dataIngreso[4].value;
 
-		this.capitalIngresos = (this._dataIngreso[5].value + this._dataIngreso[6].value).toLocaleString();
-
+		this.capitalIngresos = this._dataIngreso[5].value + this._dataIngreso[6].value;
 		this.financierosIngresos = this._dataIngreso[7].value + this._dataIngreso[8].value;
 	}
 
@@ -117,8 +117,8 @@ export class TableDataPresupuestoComponent implements OnInit {
 			return acc;
 		}, {});
 
-		this.totalPresupuestoIngresos = totalPresupuestoIngresos.value.toLocaleString();
-		this.totalEjecutadoIngresos = totalPresupuestoIngresos.recaudado.toLocaleString();
+		this.totalPresupuestoIngresos = totalPresupuestoIngresos.value;
+		this.totalEjecutadoIngresos = totalPresupuestoIngresos.recaudado;
 	}
 
 	async calcSumGastos() {
@@ -159,15 +159,14 @@ export class TableDataPresupuestoComponent implements OnInit {
 			return acc;
 		}, {});
 
-		this.noFinancieroGastos = (
+		this.noFinancieroGastos =
 			this._capitulosGastos[0].value +
 			this._capitulosGastos[1].value +
 			this._capitulosGastos[2].value +
 			this._capitulosGastos[3].value +
 			this._capitulosGastos[4].value +
 			this._capitulosGastos[5].value +
-			this._capitulosGastos[6].value
-		).toLocaleString();
+			this._capitulosGastos[6].value;
 
 		this.corrientesGastos =
 			this._capitulosGastos[0].value +
@@ -176,27 +175,18 @@ export class TableDataPresupuestoComponent implements OnInit {
 			this._capitulosGastos[3].value +
 			this._capitulosGastos[4].value;
 
-		this.capitalGastos = (this._capitulosGastos[5].value + this._capitulosGastos[6].value).toLocaleString();
-
+		this.capitalGastos = this._capitulosGastos[5].value + this._capitulosGastos[6].value;
 		this.financierosGastos = this._capitulosGastos[7].value + this._capitulosGastos[8].value;
-
-		this.totalPresupuestoGastos = totalPresupuestoGastos.value.toLocaleString();
-		this.totalEjecutadoGastos = totalPresupuestoGastos.recaudado.toLocaleString();
+		this.totalPresupuestoGastos = totalPresupuestoGastos.value;
+		this.totalEjecutadoGastos = totalPresupuestoGastos.recaudado;
 	}
 
 	async calcIndicadores() {
-		this.ahorroBruto = (this.corrientesIngresos - this.corrientesGastos).toLocaleString();
-
+		this.ahorroBruto = this.corrientesIngresos - this.corrientesGastos;
 		// Tengo que sumar capitulo 9 de gastos
-		this.ahorroNeto = (
-			this.corrientesIngresos -
-			this.corrientesGastos -
-			this._capitulosGastos[7].value
-		).toLocaleString();
-		this.corrientesIngresos = this.corrientesIngresos.toLocaleString();
-		this.corrientesGastos = this.corrientesGastos.toLocaleString();
-		this.capacidadFinanciacion = (this.financierosIngresos - this.financierosGastos).toLocaleString();
-		this.financierosIngresos = this.financierosIngresos.toLocaleString();
-		this.financierosGastos = this.financierosGastos.toLocaleString();
+		this.ahorroNeto = this.corrientesIngresos - this.corrientesGastos - this._capitulosGastos[7].value;
+		this.capacidadFinanciacion = this.financierosIngresos - this.financierosGastos;
+		this.financierosIngresos = this.financierosIngresos;
+		this.financierosGastos = this.financierosGastos;
 	}
 }

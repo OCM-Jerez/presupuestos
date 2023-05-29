@@ -12,35 +12,36 @@
 		<tbody>
 			<tr>
 				<td>TOTAL PRESUPUESTADO</td>
-				<td>{{ totalPresupuestoIngresos }}</td>
-				<td>{{ totalPresupuestoGastos }}</td>
+				<td>{{ totalPresupuestoIngresos | currency : 'EUR' : '' : '1.0-0' }}</td>
+				<td>{{ totalPresupuestoGastos | currency : 'EUR' : '' : '1.0-0' }}</td>
 			</tr>
 			<tr>
 				<td>
 					TOTAL EJECUTADO <span>(ejecución al {{ liqDate }})</span>
 				</td>
-				<td>{{ totalEjecutadoIngresos }}</td>
-				<td>{{ totalEjecutadoGastos }}</td>
+				<td>{{ totalEjecutadoIngresos | currency : 'EUR' : '' : '1.0-0' }}</td>
+				<td>{{ totalEjecutadoGastos | currency : 'EUR' : '' : '1.0-0' }}</td>
 			</tr>
 			<tr>
 				<td>Subtotal no financiero <span> Capítulos 1 a 7</span></td>
-				<td>{{ noFinancieroIngresos }}</td>
-				<td>{{ noFinancieroGastos }}</td>
+				<td>{{ noFinancieroIngresos | currency : 'EUR' : '' : '1.0-0' }}</td>
+				<td>{{ noFinancieroGastos | currency : 'EUR' : '' : '1.0-0' }}</td>
 			</tr>
 			<tr>
 				<td>Subtotal corriente<span> Capítulos 1 a 5</span></td>
-				<td>{{ corrientesIngresos }}</td>
-				<td>{{ corrientesGastos }}</td>
+				<td>{{ corrientesIngresos | currency : 'EUR' : '' : '1.0-0' }}</td>
+				<!-- <td>{{ corrientesGastos }}</td> -->
+				<td>{{ corrientesGastos | currency : 'EUR' : '' : '1.0-0' }}</td>
 			</tr>
 			<tr>
 				<td>Subtotal de capital<span> Capítulos 6 y 7</span></td>
-				<td>{{ capitalIngresos }}</td>
-				<td>{{ capitalGastos }}</td>
+				<td>{{ capitalIngresos | currency : 'EUR' : '' : '1.0-0' }}</td>
+				<td>{{ capitalGastos | currency : 'EUR' : '' : '1.0-0' }}</td>
 			</tr>
 			<tr>
 				<td>Subtotal financiero<span> Capítulos 8 y 9</span></td>
-				<td>{{ financierosIngresos }}</td>
-				<td>{{ financierosGastos }}</td>
+				<td>{{ financierosIngresos | currency : 'EUR' : '' : '1.0-0' }}</td>
+				<td>{{ financierosGastos | currency : 'EUR' : '' : '1.0-0' }}</td>
 			</tr>
 		</tbody>
 	</table>
@@ -59,21 +60,21 @@
 					AHORRO BRUTO
 					<span> Ingresos corrientes - gastos corrientes</span>
 				</td>
-				<td>{{ ahorroBruto }}</td>
+				<td>{{ ahorroBruto | currency : 'EUR' : '' : '1.0-0' }}</td>
 			</tr>
 			<tr>
 				<td>
 					AHORRO NETO
 					<span style="font-size: 14px; margin-left: 10px"> Ahorro neto - capitulo 9 de gastos</span>
 				</td>
-				<td>{{ ahorroNeto }}</td>
+				<td>{{ ahorroNeto | currency : 'EUR' : '' : '1.0-0' }}</td>
 			</tr>
 			<tr>
 				<td>
 					CAPACIDAD/NECESIDAD DE FINANCIACIÓN
 					<span> Ingresos no financieros - gastos no financieros</span>
 				</td>
-				<td>{{ capacidadFinanciacion }}</td>
+				<td>{{ capacidadFinanciacion | currency : 'EUR' : '' : '1.0-0' }}</td>
 			</tr>
 		</tbody>
 	</table>
