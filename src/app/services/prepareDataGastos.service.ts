@@ -21,13 +21,13 @@ export class PrepareDataGastosService {
 	constructor(private _avalaibleYearsService: AvalaibleYearsService) {}
 
 	// Itera por cada uno de los años disponibles para gastos
-	async getDataAllYear(tipoClasificacion?: string): Promise<any[]> {
+	async getDataAllYear(): Promise<any[]> {
 		// const startTime = performance.now();
 		let rowData = [];
 		const years = this._avalaibleYearsService.getYearsSelected();
 
 		await asynForEach(years, async (year: number) => {
-			const dataGas = await this.getDataYear(year, tipoClasificacion);
+			const dataGas = await this.getDataYear(year);
 			rowData = rowData.concat(...dataGas);
 		});
 		// const endTime = performance.now();
@@ -37,7 +37,7 @@ export class PrepareDataGastosService {
 	}
 
 	// Selecciona datos gastos de un año
-	async getDataYear(year: number, tipoClasificacion: string) {
+	async getDataYear(year: number) {
 		const result = [];
 		this.dataGasto = {
 			CodPro: `CodPro`,

@@ -20,18 +20,18 @@ export class PrepareDataIngresosService {
 	constructor(private _avalaibleYearsService: AvalaibleYearsService) {}
 
 	// Itera por cada uno de los años disponibles para ingresos
-	async getDataAllYear(tipoClasificacion: string): Promise<any[]> {
+	async getDataAllYear(): Promise<any[]> {
 		let rowData = [];
 		const years = this._avalaibleYearsService.getYearsSelected();
 		await asynForEach(years, async (year: number) => {
-			const dataIng = await this.getDataYear(year, tipoClasificacion);
+			const dataIng = await this.getDataYear(year);
 			rowData = rowData.concat(...dataIng);
 		});
 		return rowData;
 	}
 
 	// Selecciona datos ingresos de un año
-	async getDataYear(year: number, tipoClasificacion: string) {
+	async getDataYear(year: number) {
 		const result = [];
 		this.dataIngreso = {
 			CodEco: `CodEco`,

@@ -145,12 +145,10 @@ export default class TableGastosGruposprogramasDetailsComponent implements OnDes
 			cod = 'CodOrg';
 		}
 		// console.log(cod);
-		this._rowData = await this._prepareDataGastosService.getDataAllYear(clasificationType);
+		this._rowData = await this._prepareDataGastosService.getDataAllYear();
 		// console.log(this._rowData);
 
-		this._rowData = (await this._prepareDataGastosService.getDataAllYear(clasificationType)).filter(
-			(x) => x[cod] == codigoSearch
-		);
+		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x[cod] == codigoSearch);
 		// console.log(this._rowData);
 	}
 

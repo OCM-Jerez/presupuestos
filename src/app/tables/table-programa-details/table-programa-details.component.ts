@@ -49,9 +49,7 @@ export default class TableProgramaDetailsComponent implements OnInit {
 		this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
 		const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
 		// const codField = this._dataTable.dataPropertyTable.codField;
-		this._rowData = (
-			await this._prepareDataGastosService.getDataAllYear(this.dataStoreService.dataTable.clasificationType)
-		).filter((x) => x.CodPro == codigoSearch);
+		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x.CodPro == codigoSearch);
 		this._setColumnDefs();
 		this._setGridOptions();
 		this._pushAplicacionesPresupuestarias(this._rowData);

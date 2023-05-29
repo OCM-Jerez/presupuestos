@@ -29,8 +29,8 @@ export class TableService {
 		// esta data la almacenaremos para usarla hasta que se haga un cambio en los años seleccionados.
 		// Para guardar los datos de ingresos y gastos, necesitamos crear otro objeto.
 		// Ahora solo guardamos el ultimo objeto que se ha cargado.
-		const rowDataIngresos = await this._prepareDataIngresosService.getDataAllYear('ingresosEconomicaEconomicos');
-		const rowDataGastos = await this._prepareDataGastosService.getDataAllYear('gastosOrganicaOrganicos');
+		const rowDataIngresos = await this._prepareDataIngresosService.getDataAllYear();
+		const rowDataGastos = await this._prepareDataGastosService.getDataAllYear();
 		const dataPropertyTable = getClasificacion('ingresosEconomicaEconomicos') as IDataProperty;
 		const sendDataTable: IDataTable = {
 			dataPropertyTable,
@@ -57,8 +57,8 @@ export class TableService {
 
 		const { rowDataIngresos, rowDataGastos } = this._dataStoreService.dataTable;
 		const rowData = tipoClasificacion.startsWith('ingresos')
-			? await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion)
-			: await this._prepareDataGastosService.getDataAllYear(tipoClasificacion);
+			? await this._prepareDataIngresosService.getDataAllYear()
+			: await this._prepareDataGastosService.getDataAllYear();
 
 		// if (filter) {
 		//   rowData = filter.useStarWitch
@@ -97,8 +97,8 @@ export class TableService {
 
 		tipoClasificacion.startsWith('ingresos')
 			? // Necesito tipoClasificacion para añadir los item de diferentes clasificaciones
-			  (rowData = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion))
-			: (rowData = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion));
+			  (rowData = await this._prepareDataIngresosService.getDataAllYear())
+			: (rowData = await this._prepareDataGastosService.getDataAllYear());
 
 		if (filter) {
 			rowData = filter.useStarWitch
