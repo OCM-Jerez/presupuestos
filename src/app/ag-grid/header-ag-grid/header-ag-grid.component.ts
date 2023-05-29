@@ -27,11 +27,11 @@ export class HeaderAgGridComponent implements IHeaderAngularComp {
 		this.elementRef = elementRef;
 	}
 
-	refresh(params: IHeaderParams): boolean {
+	refresh(): boolean {
 		throw new Error('Method not implemented.');
 	}
 
-	afterGuiAttached?(params?: IAfterGuiAttachedParams): void {
+	afterGuiAttached?(): void {
 		throw new Error('Method not implemented.');
 	}
 

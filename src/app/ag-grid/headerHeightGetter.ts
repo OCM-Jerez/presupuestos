@@ -1,4 +1,4 @@
-export function headerHeightGetter(params: any) {
+export function headerHeightGetter() {
 	const columnHeaderTexts = document.querySelectorAll('.ag-header-cell-text');
 	const columnHeaderTextsArray: Element[] = [];
 	columnHeaderTexts.forEach((node) => columnHeaderTextsArray.push(node));
