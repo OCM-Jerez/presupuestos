@@ -85,7 +85,7 @@ const subtabsGastosEconomica = (clasificationType: CLASIFICATION_TYPE) =>
 	]);
 
 const subtabsAdditionalGastosEconomica = [
-	{ name: 'Gráfico detallado', path: '/graphGastos' },
+	{ name: 'Gráfico detallado', path: '/graphDetalle' },
 	{
 		name: 'Programas que gastan del elemento seleccionado',
 		path: '/tableGrupoProgramaDetails',
