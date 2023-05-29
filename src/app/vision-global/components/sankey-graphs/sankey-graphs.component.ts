@@ -47,7 +47,7 @@ export class SankeyGraphsComponent implements OnInit {
 	}
 
 	_showGraph(type: string) {
-		const data = this._calcSum(type).map((item, index) => {
+		const data = this._calcSum(type).map((item) => {
 			return type === 'Ingresos' ? [item.name, 'Presupuesto', item.value] : ['Presupuesto', item.name, item.value];
 		});
 
