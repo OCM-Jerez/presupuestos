@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,5 +8,5 @@ import { Router } from '@angular/router';
 	standalone: true
 })
 export default class ExplicamosComponent {
-	constructor(private _router: Router) {}
+	private _router = inject(Router);
 }

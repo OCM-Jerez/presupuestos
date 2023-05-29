@@ -1,6 +1,8 @@
 import { Location } from '@angular/common';
-import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { Subscription } from 'rxjs';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
@@ -11,7 +13,6 @@ import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
-import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-table-gastos-gruposprogramas-details',
@@ -21,6 +22,13 @@ import { Subscription } from 'rxjs';
 	imports: [AgGridModule]
 })
 export default class TableGastosGruposprogramasDetailsComponent implements OnDestroy {
+	public avalaibleYearsService = inject(AvalaibleYearsService);
+	public dataStoreService = inject(DataStoreService);
+	private _location = inject(Location);
+	private _prepareDataGastosService = inject(PrepareDataGastosService);
+	private _route = inject(ActivatedRoute);
+	private _router = inject(Router);
+
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
 	private _columnDefs: any[any];
@@ -30,14 +38,7 @@ export default class TableGastosGruposprogramasDetailsComponent implements OnDes
 	private sub: Subscription;
 	id: string;
 
-	constructor(
-		private _router: Router,
-		public avalaibleYearsService: AvalaibleYearsService,
-		public dataStoreService: DataStoreService,
-		private _prepareDataGastosService: PrepareDataGastosService,
-		private _route: ActivatedRoute,
-		private _location: Location
-	) {
+	constructor() {
 		this.sub = this._route.params.subscribe((params) => {
 			this.id = params['origen'];
 		});

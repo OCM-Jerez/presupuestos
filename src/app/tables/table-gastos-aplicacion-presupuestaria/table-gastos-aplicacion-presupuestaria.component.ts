@@ -1,6 +1,6 @@
 import { AsyncPipe, Location } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, ViewChild, inject } from '@angular/core';
+// import { Router } from '@angular/router';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
@@ -22,20 +22,21 @@ import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 	imports: [AgGridModule, AsyncPipe]
 })
 export class TableGastosAplicacionPresupuestariaComponent {
+	public avalaibleYearsService = inject(AvalaibleYearsService);
+	private _dataStoreService = inject(DataStoreService);
+	private _location = inject(Location);
+	private _prepareDataGastosService = inject(PrepareDataGastosService);
+	// private _route = inject(ActivatedRoute);
+	// private _router = inject(Router);
+
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
 	public rowData: any;
 	private _columnDefs: any[];
 	data: any[] = [];
 
-	constructor(
-		public avalaibleYearsService: AvalaibleYearsService,
-		private _router: Router,
-		private _dataStoreService: DataStoreService,
+	constructor() {
 		// private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
-		private _prepareDataGastosService: PrepareDataGastosService,
-		private _location: Location
-	) {
 		this._columnDefs = [
 			{
 				headerName: 'Clasificado por aplicación presupuestaria',
