@@ -1,7 +1,7 @@
 // import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { Component, ElementRef } from '@angular/core';
 import { IHeaderAngularComp } from 'ag-grid-angular';
-import { IAfterGuiAttachedParams, IHeaderParams } from 'ag-grid-community';
+import { IHeaderParams } from 'ag-grid-community';
 
 interface MyParams extends IHeaderParams {
 	menuIcon: string;
