@@ -15,4 +15,14 @@ export interface IDataGasto {
 	Pagos: string;
 	ObligacionesPendientePago: string;
 	RemanenteCredito: string;
+	CodAre?: number;
+	DesAre?: string;
+	CodPol?: number;
+	DesPol?: string;
+	CodGru?: number;
+	DesGru?: string;
+	CodCon?: number;
+	DesCon?: string;
+	CodArt?: number;
+	DesArt?: string;
 }

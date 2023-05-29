@@ -1,7 +1,7 @@
 export interface IDataTotalesPresupuesto {
-	year: string;
-	totalPresupuestoIngresos: string;
-	totalPresupuestoGastos: string;
-	totalEjecutadoIngresos: string;
-	totalEjecutadoGastos: string;
+	year?: string;
+	totalPresupuestoIngresos?: number;
+	totalPresupuestoGastos?: number;
+	totalEjecutadoIngresos?: number;
+	totalEjecutadoGastos?: number;
 }
