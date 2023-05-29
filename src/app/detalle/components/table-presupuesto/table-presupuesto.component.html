@@ -14,11 +14,11 @@
 			<tr>
 				<td>TOTAL</td>
 				<td>
-					{{ DataTotalesPresupuesto.totalPresupuestoIngresos }}
+					{{ DataTotalesPresupuesto.totalPresupuestoIngresos | currency : 'EUR' : '' : '1.0-0' }}
 				</td>
-				<td>{{ DataTotalesPresupuesto.totalEjecutadoIngresos }}</td>
-				<td>{{ DataTotalesPresupuesto.totalPresupuestoGastos }}</td>
-				<td>{{ DataTotalesPresupuesto.totalEjecutadoGastos }}</td>
+				<td>{{ DataTotalesPresupuesto.totalEjecutadoIngresos | currency : 'EUR' : '' : '1.0-0' }}</td>
+				<td>{{ DataTotalesPresupuesto.totalPresupuestoGastos | currency : 'EUR' : '' : '1.0-0' }}</td>
+				<td>{{ DataTotalesPresupuesto.totalEjecutadoGastos | currency : 'EUR' : '' : '1.0-0' }}</td>
 			</tr>
 		</tbody>
 	</table>
