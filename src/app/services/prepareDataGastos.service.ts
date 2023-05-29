@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 
 import gastosEconomicaArticulos from '@assets/data/gastosEconomicaArticulos.json';
 import gastosEconomicaConceptos from '@assets/data/gastosEconomicaConceptos.json';
@@ -16,9 +16,8 @@ import { asynForEach } from '@utils/util';
 	providedIn: 'root'
 })
 export class PrepareDataGastosService {
+	private _avalaibleYearsService = inject(AvalaibleYearsService);
 	private dataGasto: IDataGasto = <IDataGasto>{};
-
-	constructor(private _avalaibleYearsService: AvalaibleYearsService) {}
 
 	// Itera por cada uno de los años disponibles para gastos
 	async getDataAllYear(): Promise<any[]> {
