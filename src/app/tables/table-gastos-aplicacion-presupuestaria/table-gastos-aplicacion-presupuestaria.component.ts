@@ -119,7 +119,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
 	async onGridReady(params: GridReadyEvent) {
 		// this.rowData = await this._prepareDataProgramaDetailsService.getDataAllYear();
 		this.rowData = await this._prepareDataGastosService.getDataAllYear();
-		let selectedRow = this._dataStoreService.selectedCodeRow;
+		const selectedRow = this._dataStoreService.selectedCodeRow;
 		this.rowData = this.rowData
 			.filter((x) => x.CodOrg == selectedRow.split('-')[0])
 			.filter((x) => x.CodPro == selectedRow.split('-')[1])
