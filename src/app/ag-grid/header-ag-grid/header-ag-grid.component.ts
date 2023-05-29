@@ -26,6 +26,7 @@ export class HeaderAgGridComponent implements IHeaderAngularComp {
 	constructor(elementRef: ElementRef) {
 		this.elementRef = elementRef;
 	}
+
 	refresh(params: IHeaderParams): boolean {
 		throw new Error('Method not implemented.');
 	}
