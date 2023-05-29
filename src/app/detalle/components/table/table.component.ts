@@ -47,9 +47,9 @@ export class TableComponent implements OnInit, OnDestroy {
 	private _dataTable: IDataTable;
 	private _fields = { codigo: '', descripcion: '' };
 	private _gridApi: GridApi;
-	private _headerName: string = '';
-	private _isIngresos: boolean = true;
-	private _subHeaderName: string = '';
+	private _headerName = '';
+	private _isIngresos = true;
+	private _subHeaderName = '';
 	private _tabSelected: any;
 	private _unsubscribe$ = new Subject<void>();
 

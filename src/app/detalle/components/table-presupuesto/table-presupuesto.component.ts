@@ -36,7 +36,7 @@ export class TablePresupuestoComponent implements OnInit {
 		await this._prepareDataTotalesPresupuestoService.calcTotales();
 		this.DataTotalesPresupuesto = this._dataStoreService.dataTotalesPresupuesto;
 
-		let years = this._avalaibleYearsService.getYearsSelected();
+		const years = this._avalaibleYearsService.getYearsSelected();
 		if (years.length === 1 && years[0] === 2023) {
 			this.showTablePresupuesto = true;
 		} else {

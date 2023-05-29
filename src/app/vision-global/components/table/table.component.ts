@@ -61,7 +61,7 @@ export class TableDataPresupuestoComponent implements OnInit {
 		this._dataIngreso = this._dataStoreService.dataTable.rowDataIngresos;
 
 		// Creo array de Capitulos de ingresos.
-		let capitulos = [];
+		const capitulos = [];
 		for (const item of this._dataIngreso) {
 			const value = {
 				name: `${item.CodCap}-${item.DesCap}`,

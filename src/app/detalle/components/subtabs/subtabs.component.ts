@@ -49,7 +49,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
 	}
 
 	async clickSubtab(event: ISubtabClasification): Promise<void> {
-		const subtabName = event.name;
+		// const subtabName = event.name;
 		this.subtabs.forEach((b) => (b.selected = false));
 
 		if (this._selectedSubtab) {

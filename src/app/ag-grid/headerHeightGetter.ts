@@ -1,8 +1,8 @@
 export function headerHeightGetter(params: any) {
-	let columnHeaderTexts = document.querySelectorAll('.ag-header-cell-text');
-	let columnHeaderTextsArray: Element[] = [];
+	const columnHeaderTexts = document.querySelectorAll('.ag-header-cell-text');
+	const columnHeaderTextsArray: Element[] = [];
 	columnHeaderTexts.forEach((node) => columnHeaderTextsArray.push(node));
-	let clientHeights = columnHeaderTextsArray.map((headerText) => headerText.clientHeight);
-	let tallestHeaderTextHeight = Math.max(...clientHeights);
+	const clientHeights = columnHeaderTextsArray.map((headerText) => headerText.clientHeight);
+	const tallestHeaderTextHeight = Math.max(...clientHeights);
 	return tallestHeaderTextHeight;
 }

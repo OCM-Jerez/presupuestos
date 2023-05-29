@@ -22,7 +22,7 @@ export class PrepareDataIngresosService {
 	// Itera por cada uno de los años disponibles para ingresos
 	async getDataAllYear(tipoClasificacion: string): Promise<any[]> {
 		let rowData = [];
-		let years = this._avalaibleYearsService.getYearsSelected();
+		const years = this._avalaibleYearsService.getYearsSelected();
 		await asynForEach(years, async (year: number) => {
 			const dataIng = await this.getDataYear(year, tipoClasificacion);
 			rowData = rowData.concat(...dataIng);

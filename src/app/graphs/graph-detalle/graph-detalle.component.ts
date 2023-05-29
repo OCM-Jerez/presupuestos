@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, inject } from '@angular/core';
 import { Location, NgIf } from '@angular/common';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
@@ -21,7 +21,7 @@ import { accumulate } from '@utils/util';
 	standalone: true,
 	imports: [NgIf, AgGridModule]
 })
-export default class GraphDetalleComponent implements OnInit {
+export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 	private _location = inject(Location);
 	private _dataStoreService = inject(DataStoreService);
 

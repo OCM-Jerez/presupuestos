@@ -71,7 +71,7 @@ export class CheckboxComponent implements OnInit {
 			this.years[this._lenghtYears].checked = false;
 		}
 
-		let selectedYears = this.years.filter((item) => item.checked);
+		const selectedYears = this.years.filter((item) => item.checked);
 		localStorage.setItem('selected_years', JSON.stringify(selectedYears)); //store years selected
 		const yearSelecteds = selectedYears.map((year) => year.year);
 		this._avalaibleYearsService.setYearsSelected(yearSelecteds);
