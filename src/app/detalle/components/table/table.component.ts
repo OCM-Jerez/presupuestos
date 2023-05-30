@@ -5,7 +5,15 @@ import { Subject, takeUntil, tap } from 'rxjs';
 
 import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
-import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
+import {
+	ColDef,
+	ColGroupDef,
+	ColumnApi,
+	ColumnState,
+	GridApi,
+	GridOptions,
+	GridReadyEvent
+} from 'ag-grid-community/main';
 
 import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
@@ -20,6 +28,7 @@ import { TableService } from '@services/table.service';
 
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 import { IDataTable } from '@interfaces/dataTable.interface';
+import { ISubtabClasification } from '@interfaces/subtabClasification.interface';
 
 @Component({
 	selector: 'app-table',
@@ -42,15 +51,15 @@ export class TableComponent implements OnInit, OnDestroy {
 	public gridOptions: GridOptions;
 	private _clasification: CLASIFICATION_TYPE;
 	private _columnApi: ColumnApi;
-	private _columnDefs: any[];
-	private _data: any;
+	private _columnDefs: (ColDef | ColGroupDef)[];
+	private _data: ISubtabClasification;
 	private _dataTable: IDataTable;
 	private _fields = { codigo: '', descripcion: '' };
 	private _gridApi: GridApi;
 	private _headerName = '';
 	private _isIngresos = true;
 	private _subHeaderName = '';
-	private _tabSelected: any;
+	private _tabSelected: { clasificationType: string };
 	private _unsubscribe$ = new Subject<void>();
 
 	async ngOnInit(): Promise<void> {
@@ -136,7 +145,7 @@ export class TableComponent implements OnInit, OnDestroy {
 
 			...this._avalaibleYearsService.getYearsSelected().map((year) => {
 				return {
-					headerName: year,
+					// headerName: year,
 					children: this._isIngresos
 						? this._createColumnsChildrenIngresos(year)
 						: this._createColumnsChildrenGastos(year)
