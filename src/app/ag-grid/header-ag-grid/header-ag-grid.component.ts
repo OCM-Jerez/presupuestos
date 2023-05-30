@@ -18,7 +18,7 @@ export class HeaderAgGridComponent implements IHeaderAngularComp {
 	public sorted: string;
 	private elementRef: ElementRef;
 
-	private myHeaderNameArray: any;
+	private myHeaderNameArray: string[];
 	public myHeaderNameLinea1: string;
 	public myHeaderNameLinea2: string;
 	public myHeaderNameLinea3: string;
