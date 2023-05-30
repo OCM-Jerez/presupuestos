@@ -3,7 +3,7 @@ import { Location, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
-import { ColumnApi, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
+import { ColDef, ColGroupDef, ColumnApi, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
@@ -14,6 +14,7 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 import { accumulate } from '../../commons/util/util';
+import { IGastos } from '@interfaces/gastos.interface';
 
 @Component({
 	selector: 'app-table-programa-details',
@@ -34,10 +35,10 @@ export default class TableProgramaDetailsComponent implements OnInit {
 	public isExpanded = true;
 	public messageYears = this.avalaibleYearsService.message;
 	private _subHeaderName = '';
-	private _rowData: any[any];
+	private _rowData: IGastos[] = [];
 	private _columnApi: ColumnApi;
 	private _gridApi: GridApi;
-	private _columnDefs: any[any];
+	private _columnDefs: (ColDef | ColGroupDef)[];
 	private _dataTable: IDataTable;
 
 	ngOnInit(): void {
@@ -213,7 +214,7 @@ export default class TableProgramaDetailsComponent implements OnInit {
 
 			...this.avalaibleYearsService.getYearsSelected().map((year) => {
 				return {
-					headerName: year,
+					// headerName: year,
 					children: this.createColumnsChildren(year)
 				};
 			})
