@@ -1,13 +1,13 @@
 export interface IDataIngreso {
 	CodEco: string;
-	Iniciales: string;
-	Modificaciones: string;
 	Definitivas: string;
-	DerechosReconocidos: string;
 	DerechosAnulados: string;
 	DerechosCancelados: string;
-	DerechosReconocidosNetos: string;
-	RecaudacionNeta: string;
 	DerechosPendienteCobro: string;
+	DerechosReconocidos: string;
+	DerechosReconocidosNetos: string;
 	DiferenciaPrevision: string;
+	Iniciales: string;
+	Modificaciones: string;
+	RecaudacionNeta: string;
 }
