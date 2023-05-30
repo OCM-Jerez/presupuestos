@@ -1,4 +1,6 @@
-export function CellRendererOCM1(params: any) {
+import { ICellRendererParams } from 'ag-grid-community';
+
+export function CellRendererOCM1(params: ICellRendererParams) {
 	if (params.value) {
 		const valorFormateado: number = params.value.toLocaleString('de-DE');
 
@@ -25,6 +27,6 @@ export function CellRendererOCM1(params: any) {
 	}
 }
 
-export function CellRendererOCMtext1(params: any) {
+export function CellRendererOCMtext1(params: ICellRendererParams) {
 	return params.value;
 }
