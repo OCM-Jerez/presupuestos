@@ -39,6 +39,11 @@ export default [
 			import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.component')
 	},
 	{
+		path: 'tableAplicacionPresupuestaria',
+		loadComponent: () =>
+			import('./tables/table-gastos-aplicacion-presupuestaria/table-gastos-aplicacion-presupuestaria.component')
+	},
+	{
 		path: 'rpt',
 		loadComponent: () => import('./empleados/components/rpt/rpt.component')
 	},
