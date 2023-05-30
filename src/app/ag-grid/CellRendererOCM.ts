@@ -27,7 +27,7 @@ export function CellRendererOCM(params: ICellRendererParams) {
 	}
 }
 
-export function CellRendererOCMtext(params: any) {
+export function CellRendererOCMtext(params: ICellRendererParams) {
 	return params.value
 		? `<p style="font-size: 18px; font-family:var(--fuente-principal); text-align: left; margin: 0;">${params.value}</p>`
 		: '';
