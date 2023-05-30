@@ -3,7 +3,7 @@ import { Component, ViewChild, inject } from '@angular/core';
 // import { Router } from '@angular/router';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
-import { GridOptions } from 'ag-grid-community/main';
+import { ColDef, ColGroupDef, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
@@ -13,6 +13,7 @@ import { DataStoreService } from '@services/dataStore.service';
 
 // import { IDataGraph } from '@interfaces/dataGraph.interface';
 import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
+import { IGastos } from '@interfaces/gastos.interface';
 
 @Component({
 	selector: 'app-table-gastos-aplicacion-presupuestaria',
@@ -31,8 +32,8 @@ export class TableGastosAplicacionPresupuestariaComponent {
 
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
-	public rowData: any;
-	private _columnDefs: any[];
+	public rowData: IGastos[] = [];
+	private _columnDefs: (ColDef | ColGroupDef)[];
 	data: any[] = [];
 
 	constructor() {
@@ -47,7 +48,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
 						filter: false,
 						width: 700,
 						pinned: 'left',
-						columnGroupShow: 'close',
+						columnGroupShow: 'closed',
 						cellRenderer: '',
 						valueGetter: (params) => {
 							if (params.data) {
@@ -74,7 +75,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
 
 			...this.avalaibleYearsService.getYearsSelected().map((year) => {
 				return {
-					headerName: year,
+					// headerName: year,
 					children: this.createColumnsChildren(year)
 				};
 			})
@@ -117,19 +118,23 @@ export class TableGastosAplicacionPresupuestariaComponent {
 		} as GridOptions;
 	}
 
-	async onGridReady() {
+	async onGridReady(params: GridReadyEvent) {
+		console.log('onGridReady', params);
+
 		// this.rowData = await this._prepareDataProgramaDetailsService.getDataAllYear();
 		this.rowData = await this._prepareDataGastosService.getDataAllYear();
 		const selectedRow = this._dataStoreService.selectedCodeRow;
 		this.rowData = this.rowData
-			.filter((x) => x.CodOrg == selectedRow.split('-')[0])
-			.filter((x) => x.CodPro == selectedRow.split('-')[1])
-			.filter((x) => x.CodEco == selectedRow.split('-')[2]);
+			.filter((x) => x.CodOrg == +selectedRow.split('-')[0])
+			.filter((x) => x.CodPro == +selectedRow.split('-')[1])
+			.filter((x) => x.CodEco == +selectedRow.split('-')[2]);
 
 		let value = {};
 		Object.entries(this.rowData).forEach((currentValue) => {
 			value = { ...value, ...this.rowData[currentValue[0]] };
 		});
+		console.log(value);
+
 		this.data.push(value);
 		this.rowData = this.data;
 	}
