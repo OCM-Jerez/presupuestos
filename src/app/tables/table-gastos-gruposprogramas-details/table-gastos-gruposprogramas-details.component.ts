@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
-import { ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
+import { ColDef, ColGroupDef, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
@@ -13,6 +13,7 @@ import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
+import { IGastos } from '@interfaces/gastos.interface';
 
 @Component({
 	selector: 'app-table-gastos-gruposprogramas-details',
@@ -31,9 +32,9 @@ export default class TableGastosGruposprogramasDetailsComponent implements OnDes
 
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
-	private _columnDefs: any[any];
+	private _columnDefs: (ColDef | ColGroupDef)[];
 	private _gridApi: GridApi;
-	private _rowData: any[any];
+	private _rowData: IGastos[] = [];
 	messageYears = this.avalaibleYearsService.message;
 	private sub: Subscription;
 	id: string;
@@ -76,7 +77,7 @@ export default class TableGastosGruposprogramasDetailsComponent implements OnDes
 
 			...this.avalaibleYearsService.getYearsSelected().map((year) => {
 				return {
-					headerName: year,
+					// headerName: year,
 					// children: this.createColumnsChildren(year),
 					children: this.createColumnsChildrenDetalle(year)
 				};
