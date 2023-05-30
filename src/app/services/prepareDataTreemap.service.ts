@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { IDataGasto2023 } from '@interfaces/dataGasto2023.interface';
+import { IDataIngreso2023 } from '@interfaces/dataIngreso2023.interface';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class PrepareDataTreemapService {
-	calcSeries(data: any, codigo, descripcion, campoSumatorio, aRestar?) {
+	calcSeries(data: IDataGasto2023[] & IDataIngreso2023[], codigo, descripcion, campoSumatorio, aRestar?) {
 		let array = [];
 		array = data.reduce((acc, curr) => {
 			const item =
@@ -22,7 +24,7 @@ export class PrepareDataTreemapService {
 		}, []);
 
 		// Totalizo
-		data = array.reduce((acc, { name, value }) => {
+		let dataTotal = array.reduce((acc, { name, value }) => {
 			const item = acc.find((item) => item.name === name);
 			item
 				? (item.value += value)
@@ -32,8 +34,9 @@ export class PrepareDataTreemapService {
 				  });
 			return acc;
 		}, []);
-		data = data.sort((a, b) => b.value - a.value);
-		data = data.slice(0, 25);
+
+		dataTotal = dataTotal.sort((a, b) => b.value - a.value);
+		dataTotal = dataTotal.slice(0, 25);
 
 		const colors = [
 			'#2f7ed8',
@@ -62,9 +65,10 @@ export class PrepareDataTreemapService {
 			'#f45b5b',
 			'#91e8e1'
 		];
+
 		let colorIndex = -1;
 
-		data.map((item) => {
+		dataTotal.map((item) => {
 			colorIndex += 1;
 			colorIndex > 25 ? (colorIndex = 0) : colorIndex;
 			item.color = colors[colorIndex];
@@ -72,6 +76,6 @@ export class PrepareDataTreemapService {
 			item.name = item.name + '  ' + item.euros;
 		});
 
-		return data;
+		return dataTotal;
 	}
 }
