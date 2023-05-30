@@ -11,10 +11,6 @@ export class PrepareDataTreemapService {
 				aRestar === undefined
 					? {
 							name: curr[codigo] + '-' + curr[descripcion],
-							//    +
-							//   '  ' +
-							//   curr[campoSumatorio].toLocaleString('de-DE') +
-							//   ' €',
 							value: curr[campoSumatorio]
 					  }
 					: {
