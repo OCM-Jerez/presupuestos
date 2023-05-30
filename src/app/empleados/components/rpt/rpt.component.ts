@@ -3,7 +3,15 @@ import { CommonModule } from '@angular/common';
 // import '@ag-grid-enterprise';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
-import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent, ISetFilterParams } from 'ag-grid-community/main';
+import {
+	ColDef,
+	ColumnApi,
+	ColumnState,
+	GridApi,
+	GridOptions,
+	GridReadyEvent,
+	ISetFilterParams
+} from 'ag-grid-community/main';
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
@@ -21,7 +29,7 @@ import puestos from '@assets/data/puestosLimpio.json';
 export default class RptComponent implements OnInit {
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
-	private _columnDefs: any[any];
+	private _columnDefs: ColDef[];
 	private _gridApi: GridApi;
 	private _columnApi: ColumnApi;
 
