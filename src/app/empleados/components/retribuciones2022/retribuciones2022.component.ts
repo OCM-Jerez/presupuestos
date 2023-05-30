@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
-import { ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
+import { ColDef, ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
@@ -19,7 +19,7 @@ import RetribPersonal2022 from '@assets/data/RetribPersonal2022.json';
 export default class Retribuciones2022Component implements OnInit {
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
-	private _columnDefs: any[any];
+	private _columnDefs: ColDef[];
 	private _gridApi: GridApi;
 	private _columnApi: ColumnApi;
 
