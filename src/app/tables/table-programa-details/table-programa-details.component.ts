@@ -3,18 +3,27 @@ import { Location, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
-import { ColDef, ColGroupDef, ColumnApi, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
+import {
+	ColDef,
+	ColGroupDef,
+	ColumnApi,
+	ColumnState,
+	GridApi,
+	GridOptions,
+	GridReadyEvent
+} from 'ag-grid-community/main';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
+import { IGastos } from '@interfaces/gastos.interface';
 
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
+
 import { accumulate } from '../../commons/util/util';
-import { IGastos } from '@interfaces/gastos.interface';
 
 @Component({
 	selector: 'app-table-programa-details',
@@ -24,11 +33,11 @@ import { IGastos } from '@interfaces/gastos.interface';
 	imports: [NgIf, AgGridModule]
 })
 export default class TableProgramaDetailsComponent implements OnInit {
+	public avalaibleYearsService = inject(AvalaibleYearsService);
+	public dataStoreService = inject(DataStoreService);
 	private _location = inject(Location);
 	private _router = inject(Router);
 	private _prepareDataGastosService = inject(PrepareDataGastosService);
-	public avalaibleYearsService = inject(AvalaibleYearsService);
-	public dataStoreService = inject(DataStoreService);
 
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;

@@ -1,19 +1,21 @@
-import { AsyncPipe, Location } from '@angular/common';
 import { Component, ViewChild, inject } from '@angular/core';
+import { AsyncPipe, Location } from '@angular/common';
 // import { Router } from '@angular/router';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { ColDef, ColGroupDef, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
+import { AvalaibleYearsService } from '@services/avalaibleYears.service';
+import { DataStoreService } from '@services/dataStore.service';
+import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
+
+// import { IDataGraph } from '@interfaces/dataGraph.interface';
+import { IGastos } from '@interfaces/gastos.interface';
+
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 
-import { AvalaibleYearsService } from '@services/avalaibleYears.service';
-import { DataStoreService } from '@services/dataStore.service';
-
-// import { IDataGraph } from '@interfaces/dataGraph.interface';
-import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
-import { IGastos } from '@interfaces/gastos.interface';
+// import { accumulate } from '../../commons/util/util';
 
 @Component({
 	selector: 'app-table-gastos-aplicacion-presupuestaria',
@@ -26,9 +28,8 @@ export class TableGastosAplicacionPresupuestariaComponent {
 	public avalaibleYearsService = inject(AvalaibleYearsService);
 	private _dataStoreService = inject(DataStoreService);
 	private _location = inject(Location);
+	// private _router = inject(Router); // private _route = inject(ActivatedRoute);
 	private _prepareDataGastosService = inject(PrepareDataGastosService);
-	// private _route = inject(ActivatedRoute);
-	// private _router = inject(Router);
 
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
