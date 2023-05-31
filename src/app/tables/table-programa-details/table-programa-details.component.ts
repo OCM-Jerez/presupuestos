@@ -68,46 +68,6 @@ export default class TableProgramaDetailsComponent implements OnInit {
 		this._pushAplicacionesPresupuestarias(this._rowData);
 	}
 
-	_pushAplicacionesPresupuestarias(rowData) {
-		const aplicacionesPresupuestarias = [];
-		const dataFinal = [];
-		const years = this.avalaibleYearsService.getYearsSelected();
-		// Aplicación presupuestaria = orgánico + programa + económico.
-		// Creo item para cada uno de los aplicaciones presupuestarias existentes en programa seleccionado.
-		rowData.map((item) => {
-			item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
-			aplicacionesPresupuestarias.push(item.AplicacionPresupuestaria);
-		});
-
-		aplicacionesPresupuestarias.map((item) => {
-			const dataIntermedio = rowData.filter((x) => x.AplicacionPresupuestaria === item);
-			const value = {
-				AplicacionPresupuestaria: item,
-				CodOrg: item.split('-')[0],
-				CodPro: item.split('-')[1],
-				CodEco: item.split('-')[2],
-				CodCap: item.split('-')[2].charAt(0),
-				DesOrg: dataIntermedio[0].DesOrg,
-				DesPro: dataIntermedio[0].DesPro,
-				DesCap: dataIntermedio[0].DesCap,
-				DesEco: dataIntermedio[0].DesEco
-			};
-
-			years.forEach((year) => {
-				value[`Iniciales${year}`] = accumulate('Iniciales', dataIntermedio)[year];
-				value[`Modificaciones${year}`] = accumulate('Modificaciones', dataIntermedio)[year];
-				value[`Definitivas${year}`] = accumulate('Definitivas', dataIntermedio)[year];
-				value[`GastosComprometidos${year}`] = accumulate('GastosComprometidos', dataIntermedio)[year];
-				value[`ObligacionesReconocidasNetas${year}`] = accumulate('ObligacionesReconocidasNetas', dataIntermedio)[year];
-				value[`Pagos${year}`] = accumulate('Pagos', dataIntermedio)[year];
-				value[`ObligacionesPendientePago${year}`] = accumulate('ObligacionesPendientePago', dataIntermedio)[year];
-				value[`RemanenteCredito${year}`] = accumulate('RemanenteCredito', dataIntermedio)[year];
-			});
-			dataFinal.push(value);
-			this._rowData = dataFinal;
-		});
-	}
-
 	_setColumnDefs() {
 		this._columnDefs = getColumnDefs(this.avalaibleYearsService, this._subHeaderName);
 
@@ -298,6 +258,46 @@ export default class TableProgramaDetailsComponent implements OnInit {
 	// 		}
 	// 	];
 	// }
+
+	_pushAplicacionesPresupuestarias(rowData) {
+		const aplicacionesPresupuestarias = [];
+		const dataFinal = [];
+		const years = this.avalaibleYearsService.getYearsSelected();
+		// Aplicación presupuestaria = orgánico + programa + económico.
+		// Creo item para cada uno de los aplicaciones presupuestarias existentes en programa seleccionado.
+		rowData.map((item) => {
+			item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
+			aplicacionesPresupuestarias.push(item.AplicacionPresupuestaria);
+		});
+
+		aplicacionesPresupuestarias.map((item) => {
+			const dataIntermedio = rowData.filter((x) => x.AplicacionPresupuestaria === item);
+			const value = {
+				AplicacionPresupuestaria: item,
+				CodOrg: item.split('-')[0],
+				CodPro: item.split('-')[1],
+				CodEco: item.split('-')[2],
+				CodCap: item.split('-')[2].charAt(0),
+				DesOrg: dataIntermedio[0].DesOrg,
+				DesPro: dataIntermedio[0].DesPro,
+				DesCap: dataIntermedio[0].DesCap,
+				DesEco: dataIntermedio[0].DesEco
+			};
+
+			years.forEach((year) => {
+				value[`Iniciales${year}`] = accumulate('Iniciales', dataIntermedio)[year];
+				value[`Modificaciones${year}`] = accumulate('Modificaciones', dataIntermedio)[year];
+				value[`Definitivas${year}`] = accumulate('Definitivas', dataIntermedio)[year];
+				value[`GastosComprometidos${year}`] = accumulate('GastosComprometidos', dataIntermedio)[year];
+				value[`ObligacionesReconocidasNetas${year}`] = accumulate('ObligacionesReconocidasNetas', dataIntermedio)[year];
+				value[`Pagos${year}`] = accumulate('Pagos', dataIntermedio)[year];
+				value[`ObligacionesPendientePago${year}`] = accumulate('ObligacionesPendientePago', dataIntermedio)[year];
+				value[`RemanenteCredito${year}`] = accumulate('RemanenteCredito', dataIntermedio)[year];
+			});
+			dataFinal.push(value);
+			this._rowData = dataFinal;
+		});
+	}
 
 	expandAll() {
 		this._gridApi.expandAll();
