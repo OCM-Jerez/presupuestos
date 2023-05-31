@@ -14,6 +14,8 @@ import { IGastos } from '@interfaces/gastos.interface';
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
+import { getColumnDefs } from '../setColumnDefs/aplicacion-presupuestaria';
+import { getGridOptions } from '../setGridOptions/programa-details';
 
 // import { accumulate } from '../../commons/util/util';
 
@@ -39,84 +41,87 @@ export class TableGastosAplicacionPresupuestariaComponent {
 
 	constructor() {
 		// private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
-		this._columnDefs = [
-			{
-				headerName: 'Clasificado por aplicación presupuestaria',
-				children: [
-					{
-						headerName: 'Aplicación presupuestaria',
-						field: 'DesOrg',
-						filter: false,
-						width: 700,
-						pinned: 'left',
-						columnGroupShow: 'closed',
-						cellRenderer: '',
-						valueGetter: (params) => {
-							if (params.data) {
-								return (
-									params.data.CodOrg +
-									'-' +
-									params.data.CodPro +
-									'-' +
-									params.data.CodEco +
-									'  ' +
-									params.data.DesOrg +
-									' - ' +
-									params.data.DesPro +
-									' - ' +
-									params.data.DesEco
-								);
-							} else {
-								return null;
-							}
-						}
-					}
-				]
-			},
+		this._columnDefs = getColumnDefs(this.avalaibleYearsService, 2023);
+		this.gridOptions = getGridOptions(this.rowData, this._columnDefs);
 
-			...this.avalaibleYearsService.getYearsSelected().map((year) => {
-				return {
-					// headerName: year,
-					children: this.createColumnsChildren(year)
-				};
-			})
-		];
+		// this._columnDefs = [
+		// 	{
+		// 		headerName: 'Clasificado por aplicación presupuestaria',
+		// 		children: [
+		// 			{
+		// 				headerName: 'Aplicación presupuestaria',
+		// 				field: 'DesOrg',
+		// 				filter: false,
+		// 				width: 700,
+		// 				pinned: 'left',
+		// 				columnGroupShow: 'closed',
+		// 				cellRenderer: '',
+		// 				valueGetter: (params) => {
+		// 					if (params.data) {
+		// 						return (
+		// 							params.data.CodOrg +
+		// 							'-' +
+		// 							params.data.CodPro +
+		// 							'-' +
+		// 							params.data.CodEco +
+		// 							'  ' +
+		// 							params.data.DesOrg +
+		// 							' - ' +
+		// 							params.data.DesPro +
+		// 							' - ' +
+		// 							params.data.DesEco
+		// 						);
+		// 					} else {
+		// 						return null;
+		// 					}
+		// 				}
+		// 			}
+		// 		]
+		// 	},
 
-		this.gridOptions = {
-			defaultColDef: {
-				width: 130,
-				sortable: true,
-				resizable: true,
-				filter: true,
-				aggFunc: 'sum',
-				cellRenderer: CellRendererOCM,
-				headerComponentParams: {
-					template:
-						'<div class="ag-cell-label-container" role="presentation">' +
-						'  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
-						'  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
-						'    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
-						'    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
-						'    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
-						'    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
-						'    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
-						'    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
-						'  </div>' +
-						'</div>'
-				}
-			},
+		// 	...this.avalaibleYearsService.getYearsSelected().map((year) => {
+		// 		return {
+		// 			// headerName: year,
+		// 			children: this.createColumnsChildren(year)
+		// 		};
+		// 	})
+		// ];
 
-			columnDefs: this._columnDefs,
-			groupDisplayType: 'custom',
-			groupIncludeTotalFooter: true,
-			groupIncludeFooter: true,
-			groupHeaderHeight: 25,
-			headerHeight: 36,
-			suppressAggFuncInHeader: true,
-			rowSelection: 'single',
-			localeText: localeTextESPes,
-			pagination: false
-		} as GridOptions;
+		// this.gridOptions = {
+		// 	defaultColDef: {
+		// 		width: 130,
+		// 		sortable: true,
+		// 		resizable: true,
+		// 		filter: true,
+		// 		aggFunc: 'sum',
+		// 		cellRenderer: CellRendererOCM,
+		// 		headerComponentParams: {
+		// 			template:
+		// 				'<div class="ag-cell-label-container" role="presentation">' +
+		// 				'  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
+		// 				'  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
+		// 				'    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
+		// 				'    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
+		// 				'    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
+		// 				'    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
+		// 				'    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
+		// 				'    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
+		// 				'  </div>' +
+		// 				'</div>'
+		// 		}
+		// 	},
+
+		// 	columnDefs: this._columnDefs,
+		// 	groupDisplayType: 'custom',
+		// 	groupIncludeTotalFooter: true,
+		// 	groupIncludeFooter: true,
+		// 	groupHeaderHeight: 25,
+		// 	headerHeight: 36,
+		// 	suppressAggFuncInHeader: true,
+		// 	rowSelection: 'single',
+		// 	localeText: localeTextESPes,
+		// 	pagination: false
+		// } as GridOptions;
 	}
 
 	async onGridReady(params: GridReadyEvent) {
@@ -140,64 +145,64 @@ export class TableGastosAplicacionPresupuestariaComponent {
 		this.rowData = this.data;
 	}
 
-	createColumnsChildren(year: number) {
-		return [
-			{
-				headerName: 'Créditos',
-				children: [
-					{
-						headerName: 'Previsiones Iniciales',
-						field: `Iniciales${year}`,
-						columnGroupShow: 'close'
-					},
-					{
-						headerName: 'Total Modificaciones',
-						field: `Modificaciones${year}`,
-						width: 140,
-						columnGroupShow: 'close'
-					},
-					{
-						headerName: 'Creditos definitivos',
-						field: `Definitivas${year}`,
-						width: 140,
-						columnGroupShow: 'close'
-					}
-				]
-			},
-			{
-				headerName: 'Gastos',
-				children: [
-					{
-						headerName: 'Gastos Comprometidos',
-						field: `GastosComprometidos${year}`,
-						width: 140,
-						columnGroupShow: 'close'
-					},
-					{
-						headerName: 'Obligaciones reconocidas netas',
-						field: `ObligacionesReconocidasNetas${year}`,
-						width: 135,
-						columnGroupShow: 'close'
-					},
-					{
-						headerName: 'Pagos',
-						field: `Pagos${year}`,
-						columnGroupShow: 'close'
-					},
-					{
-						headerName: 'Obligaciones pendientes de pago al final periodo',
-						field: `ObligacionesPendientePago${year}`,
-						width: 120,
-						columnGroupShow: 'close'
-					}
-				]
-			},
-			{
-				headerName: 'Remanente Credito',
-				field: `RemanenteCredito${year}`
-			}
-		];
-	}
+	// createColumnsChildren(year: number) {
+	// 	return [
+	// 		{
+	// 			headerName: 'Créditos',
+	// 			children: [
+	// 				{
+	// 					headerName: 'Previsiones Iniciales',
+	// 					field: `Iniciales${year}`,
+	// 					columnGroupShow: 'close'
+	// 				},
+	// 				{
+	// 					headerName: 'Total Modificaciones',
+	// 					field: `Modificaciones${year}`,
+	// 					width: 140,
+	// 					columnGroupShow: 'close'
+	// 				},
+	// 				{
+	// 					headerName: 'Creditos definitivos',
+	// 					field: `Definitivas${year}`,
+	// 					width: 140,
+	// 					columnGroupShow: 'close'
+	// 				}
+	// 			]
+	// 		},
+	// 		{
+	// 			headerName: 'Gastos',
+	// 			children: [
+	// 				{
+	// 					headerName: 'Gastos Comprometidos',
+	// 					field: `GastosComprometidos${year}`,
+	// 					width: 140,
+	// 					columnGroupShow: 'close'
+	// 				},
+	// 				{
+	// 					headerName: 'Obligaciones reconocidas netas',
+	// 					field: `ObligacionesReconocidasNetas${year}`,
+	// 					width: 135,
+	// 					columnGroupShow: 'close'
+	// 				},
+	// 				{
+	// 					headerName: 'Pagos',
+	// 					field: `Pagos${year}`,
+	// 					columnGroupShow: 'close'
+	// 				},
+	// 				{
+	// 					headerName: 'Obligaciones pendientes de pago al final periodo',
+	// 					field: `ObligacionesPendientePago${year}`,
+	// 					width: 120,
+	// 					columnGroupShow: 'close'
+	// 				}
+	// 			]
+	// 		},
+	// 		{
+	// 			headerName: 'Remanente Credito',
+	// 			field: `RemanenteCredito${year}`
+	// 		}
+	// 	];
+	// }
 
 	showGraph() {
 		// Revisar this._dataStoreService.dataGraph = sendData;
