@@ -88,7 +88,8 @@ const subtabsAdditionalGastosEconomica = [
 	{ name: 'Gráfico detallado', path: '/graphDetalle' },
 	{
 		name: 'Programas que gastan del elemento seleccionado',
-		path: '/tableGrupoProgramaDetails',
+		// path: '/tableGrupoProgramaDetails',
+		path: '/tableProgramaDetails',
 		param: 'gastan'
 	}
 ];
@@ -161,7 +162,8 @@ const CLASIFICATION: { [key: string]: any } = {
 			{ name: 'Gráfico detallado', path: '/graphDetalle' },
 			{
 				name: 'Programas que componen orgánico seleccionado',
-				path: '/tableGrupoProgramaDetails',
+				// path: '/tableGrupoProgramaDetails',
+				path: '/tableProgramaDetails',
 				param: 'organico'
 			}
 		]
