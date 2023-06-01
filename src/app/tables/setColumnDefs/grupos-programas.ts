@@ -2,7 +2,7 @@ import { CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { ColGroupDef } from 'ag-grid-community';
 
-export function getColumnDefsGastan(avalaibleYearsService: AvalaibleYearsService, year): ColGroupDef[] {
+export function getColumnDefsGastan(avalaibleYearsService: AvalaibleYearsService, year: string): ColGroupDef[] {
 	return [
 		{
 			headerName: '',

@@ -151,7 +151,7 @@ export default class TableGastosGruposprogramasDetailsComponent implements OnIni
 	async ngOnInit(): Promise<void> {
 		// this._loadTable();
 		await this._CalcData();
-		this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, 2023);
+		this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
 		this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
 	}
 
