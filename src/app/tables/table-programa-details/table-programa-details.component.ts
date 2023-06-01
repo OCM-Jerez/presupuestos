@@ -47,6 +47,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
 	private _path: string;
+	public title: string;
 	public isExpanded = true;
 	public messageYears = this.avalaibleYearsService.message;
 
@@ -69,12 +70,14 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		switch (this._path) {
 			case 'details':
 				console.log('details');
+				this.title = 'Detalle programa' + this.dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataDetails();
 				this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
 				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
 				break;
 			case 'gastan':
 				console.log('gastan');
+				this.title = 'Programas que gastan del económico ' + this.dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, this._subHeaderName);
 				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
@@ -82,8 +85,9 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				break;
 			case 'organico':
 				console.log('organico');
+				this.title = 'Programas que componen el orgánico ' + this.dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
-				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, this._subHeaderName);
+				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
 				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
 				break;
 			default:
@@ -114,6 +118,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		}
 		// this._rowData = await this._prepareDataGastosService.getDataAllYear();
 		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x[cod] == codigoSearch);
+		console.log('this.cod', cod);
+		console.log('this._rowData', this._rowData);
 	}
 
 	onGridReady = (params: GridReadyEvent) => {

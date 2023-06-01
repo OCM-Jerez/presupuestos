@@ -4,8 +4,9 @@
 	</div>
 
 	<h4 class="OCM-text--cabecera">
-		Programa
-		{{ dataStoreService.selectedCodeRowFirstLevel }}. {{ messageYears }}
+		<!-- Programa -->
+		<!-- {{ dataStoreService.selectedCodeRowFirstLevel }}. {{ messageYears }} -->
+		{{ title }}. {{ messageYears }}
 	</h4>
 
 	<button *ngIf="!isExpanded" type="button" class="OCM-button" (click)="expandAll()">Expandir todo</button>
