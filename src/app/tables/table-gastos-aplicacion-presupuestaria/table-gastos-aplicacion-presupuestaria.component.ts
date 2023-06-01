@@ -2,7 +2,17 @@ import { Component, ViewChild, inject } from '@angular/core';
 import { AsyncPipe, Location } from '@angular/common';
 // import { Router } from '@angular/router';
 
+// import { Subscription } from 'rxjs';
+
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
+//
+//
+//
+//
+//
+//
+//
+//
 import { ColDef, ColGroupDef, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
@@ -14,10 +24,11 @@ import { IGastos } from '@interfaces/gastos.interface';
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
-import { getColumnDefs } from '../setColumnDefs/aplicacion-presupuestaria';
-import { getGridOptions } from '../setGridOptions/programa-details';
 
 // import { accumulate } from '../../commons/util/util';
+
+import { getColumnDefs } from '../setColumnDefs/aplicacion-presupuestaria';
+import { getGridOptions } from '../setGridOptions/programa-details';
 
 @Component({
 	selector: 'app-table-gastos-aplicacion-presupuestaria',
@@ -30,17 +41,23 @@ export class TableGastosAplicacionPresupuestariaComponent {
 	public avalaibleYearsService = inject(AvalaibleYearsService);
 	private _dataStoreService = inject(DataStoreService);
 	private _location = inject(Location);
-	// private _router = inject(Router); // private _route = inject(ActivatedRoute);
+	// private _router = inject(Router);
+	// private _route = inject(ActivatedRoute);
 	private _prepareDataGastosService = inject(PrepareDataGastosService);
 
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
 	public rowData: IGastos[] = [];
+	public data: any[] = [];
+
 	private _columnDefs: (ColDef | ColGroupDef)[];
-	data: any[] = [];
+	//
+	//
+	//
+	//
+	//
 
 	constructor() {
-		// private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
 		this._columnDefs = getColumnDefs(this.avalaibleYearsService, 2023);
 		this.gridOptions = getGridOptions(this.rowData, this._columnDefs);
 
@@ -126,7 +143,6 @@ export class TableGastosAplicacionPresupuestariaComponent {
 
 	async onGridReady(params: GridReadyEvent) {
 		console.log('onGridReady', params);
-
 		// this.rowData = await this._prepareDataProgramaDetailsService.getDataAllYear();
 		this.rowData = await this._prepareDataGastosService.getDataAllYear();
 		const selectedRow = this._dataStoreService.selectedCodeRow;

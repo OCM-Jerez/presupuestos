@@ -1,19 +1,31 @@
+import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { Location } from '@angular/common';
-import { Component, OnDestroy, ViewChild, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
+//
+//
+//
+//
+//
+//
+//
+//
 import { ColDef, ColGroupDef, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
-
-import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
-import localeTextESPes from '@assets/data/localeTextESPes.json';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
+
+//
 import { IGastos } from '@interfaces/gastos.interface';
+
+import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
+import localeTextESPes from '@assets/data/localeTextESPes.json';
+
+//
 
 import { getGridOptions } from '../setGridOptions/programa-details';
 import { getColumnDefs } from '../../tables/setColumnDefs/grupos-programas';
@@ -25,27 +37,30 @@ import { getColumnDefs } from '../../tables/setColumnDefs/grupos-programas';
 	standalone: true,
 	imports: [AgGridModule]
 })
-export default class TableGastosGruposprogramasDetailsComponent implements OnDestroy {
+export default class TableGastosGruposprogramasDetailsComponent implements OnInit, OnDestroy {
 	public avalaibleYearsService = inject(AvalaibleYearsService);
 	public dataStoreService = inject(DataStoreService);
 	private _location = inject(Location);
-	private _prepareDataGastosService = inject(PrepareDataGastosService);
 	private _route = inject(ActivatedRoute);
 	private _router = inject(Router);
+	private _prepareDataGastosService = inject(PrepareDataGastosService);
 
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
+	public id: string;
+	public messageYears = this.avalaibleYearsService.message;
+
 	private _columnDefs: (ColDef | ColGroupDef)[];
 	private _gridApi: GridApi;
 	private _rowData: IGastos[] = [];
-	messageYears = this.avalaibleYearsService.message;
 	private sub: Subscription;
-	id: string;
+	//
+	//
 
 	constructor() {
 		this.sub = this._route.params.subscribe((params) => {
 			this.id = params['origen'];
-			this._columnDefs = getColumnDefs(this.avalaibleYearsService, 2023);
+			// this._columnDefs = getColumnDefs(this.avalaibleYearsService, 2023);
 		});
 
 		// this._columnDefs = [
@@ -88,47 +103,68 @@ export default class TableGastosGruposprogramasDetailsComponent implements OnDes
 		// 	})
 		// ];
 
-		this.createDataOCM().then(() => {
-			this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
+		// this.createDataOCM().then(() => {
+		// 	// this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
 
-			// this.gridOptions = {
-			// 	defaultColDef: {
-			// 		width: 130,
-			// 		sortable: true,
-			// 		resizable: true,
-			// 		filter: true,
-			// 		aggFunc: 'sum',
-			// 		cellRenderer: CellRendererOCM,
-			// 		headerComponentParams: {
-			// 			template:
-			// 				'<div class="ag-cell-label-container" role="presentation">' +
-			// 				'  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
-			// 				'  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
-			// 				'    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
-			// 				'    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
-			// 				'    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
-			// 				'    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
-			// 				'    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
-			// 				'    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
-			// 				'  </div>' +
-			// 				'</div>'
-			// 		}
-			// 	},
+		// 	// this.gridOptions = {
+		// 	// 	defaultColDef: {
+		// 	// 		width: 130,
+		// 	// 		sortable: true,
+		// 	// 		resizable: true,
+		// 	// 		filter: true,
+		// 	// 		aggFunc: 'sum',
+		// 	// 		cellRenderer: CellRendererOCM,
+		// 	// 		headerComponentParams: {
+		// 	// 			template:
+		// 	// 				'<div class="ag-cell-label-container" role="presentation">' +
+		// 	// 				'  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
+		// 	// 				'  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
+		// 	// 				'    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
+		// 	// 				'    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
+		// 	// 				'    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
+		// 	// 				'    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
+		// 	// 				'    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
+		// 	// 				'    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
+		// 	// 				'  </div>' +
+		// 	// 				'</div>'
+		// 	// 		}
+		// 	// 	},
 
-			// 	// PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
-			// 	rowData: this._rowData,
-			// 	columnDefs: this._columnDefs,
-			// 	groupDisplayType: 'custom',
-			// 	groupIncludeTotalFooter: true,
-			// 	groupIncludeFooter: true,
-			// 	groupHeaderHeight: 25,
-			// 	headerHeight: 26,
-			// 	suppressAggFuncInHeader: true,
-			// 	rowSelection: 'single',
-			// 	localeText: localeTextESPes,
-			// 	pagination: false
-			// } as GridOptions;
-		});
+		// 	// 	// PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
+		// 	// 	rowData: this._rowData,
+		// 	// 	columnDefs: this._columnDefs,
+		// 	// 	groupDisplayType: 'custom',
+		// 	// 	groupIncludeTotalFooter: true,
+		// 	// 	groupIncludeFooter: true,
+		// 	// 	groupHeaderHeight: 25,
+		// 	// 	headerHeight: 26,
+		// 	// 	suppressAggFuncInHeader: true,
+		// 	// 	rowSelection: 'single',
+		// 	// 	localeText: localeTextESPes,
+		// 	// 	pagination: false
+		// 	// } as GridOptions;
+		// });
+	}
+
+	async ngOnInit(): Promise<void> {
+		// this._loadTable();
+		await this._CalcData();
+		this._columnDefs = getColumnDefs(this.avalaibleYearsService, 2023);
+		this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
+	}
+
+	async _CalcData() {
+		let cod = '';
+		const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
+		const clasificationType = this.dataStoreService.dataTable.clasificationType;
+
+		if (this.id === 'gastan') {
+			cod = clasificationType === 'gastosEconomicaCapitulos' ? 'CodCap' : 'CodEco';
+		} else {
+			cod = 'CodOrg';
+		}
+		this._rowData = await this._prepareDataGastosService.getDataAllYear();
+		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x[cod] == codigoSearch);
 	}
 
 	ngOnDestroy(): void {
