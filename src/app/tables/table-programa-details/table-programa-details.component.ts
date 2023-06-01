@@ -22,12 +22,11 @@ import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { IGastos } from '@interfaces/gastos.interface';
 
-// import localeTextESPes from '@assets/data/localeTextESPes.json';
-// import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
-
 import { accumulate } from '../../commons/util/util';
 
 import { getColumnDefsDetails } from '../../tables/setColumnDefs/programa-details';
+import { getColumnDefsGastan } from '../../tables/setColumnDefs/grupos-programas';
+
 import { getGridOptions } from '../setGridOptions/programa-details';
 
 @Component({
@@ -52,7 +51,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	public messageYears = this.avalaibleYearsService.message;
 
 	private _columnApi: ColumnApi;
-	private _columnDefsDetails: (ColDef | ColGroupDef)[];
+	private _columnDefs: (ColDef | ColGroupDef)[];
 	private _dataTable: IDataTable;
 	private _gridApi: GridApi;
 	private _rowData: IGastos[] = [];
@@ -63,7 +62,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this.sub = this._route.params.subscribe((params) => {
 			this._path = params['origen'];
 			console.log('this._path', this._path);
-			// this._columnDefs = getColumnDefs(this.avalaibleYearsService, 2023);
 		});
 	}
 
@@ -72,15 +70,21 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			case 'details':
 				console.log('details');
 				await this._CalcDataDetails();
-				this._columnDefsDetails = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
-				this.gridOptions = getGridOptions(this._rowData, this._columnDefsDetails);
+				this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
+				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
 				break;
 			case 'gastan':
 				console.log('gastan');
+				await this._CalcDataGastan();
+				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, this._subHeaderName);
+				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
 
 				break;
 			case 'organico':
 				console.log('organico');
+				await this._CalcDataGastan();
+				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, this._subHeaderName);
+				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
 				break;
 			default:
 				break;
@@ -96,6 +100,20 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
 		const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
 		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x.CodPro == codigoSearch);
+	}
+
+	async _CalcDataGastan() {
+		let cod = '';
+		const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
+		const clasificationType = this.dataStoreService.dataTable.clasificationType;
+
+		if (this._path === 'gastan') {
+			cod = clasificationType === 'gastosEconomicaCapitulos' ? 'CodCap' : 'CodEco';
+		} else {
+			cod = 'CodOrg';
+		}
+		// this._rowData = await this._prepareDataGastosService.getDataAllYear();
+		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x[cod] == codigoSearch);
 	}
 
 	onGridReady = (params: GridReadyEvent) => {
