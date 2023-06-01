@@ -1,7 +1,7 @@
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { ColGroupDef } from 'ag-grid-community';
 
-export function getColumnDefs(avalaibleYearsService: AvalaibleYearsService, _subHeaderName): ColGroupDef[] {
+export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsService, _subHeaderName): ColGroupDef[] {
 	return [
 		{
 			children: [

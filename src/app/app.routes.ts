@@ -30,7 +30,7 @@ export default [
 		loadComponent: () => import('./graphs/graph-detalle/graph-detalle.component')
 	},
 	{
-		path: 'tableProgramaDetails',
+		path: 'tableProgramaDetails/:origen',
 		loadComponent: () => import('./tables/table-programa-details/table-programa-details.component')
 	},
 	{

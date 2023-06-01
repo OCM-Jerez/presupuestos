@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { Location, NgIf } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
-// import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import {
@@ -27,7 +27,7 @@ import { IGastos } from '@interfaces/gastos.interface';
 
 import { accumulate } from '../../commons/util/util';
 
-import { getColumnDefs } from '../../tables/setColumnDefs/programa-details';
+import { getColumnDefsDetails } from '../../tables/setColumnDefs/programa-details';
 import { getGridOptions } from '../setGridOptions/programa-details';
 
 @Component({
@@ -37,39 +37,61 @@ import { getGridOptions } from '../setGridOptions/programa-details';
 	standalone: true,
 	imports: [NgIf, AgGridModule]
 })
-export default class TableProgramaDetailsComponent implements OnInit {
+export default class TableProgramaDetailsComponent implements OnInit, OnDestroy {
 	public avalaibleYearsService = inject(AvalaibleYearsService);
 	public dataStoreService = inject(DataStoreService);
+	private _route = inject(ActivatedRoute);
 	private _location = inject(Location);
 	private _router = inject(Router);
-	//
 	private _prepareDataGastosService = inject(PrepareDataGastosService);
 
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
+	private _path: string;
 	public isExpanded = true;
 	public messageYears = this.avalaibleYearsService.message;
 
 	private _columnApi: ColumnApi;
-	private _columnDefs: (ColDef | ColGroupDef)[];
+	private _columnDefsDetails: (ColDef | ColGroupDef)[];
 	private _dataTable: IDataTable;
 	private _gridApi: GridApi;
 	private _rowData: IGastos[] = [];
 	private _subHeaderName = '';
+	private sub: Subscription;
 
-	// Constructor() { }
-	//
-	//
-	//
-	//
-
-	async ngOnInit(): Promise<void> {
-		await this._CalcData();
-		this._columnDefs = getColumnDefs(this.avalaibleYearsService, this._subHeaderName);
-		this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
+	constructor() {
+		this.sub = this._route.params.subscribe((params) => {
+			this._path = params['origen'];
+			console.log('this._path', this._path);
+			// this._columnDefs = getColumnDefs(this.avalaibleYearsService, 2023);
+		});
 	}
 
-	async _CalcData() {
+	async ngOnInit(): Promise<void> {
+		switch (this._path) {
+			case 'details':
+				console.log('details');
+				await this._CalcDataDetails();
+				this._columnDefsDetails = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
+				this.gridOptions = getGridOptions(this._rowData, this._columnDefsDetails);
+				break;
+			case 'gastan':
+				console.log('gastan');
+
+				break;
+			case 'organico':
+				console.log('organico');
+				break;
+			default:
+				break;
+		}
+	}
+
+	ngOnDestroy(): void {
+		this.sub.unsubscribe();
+	}
+
+	async _CalcDataDetails() {
 		this._dataTable = this.dataStoreService.dataTable;
 		this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
 		const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
