@@ -28,7 +28,7 @@ import localeTextESPes from '@assets/data/localeTextESPes.json';
 //
 
 import { getGridOptions } from '../setGridOptions/programa-details';
-import { getColumnDefs } from '../../tables/setColumnDefs/grupos-programas';
+import { getColumnDefsGastan } from '../../tables/setColumnDefs/grupos-programas';
 
 @Component({
 	selector: 'app-table-gastos-gruposprogramas-details',
@@ -60,6 +60,8 @@ export default class TableGastosGruposprogramasDetailsComponent implements OnIni
 	constructor() {
 		this.sub = this._route.params.subscribe((params) => {
 			this.id = params['origen'];
+			console.log('this.id', this.id);
+
 			// this._columnDefs = getColumnDefs(this.avalaibleYearsService, 2023);
 		});
 
@@ -149,7 +151,7 @@ export default class TableGastosGruposprogramasDetailsComponent implements OnIni
 	async ngOnInit(): Promise<void> {
 		// this._loadTable();
 		await this._CalcData();
-		this._columnDefs = getColumnDefs(this.avalaibleYearsService, 2023);
+		this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, 2023);
 		this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
 	}
 
