@@ -9,12 +9,18 @@
 		{{ title }}. {{ messageYears }}
 	</h4>
 
-	<button *ngIf="!isExpanded" type="button" class="OCM-button" (click)="expandAll()">Expandir todo</button>
+	<div *ngIf="showButtomExpanded">
+		<button *ngIf="!isExpanded" type="button" class="OCM-button" (click)="expandAll()">Expandir todo</button>
+		<button *ngIf="isExpanded" type="button" class="OCM-button" (click)="collapseAll()">Colapsar todo</button>
+	</div>
 
-	<button *ngIf="isExpanded" type="button" class="OCM-button" (click)="collapseAll()">Colapsar todo</button>
-
-	<button type="button" (click)="showAplicacionPresupuestaria()" class="OCM-button" style="padding: 1.2rem 8.6rem">
-		Detalle aplicación presupuestaria
+	<button
+		type="button"
+		(click)="showAplicacionPresupuestaria()"
+		class="OCM-button"
+		style="padding: 1.2rem 8.6rem; margin-top: 10px"
+	>
+		{{ titleButtom }}
 	</button>
 
 	<div class="agGrid">

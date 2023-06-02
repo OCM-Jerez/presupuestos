@@ -50,6 +50,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	public title: string;
 	public isExpanded = true;
 	public messageYears = this.avalaibleYearsService.message;
+	public titleButtom = 'Detalle aplicación presupuestaria';
+	public showButtomExpanded = true;
 
 	private _columnApi: ColumnApi;
 	private _columnDefs: (ColDef | ColGroupDef)[];
@@ -83,6 +85,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, this._subHeaderName);
 				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
+				this.titleButtom = 'Detalle programa seleccionado';
+				this.showButtomExpanded = false;
 
 				break;
 			case 'organico':
@@ -91,6 +95,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
 				this.gridOptions = getGridOptions(this._dataTotalizada, this._columnDefs);
+				this.titleButtom = 'Detalle programa seleccionado';
+				this.showButtomExpanded = false;
 				break;
 			case 'appPPresupuestaria':
 				console.log('appPPresupuestaria');
@@ -98,6 +104,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
 				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
+				this.showButtomExpanded = false;
 				break;
 		}
 	}
