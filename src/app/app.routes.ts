@@ -14,6 +14,10 @@ export default [
 		loadComponent: () => import('./detalle/detalle.component')
 	},
 	{
+		path: 'tableProgramaDetails/:origen',
+		loadComponent: () => import('./detalle/components/table-programa-details/table-programa-details.component')
+	},
+	{
 		path: 'empleados',
 		loadComponent: () => import('./empleados/empleados.component')
 	},
@@ -28,20 +32,6 @@ export default [
 	{
 		path: 'graphDetalle',
 		loadComponent: () => import('./graphs/graph-detalle/graph-detalle.component')
-	},
-	{
-		path: 'tableProgramaDetails/:origen',
-		loadComponent: () => import('./tables/table-programa-details/table-programa-details.component')
-	},
-	{
-		path: 'tableGrupoProgramaDetails/:origen',
-		loadComponent: () =>
-			import('./tables/table-gastos-gruposprogramas-details/table-gastos-gruposprogramas-details.component')
-	},
-	{
-		path: 'tableAplicacionPresupuestaria',
-		loadComponent: () =>
-			import('./tables/table-gastos-aplicacion-presupuestaria/table-gastos-aplicacion-presupuestaria.component')
 	},
 	{
 		path: 'rpt',
