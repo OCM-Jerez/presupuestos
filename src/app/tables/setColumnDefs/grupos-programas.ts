@@ -17,16 +17,6 @@ export function getColumnDefsGastan(avalaibleYearsService: AvalaibleYearsService
 					pinned: 'left',
 					columnGroupShow: 'closed',
 					cellRenderer: CellRendererOCMtext,
-					// cellRenderer: (params) => {
-					//     switch (params.node.level) {
-					//         case 0: // Cada una de las lineas
-					//             return `<span style="text-align: left"> ${params.value}</span>`;
-					//         case -1: // Total general
-					//             return '<span style="text-align: right; color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general</span>';
-					//         default:
-					//             return 'SIN FORMATO';
-					//     }
-					// },
 					valueGetter: (params) => {
 						return `${params.data.CodPro + ' - ' + params.data.DesPro}`;
 					}
@@ -83,7 +73,8 @@ export function getColumnDefsGastan(avalaibleYearsService: AvalaibleYearsService
 				},
 				{
 					headerName: 'Remanente Credito',
-					field: `RemanenteCredito${year}`
+					field: `RemanenteCredito${year}`,
+					columnGroupShow: 'closed'
 				}
 			]
 		}
