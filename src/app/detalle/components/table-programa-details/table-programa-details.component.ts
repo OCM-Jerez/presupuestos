@@ -22,12 +22,12 @@ import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { IGastos } from '@interfaces/gastos.interface';
 
-import { accumulate } from '../../commons/util/util';
+import { accumulate } from '../../../commons/util/util';
 
-import { getColumnDefsDetails } from '../../tables/setColumnDefs/programa-details';
-import { getColumnDefsGastan } from '../../tables/setColumnDefs/grupos-programas';
+import { getColumnDefsDetails } from '../../../ag-grid/setColumnDefs/programa-details';
+import { getColumnDefsGastan } from '../../../ag-grid/setColumnDefs/grupos-programas';
 
-import { getGridOptions } from '../setGridOptions/programa-details';
+import { getGridOptions } from '../../../ag-grid/setGridOptions/programa-details';
 
 @Component({
 	selector: 'app-table-programa-details',
@@ -87,6 +87,13 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			case 'organico':
 				console.log('organico');
 				this.title = 'Programas que componen el orgánico ' + this.dataStoreService.selectedCodeRowFirstLevel;
+				await this._CalcDataGastan();
+				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
+				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
+				break;
+			case 'appPPresupuestaria':
+				console.log('appPPresupuestaria');
+				this.title = 'Aplicación presupuestaria ' + this.dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
 				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
@@ -208,7 +215,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		const aplicacionPresupuestaria =
 			selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
 		this.dataStoreService.selectedCodeRow = aplicacionPresupuestaria;
-		this._router.navigateByUrl('/tableAplicacionPresupuestaria');
+		this._router.navigateByUrl('/tableProgramaDetails/appPPresupuestaria');
 	}
 
 	volver() {

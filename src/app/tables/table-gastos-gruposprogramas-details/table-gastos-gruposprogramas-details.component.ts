@@ -27,8 +27,8 @@ import localeTextESPes from '@assets/data/localeTextESPes.json';
 
 //
 
-import { getGridOptions } from '../setGridOptions/programa-details';
-import { getColumnDefsGastan } from '../../tables/setColumnDefs/grupos-programas';
+import { getGridOptions } from '../../ag-grid/setGridOptions/programa-details';
+import { getColumnDefsGastan } from '../../ag-grid/setColumnDefs/grupos-programas';
 
 @Component({
 	selector: 'app-table-gastos-gruposprogramas-details',

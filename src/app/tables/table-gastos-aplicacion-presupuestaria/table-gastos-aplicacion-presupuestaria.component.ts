@@ -27,8 +27,8 @@ import localeTextESPes from '@assets/data/localeTextESPes.json';
 
 // import { accumulate } from '../../commons/util/util';
 
-import { getColumnDefs } from '../setColumnDefs/aplicacion-presupuestaria';
-import { getGridOptions } from '../setGridOptions/programa-details';
+import { getColumnDefs } from '../../ag-grid/setColumnDefs/aplicacion-presupuestaria';
+import { getGridOptions } from '../../ag-grid/setGridOptions/programa-details';
 
 @Component({
 	selector: 'app-table-gastos-aplicacion-presupuestaria',

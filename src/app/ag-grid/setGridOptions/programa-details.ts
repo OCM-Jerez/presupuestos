@@ -1,6 +1,6 @@
 import { GridOptions } from 'ag-grid-community/main';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
-import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
+import { CellRendererOCM } from '../CellRendererOCM';
 
 export function getGridOptions(rowData, columnDefs) {
 	// gridOptions: GridOptions;
