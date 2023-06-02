@@ -15,6 +15,7 @@
 	</div>
 
 	<button
+		*ngIf="(hasRowClicked$ | async) === null"
 		type="button"
 		(click)="showAplicacionPresupuestaria()"
 		class="OCM-button"
