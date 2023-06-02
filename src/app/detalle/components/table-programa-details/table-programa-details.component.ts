@@ -92,7 +92,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				console.log('gastan');
 				this.title = 'Programas que gastan del económico ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
-				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, this._subHeaderName);
+				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
 				this._setGridOptions();
 				// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
 				this.titleButtom = 'Detalle programa seleccionado';
@@ -159,6 +159,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		}, {});
 
 		this._rowData = Object.values(this._dataTotalizada);
+		console.log('this._rowData', this._rowData);
 	}
 
 	_setGridOptions() {
