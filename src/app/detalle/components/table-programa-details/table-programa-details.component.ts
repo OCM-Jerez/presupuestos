@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
-import { Location, NgIf } from '@angular/common';
+import { AsyncPipe, Location, NgIf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -15,6 +15,9 @@ import {
 	GridReadyEvent
 } from 'ag-grid-community/main';
 
+import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
+import localeTextESPes from '@assets/data/localeTextESPes.json';
+
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
@@ -27,18 +30,21 @@ import { accumulate } from '../../../commons/util/util';
 import { getColumnDefsDetails } from '../../../ag-grid/setColumnDefs/programa-details';
 import { getColumnDefsGastan } from '../../../ag-grid/setColumnDefs/grupos-programas';
 
-import { getGridOptions } from '../../../ag-grid/setGridOptions/programa-details';
+// import { getGridOptions } from '../../../ag-grid/setGridOptions/programa-details';
+import { HasRowClicked } from '@services/hasRowClicked.service';
 
 @Component({
 	selector: 'app-table-programa-details',
 	templateUrl: './table-programa-details.component.html',
 	styleUrls: ['./table-programa-details.component.scss'],
 	standalone: true,
-	imports: [NgIf, AgGridModule]
+	imports: [NgIf, AgGridModule, AsyncPipe]
 })
 export default class TableProgramaDetailsComponent implements OnInit, OnDestroy {
 	public avalaibleYearsService = inject(AvalaibleYearsService);
-	public dataStoreService = inject(DataStoreService);
+	private _dataStoreService = inject(DataStoreService);
+	private _hasRowClicked = inject(HasRowClicked);
+
 	private _route = inject(ActivatedRoute);
 	private _location = inject(Location);
 	private _router = inject(Router);
@@ -52,6 +58,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	public messageYears = this.avalaibleYearsService.message;
 	public titleButtom = 'Detalle aplicación presupuestaria';
 	public showButtomExpanded = true;
+	public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
 
 	private _columnApi: ColumnApi;
 	private _columnDefs: (ColDef | ColGroupDef)[];
@@ -71,39 +78,44 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	async ngOnInit(): Promise<void> {
+		this._dataTable = this._dataStoreService.dataTable;
 		switch (this._path) {
 			case 'details':
 				console.log('details');
-				this.title = 'Detalle programa' + this.dataStoreService.selectedCodeRowFirstLevel;
+				this.title = 'Detalle programa' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataDetails();
 				this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
-				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
+				this._setGridOptions();
+				// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
 				break;
 			case 'gastan':
 				console.log('gastan');
-				this.title = 'Programas que gastan del económico ' + this.dataStoreService.selectedCodeRowFirstLevel;
+				this.title = 'Programas que gastan del económico ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, this._subHeaderName);
-				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
+				this._setGridOptions();
+				// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
 				this.titleButtom = 'Detalle programa seleccionado';
 				this.showButtomExpanded = false;
 
 				break;
 			case 'organico':
 				console.log('organico');
-				this.title = 'Programas que componen el orgánico ' + this.dataStoreService.selectedCodeRowFirstLevel;
+				this.title = 'Programas que componen el orgánico ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
-				this.gridOptions = getGridOptions(this._dataTotalizada, this._columnDefs);
+				this._setGridOptions();
+				// this.gridOptions = getGridOptions(this._dataTotalizada, this._columnDefs, this);
 				this.titleButtom = 'Detalle programa seleccionado';
 				this.showButtomExpanded = false;
 				break;
 			case 'appPPresupuestaria':
 				console.log('appPPresupuestaria');
-				this.title = 'Aplicación presupuestaria ' + this.dataStoreService.selectedCodeRowFirstLevel;
+				this.title = 'Aplicación presupuestaria ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
-				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
+				this._setGridOptions();
+				// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
 				this.showButtomExpanded = false;
 				break;
 		}
@@ -114,17 +126,16 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	async _CalcDataDetails() {
-		this._dataTable = this.dataStoreService.dataTable;
 		this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
-		const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
+		const codigoSearch = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
 		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x.CodPro == codigoSearch);
 	}
 
 	async _CalcDataGastan() {
-		this._dataTotalizada = this.dataStoreService.dataTable;
+		this._dataTotalizada = this._dataStoreService.dataTable;
 		let cod = '';
-		const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
-		const clasificationType = this.dataStoreService.dataTable.clasificationType;
+		const codigoSearch = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
+		const clasificationType = this._dataStoreService.dataTable.clasificationType;
 
 		if (this._path === 'gastan') {
 			cod = clasificationType === 'gastosEconomicaCapitulos' ? 'CodCap' : 'CodEco';
@@ -147,7 +158,53 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			return total;
 		}, {});
 
-		this._dataTotalizada = Object.values(this._dataTotalizada);
+		this._rowData = Object.values(this._dataTotalizada);
+	}
+
+	_setGridOptions() {
+		// const myRowData = this._isIngresos ? this._dataTable.rowDataIngresos : this._dataTable.rowDataGastos;
+		this.gridOptions = {
+			defaultColDef: {
+				width: 130,
+				sortable: true,
+				resizable: true,
+				filter: true,
+				aggFunc: 'sum',
+				cellRenderer: CellRendererOCM,
+				headerComponentParams: {
+					template:
+						'<div class="ag-cell-label-container" role="presentation">' +
+						'  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
+						'  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
+						'    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
+						'    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
+						'    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
+						'    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
+						'    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
+						'    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
+						'  </div>' +
+						'</div>'
+				}
+			},
+			rowData: this._rowData,
+			columnDefs: this._columnDefs,
+			groupDisplayType: 'custom',
+			groupIncludeTotalFooter: true,
+			groupIncludeFooter: true,
+			groupHeaderHeight: 25,
+			headerHeight: 54,
+			suppressAggFuncInHeader: true,
+			rowSelection: 'single',
+			localeText: localeTextESPes,
+			pagination: true,
+			paginationPageSize: 26,
+			onRowClicked: () => {
+				const selectedRows = this.agGrid.api.getSelectedNodes();
+				this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+				this._hasRowClicked.change(selectedRows[0].key);
+				console.log(selectedRows[0].data.DesPro);
+			}
+		} as GridOptions;
 	}
 
 	onGridReady = (params: GridReadyEvent) => {
@@ -164,6 +221,12 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			}
 		];
 		params.columnApi.applyColumnState({ state: defaultSortModel });
+
+		onRowClicked: () => {
+			const selectedRows = this.agGrid.api.getSelectedNodes();
+			this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+			this._hasRowClicked.change(selectedRows[0].key);
+		};
 		// switch (this._path) {
 		// 	case 'details':
 		// 		this._defaultSortModel = [{ colId: 'DesEco', sort: 'asc', sortIndex: 0 }];
@@ -235,12 +298,12 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		const selectedRows = this.agGrid.api.getSelectedNodes();
 		const aplicacionPresupuestaria =
 			selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
-		this.dataStoreService.selectedCodeRow = aplicacionPresupuestaria;
+		this._dataStoreService.selectedCodeRow = aplicacionPresupuestaria;
 		this._router.navigateByUrl('/tableProgramaDetails/appPPresupuestaria');
 	}
 
 	volver() {
-		this.dataStoreService.selectedCodeRowFirstLevel = '';
+		this._dataStoreService.selectedCodeRowFirstLevel = '';
 		this._location.back();
 	}
 }
