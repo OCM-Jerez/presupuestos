@@ -58,6 +58,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private _rowData: IGastos[] = [];
 	private _subHeaderName = '';
 	private sub: Subscription;
+	private _defaultSortModel: ColumnState[] = [];
 
 	constructor() {
 		this.sub = this._route.params.subscribe((params) => {
@@ -90,8 +91,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
 				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
 				break;
-			default:
-				break;
 		}
 	}
 
@@ -107,6 +106,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	async _CalcDataGastan() {
+		this._dataTable = this.dataStoreService.dataTable;
 		let cod = '';
 		const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
 		const clasificationType = this.dataStoreService.dataTable.clasificationType;
@@ -126,8 +126,31 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this._gridApi = params.api;
 		this._columnApi = params.columnApi;
 		this._gridApi.expandAll();
-		// const defaultSortModel: ColumnState[] = [{ colId: 'DesEco', sort: 'asc', sortIndex: 0 }];
-		// params.columnApi.applyColumnState({ state: defaultSortModel });
+		console.log(this._dataTable);
+
+		const defaultSortModel: ColumnState[] = [
+			{
+				colId: this._dataTable.dataPropertyTable.codField,
+				sort: 'asc',
+				sortIndex: 0
+			}
+		];
+		params.columnApi.applyColumnState({ state: defaultSortModel });
+		// switch (this._path) {
+		// 	case 'details':
+		// 		this._defaultSortModel = [{ colId: 'DesEco', sort: 'asc', sortIndex: 0 }];
+		// 		params.columnApi.applyColumnState({ state: this._defaultSortModel });
+		// 		break;
+		// 	case 'gastan':
+		// 		this._defaultSortModel = [{ colId: 'DesPro', sort: 'asc', sortIndex: 0 }];
+		// 		params.columnApi.applyColumnState({ state: this._defaultSortModel });
+		// 		break;
+		// 	case 'organico':
+		// 		this._defaultSortModel = [{ colId: 'DesOrg', sort: 'asc', sortIndex: 0 }];
+		// 		params.columnApi.applyColumnState({ state: this._defaultSortModel });
+
+		// 		break;
+		// }
 	};
 
 	_pushAplicacionesPresupuestarias(rowData) {
