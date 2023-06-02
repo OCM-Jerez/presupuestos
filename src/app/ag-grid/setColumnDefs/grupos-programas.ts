@@ -10,7 +10,7 @@ export function getColumnDefsGastan(avalaibleYearsService: AvalaibleYearsService
 				{
 					headerName: 'Programa',
 					field: 'DesPro',
-					rowGroup: true,
+					// rowGroup: true,
 					showRowGroup: 'DesPro',
 					filter: true,
 					width: 700,

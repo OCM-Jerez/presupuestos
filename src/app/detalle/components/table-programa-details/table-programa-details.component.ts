@@ -56,6 +56,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private _dataTable: IDataTable;
 	private _gridApi: GridApi;
 	private _rowData: IGastos[] = [];
+	private _dataTotalizada: any;
 	private _subHeaderName = '';
 	private sub: Subscription;
 	private _defaultSortModel: ColumnState[] = [];
@@ -89,7 +90,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				this.title = 'Programas que componen el orgánico ' + this.dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
-				this.gridOptions = getGridOptions(this._rowData, this._columnDefs);
+				this.gridOptions = getGridOptions(this._dataTotalizada, this._columnDefs);
 				break;
 			case 'appPPresupuestaria':
 				console.log('appPPresupuestaria');
@@ -113,7 +114,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	async _CalcDataGastan() {
-		this._dataTable = this.dataStoreService.dataTable;
+		this._dataTotalizada = this.dataStoreService.dataTable;
 		let cod = '';
 		const codigoSearch = this.dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
 		const clasificationType = this.dataStoreService.dataTable.clasificationType;
@@ -125,8 +126,22 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		}
 		// this._rowData = await this._prepareDataGastosService.getDataAllYear();
 		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x[cod] == codigoSearch);
-		console.log('this.cod', cod);
-		console.log('this._rowData', this._rowData);
+
+		this._dataTotalizada = this._rowData.reduce((total, item) => {
+			if (!total[item.CodPro]) {
+				total[item.CodPro] = { ...item };
+			} else {
+				Object.keys(item).forEach((key) => {
+					if (key.endsWith('2023')) {
+						// Asume que todos los campos que terminan con "2023" son numéricos
+						total[item.CodPro][key] += item[key];
+					}
+				});
+			}
+			return total;
+		}, {});
+
+		this._dataTotalizada = Object.values(this._dataTotalizada);
 	}
 
 	onGridReady = (params: GridReadyEvent) => {
