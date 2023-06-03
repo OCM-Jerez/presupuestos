@@ -217,7 +217,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this._gridApi = params.api;
 		this._columnApi = params.columnApi;
 		this._gridApi.expandAll();
-		console.log(this._dataTable);
 
 		const defaultSortModel: ColumnState[] = [
 			{
