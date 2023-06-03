@@ -145,7 +145,7 @@ export class TableComponent implements OnInit, OnDestroy {
 
 			...this._avalaibleYearsService.getYearsSelected().map((year) => {
 				return {
-					// headerName: year,
+					headerName: year.toLocaleString(),
 					children: this._isIngresos
 						? this._createColumnsChildrenIngresos(year)
 						: this._createColumnsChildrenGastos(year)

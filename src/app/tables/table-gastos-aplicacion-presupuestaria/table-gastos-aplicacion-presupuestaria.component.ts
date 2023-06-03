@@ -98,7 +98,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
 
 		// 	...this.avalaibleYearsService.getYearsSelected().map((year) => {
 		// 		return {
-		// 			// headerName: year,
+		// 			headerName: year.toLocaleString(),
 		// 			children: this.createColumnsChildren(year)
 		// 		};
 		// 	})

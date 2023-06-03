@@ -83,8 +83,8 @@ export function getColumnDefsGastan(avalaibleYearsService: AvalaibleYearsService
 
 // ...this.avalaibleYearsService.getYearsSelected().map((year) => {
 // 	return {
-// 		// headerName: year,
-// 		// children: this.createColumnsChildren(year),
-// 		children: this.createColumnsChildrenDetalle(year)
+// headerName: year.toLocaleString(),
+// children: this.createColumnsChildren(year),
+// children: this.createColumnsChildrenDetalle(year)
 // 	};
 // })

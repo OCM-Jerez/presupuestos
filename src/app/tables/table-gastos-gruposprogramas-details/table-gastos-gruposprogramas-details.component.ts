@@ -98,7 +98,7 @@ export default class TableGastosGruposprogramasDetailsComponent implements OnIni
 
 		// 	...this.avalaibleYearsService.getYearsSelected().map((year) => {
 		// 		return {
-		// 			// headerName: year,
+		// 			// headerName: year.toLocaleString(),
 		// 			// children: this.createColumnsChildren(year),
 		// 			children: this.createColumnsChildrenDetalle(year)
 		// 		};

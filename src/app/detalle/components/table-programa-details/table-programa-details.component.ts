@@ -78,6 +78,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	async ngOnInit(): Promise<void> {
+		console.log('TableProgramaDetailsComponent ngOnInit');
+
 		this._dataTable = this._dataStoreService.dataTable;
 		switch (this._path) {
 			case 'details':
@@ -164,6 +166,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 
 	_setGridOptions() {
 		// const myRowData = this._isIngresos ? this._dataTable.rowDataIngresos : this._dataTable.rowDataGastos;
+		console.log('this._rowData', this._rowData);
+
 		this.gridOptions = {
 			defaultColDef: {
 				width: 130,
@@ -201,9 +205,10 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			paginationPageSize: 26,
 			onRowClicked: () => {
 				const selectedRows = this.agGrid.api.getSelectedNodes();
-				this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+				this._dataStoreService.selectedCodeRowFirstLevel =
+					selectedRows[0].data.CodPro + ' ' + selectedRows[0].data.DesPro;
 				this._hasRowClicked.change(selectedRows[0].key);
-				console.log(selectedRows[0].data.DesPro);
+				console.log(selectedRows[0].data.CodPro + ' ' + selectedRows[0].data.DesPro);
 			}
 		} as GridOptions;
 	}
@@ -223,11 +228,11 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		];
 		params.columnApi.applyColumnState({ state: defaultSortModel });
 
-		onRowClicked: () => {
-			const selectedRows = this.agGrid.api.getSelectedNodes();
-			this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-			this._hasRowClicked.change(selectedRows[0].key);
-		};
+		// onRowClicked: () => {
+		// 	const selectedRows = this.agGrid.api.getSelectedNodes();
+		// 	this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
+		// 	this._hasRowClicked.change(selectedRows[0].key);
+		// };
 		// switch (this._path) {
 		// 	case 'details':
 		// 		this._defaultSortModel = [{ colId: 'DesEco', sort: 'asc', sortIndex: 0 }];
@@ -295,12 +300,59 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this.isExpanded = false;
 	}
 
-	showAplicacionPresupuestaria() {
-		const selectedRows = this.agGrid.api.getSelectedNodes();
-		const aplicacionPresupuestaria =
-			selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
-		this._dataStoreService.selectedCodeRow = aplicacionPresupuestaria;
-		this._router.navigateByUrl('/tableProgramaDetails/appPPresupuestaria');
+	async showAplicacionPresupuestaria() {
+		// const selectedRows = this.agGrid.api.getSelectedNodes();
+		// const aplicacionPresupuestaria =
+		// 	selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
+		// this._dataStoreService.selectedCodeRow = aplicacionPresupuestaria;
+		console.log('this._router.navigateByUrl');
+
+		// switch (this._path) {
+		// case 'details':
+		console.log('details');
+		this.title = 'Detalle programa' + this._dataStoreService.selectedCodeRowFirstLevel;
+		await this._CalcDataDetails();
+		this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
+		this._setGridOptions();
+		this._gridApi.applyTransaction({ update: this._rowData });
+
+		console.log('this._gridApi.redrawRows()');
+
+		// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
+		// 		break;
+		// 	case 'gastan':
+		// 		console.log('gastan');
+		// 		this.title = 'Programas que gastan del económico ' + this._dataStoreService.selectedCodeRowFirstLevel;
+		// 		await this._CalcDataGastan();
+		// 		this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
+		// 		this._setGridOptions();
+		// 		// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
+		// 		this.titleButtom = 'Detalle programa seleccionado';
+		// 		this.showButtomExpanded = false;
+
+		// 		break;
+		// 	case 'organico':
+		// 		console.log('organico');
+		// 		this.title = 'Programas que componen el orgánico ' + this._dataStoreService.selectedCodeRowFirstLevel;
+		// 		await this._CalcDataGastan();
+		// 		this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
+		// 		this._setGridOptions();
+		// 		// this.gridOptions = getGridOptions(this._dataTotalizada, this._columnDefs, this);
+		// 		this.titleButtom = 'Detalle programa seleccionado';
+		// 		this.showButtomExpanded = false;
+		// 		break;
+		// 	case 'appPPresupuestaria':
+		// 		console.log('appPPresupuestaria');
+		// 		this.title = 'Aplicación presupuestaria ' + this._dataStoreService.selectedCodeRowFirstLevel;
+		// 		await this._CalcDataGastan();
+		// 		this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
+		// 		this._setGridOptions();
+		// 		// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
+		// 		this.showButtomExpanded = false;
+		// 		break;
+		// }
+
+		// this._router.navigateByUrl('/tableProgramaDetails/details');
 	}
 
 	volver() {
