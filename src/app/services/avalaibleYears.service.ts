@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class AvalaibleYearsService {
 	public subject$ = new BehaviorSubject<string>('2021');
+	public yearsSubject$ = new BehaviorSubject<number[]>([2021]);
 	public yearsSelected: number[] = [];
 	private _message = '';
 
@@ -73,6 +74,7 @@ export class AvalaibleYearsService {
 
 	setYearsSelected(yearSelected: number[]): number[] {
 		this.yearsSelected = yearSelected;
+		this.yearsSubject$.next(this.yearsSelected);
 		return this.yearsSelected;
 	}
 }
