@@ -8,7 +8,6 @@
   </li>
  </ul>
 
-Comienzo a trabajar en develop
 # Caracteristicas ⭐
 
 <ul>
