@@ -9,7 +9,6 @@
  </ul>
 
 # Caracteristicas ⭐
-Solo para avanzar develop
 
 <ul>
   <li>Permite listar los datos agrupados por diferentes conceptos.</li>
