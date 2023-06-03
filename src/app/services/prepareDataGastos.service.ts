@@ -17,7 +17,7 @@ import { asynForEach } from '@utils/util';
 })
 export class PrepareDataGastosService {
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
-	private dataGasto: IDataGasto = <IDataGasto>{};
+	// private dataGasto: IDataGasto = <IDataGasto>{};
 
 	// Itera por cada uno de los años disponibles para gastos
 	async getDataAllYear(): Promise<any[]> {
@@ -38,7 +38,7 @@ export class PrepareDataGastosService {
 	// Selecciona datos gastos de un año
 	async getDataYear(year: number) {
 		const result = [];
-		this.dataGasto = {
+		const dataGasto: IDataGasto = {
 			CodPro: `CodPro`,
 			DesPro: `DesPro`,
 			CodOrg: `CodOrg`,
@@ -60,22 +60,22 @@ export class PrepareDataGastosService {
 		await this.getYearDataJson(year).then((data) => {
 			Object.entries(data).forEach((currentValue) => {
 				result.push({
-					[this.dataGasto.CodPro]: currentValue[1][this.dataGasto.CodPro],
-					[this.dataGasto.DesPro]: currentValue[1][this.dataGasto.DesPro],
-					[this.dataGasto.CodOrg]: currentValue[1][this.dataGasto.CodOrg],
-					[this.dataGasto.DesOrg]: currentValue[1][this.dataGasto.DesOrg],
-					[this.dataGasto.CodCap]: currentValue[1][this.dataGasto.CodCap],
-					[this.dataGasto.DesCap]: currentValue[1][this.dataGasto.DesCap],
-					[this.dataGasto.CodEco]: currentValue[1][this.dataGasto.CodEco],
-					[this.dataGasto.DesEco]: currentValue[1][this.dataGasto.DesEco],
-					[this.dataGasto.Iniciales]: currentValue[1]['Iniciales'],
-					[this.dataGasto.Modificaciones]: currentValue[1]['Modificaciones'],
-					[this.dataGasto.Definitivas]: currentValue[1]['Definitivas'],
-					[this.dataGasto.GastosComprometidos]: currentValue[1]['GastosComprometidos'],
-					[this.dataGasto.ObligacionesReconocidasNetas]: currentValue[1]['ObligacionesReconocidasNetas'],
-					[this.dataGasto.Pagos]: currentValue[1]['Pagos'],
-					[this.dataGasto.ObligacionesPendientePago]: currentValue[1]['ObligacionesPendientePago'],
-					[this.dataGasto.RemanenteCredito]: currentValue[1]['RemanenteCredito']
+					[dataGasto.CodPro]: currentValue[1][dataGasto.CodPro],
+					[dataGasto.DesPro]: currentValue[1][dataGasto.DesPro],
+					[dataGasto.CodOrg]: currentValue[1][dataGasto.CodOrg],
+					[dataGasto.DesOrg]: currentValue[1][dataGasto.DesOrg],
+					[dataGasto.CodCap]: currentValue[1][dataGasto.CodCap],
+					[dataGasto.DesCap]: currentValue[1][dataGasto.DesCap],
+					[dataGasto.CodEco]: currentValue[1][dataGasto.CodEco],
+					[dataGasto.DesEco]: currentValue[1][dataGasto.DesEco],
+					[dataGasto.Iniciales]: currentValue[1]['Iniciales'],
+					[dataGasto.Modificaciones]: currentValue[1]['Modificaciones'],
+					[dataGasto.Definitivas]: currentValue[1]['Definitivas'],
+					[dataGasto.GastosComprometidos]: currentValue[1]['GastosComprometidos'],
+					[dataGasto.ObligacionesReconocidasNetas]: currentValue[1]['ObligacionesReconocidasNetas'],
+					[dataGasto.Pagos]: currentValue[1]['Pagos'],
+					[dataGasto.ObligacionesPendientePago]: currentValue[1]['ObligacionesPendientePago'],
+					[dataGasto.RemanenteCredito]: currentValue[1]['RemanenteCredito']
 				});
 			});
 		});
