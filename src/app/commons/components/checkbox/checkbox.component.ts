@@ -14,6 +14,7 @@ import { ReloadTableService } from '@services/reloadTable.service';
 export class CheckboxComponent implements OnInit {
 	@Input() multiYears: boolean;
 	@Output() hasChangeCheckbox = new EventEmitter<boolean>();
+	// Problema para typar year ya que puede ser una array de number y string
 	public years: any[] = [];
 	private _lenghtYears: number;
 
