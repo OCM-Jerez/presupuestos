@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
+import { ReloadTableService } from '@services/reloadTable.service';
 
 @Component({
 	selector: 'app-checkbox',
@@ -17,6 +18,7 @@ export class CheckboxComponent implements OnInit {
 	private _lenghtYears: number;
 
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
+	private _reloadTableService = inject(ReloadTableService);
 
 	ngOnInit(): void {
 		this.years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023].map((year) => ({ year, checked: false }));
@@ -76,5 +78,7 @@ export class CheckboxComponent implements OnInit {
 		const yearSelecteds = selectedYears.map((year) => year.year);
 		this._avalaibleYearsService.setYearsSelected(yearSelecteds);
 		this.hasChangeCheckbox.emit();
+
+		this._reloadTableService.triggerReloadTable();
 	}
 }
