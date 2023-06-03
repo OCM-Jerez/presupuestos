@@ -8,7 +8,7 @@
   </li>
  </ul>
 
- cambio misma linea que en develop
+ solo para avanzar develop
 
 # Caracteristicas ⭐
 
