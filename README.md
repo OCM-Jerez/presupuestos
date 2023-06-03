@@ -10,6 +10,9 @@
 
 # Caracteristicas ⭐
 
+
+ solo para avanzar main
+
 <ul>
   <li>Permite listar los datos agrupados por diferentes conceptos.</li>
   <ul>
