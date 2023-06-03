@@ -22,13 +22,13 @@ import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 // import { IDataGraph } from '@interfaces/dataGraph.interface';
 import { IGastos } from '@interfaces/gastos.interface';
 
-import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
-import localeTextESPes from '@assets/data/localeTextESPes.json';
+// import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
+// import localeTextESPes from '@assets/data/localeTextESPes.json';
 
 // import { accumulate } from '../../commons/util/util';
 
 import { getColumnDefs } from '../../ag-grid/setColumnDefs/aplicacion-presupuestaria';
-import { getGridOptions } from '../../ag-grid/setGridOptions/programa-details';
+// import { getGridOptions } from '../../ag-grid/setGridOptions/programa-details';
 
 @Component({
 	selector: 'app-table-gastos-aplicacion-presupuestaria',

@@ -22,12 +22,12 @@ import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 //
 import { IGastos } from '@interfaces/gastos.interface';
 
-import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
-import localeTextESPes from '@assets/data/localeTextESPes.json';
+// import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
+// import localeTextESPes from '@assets/data/localeTextESPes.json';
 
 //
 
-import { getGridOptions } from '../../ag-grid/setGridOptions/programa-details';
+// import { getGridOptions } from '../../ag-grid/setGridOptions/programa-details';
 import { getColumnDefsGastan } from '../../ag-grid/setColumnDefs/grupos-programas';
 
 @Component({
