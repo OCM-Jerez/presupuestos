@@ -6,7 +6,9 @@
 	</div>
 
 	<app-table-presupuesto />
-	<app-treemap />
+	<div *ngIf="multiYears">
+		<app-treemap />
+	</div>
 
 	<app-tabs>
 		<app-tab
