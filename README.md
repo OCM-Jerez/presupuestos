@@ -3,8 +3,6 @@
 
 # Motivación 💪
 
-ssssssssssssssssssssssjfjhijfwhbuijghbuijhbsewr
-
 <ul>
   <li>Contar con una aplicación WEB que nos permita mostrar los datos de las liquidaciones de presupuestos municipales de una forma facil y eficaz.</li>
   </li>
