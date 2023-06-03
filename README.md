@@ -8,8 +8,6 @@
   </li>
  </ul>
 
- solo para avanzar develop
-
 # Caracteristicas ⭐
 
 <ul>
