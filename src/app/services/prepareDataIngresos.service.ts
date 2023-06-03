@@ -17,7 +17,7 @@ import { asynForEach } from '@utils/util';
 export class PrepareDataIngresosService {
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
 
-	private dataIngreso: IDataIngreso = <IDataIngreso>{};
+	// private dataIngreso: IDataIngreso = <IDataIngreso>{};
 
 	// Itera por cada uno de los años disponibles para ingresos
 	async getDataAllYear(): Promise<any[]> {
@@ -33,7 +33,7 @@ export class PrepareDataIngresosService {
 	// Selecciona datos ingresos de un año
 	async getDataYear(year: number) {
 		const result = [];
-		this.dataIngreso = {
+		const dataIngreso: IDataIngreso = {
 			CodEco: `CodEco`,
 			Iniciales: `Iniciales${year}`,
 			Modificaciones: `Modificaciones${year}`,
@@ -50,17 +50,17 @@ export class PrepareDataIngresosService {
 		await this.getYearDataJson(year).then((data) => {
 			Object.entries(data).forEach((currentValue) => {
 				result.push({
-					[this.dataIngreso.CodEco]: currentValue[1][this.dataIngreso.CodEco],
-					[this.dataIngreso.Iniciales]: currentValue[1]['Iniciales'],
-					[this.dataIngreso.Modificaciones]: currentValue[1]['Modificaciones'],
-					[this.dataIngreso.Definitivas]: currentValue[1]['Definitivas'],
-					[this.dataIngreso.DerechosReconocidos]: currentValue[1]['DerechosReconocidos'],
-					[this.dataIngreso.DerechosAnulados]: currentValue[1]['DerechosAnulados'],
-					[this.dataIngreso.DerechosCancelados]: currentValue[1]['DerechosCancelados'],
-					[this.dataIngreso.DerechosReconocidosNetos]: currentValue[1]['DerechosReconocidosNetos'],
-					[this.dataIngreso.RecaudacionNeta]: currentValue[1]['RecaudacionNeta'],
-					[this.dataIngreso.DerechosPendienteCobro]: currentValue[1]['DerechosPendienteCobro'],
-					[this.dataIngreso.DiferenciaPrevision]: currentValue[1]['DiferenciaPrevision']
+					[dataIngreso.CodEco]: currentValue[1][dataIngreso.CodEco],
+					[dataIngreso.Iniciales]: currentValue[1]['Iniciales'],
+					[dataIngreso.Modificaciones]: currentValue[1]['Modificaciones'],
+					[dataIngreso.Definitivas]: currentValue[1]['Definitivas'],
+					[dataIngreso.DerechosReconocidos]: currentValue[1]['DerechosReconocidos'],
+					[dataIngreso.DerechosAnulados]: currentValue[1]['DerechosAnulados'],
+					[dataIngreso.DerechosCancelados]: currentValue[1]['DerechosCancelados'],
+					[dataIngreso.DerechosReconocidosNetos]: currentValue[1]['DerechosReconocidosNetos'],
+					[dataIngreso.RecaudacionNeta]: currentValue[1]['RecaudacionNeta'],
+					[dataIngreso.DerechosPendienteCobro]: currentValue[1]['DerechosPendienteCobro'],
+					[dataIngreso.DiferenciaPrevision]: currentValue[1]['DiferenciaPrevision']
 				});
 			});
 		});
@@ -74,7 +74,6 @@ export class PrepareDataIngresosService {
 			item.CodCon = Math.floor(item.CodEco / 100);
 			item.DesCon = ingresosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodCon).descripcion;
 		});
-
 		return result;
 	}
 
