@@ -1,5 +1,3 @@
-/* https://www.w3schools.com/cssref/css_selectors.asp */
-// https://fixu.cl/que-es-la-metodologia-bem-y-como-se-aplica-al-front-end/
 @import '/src/app/scss/variables';
 
 @media screen and (max-width: 3399.98px) {
@@ -27,11 +25,7 @@
 }
 
 @media screen and (max-width: 575.98px) {
-	#sankey {
-		height: 350px;
-	}
-
-	#sankey1 {
+	#Ingresos, #Gastos {
 		height: 350px;
 	}
 }
