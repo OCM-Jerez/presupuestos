@@ -114,17 +114,40 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 						}
 					}
 				},
-				{
-					headerName: 'Creditos definitivos',
-					field: `Definitivas2023`,
-					width: 120
-				},
-				{
-					headerName: 'Pagos',
-					field: `Pagos2023`,
-					width: 120
-				}
+
+				...avalaibleYearsService.getYearsSelected().map((year) => {
+					return {
+						headerName: year.toLocaleString(),
+						children: createColumnsChildren(year)
+					};
+				})
+
+				// {
+				// 	headerName: 'Creditos definitivos',
+				// 	field: `Definitivas2023`,
+				// 	width: 120
+				// },
+				// {
+				// 	headerName: 'Pagos',
+				// 	field: `Pagos2023`,
+				// 	width: 120
+				// }
 			]
+		}
+	];
+}
+
+function createColumnsChildren(year: number) {
+	return [
+		{
+			headerName: 'Creditos definitivos',
+			field: `Definitivas${year}`,
+			width: 120
+		},
+		{
+			headerName: 'Pagos',
+			field: `Pagos${year}`,
+			width: 120
 		}
 	];
 }
