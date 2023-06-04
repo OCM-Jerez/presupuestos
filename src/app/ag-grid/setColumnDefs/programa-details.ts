@@ -4,6 +4,7 @@ import { ColGroupDef } from 'ag-grid-community';
 export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsService, _subHeaderName): ColGroupDef[] {
 	return [
 		{
+			// headerName: 'headerName',
 			children: [
 				{
 					headerName: _subHeaderName,
@@ -22,32 +23,30 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 						} else {
 							return '';
 						}
-					},
-					cellRendererParams: {
-						suppressCount: true,
-						innerRenderer: (params) => {
-							// console.log('params-1--->', params);
-							return params?.node?.group && params?.value
-								? `<span style="color: black; font-size: 18px; margin-left: 0px;">${params.value}</span>`
-								: '';
-						},
-
-						footerValueGetter(params) {
-							// console.log('params -2--->', params);
-							if (!params?.value) {
-								return '';
-							}
-
-							switch (params.node.level) {
-								case 0: // Total programa.
-									return `<span style="color: red; font-size: 18px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
-								// case -1: // Total general.
-								//   return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
-								default:
-									return 'SIN FORMATO';
-							}
-						}
 					}
+					// cellRendererParams: {
+					// 	suppressCount: true,
+					// 	innerRenderer: (params) => {
+					// 		return params?.node?.group && params?.value
+					// 			? `<span style="color: black; font-size: 18px; margin-left: 0px;">${params.value}</span>`
+					// 			: '';
+					// 	},
+
+					// 	footerValueGetter(params) {
+					// 		if (!params?.value) {
+					// 			return '';
+					// 		}
+
+					// 		switch (params.node.level) {
+					// 			case 0: // Total programa.
+					// 			// return `<span style="color: red; font-size: 18px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
+					// 			// case -1: // Total general.
+					// 			//   return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
+					// 			default:
+					// 				return 'SIN FORMATO';
+					// 		}
+					// 	}
+					// }
 				},
 				{
 					headerName: 'Capítulo',
@@ -60,7 +59,6 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 					columnGroupShow: 'closed',
 					cellRenderer: 'agGroupCellRenderer',
 					valueGetter: (params) => {
-						// console.log('params -3--->', params);
 						if (params?.data) {
 							const valCap = params.data.CodCap + ' - ' + params.data.DesCap;
 							return `<span style="color: black; font-size: 16px; margin-left: 0px;">${valCap}</span>`;
@@ -71,7 +69,6 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 					cellRendererParams: {
 						suppressCount: true,
 						innerRenderer: (params) => {
-							// console.log('params -4--->', params);
 							if (!params?.value) {
 								return '';
 							}
@@ -83,13 +80,12 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 							}
 						},
 						footerValueGetter(params) {
-							// console.log('params -5--->', params);
 							if (!params?.value) return '';
 
 							const val = params.value.split(' - ')[1];
 							switch (params.node.level) {
 								case 2: // Total capítulo.
-									return `<span style="color: red; font-size: 18px;  font-weight: bold; margin-left: 0px;"> Total ${val}</span>`;
+								// return `<span style="color: red; font-size: 18px;  font-weight: bold; margin-left: 0px;"> Total ${val}</span>`;
 								case -1: // Total general.
 									return '';
 								default:
@@ -106,7 +102,6 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 					filter: true,
 					cellRenderer: 'agGroupCellRenderer',
 					valueGetter: (params) => {
-						// console.log('params -6--->', params);
 						if (params?.data) {
 							return params.data.CodEco + ' - ' + params.data.DesEco;
 						} else {
@@ -114,17 +109,29 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 						}
 					}
 				},
-				{
-					headerName: 'Creditos definitivos',
-					field: `Definitivas2023`,
-					width: 120
-				},
-				{
-					headerName: 'Pagos',
-					field: `Pagos2023`,
-					width: 120
-				}
+
+				...avalaibleYearsService.getYearsSelected().map((year) => {
+					return {
+						headerName: year.toLocaleString(),
+						children: createColumnsChildren(year)
+					};
+				})
 			]
+		}
+	];
+}
+
+function createColumnsChildren(year: number) {
+	return [
+		{
+			headerName: 'Creditos definitivos',
+			field: `Definitivas${year}`,
+			width: 120
+		},
+		{
+			headerName: 'Pagos',
+			field: `Pagos${year}`,
+			width: 120
 		}
 	];
 }
