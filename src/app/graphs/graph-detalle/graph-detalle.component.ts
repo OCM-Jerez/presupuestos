@@ -140,28 +140,26 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 	renderChartLines() {
 		Highcharts.chart({
 			title: {
-				text: this._dataTable.dataPropertyTable.graphTitle
-				// fontSize: 40
+				text: this._dataTable.dataPropertyTable.graphTitle,
+				style: {
+					fontSize: '24px'
+				}
 			},
 			subtitle: {
-				text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRowFirstLevel}`
-				// fontSize: 20
+				text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRowFirstLevel}`,
+				style: {
+					fontSize: '24px'
+				}
 			},
 			legend: {
 				itemStyle: {
-					fontSize: '22px'
+					fontSize: '16px'
 				}
 			},
 			chart: {
 				type: 'line',
 				renderTo: 'chart-containerLines'
 			},
-			// title: {
-			//   text: ''
-			// },
-			// subtitle: {
-			//   text: ''
-			// },
 			xAxis: {
 				title: {
 					text: 'Años',
@@ -169,7 +167,11 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 						fontSize: '16px'
 					}
 				},
-				// categories: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023']
+				labels: {
+					style: {
+						fontSize: '16px'
+					}
+				},
 				categories: this.data.map((item) => item.year)
 			},
 			yAxis: {
@@ -181,14 +183,12 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 				}
 			},
 			plotOptions: {
-				// scatter: {
-				//   marker: {
-				//     radius: 8
-				//   }
-				// },
 				line: {
 					dataLabels: {
-						enabled: true
+						enabled: true,
+						style: {
+							fontSize: '14px'
+						}
 					},
 					enableMouseTracking: false
 				}
@@ -203,7 +203,6 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 					},
 					name: 'Definitivas',
 					data: this.data.map((item) => item.Definitivas)
-					// data: [16.0, 18.2, 23.1, 27.9, 32.2, 36.4, 39.8, 38.4, this.data[0].Definitivas]
 				},
 				{
 					type: 'line',
@@ -214,84 +213,6 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 					},
 					name: this._nameSerie2,
 					data: this.data.map((item) => item.Netas)
-					// data: [-2.9, -3.6, -0.6, 4.8, 10.2, 14.5, 17.6, 16.5, 12.0]
-				}
-			]
-		});
-	}
-
-	renderChartMarker() {
-		Highcharts.chart({
-			legend: {
-				itemStyle: {
-					fontSize: '22px'
-				}
-			},
-			chart: {
-				type: 'scatter',
-				renderTo: 'chart-containerMarker'
-			},
-			title: {
-				text: ''
-			},
-			subtitle: {
-				// text: 'Source: ' +
-				//   '<a href="https://en.wikipedia.org/wiki/List_of_cities_by_average_temperature" ' +
-				//   'target="_blank">Wikipedia.com</a>'
-			},
-			xAxis: {
-				title: {
-					text: 'Años',
-					style: {
-						fontSize: '16px'
-					}
-				},
-				// categories: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023']
-				categories: this.data.map((item) => item.year)
-			},
-			yAxis: {
-				title: {
-					text: 'en miles de Euros',
-					style: {
-						fontSize: '16px'
-					}
-				}
-			},
-			plotOptions: {
-				// scatter: {
-				//   marker: {
-				//     radius: 8
-				//   }
-				// },
-				line: {
-					dataLabels: {
-						enabled: true
-					},
-					enableMouseTracking: false
-				}
-			},
-			series: [
-				{
-					type: 'scatter',
-					marker: {
-						symbol: 'circle',
-						fillColor: 'green',
-						radius: 8
-					},
-					name: 'Definitivas',
-					data: this.data.map((item) => item.Definitivas)
-					// data: [16.0, 18.2, 23.1, 27.9, 32.2, 36.4, 39.8, 38.4, this.data[0].Definitivas]
-				},
-				{
-					type: 'scatter',
-					marker: {
-						symbol: 'square',
-						fillColor: 'red',
-						radius: 8
-					},
-					name: this._nameSerie2,
-					data: this.data.map((item) => item.Netas)
-					// data: [-2.9, -3.6, -0.6, 4.8, 10.2, 14.5, 17.6, 16.5, 12.0]
 				}
 			]
 		});
@@ -301,7 +222,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 		Highcharts.chart('chart-container', {
 			legend: {
 				itemStyle: {
-					fontSize: '22px'
+					fontSize: '16px'
 				}
 			},
 			chart: {
@@ -311,13 +232,16 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 				text: ''
 			},
 			subtitle: {
-				// text: 'Source: ' +
-				//   '<a href="https://en.wikipedia.org/wiki/List_of_cities_by_average_temperature" ' +
-				//   'target="_blank">Wikipedia.com</a>'
+				text: ''
 			},
 			xAxis: {
 				title: {
 					text: 'Años',
+					style: {
+						fontSize: '16px'
+					}
+				},
+				labels: {
 					style: {
 						fontSize: '16px'
 					}
@@ -335,7 +259,10 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 			plotOptions: {
 				bubble: {
 					dataLabels: {
-						enabled: true
+						enabled: true,
+						style: {
+							fontSize: '12px'
+						}
 					},
 					enableMouseTracking: false
 				}
@@ -355,6 +282,80 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 		});
 	}
 
+	renderChartMarker() {
+		Highcharts.chart({
+			legend: {
+				itemStyle: {
+					fontSize: '16px'
+				}
+			},
+			chart: {
+				type: 'scatter',
+				renderTo: 'chart-containerMarker'
+			},
+			title: {
+				text: ''
+			},
+			subtitle: {
+				text: ''
+			},
+			xAxis: {
+				title: {
+					text: 'Años',
+					style: {
+						fontSize: '16px'
+					}
+				},
+				labels: {
+					style: {
+						fontSize: '16px'
+					}
+				},
+				categories: this.data.map((item) => item.year)
+			},
+			yAxis: {
+				title: {
+					text: 'en miles de Euros',
+					style: {
+						fontSize: '16px'
+					}
+				}
+			},
+			plotOptions: {
+				line: {
+					dataLabels: {
+						enabled: true,
+						style: {
+							fontSize: '14px'
+						}
+					},
+					enableMouseTracking: false
+				}
+			},
+			series: [
+				{
+					type: 'scatter',
+					marker: {
+						symbol: 'circle',
+						fillColor: 'green',
+						radius: 8
+					},
+					name: 'Definitivas',
+					data: this.data.map((item) => item.Definitivas)
+				},
+				{
+					type: 'scatter',
+					marker: {
+						symbol: 'square',
+						fillColor: 'red',
+						radius: 8
+					},
+					name: this._nameSerie2,
+					data: this.data.map((item) => item.Netas)
+				}
+			]
+		});
+	}
 	private _createColumns(): void {
 		this.columnDefs = [
 			{
