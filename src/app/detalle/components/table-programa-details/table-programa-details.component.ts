@@ -131,6 +131,21 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
 		const codigoSearch = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
 		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x.CodPro == codigoSearch);
+
+		this._rowData = Object.values(
+			this._rowData.reduce((acc, obj) => {
+				const key = obj.CodEco;
+				// Si el objeto con 'CodEco' no existe en el acumulador, lo agregamos
+				if (!acc[key]) {
+					acc[key] = { ...obj };
+				} else {
+					// Si ya existe un objeto con el mismo 'CodEco', combinamos ambos objetos
+					acc[key] = { ...acc[key], ...obj };
+				}
+				return acc;
+			}, {})
+		);
+		console.log('result', this._rowData);
 	}
 
 	async _CalcDataGastan() {
