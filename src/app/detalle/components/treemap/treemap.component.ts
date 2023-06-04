@@ -120,13 +120,21 @@ export class TreemapComponent implements OnInit, OnDestroy {
 				enabled: true,
 				headerFormat: `<span class="mb-2">{point.key}</span>`,
 				pointFormat: `<span class="mb-2">{point.key}</span>`,
-				useHTML: true
+				useHTML: true,
+				style: {
+					fontSize: '18px'
+				}
 			},
 			series: [
 				{
 					name: null,
 					innerSize: '50%',
-					data: data
+					data: data,
+					dataLabels: {
+						style: {
+							fontSize: '14px'
+						}
+					}
 				}
 			]
 		} as any);
