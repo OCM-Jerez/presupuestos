@@ -9,5 +9,8 @@
 				<span class="checkbox-label">{{ item.year }}</span>
 			</span>
 		</label>
+		<button *ngIf="multiYears" type="button" class="OCM-button" style="font-size: 19px" (click)="toggle()">
+			{{ textButton }}
+		</button>
 	</div>
 </fieldset>
