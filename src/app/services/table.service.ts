@@ -37,6 +37,7 @@ export class TableService {
 	}
 
 	async loadData(tipoClasificacion?: CLASIFICATION_TYPE): Promise<IDataTable> {
+		const _startTime = performance.now();
 		const dataPropertyTable = getClasificacion(tipoClasificacion) as IDataProperty;
 
 		if (this._dataStoreService.dataTable === undefined) {
@@ -54,6 +55,8 @@ export class TableService {
 			: { dataPropertyTable, clasificationType: tipoClasificacion, rowDataIngresos, rowDataGastos: rowData };
 
 		this._dataStoreService.dataTable = sendDataTable;
+		const endTime = performance.now();
+		console.log(`Tiempo empleado para generar data: ${Math.round(endTime - _startTime)} ms`);
 
 		return sendDataTable;
 	}
