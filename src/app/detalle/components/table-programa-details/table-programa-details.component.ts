@@ -73,7 +73,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	constructor() {
 		this.sub = this._route.params.subscribe((params) => {
 			this._path = params['origen'];
-			console.log('this._path', this._path);
+			// console.log('this._path', this._path);
 		});
 	}
 
@@ -84,7 +84,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		switch (this._path) {
 			case 'details':
 				console.log('details');
-				this.title = 'Detalle programa' + this._dataStoreService.selectedCodeRowFirstLevel;
+				this.title = 'Detalle programa ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataDetails();
 				this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
 				this._setGridOptions();
@@ -145,7 +145,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				return acc;
 			}, {})
 		);
-		console.log('result', this._rowData);
+		// console.log('result', this._rowData);
 	}
 
 	async _CalcDataGastan() {
@@ -181,7 +181,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 
 	_setGridOptions() {
 		// const myRowData = this._isIngresos ? this._dataTable.rowDataIngresos : this._dataTable.rowDataGastos;
-		console.log('this._rowData', this._rowData);
+		// console.log('this._rowData', this._rowData);
 
 		this.gridOptions = {
 			defaultColDef: {
@@ -223,7 +223,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				this._dataStoreService.selectedCodeRowFirstLevel =
 					selectedRows[0].data.CodPro + ' ' + selectedRows[0].data.DesPro;
 				this._hasRowClicked.change(selectedRows[0].key);
-				console.log(selectedRows[0].data.CodPro + ' ' + selectedRows[0].data.DesPro);
+				// console.log(selectedRows[0].data.CodPro + ' ' + selectedRows[0].data.DesPro);
 			}
 		} as GridOptions;
 	}
@@ -319,18 +319,17 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		// const aplicacionPresupuestaria =
 		// 	selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
 		// this._dataStoreService.selectedCodeRow = aplicacionPresupuestaria;
-		console.log('this._router.navigateByUrl');
 
 		// switch (this._path) {
 		// case 'details':
-		console.log('details');
-		this.title = 'Detalle programa' + this._dataStoreService.selectedCodeRowFirstLevel;
+		this.title = 'Detalle programa ' + this._dataStoreService.selectedCodeRowFirstLevel;
 		await this._CalcDataDetails();
 		this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
 		this._setGridOptions();
-		this._gridApi.applyTransaction({ update: this._rowData });
-
-		console.log('this._gridApi.redrawRows()');
+		this._gridApi.setRowData(this._rowData);
+		this._gridApi.setColumnDefs(this._columnDefs);
+		this._gridApi.expandAll();
+		this._router.navigateByUrl('/tableProgramaDetails/details');
 
 		// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
 		// 		break;
