@@ -1,3 +1,4 @@
+// import { AppComponent } from './../../../app.component';
 import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { AsyncPipe, Location, NgIf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -29,6 +30,7 @@ import { accumulate } from '../../../commons/util/util';
 
 import { getColumnDefsDetails } from '../../../ag-grid/setColumnDefs/programa-details';
 import { getColumnDefsGastan } from '../../../ag-grid/setColumnDefs/grupos-programas';
+import { getColumnDefsAppPresupuestaria } from '../../../ag-grid/setColumnDefs/aplicacion-presupuestaria';
 
 // import { getGridOptions } from '../../../ag-grid/setGridOptions/programa-details';
 import { HasRowClicked } from '@services/hasRowClicked.service';
@@ -54,11 +56,13 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	public gridOptions: GridOptions;
 	private _path: string;
 	public title: string;
+	public buttonExpandirColapsar = true;
 	public isExpanded = true;
 	public messageYears = this.avalaibleYearsService.message;
 	public titleButtom = 'Detalle aplicación presupuestaria';
 	public showButtomExpanded = true;
 	public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
+	public hasAppPresupuestaria = false;
 
 	private _columnApi: ColumnApi;
 	private _columnDefs: (ColDef | ColGroupDef)[];
@@ -69,6 +73,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private _subHeaderName = '';
 	private sub: Subscription;
 	private _defaultSortModel: ColumnState[] = [];
+	private _appPresupuestarias = [];
 
 	constructor() {
 		this.sub = this._route.params.subscribe((params) => {
@@ -89,6 +94,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
 				this._setGridOptions();
 				// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
+				this.titleButtom = 'Detalle app presupuestaria seleccionado';
 				break;
 			case 'gastan':
 				console.log('gastan');
@@ -111,8 +117,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				this.titleButtom = 'Detalle programa seleccionado';
 				this.showButtomExpanded = false;
 				break;
-			case 'appPPresupuestaria':
-				console.log('appPPresupuestaria');
+			case 'appPresupuestaria':
+				console.log('appPresupuestaria');
 				this.title = 'Aplicación presupuestaria ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
@@ -264,19 +270,28 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		// }
 	};
 
-	_pushAplicacionesPresupuestarias(rowData) {
-		const aplicacionesPresupuestarias = [];
-		const dataFinal = [];
-		const years = this.avalaibleYearsService.getYearsSelected();
+	_createAppPresupuestarias() {
 		// Aplicación presupuestaria = orgánico + programa + económico.
 		// Creo item para cada uno de los aplicaciones presupuestarias existentes en programa seleccionado.
-		rowData.map((item) => {
-			item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
-			aplicacionesPresupuestarias.push(item.AplicacionPresupuestaria);
+		this._rowData.map((item) => {
+			item.appPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
+			this._appPresupuestarias.push(item.appPresupuestaria);
 		});
+		// console.log('aplicacionesPresupuestarias', this._appPresupuestarias);
+	}
 
-		aplicacionesPresupuestarias.map((item) => {
-			const dataIntermedio = rowData.filter((x) => x.AplicacionPresupuestaria === item);
+	_filterByAppPresupuestaria(appPresupuestaria) {
+		const years = this.avalaibleYearsService.getYearsSelected();
+		const dataFinal = [];
+		// console.log('this._appPresupuestarias', this._appPresupuestarias);
+		// console.log('appPresupuestaria', appPresupuestaria);
+		this._appPresupuestarias = this._appPresupuestarias.filter((x) => x === appPresupuestaria);
+		// console.log('this._appPresupuestarias', this._appPresupuestarias);
+
+		this._appPresupuestarias.map((item) => {
+			const dataIntermedio = this._rowData.filter((x) => x.appPresupuestaria === item);
+			// console.log('dataIntermedio', dataIntermedio);
+
 			const value = {
 				AplicacionPresupuestaria: item,
 				CodOrg: item.split('-')[0],
@@ -302,6 +317,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			dataFinal.push(value);
 			this._rowData = dataFinal;
 		});
+		// console.log('this._rowData', this._rowData);
 	}
 
 	expandAll() {
@@ -314,7 +330,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this.isExpanded = false;
 	}
 
-	async showAplicacionPresupuestaria() {
+	async showProgramDetails() {
 		// const selectedRows = this.agGrid.api.getSelectedNodes();
 		// const aplicacionPresupuestaria =
 		// 	selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
@@ -330,6 +346,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this._gridApi.setColumnDefs(this._columnDefs);
 		this._gridApi.expandAll();
 		this._router.navigateByUrl('/tableProgramaDetails/details');
+		this.hasAppPresupuestaria = true;
 
 		// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
 		// 		break;
@@ -366,6 +383,39 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		// }
 
 		// this._router.navigateByUrl('/tableProgramaDetails/details');
+	}
+
+	async _showAppPresupuestaria() {
+		this.buttonExpandirColapsar = false;
+		// this.hasAppPresupuestaria = false;
+		const selectedRow = this.agGrid.api.getSelectedNodes();
+		// this._dataStoreService.selectedCodeRowFirstLevel = selectedRow[0].data.CodPro + ' ' + selectedRow[0].data.DesPro;
+		this._hasRowClicked.change(null);
+		// this._hasRowClicked.change(selectedRow[0].key);
+		console.log(selectedRow[0].data);
+		await this._createAppPresupuestarias();
+		// console.log(selectedRow[0].data.appPresupuestaria);
+		await this._filterByAppPresupuestaria(selectedRow[0].data.appPresupuestaria);
+		// this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
+		this._columnDefs = getColumnDefsAppPresupuestaria(this.avalaibleYearsService, this._subHeaderName);
+
+		this._setGridOptions();
+		this.title =
+			'Detalle aplicación presupuestária ' +
+			selectedRow[0].data.CodEco +
+			'-' +
+			selectedRow[0].data.DesEco +
+			' del prográma ' +
+			selectedRow[0].data.CodPro +
+			'-' +
+			selectedRow[0].data.DesPro;
+		// console.log(this._rowData);
+
+		this._gridApi.setRowData(this._rowData);
+		this._gridApi.setColumnDefs(this._columnDefs);
+		this._gridApi.expandAll();
+		this._router.navigateByUrl('/tableProgramaDetails/appPresupuestaria');
+		this.hasAppPresupuestaria = false;
 	}
 
 	volver() {
