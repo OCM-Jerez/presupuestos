@@ -1,5 +1,5 @@
 <div style="margin-top: 30px">
-	<h4 class="OCM-text--cabecera" style="margin-bottom: 20px">{{ title }}. {{ messageYears }}</h4>
+	<h2 class="OCM-text--subtitulo" style="margin-bottom: 20px" [innerHTML]="title + '. ' + messageYears"></h2>
 
 	<!-- <div *ngIf="showButtomExpanded">
 		<button *ngIf="!isExpanded && buttonExpandirColapsar" type="button" class="OCM-button" (click)="expandAll()">
@@ -27,8 +27,6 @@
 			<button type="button" class="OCM-button" (click)="volver()">Volver</button>
 		</div>
 	</div>
-
-	<!-- <app-table-programa-details /> -->
 
 	<div class="agGrid">
 		<ag-grid-angular

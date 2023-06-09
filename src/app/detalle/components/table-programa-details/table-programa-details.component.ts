@@ -108,11 +108,15 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
 				this._setGridOptions();
-				// this.titleButtom = 'Detalle programa seleccionado';
 				this.titleButtom = 'Seleccionar programa para ver su detalle';
 				this.showButtomExpanded = false;
 				break;
 			case 'appPresupuestaria':
+				console.log(
+					'this._dataStoreService.selectedCodeRowFirstLevel',
+					this._dataStoreService.selectedCodeRowFirstLevel
+				);
+
 				this.title = 'Aplicación presupuestaria ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
@@ -174,7 +178,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		}, {});
 
 		this._rowData = Object.values(this._dataTotalizada);
-		// console.log('this._rowData', this._rowData);
 	}
 
 	_setGridOptions() {
@@ -245,9 +248,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 						}
 
 						break;
-					// case 'gastan':
-					// 	this.titleButtom = 'Detalle programa seleccionado';
-					// 	break;
 				}
 			}
 		} as GridOptions;
@@ -311,15 +311,15 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		});
 	}
 
-	expandAll() {
-		this._gridApi.expandAll();
-		this.isExpanded = true;
-	}
+	// expandAll() {
+	// 	this._gridApi.expandAll();
+	// 	this.isExpanded = true;
+	// }
 
-	collapseAll() {
-		this._gridApi.collapseAll();
-		this.isExpanded = false;
-	}
+	// collapseAll() {
+	// 	this._gridApi.collapseAll();
+	// 	this.isExpanded = false;
+	// }
 
 	// _clicKButton() {
 	// 	console.log(this._path);
@@ -387,14 +387,15 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 
 		this._setGridOptions();
 		this.title =
-			'Detalle aplicación presupuestária ' +
-			selectedRow[0].data.CodEco +
-			'-' +
-			selectedRow[0].data.DesEco +
-			' del prográma ' +
+			'Detalle aplicación presupuestária: <br> ' +
+			'Prográma: ' +
 			selectedRow[0].data.CodPro +
 			'-' +
-			selectedRow[0].data.DesPro;
+			selectedRow[0].data.DesPro +
+			'<br> Económico: ' +
+			selectedRow[0].data.CodEco +
+			'-' +
+			selectedRow[0].data.DesEco;
 
 		this._gridApi.setRowData(this._rowData);
 		this._gridApi.setColumnDefs(this._columnDefs);
