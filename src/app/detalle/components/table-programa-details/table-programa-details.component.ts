@@ -30,14 +30,13 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 import { IGastos } from '@interfaces/gastos.interface';
 
 import { accumulate } from '../../../commons/util/util';
-import { MenuTableDetailsComponent } from './components/menu-table-details/menu-table-details.component';
 
 @Component({
 	selector: 'app-table-programa-details',
 	templateUrl: './table-programa-details.component.html',
 	styleUrls: ['./table-programa-details.component.scss'],
 	standalone: true,
-	imports: [NgIf, NgClass, AgGridModule, AsyncPipe, MenuTableDetailsComponent]
+	imports: [NgIf, NgClass, AgGridModule, AsyncPipe]
 })
 export default class TableProgramaDetailsComponent implements OnInit, OnDestroy {
 	private _route = inject(ActivatedRoute);
