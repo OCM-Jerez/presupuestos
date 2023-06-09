@@ -1,30 +1,17 @@
 <div style="margin-top: 30px">
-	<h4 class="OCM-text--cabecera" style="margin-bottom: 20px">
-		<!-- Programa -->
-		<!-- {{ dataStoreService.selectedCodeRowFirstLevel }}. {{ messageYears }} -->
-		{{ title }}. {{ messageYears }}
-	</h4>
+	<h4 class="OCM-text--cabecera" style="margin-bottom: 20px">{{ title }}. {{ messageYears }}</h4>
 
-	<div *ngIf="showButtomExpanded">
+	<!-- <div *ngIf="showButtomExpanded">
 		<button *ngIf="!isExpanded && buttonExpandirColapsar" type="button" class="OCM-button" (click)="expandAll()">
 			Expandir todo
 		</button>
 		<button *ngIf="isExpanded && !hasAppPresupuestaria" type="button" class="OCM-button" (click)="collapseAll()">
 			Colapsar todo
 		</button>
-	</div>
-
-	<!-- <button
-		type="button"
-		(click)="showProgramDetails()"
-		class="OCM-button"
-		style="padding: 1.2rem 8.6rem; margin-top: 10px; background-color: red"
-	>
-		{{ titleButtom }}
-	</button>  -->
+	</div> -->
 
 	<div class="volver">
-		<div class="menu">
+		<!-- <div class="menu">
 			<button
 				type="button"
 				(click)="_clicKButton()"
@@ -34,7 +21,7 @@
 			>
 				{{ titleButtom }}
 			</button>
-		</div>
+		</div> -->
 
 		<div class="volver">
 			<button type="button" class="OCM-button" (click)="volver()">Volver</button>
