@@ -1,9 +1,5 @@
 <div style="margin-top: 30px">
-	<div class="menu">
-		<button type="button" class="OCM-button" (click)="volver()">Volver</button>
-	</div>
-
-	<h4 class="OCM-text--cabecera">
+	<h4 class="OCM-text--cabecera" style="margin-bottom: 20px">
 		<!-- Programa -->
 		<!-- {{ dataStoreService.selectedCodeRowFirstLevel }}. {{ messageYears }} -->
 		{{ title }}. {{ messageYears }}
@@ -25,12 +21,27 @@
 		style="padding: 1.2rem 8.6rem; margin-top: 10px; background-color: red"
 	>
 		{{ titleButtom }}
-	</button> -->
+	</button>  -->
 
-	<!-- *ngIf="(hasRowClicked$ | async) === null && !hasAppPresupuestaria" -->
-	<button type="button" (click)="_clicKButton()" class="OCM-button" style="padding: 1.2rem 8.6rem; margin-top: 10px">
-		{{ titleButtom }}
-	</button>
+	<div class="volver">
+		<div class="menu">
+			<button
+				type="button"
+				(click)="_clicKButton()"
+				class="OCM-button"
+				[ngClass]="{ 'OCM-disabled': isDisabled }"
+				*ngIf="buttonVisible"
+			>
+				{{ titleButtom }}
+			</button>
+		</div>
+
+		<div class="volver">
+			<button type="button" class="OCM-button" (click)="volver()">Volver</button>
+		</div>
+	</div>
+
+	<!-- <app-table-programa-details /> -->
 
 	<div class="agGrid">
 		<ag-grid-angular

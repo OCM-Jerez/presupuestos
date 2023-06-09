@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
-import { AsyncPipe, Location, NgIf } from '@angular/common';
+import { AsyncPipe, Location, NgClass, NgIf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -30,13 +30,14 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 import { IGastos } from '@interfaces/gastos.interface';
 
 import { accumulate } from '../../../commons/util/util';
+import { MenuTableDetailsComponent } from './components/menu-table-details/menu-table-details.component';
 
 @Component({
 	selector: 'app-table-programa-details',
 	templateUrl: './table-programa-details.component.html',
 	styleUrls: ['./table-programa-details.component.scss'],
 	standalone: true,
-	imports: [NgIf, AgGridModule, AsyncPipe]
+	imports: [NgIf, NgClass, AgGridModule, AsyncPipe, MenuTableDetailsComponent]
 })
 export default class TableProgramaDetailsComponent implements OnInit, OnDestroy {
 	private _route = inject(ActivatedRoute);
@@ -54,10 +55,12 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	public buttonExpandirColapsar = true;
 	public isExpanded = true;
 	public messageYears = this.avalaibleYearsService.message;
-	public titleButtom = 'Detalle aplicación presupuestaria';
+	public titleButtom = '';
 	public showButtomExpanded = true;
 	public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
 	public hasAppPresupuestaria = false;
+	public isDisabled = true;
+	public buttonVisible = true;
 
 	private _columnApi: ColumnApi;
 	private _columnDefs: (ColDef | ColGroupDef)[];
@@ -69,6 +72,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private sub: Subscription;
 	private _defaultSortModel: ColumnState[] = [];
 	private _appPresupuestarias = [];
+	private levelDetails = 0;
 
 	constructor() {
 		this.sub = this._route.params.subscribe((params) => {
@@ -78,6 +82,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 
 	async ngOnInit(): Promise<void> {
 		console.log('TableProgramaDetailsComponent ngOnInit');
+		console.log('this.buttonVisible', this.buttonVisible);
+		console.log('this.titleButtom', this.titleButtom);
 
 		this._dataTable = this._dataStoreService.dataTable;
 		switch (this._path) {
@@ -86,14 +92,14 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				await this._CalcDataDetails();
 				this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
 				this._setGridOptions();
-				this.titleButtom = 'Detalle app presupuestaria seleccionado';
+				this.titleButtom = ' Seleccionar app presupuestaria para ver su detalle';
 				break;
 			case 'gastan':
 				this.title = 'Programas que gastan del económico ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
 				this._setGridOptions();
-				this.titleButtom = 'Detalle programa seleccionado';
+				this.titleButtom = 'Seleccionar programa para ver su detalle';
 				this.showButtomExpanded = false;
 
 				break;
@@ -102,7 +108,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
 				this._setGridOptions();
-				this.titleButtom = 'Detalle programa seleccionado';
+				// this.titleButtom = 'Detalle programa seleccionado';
+				this.titleButtom = 'Seleccionar programa para ver su detalle';
 				this.showButtomExpanded = false;
 				break;
 			case 'appPresupuestaria':
@@ -167,7 +174,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		}, {});
 
 		this._rowData = Object.values(this._dataTotalizada);
-		console.log('this._rowData', this._rowData);
+		// console.log('this._rowData', this._rowData);
 	}
 
 	_setGridOptions() {
@@ -211,6 +218,33 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				this._dataStoreService.selectedCodeRowFirstLevel =
 					selectedRows[0].data.CodPro + ' ' + selectedRows[0].data.DesPro;
 				this._hasRowClicked.change(selectedRows[0].key);
+				this.isDisabled = false;
+				switch (this._path) {
+					case 'details':
+						this.titleButtom = 'Detalle app presupuestaria seleccionada';
+						break;
+					case 'organico':
+						console.log('this.levelDetails', this.levelDetails);
+
+						switch (this.levelDetails) {
+							case 0:
+								this.titleButtom = 'Detalle programa seleccionado';
+								break;
+							case 1:
+								this.titleButtom = 'Seleccionar app presupuestaria para ver su detalle';
+								break;
+							case 2:
+								this.titleButtom = 'Detalle app presupuestaria seleccionada';
+								break;
+							default:
+								break;
+						}
+
+						break;
+					case 'gastan':
+						this.titleButtom = 'Detalle programa seleccionado';
+						break;
+				}
 			}
 		} as GridOptions;
 	}
@@ -285,15 +319,49 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 
 	_clicKButton() {
 		console.log(this._path);
+		this.levelDetails += 1;
+		console.log('levelDetails', this.levelDetails);
+
+		this.isDisabled = true;
 
 		switch (this._path) {
 			case 'details':
+				switch (this.levelDetails) {
+					case 0:
+						// this.titleButtom = 'Detalle programa seleccionado';
+						break;
+					case 1:
+						this.buttonVisible = false;
+						// this.titleButtom = 'Seleccionar app presupuestaria para ver su detalle';
+						break;
+					case 2:
+						this.buttonVisible = false;
+						break;
+					default:
+						break;
+				}
 				this._showAppPresupuestaria();
 				break;
 			case 'gastan':
 			case 'organico':
+				console.log('this.levelDetails', this.levelDetails);
+
+				switch (this.levelDetails) {
+					case 0:
+						// this.titleButtom = 'Detalle programa seleccionado';
+						break;
+					case 1:
+						this.titleButtom = 'Seleccionar app presupuestaria para ver su detalle';
+						break;
+					case 2:
+						this.titleButtom = 'Detalle app presupuestaria seleccionada';
+						break;
+
+					default:
+						break;
+				}
+				// this.titleButtom = 'Seleccionar app presupuestaria para ver su detalle';
 				this._showProgramDetails();
-				this.titleButtom = 'Detalle app presupuestaria seleccionado';
 				break;
 		}
 	}
@@ -340,6 +408,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	volver() {
+		this.buttonVisible = true;
 		this._dataStoreService.selectedCodeRowFirstLevel = '';
 		this._location.back();
 	}
