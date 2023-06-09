@@ -1,41 +1,32 @@
 <div style="margin-top: 30px">
-	<div class="menu">
-		<button type="button" class="OCM-button" (click)="volver()">Volver</button>
-	</div>
+	<h2 class="OCM-text--subtitulo" style="margin-bottom: 20px" [innerHTML]="title + '. ' + messageYears"></h2>
 
-	<h4 class="OCM-text--cabecera">
-		<!-- Programa -->
-		<!-- {{ dataStoreService.selectedCodeRowFirstLevel }}. {{ messageYears }} -->
-		{{ title }}. {{ messageYears }}
-	</h4>
-
-	<div *ngIf="showButtomExpanded">
+	<!-- <div *ngIf="showButtomExpanded">
 		<button *ngIf="!isExpanded && buttonExpandirColapsar" type="button" class="OCM-button" (click)="expandAll()">
 			Expandir todo
 		</button>
 		<button *ngIf="isExpanded && !hasAppPresupuestaria" type="button" class="OCM-button" (click)="collapseAll()">
 			Colapsar todo
 		</button>
+	</div> -->
+
+	<div class="volver">
+		<!-- <div class="menu">
+			<button
+				type="button"
+				(click)="_clicKButton()"
+				class="OCM-button"
+				[ngClass]="{ 'OCM-disabled': isDisabled }"
+				*ngIf="buttonVisible"
+			>
+				{{ titleButtom }}
+			</button>
+		</div> -->
+
+		<div class="volver">
+			<button type="button" class="OCM-button" (click)="volver()">Volver</button>
+		</div>
 	</div>
-
-	<button
-		*ngIf="(hasRowClicked$ | async) === null && !hasAppPresupuestaria"
-		type="button"
-		(click)="_showAppPresupuestaria()"
-		class="OCM-button"
-		style="padding: 1.2rem 8.6rem; margin-top: 10px"
-	>
-		{{ titleButtom }}
-	</button>
-
-	<button
-		type="button"
-		(click)="showProgramDetails()"
-		class="OCM-button"
-		style="padding: 1.2rem 8.6rem; margin-top: 10px"
-	>
-		{{ titleButtom }}
-	</button>
 
 	<div class="agGrid">
 		<ag-grid-angular

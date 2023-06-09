@@ -1,6 +1,17 @@
 .menu {
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-end;
+    justify-content: space-between;
 	width: 90%;
+	margin: 0 auto;
 }
+
+.volver {
+	display: flex;
+	flex-direction: row;
+    justify-content:flex-end;
+	margin-right: 30px;
+	// width: 90%;
+	// margin: 0 auto;
+}
+

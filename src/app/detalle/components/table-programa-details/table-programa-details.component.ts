@@ -1,6 +1,5 @@
-// import { AppComponent } from './../../../app.component';
 import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
-import { AsyncPipe, Location, NgIf } from '@angular/common';
+import { AsyncPipe, Location, NgClass, NgIf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -18,9 +17,13 @@ import {
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
+import { getColumnDefsDetails } from '../../../ag-grid/setColumnDefs/programa-details';
+import { getColumnDefsGastan } from '../../../ag-grid/setColumnDefs/grupos-programas';
+import { getColumnDefsAppPresupuestaria } from '../../../ag-grid/setColumnDefs/aplicacion-presupuestaria';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
+import { HasRowClicked } from '@services/hasRowClicked.service';
 import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
@@ -28,29 +31,21 @@ import { IGastos } from '@interfaces/gastos.interface';
 
 import { accumulate } from '../../../commons/util/util';
 
-import { getColumnDefsDetails } from '../../../ag-grid/setColumnDefs/programa-details';
-import { getColumnDefsGastan } from '../../../ag-grid/setColumnDefs/grupos-programas';
-import { getColumnDefsAppPresupuestaria } from '../../../ag-grid/setColumnDefs/aplicacion-presupuestaria';
-
-// import { getGridOptions } from '../../../ag-grid/setGridOptions/programa-details';
-import { HasRowClicked } from '@services/hasRowClicked.service';
-
 @Component({
 	selector: 'app-table-programa-details',
 	templateUrl: './table-programa-details.component.html',
 	styleUrls: ['./table-programa-details.component.scss'],
 	standalone: true,
-	imports: [NgIf, AgGridModule, AsyncPipe]
+	imports: [NgIf, NgClass, AgGridModule, AsyncPipe]
 })
 export default class TableProgramaDetailsComponent implements OnInit, OnDestroy {
-	public avalaibleYearsService = inject(AvalaibleYearsService);
-	private _dataStoreService = inject(DataStoreService);
-	private _hasRowClicked = inject(HasRowClicked);
-
 	private _route = inject(ActivatedRoute);
 	private _location = inject(Location);
 	private _router = inject(Router);
+	private _dataStoreService = inject(DataStoreService);
+	private _hasRowClicked = inject(HasRowClicked);
 	private _prepareDataGastosService = inject(PrepareDataGastosService);
+	public avalaibleYearsService = inject(AvalaibleYearsService);
 
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
@@ -59,10 +54,12 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	public buttonExpandirColapsar = true;
 	public isExpanded = true;
 	public messageYears = this.avalaibleYearsService.message;
-	public titleButtom = 'Detalle aplicación presupuestaria';
+	public titleButtom = '';
 	public showButtomExpanded = true;
 	public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
 	public hasAppPresupuestaria = false;
+	public isDisabled = true;
+	public buttonVisible = true;
 
 	private _columnApi: ColumnApi;
 	private _columnDefs: (ColDef | ColGroupDef)[];
@@ -74,56 +71,55 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private sub: Subscription;
 	private _defaultSortModel: ColumnState[] = [];
 	private _appPresupuestarias = [];
+	private levelDetails = 0;
 
 	constructor() {
 		this.sub = this._route.params.subscribe((params) => {
 			this._path = params['origen'];
-			// console.log('this._path', this._path);
 		});
 	}
 
 	async ngOnInit(): Promise<void> {
-		console.log('TableProgramaDetailsComponent ngOnInit');
+		// console.log('TableProgramaDetailsComponent ngOnInit');
+		// console.log('this.buttonVisible', this.buttonVisible);
+		// console.log('this.titleButtom', this.titleButtom);
 
 		this._dataTable = this._dataStoreService.dataTable;
 		switch (this._path) {
 			case 'details':
-				console.log('details');
 				this.title = 'Detalle programa ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataDetails();
 				this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
 				this._setGridOptions();
-				// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
-				this.titleButtom = 'Detalle app presupuestaria seleccionado';
+				this.titleButtom = ' Seleccionar app presupuestaria para ver su detalle';
 				break;
 			case 'gastan':
-				console.log('gastan');
 				this.title = 'Programas que gastan del económico ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
 				this._setGridOptions();
-				// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
-				this.titleButtom = 'Detalle programa seleccionado';
+				this.titleButtom = 'Seleccionar programa para ver su detalle';
 				this.showButtomExpanded = false;
 
 				break;
 			case 'organico':
-				console.log('organico');
 				this.title = 'Programas que componen el orgánico ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
 				this._setGridOptions();
-				// this.gridOptions = getGridOptions(this._dataTotalizada, this._columnDefs, this);
-				this.titleButtom = 'Detalle programa seleccionado';
+				this.titleButtom = 'Seleccionar programa para ver su detalle';
 				this.showButtomExpanded = false;
 				break;
 			case 'appPresupuestaria':
-				console.log('appPresupuestaria');
+				console.log(
+					'this._dataStoreService.selectedCodeRowFirstLevel',
+					this._dataStoreService.selectedCodeRowFirstLevel
+				);
+
 				this.title = 'Aplicación presupuestaria ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
 				this._setGridOptions();
-				// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
 				this.showButtomExpanded = false;
 				break;
 		}
@@ -151,7 +147,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				return acc;
 			}, {})
 		);
-		// console.log('result', this._rowData);
 	}
 
 	async _CalcDataGastan() {
@@ -182,13 +177,9 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		}, {});
 
 		this._rowData = Object.values(this._dataTotalizada);
-		console.log('this._rowData', this._rowData);
 	}
 
 	_setGridOptions() {
-		// const myRowData = this._isIngresos ? this._dataTable.rowDataIngresos : this._dataTable.rowDataGastos;
-		// console.log('this._rowData', this._rowData);
-
 		this.gridOptions = {
 			defaultColDef: {
 				width: 130,
@@ -225,11 +216,38 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			pagination: true,
 			paginationPageSize: 26,
 			onRowClicked: () => {
+				this.levelDetails += 1;
 				const selectedRows = this.agGrid.api.getSelectedNodes();
 				this._dataStoreService.selectedCodeRowFirstLevel =
 					selectedRows[0].data.CodPro + ' ' + selectedRows[0].data.DesPro;
 				this._hasRowClicked.change(selectedRows[0].key);
-				// console.log(selectedRows[0].data.CodPro + ' ' + selectedRows[0].data.DesPro);
+				this.isDisabled = false;
+				switch (this._path) {
+					case 'details':
+						this._showAppPresupuestaria();
+						this.titleButtom = 'Detalle app presupuestaria seleccionada';
+						break;
+					case 'organico':
+					case 'gastan':
+						// console.log('this.levelDetails', this.levelDetails);
+						switch (this.levelDetails) {
+							case 0:
+								this.titleButtom = 'Detalle programa seleccionado';
+								break;
+							case 1:
+								this._showProgramDetails();
+								this.titleButtom = 'Seleccionar app presupuestaria para ver su detalle';
+								break;
+							case 2:
+								this._showAppPresupuestaria();
+								this.titleButtom = 'Detalle app presupuestaria seleccionada';
+								break;
+							default:
+								break;
+						}
+
+						break;
+				}
 			}
 		} as GridOptions;
 	}
@@ -247,27 +265,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			}
 		];
 		params.columnApi.applyColumnState({ state: defaultSortModel });
-
-		// onRowClicked: () => {
-		// 	const selectedRows = this.agGrid.api.getSelectedNodes();
-		// 	this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
-		// 	this._hasRowClicked.change(selectedRows[0].key);
-		// };
-		// switch (this._path) {
-		// 	case 'details':
-		// 		this._defaultSortModel = [{ colId: 'DesEco', sort: 'asc', sortIndex: 0 }];
-		// 		params.columnApi.applyColumnState({ state: this._defaultSortModel });
-		// 		break;
-		// 	case 'gastan':
-		// 		this._defaultSortModel = [{ colId: 'DesPro', sort: 'asc', sortIndex: 0 }];
-		// 		params.columnApi.applyColumnState({ state: this._defaultSortModel });
-		// 		break;
-		// 	case 'organico':
-		// 		this._defaultSortModel = [{ colId: 'DesOrg', sort: 'asc', sortIndex: 0 }];
-		// 		params.columnApi.applyColumnState({ state: this._defaultSortModel });
-
-		// 		break;
-		// }
 	};
 
 	_createAppPresupuestarias() {
@@ -277,20 +274,14 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			item.appPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
 			this._appPresupuestarias.push(item.appPresupuestaria);
 		});
-		// console.log('aplicacionesPresupuestarias', this._appPresupuestarias);
 	}
 
 	_filterByAppPresupuestaria(appPresupuestaria) {
 		const years = this.avalaibleYearsService.getYearsSelected();
 		const dataFinal = [];
-		// console.log('this._appPresupuestarias', this._appPresupuestarias);
-		// console.log('appPresupuestaria', appPresupuestaria);
 		this._appPresupuestarias = this._appPresupuestarias.filter((x) => x === appPresupuestaria);
-		// console.log('this._appPresupuestarias', this._appPresupuestarias);
-
 		this._appPresupuestarias.map((item) => {
 			const dataIntermedio = this._rowData.filter((x) => x.appPresupuestaria === item);
-			// console.log('dataIntermedio', dataIntermedio);
 
 			const value = {
 				AplicacionPresupuestaria: item,
@@ -317,27 +308,62 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			dataFinal.push(value);
 			this._rowData = dataFinal;
 		});
-		// console.log('this._rowData', this._rowData);
 	}
 
-	expandAll() {
-		this._gridApi.expandAll();
-		this.isExpanded = true;
-	}
+	// expandAll() {
+	// 	this._gridApi.expandAll();
+	// 	this.isExpanded = true;
+	// }
 
-	collapseAll() {
-		this._gridApi.collapseAll();
-		this.isExpanded = false;
-	}
+	// collapseAll() {
+	// 	this._gridApi.collapseAll();
+	// 	this.isExpanded = false;
+	// }
 
-	async showProgramDetails() {
-		// const selectedRows = this.agGrid.api.getSelectedNodes();
-		// const aplicacionPresupuestaria =
-		// 	selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
-		// this._dataStoreService.selectedCodeRow = aplicacionPresupuestaria;
+	// _clicKButton() {
+	// 	console.log(this._path);
+	// 	this.levelDetails += 1;
+	// 	// console.log('levelDetails', this.levelDetails);
+	// 	this.isDisabled = true;
+	// 	switch (this._path) {
+	// 		case 'details':
+	// 			switch (this.levelDetails) {
+	// 				case 0:
+	// 					break;
+	// 				case 1:
+	// 					this.buttonVisible = false;
+	// 					break;
+	// 				case 2:
+	// 					this.buttonVisible = false;
+	// 					break;
+	// 				default:
+	// 					break;
+	// 			}
+	// 			this._showAppPresupuestaria();
+	// 			break;
+	// 		case 'organico':
+	// 		case 'gastan':
+	// 			// console.log('this.levelDetails', this.levelDetails);
+	// 			switch (this.levelDetails) {
+	// 				case 0:
+	// 					break;
+	// 				case 1:
+	// 					this.titleButtom = 'Seleccionar app presupuestaria para ver su detalle';
+	// 					break;
+	// 				case 2:
+	// 					this.titleButtom = 'Detalle app presupuestaria seleccionada';
+	// 					break;
+	// 				default:
+	// 					break;
+	// 			}
+	// 			this._showProgramDetails();
+	// 			break;
+	// 	}
+	// }
 
-		// switch (this._path) {
-		// case 'details':
+	async _showProgramDetails() {
+		console.log('showProgramDetails');
+
 		this.title = 'Detalle programa ' + this._dataStoreService.selectedCodeRowFirstLevel;
 		await this._CalcDataDetails();
 		this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
@@ -347,69 +373,28 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this._gridApi.expandAll();
 		this._router.navigateByUrl('/tableProgramaDetails/details');
 		this.hasAppPresupuestaria = true;
-
-		// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
-		// 		break;
-		// 	case 'gastan':
-		// 		console.log('gastan');
-		// 		this.title = 'Programas que gastan del económico ' + this._dataStoreService.selectedCodeRowFirstLevel;
-		// 		await this._CalcDataGastan();
-		// 		this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
-		// 		this._setGridOptions();
-		// 		// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
-		// 		this.titleButtom = 'Detalle programa seleccionado';
-		// 		this.showButtomExpanded = false;
-
-		// 		break;
-		// 	case 'organico':
-		// 		console.log('organico');
-		// 		this.title = 'Programas que componen el orgánico ' + this._dataStoreService.selectedCodeRowFirstLevel;
-		// 		await this._CalcDataGastan();
-		// 		this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
-		// 		this._setGridOptions();
-		// 		// this.gridOptions = getGridOptions(this._dataTotalizada, this._columnDefs, this);
-		// 		this.titleButtom = 'Detalle programa seleccionado';
-		// 		this.showButtomExpanded = false;
-		// 		break;
-		// 	case 'appPPresupuestaria':
-		// 		console.log('appPPresupuestaria');
-		// 		this.title = 'Aplicación presupuestaria ' + this._dataStoreService.selectedCodeRowFirstLevel;
-		// 		await this._CalcDataGastan();
-		// 		this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
-		// 		this._setGridOptions();
-		// 		// this.gridOptions = getGridOptions(this._rowData, this._columnDefs, this);
-		// 		this.showButtomExpanded = false;
-		// 		break;
-		// }
-
-		// this._router.navigateByUrl('/tableProgramaDetails/details');
 	}
 
 	async _showAppPresupuestaria() {
 		this.buttonExpandirColapsar = false;
-		// this.hasAppPresupuestaria = false;
 		const selectedRow = this.agGrid.api.getSelectedNodes();
-		// this._dataStoreService.selectedCodeRowFirstLevel = selectedRow[0].data.CodPro + ' ' + selectedRow[0].data.DesPro;
 		this._hasRowClicked.change(null);
-		// this._hasRowClicked.change(selectedRow[0].key);
 		console.log(selectedRow[0].data);
 		await this._createAppPresupuestarias();
-		// console.log(selectedRow[0].data.appPresupuestaria);
 		await this._filterByAppPresupuestaria(selectedRow[0].data.appPresupuestaria);
-		// this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
 		this._columnDefs = getColumnDefsAppPresupuestaria(this.avalaibleYearsService, this._subHeaderName);
 
 		this._setGridOptions();
 		this.title =
-			'Detalle aplicación presupuestária ' +
-			selectedRow[0].data.CodEco +
-			'-' +
-			selectedRow[0].data.DesEco +
-			' del prográma ' +
+			'Detalle aplicación presupuestária: <br> ' +
+			'Prográma: ' +
 			selectedRow[0].data.CodPro +
 			'-' +
-			selectedRow[0].data.DesPro;
-		// console.log(this._rowData);
+			selectedRow[0].data.DesPro +
+			'<br> Económico: ' +
+			selectedRow[0].data.CodEco +
+			'-' +
+			selectedRow[0].data.DesEco;
 
 		this._gridApi.setRowData(this._rowData);
 		this._gridApi.setColumnDefs(this._columnDefs);
@@ -419,7 +404,17 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	volver() {
+		this.buttonVisible = true;
 		this._dataStoreService.selectedCodeRowFirstLevel = '';
 		this._location.back();
+		console.log(this.levelDetails);
+
+		if (this.levelDetails === 1) {
+			this._location.back();
+		}
+		if (this.levelDetails === 2) {
+			this._location.back();
+			this._location.back();
+		}
 	}
 }
