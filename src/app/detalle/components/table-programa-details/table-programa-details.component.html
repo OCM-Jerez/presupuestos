@@ -18,22 +18,17 @@
 		</button>
 	</div>
 
-	<button
-		*ngIf="(hasRowClicked$ | async) === null && !hasAppPresupuestaria"
-		type="button"
-		(click)="_showAppPresupuestaria()"
-		class="OCM-button"
-		style="padding: 1.2rem 8.6rem; margin-top: 10px"
-	>
-		{{ titleButtom }}
-	</button>
-
-	<button
+	<!-- <button
 		type="button"
 		(click)="showProgramDetails()"
 		class="OCM-button"
-		style="padding: 1.2rem 8.6rem; margin-top: 10px"
+		style="padding: 1.2rem 8.6rem; margin-top: 10px; background-color: red"
 	>
+		{{ titleButtom }}
+	</button> -->
+
+	<!-- *ngIf="(hasRowClicked$ | async) === null && !hasAppPresupuestaria" -->
+	<button type="button" (click)="_clicKButton()" class="OCM-button" style="padding: 1.2rem 8.6rem; margin-top: 10px">
 		{{ titleButtom }}
 	</button>
 
