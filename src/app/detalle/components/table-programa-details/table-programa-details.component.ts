@@ -82,7 +82,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this._dataTable = this._dataStoreService.dataTable;
 		switch (this._path) {
 			case 'details':
-				console.log('details');
 				this.title = 'Detalle programa ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataDetails();
 				this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
@@ -90,7 +89,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				this.titleButtom = 'Detalle app presupuestaria seleccionado';
 				break;
 			case 'gastan':
-				console.log('gastan');
 				this.title = 'Programas que gastan del económico ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
@@ -100,7 +98,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 
 				break;
 			case 'organico':
-				console.log('organico');
 				this.title = 'Programas que componen el orgánico ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
@@ -109,7 +106,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				this.showButtomExpanded = false;
 				break;
 			case 'appPresupuestaria':
-				console.log('appPresupuestaria');
 				this.title = 'Aplicación presupuestaria ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataGastan();
 				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
@@ -287,7 +283,24 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this.isExpanded = false;
 	}
 
-	async showProgramDetails() {
+	_clicKButton() {
+		console.log(this._path);
+
+		switch (this._path) {
+			case 'details':
+				this._showAppPresupuestaria();
+				break;
+			case 'gastan':
+			case 'organico':
+				this._showProgramDetails();
+				this.titleButtom = 'Detalle app presupuestaria seleccionado';
+				break;
+		}
+	}
+
+	async _showProgramDetails() {
+		console.log('showProgramDetails');
+
 		this.title = 'Detalle programa ' + this._dataStoreService.selectedCodeRowFirstLevel;
 		await this._CalcDataDetails();
 		this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
