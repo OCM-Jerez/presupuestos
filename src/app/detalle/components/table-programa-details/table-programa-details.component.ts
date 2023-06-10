@@ -89,7 +89,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			case 'details':
 				this.title = 'Detalle programa ' + this._dataStoreService.selectedCodeRowFirstLevel;
 				await this._CalcDataDetails();
-				this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
+				this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService);
 				this._setGridOptions();
 				this.titleButtom = ' Seleccionar app presupuestaria para ver su detalle';
 				break;
@@ -229,7 +229,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 						break;
 					case 'organico':
 					case 'gastan':
-						// console.log('this.levelDetails', this.levelDetails);
 						switch (this.levelDetails) {
 							case 0:
 								this.titleButtom = 'Detalle programa seleccionado';
@@ -320,53 +319,10 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	// 	this.isExpanded = false;
 	// }
 
-	// _clicKButton() {
-	// 	console.log(this._path);
-	// 	this.levelDetails += 1;
-	// 	// console.log('levelDetails', this.levelDetails);
-	// 	this.isDisabled = true;
-	// 	switch (this._path) {
-	// 		case 'details':
-	// 			switch (this.levelDetails) {
-	// 				case 0:
-	// 					break;
-	// 				case 1:
-	// 					this.buttonVisible = false;
-	// 					break;
-	// 				case 2:
-	// 					this.buttonVisible = false;
-	// 					break;
-	// 				default:
-	// 					break;
-	// 			}
-	// 			this._showAppPresupuestaria();
-	// 			break;
-	// 		case 'organico':
-	// 		case 'gastan':
-	// 			// console.log('this.levelDetails', this.levelDetails);
-	// 			switch (this.levelDetails) {
-	// 				case 0:
-	// 					break;
-	// 				case 1:
-	// 					this.titleButtom = 'Seleccionar app presupuestaria para ver su detalle';
-	// 					break;
-	// 				case 2:
-	// 					this.titleButtom = 'Detalle app presupuestaria seleccionada';
-	// 					break;
-	// 				default:
-	// 					break;
-	// 			}
-	// 			this._showProgramDetails();
-	// 			break;
-	// 	}
-	// }
-
 	async _showProgramDetails() {
-		console.log('showProgramDetails');
-
 		this.title = 'Detalle programa ' + this._dataStoreService.selectedCodeRowFirstLevel;
 		await this._CalcDataDetails();
-		this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService, this._subHeaderName);
+		this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService);
 		this._setGridOptions();
 		this._gridApi.setRowData(this._rowData);
 		this._gridApi.setColumnDefs(this._columnDefs);
@@ -407,7 +363,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this.buttonVisible = true;
 		this._dataStoreService.selectedCodeRowFirstLevel = '';
 		this._location.back();
-		console.log(this.levelDetails);
 
 		if (this.levelDetails === 1) {
 			this._location.back();
