@@ -13,7 +13,7 @@ export function CellRendererOCM(params: ICellRendererParams) {
 				case 1: // Total segundo nivel.
 					return `<p style="text-align: right; color: red; font-size: 12px; margin: 0px;font-weight: bold">${valorFormateado}</p>`;
 				case 0: // Total primer nivel.
-					return `<p style="text-align: right; color: red; font-size: 13px; margin: 0px;font-weight: bold">${valorFormateado}</p>`;
+					return `<p style="text-align: right; color: red; font-size: 16px; margin: 0px;font-weight: bold">${valorFormateado}</p>`;
 				case -1: // Total general.
 					return `<p style="text-align: right; color: red; font-size: 20px; font-family:var(--fuente-principal);margin: 0px;font-weight: bold">${valorFormateado}</p>`;
 				default:
@@ -28,7 +28,22 @@ export function CellRendererOCM(params: ICellRendererParams) {
 }
 
 export function CellRendererOCMtext(params: ICellRendererParams) {
-	return params.value
-		? `<p style="font-size: 18px; font-family:var(--fuente-principal); text-align: left; margin: 0;">${params.value}</p>`
-		: '';
+	switch (params.node.level) {
+		case 0:
+			return params.value
+				? `<p style="font-size: 18px;  color: black;font-family:var(--fuente-principal); text-align: left; margin: 0;">${params.value}</p>`
+				: '';
+		case 1:
+			return params.value
+				? `<p style="font-size: 28px; font-family:var(--fuente-principal); text-align: left; margin: 0;">${params.value}</p>`
+				: '';
+		case 2:
+			return params.value
+				? `<p style="font-size: 28px; font-family:var(--fuente-principal); text-align: left; margin: 0;">${params.value}</p>`
+				: '';
+		default:
+			return params.value
+				? `<p style="font-size: 18px; font-family:var(--fuente-principal); text-align: left; margin: 0;">${params.value}</p>`
+				: '';
+	}
 }
