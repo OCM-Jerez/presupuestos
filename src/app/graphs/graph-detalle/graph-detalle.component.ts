@@ -25,7 +25,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 	private _location = inject(Location);
 	private _dataStoreService = inject(DataStoreService);
 
-	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+	@ViewChild('agGrid') agGrid: AgGridAngular;
 	public columnDefs;
 	public data: any;
 	public defaultColDef;
