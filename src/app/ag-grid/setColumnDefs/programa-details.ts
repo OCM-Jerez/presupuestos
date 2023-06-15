@@ -1,4 +1,4 @@
-import { CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
+import { CellRendererOCMDetails, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { ColGroupDef } from 'ag-grid-community';
 
@@ -16,7 +16,7 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 					cellRenderer: 'agGroupCellRenderer',
 					valueGetter: (params) => {
 						if (params?.data) {
-							return `<span style="color: red; font-size: 18px; font-weight: bold;margin-left: 0px;">${
+							return `<span style="color: red; font-size: 18px;font-family:var(--fuente-principal); font-weight: bold;margin-left: 0px;">${
 								params.data.CodCap + ' - ' + params.data.DesCap
 							}</span>`;
 						} else {
@@ -32,7 +32,7 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 								case 1:
 									return '';
 								default:
-									return `<span style="color: red; font-size: 18px; font-weight: bold;text-align: right">TOTAL PROGRAMA
+									return `<span style="color: red; font-size: 18px; font-family:var(--fuente-principal);font-weight: bold;text-align: right">TOTAL PROGRAMA
 									</span>`;
 							}
 						}
@@ -46,7 +46,7 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 					cellRenderer: CellRendererOCMtext,
 					valueGetter: (params) => {
 						if (params?.data) {
-							return `<span style="color: black; font-size: 16px; margin-left: 0px">${
+							return `<span style="color: black; font-family:var(--fuente-principal);font-size: 16px; margin-left: 0px">${
 								params.data.CodEco + ' - ' + params.data.DesEco
 							}</span>`;
 						} else {
@@ -74,19 +74,22 @@ function createColumnsChildren(year: number) {
 				{
 					headerName: 'Previsiones Iniciales',
 					field: `Iniciales${year}`,
-					hide: true
+					hide: true,
+					cellRenderer: CellRendererOCMDetails
 				},
 				{
 					headerName: 'Total Modificaciones',
 					field: `Modificaciones${year}`,
 					width: 120,
-					hide: true
+					hide: true,
+					cellRenderer: CellRendererOCMDetails
 				},
 				{
 					headerName: 'Creditos definitivos',
 					field: `Definitivas${year}`,
-					width: 120,
-					hide: false
+					width: 150,
+					hide: false,
+					cellRenderer: CellRendererOCMDetails
 				}
 			]
 		},
@@ -97,31 +100,36 @@ function createColumnsChildren(year: number) {
 					headerName: 'Gastos Comprometidos',
 					field: `GastosComprometidos${year}`,
 					width: 120,
-					hide: true
+					hide: true,
+					cellRenderer: CellRendererOCMDetails
 				},
 				{
 					headerName: 'Obligaciones reconocidas netas',
 					field: `ObligacionesReconocidasNetas${year}`,
 					width: 135,
-					hide: true
+					hide: true,
+					cellRenderer: CellRendererOCMDetails
 				},
 				{
 					headerName: 'Pagos',
 					field: `Pagos${year}`,
-					hide: false
+					hide: false,
+					cellRenderer: CellRendererOCMDetails
 				},
 				{
 					headerName: 'Obligaciones pendientes de pago al final periodo',
 					field: `ObligacionesPendientePago${year}`,
 					width: 120,
-					hide: true
+					hide: true,
+					cellRenderer: CellRendererOCMDetails
 				}
 			]
 		},
 		{
 			headerName: 'Remanente Credito',
 			field: `RemanenteCredito${year}`,
-			hide: true
+			hide: true,
+			cellRenderer: CellRendererOCMDetails
 		}
 	];
 }
