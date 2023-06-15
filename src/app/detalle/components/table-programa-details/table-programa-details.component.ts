@@ -47,7 +47,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private _prepareDataGastosService = inject(PrepareDataGastosService);
 	public avalaibleYearsService = inject(AvalaibleYearsService);
 
-	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+	@ViewChild('agGrid') agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
 	private _path: string;
 	public title: string;
