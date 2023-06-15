@@ -4,6 +4,7 @@
     "angular.ng-template",
     "github.copilot-nightly",
     "hansu.git-graph-2",
-    "steoates.autoimport"
+    "steoates.autoimport",
+    "pflannery.vscode-versionlens"
   ]
 }

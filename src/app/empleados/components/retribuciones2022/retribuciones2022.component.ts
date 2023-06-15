@@ -17,7 +17,7 @@ import RetribPersonal2022 from '@assets/data/RetribPersonal2022.json';
 	styleUrls: ['./retribuciones2022.component.scss']
 })
 export default class Retribuciones2022Component implements OnInit {
-	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+	@ViewChild('agGrid') agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
 	private _columnDefs: ColDef[];
 	private _gridApi: GridApi;

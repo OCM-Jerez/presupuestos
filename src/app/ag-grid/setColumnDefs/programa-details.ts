@@ -1,25 +1,25 @@
+import { CellRendererOCMDetails, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { ColGroupDef } from 'ag-grid-community';
 
-export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsService, _subHeaderName): ColGroupDef[] {
+export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsService): ColGroupDef[] {
 	return [
 		{
-			// headerName: 'headerName',
 			children: [
 				{
-					headerName: _subHeaderName,
-					field: 'DesPro',
-					rowGroup: true,
-					showRowGroup: 'DesPro',
-					filter: true,
-					width: 500,
+					// headerName: 'Capítulo',
+					field: 'DesCap',
+					width: 450,
 					pinned: 'left',
-					columnGroupShow: 'closed',
+					rowGroup: true,
+					hide: true,
+					showRowGroup: 'DesCap',
 					cellRenderer: 'agGroupCellRenderer',
-					// cellRenderer: CellRendererOCMtext,
 					valueGetter: (params) => {
 						if (params?.data) {
-							return params.data.CodPro + ' - ' + params.data.DesPro;
+							return `<span style="color: red; font-size: 18px;font-family:var(--fuente-principal); font-weight: bold;margin-left: 0px;">${
+								params.data.CodCap + ' - ' + params.data.DesCap
+							}</span>`;
 						} else {
 							return '';
 						}
@@ -27,88 +27,35 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 					// cellRendererParams: {
 					// 	suppressCount: true,
 					// 	innerRenderer: (params) => {
-					// 		return params?.node?.group && params?.value
-					// 			? `<span style="color: black; font-size: 18px; margin-left: 0px;">${params.value}</span>`
-					// 			: '';
-					// 	},
-
-					// 	footerValueGetter(params) {
-					// 		if (!params?.value) {
-					// 			return '';
-					// 		}
-
 					// 		switch (params.node.level) {
-					// 			case 0: // Total programa.
-					// 			// return `<span style="color: red; font-size: 18px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
-					// 			// case -1: // Total general.
-					// 			//   return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
+					// 			case 0:
+					// 				return params.value;
+					// 			case 1:
+					// 				return `<span style="color: red; font-size: 18px; font-family:var(--fuente-principal);font-weight: bold;text-align: right">TOTAL PROGRAMA
+					// 				</span>`;
 					// 			default:
-					// 				return 'SIN FORMATO';
+					// 				return `<span style="color: red; font-size: 18px; font-family:var(--fuente-principal);font-weight: bold;text-align: right">TOTAL PROGRAMA
+					// 				</span>`;
 					// 		}
 					// 	}
 					// }
 				},
-				{
-					headerName: 'Capítulo',
-					field: 'DesCap',
-					rowGroup: true,
-					showRowGroup: 'DesCap',
-					filter: false,
-					width: 300,
-					pinned: 'left',
-					columnGroupShow: 'closed',
-					cellRenderer: 'agGroupCellRenderer',
-					valueGetter: (params) => {
-						if (params?.data) {
-							const valCap = params.data.CodCap + ' - ' + params.data.DesCap;
-							return `<span style="color: black; font-size: 16px; margin-left: 0px;">${valCap}</span>`;
-						} else {
-							return '';
-						}
-					},
-					cellRendererParams: {
-						suppressCount: true,
-						innerRenderer: (params) => {
-							if (!params?.value) {
-								return '';
-							}
-
-							if (params.node.group) {
-								return params.value;
-							} else {
-								return '';
-							}
-						},
-						footerValueGetter(params) {
-							if (!params?.value) return '';
-
-							const val = params.value.split(' - ')[1];
-							switch (params.node.level) {
-								case 2: // Total capítulo.
-								// return `<span style="color: red; font-size: 18px;  font-weight: bold; margin-left: 0px;"> Total ${val}</span>`;
-								case -1: // Total general.
-									return '';
-								default:
-									return 'SIN FORMATO';
-							}
-						}
-					}
-				},
-				{
-					headerName: 'Económico',
-					field: 'DesEco',
-					width: 500,
-					pinned: 'left',
-					filter: true,
-					cellRenderer: 'agGroupCellRenderer',
-					valueGetter: (params) => {
-						if (params?.data) {
-							return params.data.CodEco + ' - ' + params.data.DesEco;
-						} else {
-							return '';
-						}
-					}
-				},
+				// {
+				// 	headerName: 'Económico',
+				// 	field: 'DesEco',
+				// 	width: 625,
+				// 	pinned: 'left',
+				// 	cellRenderer: CellRendererOCMtext,
+				// 	valueGetter: (params) => {
+				// 		if (params?.data) {
+				// 			return `<span style="color: black; font-family:var(--fuente-principal);font-size: 16px; margin-left: 0px">${
+				// 				params.data.CodEco + ' - ' + params.data.DesEco
+				// 			}</span>`;
+				// 		} else {
+				// 			return '';
+				// 		}
+				// 	}
+				// },
 
 				...avalaibleYearsService.getYearsSelected().map((year) => {
 					return {
@@ -124,14 +71,67 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 function createColumnsChildren(year: number) {
 	return [
 		{
-			headerName: 'Creditos definitivos',
-			field: `Definitivas${year}`,
-			width: 120
+			headerName: 'Créditos',
+			children: [
+				{
+					headerName: 'Previsiones Iniciales',
+					field: `Iniciales${year}`,
+					hide: true,
+					cellRenderer: CellRendererOCMDetails
+				},
+				{
+					headerName: 'Total Modificaciones',
+					field: `Modificaciones${year}`,
+					width: 120,
+					hide: true,
+					cellRenderer: CellRendererOCMDetails
+				},
+				{
+					headerName: 'Creditos definitivos',
+					field: `Definitivas${year}`,
+					width: 150,
+					hide: false,
+					cellRenderer: CellRendererOCMDetails
+				}
+			]
 		},
 		{
-			headerName: 'Pagos',
-			field: `Pagos${year}`,
-			width: 120
+			headerName: 'Gastos',
+			children: [
+				{
+					headerName: 'Gastos Comprometidos',
+					field: `GastosComprometidos${year}`,
+					width: 120,
+					hide: true,
+					cellRenderer: CellRendererOCMDetails
+				},
+				{
+					headerName: 'Obligaciones reconocidas netas',
+					field: `ObligacionesReconocidasNetas${year}`,
+					width: 135,
+					hide: true,
+					cellRenderer: CellRendererOCMDetails
+				},
+				{
+					headerName: 'Pagos',
+					field: `Pagos${year}`,
+					hide: false,
+					cellRenderer: CellRendererOCMDetails
+				},
+				{
+					headerName: 'Obligaciones pendientes de pago al final periodo',
+					field: `ObligacionesPendientePago${year}`,
+					width: 120,
+					hide: true,
+					cellRenderer: CellRendererOCMDetails
+				}
+			]
+		},
+		{
+			headerName: 'Remanente Credito',
+			field: `RemanenteCredito${year}`,
+			hide: true,
+			cellRenderer: CellRendererOCMDetails
 		}
 	];
 }

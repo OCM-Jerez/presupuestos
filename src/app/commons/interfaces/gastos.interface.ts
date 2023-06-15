@@ -15,4 +15,5 @@ export interface IGastos {
 	ObligacionesReconocidasNetas2023: number;
 	Pagos2023: number;
 	RemanenteCredito2023: number;
+	appPresupuestaria?: string;
 }

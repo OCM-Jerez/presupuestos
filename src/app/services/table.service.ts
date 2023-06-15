@@ -37,7 +37,7 @@ export class TableService {
 	}
 
 	async loadData(tipoClasificacion?: CLASIFICATION_TYPE): Promise<IDataTable> {
-		const _startTime = performance.now();
+		// const _startTime = performance.now();
 		const dataPropertyTable = getClasificacion(tipoClasificacion) as IDataProperty;
 
 		if (this._dataStoreService.dataTable === undefined) {
@@ -63,8 +63,8 @@ export class TableService {
 			...(tipoClasificacion.startsWith('ingresos') ? { rowDataIngresos: rowData } : { rowDataGastos: rowData })
 		};
 
-		const endTime = performance.now();
-		console.log(`Tiempo empleado para generar data: ${Math.round(endTime - _startTime)} ms`);
+		// const endTime = performance.now();
+		// console.log(`Tiempo empleado para generar data: ${Math.round(endTime - _startTime)} ms`);
 		this._dataStoreService.dataTable = sendDataTable;
 		return sendDataTable;
 	}

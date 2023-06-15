@@ -1,28 +1,9 @@
 <div style="margin-top: 30px">
-	<div class="menu">
+	<h2 class="OCM-text--subtitulo" style="margin-bottom: 20px" [innerHTML]="title + '. ' + messageYears"></h2>
+
+	<div class="volver">
 		<button type="button" class="OCM-button" (click)="volver()">Volver</button>
 	</div>
-
-	<h4 class="OCM-text--cabecera">
-		<!-- Programa -->
-		<!-- {{ dataStoreService.selectedCodeRowFirstLevel }}. {{ messageYears }} -->
-		{{ title }}. {{ messageYears }}
-	</h4>
-
-	<div *ngIf="showButtomExpanded">
-		<button *ngIf="!isExpanded" type="button" class="OCM-button" (click)="expandAll()">Expandir todo</button>
-		<button *ngIf="isExpanded" type="button" class="OCM-button" (click)="collapseAll()">Colapsar todo</button>
-	</div>
-
-	<button
-		*ngIf="(hasRowClicked$ | async) === null"
-		type="button"
-		(click)="showAplicacionPresupuestaria()"
-		class="OCM-button"
-		style="padding: 1.2rem 8.6rem; margin-top: 10px"
-	>
-		{{ titleButtom }}
-	</button>
 
 	<div class="agGrid">
 		<ag-grid-angular
@@ -31,6 +12,8 @@
 			id="agGrid"
 			style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"
 			class="ag-theme-balham"
+			[autoGroupColumnDef]="autoGroupColumnDef"
+			[groupDisplayType]="groupDisplayType"
 			[gridOptions]="gridOptions"
 			(gridReady)="onGridReady($event)"
 		>

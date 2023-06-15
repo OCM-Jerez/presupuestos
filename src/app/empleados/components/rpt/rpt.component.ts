@@ -27,7 +27,7 @@ import puestos from '@assets/data/puestosLimpio.json';
 	styleUrls: ['./rpt.component.scss']
 })
 export default class RptComponent implements OnInit {
-	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+	@ViewChild('agGrid') agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
 	private _columnDefs: ColDef[];
 	private _gridApi: GridApi;
