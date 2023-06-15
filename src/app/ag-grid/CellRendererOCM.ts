@@ -20,7 +20,7 @@ export function CellRendererOCM(params: ICellRendererParams) {
 					return 'SIN FORMATO';
 			}
 		} else {
-			return `<p style="font-size: 16px; font-family:var(--fuente-principal);text-align: right; margin: 0px;">${valorFormateado}</p>`;
+			return `<p style="font-size: 14px; font-family:var(--fuente-principal);text-align: right; margin: 0px;">${valorFormateado}</p>`;
 		}
 	} else {
 		return '';
@@ -56,7 +56,7 @@ export function CellRendererOCMDetails(params: ICellRendererParams) {
 				return `<p style="color: red; font-size: 22px; font-family:var(--fuente-principal); font-weight: bold; text-align: right; margin: 0px">${valorFormateado}
 								</p>`;
 			case 0: // TOTAL CAPITULO
-				return `<p style="color: red; font-size: 16px; font-family:var(--fuente-principal);font-weight: bold;text-align: right; margin: 0px">${valorFormateado}
+				return `<p style="color: red; font-size: 18px; font-family:var(--fuente-principal);font-weight: bold;text-align: right; margin: 0px">${valorFormateado}
 								</p>`;
 			case 1: // Económico
 				return `<p style="font-size: 14px; color: black; font-family:var(--fuente-principal);text-align: right; margin: 0px;">${valorFormateado}</p>`;

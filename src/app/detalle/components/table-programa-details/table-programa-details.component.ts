@@ -12,10 +12,11 @@ import {
 	ColumnState,
 	GridApi,
 	GridOptions,
-	GridReadyEvent
+	GridReadyEvent,
+	RowGroupingDisplayType
 } from 'ag-grid-community/main';
 
-import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
+import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { getColumnDefsDetails } from '../../../ag-grid/setColumnDefs/programa-details';
 import { getColumnDefsGastan } from '../../../ag-grid/setColumnDefs/grupos-programas';
@@ -73,6 +74,25 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private _appPresupuestarias = [];
 	private levelDetails = 0;
 
+	public autoGroupColumnDef: ColDef = {
+		headerName: 'Capítulo-Económico',
+		field: 'DesEco',
+		width: 625,
+		pinned: 'left',
+		cellRenderer: CellRendererOCMtext,
+		valueGetter: (params) => {
+			if (params?.data) {
+				return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: 14px; margin-left: 0px"">${
+					'       ' + params.data.CodEco + ' - ' + params.data.DesEco
+				}</span>`;
+			} else {
+				return `<span style="white-space: pre;color: red; font-size: 18px; font-family:var(--fuente-principal);font-weight: bold;text-align: right;padding-left: 425px;">TOTAL PROGRAMA
+				</span>`;
+			}
+		}
+	};
+	public groupDisplayType: RowGroupingDisplayType = 'singleColumn';
+
 	constructor() {
 		this.sub = this._route.params.subscribe((params) => {
 			this._path = params['origen'];
@@ -80,10 +100,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	async ngOnInit(): Promise<void> {
-		// console.log('TableProgramaDetailsComponent ngOnInit');
-		// console.log('this.buttonVisible', this.buttonVisible);
-		// console.log('this.titleButtom', this.titleButtom);
-
 		this._dataTable = this._dataStoreService.dataTable;
 		switch (this._path) {
 			case 'details':
