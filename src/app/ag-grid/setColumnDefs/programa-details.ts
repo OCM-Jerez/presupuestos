@@ -1,13 +1,13 @@
-import { CellRendererOCMDetails, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
-import { AvalaibleYearsService } from '@services/avalaibleYears.service';
+import { CellRendererOCMDetails } from '@ag-grid/CellRendererOCM';
 import { ColGroupDef } from 'ag-grid-community';
+
+import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 
 export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsService): ColGroupDef[] {
 	return [
 		{
 			children: [
 				{
-					// headerName: 'Capítulo',
 					field: 'DesCap',
 					width: 450,
 					pinned: 'left',
@@ -24,38 +24,7 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 							return '';
 						}
 					}
-					// cellRendererParams: {
-					// 	suppressCount: true,
-					// 	innerRenderer: (params) => {
-					// 		switch (params.node.level) {
-					// 			case 0:
-					// 				return params.value;
-					// 			case 1:
-					// 				return `<span style="color: red; font-size: 18px; font-family:var(--fuente-principal);font-weight: bold;text-align: right">TOTAL PROGRAMA
-					// 				</span>`;
-					// 			default:
-					// 				return `<span style="color: red; font-size: 18px; font-family:var(--fuente-principal);font-weight: bold;text-align: right">TOTAL PROGRAMA
-					// 				</span>`;
-					// 		}
-					// 	}
-					// }
 				},
-				// {
-				// 	headerName: 'Económico',
-				// 	field: 'DesEco',
-				// 	width: 625,
-				// 	pinned: 'left',
-				// 	cellRenderer: CellRendererOCMtext,
-				// 	valueGetter: (params) => {
-				// 		if (params?.data) {
-				// 			return `<span style="color: black; font-family:var(--fuente-principal);font-size: 16px; margin-left: 0px">${
-				// 				params.data.CodEco + ' - ' + params.data.DesEco
-				// 			}</span>`;
-				// 		} else {
-				// 			return '';
-				// 		}
-				// 	}
-				// },
 
 				...avalaibleYearsService.getYearsSelected().map((year) => {
 					return {

@@ -1,6 +1,7 @@
 import { CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
-import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { ColGroupDef } from 'ag-grid-community';
+
+import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 
 export function getColumnDefsGastan(avalaibleYearsService: AvalaibleYearsService, year: string): ColGroupDef[] {
 	return [
@@ -10,7 +11,6 @@ export function getColumnDefsGastan(avalaibleYearsService: AvalaibleYearsService
 				{
 					headerName: 'Programa',
 					field: 'DesPro',
-					// rowGroup: true,
 					showRowGroup: 'DesPro',
 					filter: true,
 					width: 700,
@@ -80,11 +80,3 @@ export function getColumnDefsGastan(avalaibleYearsService: AvalaibleYearsService
 		}
 	];
 }
-
-// ...this.avalaibleYearsService.getYearsSelected().map((year) => {
-// 	return {
-// headerName: year.toLocaleString(),
-// children: this.createColumnsChildren(year),
-// children: this.createColumnsChildrenDetalle(year)
-// 	};
-// })
