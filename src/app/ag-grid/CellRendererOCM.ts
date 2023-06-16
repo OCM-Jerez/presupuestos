@@ -8,7 +8,7 @@ export function CellRendererOCM(params: ICellRendererParams) {
 			switch (params.node.level) {
 				case 3: // Total cuarto nivel.
 					return `<p style="text-align: right; color: red; font-size: 12px; font-family:var(--fuente-principal);margin: 0px;font-weight: bold">${valorFormateado}</p>`;
-				case 2: // Total tercero nivel.
+				case 2: // Total tercer nivel.
 					return `<p style="text-align: right; color: red; font-size: 12px; font-family:var(--fuente-principal);margin: 0px;font-weight: bold">${valorFormateado}</p>`;
 				case 1: // Total segundo nivel.
 					return `<p style="text-align: right; color: red; font-size: 12px; font-family:var(--fuente-principal);margin: 0px;font-weight: bold">${valorFormateado}</p>`;
@@ -60,10 +60,6 @@ export function CellRendererOCMDetails(params: ICellRendererParams) {
 								</p>`;
 			case 1: // Económico
 				return `<p style="font-size: 14px; color: black; font-family:var(--fuente-principal);text-align: right; margin: 0px;">${valorFormateado}</p>`;
-
-			// case 2:
-			// 	return `<p style="color: red; font-size: 22px; font-weight: bold; text-align: right; margin: 0px">${valorFormateado}
-			// 					</p>`;
 			default:
 				return `<p style="color: blue; font-size: 14px; font-weight: bold; text-align: right; margin: 0px">SIN FORMATO
 								</p>`;
