@@ -389,4 +389,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			this._location.back();
 		}
 	}
+
+	ficha() {
+		this._router.navigateByUrl('/fichaPrograma');
+	}
 }
