@@ -67,7 +67,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private _dataTable: IDataTable;
 	private _gridApi: GridApi;
 	private _rowData: IGastos[] = [];
-	private _dataTotalizada: any;
+	private _dataTotalizada: IDataTable;
 	private _subHeaderName = '';
 	private sub: Subscription;
 	private _defaultSortModel: ColumnState[] = [];
@@ -388,5 +388,9 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			this._location.back();
 			this._location.back();
 		}
+	}
+
+	ficha() {
+		this._router.navigateByUrl('/fichaPrograma');
 	}
 }

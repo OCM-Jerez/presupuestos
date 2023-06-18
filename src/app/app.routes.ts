@@ -14,6 +14,10 @@ export default [
 		loadComponent: () => import('./detalle/detalle.component')
 	},
 	{
+		path: 'fichaPrograma',
+		loadComponent: () => import('./detalle/components/table-programa-details/ficha-programa/ficha-programa.component')
+	},
+	{
 		path: 'tableProgramaDetails/:origen',
 		loadComponent: () => import('./detalle/components/table-programa-details/table-programa-details.component')
 	},
