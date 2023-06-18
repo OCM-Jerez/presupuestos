@@ -1,4 +1,14 @@
 <app-tabs>
 	<app-tab *ngFor="let tab of tabs; let isFirst = first" [title]="tab.title" [active]="isFirst" [isFicha]="tab.isFicha">
+		<ng-container *ngIf="tab.title === 'Presupuesto'">
+			<div style="width: 1200px; height: 500px; background-color: aquamarine">
+				<app-ficha-presupuesto />
+			</div>
+		</ng-container>
+		<ng-container *ngIf="tab.title === 'Personal'">
+			<div style="width: 1200px; height: 500px; background-color: rgb(220, 220, 145)">
+				<app-ficha-personal />
+			</div>
+		</ng-container>
 	</app-tab>
 </app-tabs>

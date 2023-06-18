@@ -46,13 +46,10 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
 	}
 
 	clickTab(tab: TabComponent): void {
-		console.log('clickTab', tab);
-
 		this.setActiveTab(tab);
 		this._dataStoreTabService.setTab({
 			clasificationType: tab.clasification
 		});
-		console.log('clickTab in store', this._dataStoreTabService.getTab());
 
 		// Tengo que recuperar el subtab seleccionado en el tab actual
 		if (!tab.isFicha) {
