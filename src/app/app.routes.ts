@@ -45,5 +45,5 @@ export default [
 		path: 'retribuciones2022',
 		loadComponent: () => import('./empleados/components/retribuciones2022/retribuciones2022.component')
 	},
-	{ path: '**', pathMatch: 'full', redirectTo: 'home' }
+	{ path: '**', pathMatch: 'full', redirectTo: '/home' }
 ] as Routes;

@@ -46,25 +46,31 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
 	}
 
 	clickTab(tab: TabComponent): void {
+		console.log('clickTab', tab);
+
 		this.setActiveTab(tab);
 		this._dataStoreTabService.setTab({
 			clasificationType: tab.clasification
 		});
+		console.log('clickTab in store', this._dataStoreTabService.getTab());
 
 		// Tengo que recuperar el subtab seleccionado en el tab actual
-		switch (tab.clasification) {
-			case 'ingresosEconomicaEconomicos':
-				this._subtabSelected = this._dataStoreSubtabService.getData1();
-				break;
-			case 'gastosProgramaProgramas':
-				this._subtabSelected = this._dataStoreSubtabService.getData2();
-				break;
-			case 'gastosOrganicaOrganicos':
-				this._subtabSelected = this._dataStoreSubtabService.getData3();
-				break;
-			case 'gastosEconomicaEconomicos':
-				this._subtabSelected = this._dataStoreSubtabService.getData4();
-				break;
+		if (!tab.isFicha) {
+			console.log(tab.clasification);
+			switch (tab.clasification) {
+				case 'ingresosEconomicaEconomicos':
+					this._subtabSelected = this._dataStoreSubtabService.getData1();
+					break;
+				case 'gastosProgramaProgramas':
+					this._subtabSelected = this._dataStoreSubtabService.getData2();
+					break;
+				case 'gastosOrganicaOrganicos':
+					this._subtabSelected = this._dataStoreSubtabService.getData3();
+					break;
+				case 'gastosEconomicaEconomicos':
+					this._subtabSelected = this._dataStoreSubtabService.getData4();
+					break;
+			}
 		}
 	}
 

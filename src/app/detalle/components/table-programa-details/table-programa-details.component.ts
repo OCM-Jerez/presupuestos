@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { AsyncPipe, Location, NgIf } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 
@@ -391,6 +391,9 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	ficha() {
-		this._router.navigateByUrl('/fichaPrograma');
+		// Update the browser's URL without navigating
+		this._location.go('/fichaPrograma');
+		// this._router.navigate(['/fichaPrograma'], { queryParams: null, queryParamsHandling: 'merge' });
+		this._router.navigate(['/fichaPrograma']);
 	}
 }
