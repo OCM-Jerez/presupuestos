@@ -13,4 +13,5 @@ export class TabComponent {
 	@Input() clasification: CLASIFICATION_TYPE;
 	@Input() title: string;
 	@Input() active = false;
+	@Input() isFicha: boolean;
 }

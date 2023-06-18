@@ -5,9 +5,9 @@
 		[ngClass]="{ 'tab--selected': tab.active === true }"
 		(click)="clickTab(tab)"
 	>
-		<span class="tab__title">{{ tab.title }}</span>
+		<span *ngIf="!tab.isFicha" class="tab__title">{{ tab.title }}</span>
+		<span *ngIf="tab.isFicha" class="tab__title" style="font-size: 16px">{{ tab.title }}</span>
 	</div>
-	<!-- {{ tabSignal() }} -->
 </div>
 
 <ng-content></ng-content>
