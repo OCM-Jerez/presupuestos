@@ -38,7 +38,6 @@ export default class EmpleadosComponent {
 	}
 
 	retribuciones2022() {
-		// this._router.navigateByUrl('/retribuciones2022');
-		this._router.navigateByUrl('/fichaPrograma');
+		this._router.navigateByUrl('/retribuciones2022');
 	}
 }
