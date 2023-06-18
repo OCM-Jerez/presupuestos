@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
-import { AsyncPipe, Location, NgClass, NgIf } from '@angular/common';
+import { AsyncPipe, Location, NgIf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -37,7 +37,7 @@ import { accumulate } from '../../../commons/util/util';
 	templateUrl: './table-programa-details.component.html',
 	styleUrls: ['./table-programa-details.component.scss'],
 	standalone: true,
-	imports: [NgIf, NgClass, AgGridModule, AsyncPipe]
+	imports: [NgIf, AgGridModule, AsyncPipe]
 })
 export default class TableProgramaDetailsComponent implements OnInit, OnDestroy {
 	private _route = inject(ActivatedRoute);
