@@ -53,7 +53,6 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
 
 		// Tengo que recuperar el subtab seleccionado en el tab actual
 		if (!tab.isFicha) {
-			console.log(tab.clasification);
 			switch (tab.clasification) {
 				case 'ingresosEconomicaEconomicos':
 					this._subtabSelected = this._dataStoreSubtabService.getData1();
@@ -73,10 +72,19 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
 
 	private setActiveTab(tab?: TabComponent): void {
 		this.tabs.toArray().forEach((t) => {
-			if (tab ? t.title === tab.title : t.clasification === this._tabSelected.clasificationType) {
-				t.active = true;
+			// console.log('t', t);
+			if (tab.isFicha) {
+				if (tab ? t.title === tab.title : t.clasification === this._tabSelected.clasificationType) {
+					t.active = true;
+				} else {
+					t.active = false;
+				}
 			} else {
-				t.active = false;
+				if (t.title === tab.title) {
+					t.active = true;
+				} else {
+					t.active = false;
+				}
 			}
 		});
 	}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import * as Highcharts from 'highcharts';
@@ -12,14 +12,20 @@ HighchartsMore(Highcharts);
 	templateUrl: './ficha-personal.component.html',
 	styleUrls: ['./ficha-personal.component.scss']
 })
-export class FichaPersonalComponent {
-	ficha() {
-		console.log('graphCapituloGastos');
+export class FichaPersonalComponent implements AfterViewInit {
+	ngAfterViewInit() {
+		setTimeout(() => {
+			this.graphPersonal();
+		}, 1500);
+	}
 
-		Highcharts.chart({
+	graphPersonal() {
+		console.log('graphPersonal');
+
+		Highcharts.chart('', {
 			chart: {
 				type: 'pie',
-				renderTo: 'chart-containerLines',
+				// renderTo: ,
 				options3d: {
 					enabled: true,
 					alpha: 45
