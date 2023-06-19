@@ -2,12 +2,13 @@
 
 @media screen and (max-width: 3399.98px) {
 	.graph2 {
-	display: flex;
-	margin: 20px 20px 0;
-	min-width: 100%;
+		display: flex;
+		margin: 20px 20px 0;
+		min-width: 100%;
 	}
 
-	#Ingresos, #Gastos {
+	#Ingresos,
+	#Gastos {
 		width: 50%;
 		max-width: 46%;
 		min-width: 46%;
@@ -25,7 +26,8 @@
 }
 
 @media screen and (max-width: 575.98px) {
-	#Ingresos, #Gastos {
+	#Ingresos,
+	#Gastos {
 		height: 350px;
 	}
 }

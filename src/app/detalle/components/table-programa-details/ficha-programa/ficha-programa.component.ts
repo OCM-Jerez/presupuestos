@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
+
 import { TabComponent } from '@app/commons/components/tabs/tab/tab.component';
 import { TabsComponent } from '@app/commons/components/tabs/tabs.component';
+import { FichaPresupuestoComponent } from './components/ficha-presupuesto/ficha-presupuesto.component';
+import { FichaPersonalComponent } from './components/ficha-personal/ficha-personal.component';
 
 @Component({
 	selector: 'app-ficha-programa',
 	standalone: true,
-	imports: [TabComponent, TabsComponent, NgFor, NgIf],
+	imports: [TabComponent, TabsComponent, NgFor, NgIf, FichaPresupuestoComponent, FichaPersonalComponent],
 	templateUrl: './ficha-programa.component.html',
 	styleUrls: ['./ficha-programa.component.scss']
 })
