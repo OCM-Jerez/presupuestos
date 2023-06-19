@@ -1,4 +1,4 @@
-<h1>Ficha programa</h1>
+<h1 style="font-size: 32px; font-weight: bold; text-align: center">Ficha programa</h1>
 <app-tabs>
 	<app-tab *ngFor="let tab of tabs; let isFirst = first" [title]="tab.title" [active]="isFirst" [isFicha]="tab.isFicha">
 		<ng-container *ngIf="tab.title === 'Presupuesto'">

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { AsyncPipe, Location, NgIf } from '@angular/common';
-import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 
@@ -31,6 +31,7 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 import { IGastos } from '@interfaces/gastos.interface';
 
 import { accumulate } from '../../../commons/util/util';
+import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
 
 @Component({
 	selector: 'app-table-programa-details',
@@ -46,6 +47,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private _dataStoreService = inject(DataStoreService);
 	private _hasRowClicked = inject(HasRowClicked);
 	private _prepareDataGastosService = inject(PrepareDataGastosService);
+	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
+
 	public avalaibleYearsService = inject(AvalaibleYearsService);
 
 	@ViewChild('agGrid') agGrid: AgGridAngular;
@@ -163,6 +166,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				return acc;
 			}, {})
 		);
+		console.log('this._rowData', this._rowData);
 	}
 
 	async _CalcDataGastan() {
@@ -391,6 +395,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	ficha() {
+		this._dataStoreFichaProgramaService.setFichaProgramaData(this._rowData);
 		// Update the browser's URL without navigating
 		this._location.go('/fichaPrograma');
 		// this._router.navigate(['/fichaPrograma'], { queryParams: null, queryParamsHandling: 'merge' });

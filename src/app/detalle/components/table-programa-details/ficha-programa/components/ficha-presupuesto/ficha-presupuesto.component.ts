@@ -1,8 +1,11 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
+import { Subscription } from 'rxjs';
+import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
+import { IGastos } from '@interfaces/gastos.interface';
 HighchartsMore(Highcharts);
 
 @Component({
@@ -12,7 +15,26 @@ HighchartsMore(Highcharts);
 	templateUrl: './ficha-presupuesto.component.html',
 	styleUrls: ['./ficha-presupuesto.component.scss']
 })
-export class FichaPresupuestoComponent implements AfterViewInit {
+export class FichaPresupuestoComponent implements OnInit, AfterViewInit, OnDestroy {
+	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
+
+	private _subscription: Subscription;
+	private _datos: IGastos[] = [];
+	public programa: string;
+
+	ngOnInit(): void {
+		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
+			this._datos = data;
+			console.log(this._datos);
+		});
+		this.programa = this._datos[0].CodPro + ' - ' + this._datos[0].DesPro;
+		this.calcCapitulos();
+	}
+
+	ngOnDestroy() {
+		this._subscription.unsubscribe();
+	}
+
 	ngAfterViewInit() {
 		setTimeout(() => {
 			this.graphCapituloGastos();
@@ -22,7 +44,38 @@ export class FichaPresupuestoComponent implements AfterViewInit {
 		}, 50);
 	}
 
+	calcCapitulos() {
+		const capitulos = this._datos.map((item) => ({
+			name: `${item.CodCap}-${item.DesCap}`,
+			value: item.Definitivas2023,
+			recaudado: item.Pagos2023
+		}));
+
+		return capitulos.reduce((acc, curr) => {
+			const index = acc.findIndex((item) => item.name === curr.name);
+			index > -1
+				? ((acc[index].value += curr.value), (acc[index].recaudado += curr.recaudado))
+				: acc.push({
+						name: curr.name,
+						value: curr.value,
+						recaudado: curr.recaudado
+				  });
+			return acc;
+		}, []);
+	}
+
 	graphCapituloGastos() {
+		const data = this.calcCapitulos().map((item) => {
+			return [item.name, item.value];
+		});
+		console.log(data);
+
+		Highcharts.setOptions({
+			lang: {
+				thousandsSep: '.'
+			}
+		});
+
 		Highcharts.chart('chart-capitulosGastos', {
 			chart: {
 				type: 'pie',
@@ -33,11 +86,14 @@ export class FichaPresupuestoComponent implements AfterViewInit {
 				}
 			},
 			title: {
-				text: 'Beijing 2022 gold medals by country',
-				align: 'left'
+				text: 'Gastos por capítulo',
+				align: 'center',
+				style: {
+					fontSize: '3.5rem'
+				}
 			},
 			subtitle: {
-				text: '3D donut in Highcharts',
+				text: '',
 				align: 'left'
 			},
 			plotOptions: {
@@ -50,17 +106,14 @@ export class FichaPresupuestoComponent implements AfterViewInit {
 				{
 					type: 'pie',
 					name: 'Medals',
-					data: [
-						['Norway', 16],
-						['Germany', 12],
-						['USA', 8],
-						['Sweden', 8],
-						['Netherlands', 8],
-						['ROC', 6],
-						['Austria', 7],
-						['Canada', 4],
-						['Japan', 3]
-					]
+					data: data,
+					dataLabels: {
+						enabled: true,
+						format: '{point.name}<br>{point.y:,.0f} euros<br><span style="color: red">{point.percentage:.1f}%</span>',
+						style: {
+							fontSize: '16px'
+						}
+					}
 				}
 			]
 		});
