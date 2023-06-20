@@ -187,6 +187,7 @@ End Sub
 -   Convertir a JSON
 -   Mover de dowload a carpeta OCM
 -   Renombrar el fichero 2023LiqGas
+-   Comprobar no existan objetos sin datos al final
 -   Copiarlo en assets de la app.
 
 -   si se han añadido nuevos programas o economicos, generar JSON desde Excel-> csv->JSON
@@ -229,6 +230,7 @@ End Sub
 -   En el CSV generado revisar todas las columnas numericas.
 -   Las pongo como numero, decimales=0, sin separador de miles.
 -   Los porcentajes = porcentaje, dos decimales.
+Comprobar no existan objetos sin datos al final
 
 **\*\*\*\***\*\*\*\***\*\*\*\*** ANGULAR \***\*\*\*\*\*\*\***\*\*\***\*\*\*\*\*\*\***\*\*\*\***\*\*\*\*\*\*\***\*\*\***\*\*\*\*\*\*\***
 

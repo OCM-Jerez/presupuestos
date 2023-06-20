@@ -66,8 +66,7 @@ export class PrepareDataIngresosService {
 		});
 
 		result.map((item) => {
-			console.log(item.CodEco);
-
+			// console.log(item.CodEco);
 			item.DesEco = ingresosEconomicaEconomicos.find((economico) => economico.codigo === item.CodEco).descripcion;
 			item.CodCap = Math.floor(item.CodEco / 10000);
 			item.DesCap = ingresosEconomicaCapitulos.find((capitulo) => capitulo.codigo === item.CodCap).descripcion;
