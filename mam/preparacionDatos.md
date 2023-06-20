@@ -150,17 +150,19 @@ End Sub
     -   Saldo de Gastos Autorizados
 
     -   Saldo de Pagos Ordenados
+
     -   Total gastado
     -   Saldo de Créditos disponibles
 
     -   Saldo de Créditos disp. a nivel de Vinculación
     -   % de Realizacion del Presupuesto
     -   Facturas consumen disp. Pend. Contabilizar
+
     -   Gastado en Fase Definitiva
 
--   Añadir 5 columna DEWSPUES de la columna C
+-   Añadir 5 columna DESPUES de la columna C
 
--   Insertar fila para copiar los datos de la caabecera aanterior.
+-   Insertar fila para copiar los datos de la cabecera anterior.
 -   Copiar cabecera de fichero anterior. ES IMPORTANTE QUE COINCIDAN LAS COLUMNAS.
     DE LO CONTRARIO DESPLAZARA LOS VALORES SI FALTA ALGUNA.
 -   Elimiar la cabecera original
@@ -173,50 +175,9 @@ End Sub
 -   Cambiar a tipo numero, 0 decimales, sin separador de miles, las columnas:
     CodOrg hay que convertir a numero evitando el doble caracter 00, 01, 02 .... Multiplicar por 1 y copiar como valor.
 
-            ⋅⋅⋅CodOrg
-            ⋅⋅⋅CodPro
-            ⋅⋅⋅CodEco
-            ⋅⋅⋅CodCap
+-   Buscar en las columnas E a H inclusive #N/D
 
--   Buscar en las columnaas E a H inclusive
-
--   Extraer primer caracter de "Eco." en columna creada CodCap. =IZQUIERDA(C2;1)
--   Abrir Tabla organicos 2020.xlsx
--   formula BUSCARV(VALOR(X)......;2;0). importante añadir VALOR()
--   Es importante que el ultimo valor sea 0 para que sea busqueda exacta y en caso de faltar algun valor en la tabla de #N/D
-
--   Hacer lo mismo para DesCap, DesEco y DesPro abriendo sus correspondientes ficheros.
-
--   **HAY QUE UNIFICAR TODOS LOS NOMBRES IGUAL PARA PERMITIR UN SOLO PROYECTO DONDE SE SELECCIONE EL AÑO A MOSTRAR**.
-    **IMPORTANTE QUE NO EXISTA FILAS INMOVILIZADAS, DE LO CONTRARIO AL INSERTAR Y DESPLAZAR HACIA ABAJO DESCOLOCA DATOS**.
-    Lo mejor es copiar la fila de un fichero anterior.
-    "CodOrg"
-    "CodPro"
-    "CodEco"
-    "CodCap"
-    "DesCap"
-    "DesOrg"
-    "DesPro"
-    "DesEco"
-    "Descripcion"
-    "Iniciales"
-    "Modificaciones"
-    "Definitivas"
-    "GastosComprometidos"
-    "ObligacionesReconocidasNetas"
-    "Pagos"
-    "ObligacionesPendientePago"
-    "RemanenteCredito"
-
--   Cambiar nombres que contengan un . de lo contrario no se muestran los valores en ag-grid.
--   Saldo de Gastos Compromet. => Saldo de Gastos Comprometidos
--   Facturas consumen disp. Pend. Contabilizar => Facturas consumen disp Pend Contabilizar
--   Saldo de Acuerd. Créd. para No Disponibil. => Saldo de Acuerdo Créditos para No Disponibilidad
--   Saldo de Créditos Retenidos para Trans. => Saldo de Créditos Retenidos para Trans
--   Saldo de Créditos disp. a nivel de Vinculación => Saldo de Créditos disp a nivel de vinculación
--   Grabar.
-
--   Archivo->guardar como->desplegable tipo archivo-> CSV UTF-8 (delimitado por comas) (\*.csv)
+-   -   Archivo->guardar como->desplegable tipo archivo-> CSV UTF-8 (delimitado por comas) (\*.csv)
 -   Si no se hace como UTF-8 el json contendra simbolos extraños.
 -   Guardar con el mismo nombre
 
@@ -224,7 +185,8 @@ End Sub
 -   Revisar formato columna CodOrg debe ser numerico sin decimales ni separación de miles.
 -
 -   Convertir a JSON
--   Renombrar el fichero anterior añadiendo DDMM dia y mes al final
+-   Mover de dowload a carpeta OCM
+-   Renombrar el fichero 2023LiqGas
 -   Copiarlo en assets de la app.
 
 -   si se han añadido nuevos programas o economicos, generar JSON desde Excel-> csv->JSON
@@ -237,16 +199,21 @@ End Sub
 -   Abrir Excel original
 -   Guardar en carpeta OCM.
 -   Guardar como xlsx (version más reciente de Excel)
--   Eliminar 2ª fila de cabecera, la que asigna letras a las columnas (a), (b) c=a+b ............
-    **IMPORTANTE QUE NO EXISTA FILAS INMOVILIZADAS, DE LO CONTRARIO AL INSERTAR Y DESPLAZAR HACIA ABAJO DESCOLOCA DATOS**.
--   Eliminar fila totales.-
--   Insertar 3 columnas a partir columan C.
 -   eliminar columnas:
     % de Realizacion del Presupuesto
     % Rec/Der
 
+    **IMPORTANTE QUE NO EXISTA FILAS INMOVILIZADAS, DE LO CONTRARIO AL INSERTAR Y DESPLAZAR HACIA ABAJO DESCOLOCA DATOS**.
+-   Insertar 3 columnas a partir columan C.
+-  Insertar fila para copiar los datos de la cabecera anterior.
+-   Copiar cabecera de fichero anterior. ES IMPORTANTE QUE COINCIDAN LAS COLUMNAS.
+    DE LO CONTRARIO DESPLAZARA LOS VALORES SI FALTA ALGUNA.
+-   Eliminar la cabecera original
+-   Eliminar 2ª fila de cabecera, la que asigna letras a las columnas (a), (b) c=a+b ............
+-   Eliminar fila totales.
+
+
 -   Copiar primera fila Excel anterior.
--   Copiar formulas 3 nuevas columnas a partir columna B.
 -   Es importante que el ultimo valor sea 0 para que sea busqueda exacta y en caso de faltar algun valor en la tabla de #N/D
 -   Comprobar #N/D
 -   Cambiar formato columnas F a O inclusive para que en alineación no haya nada combinado.

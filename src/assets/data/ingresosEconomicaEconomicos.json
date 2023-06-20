@@ -516,6 +516,10 @@
 		"descripcion": "Otras subvenciones corrientes de la Administración General del Estado"
 	},
 	{
+		"codigo": 45081,
+		"descripcion": "Transf.corrientes Admon.Gral.Comunidad Autónoma-MRR Mecanism"
+	},
+	{
 		"codigo": 45100,
 		"descripcion": "Instituto Andaluz de la Mujer"
 	},
@@ -562,6 +566,10 @@
 	{
 		"codigo": 49000,
 		"descripcion": "Transferencias de La Unión europea"
+	},
+	{
+		"codigo": 49700,
+		"descripcion": "Transf.corrientes Admon.Gral.Comunidad Autónoma-MRR Mecanism"
 	},
 	{
 		"codigo": 51100,
@@ -676,6 +684,10 @@
 		"descripcion": "Otras transferencias de capital de la Administración General del Estado"
 	},
 	{
+		"codigo": 75081,
+		"descripcion": "Transf.capital Admon.Gral.Comunidad Autónoma-MRR Mecanismo R"
+	},
+	{
 		"codigo": 75100,
 		"descripcion": "Transferencias capital Organismos Autónomos y Agencias CCAA"
 	},
@@ -706,6 +718,10 @@
 	{
 		"codigo": 79007,
 		"descripcion": "Del Fondo Social Europeo"
+	},
+	{
+		"codigo": 79700,
+		"descripcion": "Otras transferencias de la Unión Europea"
 	},
 	{
 		"codigo": 79701,
