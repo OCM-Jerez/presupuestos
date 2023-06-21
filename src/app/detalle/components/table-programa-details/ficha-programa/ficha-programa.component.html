@@ -1,6 +1,11 @@
 <h1 style="font-size: 32px; font-weight: bold; text-align: center">Ficha programa</h1>
 <app-tabs>
 	<app-tab *ngFor="let tab of tabs; let isFirst = first" [title]="tab.title" [active]="isFirst" [isFicha]="tab.isFicha">
+		<ng-container *ngIf="tab.title === 'Indice'">
+			<div style="width: 1200px; height: 500px; background-color: rgb(222, 225, 30)">
+				<app-ficha-indice />
+			</div>
+		</ng-container>
 		<ng-container *ngIf="tab.title === 'Presupuesto'">
 			<div style="width: 1200px; height: 500px; background-color: aquamarine">
 				<app-ficha-presupuesto />

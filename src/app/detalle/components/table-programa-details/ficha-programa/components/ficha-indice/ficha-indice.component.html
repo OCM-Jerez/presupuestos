@@ -1,0 +1,11 @@
+<div class="flex">
+	<div class="flex__cardMenu" *ngFor="let menu of cardMenus" [style.background]="menu.background">
+		<app-card-menu
+			[rutaImagen]="menu.rutaImagen"
+			[titulo]="menu.titulo"
+			[subtitulo]="menu.subtitulo"
+			(click)="menu.funcion()"
+			[textButton]="menu.textButton"
+		/>
+	</div>
+</div>
