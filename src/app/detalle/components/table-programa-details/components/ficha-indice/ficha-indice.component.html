@@ -1,10 +1,10 @@
 <div class="flex">
-	<div class="flex__cardInfo" *ngFor="let menu of cardsInfo" [style.background]="menu.background">
+	<div class="flex__cardInfo" *ngFor="let cardInfo of cardsInfo" [style.background]="cardInfo.background">
 		<app-card-info
-			[titulo]="menu.titulo"
-			[subtitulo]="menu.subtitulo"
-			(click)="menu.funcion()"
-			[textButton]="menu.textButton"
+			[titulo]="cardInfo.titulo"
+			[subtitulo]="cardInfo.subtitulo"
+			(click)="cardInfo.funcion()"
+			[textButton]="cardInfo.textButton"
 		/>
 	</div>
 </div>

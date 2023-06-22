@@ -1,15 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { CardInfoComponent } from '../../../../../commons/components/card-info/card-info.component';
 
 @Component({
 	selector: 'app-ficha-indice',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [CommonModule, CardInfoComponent],
 	templateUrl: './ficha-indice.component.html',
 	styleUrls: ['./ficha-indice.component.scss']
 })
-export class FichaIndiceComponent {
+export default class FichaIndiceComponent {
 	private _router = inject(Router);
 
 	cardsInfo = [

@@ -14,8 +14,9 @@ export default [
 		loadComponent: () => import('./detalle/detalle.component')
 	},
 	{
-		path: 'fichaPrograma',
-		loadComponent: () => import('./detalle/components/table-programa-details/ficha-programa/ficha-programa.component')
+		path: 'fichaIndice',
+		loadComponent: () =>
+			import('./detalle/components/table-programa-details/components/ficha-indice/ficha-indice.component')
 	},
 	{
 		path: 'tableProgramaDetails/:origen',
