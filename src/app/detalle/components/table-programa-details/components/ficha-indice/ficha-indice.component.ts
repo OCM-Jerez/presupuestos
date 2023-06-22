@@ -25,49 +25,57 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 		{
 			rutaImagen: 'assets/img/home/menu1-400x250.webp',
 			titulo: 'Presupuesto',
-			subtitulo: ' ',
+			subtitulo: 'Breve explicación del dato correspondiente ... ',
 			funcion: () => this.fichaPresupuesto(),
-			textButton: 'Presupuesto',
-			background: 'linear-gradient(to bottom, white , #FCE1CB)'
+			textButton: '18.854.736',
+			background: 'linear-gradient(to bottom,  #FCE1CB, white)'
+		},
+		{
+			rutaImagen: 'assets/img/home/menu1-400x250.webp',
+			titulo: 'Gastos a 5/06/2023',
+			subtitulo: 'Breve explicación del dato correspondiente ... ',
+			funcion: () => this.fichaPresupuesto(),
+			textButton: '8.468.783',
+			background: 'linear-gradient(to bottom, #EEBE3E, white)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu4-400x250.webp',
-			titulo: 'Empleados municipales',
+			titulo: 'Empleados',
 			subtitulo: '',
 			funcion: () => this.fichaEmpleados(),
-			textButton: 'Empleados',
-			background: 'linear-gradient(to bottom, white , #E0E0E0)'
+			textButton: '326',
+			background: 'linear-gradient(to bottom, #E0E0E0, white)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu2-400x250.webp',
 			titulo: 'Carta de servicios',
 			subtitulo: '',
 			funcion: () => this.fichaEmpleados(),
-			textButton: 'Detalle',
-			background: 'linear-gradient(to bottom, white , #CDE9FE)'
+			textButton: 'No',
+			background: 'linear-gradient(to bottom, #CDE9FE, white)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu3-400x250.webp',
 			titulo: 'Indicadores',
 			subtitulo: '',
 			funcion: () => this.fichaEmpleados(),
-			textButton: 'Licitaciones',
-			background: 'linear-gradient(to bottom,white , #DCEDC8)'
+			textButton: 'No',
+			background: 'linear-gradient(to bottom,#DCEDC8, white)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu1-400x250.webp',
 			titulo: 'Hemeroteca',
 			subtitulo: ' ',
 			funcion: () => this.fichaPresupuesto(),
-			textButton: 'Visión global',
-			background: 'linear-gradient(to bottom, white , #FCE1CB)'
+			textButton: ' 12 entradas',
+			background: 'linear-gradient(to bottom, #FCE1CB, white)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu4-400x250.webp',
 			titulo: 'Documentos',
 			subtitulo: '',
 			funcion: () => this.fichaEmpleados(),
-			textButton: 'Empleados',
+			textButton: 'No',
 			background: 'linear-gradient(to bottom, #D3CCE3 , white)'
 		},
 		{
@@ -75,7 +83,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 			titulo: 'Licitaciones',
 			subtitulo: '',
 			funcion: () => this.fichaEmpleados(),
-			textButton: 'Detalle',
+			textButton: '12',
 			background: 'linear-gradient(to bottom,#5092A9 , #FCFDFE)'
 		},
 		{
@@ -83,7 +91,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 			titulo: 'Contratos menores',
 			subtitulo: '',
 			funcion: () => this.fichaEmpleados(),
-			textButton: 'Licitaciones',
+			textButton: '14',
 			background: 'linear-gradient(to bottom, #EEBE3E ,white)'
 		},
 		{
@@ -91,17 +99,17 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 			titulo: 'Acuerdos de Pleno',
 			subtitulo: '',
 			funcion: () => this.fichaEmpleados(),
-			textButton: 'Empleados',
+			textButton: '2',
 			background: 'linear-gradient(to bottom, #D2DAB9 , white)'
-		},
-		{
-			rutaImagen: 'assets/img/home/menu2-400x250.webp',
-			titulo: 'Acuerdos JGL',
-			subtitulo: '',
-			funcion: () => this.fichaEmpleados(),
-			textButton: 'Detalle',
-			background: 'linear-gradient(to bottom, #A28B7B , white)'
 		}
+		// {
+		// 	rutaImagen: 'assets/img/home/menu2-400x250.webp',
+		// 	titulo: 'Acuerdos JGL',
+		// 	subtitulo: '',
+		// 	funcion: () => this.fichaEmpleados(),
+		// 	textButton: '8',
+		// 	background: 'linear-gradient(to bottom, #A28B7B , white)'
+		// }
 	];
 
 	fichaPresupuesto() {
