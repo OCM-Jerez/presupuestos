@@ -27,6 +27,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	// public cap1Selected = true;
 	public capitulos = gastosEconomicaCapituloss;
 	public activeButton = 1;
+	private cap = [];
 
 	ngOnInit(): void {
 		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
@@ -34,6 +35,10 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 			console.log(this._datos);
 		});
 		this.programa = this._datos[0].CodPro + ' - ' + this._datos[0].DesPro;
+
+		this.cap = this._datos.filter((item) => item.CodCap === 1);
+		console.log(this.cap);
+
 		this.calcCapitulos();
 	}
 
@@ -44,31 +49,86 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	ngAfterViewInit() {
 		setTimeout(() => {
 			this.graphCapituloGastos();
-			this.graph1();
+			this.graph('graph', 1);
 			// this.graph2();
 			// this.graph3();
 		}, 50);
 	}
 
-	changeGraph(capitulo: number) {
+	changeGraphOLD(capitulo: number) {
 		this.activeButton = capitulo;
 		this.currentGraph = capitulo;
 		switch (capitulo) {
 			case 1:
 				setTimeout(() => {
-					this.graph1();
+					this.graph('graph', capitulo);
 				}, 50);
-
 				break;
 			case 2:
+				this.cap = this._datos.filter((item) => item.CodCap === 2);
 				setTimeout(() => {
-					this.graph2();
+					this.graph('graph', capitulo);
+				}, 50);
+				break;
+			case 3:
+				this.cap = this._datos.filter((item) => item.CodCap === 3);
+				setTimeout(() => {
+					this.graph('graph', capitulo);
+				}, 50);
+				break;
+			case 4:
+				this.cap = this._datos.filter((item) => item.CodCap === 4);
+				setTimeout(() => {
+					this.graph('graph', capitulo);
+				}, 50);
+				break;
+			case 5:
+				this.cap = this._datos.filter((item) => item.CodCap === 5);
+				setTimeout(() => {
+					this.graph('graph', capitulo);
+				}, 50);
+				break;
+			case 6:
+				this.cap = this._datos.filter((item) => item.CodCap === 6);
+				setTimeout(() => {
+					this.graph('graph', capitulo);
+				}, 50);
+				break;
+			case 7:
+				this.cap = this._datos.filter((item) => item.CodCap === 7);
+				setTimeout(() => {
+					this.graph('graph', capitulo);
+				}, 50);
+				break;
+			case 8:
+				this.cap = this._datos.filter((item) => item.CodCap === 8);
+				setTimeout(() => {
+					this.graph('graph', capitulo);
+				}, 50);
+				break;
+			case 9:
+				this.cap = this._datos.filter((item) => item.CodCap === 9);
+				setTimeout(() => {
+					this.graph('graph', capitulo);
 				}, 50);
 				break;
 
 			default:
 				break;
 		}
+	}
+
+	changeGraph(capitulo: number) {
+		this.activeButton = capitulo;
+		this.currentGraph = capitulo;
+
+		if (capitulo >= 2 && capitulo <= 9) {
+			this.cap = this._datos.filter((item) => item.CodCap === capitulo);
+		}
+
+		setTimeout(() => {
+			this.graph('graph', capitulo);
+		}, 50);
 	}
 
 	calcCapitulos() {
@@ -146,8 +206,8 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		});
 	}
 
-	graph1() {
-		Highcharts.chart('graph1', {
+	graph(id: string, capitulo: number) {
+		Highcharts.chart(id, {
 			chart: {
 				type: 'pie',
 				// renderTo: 'chart-containerLines',
@@ -157,7 +217,8 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 				}
 			},
 			title: {
-				text: 'Capítulo 1 Gastos de personal',
+				text: ``,
+				// text: `Capítulo ${capitulo} `,
 				align: 'center'
 			},
 			subtitle: {
@@ -174,11 +235,14 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 				{
 					type: 'pie',
 					name: 'Medals',
-					data: [
-						['Norway', 16],
-						['Germany', 12],
-						['USA', 8]
-					]
+					data: this.cap.map((item) => [item.DesEco, item.Definitivas2023]),
+					dataLabels: {
+						enabled: true,
+						format: '{point.name}<br>{point.y:,.0f} euros<br><span style="color: red">{point.percentage:.1f}%</span>',
+						style: {
+							fontSize: '16px'
+						}
+					}
 				}
 			]
 		});
