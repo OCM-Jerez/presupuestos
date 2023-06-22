@@ -13,8 +13,4 @@ export class CardInfoComponent {
 	@Input() titulo: string;
 	@Input() subtitulo: string;
 	@Input() textButton: string;
-
-	// onDivClick() {
-	// 	console.log('Div clicked');
-	// }
 }

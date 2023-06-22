@@ -2,6 +2,7 @@
 <div class="flex">
 	<div class="flex__cardInfo" *ngFor="let cardInfo of cardsInfo" [style.background]="cardInfo.background">
 		<app-card-info
+			style="width: 100%"
 			[titulo]="cardInfo.titulo"
 			[subtitulo]="cardInfo.subtitulo"
 			(click)="cardInfo.funcion()"
