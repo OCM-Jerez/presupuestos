@@ -2,24 +2,24 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { NgFor } from '@angular/common';
-import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
+import { CardInfoComponent } from '@app/commons/components/card-info/card-info.component';
 
 @Component({
 	selector: 'app-ficha-indice',
 	standalone: true,
-	imports: [CommonModule, CardMenuComponent, NgFor],
+	imports: [CommonModule, CardInfoComponent, NgFor],
 	templateUrl: './ficha-indice.component.html',
 	styleUrls: ['./ficha-indice.component.scss']
 })
 export class FichaIndiceComponent {
 	private _router = inject(Router);
 
-	cardMenus = [
+	cardsInfo = [
 		{
 			rutaImagen: 'assets/img/home/menu1-400x250.webp',
 			titulo: 'Presupuesto',
 			subtitulo: ' ',
-			funcion: () => this.visionGlobal(),
+			funcion: () => this.fichaPresupuesto(),
 			textButton: 'Visión global',
 			background: 'linear-gradient(to bottom, #FFFDFC , #FCE1CB)'
 		},
@@ -51,7 +51,7 @@ export class FichaIndiceComponent {
 			rutaImagen: 'assets/img/home/menu1-400x250.webp',
 			titulo: 'Presupuesto',
 			subtitulo: ' ',
-			funcion: () => this.visionGlobal(),
+			funcion: () => this.fichaPresupuesto(),
 			textButton: 'Visión global',
 			background: 'linear-gradient(to bottom, #FFFDFC , #FCE1CB)'
 		},
@@ -97,8 +97,9 @@ export class FichaIndiceComponent {
 		}
 	];
 
-	visionGlobal() {
-		this._router.navigateByUrl('/visionGlobal');
+	fichaPresupuesto() {
+		console.log('vision global');
+ 		this._router.navigateByUrl('/fichaPresupuesto');
 	}
 
 	detalle() {

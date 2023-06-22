@@ -26,12 +26,11 @@ export default [
 		loadComponent: () => import('./empleados/empleados.component')
 	},
 	{
-		path: 'explicamos',
-		loadComponent: () => import('./explicamos/explicamos.component')
-	},
-	{
-		path: 'glosario',
-		loadComponent: () => import('./glosario/glosario.component')
+		path: 'fichaPresupuesto',
+		loadComponent: () =>
+			import(
+				'./detalle/components/table-programa-details/ficha-programa/components/ficha-presupuesto/ficha-presupuesto.component'
+			)
 	},
 	{
 		path: 'graphDetalle',
