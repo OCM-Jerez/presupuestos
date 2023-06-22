@@ -397,8 +397,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	ficha() {
 		this._dataStoreFichaProgramaService.setFichaProgramaData(this._rowData);
 		// Update the browser's URL without navigating
-		this._location.go('/fichaPrograma');
+		this._location.go('/fichaIndice');
 		// this._router.navigate(['/fichaPrograma'], { queryParams: null, queryParamsHandling: 'merge' });
-		this._router.navigate(['/fichaPrograma']);
+		this._router.navigate(['/fichaIndice']);
 	}
 }

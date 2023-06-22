@@ -1,0 +1,11 @@
+<h1 style="font-size: 32px; font-weight: bold; text-align: center">{{ programa }}</h1>
+<div class="flex">
+	<div class="flex__cardInfo" *ngFor="let cardInfo of cardsInfo" [style.background]="cardInfo.background">
+		<app-card-info
+			[titulo]="cardInfo.titulo"
+			[subtitulo]="cardInfo.subtitulo"
+			(click)="cardInfo.funcion()"
+			[textButton]="cardInfo.textButton"
+		/>
+	</div>
+</div>

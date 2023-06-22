@@ -14,8 +14,19 @@ export default [
 		loadComponent: () => import('./detalle/detalle.component')
 	},
 	{
-		path: 'fichaPrograma',
-		loadComponent: () => import('./detalle/components/table-programa-details/ficha-programa/ficha-programa.component')
+		path: 'fichaIndice',
+		loadComponent: () =>
+			import('./detalle/components/table-programa-details/components/ficha-indice/ficha-indice.component')
+	},
+	{
+		path: 'fichaPresupuesto',
+		loadComponent: () =>
+			import('./detalle/components/table-programa-details/components/ficha-presupuesto/ficha-presupuesto.component')
+	},
+	{
+		path: 'fichaEmpleados',
+		loadComponent: () =>
+			import('./detalle/components/table-programa-details/components/ficha-personal/ficha-personal.component')
 	},
 	{
 		path: 'tableProgramaDetails/:origen',
@@ -24,14 +35,6 @@ export default [
 	{
 		path: 'empleados',
 		loadComponent: () => import('./empleados/empleados.component')
-	},
-	{
-		path: 'explicamos',
-		loadComponent: () => import('./explicamos/explicamos.component')
-	},
-	{
-		path: 'glosario',
-		loadComponent: () => import('./glosario/glosario.component')
 	},
 	{
 		path: 'graphDetalle',
