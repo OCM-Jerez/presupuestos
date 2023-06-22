@@ -10,3 +10,48 @@
   .graph2 { grid-area: 2 / 2 / 4 / 3;  background-color: chocolate}
   .graph3 { grid-area: 3 / 2 / 4 / 3;  background-color: chocolate}
   
+
+  .button {
+    width: 125px;
+    height: 100px;
+		color: #090909;
+		// padding: 0.7em 1.7em;
+		font-size: 14px;
+		border-radius: 2em;
+		background: #e8e8e8;
+		border: 1px solid #e8e8e8;
+		transition: all 0.3s;
+		// box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+		margin-left: 5px;
+		font-family: var(--fuente-principal);
+		font-weight: 700;
+		cursor: pointer;
+	}
+
+  .button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+.graph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  } 
+
+  .tableDatos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    height: 300px;
+    background-color: aqua  ;
+  }
+
+  .button.active {
+    background-color: #007BFF; /* Por ejemplo, azul */
+    color: white;
+  }

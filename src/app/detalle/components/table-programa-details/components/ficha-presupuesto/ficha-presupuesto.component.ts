@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import gastosEconomicaCapituloss from '@assets/data/gastosEconomicaCapitulos.json';
+
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import { Subscription } from 'rxjs';
@@ -21,6 +23,10 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	private _subscription: Subscription;
 	private _datos: IGastos[] = [];
 	public programa: string;
+	public currentGraph = 1;
+	// public cap1Selected = true;
+	public capitulos = gastosEconomicaCapituloss;
+	public activeButton = 1;
 
 	ngOnInit(): void {
 		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
@@ -39,9 +45,30 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		setTimeout(() => {
 			this.graphCapituloGastos();
 			this.graph1();
-			this.graph2();
-			this.graph3();
+			// this.graph2();
+			// this.graph3();
 		}, 50);
+	}
+
+	changeGraph(capitulo: number) {
+		this.activeButton = capitulo;
+		this.currentGraph = capitulo;
+		switch (capitulo) {
+			case 1:
+				setTimeout(() => {
+					this.graph1();
+				}, 50);
+
+				break;
+			case 2:
+				setTimeout(() => {
+					this.graph2();
+				}, 50);
+				break;
+
+			default:
+				break;
+		}
 	}
 
 	calcCapitulos() {
@@ -130,12 +157,12 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 				}
 			},
 			title: {
-				text: 'Beijing 2022 gold medals by country',
-				align: 'left'
+				text: 'Capítulo 1 Gastos de personal',
+				align: 'center'
 			},
 			subtitle: {
-				text: '3D donut in Highcharts',
-				align: 'left'
+				text: '',
+				align: 'center'
 			},
 			plotOptions: {
 				pie: {
