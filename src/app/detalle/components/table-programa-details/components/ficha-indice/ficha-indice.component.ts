@@ -1,13 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { NgFor } from '@angular/common';
-import { CardInfoComponent } from '@app/commons/components/card-info/card-info.component';
 
 @Component({
 	selector: 'app-ficha-indice',
 	standalone: true,
-	imports: [CommonModule, CardInfoComponent, NgFor],
+	imports: [CommonModule],
 	templateUrl: './ficha-indice.component.html',
 	styleUrls: ['./ficha-indice.component.scss']
 })
@@ -99,7 +97,7 @@ export class FichaIndiceComponent {
 
 	fichaPresupuesto() {
 		console.log('vision global');
- 		this._router.navigateByUrl('/fichaPresupuesto');
+		this._router.navigateByUrl('/fichaPresupuesto');
 	}
 
 	detalle() {

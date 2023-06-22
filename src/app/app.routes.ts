@@ -28,9 +28,7 @@ export default [
 	{
 		path: 'fichaPresupuesto',
 		loadComponent: () =>
-			import(
-				'./detalle/components/table-programa-details/ficha-programa/components/ficha-presupuesto/ficha-presupuesto.component'
-			)
+			import('./detalle/components/table-programa-details/components/ficha-indice/ficha-indice.component')
 	},
 	{
 		path: 'graphDetalle',
