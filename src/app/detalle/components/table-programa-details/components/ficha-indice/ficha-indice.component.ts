@@ -1,7 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { CardInfoComponent } from '../../../../../commons/components/card-info/card-info.component';
+import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
+import { Subscription } from 'rxjs';
+import { IGastos } from '@interfaces/gastos.interface';
 
 @Component({
 	selector: 'app-ficha-indice',
@@ -10,8 +13,13 @@ import { CardInfoComponent } from '../../../../../commons/components/card-info/c
 	templateUrl: './ficha-indice.component.html',
 	styleUrls: ['./ficha-indice.component.scss']
 })
-export default class FichaIndiceComponent {
+export default class FichaIndiceComponent implements OnInit, OnDestroy {
 	private _router = inject(Router);
+	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
+
+	private _subscription: Subscription;
+	private _datos: IGastos[] = [];
+	public programa: string;
 
 	cardsInfo = [
 		{
@@ -19,97 +27,99 @@ export default class FichaIndiceComponent {
 			titulo: 'Presupuesto',
 			subtitulo: ' ',
 			funcion: () => this.fichaPresupuesto(),
-			textButton: 'Visión global',
-			background: 'linear-gradient(to bottom, #FFFDFC , #FCE1CB)'
+			textButton: 'Presupuesto',
+			background: 'linear-gradient(to bottom, white , #FCE1CB)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu4-400x250.webp',
 			titulo: 'Empleados municipales',
 			subtitulo: '',
-			funcion: () => this.empleados(),
+			funcion: () => this.fichaEmpleados(),
 			textButton: 'Empleados',
-			background: 'linear-gradient(to bottom, #F5F5F5 , #E0E0E0)'
+			background: 'linear-gradient(to bottom, white , #E0E0E0)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu2-400x250.webp',
-			titulo: 'Detalle del presupuesto',
+			titulo: 'Carta de servicios',
 			subtitulo: '',
-			funcion: () => this.detalle(),
+			funcion: () => this.fichaEmpleados(),
 			textButton: 'Detalle',
-			background: 'linear-gradient(to bottom, #FCFEFF , #CDE9FE)'
+			background: 'linear-gradient(to bottom, white , #CDE9FE)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu3-400x250.webp',
-			titulo: 'Licitaciones',
+			titulo: 'Indicadores',
 			subtitulo: '',
-			funcion: () => this.licitaciones(),
+			funcion: () => this.fichaEmpleados(),
 			textButton: 'Licitaciones',
-			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
+			background: 'linear-gradient(to bottom,white , #DCEDC8)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu1-400x250.webp',
-			titulo: 'Presupuesto',
+			titulo: 'Hemeroteca',
 			subtitulo: ' ',
 			funcion: () => this.fichaPresupuesto(),
 			textButton: 'Visión global',
-			background: 'linear-gradient(to bottom, #FFFDFC , #FCE1CB)'
+			background: 'linear-gradient(to bottom, white , #FCE1CB)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu4-400x250.webp',
-			titulo: 'Empleados municipales',
+			titulo: 'Documentos',
 			subtitulo: '',
-			funcion: () => this.empleados(),
+			funcion: () => this.fichaEmpleados(),
 			textButton: 'Empleados',
-			background: 'linear-gradient(to bottom, #F5F5F5 , #E0E0E0)'
+			background: 'linear-gradient(to bottom, #D3CCE3 , white)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu2-400x250.webp',
-			titulo: 'Detalle del presupuesto',
+			titulo: 'Licitaciones',
 			subtitulo: '',
-			funcion: () => this.detalle(),
+			funcion: () => this.fichaEmpleados(),
 			textButton: 'Detalle',
-			background: 'linear-gradient(to bottom, #FCFEFF , #CDE9FE)'
+			background: 'linear-gradient(to bottom,#5092A9 , #FCFDFE)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu3-400x250.webp',
-			titulo: 'Licitaciones',
+			titulo: 'Contratos menores',
 			subtitulo: '',
-			funcion: () => this.licitaciones(),
+			funcion: () => this.fichaEmpleados(),
 			textButton: 'Licitaciones',
-			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
+			background: 'linear-gradient(to bottom, #EEBE3E ,white)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu4-400x250.webp',
-			titulo: 'Empleados municipales',
+			titulo: 'Acuerdos de Pleno',
 			subtitulo: '',
-			funcion: () => this.empleados(),
+			funcion: () => this.fichaEmpleados(),
 			textButton: 'Empleados',
-			background: 'linear-gradient(to bottom, #F5F5F5 , #E0E0E0)'
+			background: 'linear-gradient(to bottom, #D2DAB9 , white)'
 		},
 		{
 			rutaImagen: 'assets/img/home/menu2-400x250.webp',
-			titulo: 'Detalle del presupuesto',
+			titulo: 'Acuerdos JGL',
 			subtitulo: '',
-			funcion: () => this.detalle(),
+			funcion: () => this.fichaEmpleados(),
 			textButton: 'Detalle',
-			background: 'linear-gradient(to bottom, #FCFEFF , #CDE9FE)'
+			background: 'linear-gradient(to bottom, #A28B7B , white)'
 		}
 	];
 
 	fichaPresupuesto() {
-		console.log('vision global');
 		this._router.navigateByUrl('/fichaPresupuesto');
 	}
-
-	detalle() {
-		this._router.navigateByUrl('/detalle');
+	fichaEmpleados() {
+		this._router.navigateByUrl('/fichaEmpleados');
 	}
 
-	licitaciones() {
-		window.open('https://con.ocmjerez.org/', '_blank');
+	ngOnInit(): void {
+		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
+			this._datos = data;
+			console.log(this._datos);
+		});
+		this.programa = this._datos[0].CodPro + ' - ' + this._datos[0].DesPro;
 	}
 
-	empleados() {
-		this._router.navigateByUrl('/empleados');
+	ngOnDestroy() {
+		this._subscription.unsubscribe();
 	}
 }

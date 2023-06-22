@@ -15,7 +15,7 @@ HighchartsMore(Highcharts);
 	templateUrl: './ficha-presupuesto.component.html',
 	styleUrls: ['./ficha-presupuesto.component.scss']
 })
-export class FichaPresupuestoComponent implements OnInit, AfterViewInit, OnDestroy {
+export default class FichaPresupuestoComponent implements OnInit, AfterViewInit, OnDestroy {
 	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
 
 	private _subscription: Subscription;

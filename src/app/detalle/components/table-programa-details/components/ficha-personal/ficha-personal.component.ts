@@ -12,7 +12,7 @@ HighchartsMore(Highcharts);
 	templateUrl: './ficha-personal.component.html',
 	styleUrls: ['./ficha-personal.component.scss']
 })
-export class FichaPersonalComponent implements AfterViewInit {
+export default class FichaPersonalComponent implements AfterViewInit {
 	ngAfterViewInit() {
 		setTimeout(() => {
 			this.graphPersonal();

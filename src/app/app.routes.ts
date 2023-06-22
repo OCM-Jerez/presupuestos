@@ -19,17 +19,22 @@ export default [
 			import('./detalle/components/table-programa-details/components/ficha-indice/ficha-indice.component')
 	},
 	{
+		path: 'fichaPresupuesto',
+		loadComponent: () =>
+			import('./detalle/components/table-programa-details/components/ficha-presupuesto/ficha-presupuesto.component')
+	},
+	{
+		path: 'fichaEmpleados',
+		loadComponent: () =>
+			import('./detalle/components/table-programa-details/components/ficha-personal/ficha-personal.component')
+	},
+	{
 		path: 'tableProgramaDetails/:origen',
 		loadComponent: () => import('./detalle/components/table-programa-details/table-programa-details.component')
 	},
 	{
 		path: 'empleados',
 		loadComponent: () => import('./empleados/empleados.component')
-	},
-	{
-		path: 'fichaPresupuesto',
-		loadComponent: () =>
-			import('./detalle/components/table-programa-details/components/ficha-indice/ficha-indice.component')
 	},
 	{
 		path: 'graphDetalle',
