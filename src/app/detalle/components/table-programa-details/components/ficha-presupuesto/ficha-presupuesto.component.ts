@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs';
 
 import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
 
-import gastosEconomicaCapituloss from '@assets/data/gastosEconomicaCapitulos.json';
 import { IGastos } from '@interfaces/gastos.interface';
 
 import * as Highcharts from 'highcharts';
@@ -26,7 +25,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	private _datos: IGastos[] = [];
 	public programa: string;
 	public currentGraph = 1;
-	public capitulos = gastosEconomicaCapituloss;
+	public capitulos = [];
 	public activeButton = 1;
 	private cap = [];
 
@@ -36,8 +35,8 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		});
 
 		this.programa = this._datos[0].CodPro + ' - ' + this._datos[0].DesPro;
-		this.cap = this._datos.filter((item) => item.CodCap === 1);
 		this.calcCapitulos();
+		this.cap = this._datos.filter((item) => item.CodCap === 1);
 	}
 
 	ngOnDestroy() {
@@ -47,7 +46,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	ngAfterViewInit() {
 		setTimeout(() => {
 			this.graphCapituloGastos();
-			this.graph('graph');
+			this.graph();
 		}, 50);
 	}
 
@@ -60,22 +59,25 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		}
 
 		setTimeout(() => {
-			this.graph('graph');
+			this.graph();
 		}, 50);
 	}
 
 	calcCapitulos() {
-		const capitulos = this._datos.map((item) => ({
+		this.capitulos = this._datos.map((item) => ({
+			codigo: item.CodCap,
+			descripcion: item.DesCap,
 			name: `${item.CodCap}-${item.DesCap}`,
 			value: item.Definitivas2023,
 			recaudado: item.Pagos2023
 		}));
 
-		return capitulos.reduce((acc, curr) => {
+		this.capitulos = this.capitulos.reduce((acc, curr) => {
 			const index = acc.findIndex((item) => item.name === curr.name);
 			index > -1
 				? ((acc[index].value += curr.value), (acc[index].recaudado += curr.recaudado))
 				: acc.push({
+						codigo: curr.codigo,
 						name: curr.name,
 						value: curr.value,
 						recaudado: curr.recaudado
@@ -85,7 +87,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	}
 
 	graphCapituloGastos() {
-		const data = this.calcCapitulos().map((item) => {
+		const data = this.capitulos.map((item) => {
 			return [item.name, item.value];
 		});
 
@@ -138,8 +140,8 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		});
 	}
 
-	graph(id: string) {
-		Highcharts.chart(id, {
+	graph() {
+		Highcharts.chart('graph', {
 			chart: {
 				type: 'pie',
 				// renderTo: 'chart-containerLines',
