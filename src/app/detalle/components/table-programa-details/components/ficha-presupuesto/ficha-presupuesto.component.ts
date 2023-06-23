@@ -47,7 +47,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	ngAfterViewInit() {
 		setTimeout(() => {
 			this.graphCapituloGastos();
-			this.graph('graph', 1);
+			this.graph('graph');
 		}, 50);
 	}
 
@@ -60,7 +60,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		}
 
 		setTimeout(() => {
-			this.graph('graph', capitulo);
+			this.graph('graph');
 		}, 50);
 	}
 
@@ -138,7 +138,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		});
 	}
 
-	graph(id: string, capitulo: number) {
+	graph(id: string) {
 		Highcharts.chart(id, {
 			chart: {
 				type: 'pie',
