@@ -108,7 +108,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 				}
 			},
 			title: {
-				text: 'Gastos por capítulo',
+				text: 'Presupuestado para gastos por capítulo',
 				align: 'center',
 				style: {
 					fontSize: '3.5rem'
