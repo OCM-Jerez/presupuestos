@@ -25,13 +25,6 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 	private totalGastado: number;
 	public cardsInfo: any[] = [];
 
-	fichaPresupuesto() {
-		this._router.navigateByUrl('/fichaPresupuesto');
-	}
-	fichaEmpleados() {
-		this._router.navigateByUrl('/fichaEmpleados');
-	}
-
 	ngOnInit(): void {
 		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
 			this._datos = data;
@@ -60,7 +53,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				rutaImagen: 'assets/img/home/menu1-400x250.webp',
 				titulo: 'Gastos a 5/06/2023',
 				subtitulo: 'Breve explicación del dato correspondiente ... ',
-				funcion: () => this.fichaPresupuesto(),
+				funcion: () => this.fichaGastos(),
 				textButton: this.totalGastado.toLocaleString('de-DE'),
 				background: 'linear-gradient(to bottom, #EEBE3E, white)'
 			},
@@ -141,6 +134,18 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy() {
 		this._subscription.unsubscribe();
+	}
+
+	fichaPresupuesto() {
+		this._router.navigateByUrl('/fichaPresupuesto');
+	}
+
+	fichaGastos() {
+		this._router.navigateByUrl('/fichaGastos');
+	}
+
+	fichaEmpleados() {
+		this._router.navigateByUrl('/fichaEmpleados');
 	}
 
 	volver() {
