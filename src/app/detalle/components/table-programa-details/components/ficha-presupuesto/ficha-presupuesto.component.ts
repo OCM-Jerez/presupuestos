@@ -1,13 +1,15 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { Subscription } from 'rxjs';
+
+import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
+
 import gastosEconomicaCapituloss from '@assets/data/gastosEconomicaCapitulos.json';
+import { IGastos } from '@interfaces/gastos.interface';
 
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
-import { Subscription } from 'rxjs';
-import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
-import { IGastos } from '@interfaces/gastos.interface';
 HighchartsMore(Highcharts);
 
 @Component({
@@ -24,7 +26,6 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	private _datos: IGastos[] = [];
 	public programa: string;
 	public currentGraph = 1;
-	// public cap1Selected = true;
 	public capitulos = gastosEconomicaCapituloss;
 	public activeButton = 1;
 	private cap = [];
@@ -32,13 +33,10 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	ngOnInit(): void {
 		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
 			this._datos = data;
-			console.log(this._datos);
 		});
+
 		this.programa = this._datos[0].CodPro + ' - ' + this._datos[0].DesPro;
-
 		this.cap = this._datos.filter((item) => item.CodCap === 1);
-		console.log(this.cap);
-
 		this.calcCapitulos();
 	}
 
@@ -50,72 +48,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		setTimeout(() => {
 			this.graphCapituloGastos();
 			this.graph('graph', 1);
-			// this.graph2();
-			// this.graph3();
 		}, 50);
-	}
-
-	changeGraphOLD(capitulo: number) {
-		this.activeButton = capitulo;
-		this.currentGraph = capitulo;
-		switch (capitulo) {
-			case 1:
-				setTimeout(() => {
-					this.graph('graph', capitulo);
-				}, 50);
-				break;
-			case 2:
-				this.cap = this._datos.filter((item) => item.CodCap === 2);
-				setTimeout(() => {
-					this.graph('graph', capitulo);
-				}, 50);
-				break;
-			case 3:
-				this.cap = this._datos.filter((item) => item.CodCap === 3);
-				setTimeout(() => {
-					this.graph('graph', capitulo);
-				}, 50);
-				break;
-			case 4:
-				this.cap = this._datos.filter((item) => item.CodCap === 4);
-				setTimeout(() => {
-					this.graph('graph', capitulo);
-				}, 50);
-				break;
-			case 5:
-				this.cap = this._datos.filter((item) => item.CodCap === 5);
-				setTimeout(() => {
-					this.graph('graph', capitulo);
-				}, 50);
-				break;
-			case 6:
-				this.cap = this._datos.filter((item) => item.CodCap === 6);
-				setTimeout(() => {
-					this.graph('graph', capitulo);
-				}, 50);
-				break;
-			case 7:
-				this.cap = this._datos.filter((item) => item.CodCap === 7);
-				setTimeout(() => {
-					this.graph('graph', capitulo);
-				}, 50);
-				break;
-			case 8:
-				this.cap = this._datos.filter((item) => item.CodCap === 8);
-				setTimeout(() => {
-					this.graph('graph', capitulo);
-				}, 50);
-				break;
-			case 9:
-				this.cap = this._datos.filter((item) => item.CodCap === 9);
-				setTimeout(() => {
-					this.graph('graph', capitulo);
-				}, 50);
-				break;
-
-			default:
-				break;
-		}
 	}
 
 	changeGraph(capitulo: number) {
@@ -155,7 +88,6 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		const data = this.calcCapitulos().map((item) => {
 			return [item.name, item.value];
 		});
-		console.log(data);
 
 		Highcharts.setOptions({
 			lang: {
@@ -243,83 +175,6 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 							fontSize: '16px'
 						}
 					}
-				}
-			]
-		});
-	}
-
-	graph2() {
-		Highcharts.chart('graph2', {
-			chart: {
-				type: 'pie',
-				// renderTo: 'chart-containerLines',
-				options3d: {
-					enabled: true,
-					alpha: 45
-				}
-			},
-			title: {
-				text: 'Beijing 2022 gold medals by country',
-				align: 'left'
-			},
-			subtitle: {
-				text: '3D donut in Highcharts',
-				align: 'left'
-			},
-			plotOptions: {
-				pie: {
-					innerSize: 100,
-					depth: 45
-				}
-			},
-			series: [
-				{
-					type: 'pie',
-					name: 'Medals',
-					data: [
-						['Norway', 36],
-						['Germany', 21],
-						['Austria', 7],
-						['USA', 14]
-					]
-				}
-			]
-		});
-	}
-
-	graph3() {
-		Highcharts.chart('graph3', {
-			chart: {
-				type: 'pie',
-				// renderTo: 'chart-containerLines',
-				options3d: {
-					enabled: true,
-					alpha: 45
-				}
-			},
-			title: {
-				text: 'Beijing 2022 gold medals by country',
-				align: 'left'
-			},
-			subtitle: {
-				text: '3D donut in Highcharts',
-				align: 'left'
-			},
-			plotOptions: {
-				pie: {
-					innerSize: 100,
-					depth: 45
-				}
-			},
-			series: [
-				{
-					type: 'pie',
-					name: 'Medals',
-					data: [
-						['Norway', 56],
-						['Germany', 32],
-						['USA', 28]
-					]
 				}
 			]
 		});

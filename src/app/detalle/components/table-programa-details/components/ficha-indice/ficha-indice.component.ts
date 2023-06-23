@@ -122,7 +122,6 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 	ngOnInit(): void {
 		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
 			this._datos = data;
-			console.log(this._datos);
 		});
 		this.programa = this._datos[0].CodPro + ' - ' + this._datos[0].DesPro;
 	}

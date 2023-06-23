@@ -166,7 +166,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				return acc;
 			}, {})
 		);
-		console.log('this._rowData', this._rowData);
 	}
 
 	async _CalcDataGastan() {
