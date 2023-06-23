@@ -24,6 +24,11 @@ export default [
 			import('./detalle/components/table-programa-details/components/ficha-presupuesto/ficha-presupuesto.component')
 	},
 	{
+		path: 'fichaGastos',
+		loadComponent: () =>
+			import('./detalle/components/table-programa-details/components/ficha-gastos/ficha-gastos.component')
+	},
+	{
 		path: 'fichaEmpleados',
 		loadComponent: () =>
 			import('./detalle/components/table-programa-details/components/ficha-personal/ficha-personal.component')
