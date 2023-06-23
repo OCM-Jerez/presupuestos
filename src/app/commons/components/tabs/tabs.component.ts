@@ -1,5 +1,5 @@
 import { AfterContentInit, Component, ContentChildren, OnDestroy, QueryList, inject } from '@angular/core';
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 
 import { Subject, takeUntil } from 'rxjs';
 
@@ -16,7 +16,7 @@ import { ITab } from '@interfaces/tab.interface';
 	templateUrl: './tabs.component.html',
 	styleUrls: ['./tabs.component.scss'],
 	standalone: true,
-	imports: [NgFor, NgClass]
+	imports: [NgFor, NgIf, NgClass]
 })
 export class TabsComponent implements AfterContentInit, OnDestroy {
 	private _dataStoreSubtabService = inject(DataStoreSubtabService);
@@ -37,7 +37,12 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
 	}
 
 	ngAfterContentInit(): void {
-		this.setActiveTab();
+		this.setActiveTab({
+			active: true,
+			title: 'Ingresos',
+			clasification: 'ingresosEconomicaEconomicos',
+			isFicha: false
+		});
 	}
 
 	ngOnDestroy() {
@@ -52,28 +57,38 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
 		});
 
 		// Tengo que recuperar el subtab seleccionado en el tab actual
-		switch (tab.clasification) {
-			case 'ingresosEconomicaEconomicos':
-				this._subtabSelected = this._dataStoreSubtabService.getData1();
-				break;
-			case 'gastosProgramaProgramas':
-				this._subtabSelected = this._dataStoreSubtabService.getData2();
-				break;
-			case 'gastosOrganicaOrganicos':
-				this._subtabSelected = this._dataStoreSubtabService.getData3();
-				break;
-			case 'gastosEconomicaEconomicos':
-				this._subtabSelected = this._dataStoreSubtabService.getData4();
-				break;
+		if (!tab.isFicha) {
+			switch (tab.clasification) {
+				case 'ingresosEconomicaEconomicos':
+					this._subtabSelected = this._dataStoreSubtabService.getData1();
+					break;
+				case 'gastosProgramaProgramas':
+					this._subtabSelected = this._dataStoreSubtabService.getData2();
+					break;
+				case 'gastosOrganicaOrganicos':
+					this._subtabSelected = this._dataStoreSubtabService.getData3();
+					break;
+				case 'gastosEconomicaEconomicos':
+					this._subtabSelected = this._dataStoreSubtabService.getData4();
+					break;
+			}
 		}
 	}
 
-	private setActiveTab(tab?: TabComponent): void {
+	private setActiveTab(tab: TabComponent): void {
 		this.tabs.toArray().forEach((t) => {
-			if (tab ? t.title === tab.title : t.clasification === this._tabSelected.clasificationType) {
-				t.active = true;
+			if (t.isFicha) {
+				if (tab ? t.title === tab.title : t.clasification === this._tabSelected.clasificationType) {
+					t.active = true;
+				} else {
+					t.active = false;
+				}
 			} else {
-				t.active = false;
+				if (t.title === tab.title) {
+					t.active = true;
+				} else {
+					t.active = false;
+				}
 			}
 		});
 	}

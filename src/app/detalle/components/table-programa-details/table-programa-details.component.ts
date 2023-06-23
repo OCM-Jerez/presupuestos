@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
-import { AsyncPipe, Location, NgClass, NgIf } from '@angular/common';
+import { AsyncPipe, Location, NgIf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -31,13 +31,14 @@ import { IDataTable } from '@interfaces/dataTable.interface';
 import { IGastos } from '@interfaces/gastos.interface';
 
 import { accumulate } from '../../../commons/util/util';
+import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
 
 @Component({
 	selector: 'app-table-programa-details',
 	templateUrl: './table-programa-details.component.html',
 	styleUrls: ['./table-programa-details.component.scss'],
 	standalone: true,
-	imports: [NgIf, NgClass, AgGridModule, AsyncPipe]
+	imports: [NgIf, AgGridModule, AsyncPipe]
 })
 export default class TableProgramaDetailsComponent implements OnInit, OnDestroy {
 	private _route = inject(ActivatedRoute);
@@ -46,6 +47,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private _dataStoreService = inject(DataStoreService);
 	private _hasRowClicked = inject(HasRowClicked);
 	private _prepareDataGastosService = inject(PrepareDataGastosService);
+	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
+
 	public avalaibleYearsService = inject(AvalaibleYearsService);
 
 	@ViewChild('agGrid') agGrid: AgGridAngular;
@@ -67,7 +70,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private _dataTable: IDataTable;
 	private _gridApi: GridApi;
 	private _rowData: IGastos[] = [];
-	private _dataTotalizada: any;
+	private _dataTotalizada: IDataTable;
 	private _subHeaderName = '';
 	private sub: Subscription;
 	private _defaultSortModel: ColumnState[] = [];
@@ -388,5 +391,13 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			this._location.back();
 			this._location.back();
 		}
+	}
+
+	ficha() {
+		this._dataStoreFichaProgramaService.setFichaProgramaData(this._rowData);
+		// Update the browser's URL without navigating
+		this._location.go('/fichaIndice');
+		// this._router.navigate(['/fichaPrograma'], { queryParams: null, queryParamsHandling: 'merge' });
+		this._router.navigate(['/fichaIndice']);
 	}
 }

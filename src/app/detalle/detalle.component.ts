@@ -7,8 +7,8 @@ import { CheckboxComponent } from '../commons/components/checkbox/checkbox.compo
 import { SubtabsComponent } from './components/subtabs/subtabs.component';
 import { TablePresupuestoComponent } from './components/table-presupuesto/table-presupuesto.component';
 import { TableComponent } from './components/table/table.component';
-import { TabComponent } from './components/tabs/tab/tab.component';
-import { TabsComponent } from './components/tabs/tabs.component';
+import { TabComponent } from '@app/commons/components/tabs/tab/tab.component';
+import { TabsComponent } from '@app/commons/components/tabs/tabs.component';
 import { TreemapComponent } from './components/treemap/treemap.component';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
@@ -35,10 +35,10 @@ import { ITab } from '@interfaces/tab.interface';
 export default class DetalleComponent implements OnInit, OnDestroy {
 	public multiYears = true;
 	public tabs: ITab[] = [
-		{ clasificationType: 'ingresosEconomicaEconomicos', title: 'Ingresos', selected: true },
-		{ clasificationType: 'gastosProgramaProgramas', title: '¿En qué se gasta?', selected: false },
-		{ clasificationType: 'gastosOrganicaOrganicos', title: '¿Quién lo gasta?', selected: false },
-		{ clasificationType: 'gastosEconomicaEconomicos', title: '¿Para qué se gasta?', selected: false }
+		{ clasificationType: 'ingresosEconomicaEconomicos', title: 'Ingresos', selected: true, isFicha: false },
+		{ clasificationType: 'gastosProgramaProgramas', title: '¿En qué se gasta?', selected: false, isFicha: false },
+		{ clasificationType: 'gastosOrganicaOrganicos', title: '¿Quién lo gasta?', selected: false, isFicha: false },
+		{ clasificationType: 'gastosEconomicaEconomicos', title: '¿Para qué se gasta?', selected: false, isFicha: false }
 	];
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
 	private _subscription: Subscription;
