@@ -1,11 +1,14 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
+
+import { Subscription } from 'rxjs';
+
+import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
+
+import { IGastos } from '@interfaces/gastos.interface';
 
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
-import { Subscription } from 'rxjs';
-import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
-import { IGastos } from '@interfaces/gastos.interface';
 HighchartsMore(Highcharts);
 
 @Component({
@@ -17,18 +20,24 @@ HighchartsMore(Highcharts);
 })
 export default class FichaPresupuestoComponent implements OnInit, AfterViewInit, OnDestroy {
 	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
+	private _location = inject(Location);
 
 	private _subscription: Subscription;
 	private _datos: IGastos[] = [];
 	public programa: string;
+	public currentGraph = 1;
+	public capitulos = [];
+	public activeButton = 1;
+	private cap = [];
 
 	ngOnInit(): void {
 		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
 			this._datos = data;
-			console.log(this._datos);
 		});
+
 		this.programa = this._datos[0].CodPro + ' - ' + this._datos[0].DesPro;
 		this.calcCapitulos();
+		this.cap = this._datos.filter((item) => item.CodCap === 1);
 	}
 
 	ngOnDestroy() {
@@ -38,24 +47,38 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	ngAfterViewInit() {
 		setTimeout(() => {
 			this.graphCapituloGastos();
-			this.graph1();
-			this.graph2();
-			this.graph3();
+			this.graph();
+		}, 50);
+	}
+
+	changeGraph(capitulo: number) {
+		this.activeButton = capitulo;
+		this.currentGraph = capitulo;
+
+		if (capitulo >= 2 && capitulo <= 9) {
+			this.cap = this._datos.filter((item) => item.CodCap === capitulo);
+		}
+
+		setTimeout(() => {
+			this.graph();
 		}, 50);
 	}
 
 	calcCapitulos() {
-		const capitulos = this._datos.map((item) => ({
+		this.capitulos = this._datos.map((item) => ({
+			codigo: item.CodCap,
+			descripcion: item.DesCap,
 			name: `${item.CodCap}-${item.DesCap}`,
 			value: item.Definitivas2023,
 			recaudado: item.Pagos2023
 		}));
 
-		return capitulos.reduce((acc, curr) => {
+		this.capitulos = this.capitulos.reduce((acc, curr) => {
 			const index = acc.findIndex((item) => item.name === curr.name);
 			index > -1
 				? ((acc[index].value += curr.value), (acc[index].recaudado += curr.recaudado))
 				: acc.push({
+						codigo: curr.codigo,
 						name: curr.name,
 						value: curr.value,
 						recaudado: curr.recaudado
@@ -65,10 +88,9 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	}
 
 	graphCapituloGastos() {
-		const data = this.calcCapitulos().map((item) => {
+		const data = this.capitulos.map((item) => {
 			return [item.name, item.value];
 		});
-		console.log(data);
 
 		Highcharts.setOptions({
 			lang: {
@@ -86,7 +108,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 				}
 			},
 			title: {
-				text: 'Gastos por capítulo',
+				text: 'Presupuestado para gastos por capítulo',
 				align: 'center',
 				style: {
 					fontSize: '3.5rem'
@@ -119,8 +141,8 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		});
 	}
 
-	graph1() {
-		Highcharts.chart('graph1', {
+	graph() {
+		Highcharts.chart('graph', {
 			chart: {
 				type: 'pie',
 				// renderTo: 'chart-containerLines',
@@ -130,12 +152,13 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 				}
 			},
 			title: {
-				text: 'Beijing 2022 gold medals by country',
-				align: 'left'
+				text: ``,
+				// text: `Capítulo ${capitulo} `,
+				align: 'center'
 			},
 			subtitle: {
-				text: '3D donut in Highcharts',
-				align: 'left'
+				text: '',
+				align: 'center'
 			},
 			plotOptions: {
 				pie: {
@@ -147,90 +170,20 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 				{
 					type: 'pie',
 					name: 'Medals',
-					data: [
-						['Norway', 16],
-						['Germany', 12],
-						['USA', 8]
-					]
+					data: this.cap.map((item) => [item.DesEco, item.Definitivas2023]),
+					dataLabels: {
+						enabled: true,
+						format: '{point.name}<br>{point.y:,.0f} euros<br><span style="color: red">{point.percentage:.1f}%</span>',
+						style: {
+							fontSize: '16px'
+						}
+					}
 				}
 			]
 		});
 	}
 
-	graph2() {
-		Highcharts.chart('graph2', {
-			chart: {
-				type: 'pie',
-				// renderTo: 'chart-containerLines',
-				options3d: {
-					enabled: true,
-					alpha: 45
-				}
-			},
-			title: {
-				text: 'Beijing 2022 gold medals by country',
-				align: 'left'
-			},
-			subtitle: {
-				text: '3D donut in Highcharts',
-				align: 'left'
-			},
-			plotOptions: {
-				pie: {
-					innerSize: 100,
-					depth: 45
-				}
-			},
-			series: [
-				{
-					type: 'pie',
-					name: 'Medals',
-					data: [
-						['Norway', 36],
-						['Germany', 21],
-						['Austria', 7],
-						['USA', 14]
-					]
-				}
-			]
-		});
-	}
-
-	graph3() {
-		Highcharts.chart('graph3', {
-			chart: {
-				type: 'pie',
-				// renderTo: 'chart-containerLines',
-				options3d: {
-					enabled: true,
-					alpha: 45
-				}
-			},
-			title: {
-				text: 'Beijing 2022 gold medals by country',
-				align: 'left'
-			},
-			subtitle: {
-				text: '3D donut in Highcharts',
-				align: 'left'
-			},
-			plotOptions: {
-				pie: {
-					innerSize: 100,
-					depth: 45
-				}
-			},
-			series: [
-				{
-					type: 'pie',
-					name: 'Medals',
-					data: [
-						['Norway', 56],
-						['Germany', 32],
-						['USA', 28]
-					]
-				}
-			]
-		});
+	volver() {
+		this._location.back();
 	}
 }

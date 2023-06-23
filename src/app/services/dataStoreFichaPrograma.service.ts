@@ -10,7 +10,6 @@ export class DataStoreFichaProgramaService {
 	private fichaProgramaSubject: BehaviorSubject<IGastos[]>;
 
 	constructor() {
-		// Initialize with a default tab
 		this.fichaProgramaSubject = new BehaviorSubject<IGastos[]>([
 			{
 				CodCap: 0,
@@ -40,6 +39,5 @@ export class DataStoreFichaProgramaService {
 
 	setFichaProgramaData(fichaPrograma: IGastos[]): void {
 		this.fichaProgramaSubject.next(fichaPrograma);
-		console.log('fichaProgramaSubject', this.fichaProgramaSubject);
 	}
 }
