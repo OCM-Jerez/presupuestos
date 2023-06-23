@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { CardInfoComponent } from '../../../../../commons/components/card-info/card-info.component';
 import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
@@ -16,6 +16,7 @@ import { IGastos } from '@interfaces/gastos.interface';
 export default class FichaIndiceComponent implements OnInit, OnDestroy {
 	private _router = inject(Router);
 	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
+	private _location = inject(Location);
 
 	private _subscription: Subscription;
 	private _datos: IGastos[] = [];
@@ -128,5 +129,9 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy() {
 		this._subscription.unsubscribe();
+	}
+
+	volver() {
+		this._location.back();
 	}
 }

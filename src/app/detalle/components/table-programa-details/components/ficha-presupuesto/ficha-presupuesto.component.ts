@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 
 import { Subscription } from 'rxjs';
 
@@ -20,6 +20,7 @@ HighchartsMore(Highcharts);
 })
 export default class FichaPresupuestoComponent implements OnInit, AfterViewInit, OnDestroy {
 	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
+	private _location = inject(Location);
 
 	private _subscription: Subscription;
 	private _datos: IGastos[] = [];
@@ -180,5 +181,9 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 				}
 			]
 		});
+	}
+
+	volver() {
+		this._location.back();
 	}
 }

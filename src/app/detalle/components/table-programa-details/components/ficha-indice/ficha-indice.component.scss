@@ -23,4 +23,11 @@
 		transform: scale(1.2);
 		box-shadow: 0 5px 15px rgba(238, 5, 24, 0.932);
 	}
-}
+}  
+
+.volver {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 95%;
+    }
