@@ -29,6 +29,13 @@ export default [
 			import('./detalle/components/table-programa-details/components/ficha-gastos/ficha-gastos.component')
 	},
 	{
+		path: 'fichaRemanentes',
+		loadComponent: () =>
+			import(
+				'./detalle/components/table-programa-details/components/ficha-remanentes-credito/ficha-remanentes-credito.component'
+			)
+	},
+	{
 		path: 'fichaEmpleados',
 		loadComponent: () =>
 			import('./detalle/components/table-programa-details/components/ficha-personal/ficha-personal.component')

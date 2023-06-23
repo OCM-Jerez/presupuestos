@@ -5,6 +5,7 @@ import { CardInfoComponent } from '../../../../../commons/components/card-info/c
 import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
 import { Subscription } from 'rxjs';
 import { IGastos } from '@interfaces/gastos.interface';
+import { environment } from '@environments/environment';
 
 @Component({
 	selector: 'app-ficha-indice',
@@ -24,6 +25,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 	private totalPresupuestado: number;
 	private totalGastado: number;
 	public cardsInfo: any[] = [];
+	liqDate = environment.liqDate2023;
 
 	ngOnInit(): void {
 		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
@@ -51,20 +53,28 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 			},
 			{
 				rutaImagen: 'assets/img/home/menu1-400x250.webp',
-				titulo: 'Gastos a 5/06/2023',
+				titulo: 'Gastos',
 				subtitulo: 'Breve explicación del dato correspondiente ... ',
 				funcion: () => this.fichaGastos(),
 				textButton: this.totalGastado.toLocaleString('de-DE'),
 				background: 'linear-gradient(to bottom, #EEBE3E, white)'
 			},
 			{
-				rutaImagen: 'assets/img/home/menu4-400x250.webp',
-				titulo: 'Empleados',
-				subtitulo: '',
-				funcion: () => this.fichaEmpleados(),
-				textButton: '326',
-				background: 'linear-gradient(to bottom, #E0E0E0, white)'
+				rutaImagen: 'assets/img/home/menu1-400x250.webp',
+				titulo: 'Remanentes credito',
+				subtitulo: 'Breve explicación del dato correspondiente ... ',
+				funcion: () => this.fichaRemanentes(),
+				textButton: (this.totalPresupuestado - this.totalGastado).toLocaleString('de-DE'),
+				background: 'linear-gradient(to bottom, #EEBE3E, white)'
 			},
+			// {
+			// 	rutaImagen: 'assets/img/home/menu4-400x250.webp',
+			// 	titulo: 'Empleados',
+			// 	subtitulo: '',
+			// 	funcion: () => this.fichaEmpleados(),
+			// 	textButton: '326',
+			// 	background: 'linear-gradient(to bottom, #E0E0E0, white)'
+			// },
 			{
 				rutaImagen: 'assets/img/home/menu2-400x250.webp',
 				titulo: 'Carta de servicios',
@@ -142,6 +152,10 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 
 	fichaGastos() {
 		this._router.navigateByUrl('/fichaGastos');
+	}
+
+	fichaRemanentes() {
+		this._router.navigateByUrl('/fichaRemanentes');
 	}
 
 	fichaEmpleados() {
