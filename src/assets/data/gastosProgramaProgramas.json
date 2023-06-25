@@ -84,6 +84,10 @@
 		"descripcion": "Abastecimiento domicializado agua"
 	},
 	{
+		"codigo": 16111,
+		"descripcion": "Suministro agua-Servicio agua ELA Torrecera"
+	},
+	{
 		"codigo": 16210,
 		"descripcion": "Recogida de residuos"
 	},
@@ -260,6 +264,10 @@
 		"descripcion": "Plan 50% 50%"
 	},
 	{
+		"codigo": 32312,
+		"descripcion": "Mantenimiento Centros Educativos"
+	},
+	{
 		"codigo": 32620,
 		"descripcion": "Mejoras nivel educacional estudiantes"
 	},
@@ -330,6 +338,14 @@
 	{
 		"codigo": 33420,
 		"descripcion": "Politicas de infancia"
+	},
+	{
+		"codigo": 33431,
+		"descripcion": "Jerez Ciudad Caballo"
+	},
+	{
+		"codigo": 33432,
+		"descripcion": "Jerez Ciudad Europea Cultural 2031"
 	},
 	{
 		"codigo": 33610,
@@ -576,6 +592,10 @@
 		"descripcion": "OAC Cuartillos"
 	},
 	{
+		"codigo": 92045,
+		"descripcion": "Servicios Pedanía Cuartillos"
+	},
+	{
 		"codigo": 92050,
 		"descripcion": "Coordinación de Distritos"
 	},
@@ -702,6 +722,10 @@
 	{
 		"codigo": 92940,
 		"descripcion": "Programa temporal paga extra 2012"
+	},
+	{
+		"codigo": 92945,
+		"descripcion": "Servicios Pedanía Cuartillos"
 	},
 	{
 		"codigo": 93110,

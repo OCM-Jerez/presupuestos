@@ -988,6 +988,10 @@
 		"DesEco": "Subvención Federación Provincial Peñas Flamencas de Cádiz"
 	},
 	{
+		"CodEco": 48953,
+		"DesEco": "Fundación Don Bosco Salesianos Social"
+	},
+	{
 		"CodEco": 49000,
 		"DesEco": "Al exterior"
 	},
@@ -1162,6 +1166,10 @@
 	{
 		"CodEco": 60923,
 		"DesEco": "Urbanización Calle Varsovia"
+	},
+	{
+		"CodEco": 60924,
+		"DesEco": "CONVENIO URBANÍSTICO OBRAS REURBANIZACIÓN CONJUNTO HISTÓRICO C/BARRANCO"
 	},
 	{
 		"CodEco": 60925,
