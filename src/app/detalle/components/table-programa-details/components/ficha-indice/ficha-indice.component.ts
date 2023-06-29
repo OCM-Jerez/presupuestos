@@ -31,7 +31,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
 			this._datos = data;
 		});
-		this.programa = this._datos[0].CodPro + ' - ' + this._datos[0].DesPro;
+		this.programa = this._datos[0].DesPro;
 		this.totalPresupuestado = this._datos.reduce((acc, item) => {
 			acc += item.Definitivas2023;
 			return acc;
