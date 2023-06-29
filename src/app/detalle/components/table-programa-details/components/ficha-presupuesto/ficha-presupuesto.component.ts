@@ -35,7 +35,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 			this._datos = data;
 		});
 
-		this.programa = this._datos[0].CodPro + ' - ' + this._datos[0].DesPro;
+		this.programa = this._datos[0].DesPro;
 		this.calcCapitulos();
 		this.cap = this._datos.filter((item) => item.CodCap === 1);
 	}
