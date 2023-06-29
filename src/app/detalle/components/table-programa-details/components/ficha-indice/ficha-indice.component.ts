@@ -67,14 +67,14 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				textButton: (this.totalPresupuestado - this.totalGastado).toLocaleString('de-DE'),
 				background: 'linear-gradient(to bottom, #EEBE3E, white)'
 			},
-			// {
-			// 	rutaImagen: 'assets/img/home/menu4-400x250.webp',
-			// 	titulo: 'Empleados',
-			// 	subtitulo: '',
-			// 	funcion: () => this.fichaEmpleados(),
-			// 	textButton: '326',
-			// 	background: 'linear-gradient(to bottom, #E0E0E0, white)'
-			// },
+			{
+				rutaImagen: 'assets/img/home/menu4-400x250.webp',
+				titulo: 'Empleados',
+				subtitulo: '',
+				funcion: () => this.fichaEmpleados(),
+				textButton: '326',
+				background: 'linear-gradient(to bottom, #E0E0E0, white)'
+			},
 			{
 				rutaImagen: 'assets/img/home/menu2-400x250.webp',
 				titulo: 'Carta de servicios',
@@ -109,23 +109,23 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 			},
 			{
 				rutaImagen: 'assets/img/home/menu2-400x250.webp',
-				titulo: 'Licitaciones',
+				titulo: 'Licitaciones y contratos menores',
 				subtitulo: '',
 				funcion: () => this.fichaEmpleados(),
 				textButton: '12',
 				background: 'linear-gradient(to bottom,#5092A9 , #FCFDFE)'
 			},
-			{
-				rutaImagen: 'assets/img/home/menu3-400x250.webp',
-				titulo: 'Contratos menores',
-				subtitulo: '',
-				funcion: () => this.fichaEmpleados(),
-				textButton: '14',
-				background: 'linear-gradient(to bottom, #EEBE3E ,white)'
-			},
+			// {
+			// 	rutaImagen: 'assets/img/home/menu3-400x250.webp',
+			// 	titulo: 'Contratos menores',
+			// 	subtitulo: '',
+			// 	funcion: () => this.fichaEmpleados(),
+			// 	textButton: '14',
+			// 	background: 'linear-gradient(to bottom, #EEBE3E ,white)'
+			// },
 			{
 				rutaImagen: 'assets/img/home/menu4-400x250.webp',
-				titulo: 'Acuerdos de Pleno',
+				titulo: 'Acuerdos de Pleno y JGL',
 				subtitulo: '',
 				funcion: () => this.fichaEmpleados(),
 				textButton: '2',
