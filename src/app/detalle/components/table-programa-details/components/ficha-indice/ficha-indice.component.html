@@ -6,7 +6,11 @@
 <h1 style="font-size: 32px; font-weight: bold; text-align: center">Datos ejecución presupuestaria al {{ liqDate }}</h1>
 
 <div class="flex">
-	<div class="flex__cardInfo" *ngFor="let cardInfo of cardsInfo" [style.background]="cardInfo.background">
+	<div
+		*ngFor="let cardInfo of cardsInfo"
+		[ngClass]="{ flex__cardInfo: true, 'flex__cardInfo-hover': cardInfo.hover }"
+		[style.background]="cardInfo.background"
+	>
 		<app-card-info
 			style="width: 100%"
 			[titulo]="cardInfo.titulo"
