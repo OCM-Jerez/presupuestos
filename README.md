@@ -1,5 +1,5 @@
 <h2 style ="text-align: center"> App desarrollada en Angular para la consulta de las liquidaciones de presupuesto del Ayuntamiento de Jerez</h2>
-<img style="display: block; margin-left: auto; margin-right: auto;" src='https://res.cloudinary.com/dabrencx7/image/upload/v1683382273/Presupuestos/presupuestos2023_ul6ova.jpg'/>
+<img style="display: block; margin-left: auto; margin-right: auto;" src='https://res.cloudinary.com/dabrencx7/image/upload/v1688099735/Presupuestos/2023.06.30_weqr83.jpg'/>
 
 # Motivación 💪
 

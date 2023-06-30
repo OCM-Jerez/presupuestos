@@ -104,27 +104,31 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 
 	async ngOnInit(): Promise<void> {
 		this._dataTable = this._dataStoreService.dataTable;
+		const selectedYear = this.avalaibleYearsService.getYearsSelected();
+		console.log('selectedYear', selectedYear);
+		const programa = this._dataStoreService.selectedCodeRowFirstLevel.split(' - ')[1];
+
 		switch (this._path) {
 			case 'details':
-				this.title = 'Detalle programa ' + this._dataStoreService.selectedCodeRowFirstLevel;
+				this.title = 'Detalle programa ' + programa;
 				await this._CalcDataDetails();
 				this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService);
 				this._setGridOptions();
 				this.titleButtom = ' Seleccionar app presupuestaria para ver su detalle';
 				break;
 			case 'gastan':
-				this.title = 'Programas que gastan del económico ' + this._dataStoreService.selectedCodeRowFirstLevel;
+				this.title = 'Programas que gastan del económico ' + programa;
 				await this._CalcDataGastan();
-				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
+				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, selectedYear.toString());
 				this._setGridOptions();
 				this.titleButtom = 'Seleccionar programa para ver su detalle';
 				this.showButtomExpanded = false;
 
 				break;
 			case 'organico':
-				this.title = 'Programas que componen el orgánico ' + this._dataStoreService.selectedCodeRowFirstLevel;
+				this.title = 'Programas que componen el orgánico ' + programa;
 				await this._CalcDataGastan();
-				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
+				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, selectedYear.toString());
 				this._setGridOptions();
 				this.titleButtom = 'Seleccionar programa para ver su detalle';
 				this.showButtomExpanded = false;
@@ -135,9 +139,9 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 					this._dataStoreService.selectedCodeRowFirstLevel
 				);
 
-				this.title = 'Aplicación presupuestaria ' + this._dataStoreService.selectedCodeRowFirstLevel;
+				this.title = 'Aplicación presupuestaria ' + programa;
 				await this._CalcDataGastan();
-				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, '2023');
+				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, selectedYear.toString());
 				this._setGridOptions();
 				this.showButtomExpanded = false;
 				break;

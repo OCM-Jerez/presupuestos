@@ -13,4 +13,7 @@ export class CardInfoComponent {
 	@Input() titulo: string;
 	@Input() subtitulo: string;
 	@Input() textButton: string;
+	@Input() textButton1: string;
+	@Input() textButton2: string;
+	@Input() hover: true;
 }

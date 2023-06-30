@@ -150,8 +150,9 @@ End Sub
     -   Saldo de Gastos Autorizados
 
     -   Saldo de Pagos Ordenados
+    -   Pagos realizados.
+                            -   Total gastado A PARTIR D ELA LIQUIDACIÓN 2023 USO ESTE CAMPO, REFLEJA MEJOR LA TOTALIDAD DE LOS GASTOS REALIZADOS.
 
-    -   Total gastado
     -   Saldo de Créditos disponibles
 
     -   Saldo de Créditos disp. a nivel de Vinculación
@@ -242,7 +243,8 @@ Comprobar no existan objetos sin datos al final
 
 \***\*\*\*\*\***\*\***\*\*\*\*\*** GENERAR JSON \***\*\*\*\*\***\*\*\***\*\*\*\*\***\*\*\*\***\*\*\*\*\***\*\*\***\*\*\*\*\***
 
--   https://www.csvjson.com/csv2json
+-   https://www.csvjson.cng s
+om/csv2json
 -   Options: Parse numbers y array.
 -   Download.
 -   Si esta abierto VS Code lo abre en el..
