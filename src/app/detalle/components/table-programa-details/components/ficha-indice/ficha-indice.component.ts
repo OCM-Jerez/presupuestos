@@ -1,10 +1,16 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { Router } from '@angular/router';
-import { CardInfoComponent } from '../../../../../commons/components/card-info/card-info.component';
-import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
+
 import { Subscription } from 'rxjs';
+
+import { CardInfoComponent } from '../../../../../commons/components/card-info/card-info.component';
+
+import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
+import { DataStoreService } from '@services/dataStore.service';
+
 import { IGastos } from '@interfaces/gastos.interface';
+import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.interface';
 import { environment } from '@environments/environment';
 
 @Component({
@@ -18,10 +24,14 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 	private _router = inject(Router);
 	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
 	private _location = inject(Location);
+	private _dataStoreService = inject(DataStoreService);
 
 	private _subscription: Subscription;
 	private _datos: IGastos[] = [];
 	public programa: string;
+	public DataTotalesPresupuesto: IDataTotalesPresupuesto = {};
+
+	private totalPresupuestadoTotal: number;
 	private totalPresupuestado: number;
 	private totalGastado: number;
 	public cardsInfo: any[] = [];
@@ -32,15 +42,24 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 			this._datos = data;
 		});
 		this.programa = this._datos[0].DesPro;
+
+		this.DataTotalesPresupuesto = this._dataStoreService.dataTotalesPresupuesto;
+		console.log('this._datos', this.DataTotalesPresupuesto);
+
+		this.totalPresupuestadoTotal = this.DataTotalesPresupuesto.totalPresupuestoGastos;
 		this.totalPresupuestado = this._datos.reduce((acc, item) => {
 			acc += item.Definitivas2023;
 			return acc;
 		}, 0);
+		const porcentajePresupuesto = (this.totalPresupuestado / this.totalPresupuestadoTotal) * 100;
+		// const porcentajePresupuesto = this.totalPresupuestadoTotal / this.totalPresupuestado;
 
 		this.totalGastado = this._datos.reduce((acc, item) => {
 			acc += item.Pagos2023;
 			return acc;
 		}, 0);
+		const porcentajeGasto = (this.totalGastado / this.totalPresupuestado) * 100;
+		const porcentajeRemanente = ((this.totalPresupuestado - this.totalGastado) / this.totalPresupuestado) * 100;
 
 		this.cardsInfo = [
 			{
@@ -49,6 +68,8 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				subtitulo: 'Breve explicación del dato correspondiente ... ',
 				funcion: () => this.fichaPresupuesto(),
 				textButton: this.totalPresupuestado.toLocaleString('de-DE'),
+				textButton1: (porcentajePresupuesto.toFixed(2) + '%').replace('.', ','),
+				textButton2: 'del presupuesto total',
 				background: 'linear-gradient(to bottom,  #FCE1CB, white)'
 			},
 			{
@@ -57,30 +78,34 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				subtitulo: 'Breve explicación del dato correspondiente ... ',
 				funcion: () => this.fichaGastos(),
 				textButton: this.totalGastado.toLocaleString('de-DE'),
+				textButton1: (porcentajeGasto.toFixed(2) + '%').replace('.', ','),
+				textButton2: 'de su presupuesto',
 				background: 'linear-gradient(to bottom, #EEBE3E, white)'
 			},
 			{
 				rutaImagen: 'assets/img/home/menu1-400x250.webp',
-				titulo: 'Remanentes credito',
+				titulo: 'Remanentes',
 				subtitulo: 'Breve explicación del dato correspondiente ... ',
 				funcion: () => this.fichaRemanentes(),
 				textButton: (this.totalPresupuestado - this.totalGastado).toLocaleString('de-DE'),
-				background: 'linear-gradient(to bottom, #EEBE3E, white)'
+				textButton1: (porcentajeRemanente.toFixed(2) + '%').replace('.', ','),
+				textButton2: 'de su presupuesto',
+				background: 'linear-gradient(to bottom, #D2DAB9 , white)'
 			},
 			{
 				rutaImagen: 'assets/img/home/menu4-400x250.webp',
 				titulo: 'Empleados',
 				subtitulo: '',
 				funcion: () => this.fichaEmpleados(),
-				textButton: '326',
+				textButton: 'Sin datos',
 				background: 'linear-gradient(to bottom, #E0E0E0, white)'
 			},
 			{
 				rutaImagen: 'assets/img/home/menu2-400x250.webp',
-				titulo: 'Carta de servicios',
+				titulo: 'Carta servicios',
 				subtitulo: '',
 				funcion: () => this.fichaEmpleados(),
-				textButton: 'No',
+				textButton: 'Sin datos',
 				background: 'linear-gradient(to bottom, #CDE9FE, white)'
 			},
 			{
@@ -88,7 +113,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				titulo: 'Indicadores',
 				subtitulo: '',
 				funcion: () => this.fichaEmpleados(),
-				textButton: 'No',
+				textButton: 'Sin datos',
 				background: 'linear-gradient(to bottom,#DCEDC8, white)'
 			},
 			{
@@ -96,7 +121,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				titulo: 'Hemeroteca',
 				subtitulo: ' ',
 				funcion: () => this.fichaPresupuesto(),
-				textButton: ' 12 entradas',
+				textButton: 'Sin datos',
 				background: 'linear-gradient(to bottom, #FCE1CB, white)'
 			},
 			{
@@ -104,7 +129,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				titulo: 'Documentos',
 				subtitulo: '',
 				funcion: () => this.fichaEmpleados(),
-				textButton: 'No',
+				textButton: 'Sin datos',
 				background: 'linear-gradient(to bottom, #D3CCE3 , white)'
 			},
 			{
@@ -112,7 +137,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				titulo: 'Licitaciones y contratos menores',
 				subtitulo: '',
 				funcion: () => this.fichaEmpleados(),
-				textButton: '12',
+				textButton: 'Sin datos',
 				background: 'linear-gradient(to bottom,#5092A9 , #FCFDFE)'
 			},
 			// {
@@ -128,7 +153,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				titulo: 'Acuerdos de Pleno y JGL',
 				subtitulo: '',
 				funcion: () => this.fichaEmpleados(),
-				textButton: '2',
+				textButton: 'Sin datos',
 				background: 'linear-gradient(to bottom, #D2DAB9 , white)'
 			}
 			// {
