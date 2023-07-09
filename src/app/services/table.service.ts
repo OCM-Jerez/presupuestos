@@ -5,9 +5,7 @@ import { PrepareDataGastosService } from './prepareDataGastos.service';
 import { PrepareDataIngresosService } from './prepareDataIngresos.service';
 
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
-
 import { getClasificacion } from '@app/data-table';
-
 import { IDataProperty, IDataTable } from '@interfaces/dataTable.interface';
 
 @Injectable({
