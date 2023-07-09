@@ -1,6 +1,6 @@
 {
 	"name": "presupuestos",
-	"version": "1.07.09a",
+	"version": "1.07.09b",
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve",
