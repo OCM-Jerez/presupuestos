@@ -7,28 +7,25 @@ import gastosProgramaGruposProgramas from '@assets/data/gastosProgramaGruposProg
 import gastosProgramaPoliticas from '@assets/data/gastosProgramaPoliticas.json';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
-
 import { IDataGasto } from '@interfaces/dataGasto.interface';
-
-import { asynForEach } from '@utils/util';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class PrepareDataGastosService {
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
-	// private dataGasto: IDataGasto = <IDataGasto>{};
 
 	// Itera por cada uno de los años disponibles para gastos
 	async getDataAllYear(): Promise<any[]> {
 		// const startTime = performance.now();
-		let rowData = [];
+		const rowData = [];
 		const years = this._avalaibleYearsService.getYearsSelected();
 
-		await asynForEach(years, async (year: number) => {
+		for (const year of years) {
 			const dataGas = await this.getDataYear(year);
-			rowData = rowData.concat(...dataGas);
-		});
+			rowData.push(...dataGas);
+		}
+
 		// const endTime = performance.now();
 		// console.log(`Tiempo empleado para generar data: ${Math.round(endTime - startTime)} ms`);
 		// console.log(rowData);
@@ -98,6 +95,7 @@ export class PrepareDataGastosService {
 	// Seleciona datos del año que se pasa como parametro
 	async getYearDataJson(year: number) {
 		const data = await import(`../../assets/data/${year}LiqGas.json`);
+
 		return data.default;
 	}
 }
