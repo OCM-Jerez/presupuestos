@@ -6,10 +6,7 @@ import ingresosEconomicaConceptos from '@assets/data/ingresosEconomicaConceptos.
 import ingresosEconomicaEconomicos from '@assets/data/ingresosEconomicaEconomicos.json';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
-
 import { IDataIngreso } from '@interfaces/dataIngreso.interface';
-
-import { asynForEach } from '@utils/util';
 
 @Injectable({
 	providedIn: 'root'
@@ -17,16 +14,16 @@ import { asynForEach } from '@utils/util';
 export class PrepareDataIngresosService {
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
 
-	// private dataIngreso: IDataIngreso = <IDataIngreso>{};
-
 	// Itera por cada uno de los años disponibles para ingresos
-	async getDataAllYear(): Promise<any[]> {
-		let rowData = [];
+	async getDataAllYear(): Promise<IDataIngreso[]> {
+		const rowData: IDataIngreso[] = [];
 		const years = this._avalaibleYearsService.getYearsSelected();
-		await asynForEach(years, async (year: number) => {
+
+		for (const year of years) {
 			const dataIng = await this.getDataYear(year);
-			rowData = rowData.concat(...dataIng);
-		});
+			rowData.push(...dataIng);
+		}
+
 		return rowData;
 	}
 
@@ -75,12 +72,14 @@ export class PrepareDataIngresosService {
 			item.CodCon = Math.floor(item.CodEco / 100);
 			item.DesCon = ingresosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodCon).descripcion;
 		});
+
 		return result;
 	}
 
 	// Selecciona datos del año que se pasa como parametro
 	async getYearDataJson(year: number) {
 		const data = await import(`../../assets/data/${year}LiqIng.json`);
+
 		return data.default;
 	}
 }
