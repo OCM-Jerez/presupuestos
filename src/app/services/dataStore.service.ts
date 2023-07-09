@@ -18,7 +18,7 @@ export class DataStoreService {
 
 	set dataTable(data: IDataTable) {
 		this._data = data;
-		console.log(this._data);
+		// console.log(this._data);
 	}
 
 	get dataTable(): IDataTable {
