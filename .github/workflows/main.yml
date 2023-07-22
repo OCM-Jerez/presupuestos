@@ -32,11 +32,11 @@ jobs:
         run: npm run build:prod
       # Route file renaming
       - name: Rename index for routing
-        run: mv dist/angular-poc/index.html dist/angular-poc/404.html
+        run: mv dist/presupuestos/index.html dist/presupuestos/404.html
       # Deploy to Github pages
       - name: Deploy to Pages
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
-          build_dir: dist/angular-poc
+          build_dir: dist/presupuestos
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
