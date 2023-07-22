@@ -90,6 +90,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		const data = this.capitulos.map((item) => {
 			return [item.name, item.value];
 		});
+
 		Highcharts.setOptions({
 			lang: {
 				thousandsSep: '.'
@@ -99,7 +100,6 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		Highcharts.chart('chart-capitulosGastos', {
 			chart: {
 				type: 'pie',
-				// renderTo: 'chart-containerLines',
 				options3d: {
 					enabled: true,
 					alpha: 45
@@ -143,7 +143,6 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		Highcharts.chart('graph', {
 			chart: {
 				type: 'pie',
-				// renderTo: 'chart-containerLines',
 				options3d: {
 					enabled: true,
 					alpha: 45
@@ -151,7 +150,6 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 			},
 			title: {
 				text: ``,
-				// text: `Capítulo ${capitulo} `,
 				align: 'center'
 			},
 			subtitle: {

@@ -21,14 +21,13 @@ HighchartsMore(Highcharts);
 export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDestroy {
 	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
 	private _location = inject(Location);
-
 	private _subscription: Subscription;
 	private _datos: IDataGasto[] = [];
+	private cap = [];
 	public programa: string;
 	public currentGraph = 1;
 	public capitulos = [];
 	public activeButton = 1;
-	private cap = [];
 
 	ngOnInit(): void {
 		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IDataGasto[]) => {
@@ -69,10 +68,6 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 			codigo: item.CodCap,
 			descripcion: item.DesCap,
 			name: `${item.CodCap}-${item.DesCap}`,
-			// value: item.Definitivas2023,
-			// recaudado: item.Pagos2023
-			// value: item.Definitivas,
-			// recaudado: item.Pagos
 			value: (item as any).Definitivas2023 as number,
 			recaudado: (item as any).Pagos2023 as number
 		}));
@@ -105,7 +100,6 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 		Highcharts.chart('chart-capitulosGastos', {
 			chart: {
 				type: 'pie',
-				// renderTo: 'chart-containerLines',
 				options3d: {
 					enabled: true,
 					alpha: 45
@@ -149,7 +143,6 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 		Highcharts.chart('graph', {
 			chart: {
 				type: 'pie',
-				// renderTo: 'chart-containerLines',
 				options3d: {
 					enabled: true,
 					alpha: 45
@@ -157,7 +150,6 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 			},
 			title: {
 				text: ``,
-				// text: `Capítulo ${capitulo} `,
 				align: 'center'
 			},
 			subtitle: {
