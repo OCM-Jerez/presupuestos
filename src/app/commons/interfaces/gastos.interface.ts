@@ -1,4 +1,5 @@
 export interface IGastos {
+	appPresupuestaria?: string;
 	CodCap: number;
 	CodEco?: number;
 	CodOrg?: number;
@@ -15,5 +16,4 @@ export interface IGastos {
 	ObligacionesReconocidasNetas2023: number;
 	Pagos2023: number;
 	RemanenteCredito2023: number;
-	appPresupuestaria?: string;
 }
