@@ -5,7 +5,8 @@ import { Subscription } from 'rxjs';
 
 import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
 
-import { IGastos } from '@interfaces/gastos.interface';
+// import { IGastos } from '@interfaces/gastos.interface';
+import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
@@ -23,7 +24,7 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 	private _location = inject(Location);
 
 	private _subscription: Subscription;
-	private _datos: IGastos[] = [];
+	private _datos: IDataGasto[] = [];
 	public programa: string;
 	public currentGraph = 1;
 	public capitulos = [];
@@ -31,13 +32,13 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 	private cap = [];
 
 	ngOnInit(): void {
-		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
+		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IDataGasto[]) => {
 			this._datos = data;
 		});
 
 		this.programa = this._datos[0].DesPro;
 		this.calcCapitulos();
-		this.cap = this._datos.filter((item) => item.CodCap === 1);
+		this.cap = this._datos.filter((item) => +item.CodCap === 1);
 	}
 
 	ngOnDestroy() {
@@ -55,8 +56,8 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 		this.activeButton = capitulo;
 		this.currentGraph = capitulo;
 
-		if (capitulo >= 2 && capitulo <= 9) {
-			this.cap = this._datos.filter((item) => item.CodCap === capitulo);
+		if (capitulo >= 1 && capitulo <= 9) {
+			this.cap = this._datos.filter((item) => +item.CodCap === capitulo);
 		}
 
 		setTimeout(() => {
@@ -69,8 +70,10 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 			codigo: item.CodCap,
 			descripcion: item.DesCap,
 			name: `${item.CodCap}-${item.DesCap}`,
-			value: item.Definitivas2023,
-			recaudado: item.Pagos2023
+			// value: item.Definitivas,
+			// recaudado: item.Pagos
+			value: (item as any).Definitivas2023 as number,
+			recaudado: (item as any).Pagos2023 as number
 		}));
 
 		this.capitulos = this.capitulos.reduce((acc, curr) => {

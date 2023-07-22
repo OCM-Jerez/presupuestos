@@ -11,7 +11,9 @@ import { CardInfoComponent } from '../../../../../commons/components/card-info/c
 import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
 import { DataStoreService } from '@services/dataStore.service';
 
-import { IGastos } from '@interfaces/gastos.interface';
+// import { IGastos } from '@interfaces/gastos.interface';
+import { IDataGasto } from '@interfaces/dataGasto.interface';
+
 import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.interface';
 import { environment } from '@environments/environment';
 
@@ -29,7 +31,8 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 	private _dataStoreService = inject(DataStoreService);
 
 	private _subscription: Subscription;
-	private _datos: IGastos[] = [];
+	// private _datos: IGastos[] = [];
+	private _datos: IDataGasto[] = [];
 	public programa: string;
 	public DataTotalesPresupuesto: IDataTotalesPresupuesto = {};
 
@@ -67,13 +70,14 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 		// 	}
 		// }
 
-		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
+		// this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
+		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IDataGasto[]) => {
 			this._datos = data;
 
 			if (this._datos?.[0]) {
 				this.programa = this._datos[0].DesPro;
 				const codigoBuscar = this._datos[0].CodPro;
-				const programaData = programasInfo.find((element) => element.codigo === codigoBuscar);
+				const programaData = programasInfo.find((element) => element.codigo === +codigoBuscar);
 
 				if (programaData) {
 					this.cartaServiciosURL = programaData.cartaServicios?.[1]?.URL;
@@ -85,22 +89,26 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 		});
 
 		console.log('this.cartaServiciosUltimaActualizacion', this.cartaServiciosUltimaActualizacion);
-
 		this.DataTotalesPresupuesto = this._dataStoreService.dataTotalesPresupuesto;
 		console.log('this._datos', this.DataTotalesPresupuesto);
 
 		this.totalPresupuestadoTotal = this.DataTotalesPresupuesto.totalPresupuestoGastos;
 		this.totalPresupuestado = this._datos.reduce((acc, item) => {
-			acc += item.Definitivas2023;
+			acc += +item['Definitivas2023'];
 			return acc;
 		}, 0);
 		const porcentajePresupuesto = (this.totalPresupuestado / this.totalPresupuestadoTotal) * 100;
 		// const porcentajePresupuesto = this.totalPresupuestadoTotal / this.totalPresupuestado;
 
+		console.log(this._datos);
+		console.log(this._datos[0]['Pagos2023']);
+
 		this.totalGastado = this._datos.reduce((acc, item) => {
-			acc += item.Pagos2023;
+			acc += +item['Pagos2023'];
 			return acc;
 		}, 0);
+		console.log('this.totalGastado', this.totalGastado);
+
 		const porcentajeGasto = (this.totalGastado / this.totalPresupuestado) * 100;
 		const porcentajeRemanente = ((this.totalPresupuestado - this.totalGastado) / this.totalPresupuestado) * 100;
 
