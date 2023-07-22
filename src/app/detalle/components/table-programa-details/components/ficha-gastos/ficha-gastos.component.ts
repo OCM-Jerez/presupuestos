@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs';
 
 import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
 
-// import { IGastos } from '@interfaces/gastos.interface';
 import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 import * as Highcharts from 'highcharts';
@@ -24,7 +23,6 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 	private _location = inject(Location);
 
 	private _subscription: Subscription;
-	// private _datos: IGastos[] = [];
 	private _datos: IDataGasto[] = [];
 	public programa: string;
 	public currentGraph = 1;
@@ -33,7 +31,6 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 	private cap = [];
 
 	ngOnInit(): void {
-		// this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
 		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IDataGasto[]) => {
 			this._datos = data;
 		});

@@ -1,11 +1,10 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { CommonModule, Location, AsyncPipe } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 
 import { Subscription } from 'rxjs';
 
 import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
 
-// import { IGastos } from '@interfaces/gastos.interface';
 import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 import * as Highcharts from 'highcharts';
@@ -32,7 +31,6 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 
 	ngOnInit(): void {
 		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IDataGasto[]) => {
-			console.log(data);
 			this._datos = data;
 		});
 
@@ -53,8 +51,6 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	}
 
 	changeGraph(capitulo: number) {
-		console.log(capitulo);
-
 		this.activeButton = capitulo;
 		this.currentGraph = capitulo;
 
@@ -68,8 +64,6 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	}
 
 	calcCapitulos() {
-		console.log(this._datos);
-
 		this.capitulos = this._datos.map((item) => ({
 			codigo: item.CodCap,
 			descripcion: item.DesCap,
@@ -93,13 +87,9 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	}
 
 	graphCapituloGastos() {
-		console.log(this.capitulos);
-
 		const data = this.capitulos.map((item) => {
 			return [item.name, item.value];
 		});
-		console.log(data);
-
 		Highcharts.setOptions({
 			lang: {
 				thousandsSep: '.'
