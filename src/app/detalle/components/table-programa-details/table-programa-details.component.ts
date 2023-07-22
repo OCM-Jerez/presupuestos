@@ -28,7 +28,7 @@ import { HasRowClicked } from '@services/hasRowClicked.service';
 import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
-import { IGastos } from '@interfaces/gastos.interface';
+import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 import { accumulate } from '../../../commons/util/util';
 import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
@@ -69,7 +69,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private _columnDefs: (ColDef | ColGroupDef)[];
 	private _dataTable: IDataTable;
 	private _gridApi: GridApi;
-	private _rowData: IGastos[] = [];
+	private _rowData: IDataGasto[] = [];
 	private _dataTotalizada: IDataTable;
 	private _subHeaderName = '';
 	private sub: Subscription;

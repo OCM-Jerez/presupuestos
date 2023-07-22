@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 
 import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
 
-import { IGastos } from '@interfaces/gastos.interface';
+import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
@@ -21,23 +21,22 @@ HighchartsMore(Highcharts);
 export default class FichaPresupuestoComponent implements OnInit, AfterViewInit, OnDestroy {
 	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
 	private _location = inject(Location);
-
 	private _subscription: Subscription;
-	private _datos: IGastos[] = [];
+	private _datos: IDataGasto[] = [];
+	private cap = [];
 	public programa: string;
 	public currentGraph = 1;
 	public capitulos = [];
 	public activeButton = 1;
-	private cap = [];
 
 	ngOnInit(): void {
-		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
+		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IDataGasto[]) => {
 			this._datos = data;
 		});
 
 		this.programa = this._datos[0].DesPro;
 		this.calcCapitulos();
-		this.cap = this._datos.filter((item) => item.CodCap === 1);
+		this.cap = this._datos.filter((item) => +item.CodCap === 1);
 	}
 
 	ngOnDestroy() {
@@ -55,8 +54,8 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		this.activeButton = capitulo;
 		this.currentGraph = capitulo;
 
-		if (capitulo >= 2 && capitulo <= 9) {
-			this.cap = this._datos.filter((item) => item.CodCap === capitulo);
+		if (capitulo >= 1 && capitulo <= 9) {
+			this.cap = this._datos.filter((item) => +item.CodCap === capitulo);
 		}
 
 		setTimeout(() => {
@@ -69,8 +68,8 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 			codigo: item.CodCap,
 			descripcion: item.DesCap,
 			name: `${item.CodCap}-${item.DesCap}`,
-			value: item.Definitivas2023,
-			recaudado: item.Pagos2023
+			value: (item as any).Definitivas2023 as number,
+			recaudado: (item as any).Pagos2023 as number
 		}));
 
 		this.capitulos = this.capitulos.reduce((acc, curr) => {
@@ -91,7 +90,6 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 		const data = this.capitulos.map((item) => {
 			return [item.name, item.value];
 		});
-
 		Highcharts.setOptions({
 			lang: {
 				thousandsSep: '.'

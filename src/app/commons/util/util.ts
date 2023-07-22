@@ -14,19 +14,3 @@ export const accumulate = (identity: string, datos: any[], years = initYears()):
 	});
 	return years;
 };
-
-// export async function asynForEach(array: Array<number>, callback: Function) {
-// 	for (let index = 0; index < array.length; index++) {
-// 		await callback(array[index], index, array);
-// 	}
-// }
-
-type AsyncCallback = (item: number, index: number, array: number[]) => Promise<void>;
-
-export async function asynForEach(array: Array<number>, callback: AsyncCallback) {
-	await Promise.all(
-		array.map(async (item, index) => {
-			await callback(item, index, array);
-		})
-	);
-}
