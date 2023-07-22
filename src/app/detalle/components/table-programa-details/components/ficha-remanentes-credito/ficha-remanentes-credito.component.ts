@@ -171,7 +171,7 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 						enabled: true,
 						format: '{point.name}<br>{point.y:,.0f} euros<br><span style="color: red">{point.percentage:.1f}%</span>',
 						style: {
-							fontSize: '16px'
+							fontSize: '12px'
 						}
 					}
 				}

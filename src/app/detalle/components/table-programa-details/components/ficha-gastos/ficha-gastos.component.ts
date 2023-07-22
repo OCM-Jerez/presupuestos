@@ -171,7 +171,7 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 						enabled: true,
 						format: '{point.name}<br>{point.y:,.0f} euros<br><span style="color: red">{point.percentage:.1f}%</span>',
 						style: {
-							fontSize: '16px'
+							fontSize: '12px'
 						}
 					}
 				}
