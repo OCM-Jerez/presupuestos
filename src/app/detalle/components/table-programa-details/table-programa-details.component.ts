@@ -57,7 +57,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	public title: string;
 	public buttonExpandirColapsar = true;
 	public isExpanded = true;
-	public messageYears = this.avalaibleYearsService.message;
+	// public messageYears = this.avalaibleYearsService.message;
 	public titleButtom = '';
 	public showButtomExpanded = true;
 	public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
