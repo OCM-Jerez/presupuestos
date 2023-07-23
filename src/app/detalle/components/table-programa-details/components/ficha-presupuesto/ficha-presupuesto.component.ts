@@ -8,8 +8,18 @@ import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.
 import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 import * as Highcharts from 'highcharts';
+import Highcharts3D from 'highcharts/highcharts-3d';
 import HighchartsMore from 'highcharts/highcharts-more';
 HighchartsMore(Highcharts);
+Highcharts3D(Highcharts); // Import and enable the Highcharts 3D module
+
+Highcharts.setOptions({
+	chart: {
+		options3d: {
+			enabled: true
+		}
+	}
+});
 
 @Component({
 	selector: 'app-ficha-presupuesto',
@@ -122,9 +132,11 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 					depth: 45
 				}
 			},
+			tooltip: {
+				enabled: false
+			},
 			series: [
 				{
-					type: 'pie',
 					name: 'Medals',
 					data: data,
 					dataLabels: {
@@ -136,7 +148,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 					}
 				}
 			]
-		});
+		} as Highcharts.Options);
 	}
 
 	graph() {
@@ -162,10 +174,13 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 					depth: 45
 				}
 			},
+			tooltip: {
+				enabled: false
+			},
 			series: [
 				{
 					type: 'pie',
-					name: 'Medals',
+					name: 'presupuesto',
 					data: this.cap.map((item) => [item.DesEco, item.Definitivas2023]),
 					dataLabels: {
 						enabled: true,
