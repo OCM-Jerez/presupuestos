@@ -107,6 +107,11 @@ export class TreemapComponent implements OnInit, OnDestroy {
 			chart: {
 				type: 'treemap'
 			},
+			plotOptions: {
+				treemap: {
+					layoutAlgorithm: 'squarified'
+				}
+			},
 			title: {
 				text: ''
 			},
@@ -128,7 +133,6 @@ export class TreemapComponent implements OnInit, OnDestroy {
 			series: [
 				{
 					name: null,
-					innerSize: '50%',
 					data: data,
 					dataLabels: {
 						style: {
@@ -137,6 +141,6 @@ export class TreemapComponent implements OnInit, OnDestroy {
 					}
 				}
 			]
-		} as any);
+		} as Highcharts.Options);
 	}
 }
