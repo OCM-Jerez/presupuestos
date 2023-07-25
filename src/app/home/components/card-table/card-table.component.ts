@@ -8,6 +8,8 @@ import { environment } from '@environments/environment';
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { IExample } from '@interfaces/example.interface';
 import { ITablaAleatoria } from '@interfaces/tablaAleatoria.interface';
+import { IDataIngreso } from '@interfaces/dataIngreso.interface';
+import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 @Component({
 	selector: 'app-card-table',
@@ -42,7 +44,7 @@ export class CardTableComponent implements OnInit {
 		this.fillDatosAleatorios(dataTablaAleatoria);
 	}
 
-	async getData(name: string, value: string, data: any[] = []) {
+	async getData(name: string, value: string, data: (IDataIngreso | IDataGasto)[] = []) {
 		const resultado = data.reduce((acc, curr) => {
 			const itemName = curr[name];
 			const itemValue = curr[value];
