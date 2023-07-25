@@ -8,30 +8,21 @@ import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.inte
 	providedIn: 'root'
 })
 export class DataStoreService {
-	private _dataSource = new Subject<any>();
+	private _dataSource = new Subject<IDataTable | IDataTotalesPresupuesto | string>();
 	dataSource$ = this._dataSource.asObservable();
 
 	private _data: IDataTable;
-	private _selectedCodeRow: string;
 	private _selectedCodeRowFirstLevel: string;
 	private _dataTotalesPresupuesto: IDataTotalesPresupuesto;
 
 	set dataTable(data: IDataTable) {
 		this._data = data;
-		// console.log(this._data);
 	}
 
 	get dataTable(): IDataTable {
 		return this._data;
 	}
 
-	set selectedCodeRow(code: string) {
-		this._selectedCodeRow = code;
-	}
-
-	get selectedCodeRow(): string {
-		return this._selectedCodeRow;
-	}
 	set selectedCodeRowFirstLevel(codeRow: string) {
 		this._selectedCodeRowFirstLevel = codeRow;
 	}
