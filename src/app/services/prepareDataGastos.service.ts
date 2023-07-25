@@ -16,7 +16,7 @@ export class PrepareDataGastosService {
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
 
 	// Itera por cada uno de los años disponibles para gastos
-	async getDataAllYear(): Promise<any[]> {
+	async getDataAllYear(): Promise<IDataGasto[]> {
 		// const startTime = performance.now();
 		const rowData = [];
 		const years = this._avalaibleYearsService.getYearsSelected();
