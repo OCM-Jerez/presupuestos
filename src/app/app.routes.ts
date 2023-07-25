@@ -50,7 +50,7 @@ export default [
 	},
 	{
 		path: 'graphDetalle',
-		loadComponent: () => import('./graphs/graph-detalle/graph-detalle.component')
+		loadComponent: () => import('./detalle/components/graph-detalle/graph-detalle.component')
 	},
 	{
 		path: 'rpt',
