@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
+import { environment } from '@environments/environment';
+
 @Injectable()
 export class AvalaibleYearsService {
-	public subject$ = new BehaviorSubject<string>('2023');
-	public yearsSubject$ = new BehaviorSubject<number[]>([2023]);
+	public subject$ = new BehaviorSubject<string>(environment.currentYear.toString());
+	public yearsSubject$ = new BehaviorSubject<number[]>([environment.currentYear]);
 	public yearsSelected: number[] = [];
 
 	public getAvalaibleYear() {
@@ -15,7 +17,7 @@ export class AvalaibleYearsService {
 	// Devuelve el array con los años seleccionados
 	getYearsSelected(): number[] {
 		if (this.yearsSelected.length === 0) {
-			// Mientras no existan datos del 2023 resto 1 al año actual
+			// Mientras no existan datos del año actual resto 1 al año actual
 			// this.yearsSelected.push((new Date().getFullYear()) - 1);
 			this.yearsSelected.push(new Date().getFullYear());
 		}

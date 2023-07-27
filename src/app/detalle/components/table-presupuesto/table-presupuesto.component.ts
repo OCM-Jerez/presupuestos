@@ -23,6 +23,7 @@ export class TablePresupuestoComponent implements OnInit {
 
 	public showTablePresupuesto = true;
 	public liqDate = environment.liqDate2023;
+	currentYear = environment.currentYear;
 	public DataTotalesPresupuesto: IDataTotalesPresupuesto = {};
 
 	async ngOnInit(): Promise<void> {
@@ -31,7 +32,7 @@ export class TablePresupuestoComponent implements OnInit {
 		this.DataTotalesPresupuesto = this._dataStoreService.dataTotalesPresupuesto;
 
 		const years = this._avalaibleYearsService.getYearsSelected();
-		if (years.length === 1 && years[0] === 2023) {
+		if (years.length === 1 && years[0] === environment.currentYear) {
 			this.showTablePresupuesto = true;
 		} else {
 			this.showTablePresupuesto = false;

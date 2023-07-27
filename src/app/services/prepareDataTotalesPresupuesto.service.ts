@@ -2,6 +2,8 @@ import { Injectable, inject } from '@angular/core';
 
 import { DataStoreService } from './dataStore.service';
 
+import { environment } from '@environments/environment';
+
 import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.interface';
 
 interface ITotalPresupuestoIngresos {
@@ -70,7 +72,7 @@ export class PrepareDataTotalesPresupuestoService {
 	setTotalesPresupuesto() {
 		try {
 			const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
-				year: '2023',
+				year: environment.currentYear.toString(),
 				totalPresupuestoIngresos: this._totalPresupuestoIngresos.Definitivas1,
 				totalEjecutadoIngresos: this._totalPresupuestoIngresos.DerechosReconocidosNetos1,
 				totalPresupuestoGastos: this._totalPresupuestoGastos.Definitivas1,

@@ -11,6 +11,8 @@ import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 
 import { DataStoreService } from '@services/dataStore.service';
 
+import { environment } from '@environments/environment';
+
 import { IDataTable } from '@interfaces/dataTable.interface';
 
 import { accumulate } from '@utils/util';
@@ -92,7 +94,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 
 			// Convierto los valores para que sirvan de data al grafico
 			this.data = [];
-			for (let index = 2015; index <= 2023; index++) {
+			for (let index = 2015; index <= environment.currentYear; index++) {
 				// Para mostrar solo años seleccionados
 				if (yearsDefinitivas[index] > 0) {
 					const value = {
@@ -100,7 +102,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 						Definitivas: yearsDefinitivas[index],
 						Netas: yearsNetas[index] //RecaudacionNeta
 					};
-					if (index === 2022 || index === 2023) {
+					if (index === 2022 || index === environment.currentYear) {
 						value.Definitivas = yearsIniciales[index];
 						value.Netas = yearsNetas[index - 1];
 					}
@@ -117,7 +119,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 			this._nameSerie3 = 'ObligacionesPendientePago';
 
 			this.data = [];
-			for (let index = 2015; index <= 2023; index++) {
+			for (let index = 2015; index <= environment.currentYear; index++) {
 				// Para mostrar solo años seleccionados
 				if (yearsDefinitivas[index] > 0) {
 					const value = {
@@ -126,7 +128,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 						Netas: yearsObligacionesNetas[index], // ObligacionesReconocidasNetas
 						ObligacionesPendientes: yearsObligacionesPendientes[index]
 					};
-					if (index === 2023) {
+					if (index === environment.currentYear) {
 						// value.Definitivas = yearsIniciales[index]; // Se usan las iniciales ya que es el unico dato que existe.
 					}
 					this.data.push(value);

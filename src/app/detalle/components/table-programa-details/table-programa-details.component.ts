@@ -188,12 +188,12 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			if (!total[item.CodPro]) {
 				total[item.CodPro] = { ...item };
 			} else {
-				Object.keys(item).forEach((key) => {
-					if (key.endsWith('2023')) {
-						// Asume que todos los campos que terminan con "2023" son numéricos
-						total[item.CodPro][key] += item[key];
-					}
-				});
+				// Object.keys(item).forEach((key) => {
+				// 	if (key.endsWith('2023')) {
+				// 		// Asume que todos los campos que terminan con "2023" son numéricos
+				// 		total[item.CodPro][key] += item[key];
+				// 	}
+				// });
 			}
 			return total;
 		}, {});

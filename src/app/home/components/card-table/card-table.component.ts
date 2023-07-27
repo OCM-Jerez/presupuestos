@@ -23,6 +23,7 @@ export class CardTableComponent implements OnInit {
 
 	textoTabla: string;
 	liqDate = environment.liqDate2023;
+	currentYear = environment.currentYear;
 	examples: IExample[] = Array(3).fill({ name: '', value: 0 });
 
 	ngOnInit(): void {
