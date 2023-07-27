@@ -105,7 +105,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	async ngOnInit(): Promise<void> {
 		this._dataTable = this._dataStoreService.dataTable;
 		const selectedYear = this.avalaibleYearsService.getYearsSelected();
-		console.log('selectedYear', selectedYear);
 		const programa = this._dataStoreService.selectedCodeRowFirstLevel.split(' - ')[1];
 
 		switch (this._path) {

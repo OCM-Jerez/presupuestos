@@ -9,7 +9,7 @@ export interface IDataGasto {
 	CodOrg: string;
 	CodPol?: number;
 	CodPro: string;
-	Definitivas: string;
+	Definitivas1: string;
 	DesAre?: string;
 	DesArt?: string;
 	DesCap: string;
@@ -19,11 +19,11 @@ export interface IDataGasto {
 	DesOrg: string;
 	DesPol?: string;
 	DesPro: string;
-	GastosComprometidos: string;
-	Iniciales: string;
-	Modificaciones: string;
-	ObligacionesPendientePago: string;
-	ObligacionesReconocidasNetas: string;
-	Pagos: string;
-	RemanenteCredito: string;
+	GastosComprometidos1: string;
+	Iniciales1: string;
+	Modificaciones1: string;
+	ObligacionesPendientePago1: string;
+	ObligacionesReconocidasNetas1: string;
+	Pagos1: string;
+	RemanenteCredito1: string;
 }

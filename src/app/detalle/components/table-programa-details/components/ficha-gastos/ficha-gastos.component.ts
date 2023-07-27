@@ -78,8 +78,8 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 			codigo: item.CodCap,
 			descripcion: item.DesCap,
 			name: `${item.CodCap}-${item.DesCap}`,
-			value: (item as any).Definitivas2023 as number,
-			recaudado: (item as any).Pagos2023 as number
+			value: (item as any).Definitivas1 as number,
+			recaudado: (item as any).Pagos1 as number
 		}));
 
 		this.capitulos = this.capitulos.reduce((acc, curr) => {
@@ -182,7 +182,7 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 				{
 					type: 'pie',
 					name: 'Medals',
-					data: this.cap.map((item) => [item.DesEco, item.Pagos2023]),
+					data: this.cap.map((item) => [item.DesEco, item.Pagos1]),
 					dataLabels: {
 						enabled: true,
 						format: '{point.name}<br>{point.y:,.0f} euros<br><span style="color: red">{point.percentage:.1f}%</span>',

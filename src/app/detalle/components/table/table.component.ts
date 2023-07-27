@@ -61,6 +61,7 @@ export class TableComponent implements OnInit, OnDestroy {
 	private _subHeaderName = '';
 	private _tabSelected: { clasificationType: string };
 	private _unsubscribe$ = new Subject<void>();
+	private _myYear: number;
 
 	async ngOnInit(): Promise<void> {
 		this._hasRowClicked.change(null);
@@ -144,11 +145,17 @@ export class TableComponent implements OnInit, OnDestroy {
 			},
 
 			...this._avalaibleYearsService.getYearsSelected().map((year) => {
+				if (this._avalaibleYearsService.getYearsSelected().length === 1) {
+					this._myYear = 1;
+				} else {
+					this._myYear = year;
+				}
+
 				return {
 					headerName: year.toLocaleString(),
 					children: this._isIngresos
-						? this._createColumnsChildrenIngresos(year)
-						: this._createColumnsChildrenGastos(year)
+						? this._createColumnsChildrenIngresos(this._myYear)
+						: this._createColumnsChildrenGastos(this._myYear)
 				};
 			})
 		];

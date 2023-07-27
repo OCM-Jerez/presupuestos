@@ -9,8 +9,8 @@ import { environment } from '@environments/environment';
 
 import { ICapituloGasto } from '@interfaces/capituloGasto.interface';
 import { ICapituloIngreso } from '@interfaces/capituloIngreso.interface';
-import { IDataGasto2023 } from '@interfaces/dataGasto2023.interface';
-import { IDataIngreso2023 } from '@interfaces/dataIngreso2023.interface';
+import { IDataGasto } from '@interfaces/dataGasto.interface';
+import { IDataIngreso } from '@interfaces/dataIngreso.interface';
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.interface';
 
@@ -46,8 +46,8 @@ export class TableDataPresupuestoComponent implements OnInit {
 
 	private _capitulosGastos: ICapituloGasto[] = [];
 	private _CapitulosIngresos: ICapituloIngreso[] = [];
-	private _dataGasto: IDataGasto2023[] = [];
-	private _dataIngreso: IDataIngreso2023[];
+	private _dataGasto: IDataGasto[] = [];
+	private _dataIngreso: IDataIngreso[];
 	private _dataTable: IDataTable;
 
 	async ngOnInit(): Promise<void> {
@@ -76,8 +76,8 @@ export class TableDataPresupuestoComponent implements OnInit {
 		for (const item of this._dataIngreso) {
 			const value = {
 				name: `${item.CodCap}-${item.DesCap}`,
-				presupuestado: item.Definitivas2023,
-				recaudado: item.DerechosReconocidosNetos2023
+				presupuestado: +item.Definitivas1,
+				recaudado: +item.DerechosReconocidosNetos1
 			};
 			this._CapitulosIngresos.push(value);
 		}
@@ -124,8 +124,8 @@ export class TableDataPresupuestoComponent implements OnInit {
 		for (const item of this._dataGasto) {
 			const value = {
 				name: `${item.CodCap}-${item.DesCap}`,
-				presupuestado: item.Definitivas2023,
-				gastado: item.Pagos2023
+				presupuestado: +item.Definitivas1,
+				gastado: +item.Pagos1
 			};
 			this._capitulosGastos.push(value);
 		}

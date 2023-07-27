@@ -5,12 +5,12 @@ import { DataStoreService } from './dataStore.service';
 import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.interface';
 
 interface ITotalPresupuestoIngresos {
-	Definitivas2023?: number;
-	DerechosReconocidosNetos2023?: number;
+	Definitivas1?: number;
+	DerechosReconocidosNetos1?: number;
 }
 interface ITotalPresupuestoGastos {
-	Definitivas2023?: number;
-	Pagos2023?: number;
+	Definitivas1?: number;
+	Pagos1?: number;
 }
 
 @Injectable({
@@ -30,7 +30,7 @@ export class PrepareDataTotalesPresupuestoService {
 
 	calcPresupuestoIngresos() {
 		this._totalPresupuestoIngresos = {};
-		const include = ['Definitivas2023', 'DerechosReconocidosNetos2023'];
+		const include = ['Definitivas1', 'DerechosReconocidosNetos1'];
 		const rowDataIngresos = this._dataStoreService.dataTable.rowDataIngresos;
 
 		// Iterar sobre cada fila de la tabla de datos
@@ -53,7 +53,7 @@ export class PrepareDataTotalesPresupuestoService {
 
 	async calcPresupuestoGastos() {
 		this._totalPresupuestoGastos = {};
-		const include = ['Definitivas2023', 'Pagos2023'];
+		const include = ['Definitivas1', 'Pagos1'];
 
 		for (const row of this._dataStoreService.dataTable.rowDataGastos) {
 			for (const key in row) {
@@ -71,10 +71,10 @@ export class PrepareDataTotalesPresupuestoService {
 		try {
 			const DataTotalesPresupuesto: IDataTotalesPresupuesto = {
 				year: '2023',
-				totalPresupuestoIngresos: this._totalPresupuestoIngresos.Definitivas2023,
-				totalEjecutadoIngresos: this._totalPresupuestoIngresos.DerechosReconocidosNetos2023,
-				totalPresupuestoGastos: this._totalPresupuestoGastos.Definitivas2023,
-				totalEjecutadoGastos: this._totalPresupuestoGastos.Pagos2023
+				totalPresupuestoIngresos: this._totalPresupuestoIngresos.Definitivas1,
+				totalEjecutadoIngresos: this._totalPresupuestoIngresos.DerechosReconocidosNetos1,
+				totalPresupuestoGastos: this._totalPresupuestoGastos.Definitivas1,
+				totalEjecutadoGastos: this._totalPresupuestoGastos.Pagos1
 			};
 			this._dataStoreService.dataTotalesPresupuesto = DataTotalesPresupuesto;
 		} catch (error) {

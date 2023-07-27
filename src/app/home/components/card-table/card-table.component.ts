@@ -34,8 +34,8 @@ export class CardTableComponent implements OnInit {
 		let dataTablaAleatoria: ITablaAleatoria[] = [];
 		const ingresoGasto = Math.random() >= 0.5 ? true : false;
 		ingresoGasto
-			? (dataTablaAleatoria = await this.getData('DesEco', 'DerechosReconocidosNetos2023', dataTable.rowDataIngresos))
-			: (dataTablaAleatoria = await this.getData('DesOrg', 'Pagos2023', dataTable.rowDataGastos));
+			? (dataTablaAleatoria = await this.getData('DesEco', 'DerechosReconocidosNetos1', dataTable.rowDataIngresos))
+			: (dataTablaAleatoria = await this.getData('DesOrg', 'Pagos1', dataTable.rowDataGastos));
 
 		this.textoTabla = ingresoGasto
 			? '¿Cuánto ha recaudado el Ayuntamiento por...?'

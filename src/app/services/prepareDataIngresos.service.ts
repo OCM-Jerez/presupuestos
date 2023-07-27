@@ -19,9 +19,14 @@ export class PrepareDataIngresosService {
 		const rowData: IDataIngreso[] = [];
 		const years = this._avalaibleYearsService.getYearsSelected();
 
-		for (const year of years) {
-			const dataIng = await this.getDataYear(year);
+		if (years.length === 1) {
+			const dataIng = await this.getDataYear(1);
 			rowData.push(...dataIng);
+		} else {
+			for (const year of years) {
+				const dataIng = await this.getDataYear(year);
+				rowData.push(...dataIng);
+			}
 		}
 
 		return rowData;
@@ -32,32 +37,32 @@ export class PrepareDataIngresosService {
 		const result = [];
 		const dataIngreso: IDataIngreso = {
 			CodEco: `CodEco`,
-			Iniciales: `Iniciales${year}`,
-			Modificaciones: `Modificaciones${year}`,
-			Definitivas: `Definitivas${year}`,
-			DerechosReconocidos: `DerechosReconocidos${year}`,
-			DerechosAnulados: `DerechosAnulados${year}`,
-			DerechosCancelados: `DerechosCancelados${year}`,
-			DerechosReconocidosNetos: `DerechosReconocidosNetos${year}`,
-			RecaudacionNeta: `RecaudacionNeta${year}`,
-			DerechosPendienteCobro: `DerechosPendienteCobro${year}`,
-			DiferenciaPrevision: `DiferenciaPrevision${year}`
+			Definitivas1: `Definitivas${year}`,
+			DerechosAnulados1: `DerechosAnulados${year}`,
+			DerechosCancelados1: `DerechosCancelados${year}`,
+			DerechosPendienteCobro1: `DerechosPendienteCobro${year}`,
+			DerechosReconocidos1: `DerechosReconocidos${year}`,
+			DerechosReconocidosNetos1: `DerechosReconocidosNetos${year}`,
+			DiferenciaPrevision1: `DiferenciaPrevision${year}`,
+			Iniciales1: `Iniciales${year}`,
+			Modificaciones1: `Modificaciones${year}`,
+			RecaudacionNeta1: `RecaudacionNeta${year}`
 		};
 
 		await this.getYearDataJson(year).then((data) => {
 			Object.entries(data).forEach((currentValue) => {
 				result.push({
 					[dataIngreso.CodEco]: currentValue[1][dataIngreso.CodEco],
-					[dataIngreso.Iniciales]: currentValue[1]['Iniciales'],
-					[dataIngreso.Modificaciones]: currentValue[1]['Modificaciones'],
-					[dataIngreso.Definitivas]: currentValue[1]['Definitivas'],
-					[dataIngreso.DerechosReconocidos]: currentValue[1]['DerechosReconocidos'],
-					[dataIngreso.DerechosAnulados]: currentValue[1]['DerechosAnulados'],
-					[dataIngreso.DerechosCancelados]: currentValue[1]['DerechosCancelados'],
-					[dataIngreso.DerechosReconocidosNetos]: currentValue[1]['DerechosReconocidosNetos'],
-					[dataIngreso.RecaudacionNeta]: currentValue[1]['RecaudacionNeta'],
-					[dataIngreso.DerechosPendienteCobro]: currentValue[1]['DerechosPendienteCobro'],
-					[dataIngreso.DiferenciaPrevision]: currentValue[1]['DiferenciaPrevision']
+					[dataIngreso.Definitivas1]: currentValue[1]['Definitivas'],
+					[dataIngreso.DerechosAnulados1]: currentValue[1]['DerechosAnulados'],
+					[dataIngreso.DerechosCancelados1]: currentValue[1]['DerechosCancelados'],
+					[dataIngreso.DerechosPendienteCobro1]: currentValue[1]['DerechosPendienteCobro'],
+					[dataIngreso.DerechosReconocidos1]: currentValue[1]['DerechosReconocidos'],
+					[dataIngreso.DerechosReconocidosNetos1]: currentValue[1]['DerechosReconocidosNetos'],
+					[dataIngreso.DiferenciaPrevision1]: currentValue[1]['DiferenciaPrevision'],
+					[dataIngreso.Iniciales1]: currentValue[1]['Iniciales'],
+					[dataIngreso.Modificaciones1]: currentValue[1]['Modificaciones'],
+					[dataIngreso.RecaudacionNeta1]: currentValue[1]['RecaudacionNeta']
 				});
 			});
 		});
@@ -78,8 +83,9 @@ export class PrepareDataIngresosService {
 
 	// Selecciona datos del año que se pasa como parametro
 	async getYearDataJson(year: number) {
-		const data = await import(`../../assets/data/${year}LiqIng.json`);
-
+		const years = this._avalaibleYearsService.getYearsSelected();
+		const yearToLoad = year === 1 ? years[0] : year;
+		const data = await import(`../../assets/data/${yearToLoad}LiqIng.json`);
 		return data.default;
 	}
 }

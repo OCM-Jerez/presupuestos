@@ -89,11 +89,12 @@ export class TreemapComponent implements OnInit, OnDestroy {
 	async calcSeries() {
 		const data = await this._tableService.loadData(this._clasification);
 		const dataTreemap = this._isIngreso ? data.rowDataIngresos : data.rowDataGastos;
+
 		this._dataTreeMap = this._prepareDataTreemapService.calcSeries(
 			dataTreemap,
 			this._fields.codigo,
 			this._fields.descripcion,
-			'Definitivas2023'
+			'Definitivas1'
 		);
 		this.showTreemap();
 	}

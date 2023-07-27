@@ -29,8 +29,8 @@ export class SankeyGraphsComponent implements OnInit {
 		const data = this._dataStoreService.dataTable['rowData' + type];
 		const capitulos = data.map((item) => ({
 			name: `${item.CodCap}-${item.DesCap}`,
-			value: item.Definitivas2023,
-			recaudado: type === 'Ingresos' ? item.DerechosReconocidosNetos2023 : item.Pagos2023
+			value: item.Definitivas1,
+			recaudado: type === 'Ingresos' ? item.DerechosReconocidosNetos1 : item.Pagos1
 		}));
 
 		return capitulos.reduce((acc, curr) => {

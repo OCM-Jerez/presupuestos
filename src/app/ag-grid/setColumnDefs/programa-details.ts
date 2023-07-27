@@ -27,9 +27,15 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 				},
 
 				...avalaibleYearsService.getYearsSelected().map((year) => {
+					let _myYear: number;
+					if (avalaibleYearsService.getYearsSelected().length === 1) {
+						_myYear = 1;
+					} else {
+						_myYear = year;
+					}
 					return {
 						headerName: year.toLocaleString(),
-						children: createColumnsChildren(year)
+						children: createColumnsChildren(_myYear)
 					};
 				})
 			]

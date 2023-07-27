@@ -65,12 +65,12 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 		this.DataTotalesPresupuesto = this._dataStoreService.dataTotalesPresupuesto;
 		this.totalPresupuestadoTotal = this.DataTotalesPresupuesto.totalPresupuestoGastos;
 		this.totalPresupuestado = this._datos.reduce((acc, item) => {
-			acc += +item['Definitivas2023'];
+			acc += +item['Definitivas1'];
 			return acc;
 		}, 0);
 		const porcentajePresupuesto = (this.totalPresupuestado / this.totalPresupuestadoTotal) * 100;
 		this.totalGastado = this._datos.reduce((acc, item) => {
-			acc += +item['Pagos2023'];
+			acc += +item['Pagos1'];
 			return acc;
 		}, 0);
 

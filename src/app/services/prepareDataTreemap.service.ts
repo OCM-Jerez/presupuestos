@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
 
 import { colors } from '@app/commons/consts/colorsTreemap';
-
-import { IDataGasto2023 } from '@interfaces/dataGasto2023.interface';
-import { IDataIngreso2023 } from '@interfaces/dataIngreso2023.interface';
-
 @Injectable({
 	providedIn: 'root'
 })
 export class PrepareDataTreemapService {
-	calcSeries(data: IDataGasto2023[] & IDataIngreso2023[], codigo, descripcion, campoSumatorio, aRestar?) {
+	calcSeries(data, codigo, descripcion, campoSumatorio, aRestar?) {
 		const array = data.reduce((acc, curr) => {
 			const item =
 				aRestar === undefined
