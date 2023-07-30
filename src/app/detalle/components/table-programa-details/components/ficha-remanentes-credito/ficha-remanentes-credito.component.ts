@@ -78,8 +78,8 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 			codigo: item.CodCap,
 			descripcion: item.DesCap,
 			name: `${item.CodCap}-${item.DesCap}`,
-			value: (item as any).Definitivas1 as number,
-			recaudado: (item as any).Pagos1 as number
+			value: item.Definitivas1,
+			recaudado: item.Pagos1
 		}));
 
 		this.capitulos = this.capitulos.reduce((acc, curr) => {
