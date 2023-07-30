@@ -10,7 +10,31 @@ export interface IClasification extends Omit<IDataProperty, 'attribute' | 'useSt
 	subtabsAdditional?: ISubtabAdicional[];
 }
 
-const createSubtabs = (clasificationType: CLASIFICATION_TYPE, subtabsData: any[]) => {
+interface ISubtabsData {
+	name: string;
+	key: string;
+	codField: string;
+	desField: string;
+	selected: boolean;
+}
+interface IClasificationObject {
+	ingresosEconomicaCapitulos: IClasification;
+	ingresosEconomicaArticulos: IClasification;
+	ingresosEconomicaConceptos: IClasification;
+	ingresosEconomicaEconomicos: IClasification;
+	gastosOrganicaOrganicos: IClasification;
+	gastosProgramaAreas: IClasification;
+	gastosProgramaPoliticas: IClasification;
+	gastosProgramaGrupos: IClasification;
+	gastosProgramaProgramas: IClasification;
+	gastosEconomicaCapitulos: IClasification;
+	gastosEconomicaArticulos: IClasification;
+	gastosEconomicaConceptos: IClasification;
+	gastosEconomicaEconomicos: IClasification;
+	aplicacion: IClasification;
+}
+
+const createSubtabs = (clasificationType: CLASIFICATION_TYPE, subtabsData: ISubtabsData[]) => {
 	return subtabsData.map((data) => ({
 		...data,
 		clasificationType: clasificationType as CLASIFICATION_TYPE
@@ -94,7 +118,7 @@ const subtabsAdditionalGastosEconomica = [
 	}
 ];
 
-const CLASIFICATION: { [key: string]: any } = {
+const CLASIFICATION: IClasificationObject = {
 	ingresosEconomicaCapitulos: {
 		codField: 'CodCap',
 		desField: 'DesCap',

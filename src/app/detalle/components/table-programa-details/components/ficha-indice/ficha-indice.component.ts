@@ -16,6 +16,18 @@ import { IDataGasto } from '@interfaces/dataGasto.interface';
 import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.interface';
 import { environment } from '@environments/environment';
 
+interface ICardsInfo {
+	rutaImagen: string;
+	titulo: string;
+	subtitulo: string;
+	funcion: () => void;
+	textButton?: string;
+	textButton1?: string;
+	textButton2?: string;
+	background: string;
+	hover: boolean;
+}
+
 @Component({
 	selector: 'app-ficha-indice',
 	standalone: true,
@@ -41,7 +53,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 	private cartaServiciosUltimaActualizacion = '';
 	private indicadores2017URL = '';
 	private indicadoresYear = 'Sin datos';
-	public cardsInfo: any[] = [];
+	public cardsInfo: ICardsInfo[] = [];
 	liqDate = environment.liqDate2023;
 
 	ngOnInit(): void {

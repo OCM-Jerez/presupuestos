@@ -16,6 +16,8 @@ import { environment } from '@environments/environment';
 import { IDataTable } from '@interfaces/dataTable.interface';
 
 import { accumulate } from '@utils/util';
+import { IDataIngreso } from '@interfaces/dataIngreso.interface';
+import { IDataGasto } from '@interfaces/dataGasto.interface';
 @Component({
 	selector: 'app-graph-detalle',
 	templateUrl: './graph-detalle.component.html',
@@ -29,13 +31,18 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 
 	@ViewChild('agGrid') agGrid: AgGridAngular;
 	public columnDefs;
-	public data: any;
+	public data: {
+		year: number;
+		Definitivas: number;
+		Netas: number;
+	}[] = [];
+
 	public defaultColDef;
 	public groupHeaderHeight = 25;
 	public headerHeight = 25;
 	public localeText;
 	private _dataTable: IDataTable;
-	private _datos: any[] = [];
+	private _datos: IDataIngreso[] | IDataGasto[] = [];
 	private _nameSerie1: string;
 	private _nameSerie2: string;
 	private _nameSerie3: string;
@@ -57,7 +64,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 
 		switch (this._dataTable.clasificationType) {
 			case 'ingresosEconomicaCapitulos':
-				this._datos = this._dataTable.rowDataIngresos.filter((x) => x.CodCap == codigo);
+				this._datos = this._dataTable.rowDataIngresos.filter((x) => x.CodCap == Number(codigo));
 				break;
 			case 'ingresosEconomicaArticulos':
 			case 'ingresosEconomicaConceptos':
@@ -174,7 +181,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 						fontSize: '16px'
 					}
 				},
-				categories: this.data.map((item) => item.year)
+				categories: this.data.map((item) => item.year + '')
 			},
 			yAxis: {
 				title: {
@@ -248,7 +255,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 						fontSize: '16px'
 					}
 				},
-				categories: this.data.map((item) => item.year)
+				categories: this.data.map((item) => item.year + '')
 			},
 			yAxis: {
 				title: {
@@ -313,7 +320,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 						fontSize: '16px'
 					}
 				},
-				categories: this.data.map((item) => item.year)
+				categories: this.data.map((item) => item.year.toString())
 			},
 			yAxis: {
 				title: {
