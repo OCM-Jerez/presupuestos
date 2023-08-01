@@ -2,8 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular
 import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
 
-import { ReloadTableService } from '@services/reloadTable.service';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
+import { ReloadTableService } from '@services/reloadTable.service';
 
 @Component({
 	selector: 'app-checkbox',
@@ -26,9 +26,10 @@ export class CheckboxComponent implements OnInit {
 		{ year: 2022, checked: false },
 		{ year: 2023, checked: true }
 	];
-	public textButton = 'Todos';
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
 	private _reloadTableService = inject(ReloadTableService);
+
+	public textButton = 'Todos';
 
 	ngOnInit(): void {
 		this.getSelectedItem();
@@ -63,10 +64,7 @@ export class CheckboxComponent implements OnInit {
 			const yearFind = this.years.find((yearFind) => yearFind.year === yearSelected.year);
 			this.years.forEach((year) => (year.checked = false));
 			yearFind.checked = true;
-			console.log('yearFind', yearFind);
 		}
-
-		// this.hasChangeCheckbox.emit();
 
 		this._setLocalStorage();
 	}

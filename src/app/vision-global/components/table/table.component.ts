@@ -3,12 +3,13 @@ import { CurrencyPipe } from '@angular/common';
 
 import { Subject, takeUntil } from 'rxjs';
 
+import { environment } from '@environments/environment';
+
+import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { PrepareDataTotalesPresupuestoService } from '@services/prepareDataTotalesPresupuesto.service';
 import { ReloadTableService } from '@services/reloadTable.service';
 import { TableService } from '@services/table.service';
-
-import { environment } from '@environments/environment';
 
 import { ICapituloGasto } from '@interfaces/capituloGasto.interface';
 import { ICapituloIngreso } from '@interfaces/capituloIngreso.interface';
@@ -16,7 +17,6 @@ import { IDataGasto } from '@interfaces/dataGasto.interface';
 import { IDataIngreso } from '@interfaces/dataIngreso.interface';
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.interface';
-import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 
 @Component({
 	selector: 'app-table',
@@ -31,6 +31,14 @@ export class TableDataPresupuestoComponent implements OnInit {
 	private _prepareDataTotalesPresupuestoService = inject(PrepareDataTotalesPresupuestoService);
 	private _reloadTableService = inject(ReloadTableService);
 	private _tableService = inject(TableService);
+
+	private _capitulosGastos: ICapituloGasto[] = [];
+	private _CapitulosIngresos: ICapituloIngreso[] = [];
+	private _dataGasto: IDataGasto[] = [];
+	private _dataIngreso: IDataIngreso[];
+	private _dataTable: IDataTable;
+	private _unsubscribe$ = new Subject<void>();
+	private _yearsSelected: number;
 
 	public ahorroBruto: number;
 	public ahorroNeto: number;
@@ -50,29 +58,15 @@ export class TableDataPresupuestoComponent implements OnInit {
 	public totalPresupuestoGastos: number;
 	public totalPresupuestoIngresos: number;
 
-	private _capitulosGastos: ICapituloGasto[] = [];
-	private _CapitulosIngresos: ICapituloIngreso[] = [];
-	private _dataGasto: IDataGasto[] = [];
-	private _dataIngreso: IDataIngreso[];
-	private _dataTable: IDataTable;
-	private _unsubscribe$ = new Subject<void>();
-	private _yearsSelected: number;
-
 	async ngOnInit(): Promise<void> {
-		if (this._yearsSelected === 2023) {
-			this._loadData();
-		}
+		this._loadData();
 		this._reloadTableService.reloadTable$.pipe(takeUntil(this._unsubscribe$)).subscribe(() => {
 			this._loadData();
 		});
-
-		// this._loadData();
 	}
 
 	private async _loadData(): Promise<void> {
-		console.log('TableComponent: _loadData()');
 		this._yearsSelected = this._avalaibleYearsService.getYearsSelected()[0];
-		console.log(this._yearsSelected);
 		if (this._yearsSelected === 2023) {
 			this.liqDate = '(ejecución al ' + environment.liqDate2023 + ')';
 		} else {
@@ -88,19 +82,14 @@ export class TableDataPresupuestoComponent implements OnInit {
 		await this.calcTotalesPresupuestoIngresos();
 		await this.calcSumGastos();
 		await this.calcTotalesPresupuestoGastos();
-		await this.calcIndicadores();
 		await this._prepareDataTotalesPresupuestoService.calcTotales();
 		this.DataTotalesPresupuesto = this._dataStoreService.dataTotalesPresupuesto;
+		await this.calcIndicadores();
 	}
 
 	async calcSumIngresos() {
-		// if (this._yearsSelected === 2023) {
-		// 	this._dataIngreso = this._dataStoreService.dataTable.rowDataIngresos;
-		// } else {
 		(this._dataTable = await this._tableService.loadData('ingresosEconomicaCapitulos')), this._yearsSelected;
 		this._dataIngreso = this._dataStoreService.dataTable.rowDataIngresos;
-		console.log(this._dataIngreso);
-		// }
 
 		// Creo array de Capitulos de ingresos.
 		this._CapitulosIngresos = [];
@@ -125,7 +114,6 @@ export class TableDataPresupuestoComponent implements OnInit {
 				  });
 			return acc;
 		}, []);
-		console.log(this._CapitulosIngresos);
 	}
 
 	async calcTotalesPresupuestoIngresos() {
@@ -155,13 +143,8 @@ export class TableDataPresupuestoComponent implements OnInit {
 	}
 
 	async calcSumGastos() {
-		// if (this._yearsSelected === 2023) {
-		// 	this._dataGasto = this._dataStoreService.dataTable.rowDataGastos;
-		// } else {
 		(this._dataTable = await this._tableService.loadData('gastosEconomicaCapitulos')), this._yearsSelected;
 		this._dataGasto = this._dataStoreService.dataTable.rowDataGastos;
-		console.log(this._dataGasto);
-		// }
 
 		// Creo array de capitulos de gasto
 		this._capitulosGastos = [];

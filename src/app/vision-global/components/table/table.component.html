@@ -3,7 +3,7 @@
 	<table class="paleBlueRows">
 		<thead>
 			<tr>
-				<th>Ejecución al {{ liqDate }}</th>
+				<th>EJECUCIÓN {{ liqDate }}</th>
 				<th>INGRESOS</th>
 				<th>GASTOS</th>
 			</tr>
@@ -30,7 +30,6 @@
 			<tr>
 				<td>Subtotal corriente<span> Capítulos 1 a 5</span></td>
 				<td>{{ corrientesIngresos | currency : 'EUR' : '' : '1.0-0' }}</td>
-				<!-- <td>{{ corrientesGastos }}</td> -->
 				<td>{{ corrientesGastos | currency : 'EUR' : '' : '1.0-0' }}</td>
 			</tr>
 			<tr>
