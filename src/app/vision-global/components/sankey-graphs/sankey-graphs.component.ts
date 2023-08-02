@@ -1,7 +1,23 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { Subject, switchMap, takeUntil } from 'rxjs';
+
+// import { AvalaibleYearsService } from '@/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
+import { ReloadTableService } from '@services/reloadTable.service';
+import { TableService } from '@services/table.service';
+
+interface ICapitulo {
+	name: string;
+	value: number;
+}
+
+interface IdataGraph {
+	from: string;
+	to: string;
+	weight: number;
+}
 
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
@@ -19,37 +35,27 @@ HighchartsSankey(Highcharts);
 })
 export class SankeyGraphsComponent implements OnInit {
 	private _dataStoreService = inject(DataStoreService);
+	private _reloadTableService = inject(ReloadTableService);
+	private _tableService = inject(TableService);
+
+	private _data: IdataGraph[] = [];
+	private _unsubscribe$ = new Subject<void>();
 
 	ngOnInit(): void {
-		this._showGraph('Ingresos');
-		this._showGraph('Gastos');
+		this._reloadTableService.reloadTable$
+			.pipe(
+				switchMap(() => this._showGraph('Ingresos')),
+				switchMap(() => this._showGraph('Gastos')),
+				takeUntil(this._unsubscribe$)
+			)
+			.subscribe();
+
+		// Inicializa los gráficos en el inicio
+		this._showGraph('Ingresos').then(() => this._showGraph('Gastos'));
 	}
 
-	_calcSum(type: string) {
-		const data = this._dataStoreService.dataTable['rowData' + type];
-		const capitulos = data.map((item) => ({
-			name: `${item.CodCap}-${item.DesCap}`,
-			value: item.Definitivas1,
-			recaudado: type === 'Ingresos' ? item.DerechosReconocidosNetos1 : item.Pagos1
-		}));
-
-		return capitulos.reduce((acc, curr) => {
-			const index = acc.findIndex((item) => item.name === curr.name);
-			index > -1
-				? ((acc[index].value += curr.value), (acc[index].recaudado += curr.recaudado))
-				: acc.push({
-						name: curr.name,
-						value: curr.value,
-						recaudado: curr.recaudado
-				  });
-			return acc;
-		}, []);
-	}
-
-	_showGraph(type: string) {
-		const data = this._calcSum(type).map((item) => {
-			return type === 'Ingresos' ? [item.name, 'Presupuesto', item.value] : ['Presupuesto', item.name, item.value];
-		});
+	async _showGraph(type: string) {
+		await this._calcSum(type);
 
 		const options: Options = {
 			accessibility: { enabled: false },
@@ -80,7 +86,7 @@ export class SankeyGraphsComponent implements OnInit {
 						'#ce9eff'
 					],
 					keys: ['from', 'to', 'weight'],
-					data: data,
+					data: this._data,
 					dataLabels: {
 						style: {
 							color: '#1a1a1a',
@@ -92,5 +98,36 @@ export class SankeyGraphsComponent implements OnInit {
 		};
 
 		Highcharts.chart(type, options);
+	}
+
+	async _calcSum(type: string) {
+		await this._tableService.loadData('ingresosEconomicaCapitulos');
+		const data = this._dataStoreService.dataTable['rowData' + type];
+
+		// Utilizando un objeto como mapa y asegurándonos de que TypeScript entienda su tipo
+		const map: { [key: string]: ICapitulo } = {};
+
+		data.forEach((item) => {
+			const name = `${item.CodCap}-${item.DesCap}`;
+			if (!map[name]) {
+				map[name] = {
+					name: name,
+					value: 0
+				};
+			}
+
+			map[name].value += item.Definitivas1;
+		});
+
+		// Convierte el objeto a una matriz y actualiza this._data
+		this._data = Object.values(map).map((item: ICapitulo) => {
+			return {
+				from: type === 'Ingresos' ? item.name : 'Presupuesto',
+				to: type === 'Ingresos' ? 'Presupuesto' : item.name,
+				weight: item.value
+			};
+		});
+
+		return this._data;
 	}
 }
