@@ -1,0 +1,26 @@
+[
+	{
+		"codigo": 1,
+		"descripcion": "Servicios públicos básicos"
+	},
+	{
+		"codigo": 2,
+		"descripcion": "Actuaciones de protección y promoción social"
+	},
+	{
+		"codigo": 3,
+		"descripcion": "Producción de bienes públicos de carácter preferente"
+	},
+	{
+		"codigo": 4,
+		"descripcion": "Actuaciones de carácter económico"
+	},
+	{
+		"codigo": 9,
+		"descripcion": "Actuaciones de carácter general"
+	},
+	{
+		"codigo": 0,
+		"descripcion": "Deuda pública"
+	}
+]

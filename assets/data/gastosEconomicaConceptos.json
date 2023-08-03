@@ -1,0 +1,742 @@
+[
+	{
+		"codigo": 100,
+		"descripcion": "Retribuciones básicas y otras remuneraciones de los miembros de los órganos de gobierno."
+	},
+	{
+		"codigo": 101,
+		"descripcion": "Retribuciones básicas y otras remuneraciones del personal directivo."
+	},
+	{
+		"codigo": 107,
+		"descripcion": "Contribuciones a planes y fondos de pensiones."
+	},
+	{
+		"codigo": 110,
+		"descripcion": "Retribuciones básicas y otras remuneraciones de personal eventual."
+	},
+	{
+		"codigo": 117,
+		"descripcion": "Contribuciones a planes y fondos de pensiones."
+	},
+	{
+		"codigo": 120,
+		"descripcion": "Retribuciones básicas."
+	},
+	{
+		"codigo": 121,
+		"descripcion": "Retribuciones complementarias."
+	},
+	{
+		"codigo": 122,
+		"descripcion": "Retribuciones en especie."
+	},
+	{
+		"codigo": 124,
+		"descripcion": "Retribuciones de funcionarios en prácticas (mismo desglose que 120)."
+	},
+	{
+		"codigo": 127,
+		"descripcion": "Contribuciones a planes y fondos de pensiones."
+	},
+	{
+		"codigo": 130,
+		"descripcion": "Laboral Fijo."
+	},
+	{
+		"codigo": 131,
+		"descripcion": "Laboral temporal."
+	},
+	{
+		"codigo": 132,
+		"descripcion": "Retribuciones en especie."
+	},
+	{
+		"codigo": 137,
+		"descripcion": "Contribuciones a planes y fondos de pensiones."
+	},
+	{
+		"codigo": 143,
+		"descripcion": "Otro personal."
+	},
+	{
+		"codigo": 147,
+		"descripcion": "Contribuciones a planes y fondos de pensiones."
+	},
+	{
+		"codigo": 150,
+		"descripcion": "Productividad."
+	},
+	{
+		"codigo": 151,
+		"descripcion": "Gratificaciones."
+	},
+	{
+		"codigo": 152,
+		"descripcion": "Otros incentivos al rendimiento."
+	},
+	{
+		"codigo": 153,
+		"descripcion": "Complemento de dedicación especial."
+	},
+	{
+		"codigo": 160,
+		"descripcion": "Cuotas sociales."
+	},
+	{
+		"codigo": 161,
+		"descripcion": "Prestaciones sociales."
+	},
+	{
+		"codigo": 162,
+		"descripcion": "Gastos sociales del personal."
+	},
+	{
+		"codigo": 164,
+		"descripcion": "Complemento familiar."
+	},
+	{
+		"codigo": 200,
+		"descripcion": "Arrendamientos de terrenos y bienes naturales."
+	},
+	{
+		"codigo": 202,
+		"descripcion": "Arrendamientos de edificios y otras construcciones."
+	},
+	{
+		"codigo": 203,
+		"descripcion": "Arrendamientos de maquinaria, instalaciones y utillaje."
+	},
+	{
+		"codigo": 204,
+		"descripcion": "Arrendamientos de material de transporte."
+	},
+	{
+		"codigo": 205,
+		"descripcion": "Arrendamientos de mobiliario y enseres."
+	},
+	{
+		"codigo": 206,
+		"descripcion": "Arrendamientos de equipos para procesos de información."
+	},
+	{
+		"codigo": 208,
+		"descripcion": "Arrendamientos de otro inmovilizado material."
+	},
+	{
+		"codigo": 209,
+		"descripcion": "Cánones."
+	},
+	{
+		"codigo": 210,
+		"descripcion": "Infraestructuras y bienes naturales."
+	},
+	{
+		"codigo": 212,
+		"descripcion": "Edificios y otras construcciones."
+	},
+	{
+		"codigo": 213,
+		"descripcion": "Maquinaria, instalaciones técnicas y utillaje."
+	},
+	{
+		"codigo": 214,
+		"descripcion": "Elementos de transporte."
+	},
+	{
+		"codigo": 215,
+		"descripcion": "Mobiliario."
+	},
+	{
+		"codigo": 216,
+		"descripcion": "Equipos para procesos de información."
+	},
+	{
+		"codigo": 217,
+		"descripcion": "Instrumentos musicáles. No existe en listado Hacienda."
+	},
+	{
+		"codigo": 219,
+		"descripcion": "Otro inmovilizado material."
+	},
+	{
+		"codigo": 220,
+		"descripcion": "Material de oficina."
+	},
+	{
+		"codigo": 221,
+		"descripcion": "Suministros."
+	},
+	{
+		"codigo": 222,
+		"descripcion": "Comunicaciones."
+	},
+	{
+		"codigo": 223,
+		"descripcion": "Transportes."
+	},
+	{
+		"codigo": 224,
+		"descripcion": "Primas de seguros."
+	},
+	{
+		"codigo": 225,
+		"descripcion": "Tributos."
+	},
+	{
+		"codigo": 226,
+		"descripcion": "Gastos diversos."
+	},
+	{
+		"codigo": 227,
+		"descripcion": "Trabajos realizados por otras empresas y profesionales."
+	},
+	{
+		"codigo": 230,
+		"descripcion": "Dietas."
+	},
+	{
+		"codigo": 231,
+		"descripcion": "Locomoción."
+	},
+	{
+		"codigo": 233,
+		"descripcion": "Otras indemnizaciones."
+	},
+	{
+		"codigo": 240,
+		"descripcion": "Gastos de edición y distribución."
+	},
+	{
+		"codigo": 300,
+		"descripcion": "Intereses."
+	},
+	{
+		"codigo": 301,
+		"descripcion": "Gastos de emisión, modificación y cancelación."
+	},
+	{
+		"codigo": 309,
+		"descripcion": "Otros gastos financieros de Deuda Pública en euros."
+	},
+	{
+		"codigo": 310,
+		"descripcion": "Intereses."
+	},
+	{
+		"codigo": 311,
+		"descripcion": "Gastos de formalización, modificación y cancelación."
+	},
+	{
+		"codigo": 319,
+		"descripcion": "Otros gastos financieros de préstamos y otras operaciones financieras en euros."
+	},
+	{
+		"codigo": 320,
+		"descripcion": "Intereses."
+	},
+	{
+		"codigo": 321,
+		"descripcion": "Gastos de emisión, modificación y cancelación."
+	},
+	{
+		"codigo": 322,
+		"descripcion": "Diferencias de cambio."
+	},
+	{
+		"codigo": 329,
+		"descripcion": "Otros gastos financieros de Deuda Pública en moneda distinta del euro."
+	},
+	{
+		"codigo": 330,
+		"descripcion": "Intereses."
+	},
+	{
+		"codigo": 331,
+		"descripcion": "Gastos de formalización, modificación y cancelación."
+	},
+	{
+		"codigo": 332,
+		"descripcion": "Diferencias de cambio."
+	},
+	{
+		"codigo": 339,
+		"descripcion": "Otros gastos financieros de préstamos y otras operaciones financieras en moneda distinta del euro."
+	},
+	{
+		"codigo": 340,
+		"descripcion": "Intereses de depósitos."
+	},
+	{
+		"codigo": 341,
+		"descripcion": "Intereses de fianzas."
+	},
+	{
+		"codigo": 352,
+		"descripcion": "Intereses de demora."
+	},
+	{
+		"codigo": 353,
+		"descripcion": "Operaciones de intercambio financiero."
+	},
+	{
+		"codigo": 357,
+		"descripcion": "Ejecución de avales."
+	},
+	{
+		"codigo": 358,
+		"descripcion": "Intereses por operaciones de arrendamiento financiero («leasing»)."
+	},
+	{
+		"codigo": 359,
+		"descripcion": "Otros gastos financieros."
+	},
+	{
+		"codigo": 410,
+		"descripcion": "Patronatos y fundaciones. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 420,
+		"descripcion": "A la Administración General del Estado."
+	},
+	{
+		"codigo": 421,
+		"descripcion": "A Organismos Autónomos yAgencias estatales."
+	},
+	{
+		"codigo": 422,
+		"descripcion": "A Fundaciones estatales."
+	},
+	{
+		"codigo": 423,
+		"descripcion": "A sociedades mercantiles estatales, entidades públicas empresariales y otros organismos públicos."
+	},
+	{
+		"codigo": 440,
+		"descripcion": "Subvenciones para fomento del empleo."
+	},
+	{
+		"codigo": 441,
+		"descripcion": "Subvenciones para bonificación de intereses y primas de seguros."
+	},
+	{
+		"codigo": 442,
+		"descripcion": "Subvenciones para reducir el precio a pagar por los consumidores."
+	},
+	{
+		"codigo": 449,
+		"descripcion": "Otras subvenciones a entes públicos y sociedades mercantiles de la Entidad Local."
+	},
+	{
+		"codigo": 450,
+		"descripcion": "A la Administración General de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 451,
+		"descripcion": "A Organismos Autónomos y agencias de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 452,
+		"descripcion": "A fundaciones de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 453,
+		"descripcion": "A sociedades mercantiles, entidades públicas empresariales y otros organismos públicos dependientes de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 461,
+		"descripcion": "A Diputaciones, Consejos o Cabildos insulares."
+	},
+	{
+		"codigo": 462,
+		"descripcion": "A Ayuntamientos."
+	},
+	{
+		"codigo": 463,
+		"descripcion": "A Mancomunidades."
+	},
+	{
+		"codigo": 464,
+		"descripcion": "A Áreas Metropolitanas."
+	},
+	{
+		"codigo": 465,
+		"descripcion": "A Comarcas."
+	},
+	{
+		"codigo": 466,
+		"descripcion": "A otras Entidades que agrupen municipios."
+	},
+	{
+		"codigo": 467,
+		"descripcion": "A Consorcios."
+	},
+	{
+		"codigo": 468,
+		"descripcion": "A Entidades Locales Menores."
+	},
+	{
+		"codigo": 470,
+		"descripcion": "Subvenciones para fomento del empleo."
+	},
+	{
+		"codigo": 471,
+		"descripcion": "Subvenciones para bonificación de intereses y primas de seguros."
+	},
+	{
+		"codigo": 472,
+		"descripcion": "Subvenciones para reducir el precio a pagar por los consumidores."
+	},
+	{
+		"codigo": 479,
+		"descripcion": "Otras subvenciones a Empresas privadas."
+	},
+	{
+		"codigo": 480,
+		"descripcion": "Ayudas. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 481,
+		"descripcion": "Premios y becas. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 488,
+		"descripcion": "Ayuda internacional y ONG. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 489,
+		"descripcion": "Fundaciones, Consejo social. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 490,
+		"descripcion": "Al exterior. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 500,
+		"descripcion": "Fondo de Contingencia de Ejecución Presupuestaria. Artículo 31 Ley Orgánica 2/2012, de Estabilidad Presupuestaria y Sostenibilidad Financiera."
+	},
+	{
+		"codigo": 600,
+		"descripcion": "Inversiones en terrenos."
+	},
+	{
+		"codigo": 602,
+		"descripcion": "Actuaciones varias. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 603,
+		"descripcion": "Actuaciones varias. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 604,
+		"descripcion": "Actuaciones varias. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 607,
+		"descripcion": "Actuaciones varias. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 609,
+		"descripcion": "Otras inversiones nuevas en infraestructuras y bienes destinados al uso general."
+	},
+	{
+		"codigo": 610,
+		"descripcion": "Inversiones en terrenos."
+	},
+	{
+		"codigo": 619,
+		"descripcion": "Otras inversiones de reposición en infraestructuras y bienes destinados al uso general."
+	},
+	{
+		"codigo": 621,
+		"descripcion": "Terrenos y bienes naturales."
+	},
+	{
+		"codigo": 622,
+		"descripcion": "Edificios y otras construcciones."
+	},
+	{
+		"codigo": 623,
+		"descripcion": "Maquinaria, instalaciones técnicas y utillaje."
+	},
+	{
+		"codigo": 624,
+		"descripcion": "Elementos de transporte."
+	},
+	{
+		"codigo": 625,
+		"descripcion": "Mobiliario."
+	},
+	{
+		"codigo": 626,
+		"descripcion": "Equipos para procesos de información."
+	},
+	{
+		"codigo": 627,
+		"descripcion": "Proyectos complejos."
+	},
+	{
+		"codigo": 629,
+		"descripcion": "Otras inversiones nuevas asociadas al funcionamiento operativo de los servicios."
+	},
+	{
+		"codigo": 631,
+		"descripcion": "Terrenos y bienes naturales."
+	},
+	{
+		"codigo": 632,
+		"descripcion": "Edificios y otras construcciones."
+	},
+	{
+		"codigo": 633,
+		"descripcion": "Maquinaria, instalaciones técnicas y utillaje."
+	},
+	{
+		"codigo": 634,
+		"descripcion": "Elementos de transporte."
+	},
+	{
+		"codigo": 635,
+		"descripcion": "Mobiliario."
+	},
+	{
+		"codigo": 636,
+		"descripcion": "Equipos para procesos de información."
+	},
+	{
+		"codigo": 637,
+		"descripcion": "Proyectos complejos."
+	},
+	{
+		"codigo": 639,
+		"descripcion": "Otras inversiones de reposición asociadas al funcionamiento operativo de los servicios."
+	},
+	{
+		"codigo": 640,
+		"descripcion": "Gastos en inversiones de carácter inmaterial."
+	},
+	{
+		"codigo": 641,
+		"descripcion": "Gastos en aplicaciones informáticas."
+	},
+	{
+		"codigo": 648,
+		"descripcion": "Cuotas netas de intereses por operaciones de arrendamiento financiero («leasing»)."
+	},
+	{
+		"codigo": 650,
+		"descripcion": "Gastos en inversiones gestionadas para otros entes públicos."
+	},
+	{
+		"codigo": 681,
+		"descripcion": "Terrenos y bienes naturales."
+	},
+	{
+		"codigo": 682,
+		"descripcion": "Edificios y otras construcciones."
+	},
+	{
+		"codigo": 689,
+		"descripcion": "Otros gastos en inversiones de bienes patrimoniales."
+	},
+	{
+		"codigo": 690,
+		"descripcion": "Terrenos y bienes naturales."
+	},
+	{
+		"codigo": 692,
+		"descripcion": "Inversión en infraestructuras."
+	},
+	{
+		"codigo": 720,
+		"descripcion": "A la Administración General del Estado."
+	},
+	{
+		"codigo": 721,
+		"descripcion": "A Organismos Autónomos y agencias."
+	},
+	{
+		"codigo": 722,
+		"descripcion": "A fundaciones estatales."
+	},
+	{
+		"codigo": 723,
+		"descripcion": "A sociedades mercantiles estatales, entidades públicas empresariales y otros organismos públicos."
+	},
+	{
+		"codigo": 740,
+		"descripcion": "A entes dependientes. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 743,
+		"descripcion": "A entes públicos. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 750,
+		"descripcion": "A la Administración General de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 751,
+		"descripcion": "A Organismos Autónomos y agencias de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 752,
+		"descripcion": "A fundaciones de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 753,
+		"descripcion": "A sociedades mercantiles, entidades públicas empresariales y otros organismos públicos dependientes de las Comunidades Autónomas."
+	},
+	{
+		"codigo": 761,
+		"descripcion": "A Diputaciones, Consejos o Cabildos."
+	},
+	{
+		"codigo": 762,
+		"descripcion": "A Ayuntamientos."
+	},
+	{
+		"codigo": 763,
+		"descripcion": "A Mancomunidades."
+	},
+	{
+		"codigo": 764,
+		"descripcion": "A Áreas Metropolitanas."
+	},
+	{
+		"codigo": 765,
+		"descripcion": "A Comarcas."
+	},
+	{
+		"codigo": 766,
+		"descripcion": "A Entidades que agrupen Municipios."
+	},
+	{
+		"codigo": 767,
+		"descripcion": "A Consorcios."
+	},
+	{
+		"codigo": 768,
+		"descripcion": "A Entidades Locales Menores."
+	},
+	{
+		"codigo": 770,
+		"descripcion": "Actuaciones varias. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 780,
+		"descripcion": "A familias y entiodades sin animo de lucro. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 789,
+		"descripcion": "Otras transferencias de capital. No existe en listado Hacienda. Comprobado"
+	},
+	{
+		"codigo": 800,
+		"descripcion": "Adquisición de deuda del sector público a corto plazo."
+	},
+	{
+		"codigo": 801,
+		"descripcion": "Adquisición de deuda del sector público a largo plazo."
+	},
+	{
+		"codigo": 810,
+		"descripcion": "Adquisición de obligaciones y bonos fuera del sector público a corto plazo. Desarrollo por sectores."
+	},
+	{
+		"codigo": 811,
+		"descripcion": "Adquisición de obligaciones y bonos fuera del sector público a largo plazo. Desarrollo por sectores."
+	},
+	{
+		"codigo": 820,
+		"descripcion": "Préstamos a corto plazo."
+	},
+	{
+		"codigo": 821,
+		"descripcion": "Préstamos a largo plazo."
+	},
+	{
+		"codigo": 830,
+		"descripcion": "Préstamos a corto plazo. Desarrollo por sectores."
+	},
+	{
+		"codigo": 831,
+		"descripcion": "Préstamos a largo plazo. Desarrollo por sectores."
+	},
+	{
+		"codigo": 840,
+		"descripcion": "Depósitos."
+	},
+	{
+		"codigo": 841,
+		"descripcion": "Fianzas."
+	},
+	{
+		"codigo": 850,
+		"descripcion": "Adquisición de acciones y participaciones del sector público."
+	},
+	{
+		"codigo": 860,
+		"descripcion": "Adquisición de acciones y participaciones fuera del sector público."
+	},
+	{
+		"codigo": 870,
+		"descripcion": "Aportaciones a fundaciones."
+	},
+	{
+		"codigo": 871,
+		"descripcion": "Aportaciones a consorcios."
+	},
+	{
+		"codigo": 872,
+		"descripcion": "Aportaciones a otros entes."
+	},
+	{
+		"codigo": 900,
+		"descripcion": "Amortización de Deuda Pública en euros a corto plazo."
+	},
+	{
+		"codigo": 901,
+		"descripcion": "Amortización de Deuda Pública en euros a largo plazo."
+	},
+	{
+		"codigo": 910,
+		"descripcion": "Amortización de préstamos a corto plazo de entes del sector público."
+	},
+	{
+		"codigo": 911,
+		"descripcion": "Amortización de préstamos a largo plazo de entes del sector público."
+	},
+	{
+		"codigo": 912,
+		"descripcion": "Amortización de préstamos a corto plazo de entes de fuera del sector Público."
+	},
+	{
+		"codigo": 913,
+		"descripcion": "Amortización de préstamos a largo plazo de entes de fuera del sector público."
+	},
+	{
+		"codigo": 920,
+		"descripcion": "Amortización de Deuda Pública en moneda distinta del euro a corto plazo."
+	},
+	{
+		"codigo": 921,
+		"descripcion": "Amortización de Deuda Pública en moneda distinta del euro a largo plazo."
+	},
+	{
+		"codigo": 930,
+		"descripcion": "Amortización de préstamos en moneda distinta del euro a corto plazo."
+	},
+	{
+		"codigo": 931,
+		"descripcion": "Amortización de préstamos en moneda distinta del euro a largo plazo."
+	},
+	{
+		"codigo": 940,
+		"descripcion": "Devolución de depósitos."
+	},
+	{
+		"codigo": 941,
+		"descripcion": "Devolución de fianzas."
+	}
+]

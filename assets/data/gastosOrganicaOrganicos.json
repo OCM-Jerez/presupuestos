@@ -1,0 +1,106 @@
+[
+	{
+		"codigo": 0,
+		"descripcion": "Servicios centrales"
+	},
+	{
+		"codigo": 1,
+		"descripcion": "Presidencia"
+	},
+	{
+		"codigo": 2,
+		"descripcion": "Empleo"
+	},
+	{
+		"codigo": 3,
+		"descripcion": "Recursos humanos"
+	},
+	{
+		"codigo": 4,
+		"descripcion": "Medio rural"
+	},
+	{
+		"codigo": 5,
+		"descripcion": "Igualdad y salud"
+	},
+	{
+		"codigo": 6,
+		"descripcion": "Deportes"
+	},
+	{
+		"codigo": 7,
+		"descripcion": "Infraestructuras"
+	},
+	{
+		"codigo": 8,
+		"descripcion": "Cultura"
+	},
+	{
+		"codigo": 9,
+		"descripcion": "Medio ambiente"
+	},
+	{
+		"codigo": 10,
+		"descripcion": "Urbanismo"
+	},
+	{
+		"codigo": 11,
+		"descripcion": "Participacion ciudadana"
+	},
+	{
+		"codigo": 12,
+		"descripcion": "Educación"
+	},
+	{
+		"codigo": 13,
+		"descripcion": "Distritos"
+	},
+	{
+		"codigo": 14,
+		"descripcion": "Gestión del patrimonio"
+	},
+	{
+		"codigo": 15,
+		"descripcion": "Fiestas y festejos populares"
+	},
+	{
+		"codigo": 16,
+		"descripcion": "Bienestar social y del mayor"
+	},
+	{
+		"codigo": 17,
+		"descripcion": "Economía y hacienda"
+	},
+	{
+		"codigo": 18,
+		"descripcion": "Juventud"
+	},
+	{
+		"codigo": 19,
+		"descripcion": "Seguridad"
+	},
+	{
+		"codigo": 20,
+		"descripcion": "Mercados"
+	},
+	{
+		"codigo": 21,
+		"descripcion": "Movilidad"
+	},
+	{
+		"codigo": 22,
+		"descripcion": "Turismo"
+	},
+	{
+		"codigo": 23,
+		"descripcion": "Planes Especiales"
+	},
+	{
+		"codigo": 24,
+		"descripcion": "Zoologico-Montes Propios"
+	},
+	{
+		"codigo": 25,
+		"descripcion": "Promoción y gestión vivienda"
+	}
+]
