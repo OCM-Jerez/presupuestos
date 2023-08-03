@@ -12,25 +12,9 @@ import { IDataProperty, IDataTable } from '@interfaces/dataTable.interface';
 	providedIn: 'root'
 })
 export class TableService {
-	private _prepareDataIngresosService = inject(PrepareDataIngresosService);
-	private _prepareDataGastosService = inject(PrepareDataGastosService);
 	private _dataStoreService = inject(DataStoreService);
-
-	async loadDataInitial(): Promise<IDataTable> {
-		// CLASIFICATION_TYPE por defecto al iniciar = 'ingresosEconomicaEconomicos'
-		const rowDataIngresos = await this._prepareDataIngresosService.getDataAllYear();
-		const rowDataGastos = await this._prepareDataGastosService.getDataAllYear();
-		const dataPropertyTable = getClasificacion('ingresosEconomicaEconomicos') as IDataProperty;
-		const sendDataTable: IDataTable = {
-			dataPropertyTable,
-			clasificationType: 'ingresosEconomicaEconomicos',
-			rowDataIngresos,
-			rowDataGastos
-		};
-
-		this._dataStoreService.dataTable = sendDataTable;
-		return sendDataTable;
-	}
+	private _prepareDataGastosService = inject(PrepareDataGastosService);
+	private _prepareDataIngresosService = inject(PrepareDataIngresosService);
 
 	async loadData(tipoClasificacion?: CLASIFICATION_TYPE): Promise<IDataTable> {
 		// const _startTime = performance.now();

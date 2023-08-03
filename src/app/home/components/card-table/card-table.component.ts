@@ -31,7 +31,7 @@ export class CardTableComponent implements OnInit {
 	}
 
 	private async _randomData(): Promise<void> {
-		const dataTable: IDataTable = await this._tableService.loadDataInitial();
+		const dataTable: IDataTable = await this._tableService.loadData('ingresosEconomicaEconomicos');
 		let dataTablaAleatoria: ITablaAleatoria[] = [];
 		const ingresoGasto = Math.random() >= 0.5 ? true : false;
 		ingresoGasto
