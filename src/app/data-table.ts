@@ -17,6 +17,7 @@ interface ISubtabsData {
 	desField: string;
 	selected: boolean;
 }
+
 interface IClasificationObject {
 	ingresosEconomicaCapitulos: IClasification;
 	ingresosEconomicaArticulos: IClasification;
@@ -120,13 +121,13 @@ const subtabsAdditionalGastosEconomica = [
 
 const CLASIFICATION: IClasificationObject = {
 	ingresosEconomicaCapitulos: {
+		attribute: 'CodCap',
 		codField: 'CodCap',
 		desField: 'DesCap',
 		graphTitle: 'Ingresos por capítulo',
 		headerName: 'Clasificado por capítulo',
-		subHeaderName: 'Capítulo',
-		attribute: 'CodCap',
 		isIngresos: true,
+		subHeaderName: 'Capítulo',
 		useStarWitch: true,
 		width: 250,
 		subtabs: subtabsIngresos('ingresosEconomicaCapitulos'),

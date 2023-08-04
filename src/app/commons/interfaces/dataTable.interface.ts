@@ -10,12 +10,12 @@ export interface IDataTable {
 }
 
 export interface IDataProperty {
-	isIngresos: boolean;
 	attribute: string;
 	codField: string;
 	desField: string;
 	graphTitle: string;
 	headerName: string;
+	isIngresos: boolean;
 	subHeaderName: string;
 	useStarWitch: boolean;
 	width: number;
