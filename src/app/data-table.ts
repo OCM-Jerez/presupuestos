@@ -30,7 +30,6 @@ interface IClasificationObject {
 	gastosEconomicaArticulos: IClasification;
 	gastosEconomicaConceptos: IClasification;
 	gastosEconomicaEconomicos: IClasification;
-	aplicacion: IClasification;
 }
 
 const createSubtabs = (clasificationType: CLASIFICATION_TYPE, subtabsData: ISubtabsData[]) => {
@@ -268,15 +267,6 @@ const CLASIFICATION: IClasificationObject = {
 		width: 550,
 		subtabs: subtabsGastosEconomica('gastosEconomicaEconomicos'),
 		subtabsAdditional: subtabsAdditionalGastosEconomica
-	},
-	aplicacion: {
-		codField: 'CodEco',
-		desField: 'DesEco',
-		graphTitle: 'Gastos por económico',
-		headerName: 'Clasificado por económico',
-		isIngresos: false,
-		subHeaderName: 'Económico',
-		width: 550
 	}
 };
 
