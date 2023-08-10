@@ -436,6 +436,10 @@
 		"descripcion": "Prestac patrim carácter no tributario por act.ord.suelo rúst"
 	},
 	{
+		"codigo": 39925,
+		"descripcion": "Prest. Patr. Gen. Ener. Re. (PPGER)"
+	},
+	{
 		"codigo": 42001,
 		"descripcion": "Otras transferencias del Estado déficit autobuses"
 	},
