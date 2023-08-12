@@ -23,15 +23,13 @@ import { getColumnDefsGastan } from '../../../ag-grid/setColumnDefs/grupos-progr
 import { getColumnDefsAppPresupuestaria } from '../../../ag-grid/setColumnDefs/aplicacion-presupuestaria';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
+import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { IDataGasto } from '@interfaces/dataGasto.interface';
-
-import { accumulate } from '../../../commons/util/util';
-import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
 
 @Component({
 	selector: 'app-table-programa-details',
@@ -41,15 +39,15 @@ import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.
 	imports: [NgIf, AgGridModule, AsyncPipe]
 })
 export default class TableProgramaDetailsComponent implements OnInit, OnDestroy {
-	private _route = inject(ActivatedRoute);
 	private _location = inject(Location);
+	private _route = inject(ActivatedRoute);
 	private _router = inject(Router);
+
+	private _avalaibleYearsService = inject(AvalaibleYearsService);
+	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
 	private _dataStoreService = inject(DataStoreService);
 	private _hasRowClicked = inject(HasRowClicked);
 	private _prepareDataGastosService = inject(PrepareDataGastosService);
-	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
-
-	public avalaibleYearsService = inject(AvalaibleYearsService);
 
 	@ViewChild('agGrid') agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
@@ -104,21 +102,21 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 
 	async ngOnInit(): Promise<void> {
 		this._dataTable = this._dataStoreService.dataTable;
-		const selectedYear = this.avalaibleYearsService.getYearsSelected();
+		const selectedYear = this._avalaibleYearsService.getYearsSelected();
 		const programa = this._dataStoreService.selectedCodeRowFirstLevel.split(' - ')[1];
 
 		switch (this._path) {
 			case 'details':
 				this.title = 'Detalle programa ' + programa;
 				await this._CalcDataDetails();
-				this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService);
+				this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService);
 				this._setGridOptions();
 				this.titleButtom = ' Seleccionar app presupuestaria para ver su detalle';
 				break;
 			case 'gastan':
 				this.title = 'Programas que gastan del económico ' + programa;
 				await this._CalcDataGastan();
-				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, selectedYear.toString());
+				this._columnDefs = getColumnDefsGastan(this._avalaibleYearsService, selectedYear.toString());
 				this._setGridOptions();
 				this.titleButtom = 'Seleccionar programa para ver su detalle';
 				this.showButtomExpanded = false;
@@ -127,20 +125,15 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			case 'organico':
 				this.title = 'Programas que componen el orgánico ' + programa;
 				await this._CalcDataGastan();
-				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, selectedYear.toString());
+				this._columnDefs = getColumnDefsGastan(this._avalaibleYearsService, selectedYear.toString());
 				this._setGridOptions();
 				this.titleButtom = 'Seleccionar programa para ver su detalle';
 				this.showButtomExpanded = false;
 				break;
 			case 'appPresupuestaria':
-				console.log(
-					'this._dataStoreService.selectedCodeRowFirstLevel',
-					this._dataStoreService.selectedCodeRowFirstLevel
-				);
-
 				this.title = 'Aplicación presupuestaria ' + programa;
 				await this._CalcDataGastan();
-				this._columnDefs = getColumnDefsGastan(this.avalaibleYearsService, selectedYear.toString());
+				this._columnDefs = getColumnDefsGastan(this._avalaibleYearsService, selectedYear.toString());
 				this._setGridOptions();
 				this.showButtomExpanded = false;
 				break;
@@ -299,7 +292,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	_filterByAppPresupuestaria(appPresupuestaria) {
-		const years = this.avalaibleYearsService.getYearsSelected();
+		const years = this._avalaibleYearsService.getYearsSelected();
 		const dataFinal = [];
 		this._appPresupuestarias = this._appPresupuestarias.filter((x) => x === appPresupuestaria);
 		this._appPresupuestarias.map((item) => {
@@ -318,14 +311,21 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			};
 
 			years.forEach((year) => {
-				value[`Iniciales${year}`] = accumulate('Iniciales', dataIntermedio)[year];
-				value[`Modificaciones${year}`] = accumulate('Modificaciones', dataIntermedio)[year];
-				value[`Definitivas${year}`] = accumulate('Definitivas', dataIntermedio)[year];
-				value[`GastosComprometidos${year}`] = accumulate('GastosComprometidos', dataIntermedio)[year];
-				value[`ObligacionesReconocidasNetas${year}`] = accumulate('ObligacionesReconocidasNetas', dataIntermedio)[year];
-				value[`Pagos${year}`] = accumulate('Pagos', dataIntermedio)[year];
-				value[`ObligacionesPendientePago${year}`] = accumulate('ObligacionesPendientePago', dataIntermedio)[year];
-				value[`RemanenteCredito${year}`] = accumulate('RemanenteCredito', dataIntermedio)[year];
+				let _myYear: number;
+				if (this._avalaibleYearsService.getYearsSelected().length === 1) {
+					_myYear = 1;
+				} else {
+					_myYear = year;
+				}
+
+				value[`Iniciales${_myYear}`] = dataIntermedio[0][`Iniciales${_myYear}`];
+				value[`Modificaciones${_myYear}`] = dataIntermedio[0][`Modificaciones${_myYear}`];
+				value[`Definitivas${_myYear}`] = dataIntermedio[0][`Definitivas${_myYear}`];
+				value[`GastosComprometidos${_myYear}`] = dataIntermedio[0][`GastosComprometidos${_myYear}`];
+				value[`ObligacionesReconocidasNetas${_myYear}`] = dataIntermedio[0][`ObligacionesReconocidasNetas${_myYear}`];
+				value[`Pagos${_myYear}`] = dataIntermedio[0][`Pagos${_myYear}`];
+				value[`ObligacionesPendientePago${_myYear}`] = dataIntermedio[0][`ObligacionesPendientePago${_myYear}`];
+				value[`RemanenteCredito${_myYear}`] = dataIntermedio[0][`RemanenteCredito${_myYear}`];
 			});
 			dataFinal.push(value);
 			this._rowData = dataFinal;
@@ -345,7 +345,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	async _showProgramDetails() {
 		this.title = 'Detalle programa ' + this._dataStoreService.selectedCodeRowFirstLevel;
 		await this._CalcDataDetails();
-		this._columnDefs = getColumnDefsDetails(this.avalaibleYearsService);
+		this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService);
 		this._setGridOptions();
 		this._gridApi.setRowData(this._rowData);
 		this._gridApi.setColumnDefs(this._columnDefs);
@@ -358,10 +358,9 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this.buttonExpandirColapsar = false;
 		const selectedRow = this.agGrid.api.getSelectedNodes();
 		this._hasRowClicked.change(null);
-		console.log(selectedRow[0].data);
 		await this._createAppPresupuestarias();
 		await this._filterByAppPresupuestaria(selectedRow[0].data.appPresupuestaria);
-		this._columnDefs = getColumnDefsAppPresupuestaria(this.avalaibleYearsService, this._subHeaderName);
+		this._columnDefs = getColumnDefsAppPresupuestaria(this._avalaibleYearsService, this._subHeaderName);
 
 		this._setGridOptions();
 		this.title =

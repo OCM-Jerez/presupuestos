@@ -29,9 +29,16 @@ export function getColumnDefsAppPresupuestaria(
 				},
 
 				...avalaibleYearsService.getYearsSelected().map((year) => {
+					let _myYear: number;
+					if (avalaibleYearsService.getYearsSelected().length === 1) {
+						_myYear = 1;
+					} else {
+						_myYear = year;
+					}
+
 					return {
 						headerName: year.toLocaleString(),
-						children: createColumnsChildren(year)
+						children: createColumnsChildren(_myYear)
 					};
 				})
 			]
@@ -40,6 +47,8 @@ export function getColumnDefsAppPresupuestaria(
 }
 
 function createColumnsChildren(year: number) {
+	console.log(`Definitivas${year}`);
+
 	return [
 		{
 			headerName: 'Creditos definitivos',
