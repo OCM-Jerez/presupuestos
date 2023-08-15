@@ -107,7 +107,7 @@
 	{
 		"CodEco": 11600,
 		"DescripcionAyto": "Impuesto sobre Incremento Valor de",
-		"DesEco": "Impuesto sobre Incremento del Valor de los Terrenos de Naturaleza Urbana.",
+		"DesEco": "Impuesto sobre Incremento del Valor de los Terrenos de Naturaleza Urbana",
 		"CodCap": 1,
 		"DesCap": "Impuestos directos",
 		"Iniciales": 11541500,
@@ -128,7 +128,7 @@
 	{
 		"CodEco": 13000,
 		"DescripcionAyto": "Actividades Empresariales",
-		"DesEco": "Impuesto sobre Actividades Económicas.",
+		"DesEco": "Impuesto sobre Actividades Económicas",
 		"CodCap": 1,
 		"DesCap": "Impuestos directos",
 		"Iniciales": 9370000,
