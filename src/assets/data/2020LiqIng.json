@@ -22,7 +22,7 @@
 	},
 	{
 		"CodEco": 11200,
-		"DesEco": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de Naturaleza Rústica.",
+		"DesEco": "Impuesto sobre Bienes Inmuebles de Naturaleza Rústica",
 		"CodCap": 1,
 		"DesCap": "Impuestos directos",
 		"DescripcionAyto": "Impto sobre Biene Inmuebles.",
