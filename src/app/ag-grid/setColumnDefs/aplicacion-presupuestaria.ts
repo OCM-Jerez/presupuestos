@@ -29,12 +29,8 @@ export function getColumnDefsAppPresupuestaria(
 				},
 
 				...avalaibleYearsService.getYearsSelected().map((year) => {
-					let _myYear: number;
-					if (avalaibleYearsService.getYearsSelected().length === 1) {
-						_myYear = 1;
-					} else {
-						_myYear = year;
-					}
+					const yearsSelected = avalaibleYearsService.getYearsSelected().length;
+					const _myYear = yearsSelected === 1 ? 1 : year;
 
 					return {
 						headerName: year.toLocaleString(),
