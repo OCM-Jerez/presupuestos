@@ -64,7 +64,7 @@
 	},
 	{
 		"CodEco": 11400,
-		"DesEco": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de características especiales.",
+		"DesEco": "Impuesto sobre Bienes Inmuebles de características especiales",
 		"CodCap": 1,
 		"DesCap": "Impuestos directos",
 		"DescripcionAyto": "Imptos. sobre Bienes Inmuebles de",
