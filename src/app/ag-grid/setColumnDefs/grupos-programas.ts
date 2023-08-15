@@ -4,15 +4,8 @@ import { ColGroupDef } from 'ag-grid-community';
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 
 export function getColumnDefsGastan(avalaibleYearsService: AvalaibleYearsService, year: string): ColGroupDef[] {
-	// if (avalaibleYearsService.getYearsSelected().length === 1) {
-	// 	year = '1';
-	// }
-
-	if (avalaibleYearsService.getYearsSelected().length === 1) {
-		year = '1';
-	} else {
-		year = year;
-	}
+	const yearsSelected = avalaibleYearsService.getYearsSelected().length;
+	year = yearsSelected === 1 ? '1' : year;
 
 	return [
 		{
