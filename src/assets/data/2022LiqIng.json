@@ -13,7 +13,11 @@
 		"DerechosCancelados": 8041,
 		"RecaudacionNeta": 3062772,
 		"DerechosPendienteCobro": 250422,
-		"DiferenciaPrevision": 320193
+		"DiferenciaPrevision": 320193,
+		"CodArt": 10,
+		"CodCon": 100,
+		"DesArt": "Impuesto sobre la Renta.",
+		"DesCon": "Impuestos sobre la Renta de las Personas Físicas."
 	},
 	{
 		"CodEco": 11200,
@@ -29,7 +33,11 @@
 		"DerechosCancelados": 9356,
 		"RecaudacionNeta": 40199,
 		"DerechosPendienteCobro": 2538056,
-		"DiferenciaPrevision": -25645
+		"DiferenciaPrevision": -25645,
+		"CodArt": 11,
+		"CodCon": 112,
+		"DesArt": "Impuestos sobre el capital.",
+		"DesCon": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de Naturaleza Rústica."
 	},
 	{
 		"CodEco": 11300,
@@ -45,7 +53,11 @@
 		"DerechosCancelados": 282638,
 		"RecaudacionNeta": 13391920,
 		"DerechosPendienteCobro": 32875569,
-		"DiferenciaPrevision": -494811
+		"DiferenciaPrevision": -494811,
+		"CodArt": 11,
+		"CodCon": 113,
+		"DesArt": "Impuestos sobre el capital.",
+		"DesCon": "Impuesto sobre Bienes Inmuebles. Bienes inmuebles de Naturaleza Urbana."
 	},
 	{
 		"CodEco": 11400,
@@ -61,7 +73,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 578275,
 		"DerechosPendienteCobro": 680828,
-		"DiferenciaPrevision": -193997
+		"DiferenciaPrevision": -193997,
+		"CodArt": 11,
+		"CodCon": 114,
+		"DesArt": "Impuestos sobre el capital.",
+		"DesCon": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de características especiales."
 	},
 	{
 		"CodEco": 11500,
@@ -77,7 +93,11 @@
 		"DerechosCancelados": 15454,
 		"RecaudacionNeta": 5348512,
 		"DerechosPendienteCobro": 5407135,
-		"DiferenciaPrevision": -27253
+		"DiferenciaPrevision": -27253,
+		"CodArt": 11,
+		"CodCon": 115,
+		"DesArt": "Impuestos sobre el capital.",
+		"DesCon": "Impuesto sobre Vehículos de Tracción Mecánica."
 	},
 	{
 		"CodEco": 11600,
@@ -93,7 +113,11 @@
 		"DerechosCancelados": 2476062,
 		"RecaudacionNeta": 1092424,
 		"DerechosPendienteCobro": 1366015,
-		"DiferenciaPrevision": -2266562
+		"DiferenciaPrevision": -2266562,
+		"CodArt": 11,
+		"CodCon": 116,
+		"DesArt": "Impuestos sobre el capital.",
+		"DesCon": "Impuesto sobre Incremento del Valor de los Terrenos de Naturaleza Urbana."
 	},
 	{
 		"CodEco": 13000,
@@ -109,7 +133,11 @@
 		"DerechosCancelados": 151502,
 		"RecaudacionNeta": 2467350,
 		"DerechosPendienteCobro": 4969401,
-		"DiferenciaPrevision": -1933249
+		"DiferenciaPrevision": -1933249,
+		"CodArt": 13,
+		"CodCon": 130,
+		"DesArt": "Impuesto sobre las Actividades Económicas.",
+		"DesCon": "Impuesto sobre Actividades Económicas."
 	},
 	{
 		"CodEco": 13001,
@@ -125,7 +153,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 1022918,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -26682
+		"DiferenciaPrevision": -26682,
+		"CodArt": 13,
+		"CodCon": 130,
+		"DesArt": "Impuesto sobre las Actividades Económicas.",
+		"DesCon": "Impuesto sobre Actividades Económicas."
 	},
 	{
 		"CodEco": 13002,
@@ -141,7 +173,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 45641,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 7841
+		"DiferenciaPrevision": 7841,
+		"CodArt": 13,
+		"CodCon": 130,
+		"DesArt": "Impuesto sobre las Actividades Económicas.",
+		"DesCon": "Impuesto sobre Actividades Económicas."
 	},
 	{
 		"CodEco": 21000,
@@ -157,7 +193,11 @@
 		"DerechosCancelados": 38588,
 		"RecaudacionNeta": 3280916,
 		"DerechosPendienteCobro": 351273,
-		"DiferenciaPrevision": -1961850
+		"DiferenciaPrevision": -1961850,
+		"CodArt": 21,
+		"CodCon": 210,
+		"DesArt": "Impuestos sobre el Valor Añadido.",
+		"DesCon": "Impuesto sobre el Valor Añadido."
 	},
 	{
 		"CodEco": 22000,
@@ -173,7 +213,11 @@
 		"DerechosCancelados": 173,
 		"RecaudacionNeta": 38127,
 		"DerechosPendienteCobro": 4280,
-		"DiferenciaPrevision": -8813
+		"DiferenciaPrevision": -8813,
+		"CodArt": 22,
+		"CodCon": 220,
+		"DesArt": "Sobre consumos específicos.",
+		"DesCon": "Impuestos Especiales."
 	},
 	{
 		"CodEco": 22001,
@@ -189,7 +233,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 16468,
 		"DerechosPendienteCobro": 1830,
-		"DiferenciaPrevision": -3712
+		"DiferenciaPrevision": -3712,
+		"CodArt": 22,
+		"CodCon": 220,
+		"DesArt": "Sobre consumos específicos.",
+		"DesCon": "Impuestos Especiales."
 	},
 	{
 		"CodEco": 22003,
@@ -205,7 +253,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 188721,
 		"DerechosPendienteCobro": 18055,
-		"DiferenciaPrevision": -9884
+		"DiferenciaPrevision": -9884,
+		"CodArt": 22,
+		"CodCon": 220,
+		"DesArt": "Sobre consumos específicos.",
+		"DesCon": "Impuestos Especiales."
 	},
 	{
 		"CodEco": 22004,
@@ -221,7 +273,11 @@
 		"DerechosCancelados": 707,
 		"RecaudacionNeta": 542889,
 		"DerechosPendienteCobro": 60498,
-		"DiferenciaPrevision": -123243
+		"DiferenciaPrevision": -123243,
+		"CodArt": 22,
+		"CodCon": 220,
+		"DesArt": "Sobre consumos específicos.",
+		"DesCon": "Impuestos Especiales."
 	},
 	{
 		"CodEco": 22006,
@@ -237,7 +293,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 903,
 		"DerechosPendienteCobro": 100,
-		"DiferenciaPrevision": -207
+		"DiferenciaPrevision": -207,
+		"CodArt": 22,
+		"CodCon": 220,
+		"DesArt": "Sobre consumos específicos.",
+		"DesCon": "Impuestos Especiales."
 	},
 	{
 		"CodEco": 29000,
@@ -253,7 +313,11 @@
 		"DerechosCancelados": 33316,
 		"RecaudacionNeta": 1062933,
 		"DerechosPendienteCobro": 5214439,
-		"DiferenciaPrevision": 1821172
+		"DiferenciaPrevision": 1821172,
+		"CodArt": 29,
+		"CodCon": 290,
+		"DesArt": "Otros impuestos indirectos.",
+		"DesCon": "Impuesto sobre construcciones, instalaciones y obras."
 	},
 	{
 		"CodEco": 29100,
@@ -269,7 +333,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 21559,
 		"DerechosPendienteCobro": 4824,
-		"DiferenciaPrevision": 2938
+		"DiferenciaPrevision": 2938,
+		"CodArt": 29,
+		"CodCon": 291,
+		"DesArt": "Otros impuestos indirectos.",
+		"DesCon": "Impuesto sobre gastos suntuarios (Cotos de caza y pesca)."
 	},
 	{
 		"CodEco": 30001,
@@ -285,7 +353,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -10000
+		"DiferenciaPrevision": -10000,
+		"CodArt": 30,
+		"CodCon": 300,
+		"DesArt": "Tasas por la prestación de servicios públicos básicos.",
+		"DesCon": "Servicio de abastecimiento de agua."
 	},
 	{
 		"CodEco": 30200,
@@ -301,7 +373,11 @@
 		"DerechosCancelados": 396537,
 		"RecaudacionNeta": 10696693,
 		"DerechosPendienteCobro": 3497734,
-		"DiferenciaPrevision": -2575573
+		"DiferenciaPrevision": -2575573,
+		"CodArt": 30,
+		"CodCon": 302,
+		"DesArt": "Tasas por la prestación de servicios públicos básicos.",
+		"DesCon": "Servicio de recogida de basuras."
 	},
 	{
 		"CodEco": 30901,
@@ -317,7 +393,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 398831,
 		"DerechosPendienteCobro": 45737,
-		"DiferenciaPrevision": -19132
+		"DiferenciaPrevision": -19132,
+		"CodArt": 30,
+		"CodCon": 309,
+		"DesArt": "Tasas por la prestación de servicios públicos básicos.",
+		"DesCon": "Otras tasas por prestación de servicios básicos."
 	},
 	{
 		"CodEco": 30902,
@@ -333,7 +413,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 1190,
 		"DerechosPendienteCobro": 2128,
-		"DiferenciaPrevision": -20082
+		"DiferenciaPrevision": -20082,
+		"CodArt": 30,
+		"CodCon": 309,
+		"DesArt": "Tasas por la prestación de servicios públicos básicos.",
+		"DesCon": "Otras tasas por prestación de servicios básicos."
 	},
 	{
 		"CodEco": 32100,
@@ -349,7 +433,11 @@
 		"DerechosCancelados": 19133,
 		"RecaudacionNeta": 1770082,
 		"DerechosPendienteCobro": 856632,
-		"DiferenciaPrevision": 699214
+		"DiferenciaPrevision": 699214,
+		"CodArt": 32,
+		"CodCon": 321,
+		"DesArt": "Tasas por la realización de actividades de competencia local.",
+		"DesCon": "Licencias urbanísticas."
 	},
 	{
 		"CodEco": 32201,
@@ -365,7 +453,11 @@
 		"DerechosCancelados": 19737,
 		"RecaudacionNeta": 114594,
 		"DerechosPendienteCobro": 84685,
-		"DiferenciaPrevision": -47821
+		"DiferenciaPrevision": -47821,
+		"CodArt": 32,
+		"CodCon": 322,
+		"DesArt": "Tasas por la realización de actividades de competencia local.",
+		"DesCon": "Cédulas de habitabilidad y licencias de primera ocupación."
 	},
 	{
 		"CodEco": 32500,
@@ -381,7 +473,11 @@
 		"DerechosCancelados": 1069,
 		"RecaudacionNeta": 82492,
 		"DerechosPendienteCobro": 24978,
-		"DiferenciaPrevision": -4930
+		"DiferenciaPrevision": -4930,
+		"CodArt": 32,
+		"CodCon": 325,
+		"DesArt": "Tasas por la realización de actividades de competencia local.",
+		"DesCon": "Tasa por expedición de documentos."
 	},
 	{
 		"CodEco": 32600,
@@ -397,7 +493,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 0
+		"DiferenciaPrevision": 0,
+		"CodArt": 32,
+		"CodCon": 326,
+		"DesArt": "Tasas por la realización de actividades de competencia local.",
+		"DesCon": "Tasa por retirada de vehículos."
 	},
 	{
 		"CodEco": 32901,
@@ -413,7 +513,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 9650,
 		"DerechosPendienteCobro": 990,
-		"DiferenciaPrevision": -4560
+		"DiferenciaPrevision": -4560,
+		"CodArt": 32,
+		"CodCon": 329,
+		"DesArt": "Tasas por la realización de actividades de competencia local.",
+		"DesCon": "Otras tasas por la realización de actividades de competencia local."
 	},
 	{
 		"CodEco": 33000,
@@ -429,7 +533,11 @@
 		"DerechosCancelados": 2822,
 		"RecaudacionNeta": 117488,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -5912
+		"DiferenciaPrevision": -5912,
+		"CodArt": 33,
+		"CodCon": 330,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Tasa de estacionamiento de vehículos."
 	},
 	{
 		"CodEco": 33100,
@@ -445,7 +553,11 @@
 		"DerechosCancelados": 1089,
 		"RecaudacionNeta": 553409,
 		"DerechosPendienteCobro": 1271709,
-		"DiferenciaPrevision": 48118
+		"DiferenciaPrevision": 48118,
+		"CodArt": 33,
+		"CodCon": 331,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Tasa por entrada de vehículos."
 	},
 	{
 		"CodEco": 33204,
@@ -461,7 +573,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 59882,
 		"DerechosPendienteCobro": 54274,
-		"DiferenciaPrevision": -103744
+		"DiferenciaPrevision": -103744,
+		"CodArt": 33,
+		"CodCon": 332,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Tasa por utilización privativa o aprovechamiento especial por empresas explotadoras de servicios de suministros."
 	},
 	{
 		"CodEco": 33401,
@@ -477,7 +593,11 @@
 		"DerechosCancelados": 7839,
 		"RecaudacionNeta": 285927,
 		"DerechosPendienteCobro": 146978,
-		"DiferenciaPrevision": 29805
+		"DiferenciaPrevision": 29805,
+		"CodArt": 33,
+		"CodCon": 334,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Tasa por apertura de calas y zanjas."
 	},
 	{
 		"CodEco": 33501,
@@ -493,7 +613,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 459,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 359
+		"DiferenciaPrevision": 359,
+		"CodArt": 33,
+		"CodCon": 335,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Tasa por ocupación de la vía pública con terrazas."
 	},
 	{
 		"CodEco": 33601,
@@ -509,7 +633,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 16302,
 		"DerechosPendienteCobro": 4614,
-		"DiferenciaPrevision": 7516
+		"DiferenciaPrevision": 7516,
+		"CodArt": 33,
+		"CodCon": 336,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Tasa por ocupación de la vía pública con suspensión temporal del tráfico rodado."
 	},
 	{
 		"CodEco": 33701,
@@ -525,7 +653,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 1210236,
 		"DerechosPendienteCobro": 795130,
-		"DiferenciaPrevision": 597667
+		"DiferenciaPrevision": 597667,
+		"CodArt": 33,
+		"CodCon": 337,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Tasas por aprovechamiento del vuelo."
 	},
 	{
 		"CodEco": 33800,
@@ -541,7 +673,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 240687,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -88613
+		"DiferenciaPrevision": -88613,
+		"CodArt": 33,
+		"CodCon": 338,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Compensación de Telefónica de España, S.A."
 	},
 	{
 		"CodEco": 33901,
@@ -557,7 +693,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 2462,
 		"DerechosPendienteCobro": 3283,
-		"DiferenciaPrevision": 1145
+		"DiferenciaPrevision": 1145,
+		"CodArt": 33,
+		"CodCon": 339,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Otras tasas por utilización privativa del dominio público."
 	},
 	{
 		"CodEco": 33902,
@@ -573,7 +713,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 52120,
 		"DerechosPendienteCobro": 77438,
-		"DiferenciaPrevision": 5158
+		"DiferenciaPrevision": 5158,
+		"CodArt": 33,
+		"CodCon": 339,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Otras tasas por utilización privativa del dominio público."
 	},
 	{
 		"CodEco": 33903,
@@ -589,7 +733,11 @@
 		"DerechosCancelados": 19,
 		"RecaudacionNeta": 30614,
 		"DerechosPendienteCobro": 9908,
-		"DiferenciaPrevision": -23878
+		"DiferenciaPrevision": -23878,
+		"CodArt": 33,
+		"CodCon": 339,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Otras tasas por utilización privativa del dominio público."
 	},
 	{
 		"CodEco": 33904,
@@ -605,7 +753,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 6852,
 		"DerechosPendienteCobro": 11745,
-		"DiferenciaPrevision": -3703
+		"DiferenciaPrevision": -3703,
+		"CodArt": 33,
+		"CodCon": 339,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Otras tasas por utilización privativa del dominio público."
 	},
 	{
 		"CodEco": 33905,
@@ -621,7 +773,11 @@
 		"DerechosCancelados": 1108,
 		"RecaudacionNeta": 44624,
 		"DerechosPendienteCobro": 10688,
-		"DiferenciaPrevision": 32512
+		"DiferenciaPrevision": 32512,
+		"CodArt": 33,
+		"CodCon": 339,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Otras tasas por utilización privativa del dominio público."
 	},
 	{
 		"CodEco": 33906,
@@ -637,7 +793,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 438830,
 		"DerechosPendienteCobro": 26842,
-		"DiferenciaPrevision": 129272
+		"DiferenciaPrevision": 129272,
+		"CodArt": 33,
+		"CodCon": 339,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Otras tasas por utilización privativa del dominio público."
 	},
 	{
 		"CodEco": 33907,
@@ -653,7 +813,11 @@
 		"DerechosCancelados": 10031,
 		"RecaudacionNeta": 698013,
 		"DerechosPendienteCobro": 170787,
-		"DiferenciaPrevision": 161901
+		"DiferenciaPrevision": 161901,
+		"CodArt": 33,
+		"CodCon": 339,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Otras tasas por utilización privativa del dominio público."
 	},
 	{
 		"CodEco": 33908,
@@ -669,7 +833,11 @@
 		"DerechosCancelados": 1047,
 		"RecaudacionNeta": 93294,
 		"DerechosPendienteCobro": 48866,
-		"DiferenciaPrevision": -89940
+		"DiferenciaPrevision": -89940,
+		"CodArt": 33,
+		"CodCon": 339,
+		"DesArt": "Tasas por la utilización privativa o el aprovechamiento especial del dominio público local.",
+		"DesCon": "Otras tasas por utilización privativa del dominio público."
 	},
 	{
 		"CodEco": 34201,
@@ -685,7 +853,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 16924,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -4276
+		"DiferenciaPrevision": -4276,
+		"CodArt": 34,
+		"CodCon": 342,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Servicios educativos."
 	},
 	{
 		"CodEco": 34202,
@@ -701,7 +873,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 16380,
 		"DerechosPendienteCobro": 399,
-		"DiferenciaPrevision": -5721
+		"DiferenciaPrevision": -5721,
+		"CodArt": 34,
+		"CodCon": 342,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Servicios educativos."
 	},
 	{
 		"CodEco": 34301,
@@ -717,7 +893,11 @@
 		"DerechosCancelados": 534,
 		"RecaudacionNeta": 134964,
 		"DerechosPendienteCobro": 17058,
-		"DiferenciaPrevision": -43478
+		"DiferenciaPrevision": -43478,
+		"CodArt": 34,
+		"CodCon": 343,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Servicios deportivos."
 	},
 	{
 		"CodEco": 34302,
@@ -733,7 +913,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 1680,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 1680
+		"DiferenciaPrevision": 1680,
+		"CodArt": 34,
+		"CodCon": 343,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Servicios deportivos."
 	},
 	{
 		"CodEco": 34303,
@@ -749,7 +933,11 @@
 		"DerechosCancelados": 71,
 		"RecaudacionNeta": 2164,
 		"DerechosPendienteCobro": 5798,
-		"DiferenciaPrevision": -4039
+		"DiferenciaPrevision": -4039,
+		"CodArt": 34,
+		"CodCon": 343,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Servicios deportivos."
 	},
 	{
 		"CodEco": 34403,
@@ -765,7 +953,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 6647,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -1953
+		"DiferenciaPrevision": -1953,
+		"CodArt": 34,
+		"CodCon": 344,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Entradas a museos, exposiciones, espectáculos."
 	},
 	{
 		"CodEco": 34404,
@@ -781,7 +973,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 214759,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 54259
+		"DiferenciaPrevision": 54259,
+		"CodArt": 34,
+		"CodCon": 344,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Entradas a museos, exposiciones, espectáculos."
 	},
 	{
 		"CodEco": 34405,
@@ -797,7 +993,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 13630,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 430
+		"DiferenciaPrevision": 430,
+		"CodArt": 34,
+		"CodCon": 344,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Entradas a museos, exposiciones, espectáculos."
 	},
 	{
 		"CodEco": 34410,
@@ -813,7 +1013,11 @@
 		"DerechosCancelados": 52,
 		"RecaudacionNeta": 596305,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -87695
+		"DiferenciaPrevision": -87695,
+		"CodArt": 34,
+		"CodCon": 344,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Entradas a museos, exposiciones, espectáculos."
 	},
 	{
 		"CodEco": 34903,
@@ -829,7 +1033,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 6830,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -2270
+		"DiferenciaPrevision": -2270,
+		"CodArt": 34,
+		"CodCon": 349,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Otros precios públicos."
 	},
 	{
 		"CodEco": 34905,
@@ -845,7 +1053,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 7768,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -832
+		"DiferenciaPrevision": -832,
+		"CodArt": 34,
+		"CodCon": 349,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Otros precios públicos."
 	},
 	{
 		"CodEco": 34906,
@@ -861,7 +1073,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -1300
+		"DiferenciaPrevision": -1300,
+		"CodArt": 34,
+		"CodCon": 349,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Otros precios públicos."
 	},
 	{
 		"CodEco": 34907,
@@ -877,7 +1093,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 10000,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 6281
+		"DiferenciaPrevision": 6281,
+		"CodArt": 34,
+		"CodCon": 349,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Otros precios públicos."
 	},
 	{
 		"CodEco": 34909,
@@ -893,7 +1113,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 140962,
 		"DerechosPendienteCobro": 80336,
-		"DiferenciaPrevision": -8202
+		"DiferenciaPrevision": -8202,
+		"CodArt": 34,
+		"CodCon": 349,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Otros precios públicos."
 	},
 	{
 		"CodEco": 34910,
@@ -909,7 +1133,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -36
+		"DiferenciaPrevision": -36,
+		"CodArt": 34,
+		"CodCon": 349,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Otros precios públicos."
 	},
 	{
 		"CodEco": 34912,
@@ -925,7 +1153,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 5545,
 		"DerechosPendienteCobro": 5245,
-		"DiferenciaPrevision": -14210
+		"DiferenciaPrevision": -14210,
+		"CodArt": 34,
+		"CodCon": 349,
+		"DesArt": "Precios públicos.",
+		"DesCon": "Otros precios públicos."
 	},
 	{
 		"CodEco": 36003,
@@ -941,7 +1173,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 334,
 		"DerechosPendienteCobro": 93,
-		"DiferenciaPrevision": -574
+		"DiferenciaPrevision": -574,
+		"CodArt": 36,
+		"CodCon": 360,
+		"DesArt": "Ventas.",
+		"DesCon": "Ventas de libros. No existe en listado Hacienda."
 	},
 	{
 		"CodEco": 38000,
@@ -957,7 +1193,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 6327,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -33473
+		"DiferenciaPrevision": -33473,
+		"CodArt": 38,
+		"CodCon": 380,
+		"DesArt": "Reintegros de operaciones corrientes.",
+		"DesCon": "Reintegro de avales."
 	},
 	{
 		"CodEco": 38001,
@@ -973,7 +1213,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -37400
+		"DiferenciaPrevision": -37400,
+		"CodArt": 38,
+		"CodCon": 380,
+		"DesArt": "Reintegros de operaciones corrientes.",
+		"DesCon": "Reintegro de avales."
 	},
 	{
 		"CodEco": 38002,
@@ -989,7 +1233,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 6193,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 6193
+		"DiferenciaPrevision": 6193,
+		"CodArt": 38,
+		"CodCon": 380,
+		"DesArt": "Reintegros de operaciones corrientes.",
+		"DesCon": "Reintegro de avales."
 	},
 	{
 		"CodEco": 38900,
@@ -1005,7 +1253,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 489406,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -257294
+		"DiferenciaPrevision": -257294,
+		"CodArt": 38,
+		"CodCon": 389,
+		"DesArt": "Reintegros de operaciones corrientes.",
+		"DesCon": "Otros reintegros de operaciones corrientes."
 	},
 	{
 		"CodEco": 38901,
@@ -1021,7 +1273,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 257,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -2644
+		"DiferenciaPrevision": -2644,
+		"CodArt": 38,
+		"CodCon": 389,
+		"DesArt": "Reintegros de operaciones corrientes.",
+		"DesCon": "Otros reintegros de operaciones corrientes."
 	},
 	{
 		"CodEco": 38902,
@@ -1037,7 +1293,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 1006,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 506
+		"DiferenciaPrevision": 506,
+		"CodArt": 38,
+		"CodCon": 389,
+		"DesArt": "Reintegros de operaciones corrientes.",
+		"DesCon": "Otros reintegros de operaciones corrientes."
 	},
 	{
 		"CodEco": 39100,
@@ -1053,7 +1313,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 36976,
 		"DerechosPendienteCobro": 357628,
-		"DiferenciaPrevision": 317704
+		"DiferenciaPrevision": 317704,
+		"CodArt": 39,
+		"CodCon": 391,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Multas."
 	},
 	{
 		"CodEco": 39110,
@@ -1069,7 +1333,11 @@
 		"DerechosCancelados": 33024,
 		"RecaudacionNeta": 91222,
 		"DerechosPendienteCobro": 85854,
-		"DiferenciaPrevision": -1000724
+		"DiferenciaPrevision": -1000724,
+		"CodArt": 39,
+		"CodCon": 391,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Multas."
 	},
 	{
 		"CodEco": 39120,
@@ -1085,7 +1353,11 @@
 		"DerechosCancelados": 1541,
 		"RecaudacionNeta": 30490,
 		"DerechosPendienteCobro": 1462,
-		"DiferenciaPrevision": -2180648
+		"DiferenciaPrevision": -2180648,
+		"CodArt": 39,
+		"CodCon": 391,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Multas."
 	},
 	{
 		"CodEco": 39190,
@@ -1101,7 +1373,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 6000,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 1300
+		"DiferenciaPrevision": 1300,
+		"CodArt": 39,
+		"CodCon": 391,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Multas."
 	},
 	{
 		"CodEco": 39191,
@@ -1117,7 +1393,11 @@
 		"DerechosCancelados": 303,
 		"RecaudacionNeta": -103,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -5303
+		"DiferenciaPrevision": -5303,
+		"CodArt": 39,
+		"CodCon": 391,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Multas."
 	},
 	{
 		"CodEco": 39192,
@@ -1133,7 +1413,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -500
+		"DiferenciaPrevision": -500,
+		"CodArt": 39,
+		"CodCon": 391,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Multas."
 	},
 	{
 		"CodEco": 39211,
@@ -1149,7 +1433,11 @@
 		"DerechosCancelados": 55714,
 		"RecaudacionNeta": 1184934,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -147566
+		"DiferenciaPrevision": -147566,
+		"CodArt": 39,
+		"CodCon": 392,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Recargos del periodo ejecutivo y por declaración extemporánea sin requerimiento previo."
 	},
 	{
 		"CodEco": 39300,
@@ -1165,7 +1453,11 @@
 		"DerechosCancelados": 8357,
 		"RecaudacionNeta": 948598,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 13898
+		"DiferenciaPrevision": 13898,
+		"CodArt": 39,
+		"CodCon": 393,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Intereses de demora."
 	},
 	{
 		"CodEco": 39610,
@@ -1181,7 +1473,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 21309,
 		"DerechosPendienteCobro": 335977,
-		"DiferenciaPrevision": -213945
+		"DiferenciaPrevision": -213945,
+		"CodArt": 39,
+		"CodCon": 396,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Ingresos por actuaciones de urbanización."
 	},
 	{
 		"CodEco": 39690,
@@ -1197,7 +1493,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -35000
+		"DiferenciaPrevision": -35000,
+		"CodArt": 39,
+		"CodCon": 396,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Ingresos por actuaciones de urbanización."
 	},
 	{
 		"CodEco": 39710,
@@ -1213,7 +1513,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 269711,
 		"DerechosPendienteCobro": 96949,
-		"DiferenciaPrevision": 32661
+		"DiferenciaPrevision": 32661,
+		"CodArt": 39,
+		"CodCon": 397,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Aprovechamientos urbanísticos."
 	},
 	{
 		"CodEco": 39901,
@@ -1229,7 +1533,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 16644,
 		"DerechosPendienteCobro": 20173,
-		"DiferenciaPrevision": -690182
+		"DiferenciaPrevision": -690182,
+		"CodArt": 39,
+		"CodCon": 399,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Otros ingresos diversos."
 	},
 	{
 		"CodEco": 39902,
@@ -1245,7 +1553,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 9418,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 9388
+		"DiferenciaPrevision": 9388,
+		"CodArt": 39,
+		"CodCon": 399,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Otros ingresos diversos."
 	},
 	{
 		"CodEco": 39907,
@@ -1261,7 +1573,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 403208,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 223608
+		"DiferenciaPrevision": 223608,
+		"CodArt": 39,
+		"CodCon": 399,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Otros ingresos diversos."
 	},
 	{
 		"CodEco": 39911,
@@ -1277,7 +1593,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 263485,
 		"DerechosPendienteCobro": 62312,
-		"DiferenciaPrevision": 30897
+		"DiferenciaPrevision": 30897,
+		"CodArt": 39,
+		"CodCon": 399,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Otros ingresos diversos."
 	},
 	{
 		"CodEco": 39912,
@@ -1293,7 +1613,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -100
+		"DiferenciaPrevision": -100,
+		"CodArt": 39,
+		"CodCon": 399,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Otros ingresos diversos."
 	},
 	{
 		"CodEco": 39913,
@@ -1309,7 +1633,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -30
+		"DiferenciaPrevision": -30,
+		"CodArt": 39,
+		"CodCon": 399,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Otros ingresos diversos."
 	},
 	{
 		"CodEco": 39918,
@@ -1325,7 +1653,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 11843,
 		"DerechosPendienteCobro": 18531,
-		"DiferenciaPrevision": 7275
+		"DiferenciaPrevision": 7275,
+		"CodArt": 39,
+		"CodCon": 399,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Otros ingresos diversos."
 	},
 	{
 		"CodEco": 39919,
@@ -1341,7 +1673,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 42597,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -44603
+		"DiferenciaPrevision": -44603,
+		"CodArt": 39,
+		"CodCon": 399,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Otros ingresos diversos."
 	},
 	{
 		"CodEco": 39920,
@@ -1357,7 +1693,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 557656,
 		"DerechosPendienteCobro": 128731,
-		"DiferenciaPrevision": -298813
+		"DiferenciaPrevision": -298813,
+		"CodArt": 39,
+		"CodCon": 399,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Otros ingresos diversos."
 	},
 	{
 		"CodEco": 39923,
@@ -1373,7 +1713,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 21547,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 4014
+		"DiferenciaPrevision": 4014,
+		"CodArt": 39,
+		"CodCon": 399,
+		"DesArt": "Otros ingresos.",
+		"DesCon": "Otros ingresos diversos."
 	},
 	{
 		"CodEco": 42001,
@@ -1389,7 +1733,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -404300
+		"DiferenciaPrevision": -404300,
+		"CodArt": 42,
+		"CodCon": 420,
+		"DesArt": "De la Administración del Estado.",
+		"DesCon": "De la Administración General del Estado."
 	},
 	{
 		"CodEco": 42010,
@@ -1405,7 +1753,11 @@
 		"DerechosCancelados": 294165,
 		"RecaudacionNeta": 45369109,
 		"DerechosPendienteCobro": 73541,
-		"DiferenciaPrevision": -8080470
+		"DiferenciaPrevision": -8080470,
+		"CodArt": 42,
+		"CodCon": 420,
+		"DesArt": "De la Administración del Estado.",
+		"DesCon": "De la Administración General del Estado."
 	},
 	{
 		"CodEco": 42020,
@@ -1421,7 +1773,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 255365,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -225235
+		"DiferenciaPrevision": -225235,
+		"CodArt": 42,
+		"CodCon": 420,
+		"DesArt": "De la Administración del Estado.",
+		"DesCon": "De la Administración General del Estado."
 	},
 	{
 		"CodEco": 42090,
@@ -1437,7 +1793,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 123218,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -1097865
+		"DiferenciaPrevision": -1097865,
+		"CodArt": 42,
+		"CodCon": 420,
+		"DesArt": "De la Administración del Estado.",
+		"DesCon": "De la Administración General del Estado."
 	},
 	{
 		"CodEco": 42094,
@@ -1453,7 +1813,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -611854
+		"DiferenciaPrevision": -611854,
+		"CodArt": 42,
+		"CodCon": 420,
+		"DesArt": "De la Administración del Estado.",
+		"DesCon": "De la Administración General del Estado."
 	},
 	{
 		"CodEco": 42101,
@@ -1469,7 +1833,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 2606,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 2606
+		"DiferenciaPrevision": 2606,
+		"CodArt": 42,
+		"CodCon": 421,
+		"DesArt": "De la Administración del Estado.",
+		"DesCon": "De Organismos Autónomos y agencias estatales."
 	},
 	{
 		"CodEco": 45000,
@@ -1485,7 +1853,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 6927007,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -2309002
+		"DiferenciaPrevision": -2309002,
+		"CodArt": 45,
+		"CodCon": 450,
+		"DesArt": "De Comunidades Autónomas.",
+		"DesCon": "De la Administración General de las Comunidades Autónomas."
 	},
 	{
 		"CodEco": 45002,
@@ -1501,7 +1873,11 @@
 		"DerechosCancelados": 2553823,
 		"RecaudacionNeta": 14214471,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -5746845
+		"DiferenciaPrevision": -5746845,
+		"CodArt": 45,
+		"CodCon": 450,
+		"DesArt": "De Comunidades Autónomas.",
+		"DesCon": "De la Administración General de las Comunidades Autónomas."
 	},
 	{
 		"CodEco": 45030,
@@ -1517,7 +1893,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 164102,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -1898
+		"DiferenciaPrevision": -1898,
+		"CodArt": 45,
+		"CodCon": 450,
+		"DesArt": "De Comunidades Autónomas.",
+		"DesCon": "De la Administración General de las Comunidades Autónomas."
 	},
 	{
 		"CodEco": 45050,
@@ -1533,7 +1913,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -38271
+		"DiferenciaPrevision": -38271,
+		"CodArt": 45,
+		"CodCon": 450,
+		"DesArt": "De Comunidades Autónomas.",
+		"DesCon": "De la Administración General de las Comunidades Autónomas."
 	},
 	{
 		"CodEco": 45060,
@@ -1549,7 +1933,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -182697
+		"DiferenciaPrevision": -182697,
+		"CodArt": 45,
+		"CodCon": 450,
+		"DesArt": "De Comunidades Autónomas.",
+		"DesCon": "De la Administración General de las Comunidades Autónomas."
 	},
 	{
 		"CodEco": 45080,
@@ -1565,7 +1953,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 7402,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -4130
+		"DiferenciaPrevision": -4130,
+		"CodArt": 45,
+		"CodCon": 450,
+		"DesArt": "De Comunidades Autónomas.",
+		"DesCon": "De la Administración General de las Comunidades Autónomas."
 	},
 	{
 		"CodEco": 45100,
@@ -1581,7 +1973,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 79555,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 7355
+		"DiferenciaPrevision": 7355,
+		"CodArt": 45,
+		"CodCon": 451,
+		"DesArt": "De Comunidades Autónomas.",
+		"DesCon": "De Organismos Autónomos y agencias de las Comunidades Autónomas."
 	},
 	{
 		"CodEco": 45107,
@@ -1597,7 +1993,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 727621,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 277438
+		"DiferenciaPrevision": 277438,
+		"CodArt": 45,
+		"CodCon": 451,
+		"DesArt": "De Comunidades Autónomas.",
+		"DesCon": "De Organismos Autónomos y agencias de las Comunidades Autónomas."
 	},
 	{
 		"CodEco": 45108,
@@ -1613,7 +2013,11 @@
 		"DerechosCancelados": 291,
 		"RecaudacionNeta": -291,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -291
+		"DiferenciaPrevision": -291,
+		"CodArt": 45,
+		"CodCon": 451,
+		"DesArt": "De Comunidades Autónomas.",
+		"DesCon": "De Organismos Autónomos y agencias de las Comunidades Autónomas."
 	},
 	{
 		"CodEco": 46117,
@@ -1629,7 +2033,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -832637
+		"DiferenciaPrevision": -832637,
+		"CodArt": 46,
+		"CodCon": 461,
+		"DesArt": "De Entidades Locales.",
+		"DesCon": "De Diputaciones, Consejos o Cabildos."
 	},
 	{
 		"CodEco": 46600,
@@ -1645,7 +2053,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 0
+		"DiferenciaPrevision": 0,
+		"CodArt": 46,
+		"CodCon": 466,
+		"DesArt": "De Entidades Locales.",
+		"DesCon": "De otras Entidades que agrupen Municipios."
 	},
 	{
 		"CodEco": 46800,
@@ -1661,7 +2073,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 45766,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 45766
+		"DiferenciaPrevision": 45766,
+		"CodArt": 46,
+		"CodCon": 468,
+		"DesArt": "De Entidades Locales.",
+		"DesCon": "De Entidades locales Menores."
 	},
 	{
 		"CodEco": 47000,
@@ -1677,7 +2093,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -248000
+		"DiferenciaPrevision": -248000,
+		"CodArt": 47,
+		"CodCon": 470,
+		"DesArt": "De Empresas privadas.",
+		"DesCon": "De empresas privadas. No existe en listado Hacienda."
 	},
 	{
 		"CodEco": 51100,
@@ -1693,7 +2113,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -18
+		"DiferenciaPrevision": -18,
+		"CodArt": 51,
+		"CodCon": 511,
+		"DesArt": "Intereses de anticipos y préstamos concedidos.",
+		"DesCon": "De Organismos Autónomos y agencias."
 	},
 	{
 		"CodEco": 51400,
@@ -1709,7 +2133,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -80992
+		"DiferenciaPrevision": -80992,
+		"CodArt": 51,
+		"CodCon": 514,
+		"DesArt": "Intereses de anticipos y préstamos concedidos.",
+		"DesCon": "De sociedades mercantiles, entidades públicas empresariales y otros organismos públicos."
 	},
 	{
 		"CodEco": 52000,
@@ -1725,7 +2153,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 388,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -812
+		"DiferenciaPrevision": -812,
+		"CodArt": 52,
+		"CodCon": 520,
+		"DesArt": "Intereses de depósitos.",
+		"DesCon": "Intereses de depósitos. No existe en listado Hacienda."
 	},
 	{
 		"CodEco": 53410,
@@ -1741,7 +2173,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 66000,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 8700
+		"DiferenciaPrevision": 8700,
+		"CodArt": 53,
+		"CodCon": 534,
+		"DesArt": "Dividendos y participación beneficios.",
+		"DesCon": "De Sociedades mercantiles, entidades públicas empresariales y otros organismos públicos."
 	},
 	{
 		"CodEco": 54100,
@@ -1757,7 +2193,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 18658,
 		"DerechosPendienteCobro": 10037,
-		"DiferenciaPrevision": 2594
+		"DiferenciaPrevision": 2594,
+		"CodArt": 54,
+		"CodCon": 541,
+		"DesArt": "Rentas de bienes inmuebles.",
+		"DesCon": "Arrendamientos de fincas urbanas."
 	},
 	{
 		"CodEco": 55000,
@@ -1773,7 +2213,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 427250,
 		"DerechosPendienteCobro": 613065,
-		"DiferenciaPrevision": -166885
+		"DiferenciaPrevision": -166885,
+		"CodArt": 55,
+		"CodCon": 550,
+		"DesArt": "Productos de concesiones y aprovechamientos especiales.",
+		"DesCon": "De concesiones administrativas con contraprestación periódica."
 	},
 	{
 		"CodEco": 55903,
@@ -1789,7 +2233,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -242500
+		"DiferenciaPrevision": -242500,
+		"CodArt": 55,
+		"CodCon": 559,
+		"DesArt": "Productos de concesiones y aprovechamientos especiales.",
+		"DesCon": "Otras concesiones y aprovechamientos."
 	},
 	{
 		"CodEco": 59002,
@@ -1805,7 +2253,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 260000,
 		"DerechosPendienteCobro": 10000,
-		"DiferenciaPrevision": 157500
+		"DiferenciaPrevision": 157500,
+		"CodArt": 59,
+		"CodCon": 590,
+		"DesArt": "Otros ingresos patrimoniales.",
+		"DesCon": "Patrocinio eventos de fiestas. No existe en listado Hacienda."
 	},
 	{
 		"CodEco": 59900,
@@ -1821,7 +2273,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 72279,
 		"DerechosPendienteCobro": 56945,
-		"DiferenciaPrevision": -41577
+		"DiferenciaPrevision": -41577,
+		"CodArt": 59,
+		"CodCon": 599,
+		"DesArt": "Otros ingresos patrimoniales.",
+		"DesCon": "Otros ingresos patrimoniales."
 	},
 	{
 		"CodEco": 59901,
@@ -1837,7 +2293,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 27000,
 		"DerechosPendienteCobro": 3600,
-		"DiferenciaPrevision": -3700
+		"DiferenciaPrevision": -3700,
+		"CodArt": 59,
+		"CodCon": 599,
+		"DesArt": "Otros ingresos patrimoniales.",
+		"DesCon": "Otros ingresos patrimoniales."
 	},
 	{
 		"CodEco": 60000,
@@ -1853,7 +2313,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 2204195,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -1999952
+		"DiferenciaPrevision": -1999952,
+		"CodArt": 60,
+		"CodCon": 600,
+		"DesArt": "De terrenos.",
+		"DesCon": "Venta de solares."
 	},
 	{
 		"CodEco": 60300,
@@ -1869,7 +2333,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 125210,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 125210
+		"DiferenciaPrevision": 125210,
+		"CodArt": 60,
+		"CodCon": 603,
+		"DesArt": "De terrenos.",
+		"DesCon": "Patrimonio público del suelo."
 	},
 	{
 		"CodEco": 72000,
@@ -1885,7 +2353,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 666771,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -8622244
+		"DiferenciaPrevision": -8622244,
+		"CodArt": 72,
+		"CodCon": 720,
+		"DesArt": "De la Administración del Estado.",
+		"DesCon": "De la Administración General del Estado."
 	},
 	{
 		"CodEco": 75060,
@@ -1901,7 +2373,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 375000,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -95370
+		"DiferenciaPrevision": -95370,
+		"CodArt": 75,
+		"CodCon": 750,
+		"DesArt": "De Comunidades Autónomas.",
+		"DesCon": "De la Administración General de las Comunidades Autónomas."
 	},
 	{
 		"CodEco": 75080,
@@ -1917,7 +2393,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 233906,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -2971221
+		"DiferenciaPrevision": -2971221,
+		"CodArt": 75,
+		"CodCon": 750,
+		"DesArt": "De Comunidades Autónomas.",
+		"DesCon": "De la Administración General de las Comunidades Autónomas."
 	},
 	{
 		"CodEco": 75100,
@@ -1933,7 +2413,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -179621
+		"DiferenciaPrevision": -179621,
+		"CodArt": 75,
+		"CodCon": 751,
+		"DesArt": "De Comunidades Autónomas.",
+		"DesCon": "De Organismos Autónomos y agencias de las Comunidades Autónomas."
 	},
 	{
 		"CodEco": 76100,
@@ -1949,7 +2433,11 @@
 		"DerechosCancelados": 4071,
 		"RecaudacionNeta": -4071,
 		"DerechosPendienteCobro": 480068,
-		"DiferenciaPrevision": -2365596
+		"DiferenciaPrevision": -2365596,
+		"CodArt": 76,
+		"CodCon": 761,
+		"DesArt": "De Entidades Locales.",
+		"DesCon": "De Diputaciones, Consejos o Cabildos."
 	},
 	{
 		"CodEco": 76800,
@@ -1965,7 +2453,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 0
+		"DiferenciaPrevision": 0,
+		"CodArt": 76,
+		"CodCon": 768,
+		"DesArt": "De Entidades Locales.",
+		"DesCon": "De Entidades locales Menores."
 	},
 	{
 		"CodEco": 77000,
@@ -1981,7 +2473,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 0
+		"DiferenciaPrevision": 0,
+		"CodArt": 77,
+		"CodCon": 770,
+		"DesArt": "De empresas privadas.",
+		"DesCon": "De empresas privadas. No existe en listado Hacienda."
 	},
 	{
 		"CodEco": 79701,
@@ -1997,7 +2493,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 0
+		"DiferenciaPrevision": 0,
+		"CodArt": 79,
+		"CodCon": 797,
+		"DesArt": "Del exterior.",
+		"DesCon": "Otras transferencias de la Unión Europea."
 	},
 	{
 		"CodEco": 83001,
@@ -2013,7 +2513,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -100000
+		"DiferenciaPrevision": -100000,
+		"CodArt": 83,
+		"CodCon": 830,
+		"DesArt": "Reintegros de préstamos de fuera del sector público.",
+		"DesCon": "Reintegros de préstamos de fuera del sector público a corto plazo."
 	},
 	{
 		"CodEco": 83101,
@@ -2029,7 +2533,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 33826,
 		"DerechosPendienteCobro": 365053,
-		"DiferenciaPrevision": 18879
+		"DiferenciaPrevision": 18879,
+		"CodArt": 83,
+		"CodCon": 831,
+		"DesArt": "Reintegros de préstamos de fuera del sector público.",
+		"DesCon": "Reintegros de préstamos de fuera del sector público a largo plazo."
 	},
 	{
 		"CodEco": 87010,
@@ -2045,7 +2553,11 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 0,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": -70850165
+		"DiferenciaPrevision": -70850165,
+		"CodArt": 87,
+		"CodCon": 870,
+		"DesArt": "Remanente de tesorería.",
+		"DesCon": "Remanente de tesorería."
 	},
 	{
 		"CodEco": 91100,
@@ -2061,6 +2573,10 @@
 		"DerechosCancelados": 0,
 		"RecaudacionNeta": 23986276,
 		"DerechosPendienteCobro": 0,
-		"DiferenciaPrevision": 12495427
+		"DiferenciaPrevision": 12495427,
+		"CodArt": 91,
+		"CodCon": 911,
+		"DesArt": "Préstamos recibidos en euros.",
+		"DesCon": "Préstamos recibidos a largo plazo de entes del sector público."
 	}
 ]
