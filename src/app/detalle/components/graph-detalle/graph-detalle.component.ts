@@ -69,7 +69,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 			case 'ingresosEconomicaArticulos':
 			case 'ingresosEconomicaConceptos':
 			case 'ingresosEconomicaEconomicos':
-				this._datos = this._dataTable.rowDataIngresos.filter((x) => x.CodEco == codigo);
+				this._datos = this._dataTable.rowDataIngresos.filter((x) => x.CodEco == +codigo);
 				break;
 			case 'gastosOrganicaOrganicos':
 				this._datos = this._dataTable.rowDataGastos.filter((x) => x.CodOrg == codigo);

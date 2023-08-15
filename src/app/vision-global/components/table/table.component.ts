@@ -96,8 +96,8 @@ export class TableDataPresupuestoComponent implements OnInit {
 		for (const item of this._dataIngreso) {
 			const value = {
 				name: `${item.CodCap}-${item.DesCap}`,
-				presupuestado: +item.Definitivas1,
-				recaudado: +item.DerechosReconocidosNetos1
+				presupuestado: +item.Definitivas,
+				recaudado: +item.DerechosReconocidosNetos
 			};
 			this._CapitulosIngresos.push(value);
 		}
