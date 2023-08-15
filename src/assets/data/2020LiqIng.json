@@ -43,7 +43,7 @@
 	},
 	{
 		"CodEco": 11300,
-		"DesEco": "Impuesto sobre Bienes Inmuebles. Bienes inmuebles de Naturaleza Urbana.",
+		"DesEco": "Impuesto sobre Bienes Inmuebles de Naturaleza Urbana",
 		"CodCap": 1,
 		"DesCap": "Impuestos directos",
 		"DescripcionAyto": "Impto sobre Bienen Inmuebles.",
