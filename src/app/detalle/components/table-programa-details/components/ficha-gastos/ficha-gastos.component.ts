@@ -78,8 +78,8 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 			codigo: item.CodCap,
 			descripcion: item.DesCap,
 			name: `${item.CodCap}-${item.DesCap}`,
-			value: item.Definitivas1,
-			recaudado: item.Pagos1
+			value: item.Definitivas,
+			recaudado: item.Pagos
 		}));
 
 		this.capitulos = this.capitulos.reduce((acc, curr) => {

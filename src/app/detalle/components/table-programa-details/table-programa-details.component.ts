@@ -68,7 +68,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private _dataTable: IDataTable;
 	private _gridApi: GridApi;
 	private _rowData: IDataGasto[] = [];
-	private _dataTotalizada: IDataTable;
+	// private _dataTotalizada: IDataTable;
+	private _dataTotalizada: any;
 	private _subHeaderName = '';
 	private sub: Subscription;
 	private _defaultSortModel: ColumnState[] = [];
