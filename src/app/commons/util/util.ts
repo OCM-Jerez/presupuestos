@@ -8,7 +8,7 @@ export const initYears = (): IYears => {
 
 // groupBy javascript
 export const accumulate = (identity: string, datos: IDataGasto[] | IDataIngreso[], years = initYears()): IYears => {
-	const value = (datos as IDataGasto[])[0].Pagos1;
+	const value = (datos as IDataGasto[])[0].Pagos;
 
 	if (value === undefined) {
 		const a = datos as IDataIngreso[];
