@@ -55,7 +55,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	public title: string;
 	public buttonExpandirColapsar = true;
 	public isExpanded = true;
-	// public messageYears = this.avalaibleYearsService.message;
 	public titleButtom = '';
 	public showButtomExpanded = true;
 	public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
@@ -68,11 +67,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private _dataTable: IDataTable;
 	private _gridApi: GridApi;
 	private _rowData: IDataGasto[] = [];
-	// private _dataTotalizada: IDataTable;
-	private _dataTotalizada: any;
 	private _subHeaderName = '';
 	private sub: Subscription;
-	private _defaultSortModel: ColumnState[] = [];
 	private _appPresupuestarias = [];
 	private levelDetails = 0;
 
@@ -166,7 +162,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	async _CalcDataGastan() {
-		this._dataTotalizada = this._dataStoreService.dataTable;
 		let cod = '';
 		const codigoSearch = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
 		const clasificationType = this._dataStoreService.dataTable.clasificationType;
@@ -178,21 +173,14 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		}
 		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x[cod] == codigoSearch);
 
-		this._dataTotalizada = this._rowData.reduce((total, item) => {
+		const dataTotal = this._rowData.reduce((total, item) => {
 			if (!total[item.CodPro]) {
 				total[item.CodPro] = { ...item };
-			} else {
-				// Object.keys(item).forEach((key) => {
-				// 	if (key.endsWith('2023')) {
-				// 		// Asume que todos los campos que terminan con "2023" son numéricos
-				// 		total[item.CodPro][key] += item[key];
-				// 	}
-				// });
 			}
 			return total;
 		}, {});
 
-		this._rowData = Object.values(this._dataTotalizada);
+		this._rowData = Object.values(dataTotal);
 	}
 
 	_setGridOptions() {
