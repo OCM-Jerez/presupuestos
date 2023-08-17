@@ -1,5 +1,7 @@
-import { AvalaibleYearsService } from '@services/avalaibleYears.service';
+import { CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
 import { ColGroupDef } from 'ag-grid-community';
+
+import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 
 export function getColumnDefsAppPresupuestaria(
 	avalaibleYearsService: AvalaibleYearsService,
@@ -7,7 +9,6 @@ export function getColumnDefsAppPresupuestaria(
 ): ColGroupDef[] {
 	return [
 		{
-			headerName: 'Clasificado por aplicación presupuestaria',
 			children: [
 				{
 					headerName: _subHeaderName,
@@ -15,7 +16,9 @@ export function getColumnDefsAppPresupuestaria(
 					filter: false,
 					width: 700,
 					pinned: 'left',
-					columnGroupShow: 'closed',
+					rowGroup: true,
+					// hide: true,
+					// columnGroupShow: 'closed',
 					cellRenderer: 'agGroupCellRenderer',
 					valueGetter: (params) => {
 						if (params.data) {
@@ -43,18 +46,69 @@ export function getColumnDefsAppPresupuestaria(
 }
 
 function createColumnsChildren(year: number) {
-	console.log(`Definitivas${year}`);
-
 	return [
 		{
-			headerName: 'Creditos definitivos',
-			field: `Definitivas${year}`,
-			width: 120
+			headerName: 'Créditos',
+			children: [
+				{
+					headerName: 'Previsiones Iniciales',
+					field: `Iniciales${year}`,
+					hide: true,
+					cellRenderer: CellRendererOCMtext
+				},
+				{
+					headerName: 'Total Modificaciones',
+					field: `Modificaciones${year}`,
+					width: 120,
+					hide: true,
+					cellRenderer: CellRendererOCMtext
+				},
+				{
+					headerName: 'Creditosnnnnn definitivos',
+					field: `Definitivas${year}`,
+					width: 150,
+					hide: false,
+					cellRenderer: CellRendererOCMtext
+				}
+			]
 		},
 		{
-			headerName: 'Pagos',
-			field: `Pagos${year}`,
-			width: 120
+			headerName: 'Gastos',
+			children: [
+				{
+					headerName: 'Gastos Comprometidos',
+					field: `GastosComprometidos${year}`,
+					width: 120,
+					hide: true,
+					cellRenderer: CellRendererOCMtext
+				},
+				{
+					headerName: 'Obligaciones reconocidas netas',
+					field: `ObligacionesReconocidasNetas${year}`,
+					width: 135,
+					hide: true,
+					cellRenderer: CellRendererOCMtext
+				},
+				{
+					headerName: 'Pagos',
+					field: `Pagos${year}`,
+					hide: false,
+					cellRenderer: CellRendererOCMtext
+				},
+				{
+					headerName: 'Obligaciones pendientes de pago al final periodo',
+					field: `ObligacionesPendientePago${year}`,
+					width: 120,
+					hide: true,
+					cellRenderer: CellRendererOCMtext
+				}
+			]
+		},
+		{
+			headerName: 'Remanente Credito',
+			field: `RemanenteCredito${year}`,
+			hide: true,
+			cellRenderer: CellRendererOCMtext
 		}
 	];
 }

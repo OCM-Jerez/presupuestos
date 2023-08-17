@@ -18,9 +18,9 @@ import {
 
 import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
-import { getColumnDefsDetails } from '../../../ag-grid/setColumnDefs/programa-details';
-import { getColumnDefsGastan } from '../../../ag-grid/setColumnDefs/grupos-programas';
-import { getColumnDefsAppPresupuestaria } from '../../../ag-grid/setColumnDefs/aplicacion-presupuestaria';
+import { getColumnDefsDetails } from './components/getColumnDefsDetails';
+// import { getColumnDefsGastan } from '../../../ag-grid/setColumnDefs/grupos-programas';
+// import { getColumnDefsAppPresupuestaria } from '../../../ag-grid/setColumnDefs/aplicacion-presupuestaria';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
@@ -99,21 +99,22 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 
 	async ngOnInit(): Promise<void> {
 		this._dataTable = this._dataStoreService.dataTable;
-		const selectedYear = this._avalaibleYearsService.getYearsSelected();
+		// const selectedYear = this._avalaibleYearsService.getYearsSelected();
 		const programa = this._dataStoreService.selectedCodeRowFirstLevel.split(' - ')[1];
 
 		switch (this._path) {
 			case 'details':
 				this.title = 'Detalle programa ' + programa;
 				await this._CalcDataDetails();
-				this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService);
+				this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService, 'detalle');
 				this._setGridOptions();
 				this.titleButtom = ' Seleccionar app presupuestaria para ver su detalle';
 				break;
 			case 'gastan':
 				this.title = 'Programas que gastan del económico ' + programa;
 				await this._CalcDataGastan();
-				this._columnDefs = getColumnDefsGastan(this._avalaibleYearsService, selectedYear.toString());
+				// this._columnDefs = getColumnDefsGastan(this._avalaibleYearsService);
+				this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService, 'gastanEconomico');
 				this._setGridOptions();
 				this.titleButtom = 'Seleccionar programa para ver su detalle';
 				this.showButtomExpanded = false;
@@ -122,7 +123,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			case 'organico':
 				this.title = 'Programas que componen el orgánico ' + programa;
 				await this._CalcDataGastan();
-				this._columnDefs = getColumnDefsGastan(this._avalaibleYearsService, selectedYear.toString());
+				// this._columnDefs = getColumnDefsGastan(this._avalaibleYearsService);
+				this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService, 'gastanOrganico');
 				this._setGridOptions();
 				this.titleButtom = 'Seleccionar programa para ver su detalle';
 				this.showButtomExpanded = false;
@@ -130,7 +132,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			case 'appPresupuestaria':
 				this.title = 'Aplicación presupuestaria ' + programa;
 				await this._CalcDataGastan();
-				this._columnDefs = getColumnDefsGastan(this._avalaibleYearsService, selectedYear.toString());
+				// this._columnDefs = getColumnDefsGastan(this._avalaibleYearsService);
+				this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService, 'appPresupuestaria');
 				this._setGridOptions();
 				this.showButtomExpanded = false;
 				break;
@@ -349,7 +352,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this._hasRowClicked.change(null);
 		await this._createAppPresupuestarias();
 		await this._filterByAppPresupuestaria(selectedRow[0].data.appPresupuestaria);
-		this._columnDefs = getColumnDefsAppPresupuestaria(this._avalaibleYearsService, this._subHeaderName);
+		// this._columnDefs = getColumnDefsAppPresupuestaria(this._avalaibleYearsService, this._subHeaderName);
+		this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService, 'detalleAppPresupuestaria');
 
 		this._setGridOptions();
 		this.title =
