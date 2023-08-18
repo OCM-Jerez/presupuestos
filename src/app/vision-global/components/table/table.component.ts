@@ -96,8 +96,8 @@ export class TableDataPresupuestoComponent implements OnInit {
 		for (const item of this._dataIngreso) {
 			const value = {
 				name: `${item.CodCap}-${item.DesCap}`,
-				presupuestado: +item.Definitivas,
-				recaudado: +item.DerechosReconocidosNetos
+				presupuestado: +item['Definitivas1'],
+				recaudado: +item['DerechosReconocidosNetos1']
 			};
 			this._CapitulosIngresos.push(value);
 		}
@@ -151,8 +151,8 @@ export class TableDataPresupuestoComponent implements OnInit {
 		for (const item of this._dataGasto) {
 			const value = {
 				name: `${item.CodCap}-${item.DesCap}`,
-				presupuestado: +item.Definitivas,
-				gastado: +item.Pagos
+				presupuestado: +item['Definitivas1'],
+				gastado: +item['Pagos1']
 			};
 			this._capitulosGastos.push(value);
 		}
