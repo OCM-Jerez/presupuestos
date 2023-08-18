@@ -60,5 +60,13 @@ export default [
 		path: 'retribuciones2022',
 		loadComponent: () => import('./empleados/components/retribuciones2022/retribuciones2022.component')
 	},
+	{
+		path: 'explicamos',
+		loadComponent: () => import('./explicamos/explicamos.component')
+	},
+	{
+		path: 'glosario',
+		loadComponent: () => import('./glosario/glosario.component')
+	},
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }
 ] as Routes;
