@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 
 import programasInfo from '@assets/data/programasInfo.json';
 
-import { CardInfoComponent } from '../../../../../commons/components/card-info/card-info.component';
+import { CardInfoComponent } from '@app/commons/components/card-info/card-info.component';
 
 import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
 import { DataStoreService } from '@services/dataStore.service';
