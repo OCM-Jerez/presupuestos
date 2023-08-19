@@ -4,14 +4,14 @@ import { NgFor } from '@angular/common';
 
 import { CardInfoHomeComponent } from './components/card-info-home/card-info-home.component';
 import { CardMenuComponent } from '../commons/components/card-menu/card-menu.component';
-import { CardTableComponent } from './components/card-table-home/card-table.component';
+import { CardTableHomeComponent } from './components/card-table-home/card-table-home.component';
 
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
 	styleUrls: ['./home.component.scss'],
 	standalone: true,
-	imports: [NgFor, CardMenuComponent, CardTableComponent, CardInfoHomeComponent]
+	imports: [NgFor, CardMenuComponent, CardTableHomeComponent, CardInfoHomeComponent]
 })
 export default class HomeComponent {
 	private _router = inject(Router);

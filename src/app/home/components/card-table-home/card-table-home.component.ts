@@ -12,13 +12,13 @@ import { IDataIngreso } from '@interfaces/dataIngreso.interface';
 import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 @Component({
-	selector: 'app-card-table',
-	templateUrl: './card-table.component.html',
-	styleUrls: ['./card-table.component.scss'],
+	selector: 'app-card-table-home',
+	templateUrl: './card-table-home.component.html',
+	styleUrls: ['./card-table-home.component.scss'],
 	standalone: true,
 	imports: [NgFor]
 })
-export class CardTableComponent implements OnInit {
+export class CardTableHomeComponent implements OnInit {
 	private _tableService = inject(TableService);
 
 	textoTabla: string;
