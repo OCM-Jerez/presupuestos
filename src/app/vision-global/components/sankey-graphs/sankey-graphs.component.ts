@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { Subject, switchMap, takeUntil } from 'rxjs';
 
-// import { AvalaibleYearsService } from '@/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
 import { ReloadTableService } from '@services/reloadTable.service';
 import { TableService } from '@services/table.service';
@@ -64,7 +63,6 @@ export class SankeyGraphsComponent implements OnInit {
 			tooltip: {
 				headerFormat: null,
 				pointFormat: '{point.fromNode.name} \u2192 {point.toNode.name}: {point.weight} '
-				// nodeFormat: '{point.name}: {point.sum} '
 			},
 			series: [
 				{
