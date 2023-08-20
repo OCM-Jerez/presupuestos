@@ -187,38 +187,44 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		// this._rowData = Object.values(dataTotal);
 		// console.log('this._rowData', this._rowData);
 
+		const years = this._avalaibleYearsService.getYearsSelected();
+		const targetYears = years.length === 1 ? [1] : years;
 		const totalsByCodPro = {};
 
 		this._rowData.forEach((item) => {
 			if (!(item.CodPro in totalsByCodPro)) {
-				// Si el CodPro no existe en el objeto de totales, inicializa un nuevo objeto
 				totalsByCodPro[item.CodPro] = {
 					CodPro: item.CodPro,
-					DesPro: item.DesPro,
-					Definitivas2022: 0,
-					GastosComprometidos2022: 0,
-					Iniciales2022: 0,
-					Modificaciones2022: 0,
-					ObligacionesPendientePago2022: 0,
-					ObligacionesReconocidasNetas2022: 0,
-					Pagos2022: 0,
-					RemanenteCredito2022: 0,
-					Definitivas2023: 0,
-					GastosComprometidos2023: 0,
-					Iniciales2023: 0,
-					Modificaciones2023: 0,
-					ObligacionesPendientePago2023: 0,
-					ObligacionesReconocidasNetas2023: 0,
-					Pagos2023: 0,
-					RemanenteCredito2023: 0
+					DesPro: item.DesPro
 				};
 			}
-			// Suma los valores al objeto total correspondiente al CodPro
-			Object.keys(item).forEach((key) => {
-				if (key !== 'CodPro' && key !== 'DesPro' && key in totalsByCodPro[item.CodPro]) {
-					totalsByCodPro[item.CodPro][key] += item[key];
+
+			// Itera por cada año seleccionado
+			for (const year of targetYears) {
+				// Si el año específico no existe en el objeto de totales, inicializa los valores a 0
+				if (!totalsByCodPro[item.CodPro][`Definitivas${year}`]) {
+					totalsByCodPro[item.CodPro][`Definitivas${year}`] = 0;
+					totalsByCodPro[item.CodPro][`GastosComprometidos${year}`] = 0;
+					totalsByCodPro[item.CodPro][`Iniciales${year}`] = 0;
+					totalsByCodPro[item.CodPro][`Modificaciones${year}`] = 0;
+					totalsByCodPro[item.CodPro][`ObligacionesPendientePago${year}`] = 0;
+					totalsByCodPro[item.CodPro][`ObligacionesReconocidasNetas${year}`] = 0;
+					totalsByCodPro[item.CodPro][`Pagos${year}`] = 0;
+					totalsByCodPro[item.CodPro][`RemanenteCredito${year}`] = 0;
 				}
-			});
+
+				// Suma los valores al objeto total correspondiente al CodPro para el año específico
+				Object.keys(item).forEach((key) => {
+					if (
+						key !== 'CodPro' &&
+						key !== 'DesPro' &&
+						key.includes(year.toString()) &&
+						key in totalsByCodPro[item.CodPro]
+					) {
+						totalsByCodPro[item.CodPro][key] += item[key];
+					}
+				});
+			}
 		});
 
 		this._rowData = Object.values(totalsByCodPro);
