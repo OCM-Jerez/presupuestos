@@ -175,15 +175,54 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			cod = 'CodOrg';
 		}
 		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x[cod] == codigoSearch);
+		console.log('this._rowData', this._rowData);
 
-		const dataTotal = this._rowData.reduce((total, item) => {
-			if (!total[item.CodPro]) {
-				total[item.CodPro] = { ...item };
+		// const dataTotal = this._rowData.reduce((total, item) => {
+		// 	if (!total[item.CodPro]) {
+		// 		total[item.CodPro] = { ...item };
+		// 	}
+		// 	return total;
+		// }, {});
+
+		// this._rowData = Object.values(dataTotal);
+		// console.log('this._rowData', this._rowData);
+
+		const totalsByCodPro = {};
+
+		this._rowData.forEach((item) => {
+			if (!(item.CodPro in totalsByCodPro)) {
+				// Si el CodPro no existe en el objeto de totales, inicializa un nuevo objeto
+				totalsByCodPro[item.CodPro] = {
+					CodPro: item.CodPro,
+					DesPro: item.DesPro,
+					Definitivas2022: 0,
+					GastosComprometidos2022: 0,
+					Iniciales2022: 0,
+					Modificaciones2022: 0,
+					ObligacionesPendientePago2022: 0,
+					ObligacionesReconocidasNetas2022: 0,
+					Pagos2022: 0,
+					RemanenteCredito2022: 0,
+					Definitivas2023: 0,
+					GastosComprometidos2023: 0,
+					Iniciales2023: 0,
+					Modificaciones2023: 0,
+					ObligacionesPendientePago2023: 0,
+					ObligacionesReconocidasNetas2023: 0,
+					Pagos2023: 0,
+					RemanenteCredito2023: 0
+				};
 			}
-			return total;
-		}, {});
+			// Suma los valores al objeto total correspondiente al CodPro
+			Object.keys(item).forEach((key) => {
+				if (key !== 'CodPro' && key !== 'DesPro' && key in totalsByCodPro[item.CodPro]) {
+					totalsByCodPro[item.CodPro][key] += item[key];
+				}
+			});
+		});
 
-		this._rowData = Object.values(dataTotal);
+		this._rowData = Object.values(totalsByCodPro);
+		console.log(this._rowData);
 	}
 
 	_setGridOptions() {
