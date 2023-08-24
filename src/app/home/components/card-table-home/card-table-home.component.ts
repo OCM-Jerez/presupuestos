@@ -8,19 +8,22 @@ import { environment } from '@environments/environment';
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { IExample } from '@interfaces/example.interface';
 import { ITablaAleatoria } from '@interfaces/tablaAleatoria.interface';
+import { IDataIngreso } from '@interfaces/dataIngreso.interface';
+import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 @Component({
-	selector: 'app-card-table',
-	templateUrl: './card-table.component.html',
-	styleUrls: ['./card-table.component.scss'],
+	selector: 'app-card-table-home',
+	templateUrl: './card-table-home.component.html',
+	styleUrls: ['./card-table-home.component.scss'],
 	standalone: true,
 	imports: [NgFor]
 })
-export class CardTableComponent implements OnInit {
+export class CardTableHomeComponent implements OnInit {
 	private _tableService = inject(TableService);
 
 	textoTabla: string;
 	liqDate = environment.liqDate2023;
+	currentYear = environment.currentYear;
 	examples: IExample[] = Array(3).fill({ name: '', value: 0 });
 
 	ngOnInit(): void {
@@ -28,12 +31,12 @@ export class CardTableComponent implements OnInit {
 	}
 
 	private async _randomData(): Promise<void> {
-		const dataTable: IDataTable = await this._tableService.loadDataInitial();
+		const dataTable: IDataTable = await this._tableService.loadData('ingresosEconomicaEconomicos');
 		let dataTablaAleatoria: ITablaAleatoria[] = [];
 		const ingresoGasto = Math.random() >= 0.5 ? true : false;
 		ingresoGasto
-			? (dataTablaAleatoria = await this.getData('DesEco', 'DerechosReconocidosNetos2023', dataTable.rowDataIngresos))
-			: (dataTablaAleatoria = await this.getData('DesOrg', 'Pagos2023', dataTable.rowDataGastos));
+			? (dataTablaAleatoria = await this.getData('DesEco', 'DerechosReconocidosNetos1', dataTable.rowDataIngresos))
+			: (dataTablaAleatoria = await this.getData('DesOrg', 'Pagos1', dataTable.rowDataGastos));
 
 		this.textoTabla = ingresoGasto
 			? '¿Cuánto ha recaudado el Ayuntamiento por...?'
@@ -42,7 +45,7 @@ export class CardTableComponent implements OnInit {
 		this.fillDatosAleatorios(dataTablaAleatoria);
 	}
 
-	async getData(name: string, value: string, data: any[] = []) {
+	async getData(name: string, value: string, data: (IDataIngreso | IDataGasto)[] = []) {
 		const resultado = data.reduce((acc, curr) => {
 			const itemName = curr[name];
 			const itemValue = curr[value];

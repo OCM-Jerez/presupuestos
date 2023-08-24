@@ -11,9 +11,13 @@ import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 
 import { DataStoreService } from '@services/dataStore.service';
 
+import { environment } from '@environments/environment';
+
 import { IDataTable } from '@interfaces/dataTable.interface';
 
 import { accumulate } from '@utils/util';
+import { IDataIngreso } from '@interfaces/dataIngreso.interface';
+import { IDataGasto } from '@interfaces/dataGasto.interface';
 @Component({
 	selector: 'app-graph-detalle',
 	templateUrl: './graph-detalle.component.html',
@@ -27,13 +31,18 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 
 	@ViewChild('agGrid') agGrid: AgGridAngular;
 	public columnDefs;
-	public data: any;
+	public data: {
+		year: number;
+		Definitivas: number;
+		Netas: number;
+	}[] = [];
+
 	public defaultColDef;
 	public groupHeaderHeight = 25;
 	public headerHeight = 25;
 	public localeText;
 	private _dataTable: IDataTable;
-	private _datos: any[] = [];
+	private _datos: IDataIngreso[] | IDataGasto[] = [];
 	private _nameSerie1: string;
 	private _nameSerie2: string;
 	private _nameSerie3: string;
@@ -55,12 +64,12 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 
 		switch (this._dataTable.clasificationType) {
 			case 'ingresosEconomicaCapitulos':
-				this._datos = this._dataTable.rowDataIngresos.filter((x) => x.CodCap == codigo);
+				this._datos = this._dataTable.rowDataIngresos.filter((x) => x.CodCap == Number(codigo));
 				break;
 			case 'ingresosEconomicaArticulos':
 			case 'ingresosEconomicaConceptos':
 			case 'ingresosEconomicaEconomicos':
-				this._datos = this._dataTable.rowDataIngresos.filter((x) => x.CodEco == codigo);
+				this._datos = this._dataTable.rowDataIngresos.filter((x) => x.CodEco == +codigo);
 				break;
 			case 'gastosOrganicaOrganicos':
 				this._datos = this._dataTable.rowDataGastos.filter((x) => x.CodOrg == codigo);
@@ -92,7 +101,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 
 			// Convierto los valores para que sirvan de data al grafico
 			this.data = [];
-			for (let index = 2015; index <= 2023; index++) {
+			for (let index = 2015; index <= environment.currentYear; index++) {
 				// Para mostrar solo años seleccionados
 				if (yearsDefinitivas[index] > 0) {
 					const value = {
@@ -100,7 +109,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 						Definitivas: yearsDefinitivas[index],
 						Netas: yearsNetas[index] //RecaudacionNeta
 					};
-					if (index === 2022 || index === 2023) {
+					if (index === 2022 || index === environment.currentYear) {
 						value.Definitivas = yearsIniciales[index];
 						value.Netas = yearsNetas[index - 1];
 					}
@@ -117,7 +126,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 			this._nameSerie3 = 'ObligacionesPendientePago';
 
 			this.data = [];
-			for (let index = 2015; index <= 2023; index++) {
+			for (let index = 2015; index <= environment.currentYear; index++) {
 				// Para mostrar solo años seleccionados
 				if (yearsDefinitivas[index] > 0) {
 					const value = {
@@ -126,7 +135,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 						Netas: yearsObligacionesNetas[index], // ObligacionesReconocidasNetas
 						ObligacionesPendientes: yearsObligacionesPendientes[index]
 					};
-					if (index === 2023) {
+					if (index === environment.currentYear) {
 						// value.Definitivas = yearsIniciales[index]; // Se usan las iniciales ya que es el unico dato que existe.
 					}
 					this.data.push(value);
@@ -172,7 +181,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 						fontSize: '16px'
 					}
 				},
-				categories: this.data.map((item) => item.year)
+				categories: this.data.map((item) => item.year + '')
 			},
 			yAxis: {
 				title: {
@@ -246,7 +255,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 						fontSize: '16px'
 					}
 				},
-				categories: this.data.map((item) => item.year)
+				categories: this.data.map((item) => item.year + '')
 			},
 			yAxis: {
 				title: {
@@ -311,7 +320,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 						fontSize: '16px'
 					}
 				},
-				categories: this.data.map((item) => item.year)
+				categories: this.data.map((item) => item.year.toString())
 			},
 			yAxis: {
 				title: {

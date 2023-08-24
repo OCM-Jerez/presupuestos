@@ -89,11 +89,12 @@ export class TreemapComponent implements OnInit, OnDestroy {
 	async calcSeries() {
 		const data = await this._tableService.loadData(this._clasification);
 		const dataTreemap = this._isIngreso ? data.rowDataIngresos : data.rowDataGastos;
+
 		this._dataTreeMap = this._prepareDataTreemapService.calcSeries(
 			dataTreemap,
 			this._fields.codigo,
 			this._fields.descripcion,
-			'Definitivas2023'
+			'Definitivas1'
 		);
 		this.showTreemap();
 	}
@@ -106,6 +107,11 @@ export class TreemapComponent implements OnInit, OnDestroy {
 			},
 			chart: {
 				type: 'treemap'
+			},
+			plotOptions: {
+				treemap: {
+					layoutAlgorithm: 'squarified'
+				}
 			},
 			title: {
 				text: ''
@@ -128,7 +134,6 @@ export class TreemapComponent implements OnInit, OnDestroy {
 			series: [
 				{
 					name: null,
-					innerSize: '50%',
 					data: data,
 					dataLabels: {
 						style: {
@@ -137,6 +142,6 @@ export class TreemapComponent implements OnInit, OnDestroy {
 					}
 				}
 			]
-		} as any);
+		} as Highcharts.Options);
 	}
 }

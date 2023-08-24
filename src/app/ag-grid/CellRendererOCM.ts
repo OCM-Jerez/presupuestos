@@ -68,3 +68,45 @@ export function CellRendererOCMDetails(params: ICellRendererParams) {
 		return '';
 	}
 }
+
+export function CellRendererOCM2Levels(params: ICellRendererParams) {
+	if (params.value) {
+		const valorFormateado: number = params.value.toLocaleString('de-DE');
+
+		switch (params.node.level) {
+			case -1: // TOTAL GENERAL
+				return `<p style="color: red; font-size: 22px; font-family:var(--fuente-principal); font-weight: bold; text-align: right; margin: 0px">${valorFormateado}
+								</p>`;
+			case 0: // Total row
+				return `<p style="color: black; font-size: 18px; font-family:var(--fuente-principal);text-align: right; margin: 0px">${valorFormateado}
+								</p>`;
+			default:
+				return `<p style="color: blue; font-size: 14px; font-weight: bold; text-align: right; margin: 0px">SIN FORMATO
+								</p>`;
+		}
+	} else {
+		return '';
+	}
+}
+
+export function CellRendererOCM1Level(params: ICellRendererParams) {
+	if (params.value) {
+		const valorFormateado: number = params.value.toLocaleString('de-DE');
+
+		switch (params.node.level) {
+			case -1: // TOTAL GENERAL
+				return '';
+			case 0: // Total row
+				return `<p style="color: black; font-size: 18px; font-family:var(--fuente-principal);text-align: right; margin: 0px">${valorFormateado}
+		</p>`;
+			case 1:
+				return '';
+
+			default:
+				return `<p style="color: blue; font-size: 14px; font-weight: bold; text-align: right; margin: 0px">SIN FORMATO
+								</p>`;
+		}
+	} else {
+		return '';
+	}
+}

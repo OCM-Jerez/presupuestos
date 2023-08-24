@@ -1,43 +1,43 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { IGastos } from '@interfaces/gastos.interface';
+import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class DataStoreFichaProgramaService {
-	private fichaProgramaSubject: BehaviorSubject<IGastos[]>;
+	private fichaProgramaSubject: BehaviorSubject<IDataGasto[]>;
 
 	constructor() {
-		this.fichaProgramaSubject = new BehaviorSubject<IGastos[]>([
+		this.fichaProgramaSubject = new BehaviorSubject<IDataGasto[]>([
 			{
-				CodCap: 0,
-				CodEco: 0,
-				CodOrg: 0,
-				CodPro: 0,
-				Definitivas2023: 0,
+				CodCap: '',
+				CodEco: '',
+				CodOrg: '',
+				CodPro: '',
+				Definitivas: 0,
 				DesCap: '',
 				DesEco: '',
 				DesOrg: '',
 				DesPro: '',
-				GastosComprometidos2023: 0,
-				Iniciales2023: 0,
-				Modificaciones2023: 0,
-				ObligacionesPendientePago2023: 0,
-				ObligacionesReconocidasNetas2023: 0,
-				Pagos2023: 0,
-				RemanenteCredito2023: 0,
+				GastosComprometidos: 0,
+				Iniciales: 0,
+				Modificaciones: 0,
+				ObligacionesPendientePago: 0,
+				ObligacionesReconocidasNetas: 0,
+				Pagos: 0,
+				RemanenteCredito: 0,
 				appPresupuestaria: ''
 			}
 		]);
 	}
 
-	getFichaProgramaData(): Observable<IGastos[]> {
+	getFichaProgramaData(): Observable<IDataGasto[]> {
 		return this.fichaProgramaSubject.asObservable();
 	}
 
-	setFichaProgramaData(fichaPrograma: IGastos[]): void {
+	setFichaProgramaData(fichaPrograma: IDataGasto[]): void {
 		this.fichaProgramaSubject.next(fichaPrograma);
 	}
 }

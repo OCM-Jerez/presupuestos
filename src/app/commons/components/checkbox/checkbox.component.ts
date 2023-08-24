@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
-import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
+
+import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { ReloadTableService } from '@services/reloadTable.service';
 
 @Component({
@@ -25,35 +26,17 @@ export class CheckboxComponent implements OnInit {
 		{ year: 2022, checked: false },
 		{ year: 2023, checked: true }
 	];
-	public textButton = 'Todos';
-	// private _lenghtYears: number;
-
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
 	private _reloadTableService = inject(ReloadTableService);
 
+	public textButton = 'Todos';
+
 	ngOnInit(): void {
-		// this.years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023].map((year) => ({ year, checked: false }));
-		// this.years = this.years.map((year, index, array) => {
-		// 	return {
-		// 		year: year,
-		// 		checked: index === array.length - 1 ? true : false
-		// 	};
-		// });
-		// this._lenghtYears = this.years.length;
-
-		// if (this.multiYears) {
-		// 	this.years.push({
-		// 		year: 'Todos',
-		// 		checked: false
-		// 	});
-		// }
-
 		this.getSelectedItem();
 	}
 
 	private getSelectedItem() {
 		if (localStorage.getItem('selected_years') === null) {
-			// this.years[this._lenghtYears].checked = true; // por defecto selecciona último año disponible
 			const selectedYears = this.years.filter((item) => item.checked);
 			localStorage.setItem('selected_years', JSON.stringify(selectedYears)); //store years selected
 			return;
@@ -81,16 +64,7 @@ export class CheckboxComponent implements OnInit {
 			const yearFind = this.years.find((yearFind) => yearFind.year === yearSelected.year);
 			this.years.forEach((year) => (year.checked = false));
 			yearFind.checked = true;
-		} else {
-			// if (yearSelected.year === this.years[this._lenghtYears].year) {
-			// 	const isAll = this.years[this._lenghtYears].checked === true;
-			// 	this.years[this._lenghtYears].year = isAll ? 'Actual' : 'Todos';
-			// 	this.years.forEach((year) => (year.checked = isAll));
-			// 	this.years[this._lenghtYears - 1].checked = true;
-			// }
-			// this.years[this._lenghtYears].checked = false;
 		}
-		// this.hasChangeCheckbox.emit();
 
 		this._setLocalStorage();
 	}

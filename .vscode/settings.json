@@ -22,5 +22,8 @@
     },
 
     "todo-tree.tree.disableCompactFolders": true,
-    "explorer.compactFolders": false
+    "explorer.compactFolders": false,
+    "github-actions.workflows.pinned.workflows": [
+        ".github/workflows/main.yml"
+    ]
 }

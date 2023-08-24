@@ -5,11 +5,21 @@ import { Subscription } from 'rxjs';
 
 import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
 
-import { IGastos } from '@interfaces/gastos.interface';
+import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 import * as Highcharts from 'highcharts';
+import Highcharts3D from 'highcharts/highcharts-3d';
 import HighchartsMore from 'highcharts/highcharts-more';
 HighchartsMore(Highcharts);
+Highcharts3D(Highcharts); // Import and enable the Highcharts 3D module
+
+Highcharts.setOptions({
+	chart: {
+		options3d: {
+			enabled: true
+		}
+	}
+});
 
 @Component({
 	selector: 'app-ficha-gastos',
@@ -21,23 +31,22 @@ HighchartsMore(Highcharts);
 export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDestroy {
 	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
 	private _location = inject(Location);
-
 	private _subscription: Subscription;
-	private _datos: IGastos[] = [];
+	private _datos: IDataGasto[] = [];
+	private cap = [];
 	public programa: string;
 	public currentGraph = 1;
 	public capitulos = [];
 	public activeButton = 1;
-	private cap = [];
 
 	ngOnInit(): void {
-		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IGastos[]) => {
+		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IDataGasto[]) => {
 			this._datos = data;
 		});
 
 		this.programa = this._datos[0].DesPro;
 		this.calcCapitulos();
-		this.cap = this._datos.filter((item) => item.CodCap === 1);
+		this.cap = this._datos.filter((item) => +item.CodCap === 1);
 	}
 
 	ngOnDestroy() {
@@ -55,8 +64,8 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 		this.activeButton = capitulo;
 		this.currentGraph = capitulo;
 
-		if (capitulo >= 2 && capitulo <= 9) {
-			this.cap = this._datos.filter((item) => item.CodCap === capitulo);
+		if (capitulo >= 1 && capitulo <= 9) {
+			this.cap = this._datos.filter((item) => +item.CodCap === capitulo);
 		}
 
 		setTimeout(() => {
@@ -69,8 +78,8 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 			codigo: item.CodCap,
 			descripcion: item.DesCap,
 			name: `${item.CodCap}-${item.DesCap}`,
-			value: item.Definitivas2023,
-			recaudado: item.Pagos2023
+			value: item.Definitivas,
+			recaudado: item.Pagos
 		}));
 
 		this.capitulos = this.capitulos.reduce((acc, curr) => {
@@ -101,7 +110,6 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 		Highcharts.chart('chart-capitulosGastos', {
 			chart: {
 				type: 'pie',
-				// renderTo: 'chart-containerLines',
 				options3d: {
 					enabled: true,
 					alpha: 45
@@ -124,6 +132,9 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 					depth: 45
 				}
 			},
+			tooltip: {
+				enabled: false
+			},
 			series: [
 				{
 					type: 'pie',
@@ -145,7 +156,6 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 		Highcharts.chart('graph', {
 			chart: {
 				type: 'pie',
-				// renderTo: 'chart-containerLines',
 				options3d: {
 					enabled: true,
 					alpha: 45
@@ -153,7 +163,6 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 			},
 			title: {
 				text: ``,
-				// text: `Capítulo ${capitulo} `,
 				align: 'center'
 			},
 			subtitle: {
@@ -166,16 +175,20 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 					depth: 45
 				}
 			},
+			tooltip: {
+				enabled: false
+			},
 			series: [
 				{
 					type: 'pie',
 					name: 'Medals',
-					data: this.cap.map((item) => [item.DesEco, item.Pagos2023]),
+					data: this.cap.map((item) => [item.DesEco, item.Pagos1]),
 					dataLabels: {
 						enabled: true,
 						format: '{point.name}<br>{point.y:,.0f} euros<br><span style="color: red">{point.percentage:.1f}%</span>',
 						style: {
-							fontSize: '16px'
+							fontSize: '12px',
+							fontWeight: 'normal'
 						}
 					}
 				}
