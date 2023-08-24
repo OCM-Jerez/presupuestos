@@ -1,9 +1,14 @@
-import { CellRendererOCMDetails, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
+import {
+	CellRendererOCMDetails,
+	CellRendererOCM2Levels,
+	CellRendererOCMtext,
+	CellRendererOCM1Level
+} from '@ag-grid/CellRendererOCM';
 import { ColGroupDef } from 'ag-grid-community';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 
-export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsService, tipo?: string): ColGroupDef[] {
+export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsService, tipo: string): ColGroupDef[] {
 	switch (tipo) {
 		case 'detalle':
 			return [
@@ -44,7 +49,6 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 			break;
 		case 'gastanEconomico':
 		case 'gastanOrganico':
-		case 'appPresupuestaria':
 			return [
 				{
 					children: [
@@ -73,19 +77,20 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 
 							return {
 								headerName: year.toLocaleString(),
-								children: createColumnsChildren(_myYear, CellRendererOCMDetails)
+								children: createColumnsChildren(_myYear, CellRendererOCM2Levels)
 							};
 						})
 					]
 				}
 			];
 			break;
-		case 'detalleAppPresupuestaria':
+		case 'appPresupuestaria':
 			return [
 				{
 					children: [
 						{
-							headerName: '_subHeaderName',
+							// headerName: '_subHeaderName',
+							headerName: 'Aplicación presupuestaria',
 							field: 'DesPro',
 							filter: false,
 							width: 700,
@@ -115,7 +120,7 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 
 							return {
 								headerName: year.toLocaleString(),
-								children: createColumnsChildren(_myYear, CellRendererOCMtext)
+								children: createColumnsChildren(_myYear, CellRendererOCM1Level)
 							};
 						})
 					]
@@ -123,6 +128,7 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 			];
 			break;
 		default:
+			console.log('Seleccionar app presupuestaria para ver su detalle');
 			return [];
 			break;
 	}
@@ -144,14 +150,14 @@ function createColumnsChildren(year: number, cellRenderer) {
 					field: `Modificaciones${year}`,
 					width: 120,
 					hide: true,
-					cellRenderer: CellRendererOCMDetails
+					cellRenderer: cellRenderer
 				},
 				{
 					headerName: 'Creditos definitivos',
 					field: `Definitivas${year}`,
 					width: 150,
 					hide: false,
-					cellRenderer: CellRendererOCMDetails
+					cellRenderer: cellRenderer
 				}
 			]
 		},
@@ -163,35 +169,35 @@ function createColumnsChildren(year: number, cellRenderer) {
 					field: `GastosComprometidos${year}`,
 					width: 120,
 					hide: true,
-					cellRenderer: CellRendererOCMDetails
+					cellRenderer: cellRenderer
 				},
 				{
 					headerName: 'Obligaciones reconocidas netas',
 					field: `ObligacionesReconocidasNetas${year}`,
 					width: 135,
 					hide: true,
-					cellRenderer: CellRendererOCMDetails
+					cellRenderer: cellRenderer
 				},
 				{
 					headerName: 'Pagos',
 					field: `Pagos${year}`,
 					hide: false,
-					cellRenderer: CellRendererOCMDetails
+					cellRenderer: cellRenderer
 				},
 				{
 					headerName: 'Obligaciones pendientes de pago al final periodo',
 					field: `ObligacionesPendientePago${year}`,
 					width: 120,
 					hide: true,
-					cellRenderer: CellRendererOCMDetails
+					cellRenderer: cellRenderer
 				}
 			]
 		},
 		{
 			headerName: 'Remanente Credito',
 			field: `RemanenteCredito${year}`,
-			hide: true,
-			cellRenderer: CellRendererOCMDetails
+			hide: false,
+			cellRenderer: cellRenderer
 		}
 	];
 }

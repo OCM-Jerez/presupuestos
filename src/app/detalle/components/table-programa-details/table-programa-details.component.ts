@@ -373,7 +373,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	async _showProgramDetails() {
 		this.title = 'Detalle programa ' + this._dataStoreService.selectedCodeRowFirstLevel;
 		await this._CalcDataDetails();
-		this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService);
+		this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService, '');
 		this._setGridOptions();
 		this._gridApi.setRowData(this._rowData);
 		this._gridApi.setColumnDefs(this._columnDefs);
@@ -389,8 +389,22 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		await this._createAppPresupuestarias();
 		await this._filterByAppPresupuestaria(selectedRow[0].data.appPresupuestaria);
 		// this._columnDefs = getColumnDefsAppPresupuestaria(this._avalaibleYearsService, this._subHeaderName);
-		this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService, 'detalleAppPresupuestaria');
+		this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService, 'appPresupuestaria');
 
+		this.autoGroupColumnDef = {
+			headerName: 'Aplicación presupuestaria',
+			field: 'DesEco',
+			width: 625,
+			pinned: 'left',
+			cellRenderer: CellRendererOCMtext,
+			valueGetter: (params) => {
+				if (params?.data) {
+					return '';
+				} else {
+					return '';
+				}
+			}
+		};
 		this._setGridOptions();
 		this.title =
 			'Detalle aplicación presupuestária: <br> ' +
