@@ -128,6 +128,7 @@ export class TableComponent implements OnInit, OnDestroy {
 					{
 						headerName: this._subHeaderName,
 						field: this._fields.codigo,
+						sort: 'asc',
 						// width: this._dataTable.dataPropertyTable.width,
 						width: 750,
 						rowGroup: true,
@@ -135,10 +136,14 @@ export class TableComponent implements OnInit, OnDestroy {
 						cellRenderer: CellRendererOCMtext,
 						valueGetter: (params) => {
 							if (params.data) {
-								return params.data[this._fields.codigo] + ' - ' + params.data[this._fields.descripcion];
-							} else {
-								return null;
+								// Necesario parta ordenar correctamente los códigos de 1 dígito en orgánicos.
+								const myCode =
+									params.data[this._fields.codigo] < 10 && this._fields.codigo === 'CodOrg'
+										? '0' + params.data[this._fields.codigo]
+										: params.data[this._fields.codigo];
+								return `${myCode} - ${params.data[this._fields.descripcion]}`;
 							}
+							return null;
 						}
 					}
 				]
