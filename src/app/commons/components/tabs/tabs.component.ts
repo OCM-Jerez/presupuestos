@@ -37,12 +37,14 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
 	}
 
 	ngAfterContentInit(): void {
-		this.setActiveTab({
-			active: true,
-			title: 'Ingresos',
-			clasification: 'ingresosEconomicaEconomicos',
-			isFicha: false
-		});
+		setTimeout(() => {
+			this.setActiveTab({
+				active: this._tabSelected.selected,
+				title: this._tabSelected.title,
+				clasification: this._tabSelected.clasificationType,
+				isFicha: this._tabSelected.isFicha
+			});
+		}, 50);
 	}
 
 	ngOnDestroy() {
@@ -77,19 +79,7 @@ export class TabsComponent implements AfterContentInit, OnDestroy {
 
 	private setActiveTab(tab: TabComponent): void {
 		this.tabs.toArray().forEach((t) => {
-			if (t.isFicha) {
-				if (tab ? t.title === tab.title : t.clasification === this._tabSelected.clasificationType) {
-					t.active = true;
-				} else {
-					t.active = false;
-				}
-			} else {
-				if (t.title === tab.title) {
-					t.active = true;
-				} else {
-					t.active = false;
-				}
-			}
+			t.active = t.clasification === tab.clasification;
 		});
 	}
 }
