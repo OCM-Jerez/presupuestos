@@ -6,44 +6,88 @@
 	{
 		"codigo": 13010,
 		"descripcion": "Administración general de la seguridad y protección civil",
-		"cartaServicios": [
-			{"ultimaActualizacion" : "Sin datos"},
-			{"URL" : ""}
-		],
+		"cartaServicios": [{ "ultimaActualizacion": "Sin datos" }, { "URL": "" }],
 		"indicadores": [
-			{"year": "2015", "URL":""},
-			{"year": "2016", "URL":""},
-		    {"year": "Sin datos", "URL":""},
-			{"year": "2018", "URL":""},
-			{"year": "2019", "URL":""},
-			{"year": "2020", "URL":""},
-			{"year": "2021", "URL":""},
-			{"year": "2022", "URL":""},
-			{"year": "2023", "URL":""}
+			{ "year": "2015", "URL": "" },
+			{ "year": "2016", "URL": "" },
+			{ "year": "Sin datos", "URL": "" },
+			{ "year": "2018", "URL": "" },
+			{ "year": "2019", "URL": "" },
+			{ "year": "2020", "URL": "" },
+			{ "year": "2021", "URL": "" },
+			{ "year": "2022", "URL": "" },
+			{ "year": "2023", "URL": "" }
 		]
 	},
 	{
 		"codigo": 13210,
 		"descripcion": "Policía Local",
 		"cartaServicios": [
-			{"ultimaActualizacion" : "24.02.2017"},
-			{"URL" : "https://1drv.ms/b/s!AqUr6AaNBwpDpd9sNrb2SJzvoU_f0g"}
+			{ "ultimaActualizacion": "24.02.2017" },
+			{ "URL": "https://1drv.ms/b/s!AqUr6AaNBwpDpd9sNrb2SJzvoU_f0g" }
 		],
 		"indicadores": [
-			{"year": "2015", "URL":""},
-			{"year": "2016", "URL":""},
-		    {"year": "2017", "URL":"https://1drv.ms/b/s!AqUr6AaNBwpDpd9uLHVX0XHahETupQ"},
-			{"year": "2018", "URL":""},
-			{"year": "2019", "URL":""},
-			{"year": "2020", "URL":""},
-			{"year": "2021", "URL":""},
-			{"year": "2022", "URL":""},
-			{"year": "2023", "URL":""}
-				]
+			{ "year": "2015", "URL": "" },
+			{ "year": "2016", "URL": "" },
+			{ "year": "2017", "URL": "https://1drv.ms/b/s!AqUr6AaNBwpDpd9uLHVX0XHahETupQ" },
+			{ "year": "2018", "URL": "" },
+			{ "year": "2019", "URL": "" },
+			{ "year": "2020", "URL": "" },
+			{ "year": "2021", "URL": "" },
+			{ "year": "2022", "URL": "" },
+			{ "year": "2023", "URL": "" }
+		],
+		"news": [
+			{
+				"date": "",
+				"medio": "",
+				"title": "",
+				"URL": ""
+			},
+			{
+				"date": "2015",
+				"medio": "Diario de Jerez",
+				"title": "El Ayuntamiento se queda sin autobuses de gas por un problema del repostaje",
+				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-queda-autobuses-problema-repostaje-gas-comujesa_0_1825018889.html"
+			}
+		]
 	},
+
 	{
 		"codigo": 13220,
-		"descripcion": "Academia de Policía"
+		"descripcion": "Academia de Policía",
+		"cartaServicios": [],
+		"indicadores": [
+			{ "year": "2015", "URL": "" },
+			{ "year": "2016", "URL": "" },
+			{ "year": "2017", "URL": "" },
+			{ "year": "2018", "URL": "" },
+			{ "year": "2019", "URL": "" },
+			{ "year": "2020", "URL": "" },
+			{ "year": "2021", "URL": "" },
+			{ "year": "2022", "URL": "" },
+			{ "year": "2023", "URL": "" }
+		],
+		"news": [
+			{
+				"date": "",
+				"medio": "",
+				"title": "",
+				"URL": ""
+			},
+			{
+				"date": "28/08/2023",
+				"title": "El gobierno apuesta por recuperar para Jerez la Escuela de Policía Local",
+				"medio": "Diario de Jerez",
+				"URL": "https://www.diariodejerez.es/jerez/recuperar-Jerez-Escuela-Policia-Local_0_1824719003.html"
+			},
+			{
+				"date": "24/06/2023",
+				"medio": "La Voz del Sur",
+				"title": "Jerez volverá a contar con una Escuela de Policía Local como las grandes ciudades de Andalucía",
+				"URL": "https://www.lavozdelsur.es/ediciones/jerez/jerez-volvera-contar-con-escuela-policia-local-como-grandes-ciudades-andalucia_297653_102.html"
+			}
+		]
 	},
 	{
 		"codigo": 13310,

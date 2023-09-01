@@ -44,6 +44,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 	private _subscription: Subscription;
 	private _datos: IDataGasto[] = [];
 	public programa: string;
+	public codigo: string;
 	public DataTotalesPresupuesto: IDataTotalesPresupuesto = {};
 
 	private totalPresupuestadoTotal: number;
@@ -53,15 +54,19 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 	private cartaServiciosUltimaActualizacion = '';
 	private indicadores2017URL = '';
 	private indicadoresYear = 'Sin datos';
+	private _newsLength = 0;
+	private _newsText = '';
 	public cardsInfo: ICardsInfo[] = [];
+	public filteredNews = [];
 	liqDate = environment.liqDate2023;
 
-	ngOnInit(): void {
+	async ngOnInit(): Promise<void> {
 		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IDataGasto[]) => {
 			this._datos = data;
 
 			if (this._datos?.[0]) {
 				this.programa = this._datos[0].DesPro;
+				this.codigo = this._datos[0].CodPro;
 				const codigoBuscar = this._datos[0].CodPro;
 				const programaData = programasInfo.find((element) => element.codigo === +codigoBuscar);
 
@@ -73,6 +78,10 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				}
 			}
 		});
+
+		this.filteredNews = (await this.filterNewsByCode(+this.codigo)) as any[];
+		this._newsLength = this.filteredNews.length - 1;
+		this._newsText = this._newsLength <= 0 ? 'Sin entradas' : this._newsLength.toString() + ' entradas';
 
 		this.DataTotalesPresupuesto = this._dataStoreService.dataTotalesPresupuesto;
 		this.totalPresupuestadoTotal = this.DataTotalesPresupuesto.totalPresupuestoGastos;
@@ -153,10 +162,10 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 			},
 			{
 				rutaImagen: 'assets/img/home/menu1-400x250.webp',
-				titulo: 'Hemeroteca',
+				titulo: 'Noticias',
 				subtitulo: ' ',
-				funcion: () => this.fichaPresupuesto(),
-				textButton1: 'Sin datos',
+				funcion: () => this.news(this.codigo),
+				textButton1: this._newsText,
 				background: 'linear-gradient(to bottom, #FCE1CB, white)',
 				hover: false
 			},
@@ -244,6 +253,22 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 		} else {
 			console.log('Sin datos');
 		}
+	}
+
+	async news(codigo) {
+		this.filteredNews = await this.filterNewsByCode(+codigo);
+		this._newsLength = this.filteredNews.length;
+		this._router.navigateByUrl(`/fichaNews/${codigo}`);
+	}
+
+	async filterNewsByCode(codigo: number) {
+		const data = await import(`@assets/data/programasInfo.json`);
+		for (const key in data) {
+			if (data[key].codigo === codigo) {
+				return data[key].news || [];
+			}
+		}
+		return [];
 	}
 
 	volver() {

@@ -1,0 +1,11 @@
+.flex__cardTable {
+	display: flex;
+	flex-direction: column;
+	// justify-content: center;
+	flex-basis: 60%;
+	padding: 1em;
+	border: 1px solid #fff;
+	margin-top: 20px;
+	margin-right: 20px;
+	margin-bottom: 40px;
+}

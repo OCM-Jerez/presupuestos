@@ -41,6 +41,11 @@ export default [
 			import('./detalle/components/table-programa-details/components/ficha-personal/ficha-personal.component')
 	},
 	{
+		path: 'fichaNews/:codigo',
+		loadComponent: () =>
+			import('./detalle/components/table-programa-details/components/ficha-news/ficha-news.component')
+	},
+	{
 		path: 'tableProgramaDetails/:origen',
 		loadComponent: () => import('./detalle/components/table-programa-details/table-programa-details.component')
 	},
