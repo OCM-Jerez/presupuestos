@@ -71,6 +71,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private sub: Subscription;
 	private _appPresupuestarias = [];
 	private levelDetails = 0;
+	private _clasificationType: string;
+	private _CodFilter: string;
 
 	public autoGroupColumnDef: ColDef = {
 		headerName: 'Capítulo-Económico',
@@ -81,7 +83,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		valueGetter: (params) => {
 			if (params?.data) {
 				return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: 14px; margin-left: 0px"">${
-					'       ' + params.data.CodEco + ' - ' + params.data.DesEco
+					'       ' + params.data.CodEco + ' -+++++ ' + params.data.DesEco
 				}</span>`;
 			} else {
 				return `<span style="white-space: pre;color: red; font-size: 18px; font-family:var(--fuente-principal);font-weight: bold;text-align: right;padding-left: 425px;">TOTAL PROGRAMA
@@ -89,6 +91,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			}
 		}
 	};
+
 	public groupDisplayType: RowGroupingDisplayType = 'singleColumn';
 
 	constructor() {
@@ -99,13 +102,36 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 
 	async ngOnInit(): Promise<void> {
 		this._dataTable = this._dataStoreService.dataTable;
+		this._clasificationType = this._dataTable.clasificationType;
+
 		// const selectedYear = this._avalaibleYearsService.getYearsSelected();
 		const programa = this._dataStoreService.selectedCodeRowFirstLevel.split(' - ')[1];
 
 		switch (this._path) {
 			case 'details':
-				this.title = 'Detalle programa ' + programa;
-				await this._CalcDataDetails();
+				switch (this._clasificationType) {
+					case 'gastosProgramaProgramas':
+						this.title = 'Detalle programa ' + programa;
+						this._CodFilter = 'CodPro';
+						break;
+					case 'gastosProgramaGrupos':
+						this.title = 'Detalle grupo programas ' + programa;
+						this._CodFilter = 'CodGru';
+						break;
+					case 'gastosProgramaPoliticas':
+						this.title = 'Detalle política ' + programa;
+						this._CodFilter = 'CodPol';
+						break;
+					case 'gastosProgramaAreas':
+						this.title = 'Detalle area ' + programa;
+						this._CodFilter = 'CodAre';
+						break;
+
+					default:
+						break;
+				}
+
+				await this._CalcDataDetails(this._CodFilter);
 				this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService, 'detalle');
 				this._setGridOptions();
 				this.titleButtom = ' Seleccionar app presupuestaria para ver su detalle';
@@ -144,10 +170,13 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this.sub.unsubscribe();
 	}
 
-	async _CalcDataDetails() {
+	async _CalcDataDetailsOLD(CodFilter: string) {
 		this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
-		const codigoSearch = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
-		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x.CodPro == codigoSearch);
+		const codigoSearch = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0].toString();
+		// this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x.CodGru == +codigoSearch);
+		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter(
+			(x) => x[CodFilter].toString() === codigoSearch
+		);
 
 		this._rowData = Object.values(
 			this._rowData.reduce((acc, obj) => {
@@ -162,6 +191,65 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				return acc;
 			}, {})
 		);
+	}
+
+	async _CalcDataDetails(CodFilter: string) {
+		this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
+		const codigoSearch = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0].toString();
+
+		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter(
+			(x) => x[CodFilter].toString() === codigoSearch
+		);
+
+		// this._rowData = Object.values(
+		// 	this._rowData.reduce((acc, obj) => {
+		// 		const key = obj.CodEco;
+
+		// 		// Si el objeto con 'CodEco' no existe en el acumulador, lo agregamos
+		// 		if (!acc[key]) {
+		// 			acc[key] = { ...obj };
+		// 		} else {
+		// 			// Lista de campos numéricos que deseamos sumar (ajusta según tus necesidades)
+		// 			const fieldsToSum = [
+		// 				'Definitivas1',
+		// 				'GastosComprometidos1',
+		// 				'Iniciales1',
+		// 				'Modificaciones1',
+		// 				'ObligacionesPendientePago1',
+		// 				'ObligacionesReconocidasNetas1',
+		// 				'Pagos1',
+		// 				'RemanenteCredito1',
+		// 				'Definitivas2022',
+		// 				'GastosComprometidos2022',
+		// 				'Iniciales2022',
+		// 				'Modificaciones2022',
+		// 				'ObligacionesPendientePago2022',
+		// 				'ObligacionesReconocidasNetas2022',
+		// 				'Pagos2022',
+		// 				'RemanenteCredito2022',
+		// 				'Definitivas2023',
+		// 				'GastosComprometidos2023',
+		// 				'Iniciales2023',
+		// 				'Modificaciones2023',
+		// 				'ObligacionesPendientePago2023',
+		// 				'ObligacionesReconocidasNetas2023',
+		// 				'Pagos2023',
+		// 				'RemanenteCredito2023'
+		// 			];
+
+		// 			// Sumamos cada campo para el mismo 'CodEco'
+		// 			fieldsToSum.forEach((field) => {
+		// 				if (acc[key][field] !== undefined && obj[field] !== undefined) {
+		// 					acc[key][field] += obj[field];
+		// 				}
+		// 			});
+		// 		}
+
+		// 		return acc;
+		// 	}, {})
+		// );
+
+		// console.log('Datos Agrupados y Totalizados:', this._rowData);
 	}
 
 	async _CalcDataGastan() {
@@ -372,7 +460,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 
 	async _showProgramDetails() {
 		this.title = 'Detalle programa ' + this._dataStoreService.selectedCodeRowFirstLevel;
-		await this._CalcDataDetails();
+		await this._CalcDataDetails(this._CodFilter);
 		this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService, '');
 		this._setGridOptions();
 		this._gridApi.setRowData(this._rowData);
