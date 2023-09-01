@@ -36,9 +36,9 @@ export default class DetalleComponent implements OnInit, OnDestroy {
 	public multiYears = true;
 	public tabs: ITab[] = [
 		{ clasificationType: 'ingresosEconomicaEconomicos', title: 'Ingresos', selected: true, isFicha: false },
-		{ clasificationType: 'gastosProgramaProgramas', title: '¿En qué se gasta?', selected: false, isFicha: false },
+		{ clasificationType: 'gastosProgramaProgramas', title: '¿Para qué se gasta?', selected: false, isFicha: false },
 		{ clasificationType: 'gastosOrganicaOrganicos', title: '¿Quién lo gasta?', selected: false, isFicha: false },
-		{ clasificationType: 'gastosEconomicaEconomicos', title: '¿Para qué se gasta?', selected: false, isFicha: false }
+		{ clasificationType: 'gastosEconomicaEconomicos', title: '¿En qué se gasta?', selected: false, isFicha: false }
 	];
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
 	private _subscription: Subscription;
