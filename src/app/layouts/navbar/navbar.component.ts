@@ -37,7 +37,8 @@ export class NavbarComponent {
 	}
 
 	licitaciones() {
-		window.open('https://con.ocmjerez.org/', '_blank');
+		// window.open('https://con.ocmjerez.org/', '_blank');
+		this._router.navigateByUrl('/licitaciones');
 		this.collapsed = true;
 		setTimeout(() => {
 			this.collapsed = false;

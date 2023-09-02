@@ -60,7 +60,8 @@ export default class HomeComponent {
 	}
 
 	licitaciones() {
-		window.open('https://con.ocmjerez.org/', '_blank');
+		// window.open('https://con.ocmjerez.org/', '_blank');
+		this._router.navigateByUrl('/licitaciones');
 	}
 
 	empleados() {

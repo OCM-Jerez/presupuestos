@@ -99,7 +99,21 @@
 	},
 	{
 		"codigo": 13410,
-		"descripcion": "Movilidad urbana"
+		"descripcion": "Movilidad urbana",
+		"news": [
+			{
+				"date": "",
+				"medio": "",
+				"title": "",
+				"URL": ""
+			},
+			{
+				"date": "29 Agosto 2023",
+				"medio": "Diario de Jerez",
+				"title": "El Ayuntamiento se queda sin autobuses de gas por un problema del repostaje",
+				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-queda-autobuses-problema-repostaje-gas-comujesa_0_1825018889.html"
+			}
+		]
 	},
 	{
 		"codigo": 13510,

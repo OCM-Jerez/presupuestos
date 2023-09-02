@@ -50,6 +50,16 @@ export default [
 		loadComponent: () => import('./detalle/components/table-programa-details/table-programa-details.component')
 	},
 	{
+		path: 'licitaciones',
+		loadComponent: () => import('./licitaciones/licitaciones.component')
+	},
+	// proyectos
+	{
+		path: 'laCanaleja2023/:licitacion',
+		loadComponent: () => import('./licitaciones/proyectos/la-canaleja2023/la-canaleja2023.component')
+	},
+
+	{
 		path: 'empleados',
 		loadComponent: () => import('./empleados/empleados.component')
 	},
