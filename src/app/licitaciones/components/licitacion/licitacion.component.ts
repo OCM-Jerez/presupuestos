@@ -54,39 +54,53 @@ export default class LaCanaleja2023Component implements OnInit {
 
 		switch (licitacion) {
 			case 'laCanaleja2023':
-				this.imgURL = '/assets/licitaciones/laCanaleja2023.jpg';
+				this.imgURL = '/assets/licitaciones/laCanaleja2023/laCanaleja2023.jpg';
 
-				this.http.get<IStep[]>('/assets/data/laCanaleja2023Steps.json').subscribe((data: IStep[]) => {
-					this.steps = data;
-				});
+				this.http
+					.get<IStep[]>('/assets/licitaciones/laCanaleja2023/laCanaleja2023Steps.json')
+					.subscribe((data: IStep[]) => {
+						this.steps = data;
+					});
 
-				this.http.get<ILicitacion[]>('/assets/data/laCanaleja2023.json').subscribe(assignDescripcion);
+				this.http
+					.get<ILicitacion[]>('/assets/licitaciones/laCanaleja2023/laCanaleja2023.json')
+					.subscribe(assignDescripcion);
 
-				this.http.get<INew[]>('/assets/data/laCanaleja2023News.json').subscribe((data: INew[]) => {
-					this.news = data;
-				});
+				this.http
+					.get<INew[]>('/assets/licitaciones/laCanaleja2023/laCanaleja2023News.json')
+					.subscribe((data: INew[]) => {
+						this.news = data;
+					});
 
 				break;
 			case 'sanBenito2023':
-				this.imgURL = '/assets/licitaciones/laCanaleja2023.jpg';
-				this.http.get<ILicitacion[]>('/assets/data/sanBenito2023.json').subscribe(assignDescripcion);
+				this.imgURL = '/assets/licitaciones/sanBenito2023/laCanaleja2023.jpg';
+				this.http
+					.get<ILicitacion[]>('/assets/licitaciones/sanBenito2023/sanBenito2023.json')
+					.subscribe(assignDescripcion);
 
-				this.http.get<INew[]>('/assets/data/sanBenito2023News.json').subscribe((data: INew[]) => {
+				this.http.get<INew[]>('/assets/licitaciones/sanBenito2023/sanBenito2023News.json').subscribe((data: INew[]) => {
 					this.news = data;
 				});
 
 				break;
 			case 'plazaVenus2023':
-				this.imgURL = '/assets/licitaciones/plazaVenus2023.jpg';
-				this.http.get<IStep[]>('/assets/data/plazaVenus2023Steps.json').subscribe((data: IStep[]) => {
-					this.steps = data;
-				});
+				this.imgURL = '/assets/licitaciones/plazaVenus2023/plazaVenus2023.jpg';
+				this.http
+					.get<IStep[]>('/assets/licitaciones/plazaVenus2023/plazaVenus2023Steps.json')
+					.subscribe((data: IStep[]) => {
+						this.steps = data;
+					});
 
-				this.http.get<ILicitacion[]>('/assets/data/plazaVenus2023.json').subscribe(assignDescripcion);
+				this.http
+					.get<ILicitacion[]>('/assets/licitaciones/plazaVenus2023/plazaVenus2023.json')
+					.subscribe(assignDescripcion);
 
-				this.http.get<INew[]>('/assets/data/plazaVenusNews2023.json').subscribe((data: INew[]) => {
-					this.news = data;
-				});
+				this.http
+					.get<INew[]>('/assets/licitaciones/plazaVenus2023/plazaVenusNews2023.json')
+					.subscribe((data: INew[]) => {
+						this.news = data;
+					});
 
 				break;
 

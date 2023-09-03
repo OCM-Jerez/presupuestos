@@ -23,13 +23,13 @@ export default class LicitacionesComponent {
 		},
 		{
 			titulo: 'Parque La Canaleja',
-			rutaImagen: 'assets/licitaciones/laCanaleja2023.jpg',
+			rutaImagen: 'assets/licitaciones/laCanaleja2023/laCanaleja2023.jpg',
 			funcion: () => this._router.navigateByUrl('/laCanaleja2023/laCanaleja2023'),
 			background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)'
 		},
 		{
 			titulo: 'Plaza Venus',
-			rutaImagen: 'assets/licitaciones/plazaVenus2023.jpg',
+			rutaImagen: 'assets/licitaciones/plazaVenus2023/plazaVenus2023.jpg',
 			funcion: () => this._router.navigateByUrl('/laCanaleja2023/plazaVenus2023'),
 			background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)'
 		},
