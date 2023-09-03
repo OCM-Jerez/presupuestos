@@ -32,8 +32,20 @@ export default class LicitacionesComponent {
 			rutaImagen: 'assets/licitaciones/plazaVenus2023/plazaVenus2023.jpg',
 			funcion: () => this._router.navigateByUrl('/licitacion/plazaVenus2023'),
 			background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)'
-		}
+		},
 		// {
+		// 	rutaImagen: '',
+		// 	titulo: '',
+		// 	funcion: () => this._router.navigateByUrl('/licitacion/sanBenito2023'),
+		// 	background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)'
+		// }
+		{
+			titulo: 'Las Calandrias',
+			rutaImagen: 'assets/licitaciones/lasCalandrias2023/lasCalandrias2023.jpg',
+			funcion: () => this._router.navigateByUrl('/licitacion/lasCalandrias2023'),
+			background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)'
+		}
+		// ,{
 		// 	rutaImagen: '',
 		// 	titulo: '',
 		// 	funcion: () => this._router.navigateByUrl('/licitacion/sanBenito2023'),

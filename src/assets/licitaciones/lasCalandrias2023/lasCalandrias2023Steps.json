@@ -1,0 +1,17 @@
+[
+	{
+		"date": "15 febrero 2023",
+		"step": "Publicación licitación",
+		"isFinish": "Si"
+	},
+	{
+		"date": "2 agosto 2023",
+		"step": "Adjudicación",
+		"isFinish": "Si"
+	},
+	{
+		"date": "29 agosto 2023",
+		"step": "Suspensión del procedimiento",
+		"isFinish": "Si"
+	}
+]

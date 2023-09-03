@@ -73,17 +73,6 @@ export default class LaCanaleja2023Component implements OnInit {
 					});
 
 				break;
-			case 'sanBenito2023':
-				this.imgURL = '/assets/licitaciones/sanBenito2023/laCanaleja2023.jpg';
-				this.http
-					.get<ILicitacion[]>('/assets/licitaciones/sanBenito2023/sanBenito2023.json')
-					.subscribe(assignDescripcion);
-
-				this.http.get<INew[]>('/assets/licitaciones/sanBenito2023/sanBenito2023News.json').subscribe((data: INew[]) => {
-					this.news = data;
-				});
-
-				break;
 			case 'plazaVenus2023':
 				this.imgURL = '/assets/licitaciones/plazaVenus2023/plazaVenus2023.jpg';
 				this.http
@@ -104,7 +93,38 @@ export default class LaCanaleja2023Component implements OnInit {
 
 				break;
 
+			case 'lasCalandrias2023':
+				this.imgURL = '/assets/licitaciones/lasCalandrias2023/lasCalandrias2023.jpg';
+				this.http
+					.get<IStep[]>('/assets/licitaciones/lasCalandrias2023/lasCalandrias2023Steps.json')
+					.subscribe((data: IStep[]) => {
+						this.steps = data;
+					});
+
+				this.http
+					.get<ILicitacion[]>('/assets/licitaciones/lasCalandrias2023/lasCalandrias2023.json')
+					.subscribe(assignDescripcion);
+
+				this.http
+					.get<INew[]>('/assets/licitaciones/lasCalandrias2023/lasCalandrias2023News.json')
+					.subscribe((data: INew[]) => {
+						this.news = data;
+					});
+
+				break;
+
 			default:
+				break;
+			case 'sanBenito2023':
+				this.imgURL = '/assets/licitaciones/sanBenito2023/laCanaleja2023.jpg';
+				this.http
+					.get<ILicitacion[]>('/assets/licitaciones/sanBenito2023/sanBenito2023.json')
+					.subscribe(assignDescripcion);
+
+				this.http.get<INew[]>('/assets/licitaciones/sanBenito2023/sanBenito2023News.json').subscribe((data: INew[]) => {
+					this.news = data;
+				});
+
 				break;
 		}
 
