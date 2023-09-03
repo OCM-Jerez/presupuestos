@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -30,6 +30,8 @@ interface INew {
 })
 export default class LaCanaleja2023Component implements OnInit {
 	private _route = inject(ActivatedRoute);
+	private _location = inject(Location);
+
 	private http = inject(HttpClient);
 
 	public steps: IStep[] = [];
@@ -102,7 +104,12 @@ export default class LaCanaleja2023Component implements OnInit {
 			this.descripcion = descripcionObj.value;
 		}
 	}
+
 	hasKey(object: unknown, key: string): boolean {
 		return object && Object.prototype.hasOwnProperty.call(object, key);
+	}
+
+	volver() {
+		this._location.back();
 	}
 }
