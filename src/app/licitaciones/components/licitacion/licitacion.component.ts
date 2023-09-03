@@ -25,8 +25,8 @@ interface INew {
 	selector: 'app-la-canaleja2023',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './la-canaleja2023.component.html',
-	styleUrls: ['./la-canaleja2023.component.scss']
+	templateUrl: './licitacion.component.html',
+	styleUrls: ['./licitacion.component.scss']
 })
 export default class LaCanaleja2023Component implements OnInit {
 	private _route = inject(ActivatedRoute);

@@ -17,7 +17,7 @@ export default class LicitacionesComponent {
 	cardMenus = [
 		{
 			titulo: 'APP OCM',
-			rutaImagen: 'assets/img/logoOCM.png',
+			rutaImagen: 'assets/licitaciones/appConOCM.jpg',
 			funcion: () => window.open('https://con.ocmjerez.org/', '_blank'),
 			background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)'
 		},
@@ -35,150 +35,9 @@ export default class LicitacionesComponent {
 		},
 		{
 			rutaImagen: '',
-			titulo: 'San Benito',
+			titulo: '',
 			funcion: () => this._router.navigateByUrl('/laCanaleja2023/sanBenito2023'),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #FFFDFC , #FCE1CB)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #FCFEFF , #CDE9FE)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #F5F5F5 , #E0E0E0)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #FFFDFC , #FCE1CB)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #FCFEFF , #CDE9FE)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #F5F5F5 , #E0E0E0)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #FFFDFC , #FCE1CB)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #FCFEFF , #CDE9FE)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #F5F5F5 , #E0E0E0)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #FFFDFC , #FCE1CB)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #FCFEFF , #CDE9FE)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #F5F5F5 , #E0E0E0)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #FFFDFC , #FCE1CB)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #FCFEFF , #CDE9FE)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
-		},
-		{
-			rutaImagen: '',
-			titulo: '',
-			funcion: () => this.licitacion(),
-			textButton: 'Ver',
-			background: 'linear-gradient(to bottom, #F5F5F5 , #E0E0E0)'
+			background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)'
 		}
 	];
 
