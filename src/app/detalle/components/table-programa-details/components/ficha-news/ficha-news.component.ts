@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 import { CardTableNewsComponent } from './components/card-table-news/card-table-news.component';
@@ -13,6 +13,8 @@ import { CardTableNewsComponent } from './components/card-table-news/card-table-
 })
 export default class FichaNewsComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
+	private _location = inject(Location);
+
 	public filteredNews = [];
 	public programa: string;
 
@@ -30,5 +32,9 @@ export default class FichaNewsComponent implements OnInit {
 			}
 		}
 		return [];
+	}
+
+	volver() {
+		this._location.back();
 	}
 }
