@@ -55,7 +55,7 @@ export default [
 	},
 	// proyectos
 	{
-		path: 'laCanaleja2023/:licitacion',
+		path: 'licitacion/:licitacion',
 		loadComponent: () => import('./licitaciones/components/licitacion/licitacion.component')
 	},
 
