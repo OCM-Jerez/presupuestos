@@ -1,24 +1,26 @@
-<div class="volver">
-	<button type="button" class="OCM-button" (click)="volver()">Volver</button>
-</div>
+<div class="page">
+	<div class="volver">
+		<button type="button" class="OCM-button" (click)="volver()">Volver</button>
+	</div>
 
-<h1 style="font-size: 32px; font-weight: bold; text-align: center">{{ programa }}</h1>
-<h1 style="font-size: 32px; font-weight: bold; text-align: center">Datos ejecución presupuestaria al {{ liqDate }}</h1>
+	<h1>{{ programa }}</h1>
+	<h1>Datos ejecución presupuestaria al {{ liqDate }}</h1>
 
-<div class="flex">
-	<div
-		*ngFor="let cardInfo of cardsInfo"
-		[ngClass]="{ flex__cardInfo: true, 'flex__cardInfo-hover': cardInfo.hover }"
-		[style.background]="cardInfo.background"
-	>
-		<app-card-info
-			style="width: 100%"
-			[titulo]="cardInfo.titulo"
-			[subtitulo]="cardInfo.subtitulo"
-			(click)="cardInfo.funcion()"
-			[textButton]="cardInfo.textButton"
-			[textButton1]="cardInfo.textButton1"
-			[textButton2]="cardInfo.textButton2"
-		/>
+	<div class="flex">
+		<div
+			*ngFor="let cardInfo of cardsInfo"
+			[ngClass]="{ flex__cardInfo: true, 'flex__cardInfo-hover': cardInfo.hover }"
+			[style.background]="cardInfo.background"
+		>
+			<app-card-info
+				style="width: 100%"
+				[titulo]="cardInfo.titulo"
+				[subtitulo]="cardInfo.subtitulo"
+				(click)="cardInfo.funcion()"
+				[textButton]="cardInfo.textButton"
+				[textButton1]="cardInfo.textButton1"
+				[textButton2]="cardInfo.textButton2"
+			/>
+		</div>
 	</div>
 </div>

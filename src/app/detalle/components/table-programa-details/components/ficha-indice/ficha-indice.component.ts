@@ -12,8 +12,8 @@ import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.
 import { DataStoreService } from '@services/dataStore.service';
 
 import { IDataGasto } from '@interfaces/dataGasto.interface';
-
 import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.interface';
+
 import { environment } from '@environments/environment';
 
 interface ICardsInfo {
@@ -107,7 +107,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				textButton: this.totalPresupuestado.toLocaleString('de-DE'),
 				textButton1: (porcentajePresupuesto.toFixed(2) + '%').replace('.', ','),
 				textButton2: 'del presupuesto total',
-				background: 'linear-gradient(to bottom,  #FCE1CB, white)',
+				background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)',
 				hover: true
 			},
 			{
@@ -118,7 +118,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				textButton: this.totalGastado.toLocaleString('de-DE'),
 				textButton1: (porcentajeGasto.toFixed(2) + '%').replace('.', ','),
 				textButton2: 'de su presupuesto',
-				background: 'linear-gradient(to bottom, #EEBE3E, white)',
+				background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)',
 				hover: true
 			},
 			{
@@ -129,7 +129,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				textButton: (this.totalPresupuestado - this.totalGastado).toLocaleString('de-DE'),
 				textButton1: (porcentajeRemanente.toFixed(2) + '%').replace('.', ','),
 				textButton2: 'de su presupuesto',
-				background: 'linear-gradient(to bottom, #D2DAB9 , white)',
+				background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)',
 				hover: true
 			},
 			{
@@ -138,7 +138,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				subtitulo: '',
 				funcion: () => this.fichaEmpleados(),
 				textButton1: 'Sin datos',
-				background: 'linear-gradient(to bottom, #E0E0E0, white)',
+				background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)',
 				hover: false
 			},
 			{
@@ -148,7 +148,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				funcion: () => this.cartaServicios(this.cartaServiciosURL),
 				// textButton: 'Ultima actualización',
 				textButton1: this.cartaServiciosUltimaActualizacion,
-				background: 'linear-gradient(to bottom, #CDE9FE, white)',
+				background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)',
 				hover: this.cartaServiciosURL ? true : false
 			},
 			{
@@ -157,7 +157,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				subtitulo: '',
 				funcion: () => this.indicadores(this.indicadores2017URL),
 				textButton1: this.indicadoresYear,
-				background: 'linear-gradient(to bottom,#DCEDC8, white)',
+				background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)',
 				hover: this.indicadores2017URL ? true : false
 			},
 			{
@@ -166,7 +166,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				subtitulo: ' ',
 				funcion: () => this.news(this.codigo),
 				textButton1: this._newsText,
-				background: 'linear-gradient(to bottom, #FCE1CB, white)',
+				background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)',
 				hover: false
 			},
 			{
@@ -175,7 +175,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				subtitulo: '',
 				funcion: () => this.fichaEmpleados(),
 				textButton1: 'Sin datos',
-				background: 'linear-gradient(to bottom, #D3CCE3 , white)',
+				background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)',
 				hover: false
 			},
 			{
@@ -184,7 +184,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				subtitulo: '',
 				funcion: () => this.fichaEmpleados(),
 				textButton1: 'Sin datos',
-				background: 'linear-gradient(to bottom,#5092A9 , #FCFDFE)',
+				background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)',
 				hover: false
 			},
 			// {
@@ -201,7 +201,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				subtitulo: '',
 				funcion: () => this.fichaEmpleados(),
 				textButton1: 'Sin datos',
-				background: 'linear-gradient(to bottom, #D2DAB9 , white)',
+				background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)',
 				hover: false
 			}
 			// {
