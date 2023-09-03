@@ -1,4 +1,28 @@
-<div class="flex"><img src="{{ imgURL }}" alt="" /></div>
+<h1 class="OCM-title">{{ descripcion }}</h1>
+
+<div class="flex">
+	<img src="{{ imgURL }}" alt="Foto proyecto" />
+	<div class="cardTableSeguimiento">
+		<table class="paleBlueRowsSeguimiento">
+			<thead>
+				<tr>
+					<th>Fecha</th>
+					<th>Etapa</th>
+					<th>Completada</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let step of steps">
+					<td>{{ step.date }}</td>
+					<td>{{ step.step }}</td>
+					<td>{{ step.isFinish }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<img class="indicador" src="./../../../../assets/licitaciones/grafico.jpg" alt="" />
+</div>
 
 <div class="cardTableHomeData">
 	<table class="paleBlueRowsData">
@@ -11,13 +35,13 @@
 				</tr>
 			</thead> -->
 		<tbody>
-			<tr *ngFor="let news of dataLicitacion">
-				<ng-container *ngIf="news.data !== ''">
-					<td>{{ news.data }}</td>
+			<tr *ngFor="let data of dataLicitacion">
+				<ng-container *ngIf="data.data !== ''">
+					<td>{{ data.data }}</td>
 					<td></td>
-					<td>{{ news.value }}</td>
-					<ng-container *ngIf="hasKey(news, 'URL') && news.URL !== ''">
-						<td><a href="{{ news.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+					<td>{{ data.value }}</td>
+					<ng-container *ngIf="hasKey(data, 'URL') && data.URL !== ''">
+						<td><a href="{{ data.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
 					</ng-container>
 				</ng-container>
 			</tr>
@@ -38,12 +62,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let news of news">
-				<ng-container *ngIf="news.URL !== ''">
-					<td>{{ news.date }}</td>
-					<td>{{ news.medio }}</td>
-					<td>{{ news.title }}</td>
-					<td><a href="{{ news.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+			<tr *ngFor="let new of news">
+				<ng-container *ngIf="new.URL !== ''">
+					<td>{{ new.date }}</td>
+					<td>{{ new.medio }}</td>
+					<td>{{ new.title }}</td>
+					<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
 				</ng-container>
 			</tr>
 		</tbody>

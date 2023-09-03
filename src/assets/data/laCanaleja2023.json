@@ -13,6 +13,10 @@
 		"value": "Abierto simplificado"
 	},
 	{
+		"data": "Tipo contrato",
+		"value": "Obras"
+	},
+	{
 		"data": "Fecha final licitación",
 		"value": "06/07/2023"
 	},
@@ -29,8 +33,21 @@
 		"value": "2.207.585,04"
 	},
 	{
+		"data": "Licitadores presentados",
+		"value": "28"
+	},
+	{
 		"data": "Adjudicatario",
 		"value": "TRAFISA CONSTRUCCION Y MEDIO AMBIENTE SA"
+	},
+	{
+		"data": "CIF Adjudicatario",
+		"value": "U18913640"
+	},
+	{
+		"data": "Información sobre el adjudicatario",
+		"value": "Pulsar en enlace para ver la información",
+		"URL": "https://www.einforma.com/informacion-empresa/trafisa-construccion-medio-ambiente-jose-ma"
 	},
 	{
 		"data": "Importe de Adjudicación",
