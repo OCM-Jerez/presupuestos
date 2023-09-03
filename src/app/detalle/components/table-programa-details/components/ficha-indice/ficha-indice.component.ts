@@ -167,7 +167,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 				funcion: () => this.news(this.codigo),
 				textButton1: this._newsText,
 				background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)',
-				hover: false
+				hover: this._newsLength > 0
 			},
 			{
 				rutaImagen: 'assets/img/home/menu4-400x250.webp',
