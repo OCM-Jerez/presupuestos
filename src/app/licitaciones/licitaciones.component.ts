@@ -44,13 +44,26 @@ export default class LicitacionesComponent {
 			rutaImagen: 'assets/licitaciones/lasCalandrias2023/lasCalandrias2023.jpg',
 			funcion: () => this._router.navigateByUrl('/licitacion/lasCalandrias2023'),
 			background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)'
-		}
+		},
 		// ,{
 		// 	rutaImagen: '',
 		// 	titulo: '',
 		// 	funcion: () => this._router.navigateByUrl('/licitacion/sanBenito2023'),
 		// 	background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)'
 		// }
+
+		{
+			rutaImagen: 'assets/licitaciones/contenedoresOrganica2023/contenedoresOrganica2023.jpg',
+			titulo: 'Contenedores orgánica',
+			funcion: () => this._router.navigateByUrl('/licitacion/contenedoresOrganica2023'),
+			background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)'
+		},
+		{
+			rutaImagen: 'assets/licitaciones/rehabilitacionCEIPNebrija2023/Nebrija.jpg',
+			titulo: 'Rehabilitacion CEIP Nebrija',
+			funcion: () => this._router.navigateByUrl('/licitacion/rehabilitacionCEIPNebrija2023'),
+			background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)'
+		}
 	];
 
 	licitacion() {

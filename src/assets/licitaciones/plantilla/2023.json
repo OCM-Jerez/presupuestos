@@ -9,6 +9,10 @@
 		"value": ""
 	},
 	{
+		"data": "Estado",
+		"value": ""
+	},
+	{
 		"data": "Procedimiento",
 		"value": ""
 	},
@@ -25,7 +29,7 @@
 		"value": ""
 	},
 	{
-		"data": "Estado",
+		"data": "Presupuesto base de licitación sin impuestos",
 		"value": ""
 	},
 	{
@@ -47,7 +51,7 @@
 	{
 		"data": "Información sobre el adjudicatario",
 		"value": "Pulsar en enlace para ver la información",
-		"URL": "                                                             "
+		"URL": ""
 	},
 	{
 		"data": "Importe de Adjudicación",

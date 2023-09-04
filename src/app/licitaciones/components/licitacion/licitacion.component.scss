@@ -1,19 +1,8 @@
-img {
-	width: 30%;
-	height: 300px;
-}
-
-.indicador {
-	width: 30%;
-	height: 150px;
-	margin-top: 60px;
-}
-
 .flex {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	height: 300px;
+	height: 200px;
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-top: 20px;
@@ -21,12 +10,25 @@ img {
 
 .cardTableSeguimiento {
 	display: flex;
-	width: 33%;
 	flex-direction: column;
+	justify-content: center;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
 	background: #f5f5f5;
-	margin: 30px;
+	margin: 10px;
+	padding: 10px;
+}
+
+.cardTableSeguimiento:nth-child(1) {
+	width: 20%;
+}
+
+.cardTableSeguimiento:nth-child(2) {
+	width: 50%;
+}
+
+.cardTableSeguimiento:nth-child(3) {
+	width: 20%;
 }
 
 /* #region  Table           */
@@ -88,6 +90,8 @@ table.paleBlueRowsSeguimiento tbody {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
 	background: #f5f5f5;
+	margin-left: 30px;
+	margin-right: 30px;
 	margin-bottom: 30px;
 	&__title {
 		display: flex;
@@ -165,8 +169,7 @@ table.paleBlueRows tbody {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
 	background: #f5f5f5;
-	margin-bottom: 30px;
-	margin-top: 30px;
+	margin: 10px 30px 30px 30px;
 
 	&__title {
 		display: flex;
@@ -187,6 +190,7 @@ table.paleBlueRowsData {
 	text-align: center;
 	border-collapse: collapse;
 	margin-left: 20px;
+	margin-right: 20px;
 }
 
 table.paleBlueRowsData thead {
@@ -240,5 +244,4 @@ table.paleBlueRowsData tbody {
 	flex-direction: row;
 	justify-content: flex-end;
 	width: 95%;
-	border-top: 50px;
 }
