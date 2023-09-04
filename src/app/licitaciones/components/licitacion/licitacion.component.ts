@@ -53,6 +53,25 @@ export default class LaCanaleja2023Component implements OnInit {
 		};
 
 		switch (licitacion) {
+			case 'puertaSevilla2023':
+				(this.imgURL = '/assets/licitaciones/puertaSevilla2023/puertaSevilla2023.jpg'),
+					this.http
+						.get<IStep[]>('/assets/licitaciones/puertaSevilla2023/puertaSevilla2023Steps.json')
+						.subscribe((data: IStep[]) => {
+							this.steps = data;
+						});
+
+				this.http
+					.get<ILicitacion[]>('/assets/licitaciones/puertaSevilla2023/puertaSevilla2023.json')
+					.subscribe(assignDescripcion);
+
+				this.http
+					.get<INew[]>('/assets/licitaciones/puertaSevilla2023/puertaSevilla2023News.json')
+					.subscribe((data: INew[]) => {
+						this.news = data;
+					});
+				break;
+
 			case 'laCanaleja2023':
 				this.imgURL = '/assets/licitaciones/laCanaleja2023/laCanaleja2023.jpg';
 

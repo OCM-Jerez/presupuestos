@@ -22,6 +22,12 @@ export default class LicitacionesComponent {
 			background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)'
 		},
 		{
+			rutaImagen: 'assets/licitaciones/puertaSevilla2023/puertaSevilla2023.jpg',
+			titulo: 'Reordenación Puerta sevilla',
+			funcion: () => this._router.navigateByUrl('/licitacion/puertaSevilla2023'),
+			background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)'
+		},
+		{
 			titulo: 'Parque La Canaleja',
 			rutaImagen: 'assets/licitaciones/laCanaleja2023/laCanaleja2023.jpg',
 			funcion: () => this._router.navigateByUrl('/licitacion/laCanaleja2023'),
