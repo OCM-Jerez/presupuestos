@@ -71,8 +71,8 @@ export default class LaCanaleja2023Component implements OnInit {
 					.subscribe((data: INew[]) => {
 						this.news = data;
 					});
-
 				break;
+
 			case 'plazaVenus2023':
 				this.imgURL = '/assets/licitaciones/plazaVenus2023/plazaVenus2023.jpg';
 				this.http
@@ -90,7 +90,6 @@ export default class LaCanaleja2023Component implements OnInit {
 					.subscribe((data: INew[]) => {
 						this.news = data;
 					});
-
 				break;
 
 			case 'contenedoresOrganica2023':
@@ -110,7 +109,6 @@ export default class LaCanaleja2023Component implements OnInit {
 					.subscribe((data: INew[]) => {
 						this.news = data;
 					});
-
 				break;
 
 			case 'contenedoresOrganica2023':
@@ -130,7 +128,6 @@ export default class LaCanaleja2023Component implements OnInit {
 					.subscribe((data: INew[]) => {
 						this.news = data;
 					});
-
 				break;
 
 			case 'rehabilitacionCEIPNebrija2023':
@@ -150,7 +147,6 @@ export default class LaCanaleja2023Component implements OnInit {
 					.subscribe((data: INew[]) => {
 						this.news = data;
 					});
-
 				break;
 
 			default:
@@ -164,19 +160,14 @@ export default class LaCanaleja2023Component implements OnInit {
 				this.http.get<INew[]>('/assets/licitaciones/sanBenito2023/sanBenito2023News.json').subscribe((data: INew[]) => {
 					this.news = data;
 				});
-
 				break;
 		}
 
-		console.log(this.dataLicitacion);
-
-		const descripcionObj = this.dataLicitacion.find((obj) => obj.data === 'Descripción');
-		console.log(descripcionObj);
-
-		// Si encontramos el objeto, asignamos el valor de "value" a la variable pública "descripcion"
-		if (descripcionObj) {
-			this.descripcion = descripcionObj.value;
-		}
+		// const descripcionObj = this.dataLicitacion.find((obj) => obj.data === 'Descripción');
+		// // Si encontramos el objeto, asignamos el valor de "value" a la variable pública "descripcion"
+		// if (descripcionObj) {
+		// 	this.descripcion = descripcionObj.value;
+		// }
 	}
 
 	hasKey(object: unknown, key: string): boolean {
