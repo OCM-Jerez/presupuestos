@@ -92,20 +92,20 @@ export default class LaCanaleja2023Component implements OnInit {
 					});
 				break;
 
-			case 'contenedoresOrganica2023':
-				(this.imgURL = '/assets/licitaciones/contenedoresOrganica2023/contenedoresOrganica2023.jpg'),
+			case 'lasCalandrias2023':
+				(this.imgURL = '/assets/licitaciones/lasCalandrias2023/lasCalandrias2023.jpg'),
 					this.http
-						.get<IStep[]>('/assets/licitaciones/contenedoresOrganica2023/contenedoresOrganica2023Steps.json')
+						.get<IStep[]>('/assets/licitaciones/lasCalandrias2023/lasCalandrias2023Steps.json')
 						.subscribe((data: IStep[]) => {
 							this.steps = data;
 						});
 
 				this.http
-					.get<ILicitacion[]>('/assets/licitaciones/contenedoresOrganica2023/contenedoresOrganica2023.json')
+					.get<ILicitacion[]>('/assets/licitaciones/lasCalandrias2023/lasCalandrias2023.json')
 					.subscribe(assignDescripcion);
 
 				this.http
-					.get<INew[]>('/assets/licitaciones/contenedoresOrganica2023/contenedoresOrganica2023News.json')
+					.get<INew[]>('/assets/licitaciones/lasCalandrias2023/lasCalandrias2023News.json')
 					.subscribe((data: INew[]) => {
 						this.news = data;
 					});
