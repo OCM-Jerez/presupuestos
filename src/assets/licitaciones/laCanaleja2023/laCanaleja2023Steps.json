@@ -1,22 +1,18 @@
 [
 	{
 		"date": "6 marzo 2023",
-		"step": "Publicación licitación",
-		"isFinish": "Si"
+		"step": "Publicación licitación"
 	},
 	{
 		"date": "12 marzo 2023",
-		"step": "Aperturas de ofertas",
-		"isFinish": "Si"
+		"step": "Aperturas de ofertas"
 	},
 	{
 		"date": "19 junio 2023",
-		"step": "Adjudicación",
-		"isFinish": "Si"
+		"step": "Adjudicación"
 	},
 	{
 		"date": "10 julio 2023",
-		"step": "Formalizacion",
-		"isFinish": "Si"
+		"step": "Formalizacion"
 	}
 ]

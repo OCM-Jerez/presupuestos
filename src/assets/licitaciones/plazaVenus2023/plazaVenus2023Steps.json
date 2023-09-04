@@ -1,27 +1,22 @@
 [
 	{
 		"date": "4 mayo 2023",
-		"step": "Anuncio licitación",
-		"isFinish": "Si"
+		"step": "Anuncio licitación"
 	},
 	{
 		"date": "18 mayo 2023",
-		"step": "Aperturas de ofertas",
-		"isFinish": "Si"
+		"step": "Aperturas de ofertas"
 	},
 	{
 		"date": "4 de agosto 2023",
-		"step": "Adjudicación",
-		"isFinish": "Si"
+		"step": "Adjudicación"
 	},
 	{
 		"date": "31 agosto 2023",
-		"step": "Formalizacion",
-		"isFinish": "Si"
+		"step": "Formalizacion"
 	},
 	{
 		"date": "?????",
-		"step": "Inicio de las obras ",
-		"isFinish": ""
+		"step": "Inicio de las obras "
 	}
 ]

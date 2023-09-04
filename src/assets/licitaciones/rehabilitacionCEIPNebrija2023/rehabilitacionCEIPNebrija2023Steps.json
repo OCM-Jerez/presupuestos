@@ -1,22 +1,18 @@
 [
 	{
 		"date": "8 agosto 2023",
-		"step": "Publicación licitación",
-		"isFinish": "Si"
+		"step": "Publicación licitación"
 	},
 	{
 		"date": "",
-		"step": "Aperturas de ofertas",
-		"isFinish": "N0"
+		"step": "Aperturas de ofertas"
 	},
 	{
 		"date": "",
-		"step": "Adjudicación",
-		"isFinish": "No"
+		"step": "Adjudicación"
 	},
 	{
 		"date": "",
-		"step": "Formalizacion",
-		"isFinish": "No"
+		"step": "Formalizacion"
 	}
 ]
