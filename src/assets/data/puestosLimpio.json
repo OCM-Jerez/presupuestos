@@ -39897,7 +39897,15 @@
 		"complementoEspecificoPuntos": "1.632,28",
 		"complementoEspecificoEuros": 64743,
 		"observacionesRequisitos": "RFHE/ESV",
-		"situacion": "VACANTE"
+		"situacion": "VACANTE",
+		"news": [
+			{
+				"date": "5 septiembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "El Ayuntamiento de Jerez ya tiene nuevo interventor, José María Almenara Ruiz tomará posesión en próximas semanas",
+				"URL": "https://www.diariodejerez.es/jerez/Nuevo-interventor-ayuntamiento-jerez-almenara-ruiz_0_1827117619.html"
+			}
+		]
 	},
 	{
 		"ID": 1957,
