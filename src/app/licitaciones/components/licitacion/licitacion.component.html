@@ -37,9 +37,8 @@
 	<table class="paleBlueRowsData">
 		<tbody>
 			<tr *ngFor="let data of dataLicitacion">
-				<ng-container *ngIf="data.data !== ''">
+				<ng-container *ngIf="data.value !== ''">
 					<td>{{ data.data }}</td>
-					<td></td>
 					<td>{{ data.value }}</td>
 					<ng-container *ngIf="hasKey(data, 'URL') && data.URL !== ''">
 						<td><a href="{{ data.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>

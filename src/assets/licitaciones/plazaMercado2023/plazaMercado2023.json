@@ -6,11 +6,11 @@
 	},
 	{
 		"data": "Descripción",
-		"value": ""
+		"value": "Remodelación de la plaza del Mercado"
 	},
 	{
 		"data": "Estado",
-		"value": ""
+		"value": "Presentación de propuestas"
 	},
 	{
 		"data": "Procedimiento",
@@ -59,7 +59,11 @@
 	},
 	{
 		"data": "Financiación",
-		"value": ""
+		"value": "Fondos Next Generation EU"
+	},
+	{
+		"data": "Plazo máximo por financiación",
+		"value": "31 mayo 2025"
 	},
 	{
 		"data": "Credito en que se ampara",
@@ -84,11 +88,11 @@
 	{
 		"data": "Geolocalización",
 		"value": "Pulsar en el enlace para ver la ubicación",
-		"URL": ""
+		"URL": "https://goo.gl/maps/iH7Qu6cggkfmbuv36"
 	},
 	{
 		"data": "Distrito",
-		"value": " (Pulsar en el enlace para ver el contorno del distrito)",
-		"URL": ""
+		"value": "Centro (Pulsar en el enlace para ver el contorno del distrito)",
+		"URL": "https://www.google.com/maps/d/viewer?mid=18pN3Nn98Ij37DHMPQFRIbF30pV0&femb=1&ll=36.68446675434557%2C-6.136462500000008&z=16"
 	}
 ]
