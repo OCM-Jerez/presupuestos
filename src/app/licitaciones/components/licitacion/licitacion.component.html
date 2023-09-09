@@ -33,13 +33,31 @@
 	</div>
 </div>
 
-<div class="cardTableHomeData">
+<!-- <div class="cardTableHomeData">
 	<table class="paleBlueRowsData">
 		<tbody>
 			<tr *ngFor="let data of dataLicitacion">
 				<ng-container *ngIf="data.value !== ''">
 					<td>{{ data.data }}</td>
 					<td>{{ data.value }}</td>
+					<ng-container *ngIf="hasKey(data, 'URL') && data.URL !== ''">
+						<td><a href="{{ data.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+					</ng-container>
+				</ng-container>
+			</tr>
+		</tbody>
+	</table>
+</div> -->
+
+<div class="cardTableHomeData">
+	<table class="paleBlueRowsData">
+		<tbody>
+			<tr *ngFor="let data of dataLicitacion">
+				<!-- Solo muestra las filas donde 'data.value' no está vacío y 'data.URL' no es una clave o está vacío -->
+				<ng-container *ngIf="data.value !== '' && (!hasKey(data, 'URL') || (hasKey(data, 'URL') && data.URL !== ''))">
+					<td>{{ data.data }}</td>
+					<td>{{ data.value }}</td>
+					<!-- Solo muestra la columna de enlace cuando 'data.URL' no está vacío -->
 					<ng-container *ngIf="hasKey(data, 'URL') && data.URL !== ''">
 						<td><a href="{{ data.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
 					</ng-container>
