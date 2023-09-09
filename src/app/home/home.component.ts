@@ -42,6 +42,14 @@ export default class HomeComponent {
 			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
 		},
 		{
+			rutaImagen: 'assets/img/home/menu3-400x250.webp',
+			titulo: 'Entes dependientes',
+			subtitulo: 'Entes dependientes del Ayuntamiento',
+			funcion: () => this.entes(),
+			textButton: 'Entes',
+			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
+		},
+		{
 			rutaImagen: 'assets/img/home/menu4-400x250.webp',
 			titulo: 'Empleados municipales',
 			subtitulo: 'Información sobre los empleados de nuestro Ayuntamiento',
@@ -62,6 +70,11 @@ export default class HomeComponent {
 	licitaciones() {
 		// window.open('https://con.ocmjerez.org/', '_blank');
 		this._router.navigateByUrl('/licitaciones');
+	}
+
+	entes() {
+		// window.open('https://con.ocmjerez.org/', '_blank');
+		this._router.navigateByUrl('/entesDependientes');
 	}
 
 	empleados() {

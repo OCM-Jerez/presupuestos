@@ -53,10 +53,17 @@ export default [
 		path: 'licitaciones',
 		loadComponent: () => import('./licitaciones/licitaciones.component')
 	},
-	// proyectos
 	{
 		path: 'licitacion/:licitacion',
 		loadComponent: () => import('./licitaciones/components/licitacion/licitacion.component')
+	},
+	{
+		path: 'entesDependientes',
+		loadComponent: () => import('./entes-dependientes/entes-dependientes.component')
+	},
+	{
+		path: 'entesDependientes/:ente',
+		loadComponent: () => import('./entes-dependientes/components/ente/ente.component')
 	},
 
 	{
