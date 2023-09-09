@@ -18,12 +18,6 @@ export default class EntesDependientesComponent {
 	cardMenus = [
 		this.createCard('Fundación Universitaria (Teatro Villamarta)', 'fundarte')
 		// this.createCard('Parque La Canaleja', 'laCanaleja2023'),
-		// this.createCard('Plaza Venus', 'plazaVenus2023'),
-		// this.createCard('Las Calandrias', 'lasCalandrias2023'),
-		// this.createCard('Contenedores orgánica', 'contenedoresOrganica2023'),
-		// this.createCard('Rehabilitacion CEIP Nebrija', 'rehabilitacionCEIPNebrija2023'),
-		// this.createCard('Remodelación plaza del Mercado', 'plazaMercado2023'),
-		// this.createCard('Centro cultural Lola Flores', 'CentroCulturalLolaFlores2020')
 	];
 
 	createCard(titulo: string, route: string) {
