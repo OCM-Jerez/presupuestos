@@ -28,7 +28,8 @@ export default class LicitacionesComponent {
 		this.createCard('Las Calandrias', 'lasCalandrias2023'),
 		this.createCard('Contenedores orgánica', 'contenedoresOrganica2023'),
 		this.createCard('Rehabilitacion CEIP Nebrija', 'rehabilitacionCEIPNebrija2023'),
-		this.createCard('Remodelación plaza del Mercado', 'plazaMercado2023')
+		this.createCard('Remodelación plaza del Mercado', 'plazaMercado2023'),
+		this.createCard('Centro cultural Lola Flores', 'CentroCulturalLolaFlores2020')
 	];
 
 	createCard(titulo: string, route: string) {
