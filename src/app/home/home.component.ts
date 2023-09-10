@@ -40,13 +40,13 @@ export default class HomeComponent {
 		this.createCardMenu(
 			'Entes dependientes',
 			'/entesDependientes',
-			'assets/img/home/menu3-400x250.webp',
+			'assets/entes/fundarte/fundarte.jpg',
 			'Entes dependientes del Ayuntamiento'
 		),
 		this.createCardMenu(
 			'Temas generales',
 			'/temas',
-			'assets/img/home/menu3-400x250.webp',
+			'assets/temas/palacioRiquelme/palacioRiquelme.jpg',
 			'Temas no incluidos en otros apartados'
 		),
 		this.createCardMenu(
