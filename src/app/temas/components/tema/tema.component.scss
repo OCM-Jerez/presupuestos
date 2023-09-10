@@ -1,0 +1,242 @@
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	height: 200px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 20px;
+}
+
+.cardTableSeguimiento {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	background: #f5f5f5;
+	margin: 10px;
+	padding: 10px;
+}
+
+.cardTableSeguimiento:nth-child(1) {
+	width: 20%;
+}
+
+.cardTableSeguimiento:nth-child(2) {
+	width: 50%;
+}
+
+.cardTableSeguimiento:nth-child(3) {
+	width: 20%;
+}
+
+/* #region  Table           */
+table.paleBlueRowsSeguimiento {
+	// width: 97%;
+	height: 100%;
+	text-align: center;
+	// border-collapse: collapse;
+	border-radius: 10px;
+	margin-top: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+table.paleBlueRowsSeguimiento thead {
+	background: #003df6;
+	height: 20px;
+}
+
+table.paleBlueRowsSeguimiento th {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #ffffff;
+	text-align: center;
+	width: 50px;
+	border-left: 2px solid #ffffff;
+}
+
+table.paleBlueRowsSeguimiento tbody td {
+	font-size: 1.2rem;
+}
+
+table.paleBlueRowsSeguimiento tr:nth-child(even) {
+	backgçround: #e4e28a;
+}
+
+table.paleBlueRowsSeguimiento tbody {
+	text-align: left;
+}
+
+.paleBlueRowsSeguimiento td:nth-child(1) {
+	width: 30%;
+	text-align: center;
+}
+
+.paleBlueRowsSeguimiento td:nth-child(2) {
+	width: 55%;
+	text-align: left;
+}
+
+.paleBlueRowsSeguimiento td:nth-child(3) {
+	width: 15%;
+	text-align: center;
+}
+
+.cardTableHome {
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	background: #f5f5f5;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	&__title {
+		display: flex;
+		justify-content: center;
+		color: rgba(1, 0, 3, 0.913);
+		font-weight: 600;
+		font-family: var(--fuente-principal);
+		font-size: 2rem;
+		margin-bottom: 10px;
+		margin-left: 20px;
+		line-height: 1.2;
+	}
+}
+
+/* #region  Table           */
+table.paleBlueRows {
+	width: 97%;
+	height: 100%;
+	text-align: center;
+	border-collapse: collapse;
+	margin-left: 20px;
+}
+
+table.paleBlueRows thead {
+	background: #003df6;
+	height: 20px;
+}
+
+table.paleBlueRows thead th {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #ffffff;
+	text-align: center;
+	width: 50px;
+	border-left: 2px solid #ffffff;
+}
+
+table.paleBlueRows tbody td {
+	font-size: 1.2rem;
+}
+
+table.paleBlueRows tr:nth-child(even) {
+	background: #84c4c8;
+}
+
+table.paleBlueRows tbody {
+	text-align: left;
+}
+
+.paleBlueRows td:nth-child(1) {
+	width: 10%;
+	text-align: center;
+}
+
+.paleBlueRows td:nth-child(2) {
+	width: 15%;
+	text-align: left;
+}
+
+.paleBlueRows td:nth-child(3) {
+	width: 65%;
+	text-align: left;
+}
+
+.paleBlueRows td:nth-child(4) {
+	width: 10%;
+	text-align: center;
+}
+
+/* #endregion */
+
+.cardTableHomeData {
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	background: #f5f5f5;
+	margin: 10px 30px 30px 30px;
+
+	&__title {
+		display: flex;
+		justify-content: center;
+		color: rgba(1, 0, 3, 0.913);
+		font-weight: 600;
+		font-family: var(--fuente-principal);
+		font-size: 2rem;
+		margin-bottom: 10px;
+		margin-left: 20px;
+		line-height: 1.2;
+	}
+}
+
+table.paleBlueRowsData {
+	width: 97%;
+	height: 100%;
+	text-align: center;
+	border-collapse: collapse;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+table.paleBlueRowsData thead {
+	background: #003df6;
+	height: 20px;
+}
+
+table.paleBlueRowsData thead th {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #ffffff;
+	text-align: center;
+	width: 50px;
+	border-left: 2px solid #ffffff;
+}
+
+table.paleBlueRowsData tbody td {
+	font-size: 1.2rem;
+}
+
+table.paleBlueRowsData tr:nth-child(even) {
+	background: #dcf3bc;
+}
+
+table.paleBlueRowsData tbody {
+	text-align: left;
+}
+
+.paleBlueRowsData td:nth-child(1) {
+	width: 20%;
+	text-align: left;
+}
+
+.paleBlueRowsData td:nth-child(2) {
+	width: 70%;
+	text-align: left;
+}
+
+.paleBlueRowsData td:nth-child(3) {
+	width: 10%;
+	text-align: center;
+}
+
+.volver {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	width: 95%;
+}

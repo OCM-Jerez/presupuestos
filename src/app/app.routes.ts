@@ -65,7 +65,14 @@ export default [
 		path: 'entesDependientes/:ente',
 		loadComponent: () => import('./entes-dependientes/components/ente/ente.component')
 	},
-
+	{
+		path: 'temas',
+		loadComponent: () => import('./temas/temas.component')
+	},
+	{
+		path: 'temas/:tema',
+		loadComponent: () => import('./temas/components/tema/tema.component')
+	},
 	{
 		path: 'empleados',
 		loadComponent: () => import('./empleados/empleados.component')

@@ -50,6 +50,14 @@ export default class HomeComponent {
 			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
 		},
 		{
+			rutaImagen: 'assets/img/home/menu3-400x250.webp',
+			titulo: 'Temas generales',
+			subtitulo: 'Temas no incluidos en otros apartados',
+			funcion: () => this.temas(),
+			textButton: 'Temas',
+			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
+		},
+		{
 			rutaImagen: 'assets/img/home/menu4-400x250.webp',
 			titulo: 'Empleados municipales',
 			subtitulo: 'Información sobre los empleados de nuestro Ayuntamiento',
@@ -73,8 +81,11 @@ export default class HomeComponent {
 	}
 
 	entes() {
-		// window.open('https://con.ocmjerez.org/', '_blank');
 		this._router.navigateByUrl('/entesDependientes');
+	}
+
+	temas() {
+		this._router.navigateByUrl('/temas');
 	}
 
 	empleados() {
