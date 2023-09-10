@@ -6,6 +6,8 @@ import { CardInfoHomeComponent } from './components/card-info-home/card-info-hom
 import { CardMenuComponent } from '../commons/components/card-menu/card-menu.component';
 import { CardTableHomeComponent } from './components/card-table-home/card-table-home.component';
 
+const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
+
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
@@ -17,78 +19,56 @@ export default class HomeComponent {
 	private _router = inject(Router);
 
 	cardMenus = [
-		{
-			rutaImagen: 'assets/img/home/menu1-400x250.webp',
-			titulo: 'Visión global',
-			subtitulo: 'Para que tengas una idea general de los ingresos y gastos del Ayuntamiento de Jerez.',
-			funcion: () => this.visionGlobal(),
-			textButton: 'Visión global',
-			background: 'linear-gradient(to bottom, #FFFDFC , #FCE1CB)'
-		},
-		{
-			rutaImagen: 'assets/img/home/menu2-400x250.webp',
-			titulo: 'Detalle del presupuesto',
-			subtitulo: 'Educación, protección y bienestar social, cultura... ¿Qué área te interesa?',
-			funcion: () => this.detalle(),
-			textButton: 'Detalle',
-			background: 'linear-gradient(to bottom, #FCFEFF , #CDE9FE)'
-		},
-		{
-			rutaImagen: 'assets/img/home/menu3-400x250.webp',
-			titulo: 'Licitaciones',
-			subtitulo: 'Todos las licitaciones de obras, contratos menores de nuestro Ayuntamiento',
-			funcion: () => this.licitaciones(),
-			textButton: 'Licitaciones',
-			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
-		},
-		{
-			rutaImagen: 'assets/img/home/menu3-400x250.webp',
-			titulo: 'Entes dependientes',
-			subtitulo: 'Entes dependientes del Ayuntamiento',
-			funcion: () => this.entes(),
-			textButton: 'Entes',
-			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
-		},
-		{
-			rutaImagen: 'assets/img/home/menu3-400x250.webp',
-			titulo: 'Temas generales',
-			subtitulo: 'Temas no incluidos en otros apartados',
-			funcion: () => this.temas(),
-			textButton: 'Temas',
-			background: 'linear-gradient(to bottom, #F1F8E9 , #DCEDC8)'
-		},
-		{
-			rutaImagen: 'assets/img/home/menu4-400x250.webp',
-			titulo: 'Empleados municipales',
-			subtitulo: 'Información sobre los empleados de nuestro Ayuntamiento',
-			funcion: () => this.empleados(),
-			textButton: 'Empleados',
-			background: 'linear-gradient(to bottom, #F5F5F5 , #E0E0E0)'
-		}
+		this.createCardMenu(
+			'Visión global',
+			'/visionGlobal',
+			'assets/img/home/menu1-400x250.webp',
+			'Para que tengas una idea general de los ingresos y gastos del Ayuntamiento de Jerez.'
+		),
+		this.createCardMenu(
+			'Detalle del presupuesto',
+			'/detalle',
+			'assets/img/home/menu2-400x250.webp',
+			'Educación, protección y bienestar social, cultura... ¿Qué área te interesa?'
+		),
+		this.createCardMenu(
+			'Licitaciones',
+			'/licitaciones',
+			'assets/img/home/menu3-400x250.webp',
+			'Todos las licitaciones de obras, contratos menores de nuestro Ayuntamiento'
+		),
+		this.createCardMenu(
+			'Entes dependientes',
+			'/entesDependientes',
+			'assets/img/home/menu3-400x250.webp',
+			'Entes dependientes del Ayuntamiento'
+		),
+		this.createCardMenu(
+			'Temas generales',
+			'/temas',
+			'assets/img/home/menu3-400x250.webp',
+			'Temas no incluidos en otros apartados'
+		),
+		this.createCardMenu(
+			'Empleados municipales',
+			'/empleados',
+			'assets/img/home/menu4-400x250.webp',
+			'Información sobre los empleados de nuestro Ayuntamiento'
+		)
 	];
 
-	visionGlobal() {
-		this._router.navigateByUrl('/visionGlobal');
+	createCardMenu(titulo: string, ruta: string, rutaImagen: string, subtitulo: string) {
+		return {
+			rutaImagen,
+			titulo,
+			subtitulo,
+			textButton: titulo,
+			background: defaultBackground,
+			funcion: () => this.navigate(ruta)
+		};
 	}
 
-	detalle() {
-		this._router.navigateByUrl('/detalle');
-	}
-
-	licitaciones() {
-		// window.open('https://con.ocmjerez.org/', '_blank');
-		this._router.navigateByUrl('/licitaciones');
-	}
-
-	entes() {
-		this._router.navigateByUrl('/entesDependientes');
-	}
-
-	temas() {
-		this._router.navigateByUrl('/temas');
-	}
-
-	empleados() {
-		this._router.navigateByUrl('/empleados');
+	navigate(ruta: string) {
+		this._router.navigateByUrl(ruta);
 	}
 }
