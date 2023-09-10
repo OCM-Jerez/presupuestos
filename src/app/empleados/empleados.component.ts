@@ -4,6 +4,8 @@ import { NgFor } from '@angular/common';
 
 import { CardMenuComponent } from '../commons/components/card-menu/card-menu.component';
 
+const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
+
 @Component({
 	selector: 'app-empleados',
 	templateUrl: './empleados.component.html',
@@ -15,29 +17,32 @@ export default class EmpleadosComponent {
 	private _router = inject(Router);
 
 	cardMenus = [
-		{
-			rutaImagen: 'assets/img/home/menu1-400x250.webp',
-			titulo: 'Retribuciones',
-			subtitulo: 'Retribuciones 2022 empleados. Sin incluir antigüedad..',
-			funcion: () => this.retribuciones2022(),
-			textButton: 'Retribuciones',
-			background: 'linear-gradient(to bottom, #FFFDFC , #FCE1CB)'
-		},
-		{
-			rutaImagen: 'assets/img/home/menu2-400x250.webp',
-			titulo: 'RPT',
-			subtitulo: 'Relación puestos de trabajo. Incluye complemento específico anual.',
-			funcion: () => this.rpt(),
-			textButton: 'RPT',
-			background: 'linear-gradient(to bottom, #FCFEFF , #CDE9FE)'
-		}
+		this.createCardMenu(
+			'Retribuciones',
+			'/retribuciones2022',
+			'assets/img/home/menu1-400x250.webp',
+			'Retribuciones 2022 empleados. Sin incluir antigüedad.'
+		),
+		this.createCardMenu(
+			'RPT',
+			'/rpt',
+			'assets/img/home/menu2-400x250.webp',
+			'Relación puestos de trabajo. Incluye complemento específico anual.'
+		)
 	];
 
-	rpt() {
-		this._router.navigateByUrl('/rpt');
+	createCardMenu(titulo: string, ruta: string, rutaImagen: string, subtitulo: string) {
+		return {
+			rutaImagen,
+			titulo,
+			subtitulo,
+			textButton: titulo,
+			background: defaultBackground,
+			funcion: () => this.navigate(ruta)
+		};
 	}
 
-	retribuciones2022() {
-		this._router.navigateByUrl('/retribuciones2022');
+	navigate(ruta: string) {
+		this._router.navigateByUrl(ruta);
 	}
 }
