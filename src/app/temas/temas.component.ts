@@ -17,9 +17,9 @@ export default class TemasComponent {
 	cardMenus = [
 		this.createCard('Museo del belén', 'museoBelen'),
 		this.createCard('Palacio Riquelme', 'palacioRiquelme'),
-		this.createCard('Mesa del Caballo', 'mesaCaballo')
-
-		// this.createCard('Parque La Canaleja', 'laCanaleja2023'),
+		this.createCard('Mesa del Caballo', 'mesaCaballo'),
+		this.createCard('Asesores', 'asesores'),
+		this.createCard('Asta Regia', 'astaRegia')
 	];
 
 	createCard(titulo: string, route: string) {
