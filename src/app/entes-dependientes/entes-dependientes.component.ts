@@ -17,6 +17,7 @@ export default class EntesDependientesComponent {
 
 	cardMenus = [
 		this.createCard('Fundación Universitaria (Teatro Villamarta)', 'fundarte')
+
 		// this.createCard('Parque La Canaleja', 'laCanaleja2023'),
 	];
 
