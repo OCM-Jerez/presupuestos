@@ -109,10 +109,10 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 						Definitivas: yearsDefinitivas[index],
 						Netas: yearsNetas[index] //RecaudacionNeta
 					};
-					if (index === 2022 || index === environment.currentYear) {
-						value.Definitivas = yearsIniciales[index];
-						value.Netas = yearsNetas[index - 1];
-					}
+					// if (index === 2023 || index === environment.currentYear) {
+					// 	value.Definitivas = yearsIniciales[index];
+					// 	value.Netas = yearsNetas[index - 1];
+					// }
 					this.data.push(value);
 				}
 			}
