@@ -1,0 +1,986 @@
+[
+	{
+		"codigo": 10000,
+		"descripcion": "Impuestos sobre la Renta de las Personas Físicas.",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 11200,
+		"descripcion": "Impuesto sobre Bienes Inmuebles de Naturaleza Rústica",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 11300,
+		"descripcion": "Impuesto sobre Bienes Inmuebles de Naturaleza Urbana",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 11400,
+		"descripcion": "Impuesto sobre Bienes Inmuebles de características especiales",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 11500,
+		"descripcion": "Impuesto sobre Vehículos de Tracción Mecánica",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 11600,
+		"descripcion": "Impuesto sobre Incremento del Valor de los Terrenos de Naturaleza Urbana",
+		"Observaciones": "",
+		"news": [
+			{
+				"date": "",
+				"medio": "",
+				"title": "",
+				"URL": ""
+			},
+			{
+				"date": "11 septiembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "El Ayuntamiento de Jerez compensa la caída de la plusvalía con la mejora de la actividad urbanística",
+				"URL": "https://www.diariodejerez.es/jerez/caida-recaudacion-plusvalia-ayuntamiento-jerez_0_1825917741.html"
+			},
+			{
+				"date": "31 octubre 2021",
+				"medio": "Diario de Jerez",
+				"title": "No habrá justicia si no se resarce todo el daño hecho a las familias por la plusvalía",
+				"URL": "https://www.diariodejerez.es/jerez/abogado-jose-cepero-sentencia-plusvalia_0_1624638566.html"
+			}
+		]
+	},
+	{
+		"codigo": 13000,
+		"descripcion": "Impuesto sobre Actividades Económicas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 13001,
+		"descripcion": "Distribución cuotas nacionales IAE",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 13002,
+		"descripcion": "Distribución cuotas provinciales IAE",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 21000,
+		"descripcion": "Impuesto sobre el Valor Añadido",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 22000,
+		"descripcion": "Impuestos sobre el alcohol y bebidas derivadas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 22001,
+		"descripcion": "Impuesto sobre la cerveza",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 22003,
+		"descripcion": "Impuestos sobre las labores del tabaco",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 22004,
+		"descripcion": "Impuestos sobre hidrocarburos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 22006,
+		"descripcion": "Impuestos sobre productos intermedios",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 29000,
+		"descripcion": "Impuestos sobre construcciones, instalaciones y obras (ICIO)",
+		"Observaciones": "",
+		"news": [
+			{
+				"date": "",
+				"medio": "",
+				"title": "",
+				"URL": ""
+			},
+			{
+				"date": "11 septiembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "El Ayuntamiento de Jerez obtiene más ingresos por la actividad urbanística que antes del covid",
+				"URL": "El Ayuntamiento de Jerez obtiene más ingresos por la actividad urbanística que antes del covid"
+			}
+		]
+	},
+	{
+		"codigo": 29100,
+		"descripcion": "Impuestos sobre gastos suntuarios cotos de caza y pesca",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 30000,
+		"descripcion": "Tasas por servicio de",
+		"Observaciones": "Completar descripción. Solo existe en 2016"
+	},
+	{
+		"codigo": 30001,
+		"descripcion": "Servicio de abastecimiento de agua ELA Torrecera",
+		"Observaciones": "Nuevo liquidacion 06.05.2021"
+	},
+	{
+		"codigo": 30100,
+		"descripcion": "Tasas por servicio de alcantarillado",
+		"Observaciones": "Nuevo en liquidacion 2017"
+	},
+	{
+		"codigo": 30200,
+		"descripcion": "Tasas por servicio recogida de basura",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 30300,
+		"descripcion": "Tasas servicio de tratamiento de",
+		"Observaciones": "Nuevo en liquidacion 2017. Solo existe en 2016"
+	},
+	{
+		"codigo": 30901,
+		"descripcion": "Tasas prestación servicios cementerio municipal",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 30902,
+		"descripcion": "Tasas extinción de incendios y salvamentos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 30903,
+		"descripcion": "Tasas servicios especiales de vigilancia, control prot.",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 32100,
+		"descripcion": "Tasas licencias urbanísticas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 32201,
+		"descripcion": "Tasas licencias de aperturas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 32500,
+		"descripcion": "Tasas por expedición de documentos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 32600,
+		"descripcion": "Tasas retirada de vehículos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 32901,
+		"descripcion": "Tasas por celebración de matrimonios civiles",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33000,
+		"descripcion": "Tasas de estacionamiento de vehículos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33100,
+		"descripcion": "Tasa por entrada de vehículos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33204,
+		"descripcion": "Tasa utilización superficies y servicios estación autobús",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33401,
+		"descripcion": "Ingresos por canalizaciones vía pública",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34402,
+		"descripcion": "Taquillas fiestas bulerias",
+		"Observaciones": "Nuevo en liquidacion 2017"
+	},
+	{
+		"codigo": 33501,
+		"descripcion": "Tasas ocupación vía pública gestionada por urbanismo",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33601,
+		"descripcion": "Tasas por alteración o interrupción del tráfico",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33701,
+		"descripcion": "Tasas ocupación suelo, vuelo o subsuelo por empresas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33800,
+		"descripcion": "Compensación de Telefónica de España S.A.",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33901,
+		"descripcion": "Tasas licencias autotaxi y vehículos de alquiler",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33902,
+		"descripcion": "Tasas utilización puestos en mercado de abastos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33903,
+		"descripcion": "Tasas ocupación con mercancias, materiales de construcción",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33904,
+		"descripcion": "Tasas ocupación con kioscos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33905,
+		"descripcion": "Tasas fijación anuncios y publicidad en el dominio público local",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33906,
+		"descripcion": "Tasas por ocupación con puestos, barracas, etc.",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33907,
+		"descripcion": "Tasas por instalación fijas, puestos, espectáculos, etc.",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 33908,
+		"descripcion": "Ocupación vía pública con mesas y sillas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34101,
+		"descripcion": "Precios públicos servicio ayuda a domicilio",
+		"Observaciones": "Nuevo en liquidacion 2021"
+	},
+	{
+		"codigo": 34201,
+		"descripcion": "Precios públicos matrículas Escuela de música",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34202,
+		"descripcion": "Servicios actividades de mayores",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34301,
+		"descripcion": "Precios públicos utilización de instalaciones deportivas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34302,
+		"descripcion": "Precios públicos matrículas competiciones hípicas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34303,
+		"descripcion": "Inscripciones deportivas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34403,
+		"descripcion": "Precios públicos por ventas de entradas Museo Arqueológico",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34404,
+		"descripcion": "Precios públicos por entradas al conjunto monumental El Alcázar",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34405,
+		"descripcion": "Precios públicos venta de entradas pruebas hípicas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34407,
+		"descripcion": "Taquilla Sala Compañía",
+		"Observaciones": "Nuevo en Cuenta General 2015"
+	},
+	{
+		"codigo": 34409,
+		"descripcion": "Precios públicos entrada en Claustros Santo Domingo",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34410,
+		"descripcion": "Precios públicos venta de entradas Zoológico",
+		"Observaciones": "Nuevo en Cuenta General 2015"
+	},
+	{
+		"codigo": 34902,
+		"descripcion": "Servicio Inspección Sanitaria Análisis",
+		"Observaciones": "Nuevo en liquidacion 2017"
+	},
+	{
+		"codigo": 34903,
+		"descripcion": "Precios públicos servicios de sanidad preventiva, desinfección, etc.",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34905,
+		"descripcion": "Celebración eventos privados Alcázar, P. Villavicencio, S. Com",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34906,
+		"descripcion": "Centros Sociales",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34907,
+		"descripcion": "Celebración eventos Claustros de Santo Domingo",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34908,
+		"descripcion": "Precios públicos servicio mantenimiento animales incautados",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34909,
+		"descripcion": "Precios públicos servicios informáticos y telecomunicaciones",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34910,
+		"descripcion": "Prestación de servicio recaudación",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 34911,
+		"descripcion": "Precios públicos Servicio recogida animales",
+		"Observaciones": "Nuevo en liquidacion 2017"
+	},
+	{
+		"codigo": 34912,
+		"descripcion": "Precios públicos publicidad Onda Jerez",
+		"Observaciones": "Nuevo en liquidación 2022"
+	},
+	{
+		"codigo": 36001,
+		"descripcion": "Ventas de libros",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 36002,
+		"descripcion": "Fotocopias",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 36003,
+		"descripcion": "Ventas objetos Museo Arqueológico",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 36400,
+		"descripcion": "Venta por máquinas expendedoras",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 38000,
+		"descripcion": "Reintegro avales",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 38001,
+		"descripcion": "Ejecución de aval incumplimiento contrato obras",
+		"Observaciones": "Nuevo liquidacion 06.05.2021"
+	},
+	{
+		"codigo": 38801,
+		"descripcion": "Ejecución de aval incumplimiento contrato obras",
+		"Observaciones": "Nuevo en prevision 2022"
+	},
+	{
+		"codigo": 38002,
+		"descripcion": "Incautación de fianzas",
+		"Observaciones": "Nuevo en ejecución 2022 01/09/2022"
+	},
+	{
+		"codigo": 38900,
+		"descripcion": "Otros reintegros de operaciones corrientes",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 38901,
+		"descripcion": "Anuncios a cargo de particulares",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 38902,
+		"descripcion": "Obras e instalaciones a cargo de particulares",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39100,
+		"descripcion": "Multas por infracciones urbanísticas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39110,
+		"descripcion": "Multas por infracciones tributarias y análogas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39120,
+		"descripcion": "Multas por infracciones de la Ordenanza de circulación",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39190,
+		"descripcion": "Otras multas y sanciones",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39191,
+		"descripcion": "Multas de ordenanzas municipales",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39192,
+		"descripcion": "Sanción salud pública",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39211,
+		"descripcion": "Recargo de apremio",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39300,
+		"descripcion": "Intereses de demora",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39610,
+		"descripcion": "Cuotas de urbanización",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39690,
+		"descripcion": "Convenios urbanísticos",
+		"Observaciones": "Nuevo en 2020"
+	},
+	{
+		"codigo": 39710,
+		"descripcion": "Otros ingresos por aprovechamientos urbanísticos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39900,
+		"descripcion": "Otros ingresos diversos destinados PMS",
+		"Observaciones": "Nuevo en prevision 2022"
+	},
+	{
+		"codigo": 39901,
+		"descripcion": "Ingresos diversos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39902,
+		"descripcion": "Imprevistos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39903,
+		"descripcion": "Recursos telefonos",
+		"Observaciones": "Nuevo en prevision 2022"
+	},
+	{
+		"codigo": 39904,
+		"descripcion": "Ingresos extraordinarios derivados",
+		"Observaciones": "Nuevo en Cuenta General 2015"
+	},
+	{
+		"codigo": 39907,
+		"descripcion": "Ingresos de fincas no urbanizables",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39909,
+		"descripcion": "Indennización por CIA",
+		"Observaciones": "Nuevo en Cuenta General 2015"
+	},
+	{
+		"codigo": 39911,
+		"descripcion": "Ingresos costas judiciales",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39912,
+		"descripcion": "Costas contratos defensa y respresentacion juridica",
+		"Observaciones": "Nuevo en liquidación 2022"
+	},
+	{
+		"codigo": 39913,
+		"descripcion": "Ingresos por publicidad a cargo de particulares",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39916,
+		"descripcion": "Aprovechamiento urbanístico PMS",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39918,
+		"descripcion": "Ingresos por ejecución obras a cargo particulares",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39919,
+		"descripcion": "Indemnizaciones en bienes y derechos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39920,
+		"descripcion": "Servicio recogida residuos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 39921,
+		"descripcion": "Otros ingresos diversos AJEMSA",
+		"Observaciones": "Nuevo en liquidacion 2017"
+	},
+	{
+		"codigo": 39922,
+		"descripcion": "Ingresos por multas coercitivas",
+		"Observaciones": "Nuevo en liquidacion 2021"
+	},
+	{
+		"codigo": 39923,
+		"descripcion": "Otros ingresos diversos por ventas",
+		"Observaciones": "Nuevo en liquidacion 2021"
+	},
+	{
+		"codigo": 39924,
+		"descripcion": "Prestac patrim carácter no tributario por act.ord.suelo rúst",
+		"Observaciones": "Nuevo liquidacion 2023"
+	},
+	{
+		"codigo": 39925,
+		"descripcion": "Prest. Patr. Gen. Ener. Re. (PPGER)",
+		"Observaciones": "Nuevo liquidacion 2023"
+	},
+	{
+		"codigo": 42001,
+		"descripcion": "Otras transferencias del Estado déficit autobuses",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 42007,
+		"descripcion": "Otros ingresos Administración General del Estado",
+		"Observaciones": "Nuevo liquidacion 06.05.2021"
+	},
+	{
+		"codigo": 42009,
+		"descripcion": "Subvención Ministerio de Sanidad Plan Nacional sobre drogas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 42010,
+		"descripcion": "Fondo complementario de financiación",
+		"Observaciones": "Nuevo en prevision 2022"
+	},
+	{
+		"codigo": 42020,
+		"descripcion": "Compensación por beneficios fiscales",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 42090,
+		"descripcion": "Otras transferencias corrientes de la Administración General",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 42094,
+		"descripcion": "Conv. prestaciones básicas servicios sociales comunitarios",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 42101,
+		"descripcion": "Transferencias Instituto Nacional de Estadística",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 42107,
+		"descripcion": "Subvención IMSERSO",
+		"Observaciones": "Nuevo en Cuenta General 2016"
+	},
+	{
+		"codigo": 42122,
+		"descripcion": "De Organismo Autónomo Programas Educativos Europeos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 42124,
+		"descripcion": "De Organismos Autónomos y agencias estatales",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 42190,
+		"descripcion": "De otros Organismos Autónomos y agencias",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 42201,
+		"descripcion": "De fundaciones estatales",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 44100,
+		"descripcion": "De sociedades mercantiles",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 45000,
+		"descripcion": "Participacion en los tributos de la Comunidad Autónoma",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 45002,
+		"descripcion": "Transferencias en materia de servicios sociales y políticas de igualdad",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 45030,
+		"descripcion": "Transferencias corrientes en cumplimiento de convenios suscritos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 45050,
+		"descripcion": "Transferencias corrientes",
+		"Observaciones": "Nuevo en Cuenta General 2015"
+	},
+	{
+		"codigo": 45060,
+		"descripcion": "Otras transferencias corrientes en cumplimiento de convenios",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 45080,
+		"descripcion": "Otras subvenciones corrientes de la Administración General del Estado",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 45081,
+		"descripcion": "Transf.corrientes Admon.Gral.Comunidad Autónoma-MRR Mecanism",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 45100,
+		"descripcion": "Instituto Andaluz de la Mujer",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 45101,
+		"descripcion": "De FAISEM Fundación Andaluza",
+		"Observaciones": "Nuevo en liquidacion 2017"
+	},
+	{
+		"codigo": 45103,
+		"descripcion": "De la Agencia Andaluza de Instituciones Culturales",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 45106,
+		"descripcion": "Subvenciones Instituto Andaluz de la Juventud",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 45107,
+		"descripcion": "Subvenciones Servicio Andaluz de Empleo",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 45108,
+		"descripcion": "Agencia de Servicios Sociales y Dependencia de Andalucía",
+		"Observaciones": "Nuevo en liquidacion 2021"
+	},
+	{
+		"codigo": 46117,
+		"descripcion": "Diputación Provincial de Cádiz",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 46600,
+		"descripcion": "De otras entidades que agrupen municipios",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 46800,
+		"descripcion": "De entidades locales autonomas",
+		"Observaciones": "Nuevo en liquidacion 2021"
+	},
+	{
+		"codigo": 47000,
+		"descripcion": "De empresas privadas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 48000,
+		"descripcion": "Transferencias a Instituciones sin animo de lucro",
+		"Observaciones": "Nuevo en prevision 2022"
+	},
+	{
+		"codigo": 49000,
+		"descripcion": "Transferencias de La Unión europea",
+		"Observaciones": "Nuevo en prevision 2022"
+	},
+	{
+		"codigo": 49700,
+		"descripcion": "Transf.corrientes Admon.Gral.Comunidad Autónoma-MRR Mecanism",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 51100,
+		"descripcion": "Intereses de préstamos concedios a Organ. Autónomos y a",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 49701,
+		"descripcion": "Transferencias de la Unión Europea. Fondo Recuperación- Next Generation EU",
+		"Observaciones": "Nuevo liquidacion 2023"
+	},
+	{
+		"codigo": 51400,
+		"descripcion": "Intereses de préstamos concedidos a sociedades mercantiles,E",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 52000,
+		"descripcion": "Intereses de depósito",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 53410,
+		"descripcion": "De sociedades y entidades no dependientes de la entidades locales",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 54100,
+		"descripcion": "Arrendamientos de fincas urbanas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 55000,
+		"descripcion": "Concesiones administrativas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 55903,
+		"descripcion": "Vallas publicitarias",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 59000,
+		"descripcion": "Patrocinio y publicidad Deportes",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 59002,
+		"descripcion": "Patrocinio eventos de fiestas",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 59003,
+		"descripcion": "Patrocinio y publicidad zoo",
+		"Observaciones": "Nuevo en prevision 2022"
+	},
+	{
+		"codigo": 59005,
+		"descripcion": "Patrocinio y publicidad",
+		"Observaciones": "Nuevo en prevision 2022"
+	},
+	{
+		"codigo": 59900,
+		"descripcion": "Otros ingresos patrimoniales",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 59901,
+		"descripcion": "Patrocinio actos culturales",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 59902,
+		"descripcion": "Patrocinio eventos fiestas",
+		"Observaciones": "Nuevo en Cuenta General 2015"
+	},
+	{
+		"codigo": 59906,
+		"descripcion": "Sponsorización eventos de Fomento",
+		"Observaciones": "Nuevo en liquidacion 2017"
+	},
+	{
+		"codigo": 59908,
+		"descripcion": "Ingresos publicidad TV y radio",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 60000,
+		"descripcion": "Venta de solares (No PMS)",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 60300,
+		"descripcion": "Enajenaciones PMS",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 61000,
+		"descripcion": "De las demás inversiones reales",
+		"Observaciones": "Nuevo en liquidacion 2021"
+	},
+	{
+		"codigo": 61900,
+		"descripcion": "De otras inversiones reales elementos de transporte",
+		"Observaciones": "Nuevo en liquidacion 2021"
+	},
+	{
+		"codigo": 72000,
+		"descripcion": "Transferencias capital Administración General del Estado",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 72112,
+		"descripcion": "Instituto de la Juventud",
+		"Observaciones": "Nuevo en liquidacion 2017"
+	},
+	{
+		"codigo": 72190,
+		"descripcion": "De otros Organismos Autónomos y agencias",
+		"Observaciones": "Nuevo en Cuenta General 2016"
+	},
+	{
+		"codigo": 75012,
+		"descripcion": "Transferencias de capital",
+		"Observaciones": "Nuevo en Cuenta General 2015"
+	},
+	{
+		"codigo": 75030,
+		"descripcion": "Transferencias de capital en cumplimiento de convenios suscritos",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 75060,
+		"descripcion": "Otras transferencias de capital en cumplimiento de convenios",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 75080,
+		"descripcion": "Otras transferencias de capital de la Administración General del Estado",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 75081,
+		"descripcion": "Transf.capital Admon.Gral.Comunidad Autónoma-MRR Mecanismo R",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 75100,
+		"descripcion": "Transferencias capital Organismos Autónomos y Agencias CCAA",
+		"Observaciones": "Nuevo en 2020"
+	},
+	{
+		"codigo": 76100,
+		"descripcion": "Transferencia de capital de Diputación Provincial de Cádiz",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 76117,
+		"descripcion": "De Diputaciones, Consejos o Cabildos",
+		"Observaciones": "Nuevo en prevision 2022"
+	},
+	{
+		"codigo": 76800,
+		"descripcion": "De Entidades Locales Menores",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 77000,
+		"descripcion": "De empresas privadas",
+		"Observaciones": "Nuevo en 2020"
+	},
+	{
+		"codigo": 78000,
+		"descripcion": "De familias e instituciones sin animo de lucro",
+		"Observaciones": "Nuevo en Cuenta General 2016"
+	},
+	{
+		"codigo": 78001,
+		"descripcion": "De la Asociación para el desarrollo rural de la campiña de Jerez",
+		"Observaciones": "Nuevo liquidacion 06.05.2021"
+	},
+	{
+		"codigo": 79007,
+		"descripcion": "Del Fondo Social Europeo",
+		"Observaciones": "Nuevo en 2020"
+	},
+	{
+		"codigo": 79700,
+		"descripcion": "Otras transferencias de la Unión Europea",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 79701,
+		"descripcion": "Fondo Recuperación-Next Generation EU",
+		"Observaciones": "Nuevo en liquidacion  01/12/2022"
+	},
+	{
+		"codigo": 82120,
+		"descripcion": "De Entidades locales",
+		"Observaciones": "Nuevo en liquidacion 2017"
+	},
+	{
+		"codigo": 83001,
+		"descripcion": "Reintegro de anticipos al personal a corto plazo",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 83101,
+		"descripcion": "Reintegro de anticipos al personal a largo plazo",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 87010,
+		"descripcion": "Para gastos con financiación afectada",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 91100,
+		"descripcion": "Préstamos recibidos a largo plazo de entes del sector público",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 91101,
+		"descripcion": "Préstamo Fondo Ordenación sentencias judiciales firmes",
+		"Observaciones": ""
+	},
+	{
+		"codigo": 91301,
+		"descripcion": "Prestamos recibidos a largo plazo de entes fuera del sector público",
+		"Observaciones": ""
+	}
+]
