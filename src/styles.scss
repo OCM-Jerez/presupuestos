@@ -101,6 +101,23 @@
 		margin-bottom: 0px;
 	}
 
+	.OCM-title-dark {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100 hw;
+		color: rgb(250, 248, 248);
+		background-color: #15202b;
+		font-weight: 700;
+		font-family: var(--fuente-principal);
+		// font-size: clamp(3rem, 4rem, 5rem);
+		font-size: 4rem;
+		text-align: center;
+		margin-top: 5px;
+		padding-top: 20px;
+		margin-bottom: 0px;
+	}
+
 	.OCM-subtitle {
 		display: flex;
 		align-items: center;
