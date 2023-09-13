@@ -1,4 +1,5 @@
 <h2 class="OCM-title-dark">Licitaciones</h2>
+
 <div class="flex">
 	<div class="flex__cardMenu" *ngFor="let menu of cardMenus" [style.background]="menu.background">
 		<app-card-licitacion [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
