@@ -6,6 +6,10 @@ export default [
 		loadComponent: () => import('./home/home.component')
 	},
 	{
+		path: 'presupuestos',
+		loadComponent: () => import('./presupuestos/presupuestos.component')
+	},
+	{
 		path: 'visionGlobal',
 		loadComponent: () => import('./vision-global/vision-global.component')
 	},

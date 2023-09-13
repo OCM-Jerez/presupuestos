@@ -7,20 +7,47 @@
 @import '/src/app/scss/utilities';
 
 @media screen and (max-width: 3399.98px) {
-	.flex {
-		display: grid;
-		grid-auto-columns: 1fr;
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
-		padding-left: 20px;
-		padding-right: 20px;
+	.flex1 {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		height: 200px;
+		gap: 0px;
+
+		padding: 20px;
 		background-color: #15202b;
+	}
+
+	.flex2 {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		height: 850px;
+
+		background-color: #15202b;
+	}
+
+	.flex__cardInfo {
+		display: flex;
+		justify-content: center;
+		flex-basis: 40%;
+		padding: 1em;
+		// border: 1px solid #fff;
+	}
+
+	.flex__cardTable {
+		display: flex;
+		flex-direction: column;
+		// justify-content: center;
+		flex-basis: 60%;
+		padding: 1em;
+		// border: 1px solid #fff;
 	}
 
 	.flex__cardMenu {
 		display: flex;
 		flex-basis: 20%;
-		height: 90%;
+		height: 35%;
 		margin: 1.5rem;
 		padding: 1em;
 		border: 1px solid rgb(147, 138, 138);
