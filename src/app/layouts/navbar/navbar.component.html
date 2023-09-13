@@ -10,15 +10,30 @@
 			<input *ngIf="!collapsed" class="menu-btn" type="checkbox" id="menu-btn" />
 			<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
 			<ul *ngIf="!collapsed" class="menu">
-				<li><a (click)="inicio()">Inicio</a></li>
-				<li><a (click)="visionGlobal()">Visión global</a></li>
-				<li>
-					<a (click)="detalle()">Detalle del presupuesto</a>
+				<li class="nav-item">
+					<a class="nav-link" (click)="navigateTo('/')">Inicio</a>
 				</li>
-				<li><a (click)="licitaciones()">Licitaciones</a></li>
-				<li><a (click)="empleados()">Empleados</a></li>
-				<li><a (click)="explicamos()">Te lo explicamos</a></li>
-				<li><a (click)="glosario()">¿Qué significa ...?</a></li>
+				<li class="nav-item">
+					<a class="nav-link" (click)="navigateTo('/presupuestos')">Presupuestos</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" (click)="navigateTo('/licitaciones')">Licitaciones</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" (click)="navigateTo('/entesDependientes')">Entes</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" (click)="navigateTo('/temas')">Temas</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" (click)="navigateTo('/empleados')">Empleados</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" (click)="navigateTo('/explicamos')">Explicamos</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" (click)="navigateTo('/glosario')">Glosario</a>
+				</li>
 			</ul>
 		</header>
 	</div>

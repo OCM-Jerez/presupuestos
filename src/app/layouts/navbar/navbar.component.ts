@@ -13,59 +13,17 @@ export class NavbarComponent {
 	private _router = inject(Router);
 	public collapsed = false;
 
-	inicio() {
-		this._router.navigateByUrl('/');
-		this.collapsed = true;
-		setTimeout(() => {
-			this.collapsed = false;
-		}, 0);
-	}
-	visionGlobal() {
-		this._router.navigateByUrl('/visionGlobal');
-		this.collapsed = true;
-		setTimeout(() => {
-			this.collapsed = false;
-		}, 0);
+	navigateTo(route: string) {
+		this._router.navigateByUrl(route);
+		this.toggleCollapse(true);
 	}
 
-	detalle() {
-		this._router.navigateByUrl('/detalle');
-		this.collapsed = true;
-		setTimeout(() => {
-			this.collapsed = false;
-		}, 0);
-	}
-
-	licitaciones() {
-		// window.open('https://con.ocmjerez.org/', '_blank');
-		this._router.navigateByUrl('/licitaciones');
-		this.collapsed = true;
-		setTimeout(() => {
-			this.collapsed = false;
-		}, 0);
-	}
-
-	empleados() {
-		this._router.navigateByUrl('/empleados');
-		this.collapsed = true;
-		setTimeout(() => {
-			this.collapsed = false;
-		}, 0);
-	}
-
-	explicamos() {
-		this._router.navigateByUrl('/explicamos');
-		this.collapsed = true;
-		setTimeout(() => {
-			this.collapsed = false;
-		}, 0);
-	}
-
-	glosario() {
-		this._router.navigateByUrl('/glosario');
-		this.collapsed = true;
-		setTimeout(() => {
-			this.collapsed = false;
-		}, 0);
+	toggleCollapse(state: boolean) {
+		this.collapsed = state;
+		if (state) {
+			setTimeout(() => {
+				this.collapsed = false;
+			}, 0);
+		}
 	}
 }
