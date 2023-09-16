@@ -1,0 +1,158 @@
+[
+	{
+		"codigo": 0,
+		"descripcion": "Servicios centrales"
+	},
+	{
+		"codigo": 1,
+		"descripcion": "Presidencia"
+	},
+	{
+		"codigo": 2,
+		"descripcion": "Empleo"
+	},
+	{
+		"codigo": 3,
+		"descripcion": "Recursos humanos"
+	},
+	{
+		"codigo": 4,
+		"descripcion": "Medio rural"
+	},
+	{
+		"codigo": 5,
+		"descripcion": "Igualdad y salud"
+	},
+	{
+		"codigo": 6,
+		"descripcion": "Deportes"
+	},
+	{
+		"codigo": 7,
+		"descripcion": "Infraestructuras"
+	},
+	{
+		"codigo": 8,
+		"descripcion": "Cultura"
+	},
+	{
+		"codigo": 9,
+		"descripcion": "Medio ambiente"
+	},
+	{
+		"codigo": 10,
+		"descripcion": "Urbanismo"
+	},
+	{
+		"codigo": 11,
+		"descripcion": "Participacion ciudadana"
+	},
+	{
+		"codigo": 12,
+		"descripcion": "Educación"
+	},
+	{
+		"codigo": 13,
+		"descripcion": "Distritos"
+	},
+	{
+		"codigo": 14,
+		"descripcion": "Gestión del patrimonio"
+	},
+	{
+		"codigo": 15,
+		"descripcion": "Fiestas y festejos populares"
+	},
+	{
+		"codigo": 16,
+		"descripcion": "Bienestar social y del mayor"
+	},
+	{
+		"codigo": 17,
+		"descripcion": "Economía y hacienda"
+	},
+	{
+		"codigo": 18,
+		"descripcion": "Juventud"
+	},
+	{
+		"codigo": 19,
+		"descripcion": "Seguridad"
+	},
+	{
+		"codigo": 20,
+		"descripcion": "Mercados"
+	},
+	{
+		"codigo": 21,
+		"descripcion": "Movilidad",
+		"news": [
+			{
+				"date": "",
+				"medio": "",
+				"title": "",
+				"URL": ""
+			},
+			{
+				"date": "15 septiembre 2023",
+				"medio": "La Voz del Sur",
+				"title": "Jerez, por ahora, en dirección prohibida hacia la Agenda 2030. El gobierno municipal favorece el aparcamiento en el centro –y, en consecuencia, el acceso en vehículo privado– cuando debería pensar ya qué área va a ocupar la obligatoria, por ley, Zona de Bajas Emisiones",
+				"URL": "https://www.lavozdelsur.es/opinion/editorial-lavozdelsur/jerez-por-ahora-en-sentido-contrario-agenda-2030_302003_102.html?fbclid=IwAR25vGhpSEhupic_PUeoP6LNapIc55bNdJjfJfjPvpU3clfob6PfOBzAiT0"
+			},
+			{
+				"date": "14 septiembre 2023",
+				"medio": "La Voz del Sur",
+				"title": "El Ayuntamiento firma un acuerdo que permite aparcar 12 horas en el centro de Jerez por un euro y medio. Además, repartirán 4.000 vales gratuitos de media hora para que los padres y madres de colegios como Beaterio y Miguel de Cervantes puedan recoger en coche a sus hijos",
+				"URL": "https://www.lavozdelsur.es/ediciones/jerez/ayuntamiento-firma-acuerdo-permite-aparcar-12-horas-en-centro-jerez-por-euro-medio_301999_102.html"
+			}
+		]
+	},
+	{
+		"codigo": 22,
+		"descripcion": "Turismo"
+	},
+	{
+		"codigo": 23,
+		"descripcion": "Planes Especiales"
+	},
+	{
+		"codigo": 24,
+		"descripcion": "Zoologico-Montes Propios"
+	},
+	{
+		"codigo": 25,
+		"descripcion": "Promoción y gestión vivienda",
+		"news": [
+			{
+				"date": "",
+				"medio": "",
+				"title": "",
+				"URL": ""
+			},
+			{
+				"date": "13 septiembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "Más de 2.600 personas están en lista de espera para comprar una vivienda de promoción pública en Jerez",
+				"URL": "https://www.diariodejerez.es/jerez/Jerez-lista-espera-comprar-vivienda-publica_0_1829518327.html"
+			},
+			{
+				"date": "13 septiembre 2023",
+				"medio": "Portal de Cádiz",
+				"title": "La Junta de Andalucía planea construir 222 viviendas sociales en Jerez pese a licitación desierta",
+				"URL": "https://www.portaldecadiz.com/provinciacadiz/87715-la-junta-de-andalucia-planea-construir-222-viviendas-sociales-en-jerez-pese-a-licitacion-desierta"
+			},
+			{
+				"date": "11 septiembre 2023",
+				"medio": "Andalucía información",
+				"title": "El desarrollo en Jerez de 222 viviendas de alquiler se queda en el aire",
+				"URL": "https://andaluciainformacion.es/provincia-de-cadiz/1352156/el-desarrollo-en-jerez-de-222-viviendas-de-alquiler-se-queda-en-el-aire/"
+			},
+			{
+				"date": "9 febrero 2023",
+				"medio": "La Voz del Sur",
+				"title": "Estas serán las zonas de Jerez que tendrán 222 nuevas ecoviviendas públicas de alquiler social y asequibles",
+				"URL": "https://www.lavozdelsur.es/ediciones/jerez/estas-seran-zonas-jerez-222-nuevas-ecoviviendas-alquiler-social-asequibles_290523_102.html"
+			}
+		]
+	}
+]
