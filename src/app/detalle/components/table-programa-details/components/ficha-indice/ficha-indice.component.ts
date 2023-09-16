@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import programasInfo from '@assets/data/programasInfo.json';
+import organicosInfo from '@assets/data/gastosOrganicosInfo.json';
 
 import { CardInfoComponent } from '@app/commons/components/card-info/card-info.component';
 
@@ -44,6 +45,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 	private _subscription: Subscription;
 	private _datos: IDataGasto[] = [];
 	public programa: string;
+	// public organico: string;
 	public codigo: string;
 	public DataTotalesPresupuesto: IDataTotalesPresupuesto = {};
 
@@ -65,21 +67,28 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 			this._datos = data;
 
 			if (this._datos?.[0]) {
-				this.programa = this._datos[0].DesPro;
-				this.codigo = this._datos[0].CodPro;
-				const codigoBuscar = this._datos[0].CodPro;
-				const programaData = programasInfo.find((element) => element.codigo === +codigoBuscar);
+				if (this._datos[0].hasOwnProperty('CodPro')) {
+					this.programa = 'Programa ' + this._datos[0].CodPro + ' ' + this._datos[0].DesPro;
+					this.codigo = this._datos[0].CodPro;
+					const codigoBuscar = this._datos[0].CodPro;
+					const programaData = programasInfo.find((element) => element.codigo === +codigoBuscar);
 
-				if (programaData) {
-					this.cartaServiciosURL = programaData.cartaServicios?.[1]?.URL;
-					this.cartaServiciosUltimaActualizacion = programaData.cartaServicios?.[0]?.ultimaActualizacion;
-					this.indicadores2017URL = programaData.indicadores?.[2]?.URL;
-					this.indicadoresYear = programaData.indicadores?.[2]?.year;
+					if (programaData) {
+						this.cartaServiciosURL = programaData.cartaServicios?.[1]?.URL;
+						this.cartaServiciosUltimaActualizacion = programaData.cartaServicios?.[0]?.ultimaActualizacion;
+						this.indicadores2017URL = programaData.indicadores?.[2]?.URL;
+						this.indicadoresYear = programaData.indicadores?.[2]?.year;
+					}
+				} else {
+					this.programa = 'Orgánico ' + this._datos[0].CodOrg + ' ' + this._datos[0].DesOrg;
+					this.codigo = this._datos[0].CodOrg;
+					const codigoBuscar = this._datos[0].CodOrg;
+					// const programaData = programasInfo.find((element) => element.codigo === +codigoBuscar);
 				}
 			}
 		});
 
-		this.filteredNews = (await this.filterNewsByCode(+this.codigo)) as any[];
+		this.filteredNews = (await this.filterNewsByCode(+this.codigo)) as unknown[];
 		this._newsLength = this.filteredNews.length - 1;
 		this._newsText = this._newsLength <= 0 ? 'Sin entradas' : this._newsLength.toString() + ' entradas';
 
@@ -258,11 +267,19 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 	async news(codigo) {
 		this.filteredNews = await this.filterNewsByCode(+codigo);
 		this._newsLength = this.filteredNews.length;
+		this._newsLength = this.filteredNews.length - 1;
+		this._newsText = this._newsLength <= 0 ? 'Sin entradas' : this._newsLength.toString() + ' entradas';
 		this._router.navigateByUrl(`/fichaNews/${codigo}`);
 	}
 
 	async filterNewsByCode(codigo: number) {
-		const data = await import(`@assets/data/programasInfo.json`);
+		let data: any = [];
+		if (this._datos[0].hasOwnProperty('CodPro')) {
+			data = programasInfo;
+		} else {
+			data = organicosInfo;
+		}
+
 		for (const key in data) {
 			if (data[key].codigo === codigo) {
 				return data[key].news || [];

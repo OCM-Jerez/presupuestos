@@ -174,7 +174,6 @@ const CLASIFICATION: IClasificationObject = {
 			{ name: 'Gráfico detallado', path: '/graphDetalle' },
 			{
 				name: 'Programas que componen orgánico seleccionado',
-				// path: '/tableGrupoProgramaDetails',
 				path: '/tableProgramaDetails',
 				param: 'organico'
 			}

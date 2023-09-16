@@ -65,6 +65,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private _dataTable: IDataTable;
 	private _gridApi: GridApi;
 	private _rowData: IDataGasto[] = [];
+	private _rowDataFicha: IDataGasto[] = [];
 	private _subHeaderName = '';
 	private sub: Subscription;
 	private _appPresupuestarias = [];
@@ -178,18 +179,13 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		const codigoSearch = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
 		const clasificationType = this._dataStoreService.dataTable.clasificationType;
 
-		console.log(this._path);
-
 		if (this._path === 'gastan') {
 			cod = clasificationType === 'gastosEconomicaCapitulos' ? 'CodCap' : 'CodEco';
 		} else {
 			cod = 'CodOrg';
 		}
+
 		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x[cod] == codigoSearch);
-		console.log(codigoSearch);
-
-		console.log(this._rowData);
-
 		const SelectedYears = this._avalaibleYearsService.getYearsSelected();
 		const targetYears = SelectedYears.length === 1 ? [1] : SelectedYears;
 		const totalsByCodPro = {};
@@ -234,6 +230,61 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		}
 
 		this._rowData = Object.values(totalsByCodPro);
+		if (this._path === 'gastan') {
+			// code
+		} else {
+			cod = 'CodOrg';
+			this._rowDataFicha = (await this._prepareDataGastosService.getDataAllYear()).filter(
+				(x) => x[cod] == codigoSearch
+			);
+
+			const SelectedYears = this._avalaibleYearsService.getYearsSelected();
+			const targetYears = SelectedYears.length === 1 ? [1] : SelectedYears;
+			const totalsByCodOrg = {};
+			const fields = [
+				'Definitivas',
+				'GastosComprometidos',
+				'Iniciales',
+				'Modificaciones',
+				'ObligacionesPendientePago',
+				'ObligacionesReconocidasNetas',
+				'Pagos',
+				'RemanenteCredito'
+			];
+
+			// Preparación: inicializar el objeto de totales con estructura básica
+			this._rowDataFicha.forEach((item) => {
+				if (!totalsByCodOrg[item.CodOrg]) {
+					totalsByCodOrg[item.CodOrg] = {
+						CodOrg: item.CodOrg,
+						DesOrg: item.DesOrg
+						// CodPro: item.CodPro,
+						// DesPro: item.DesPro
+					};
+				}
+			});
+
+			// Totalización
+			for (const year of targetYears) {
+				this._rowDataFicha.forEach((item) => {
+					fields.forEach((field) => {
+						const key = `${field}${year}`;
+
+						// Asegura que la propiedad exista e inicialízala a 0 si no existe
+						if (!totalsByCodOrg[item.CodOrg][key]) {
+							totalsByCodOrg[item.CodOrg][key] = 0;
+						}
+
+						// Suma los valores
+						if (item[key]) {
+							totalsByCodOrg[item.CodOrg][key] += item[key];
+						}
+					});
+				});
+			}
+
+			this._rowDataFicha = Object.values(totalsByCodOrg);
+		}
 	}
 
 	_setGridOptions() {
@@ -453,7 +504,11 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	ficha() {
-		this._dataStoreFichaProgramaService.setFichaProgramaData(this._rowData);
+		if (this._path === 'details') {
+			this._dataStoreFichaProgramaService.setFichaProgramaData(this._rowData);
+		} else {
+			this._dataStoreFichaProgramaService.setFichaProgramaData(this._rowDataFicha);
+		}
 		// Update the browser's URL without navigating
 		this._location.go('/fichaIndice');
 		// this._router.navigate(['/fichaPrograma'], { queryParams: null, queryParamsHandling: 'merge' });

@@ -2,7 +2,11 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
+import { Subscription } from 'rxjs';
+
 import { CardTableNewsComponent } from './components/card-table-news/card-table-news.component';
+import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
+import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 @Component({
 	selector: 'app-ficha-news',
@@ -14,6 +18,10 @@ import { CardTableNewsComponent } from './components/card-table-news/card-table-
 export default class FichaNewsComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
 	private _location = inject(Location);
+	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
+
+	private _subscription: Subscription;
+	private _datos: IDataGasto[] = [];
 
 	public filteredNews = [];
 	public programa: string;
@@ -24,10 +32,21 @@ export default class FichaNewsComponent implements OnInit {
 	}
 
 	async filterNewsByCode(codigo: number) {
-		const data = await import(`@assets/data/programasInfo.json`);
+		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IDataGasto[]) => {
+			this._datos = data;
+		});
+
+		let data: any = [];
+		if (this._datos[0].hasOwnProperty('CodPro')) {
+			data = await import(`@assets/data/programasInfo.json`);
+			this.programa = 'Programa ' + this._datos[0].CodPro + ' ' + this._datos[0].DesPro;
+		} else {
+			data = await import(`@assets/data/gastosOrganicosInfo.json`);
+			this.programa = 'Orgánico ' + this._datos[0].CodOrg + ' ' + this._datos[0].DesOrg;
+		}
+
 		for (const key in data) {
 			if (data[key].codigo === codigo) {
-				this.programa = data[key].descripcion;
 				return data[key].news || [];
 			}
 		}
