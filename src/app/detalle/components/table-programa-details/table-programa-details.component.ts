@@ -19,8 +19,6 @@ import {
 import { CellRendererOCM, CellRendererOCMtext } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { getColumnDefsDetails } from './components/getColumnDefsDetails';
-// import { getColumnDefsGastan } from '../../../ag-grid/setColumnDefs/grupos-programas';
-// import { getColumnDefsAppPresupuestaria } from '../../../ag-grid/setColumnDefs/aplicacion-presupuestaria';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
@@ -104,7 +102,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this._dataTable = this._dataStoreService.dataTable;
 		this._clasificationType = this._dataTable.clasificationType;
 
-		// const selectedYear = this._avalaibleYearsService.getYearsSelected();
 		const programa = this._dataStoreService.selectedCodeRowFirstLevel.split(' - ')[1];
 
 		switch (this._path) {
@@ -139,7 +136,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			case 'gastan':
 				this.title = 'Programas que gastan del económico ' + programa;
 				await this._CalcDataGastan();
-				// this._columnDefs = getColumnDefsGastan(this._avalaibleYearsService);
 				this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService, 'gastanEconomico');
 				this._setGridOptions();
 				this.titleButtom = 'Seleccionar programa para ver su detalle';
@@ -149,7 +145,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			case 'organico':
 				this.title = 'Programas que componen el orgánico ' + programa;
 				await this._CalcDataGastan();
-				// this._columnDefs = getColumnDefsGastan(this._avalaibleYearsService);
 				this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService, 'gastanOrganico');
 				this._setGridOptions();
 				this.titleButtom = 'Seleccionar programa para ver su detalle';
@@ -158,7 +153,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			case 'appPresupuestaria':
 				this.title = 'Aplicación presupuestaria ' + programa;
 				await this._CalcDataGastan();
-				// this._columnDefs = getColumnDefsGastan(this._avalaibleYearsService);
 				this._columnDefs = getColumnDefsDetails(this._avalaibleYearsService, 'appPresupuestaria');
 				this._setGridOptions();
 				this.showButtomExpanded = false;
@@ -170,29 +164,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this.sub.unsubscribe();
 	}
 
-	async _CalcDataDetailsOLD(CodFilter: string) {
-		this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
-		const codigoSearch = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0].toString();
-		// this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x.CodGru == +codigoSearch);
-		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter(
-			(x) => x[CodFilter].toString() === codigoSearch
-		);
-
-		this._rowData = Object.values(
-			this._rowData.reduce((acc, obj) => {
-				const key = obj.CodEco;
-				// Si el objeto con 'CodEco' no existe en el acumulador, lo agregamos
-				if (!acc[key]) {
-					acc[key] = { ...obj };
-				} else {
-					// Si ya existe un objeto con el mismo 'CodEco', combinamos ambos objetos
-					acc[key] = { ...acc[key], ...obj };
-				}
-				return acc;
-			}, {})
-		);
-	}
-
 	async _CalcDataDetails(CodFilter: string) {
 		this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
 		const codigoSearch = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0].toString();
@@ -200,56 +171,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter(
 			(x) => x[CodFilter].toString() === codigoSearch
 		);
-
-		// this._rowData = Object.values(
-		// 	this._rowData.reduce((acc, obj) => {
-		// 		const key = obj.CodEco;
-
-		// 		// Si el objeto con 'CodEco' no existe en el acumulador, lo agregamos
-		// 		if (!acc[key]) {
-		// 			acc[key] = { ...obj };
-		// 		} else {
-		// 			// Lista de campos numéricos que deseamos sumar (ajusta según tus necesidades)
-		// 			const fieldsToSum = [
-		// 				'Definitivas1',
-		// 				'GastosComprometidos1',
-		// 				'Iniciales1',
-		// 				'Modificaciones1',
-		// 				'ObligacionesPendientePago1',
-		// 				'ObligacionesReconocidasNetas1',
-		// 				'Pagos1',
-		// 				'RemanenteCredito1',
-		// 				'Definitivas2022',
-		// 				'GastosComprometidos2022',
-		// 				'Iniciales2022',
-		// 				'Modificaciones2022',
-		// 				'ObligacionesPendientePago2022',
-		// 				'ObligacionesReconocidasNetas2022',
-		// 				'Pagos2022',
-		// 				'RemanenteCredito2022',
-		// 				'Definitivas2023',
-		// 				'GastosComprometidos2023',
-		// 				'Iniciales2023',
-		// 				'Modificaciones2023',
-		// 				'ObligacionesPendientePago2023',
-		// 				'ObligacionesReconocidasNetas2023',
-		// 				'Pagos2023',
-		// 				'RemanenteCredito2023'
-		// 			];
-
-		// 			// Sumamos cada campo para el mismo 'CodEco'
-		// 			fieldsToSum.forEach((field) => {
-		// 				if (acc[key][field] !== undefined && obj[field] !== undefined) {
-		// 					acc[key][field] += obj[field];
-		// 				}
-		// 			});
-		// 		}
-
-		// 		return acc;
-		// 	}, {})
-		// );
-
-		// console.log('Datos Agrupados y Totalizados:', this._rowData);
 	}
 
 	async _CalcDataGastan() {
@@ -257,12 +178,17 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		const codigoSearch = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0];
 		const clasificationType = this._dataStoreService.dataTable.clasificationType;
 
+		console.log(this._path);
+
 		if (this._path === 'gastan') {
 			cod = clasificationType === 'gastosEconomicaCapitulos' ? 'CodCap' : 'CodEco';
 		} else {
 			cod = 'CodOrg';
 		}
 		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter((x) => x[cod] == codigoSearch);
+		console.log(codigoSearch);
+
+		console.log(this._rowData);
 
 		const SelectedYears = this._avalaibleYearsService.getYearsSelected();
 		const targetYears = SelectedYears.length === 1 ? [1] : SelectedYears;
