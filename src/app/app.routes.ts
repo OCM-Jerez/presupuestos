@@ -52,6 +52,14 @@ export default [
 		loadComponent: () => import('./deuda/components/deuda-viva/deuda-viva.component')
 	},
 	{
+		path: 'datosEconomicos',
+		loadComponent: () => import('./datos-economicos/datos-economicos.component')
+	},
+	{
+		path: 'datosEconomicos/pmp',
+		loadComponent: () => import('./datos-economicos/components/pmp/pmp.component')
+	},
+	{
 		path: 'fichaEmpleados',
 		loadComponent: () =>
 			import('./detalle/components/table-programa-details/components/ficha-personal/ficha-personal.component')

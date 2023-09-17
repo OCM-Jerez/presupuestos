@@ -31,6 +31,13 @@ export default class HomeComponent {
 		),
 		this.createCardMenu('Deuda', '/deuda', 'assets/deuda/deuda.jpg', 'Información sobre la deuda'),
 		this.createCardMenu(
+			'Datos económicos',
+			'/datosEconomicos',
+			'assets/datosEconomicos/datosEconomicos.jpg',
+			'Información económica'
+		),
+
+		this.createCardMenu(
 			'Entes dependientes',
 			'/entesDependientes',
 			'assets/entes/fundarte/fundarte.jpg',

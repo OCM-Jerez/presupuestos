@@ -1,0 +1,34 @@
+<div class="volver">
+	<button type="button" class="OCM-button" (click)="volver()">Volver</button>
+</div>
+
+<h1 class="OCM-title">Periodo Medio de Pago a proveedores (PMP)</h1>
+
+<div class="imgGraph">
+	<img src="./../../../../assets/datosEconomicos/pmp/2023-07.jpg" alt="Grafico deuda viva" />
+</div>
+
+<h1 class="OCM-title">Noticias</h1>
+
+<div class="cardTableHome">
+	<table class="paleBlueRows">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Medio</th>
+				<th>Título</th>
+				<th>URL</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let new of news">
+				<ng-container *ngIf="new.URL !== ''">
+					<td>{{ new.date }}</td>
+					<td>{{ new.medio }}</td>
+					<td>{{ new.title }}</td>
+					<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+				</ng-container>
+			</tr>
+		</tbody>
+	</table>
+</div>
