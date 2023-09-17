@@ -40,6 +40,18 @@ export default [
 			)
 	},
 	{
+		path: 'deuda',
+		loadComponent: () => import('./deuda/deuda.component')
+	},
+	{
+		path: 'deuda/deudaTotal',
+		loadComponent: () => import('./deuda/components/deudaTotal/deudaTotal.component')
+	},
+	{
+		path: 'deuda/deudaViva',
+		loadComponent: () => import('./deuda/components/deuda-viva/deuda-viva.component')
+	},
+	{
 		path: 'fichaEmpleados',
 		loadComponent: () =>
 			import('./detalle/components/table-programa-details/components/ficha-personal/ficha-personal.component')

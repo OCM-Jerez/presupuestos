@@ -29,6 +29,7 @@ export default class HomeComponent {
 			'assets/img/home/menu3-400x250.webp',
 			'Todos las licitaciones de obras, contratos menores de nuestro Ayuntamiento'
 		),
+		this.createCardMenu('Deuda', '/deuda', 'assets/deuda/deuda.jpg', 'Información sobre la deuda'),
 		this.createCardMenu(
 			'Entes dependientes',
 			'/entesDependientes',
