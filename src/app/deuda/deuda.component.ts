@@ -15,11 +15,14 @@ const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 })
 export default class DeudaComponent {
 	private _router = inject(Router);
-	cardMenus = [this.createCard('Deuda total', 'deudaTotal'), this.createCard('Deuda viva', 'deudaViva')];
+	cardMenus = [
+		this.createCard('Deuda total', 'deudaTotal'),
+		this.createCard('Deuda viva', 'deudaViva'),
+		this.createCard('Fondo de ordenación', 'fondoOrdenacion'),
+		this.createCard('Plan de ajuste', 'planAjuste')
+	];
 
 	createCard(titulo: string, route: string) {
-		console.log('createCard', titulo, route);
-
 		return {
 			titulo,
 			// Tamaño de la imagen 910x682

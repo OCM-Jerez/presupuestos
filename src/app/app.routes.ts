@@ -52,6 +52,18 @@ export default [
 		loadComponent: () => import('./deuda/components/deuda-viva/deuda-viva.component')
 	},
 	{
+		path: 'deuda/fondoOrdenacion',
+		loadComponent: () => import('./deuda/components/fondo-ordenacion/fondo-ordenacion.component')
+	},
+	{
+		path: 'deuda/planAjuste',
+		loadComponent: () => import('./deuda/components/plan-ajuste/plan-ajuste.component')
+	},
+	{
+		path: 'deuda/planAjuste20230918',
+		loadComponent: () => import('./deuda/components/plan-ajuste/plan-ajuste20230918/plan-ajuste20230918.component')
+	},
+	{
 		path: 'datosEconomicos',
 		loadComponent: () => import('./datos-economicos/datos-economicos.component')
 	},

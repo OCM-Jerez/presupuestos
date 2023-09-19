@@ -179,7 +179,21 @@
 	},
 	{
 		"codigo": 16310,
-		"descripcion": "Limpieza viaria"
+		"descripcion": "Limpieza viaria",
+		"news": [
+			{
+				"date": "",
+				"medio": "",
+				"title": "",
+				"URL": ""
+			},
+			{
+				"date": "18 septiembre 2023",
+				"medio": "La Voz del Sur",
+				"title": "El Ayuntamiento de Jerez negociará con la concesionaria de limpieza para tener más personal y maquinaria",
+				"URL": "https://www.lavozdelsur.es/ediciones/jerez/ayuntamiento-jerez-negociara-con-concesionaria-limpieza-tener-mas-personal-maquinaria_302202_102.html"
+			}
+		]
 	},
 	{
 		"codigo": 16410,
