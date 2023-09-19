@@ -36,6 +36,12 @@ export default class HomeComponent {
 			'assets/datosEconomicos/datosEconomicos.jpg',
 			'Información económica'
 		),
+		this.createCardMenu(
+			'Comisiones',
+			'/comisiones',
+			'assets/datosEconomicos/datosEconomicos.jpg',
+			'Información comisiones'
+		),
 
 		this.createCardMenu(
 			'Entes dependientes',

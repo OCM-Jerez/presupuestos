@@ -1,0 +1,18 @@
+<h2 class="OCM-title-dark">Comisiones de Pleno permanentes</h2>
+
+<div class="flex">
+	<div class="flex__cardMenu" *ngFor="let menu of comisionesPermanentes" [style.background]="menu.background">
+		<app-card-comision [titulo]="menu.titulo" (click)="menu.funcion()" />
+	</div>
+</div>
+<br />
+<br />
+
+<h2 class="OCM-title-dark">Comisiones de Pleno especiales</h2>
+
+<div class="flex">
+	<div class="flex__cardMenu" *ngFor="let menu of comisionesEspeciales" [style.background]="menu.background">
+		<app-card-comision [titulo]="menu.titulo" (click)="menu.funcion()" />
+	</div>
+</div>
+```

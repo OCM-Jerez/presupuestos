@@ -39900,10 +39900,22 @@
 		"situacion": "VACANTE",
 		"news": [
 			{
+				"date": "19 septiembre 2023",
+				"medio": "La Voz del Sur",
+				"title": "Jerez ya tiene interventor, dos años y medio después del fallecimiento del anterior",
+				"URL": "https://www.lavozdelsur.es/ediciones/jerez/jerez-ya-tiene-interventor-dos-anos-medio-despues-fallecimiento-anterior_302256_102.html"
+			},
+			{
 				"date": "5 septiembre 2023",
 				"medio": "Diario de Jerez",
 				"title": "El Ayuntamiento de Jerez ya tiene nuevo interventor, José María Almenara Ruiz tomará posesión en próximas semanas",
 				"URL": "https://www.diariodejerez.es/jerez/Nuevo-interventor-ayuntamiento-jerez-almenara-ruiz_0_1827117619.html"
+			},
+			{
+				"date": "10 abril 2012",
+				"medio": "La Voz del Sur",
+				"title": "Fallece el interventor del Ayuntamiento de Jerez tras un mes luchando contra la co",
+				"URL": "https://www.lavozdelsur.es/actualidad/salud/fallece-interventor-ayuntamiento-jerez-mes-luchando-contra-covid_258377_102.html"
 			}
 		]
 	},

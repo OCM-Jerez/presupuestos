@@ -44,6 +44,14 @@ export default [
 		loadComponent: () => import('./deuda/deuda.component')
 	},
 	{
+		path: 'comisiones',
+		loadComponent: () => import('./comisiones/comisiones.component')
+	},
+	{
+		path: 'comision/:comision',
+		loadComponent: () => import('./comisiones/components/comision/comision.component')
+	},
+	{
 		path: 'deuda/deudaTotal',
 		loadComponent: () => import('./deuda/components/deudaTotal/deudaTotal.component')
 	},
