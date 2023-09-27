@@ -20,7 +20,8 @@ export default class TemasComponent {
 		this.createCard('Mesa del Caballo', 'mesaCaballo'),
 		this.createCard('Asesores', 'asesores'),
 		this.createCard('Asta Regia', 'astaRegia'),
-		this.createCard('Navidad', 'Navidad')
+		this.createCard('Navidad', 'Navidad'),
+		this.createCard('Feria', 'feria')
 	];
 
 	createCard(titulo: string, route: string) {
