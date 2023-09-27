@@ -6,6 +6,18 @@
 		"URL": ""
 	},
 	{
+		"date": "26 septiembre 2023",
+		"medio": "La Voz del sur",
+		"title": "Piden al delegado de Cultura de Jerez que comparezca para explicar el contrato con una asesora",
+		"URL": "https://www.lavozdelsur.es/ediciones/jerez/piden-delegado-cultura-jerez-comparezca-explicar-contrato-con-asesora_302632_102.html"
+	},
+	{
+		"date": "18 septiembre 2020",
+		"medio": "Mira Jerez",
+		"title": "Mamen Sánchez cuenta con 11 asesores por los que Jerez paga 250.000 euros",
+		"URL": "https://www.elmira.es/articulo/jerez/mamen-sanchez-cuenta-con-11-asesores-por-los-que-paga-jerez-250-mil-euros/20200918185734193412.html"
+	},
+	{
 		"date": "13 septiembre 2023",
 		"medio": "La Voz del sur",
 		"title": "La asesora del gobierno de Jerez afirma que el contrato sería -poco ético- si no se hubiese cancelado",
@@ -28,11 +40,5 @@
 		"medio": "Viva Jerez",
 		"title": "El PP incrementa un 55% el coste de sus asesores",
 		"URL": "https://vivajerez.es/jerez/1349601/el-pp-incrementa-un-55-el-coste-de-sus-asesores/"
-	},
-	{
-		"date": "18 septiembre 2020",
-		"medio": "Mira Jerez",
-		"title": "Mamen Sánchez cuenta con 11 asesores por los que Jerez paga 250.000 euros",
-		"URL": "https://www.elmira.es/articulo/jerez/mamen-sanchez-cuenta-con-11-asesores-por-los-que-paga-jerez-250-mil-euros/20200918185734193412.html"
 	}
 ]

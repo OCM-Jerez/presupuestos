@@ -1,7 +1,27 @@
 [
 	{
-		" ": "01110",
-		"descripcion": "Deuda pública"
+		"codigo": 1110,
+		"descripcion": "Deuda pública",
+		"news": [
+			{
+				"date": "",
+				"medio": "",
+				"title": "",
+				"URL": ""
+			},
+			{
+				"date": "26 septiembre 2023",
+				"medio": "La Voz del Sur",
+				"title": "El Ayuntamiento de Jerez busca la fórmula para pagar 30 millones a Hacienda antes del 31 de diciembre",
+				"URL": "https://www.lavozdelsur.es/ediciones/jerez/ayuntamiento-jerez-busca-pagar-30-millones-hacienda-antes-31-diciembre-2023_302664_102.html"
+			},
+			{
+				"date": "27 septiembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "El gobierno de Jerez pide un -margen de confianza- a Hacienda para refinanciar la deuda municipal",
+				"URL": "https://www.diariodejerez.es/jerez/gobierno-jerez-margen-confianza-refinanciar-deuda_0_1833717187.html"
+			}
+		]
 	},
 	{
 		"codigo": 13010,
@@ -100,6 +120,12 @@
 				"medio": "",
 				"title": "",
 				"URL": ""
+			},
+			{
+				"date": "19 septiembre 2023",
+				"medio": "Viva Jerez",
+				"title": "Jerez renovará toda su flota con autobuses eléctricos",
+				"URL": "https://vivajerez.es/jerez/1359456/jerez-renovara-toda-su-flota-con-autobuses-electricos/"
 			},
 			{
 				"date": "29 Agosto 2023",

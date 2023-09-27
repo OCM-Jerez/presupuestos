@@ -41,7 +41,27 @@
 	},
 	{
 		"codigo": 10,
-		"descripcion": "Urbanismo"
+		"descripcion": "Urbanismo",
+		"news": [
+			{
+				"date": "",
+				"medio": "",
+				"title": "",
+				"URL": ""
+			},
+			{
+				"date": "26 septiembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "El PSOE tras el visto bueno a ampliar Bodegas Williams: -La Junta está paralizando este proyecto desde 2021-",
+				"URL": "https://www.diariodejerez.es/jerez/psoe-ampliacion-bodegas-williams-jerez_0_1833417408.html"
+			},
+			{
+				"date": "26 septiembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "La Junta de Andalucía aprueba ahora la ampliación de Bodegas Williams",
+				"URL": "https://www.diariodejerez.es/jerez/Aprobada-modificacion-pgou-ampliacion-bodegas-williams_0_1833417361.html"
+			}
+		]
 	},
 	{
 		"codigo": 11,
@@ -128,6 +148,12 @@
 				"medio": "",
 				"title": "",
 				"URL": ""
+			},
+			{
+				"date": "27 septiembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "La Confluencia exige a la Junta que reactive el proyecto de construcción de viviendas de alquiler social en Jerez",
+				"URL": "https://www.diariodejerez.es/jerez/Confluencia-Junta-construccion-viviendas-alquiler-social-Jerez_0_1833716846.html"
 			},
 			{
 				"date": "13 septiembre 2023",
