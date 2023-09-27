@@ -19,28 +19,28 @@ export default class ComisionesComponent {
 
 	comisionesPermanentes = [
 		this.createCard(
-			'COMISIÓN DE PRESIDENCIA, CENTRO HISTÓRICO, FONDOS EUROPEOS, COORDINACIÓN DE GOBIERNO Y ORDENACIÓN DEL TERRITORIO',
+			'Comisión de presidencia, centro histórico, fondos europeos, coordinación de gobierno y ordenación del territorio',
 			'presidencia'
 		),
 		this.createCard(
-			'COMISIÓN DE SERVICIOS PÚBLICOS, DESARROLLO SOSTENIBLE, MEDIO AMBIENTE, PROTECCIÓN ANIMAL Y PARTICIPACIÓN CIUDADANA',
+			'Comisión de servicios públicos, desarrollo sostenible, medio ambiente, protección animal y participación ciudadana',
 			'serviciosPublicos'
 		),
-		this.createCard('COMISIÓN DE INCLUSIÓN SOCIAL, FAMILIAS, IGUALDAD Y DIVERSIDAD Y MEDIO RURA', 'inclusion'),
-		this.createCard('COMISIÓN DE TURISMO, CULTURA, EDUCACIÓN, DEPORTES Y JUVENTUD', 'turismo'),
+		this.createCard('Comisión de inclusión social, familias, igualdad y diversidad y medio rural', 'inclusion'),
+		this.createCard('Comisión de turismo, cultura, educación, deportes y juventud', 'turismo'),
 		this.createCard(
-			'COMISIÓN DE EMPLEO, ECONOMÍA, PATRIMONIO, SEGURIDAD, RECURSOS HUMANOS, SIMPLIFICACIÓN ADMINISTRATIVA Y TRANSPARENCIA',
+			'Comisión de empleo, economía, patrimonio, seguridad, recursos humanos, simplificación administrativa y transparencia',
 			'patrimonio'
 		)
 	];
 
 	comisionesEspeciales = [
-		this.createCard('COMISIÓN ESPECIAL DE CUENTAS', 'cuentas'),
-		this.createCard('COMISIÓN ESPECIAL DE SUGERENCIAS Y RECLAMACIONES', 'sugerencias'),
-		this.createCard('COMISIÓN ESPECIAL DE CAPITALIDAD CULTURAL', 'capitabilidad'),
-		this.createCard('COMISIÓN ESPECIAL DE PRESUPUESTOS PARTICIPATIVOS', 'presupuestos'),
-		this.createCard('COMISIÓN ESPECIAL DE REGENERACIÓN DEMOCRÁTICA Y CALIDAD INSTITUCIONAL', 'regeneracion'),
-		this.createCard('COMISIÓN ESPECIAL DE IMPULSO Y SEGUIMIENTO DE LAS MESAS SECTORIALES', 'impulso')
+		this.createCard('Comisión especial de cuentas', 'cuentas'),
+		this.createCard('Comisión especial de sugerencias y reclamaciones', 'sugerencias'),
+		this.createCard('Comisión especial de capitalidad cultural', 'capitabilidad'),
+		this.createCard('Comisión especial de presupuestos participativos', 'presupuestos'),
+		this.createCard('Comisión especial de regeneración democrática y calidad institucional', 'regeneracion'),
+		this.createCard('Comisión especial de impulso y seguimiento de las mesas sectoriales', 'impulso')
 	];
 
 	createCard(titulo: string, route: string) {
