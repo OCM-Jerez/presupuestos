@@ -56,6 +56,12 @@ export default class HomeComponent {
 			'Temas no incluidos en otros apartados'
 		),
 		this.createCardMenu(
+			'Subvenciones, fondos y planes',
+			'/subvenciones',
+			'assets/temas/palacioRiquelme/palacioRiquelme.jpg',
+			'Subvenciones recibidas por el Ayuntamiento'
+		),
+		this.createCardMenu(
 			'Empleados municipales',
 			'/empleados',
 			'assets/img/home/menu4-400x250.webp',

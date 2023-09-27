@@ -118,6 +118,14 @@ export default [
 		loadComponent: () => import('./temas/components/tema/tema.component')
 	},
 	{
+		path: 'subvenciones',
+		loadComponent: () => import('./subvenciones/subvenciones.component')
+	},
+	{
+		path: 'subvenciones/:subvencion',
+		loadComponent: () => import('./subvenciones/components/subvencion/subvencion.component')
+	},
+	{
 		path: 'empleados',
 		loadComponent: () => import('./empleados/empleados.component')
 	},
