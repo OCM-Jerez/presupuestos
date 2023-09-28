@@ -23,7 +23,7 @@ export default class LicitacionesComponent {
 			background: defaultBackground
 		},
 		this.createCard('Mantenimiento señalización', 'manSeñal2020'),
-		this.createCard('Reordenación Puerta sevilla', 'puertaSevilla2023'),
+		this.createCard('Reordenación Puerta Sevilla', 'puertaSevilla2023'),
 		this.createCard('Parque La Canaleja', 'laCanaleja2023'),
 		this.createCard('Plaza Venus', 'plazaVenus2023'),
 		this.createCard('Las Calandrias', 'lasCalandrias2023'),
