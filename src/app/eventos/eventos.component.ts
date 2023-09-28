@@ -15,9 +15,10 @@ const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 export default class TemasComponent {
 	private _router = inject(Router);
 	cardMenus = [
-		this.createCard('Navidad', 'Navidad'),
+		this.createCard('Festival de Jerez', 'festivalJerez'),
 		this.createCard('Feria', 'feria'),
-		this.createCard('Festival de Jerez', 'festivalJerez')
+		this.createCard('Festival Internacional de titeres', 'titeres'),
+		this.createCard('Navidad', 'Navidad')
 	];
 
 	createCard(titulo: string, route: string) {
