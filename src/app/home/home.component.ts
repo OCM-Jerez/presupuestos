@@ -36,12 +36,7 @@ export default class HomeComponent {
 			'assets/datosEconomicos/datosEconomicos.jpg',
 			'Información económica'
 		),
-		this.createCardMenu(
-			'Comisiones',
-			'/comisiones',
-			'assets/datosEconomicos/datosEconomicos.jpg',
-			'Información comisiones'
-		),
+		this.createCardMenu('Comisiones', '/comisiones', 'assets/comisiones/comisiones.jpg', 'Información comisiones'),
 
 		this.createCardMenu(
 			'Entes dependientes',
@@ -55,11 +50,11 @@ export default class HomeComponent {
 			'assets/temas/palacioRiquelme/palacioRiquelme.jpg',
 			'Temas no incluidos en otros apartados'
 		),
-		this.createCardMenu('Eventos', '/eventos', 'assets/eventos/feria/feria.jpg', ''),
+		this.createCardMenu('Eventos culturales', '/eventos', 'assets/eventos/feria/feria.jpg', 'Navidad, feria, etc   .'),
 		this.createCardMenu(
 			'Subvenciones, fondos y planes',
 			'/subvenciones',
-			'assets/temas/palacioRiquelme/palacioRiquelme.jpg',
+			'assets/subvenciones/subvenciones.jpg',
 			'Subvenciones recibidas por el Ayuntamiento'
 		),
 		this.createCardMenu(
