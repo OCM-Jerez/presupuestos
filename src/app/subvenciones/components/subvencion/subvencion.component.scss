@@ -2,7 +2,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	height: 200px;
+	height: 400px;
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-top: 20px;
@@ -20,7 +20,7 @@
 }
 
 .cardTableSeguimiento:nth-child(1) {
-	width: 20%;
+	width: 100%;
 }
 
 .cardTableSeguimiento:nth-child(2) {
@@ -70,18 +70,18 @@ table.paleBlueRowsSeguimiento tbody {
 }
 
 .paleBlueRowsSeguimiento td:nth-child(1) {
-	width: 30%;
-	text-align: center;
+	width: 50%;
+	text-align: left;
 }
 
 .paleBlueRowsSeguimiento td:nth-child(2) {
-	width: 55%;
+	width: 44%;
 	text-align: left;
 }
 
 .paleBlueRowsSeguimiento td:nth-child(3) {
-	width: 15%;
-	text-align: center;
+	width: 6%;
+	text-align: right;
 }
 
 .cardTableHome {

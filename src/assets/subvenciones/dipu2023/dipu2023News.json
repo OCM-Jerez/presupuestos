@@ -6,9 +6,33 @@
 		"URL": ""
 	},
 	{
-		"date": "18 septiembre 2023",
+		"date": "27 septiembre 2023",
+		"medio": "La Voz del Sur",
+		"title": "Pelayo anuncia 13 proyectos en Jerez con fondos de Diputación: más de un millón para intramuros",
+		"URL": "https://www.lavozdelsur.es/ediciones/jerez/pelayo-anuncia-13-proyectos-jerez-fondos-diputacion-cadiz-intramuros-centro_302660_102.html"
+	},
+	{
+		"date": "27 septiembre 2023",
 		"medio": "Diario de Jerez",
-		"title": "El Ayuntamiento quiere adelantar el alumbrado de la Navidad en Jerez",
-		"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-adelantar-alumbrado-Navidad-Jerez_0_1831018395.html"
+		"title": "El Ayuntamiento de Jerez tiene hasta el 31 de diciembre para licitar las obras que hará con fondos de Diputación",
+		"URL": "https://www.diariodejerez.es/jerez/obras-ayuntamiento-jerez-fondos-diputacion_0_1833717446.html"
+	},
+	{
+		"date": "27 septiembre 2023",
+		"medio": "Diario de Jerez",
+		"title": "Almudena Martínez reafirma su compromiso con Guadalcacín y concreta próximas inversiones",
+		"URL": "https://www.diariodejerez.es/jerez/Almudena-Martinez-ELA-Guadalcacin-inversiones_0_1833717126.html"
+	},
+	{
+		"date": "21 septiembre 2023",
+		"medio": "Diario de Jerez",
+		"title": "Jerez recibirá más de 4 millones de Diputación para Riquelme y otros proyectos pendientes",
+		"URL": "https://www.diariodejerez.es/jerez/Jerez-Diputacion-millones-Riquelme-proyectos-pendientes_0_1831918195.html"
+	},
+	{
+		"date": "20 septiembre 2023",
+		"medio": "Diario de Jerez",
+		"title": "Diputación restaurará el templete municipal de Jerez y la Casa Palacio Riquelme",
+		"URL": "https://www.diariodejerez.es/jerez/Diputacion-inversiones-Templete-Jerez-Palacio-Riquelme_0_1831618139.html"
 	}
 ]

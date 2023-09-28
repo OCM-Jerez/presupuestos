@@ -3,17 +3,6 @@
 </div>
 
 <h1 class="OCM-title">{{ descripcion }}</h1>
-
-<div class="flex">
-	<div class="cardTableSeguimiento">
-		<img src="{{ imgURL }}" alt="Foto proyecto" />
-	</div>
-
-	<div class="cardTableSeguimiento"></div>
-
-	<div class="cardTableSeguimiento"></div>
-</div>
-
 <div class="cardTableHomeData">
 	<table class="paleBlueRowsData">
 		<tbody>
@@ -30,6 +19,29 @@
 			</tr>
 		</tbody>
 	</table>
+</div>
+
+<div class="flex">
+	<div class="cardTableSeguimiento">
+		<table class="paleBlueRowsSeguimiento">
+			<thead>
+				<tr>
+					<th>Descripción</th>
+					<th>Observaciones</th>
+					<th>Cuantia</th>
+					<!-- <th>Completada</th> -->
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let step of steps">
+					<td>{{ step.descripcion }}</td>
+					<td>{{ step.observaciones }}</td>
+					<td>{{ step.cuantia }}</td>
+					<!-- <td>{{ step.isFinish }}</td> -->
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
 
 <h1 class="OCM-title">Noticias</h1>

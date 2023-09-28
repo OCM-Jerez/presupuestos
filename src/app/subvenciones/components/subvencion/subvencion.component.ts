@@ -6,8 +6,9 @@ import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 
 interface IStep {
-	date: string;
-	step: string;
+	descripcion: string;
+	observaciones: string;
+	cuantia: string;
 	isFinish?: string;
 }
 
