@@ -118,6 +118,14 @@ export default [
 		loadComponent: () => import('./temas/components/tema/tema.component')
 	},
 	{
+		path: 'eventos',
+		loadComponent: () => import('./eventos/eventos.component')
+	},
+	{
+		path: 'eventos/:evento',
+		loadComponent: () => import('./eventos/components/evento/evento.component')
+	},
+	{
 		path: 'subvenciones',
 		loadComponent: () => import('./subvenciones/subvenciones.component')
 	},

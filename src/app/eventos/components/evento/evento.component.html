@@ -1,0 +1,58 @@
+<div class="volver">
+	<button type="button" class="OCM-button" (click)="volver()">Volver</button>
+</div>
+
+<h1 class="OCM-title">{{ descripcion }}</h1>
+
+<div class="flex">
+	<div class="cardTableSeguimiento">
+		<img src="{{ imgURL }}" alt="Foto proyecto" />
+	</div>
+
+	<div class="cardTableSeguimiento"></div>
+
+	<div class="cardTableSeguimiento"></div>
+</div>
+
+<div class="cardTableHomeData">
+	<table class="paleBlueRowsData">
+		<tbody>
+			<tr *ngFor="let data of dataLicitacion">
+				<!-- Solo muestra las filas donde 'data.value' no está vacío y 'data.URL' no es una clave o está vacío -->
+				<ng-container *ngIf="data.value !== '' && (!hasKey(data, 'URL') || (hasKey(data, 'URL') && data.URL !== ''))">
+					<td>{{ data.data }}</td>
+					<td>{{ data.value }}</td>
+					<!-- Solo muestra la columna de enlace cuando 'data.URL' no está vacío -->
+					<ng-container *ngIf="hasKey(data, 'URL') && data.URL !== ''">
+						<td><a href="{{ data.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+					</ng-container>
+				</ng-container>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h1 class="OCM-title">Noticias</h1>
+
+<div class="cardTableHome">
+	<table class="paleBlueRows">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Medio</th>
+				<th>Título</th>
+				<th>URL</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let new of news">
+				<ng-container *ngIf="new.URL !== ''">
+					<td>{{ new.date }}</td>
+					<td>{{ new.medio }}</td>
+					<td>{{ new.title }}</td>
+					<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+				</ng-container>
+			</tr>
+		</tbody>
+	</table>
+</div>

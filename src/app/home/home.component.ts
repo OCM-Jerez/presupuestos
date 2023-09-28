@@ -55,6 +55,7 @@ export default class HomeComponent {
 			'assets/temas/palacioRiquelme/palacioRiquelme.jpg',
 			'Temas no incluidos en otros apartados'
 		),
+		this.createCardMenu('Eventos', '/eventos', 'assets/eventos/feria/feria.jpg', ''),
 		this.createCardMenu(
 			'Subvenciones, fondos y planes',
 			'/subvenciones',
