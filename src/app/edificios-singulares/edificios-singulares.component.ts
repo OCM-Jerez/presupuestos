@@ -16,7 +16,8 @@ export default class EdificiosSingularesComponent {
 	private _router = inject(Router);
 	cardMenus = [
 		this.createCard('Palacio Riquelme', 'palacioRiquelme'),
-		this.createCard('Antiguo asilo San Jose', 'asiloSanJose')
+		this.createCard('Antiguo asilo San Jose', 'asiloSanJose'),
+		this.createCard('Antigua comisaria Policia Nacional', 'antiguaComisariaPoliciaNacional')
 	];
 
 	createCard(titulo: string, route: string) {

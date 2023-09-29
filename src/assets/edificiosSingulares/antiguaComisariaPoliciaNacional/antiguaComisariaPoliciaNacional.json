@@ -1,0 +1,15 @@
+[
+	{
+		"data": "Descripción",
+		"value": "Antigua comisaria Policia Nacional"
+	},
+	{
+		"data": "Observaciones",
+		"value": "Completar con los datos que se consideren oportunos"
+	},
+	{
+		"data": "Geolocalización",
+		"value": "Pulsar en el enlace para ver la ubicación",
+		"URL": "https://maps.app.goo.gl/p1kmvVjzCj5yPHnc7"
+	}
+]
