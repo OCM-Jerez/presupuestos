@@ -14,7 +14,10 @@ const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 })
 export default class EdificiosSingularesComponent {
 	private _router = inject(Router);
-	cardMenus = [this.createCard('Palacio Riquelme', 'palacioRiquelme')];
+	cardMenus = [
+		this.createCard('Palacio Riquelme', 'palacioRiquelme'),
+		this.createCard('Antiguo asilo San Jose', 'asiloSanJose')
+	];
 
 	createCard(titulo: string, route: string) {
 		return {
