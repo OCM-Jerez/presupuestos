@@ -38,7 +38,7 @@ export default class SubvencionesComponent {
 		return {
 			titulo,
 			// Tamaño de la imagen 910x682
-			rutaImagen: `assets/temas/${route}/${route}.jpg`,
+			rutaImagen: `assets/subvenciones/${route}/${route}.jpg`,
 			funcion: () => this._router.navigateByUrl(`/subvenciones/${route}`),
 			background: defaultBackground
 		};
