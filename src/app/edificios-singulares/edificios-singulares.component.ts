@@ -17,7 +17,8 @@ export default class EdificiosSingularesComponent {
 	cardMenus = [
 		this.createCard('Palacio Riquelme', 'palacioRiquelme'),
 		this.createCard('Antiguo asilo San Jose', 'asiloSanJose'),
-		this.createCard('Antigua comisaria Policia Nacional', 'antiguaComisariaPoliciaNacional')
+		this.createCard('Antigua comisaria Policia Nacional', 'antiguaComisariaPoliciaNacional'),
+		this.createCard('Antigua jefatura Policia Local', 'antiguaJefaturaPoliciaLocal')
 	];
 
 	createCard(titulo: string, route: string) {
