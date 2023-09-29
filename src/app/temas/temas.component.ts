@@ -16,7 +16,6 @@ export default class TemasComponent {
 	private _router = inject(Router);
 	cardMenus = [
 		this.createCard('Museo del belén', 'museoBelen'),
-		this.createCard('Palacio Riquelme', 'palacioRiquelme'),
 		this.createCard('Mesa del Caballo', 'mesaCaballo'),
 		this.createCard('Asesores', 'asesores'),
 		this.createCard('Asta Regia', 'astaRegia'),

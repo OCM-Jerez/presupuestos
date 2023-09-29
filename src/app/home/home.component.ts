@@ -44,12 +44,7 @@ export default class HomeComponent {
 			'assets/entes/fundarte/fundarte.jpg',
 			'Entes dependientes del Ayuntamiento'
 		),
-		this.createCardMenu(
-			'Temas generales',
-			'/temas',
-			'assets/temas/palacioRiquelme/palacioRiquelme.jpg',
-			'Temas no incluidos en otros apartados'
-		),
+
 		this.createCardMenu('Eventos culturales', '/eventos', 'assets/eventos/feria/feria.jpg', 'Navidad, feria, etc   .'),
 		this.createCardMenu(
 			'Subvenciones, fondos y planes',
@@ -62,6 +57,18 @@ export default class HomeComponent {
 			'/empleados',
 			'assets/img/home/menu4-400x250.webp',
 			'Información sobre los empleados de nuestro Ayuntamiento'
+		),
+		this.createCardMenu(
+			'Temas generales',
+			'/temas',
+			'assets/temas/ifeca/ifeca.jpg',
+			'Temas no incluidos en otros apartados'
+		),
+		this.createCardMenu(
+			'Edificios singulares',
+			'/edificiosSingulares',
+			'assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg',
+			'Edificos singulares por su construcción o antiguedad'
 		)
 	];
 

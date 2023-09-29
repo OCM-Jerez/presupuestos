@@ -118,6 +118,14 @@ export default [
 		loadComponent: () => import('./temas/components/tema/tema.component')
 	},
 	{
+		path: 'edificiosSingulares',
+		loadComponent: () => import('./edificios-singulares/edificios-singulares.component')
+	},
+	{
+		path: 'edificiosSingulares/:edificioSingular',
+		loadComponent: () => import('./edificios-singulares/components/edificio-singular/edificio-singular.component')
+	},
+	{
 		path: 'eventos',
 		loadComponent: () => import('./eventos/eventos.component')
 	},
