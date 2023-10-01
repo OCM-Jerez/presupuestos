@@ -24,13 +24,13 @@ interface INew {
 }
 
 @Component({
-	selector: 'app-la-canaleja2023',
+	selector: 'app-licitacion',
 	standalone: true,
 	imports: [CommonModule],
 	templateUrl: './licitacion.component.html',
 	styleUrls: ['./licitacion.component.scss']
 })
-export default class LaCanaleja2023Component implements OnInit {
+export default class LicitacionComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
 	private _location = inject(Location);
 	private http = inject(HttpClient);
@@ -64,173 +64,6 @@ export default class LaCanaleja2023Component implements OnInit {
 		};
 
 		fetchData(licitacion);
-	}
-
-	ngOnInitOLD() {
-		const licitacion = this._route.snapshot.paramMap.get('licitacion');
-
-		const assignDescripcion = (data: ILicitacion[]) => {
-			this.dataLicitacion = data;
-			const descripcionObj = this.dataLicitacion.find((obj) => obj.data === 'Descripción');
-			if (descripcionObj) {
-				this.descripcion = descripcionObj.value;
-			}
-		};
-
-		switch (licitacion) {
-			case 'puertaSevilla2023':
-				(this.imgURL = '/assets/licitaciones/puertaSevilla2023/puertaSevilla2023.jpg'),
-					this.http
-						.get<IStep[]>('/assets/licitaciones/puertaSevilla2023/puertaSevilla2023Steps.json')
-						.subscribe((data: IStep[]) => {
-							this.steps = data;
-						});
-
-				this.http
-					.get<ILicitacion[]>('/assets/licitaciones/puertaSevilla2023/puertaSevilla2023.json')
-					.subscribe(assignDescripcion);
-
-				this.http
-					.get<INew[]>('/assets/licitaciones/puertaSevilla2023/puertaSevilla2023News.json')
-					.subscribe((data: INew[]) => {
-						this.news = data;
-					});
-				break;
-
-			case 'laCanaleja2023':
-				this.imgURL = '/assets/licitaciones/laCanaleja2023/laCanaleja2023.jpg';
-
-				this.http
-					.get<IStep[]>('/assets/licitaciones/laCanaleja2023/laCanaleja2023Steps.json')
-					.subscribe((data: IStep[]) => {
-						this.steps = data;
-					});
-
-				this.http
-					.get<ILicitacion[]>('/assets/licitaciones/laCanaleja2023/laCanaleja2023.json')
-					.subscribe(assignDescripcion);
-
-				this.http
-					.get<INew[]>('/assets/licitaciones/laCanaleja2023/laCanaleja2023News.json')
-					.subscribe((data: INew[]) => {
-						this.news = data;
-					});
-				break;
-
-			case 'plazaVenus2023':
-				this.imgURL = '/assets/licitaciones/plazaVenus2023/plazaVenus2023.jpg';
-				this.http
-					.get<IStep[]>('/assets/licitaciones/plazaVenus2023/plazaVenus2023Steps.json')
-					.subscribe((data: IStep[]) => {
-						this.steps = data;
-					});
-
-				this.http
-					.get<ILicitacion[]>('/assets/licitaciones/plazaVenus2023/plazaVenus2023.json')
-					.subscribe(assignDescripcion);
-
-				this.http
-					.get<INew[]>('/assets/licitaciones/plazaVenus2023/plazaVenusNews2023.json')
-					.subscribe((data: INew[]) => {
-						this.news = data;
-					});
-				break;
-
-			case 'lasCalandrias2023':
-				(this.imgURL = '/assets/licitaciones/lasCalandrias2023/lasCalandrias2023.jpg'),
-					this.http
-						.get<IStep[]>('/assets/licitaciones/lasCalandrias2023/lasCalandrias2023Steps.json')
-						.subscribe((data: IStep[]) => {
-							this.steps = data;
-						});
-
-				this.http
-					.get<ILicitacion[]>('/assets/licitaciones/lasCalandrias2023/lasCalandrias2023.json')
-					.subscribe(assignDescripcion);
-
-				this.http
-					.get<INew[]>('/assets/licitaciones/lasCalandrias2023/lasCalandrias2023News.json')
-					.subscribe((data: INew[]) => {
-						this.news = data;
-					});
-				break;
-
-			case 'contenedoresOrganica2023':
-				(this.imgURL = '/assets/licitaciones/contenedoresOrganica2023/contenedoresOrganica2023.jpg'),
-					this.http
-						.get<IStep[]>('/assets/licitaciones/contenedoresOrganica2023/contenedoresOrganica2023Steps.json')
-						.subscribe((data: IStep[]) => {
-							this.steps = data;
-						});
-
-				this.http
-					.get<ILicitacion[]>('/assets/licitaciones/contenedoresOrganica2023/contenedoresOrganica2023.json')
-					.subscribe(assignDescripcion);
-
-				this.http
-					.get<INew[]>('/assets/licitaciones/contenedoresOrganica2023/contenedoresOrganica2023News.json')
-					.subscribe((data: INew[]) => {
-						this.news = data;
-					});
-				break;
-
-			case 'rehabilitacionCEIPNebrija2023':
-				(this.imgURL = '/assets/licitaciones/rehabilitacionCEIPNebrija2023/Nebrija.jpg'),
-					this.http
-						.get<IStep[]>('/assets/licitaciones/rehabilitacionCEIPNebrija2023/rehabilitacionCEIPNebrija2023Steps.json')
-						.subscribe((data: IStep[]) => {
-							this.steps = data;
-						});
-
-				this.http
-					.get<ILicitacion[]>('/assets/licitaciones/rehabilitacionCEIPNebrija2023/rehabilitacionCEIPNebrija2023.json')
-					.subscribe(assignDescripcion);
-
-				this.http
-					.get<INew[]>('/assets/licitaciones/rehabilitacionCEIPNebrija2023/rehabilitacionCEIPNebrija2023News.json')
-					.subscribe((data: INew[]) => {
-						this.news = data;
-					});
-				break;
-
-			case 'plazaMercado2023':
-				(this.imgURL = '/assets/licitaciones/plazaMercado2023/plazaMercado2023.jpg'),
-					this.http
-						.get<IStep[]>('/assets/licitaciones/plazaMercado2023/plazaMercado2023Steps.json')
-						.subscribe((data: IStep[]) => {
-							this.steps = data;
-						});
-
-				this.http
-					.get<ILicitacion[]>('/assets/licitaciones/plazaMercado2023/plazaMercado2023.json')
-					.subscribe(assignDescripcion);
-
-				this.http
-					.get<INew[]>('/assets/licitaciones/plazaMercado2023/plazaMercado2023News.json')
-					.subscribe((data: INew[]) => {
-						this.news = data;
-					});
-				break;
-
-			default:
-				break;
-			case 'sanBenito2023':
-				this.imgURL = '/assets/licitaciones/sanBenito2023/laCanaleja2023.jpg';
-				this.http
-					.get<ILicitacion[]>('/assets/licitaciones/sanBenito2023/sanBenito2023.json')
-					.subscribe(assignDescripcion);
-
-				this.http.get<INew[]>('/assets/licitaciones/sanBenito2023/sanBenito2023News.json').subscribe((data: INew[]) => {
-					this.news = data;
-				});
-				break;
-		}
-
-		// const descripcionObj = this.dataLicitacion.find((obj) => obj.data === 'Descripción');
-		// // Si encontramos el objeto, asignamos el valor de "value" a la variable pública "descripcion"
-		// if (descripcionObj) {
-		// 	this.descripcion = descripcionObj.value;
-		// }
 	}
 
 	hasKey(object: unknown, key: string): boolean {
