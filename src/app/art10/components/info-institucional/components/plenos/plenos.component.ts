@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { Router } from '@angular/router';
+
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
@@ -20,11 +21,12 @@ export default class PlenosComponent {
 
 	createCard(titulo: string, route: string) {
 		this._location.go('/art10');
+		console.log(route);
+
 		return {
 			titulo,
-			// Tamaño de la imagen 910x682
-			rutaImagen: `assets/deuda/${route}/${route}.jpg`,
-			funcion: () => this._router.navigateByUrl(`/art10/${route}`),
+			rutaImagen: `/assets/art10/infoInstitucional/plenos/plenos.png`,
+			funcion: () => this._router.navigateByUrl(`/pleno/${route}`),
 			background: defaultBackground
 		};
 	}

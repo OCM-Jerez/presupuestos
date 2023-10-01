@@ -14,7 +14,7 @@ export default [
 		loadComponent: () => import('./art10/components/info-institucional/components/plenos/plenos.component')
 	},
 	{
-		path: 'art10/plenoOrdinario20230929',
+		path: 'pleno/:pleno',
 		loadComponent: () =>
 			import('./art10/components/info-institucional/components/plenos/components/pleno/pleno.component')
 	},
