@@ -1,10 +1,12 @@
-<div class="volver">
+<nav class="volver">
 	<button type="button" class="OCM-button" (click)="volver()">Volver</button>
-</div>
+</nav>
 
-<h1 class="OCM-title">{{ descripcion }}</h1>
+<header>
+	<h1 class="OCM-title">{{ descripcion }}</h1>
+</header>
 
-<div class="flex">
+<section class="flex">
 	<div class="cardTableSeguimiento">
 		<img src="{{ imgURL }}" alt="Foto proyecto" />
 	</div>
@@ -27,11 +29,11 @@
 	</div>
 
 	<div class="cardTableSeguimiento">
-		<img class="indicador" src="./../../../../assets/licitaciones/grafico.jpg" alt="" />
+		<img class="indicador" src="{{ gauge }}" alt="" />
 	</div>
-</div>
+</section>
 
-<div class="cardTableHomeData">
+<section class="cardTableHomeData">
 	<table class="paleBlueRowsData">
 		<tbody>
 			<tr *ngFor="let data of dataLicitacion">
@@ -47,11 +49,10 @@
 			</tr>
 		</tbody>
 	</table>
-</div>
+</section>
 
-<h1 class="OCM-title">Noticias</h1>
-
-<div class="cardTableHome">
+<section class="cardTableHome">
+	<h1 class="OCM-title">Noticias</h1>
 	<table class="paleBlueRows">
 		<thead>
 			<tr>
@@ -72,4 +73,4 @@
 			</tr>
 		</tbody>
 	</table>
-</div>
+</section>

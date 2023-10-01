@@ -33,12 +33,13 @@ interface INew {
 export default class LicitacionComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
 	private _location = inject(Location);
-	private http = inject(HttpClient);
+	private _http = inject(HttpClient);
 
 	public steps: IStep[] = [];
 	public dataLicitacion: ILicitacion[] = [];
 	public news: INew[] = [];
 	public imgURL: string;
+	public gauge = '/assets/licitaciones/gauge.jpg';
 	public descripcion: string;
 
 	ngOnInit() {
@@ -47,9 +48,9 @@ export default class LicitacionComponent implements OnInit {
 		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = (path: string) => {
 			this.imgURL = `/assets/licitaciones/${licitacion}/${licitacion}.jpg`;
-			const steps$ = this.http.get<IStep[]>(`/assets/licitaciones/${path}/${path}Steps.json`);
-			const data$ = this.http.get<ILicitacion[]>(`/assets/licitaciones/${path}/${path}.json`);
-			const news$ = this.http.get<INew[]>(`/assets/licitaciones/${path}/${path}News.json`);
+			const steps$ = this._http.get<IStep[]>(`/assets/licitaciones/${path}/${path}Steps.json`);
+			const data$ = this._http.get<ILicitacion[]>(`/assets/licitaciones/${path}/${path}.json`);
+			const news$ = this._http.get<INew[]>(`/assets/licitaciones/${path}/${path}News.json`);
 
 			forkJoin({ steps$, data$, news$ }).subscribe(({ steps$, data$, news$ }) => {
 				this.steps = steps$;
