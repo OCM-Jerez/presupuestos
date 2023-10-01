@@ -6,6 +6,21 @@ export default [
 		loadComponent: () => import('./home/home.component')
 	},
 	{
+		path: 'art10',
+		loadComponent: () => import('./art10/art10.component')
+	},
+	{
+		path: 'art10/plenos',
+		loadComponent: () => import('./art10/components/info-institucional/components/plenos/plenos.component')
+	},
+	{
+		path: 'art10/plenoOrdinario20230929',
+		loadComponent: () =>
+			import(
+				'./art10/components/info-institucional/components/plenos/components/plenoOrdinario20230929/plenoOrdinario20230929.component'
+			)
+	},
+	{
 		path: 'presupuestos',
 		loadComponent: () => import('./presupuestos/presupuestos.component')
 	},
@@ -40,16 +55,16 @@ export default [
 			)
 	},
 	{
-		path: 'deuda',
-		loadComponent: () => import('./deuda/deuda.component')
-	},
-	{
 		path: 'comisiones',
 		loadComponent: () => import('./comisiones/comisiones.component')
 	},
 	{
 		path: 'comision/:comision',
 		loadComponent: () => import('./comisiones/components/comision/comision.component')
+	},
+	{
+		path: 'deuda',
+		loadComponent: () => import('./deuda/deuda.component')
 	},
 	{
 		path: 'deuda/deudaTotal',

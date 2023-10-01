@@ -22,13 +22,14 @@
 		font-weight: 600;
 		font-family: var(--fuente-principal);
 		font-size: 1.6rem;
-		margin-top: 20px;
+		margin-top: 6px;
+		padding: 0px 20px 0px 20px;
 	}
 	&__subtitle {
 		font-weight: 300;
 		font-family: var(--fuente-principal);
 		color: white;
 		font-size: 1.2rem;
-		padding: 0px 10px 0px 10px;
+		padding: 0px 20px 0px 20px;
 	}
 }

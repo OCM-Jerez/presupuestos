@@ -18,6 +18,12 @@ export default class HomeComponent {
 
 	cardMenus = [
 		this.createCardMenu(
+			'Artículo 10. Información institucional y organizativa.',
+			'/art10',
+			'assets/art10/ayto.webp',
+			'Ley 1/2014 de Transparencia Pública de Andalucía'
+		),
+		this.createCardMenu(
 			'Presupuestos',
 			'/presupuestos',
 			'assets/img/home/menu1-400x250.webp',
