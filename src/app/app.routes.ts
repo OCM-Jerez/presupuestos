@@ -16,9 +16,7 @@ export default [
 	{
 		path: 'art10/plenoOrdinario20230929',
 		loadComponent: () =>
-			import(
-				'./art10/components/info-institucional/components/plenos/components/plenoOrdinario20230929/plenoOrdinario20230929.component'
-			)
+			import('./art10/components/info-institucional/components/plenos/components/pleno/pleno.component')
 	},
 	{
 		path: 'presupuestos',

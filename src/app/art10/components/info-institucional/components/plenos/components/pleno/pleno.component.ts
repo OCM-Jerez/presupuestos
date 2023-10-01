@@ -25,8 +25,8 @@ interface INew {
 	selector: 'app-pleno',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './plenoOrdinario20230929.component.html',
-	styleUrls: ['./plenoOrdinario20230929.component.scss']
+	templateUrl: './pleno.component.html',
+	styleUrls: ['./pleno.component.scss']
 })
 export default class PlenoComponent implements OnInit {
 	private _location = inject(Location);
