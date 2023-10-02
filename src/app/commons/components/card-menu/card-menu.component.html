@@ -1,7 +1,7 @@
 <div class="cardMenu">
-	<img src="{{ rutaImagen }}" alt="global" class="cardMenu__image" />
+	<img *ngIf="rutaImagen" src="{{ rutaImagen }}" alt="global" class="cardMenu__image" />
 	<span class="cardMenu__title">{{ titulo }}</span>
-	<span class="cardMenu__subtitle">
+	<span *ngIf="subtitulo" class="cardMenu__subtitle">
 		{{ subtitulo }}
 	</span>
 </div>

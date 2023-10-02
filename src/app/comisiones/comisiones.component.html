@@ -2,7 +2,7 @@
 
 <div class="flex">
 	<div class="flex__cardMenu" *ngFor="let menu of comisionesPermanentes" [style.background]="menu.background">
-		<app-card-comision [titulo]="menu.titulo" (click)="menu.funcion()" />
+		<app-card-menu [titulo]="menu.titulo" (click)="menu.funcion()" />
 	</div>
 </div>
 <br />
@@ -12,7 +12,7 @@
 
 <div class="flex">
 	<div class="flex__cardMenu" *ngFor="let menu of comisionesEspeciales" [style.background]="menu.background">
-		<app-card-comision [titulo]="menu.titulo" (click)="menu.funcion()" />
+		<app-card-menu [titulo]="menu.titulo" (click)="menu.funcion()" />
 	</div>
 </div>
 ```

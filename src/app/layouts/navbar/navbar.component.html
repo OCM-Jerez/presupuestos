@@ -6,14 +6,13 @@
 
 	<div class="navMenu">
 		<header class="header">
-			<!-- <a href="" class="logo">CSS Nav</a> -->
 			<input *ngIf="!collapsed" class="menu-btn" type="checkbox" id="menu-btn" />
 			<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
 			<ul *ngIf="!collapsed" class="menu">
 				<li class="nav-item">
 					<a class="nav-link" (click)="navigateTo('/')">Inicio</a>
 				</li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a class="nav-link" (click)="navigateTo('/presupuestos')">Presupuestos</a>
 				</li>
 				<li class="nav-item">
@@ -33,7 +32,7 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" (click)="navigateTo('/glosario')">Glosario</a>
-				</li>
+				</li> -->
 			</ul>
 		</header>
 	</div>

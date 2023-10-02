@@ -15,6 +15,7 @@ const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 })
 export default class LicitacionesComponent {
 	private _router = inject(Router);
+
 	cardMenus = [
 		{
 			titulo: 'APP OCM',

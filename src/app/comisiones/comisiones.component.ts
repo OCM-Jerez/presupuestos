@@ -2,14 +2,15 @@ import { Component, inject } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { Router } from '@angular/router';
 
-import { CardComisionComponent } from './components/card-comision/card-comision.component';
+import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 
 @Component({
 	selector: 'app-comisiones',
 	standalone: true,
-	imports: [CommonModule, CardComisionComponent],
+	imports: [CommonModule, CardMenuComponent],
+
 	templateUrl: './comisiones.component.html',
 	styleUrls: ['./comisiones.component.scss']
 })
@@ -45,7 +46,6 @@ export default class ComisionesComponent {
 
 	createCard(titulo: string, route: string) {
 		this._location.go('/comisiones');
-		console.log(this._location.path() + '/' + route);
 
 		return {
 			titulo,
