@@ -65,11 +65,12 @@ export default [
 	},
 	{
 		path: 'comisiones',
-		loadComponent: () => import('./comisiones/comisiones.component')
+		loadComponent: () => import('./art10/components/info-institucional/components/comisiones/comisiones.component')
 	},
 	{
 		path: 'comision/:comision',
-		loadComponent: () => import('./comisiones/components/comision/comision.component')
+		loadComponent: () =>
+			import('./art10/components/info-institucional/components/comisiones/components/comision/comision.component')
 	},
 	{
 		path: 'deuda',
