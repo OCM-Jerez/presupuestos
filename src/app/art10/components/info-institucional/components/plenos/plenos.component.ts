@@ -21,7 +21,6 @@ export default class PlenosComponent {
 
 	createCard(titulo: string, route: string) {
 		this._location.go('/art10');
-		console.log(route);
 
 		return {
 			titulo,

@@ -19,13 +19,14 @@ export default class TemasComponent {
 		this.createCard('Mesa del Caballo', 'mesaCaballo'),
 		this.createCard('Asesores', 'asesores'),
 		this.createCard('Asta Regia', 'astaRegia'),
-		this.createCard('Ifeca', 'ifeca')
+		this.createCard('Ifeca', 'ifeca'),
+		this.createCard('Arboles', 'arboles'),
+		this.createCard('Declaraciones políticos', 'declaracionesPoliticos')
 	];
 
 	createCard(titulo: string, route: string) {
 		return {
 			titulo,
-			// Tamaño de la imagen 910x682
 			rutaImagen: `assets/temas/${route}/${route}.jpg`,
 			funcion: () => this._router.navigateByUrl(`/temas/${route}`),
 			background: defaultBackground
