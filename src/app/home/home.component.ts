@@ -66,12 +66,12 @@ export default class HomeComponent {
 		// 	'assets/img/home/menu1-400x250.webp',
 		// 	'Para que tengas una idea general de los ingresos y gastos del Ayuntamiento de Jerez.'
 		// ),
-		this.createCardMenu(
-			'Licitaciones',
-			'/licitaciones',
-			'assets/img/home/menu3-400x250.webp',
-			'Todos las licitaciones de obras, contratos menores de nuestro Ayuntamiento'
-		),
+		// this.createCardMenu(
+		// 	'Licitaciones',
+		// 	'/licitaciones',
+		// 	'assets/img/home/menu3-400x250.webp',
+		// 	'Todos las licitaciones de obras, contratos menores de nuestro Ayuntamiento'
+		// ),
 		// this.createCardMenu('Deuda', '/deuda', 'assets/deuda/deuda.jpg', 'Información sobre la deuda'),
 		// this.createCardMenu(
 		// 	'Datos económicos',
@@ -89,12 +89,12 @@ export default class HomeComponent {
 		),
 
 		this.createCardMenu('Eventos culturales', '/eventos', 'assets/eventos/feria/feria.jpg', 'Navidad, feria, etc   .'),
-		this.createCardMenu(
-			'Subvenciones, fondos y planes',
-			'/subvenciones',
-			'assets/subvenciones/subvenciones.jpg',
-			'Subvenciones recibidas por el Ayuntamiento'
-		),
+		// this.createCardMenu(
+		// 	'Subvenciones, fondos y planes',
+		// 	'/subvenciones',
+		// 	'assets/subvenciones/subvenciones.jpg',
+		// 	'Subvenciones recibidas por el Ayuntamiento'
+		// ),
 		this.createCardMenu(
 			'Empleados municipales',
 			'/empleados',

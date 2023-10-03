@@ -10,6 +10,10 @@ export default [
 		loadComponent: () => import('./art10/art10.component')
 	},
 	{
+		path: 'art15',
+		loadComponent: () => import('./art15/art15.component')
+	},
+	{
 		path: 'art16',
 		loadComponent: () => import('./art16/art16.component')
 	},
@@ -121,11 +125,11 @@ export default [
 	},
 	{
 		path: 'licitaciones',
-		loadComponent: () => import('./licitaciones/licitaciones.component')
+		loadComponent: () => import('./art15/components/licitaciones/licitaciones.component')
 	},
 	{
 		path: 'licitacion/:licitacion',
-		loadComponent: () => import('./licitaciones/components/licitacion/licitacion.component')
+		loadComponent: () => import('./art15/components/licitaciones/components/licitacion/licitacion.component')
 	},
 	{
 		path: 'entesDependientes',
@@ -161,11 +165,11 @@ export default [
 	},
 	{
 		path: 'subvenciones',
-		loadComponent: () => import('./subvenciones/subvenciones.component')
+		loadComponent: () => import('./art15/components/subvenciones/subvenciones.component')
 	},
 	{
 		path: 'subvenciones/:subvencion',
-		loadComponent: () => import('./subvenciones/components/subvencion/subvencion.component')
+		loadComponent: () => import('./art15/components/subvenciones/components/subvencion/subvencion.component')
 	},
 	{
 		path: 'empleados',
