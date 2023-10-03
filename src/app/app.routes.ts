@@ -149,12 +149,19 @@ export default [
 		loadComponent: () => import('./temas/components/tema/tema.component')
 	},
 	{
+		path: 'medioambiental',
+		loadComponent: () => import('./medioambiental/medioambiental.component')
+	},
+	{
 		path: 'edificiosSingulares',
-		loadComponent: () => import('./edificios-singulares/edificios-singulares.component')
+		loadComponent: () => import('./medioambiental/components/edificios-singulares/edificios-singulares.component')
 	},
 	{
 		path: 'edificiosSingulares/:edificioSingular',
-		loadComponent: () => import('./edificios-singulares/components/edificio-singular/edificio-singular.component')
+		loadComponent: () =>
+			import(
+				'./medioambiental/components/edificios-singulares/components/edificio-singular/edificio-singular.component'
+			)
 	},
 	{
 		path: 'eventos',

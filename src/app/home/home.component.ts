@@ -56,7 +56,7 @@ export default class HomeComponent {
 		),
 		this.createCardMenu(
 			'Medioambiental, urbanística y vivienda',
-			'/medioambientaf',
+			'/medioambiental',
 			'assets/medioambiental/medioambiental.jpg',
 			''
 		),
@@ -106,13 +106,13 @@ export default class HomeComponent {
 			'/temas',
 			'assets/temas/ifeca/ifeca.jpg',
 			'Temas no incluidos en otros apartados'
-		),
-		this.createCardMenu(
-			'Edificios singulares',
-			'/edificiosSingulares',
-			'assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg',
-			'Edificos singulares por su construcción o antiguedad'
 		)
+		// this.createCardMenu(
+		// 	'Edificios singulares',
+		// 	'/edificiosSingulares',
+		// 	'assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg',
+		// 	'Edificos singulares por su construcción o antiguedad'
+		// )
 	];
 
 	createCardMenu(titulo: string, ruta: string, rutaImagen: string, subtitulo: string) {
