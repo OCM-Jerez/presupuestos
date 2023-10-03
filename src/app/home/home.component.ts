@@ -72,13 +72,13 @@ export default class HomeComponent {
 			'assets/img/home/menu3-400x250.webp',
 			'Todos las licitaciones de obras, contratos menores de nuestro Ayuntamiento'
 		),
-		this.createCardMenu('Deuda', '/deuda', 'assets/deuda/deuda.jpg', 'Información sobre la deuda'),
-		this.createCardMenu(
-			'Datos económicos',
-			'/datosEconomicos',
-			'assets/datosEconomicos/datosEconomicos.jpg',
-			'Información económica'
-		),
+		// this.createCardMenu('Deuda', '/deuda', 'assets/deuda/deuda.jpg', 'Información sobre la deuda'),
+		// this.createCardMenu(
+		// 	'Datos económicos',
+		// 	'/datosEconomicos',
+		// 	'assets/datosEconomicos/datosEconomicos.jpg',
+		// 	'Información económica'
+		// ),
 		this.createCardMenu('Comisiones', '/comisiones', 'assets/comisiones/comisiones.jpg', 'Información comisiones'),
 
 		this.createCardMenu(

@@ -7,14 +7,6 @@
 @import '/src/app/scss/utilities';
 
 @media screen and (max-width: 3399.98px) {
-	.legal {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 20px;
-		background-color: #15202b;
-	}
-
 	.flex {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -26,7 +18,7 @@
 
 @media screen and (max-width: 1199.98px) {
 	.flex {
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
 	}
 }
 

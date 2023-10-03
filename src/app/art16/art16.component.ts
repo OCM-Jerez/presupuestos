@@ -15,7 +15,11 @@ const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 export default class Art16Component {
 	private _router = inject(Router);
 
-	cardMenus = [this.createCardMenu('Presupuestos', '/presupuestos', 'assets/img/home/menu1-400x250.webp', '')];
+	cardMenus = [
+		this.createCardMenu('Presupuestos', '/presupuestos', 'assets/img/home/menu1-400x250.webp', ''),
+		this.createCardMenu('Deuda', '/deuda', 'assets/deuda/deuda.jpg', 'Información sobre la deuda'),
+		this.createCardMenu('PMP', '/pmp', `assets/datosEconomicos/pmp/pmp.jpg`, '')
+	];
 
 	createCardMenu(titulo: string, ruta: string, rutaImagen: string, subtitulo: string) {
 		return {
