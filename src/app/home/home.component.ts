@@ -49,7 +49,7 @@ export default class HomeComponent {
 			''
 		),
 		this.createCardMenu(
-			' Artículo 16. Información económica, financiera y presupuestaria.',
+			'Artículo 16. Información económica, financiera y presupuestaria.',
 			'/art16',
 			'assets/art16/art16.jpg',
 			''
@@ -60,12 +60,12 @@ export default class HomeComponent {
 			'assets/medioambiental/medioambiental.jpg',
 			''
 		),
-		this.createCardMenu(
-			'Presupuestos',
-			'/presupuestos',
-			'assets/img/home/menu1-400x250.webp',
-			'Para que tengas una idea general de los ingresos y gastos del Ayuntamiento de Jerez.'
-		),
+		// this.createCardMenu(
+		// 	'Presupuestos',
+		// 	'/presupuestos',
+		// 	'assets/img/home/menu1-400x250.webp',
+		// 	'Para que tengas una idea general de los ingresos y gastos del Ayuntamiento de Jerez.'
+		// ),
 		this.createCardMenu(
 			'Licitaciones',
 			'/licitaciones',

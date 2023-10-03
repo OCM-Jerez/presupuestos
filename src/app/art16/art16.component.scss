@@ -1,0 +1,46 @@
+@import '/src/app/scss/base';
+@import '/src/app/scss/variables';
+@import '/src/app/scss/functions';
+@import '/src/app/scss/animations';
+@import '/src/app/scss/mixins';
+@import '/src/app/scss/typography';
+@import '/src/app/scss/utilities';
+
+@media screen and (max-width: 3399.98px) {
+	.legal {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		background-color: #15202b;
+	}
+
+	.flex {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		gap: 20px 20px;
+		padding: 20px;
+		background-color: #15202b;
+	}
+}
+
+@media screen and (max-width: 1199.98px) {
+	.flex {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+@media screen and (max-width: 991.98px) {
+	.flex {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media screen and (max-width: 767.98px) {
+}
+
+@media screen and (max-width: 575.98px) {
+	.flex {
+		grid-template-columns: 1fr;
+	}
+}

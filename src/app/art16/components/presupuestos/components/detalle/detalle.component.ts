@@ -3,17 +3,16 @@ import { NgFor, NgIf } from '@angular/common';
 
 import { Subscription } from 'rxjs';
 
-import { CheckboxComponent } from '../commons/components/checkbox/checkbox.component';
-import { SubtabsComponent } from './components/subtabs/subtabs.component';
-import { TablePresupuestoComponent } from './components/table-presupuesto/table-presupuesto.component';
-import { TableComponent } from './components/table/table.component';
-import { TabComponent } from '@app/commons/components/tabs/tab/tab.component';
-import { TabsComponent } from '@app/commons/components/tabs/tabs.component';
-import { TreemapComponent } from './components/treemap/treemap.component';
-
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 
 import { ITab } from '@interfaces/tab.interface';
+import { CheckboxComponent } from '@app/commons/components/checkbox/checkbox.component';
+import { TabComponent } from '@app/commons/components/tabs/tab/tab.component';
+import { TabsComponent } from '@app/commons/components/tabs/tabs.component';
+import { SubtabsComponent } from './components/subtabs/subtabs.component';
+import { TablePresupuestoComponent } from './components/table-presupuesto/table-presupuesto.component';
+import { TableComponent } from './components/table/table.component';
+import { TreemapComponent } from './components/treemap/treemap.component';
 
 @Component({
 	selector: 'app-detalle',

@@ -51,7 +51,12 @@ export class PrepareDataIngresosService {
 	async getYearDataJson(year: number) {
 		const years = this._avalaibleYearsService.getYearsSelected();
 		const yearToLoad = year === 1 ? years[0] : year;
-		const data = await import(`../../assets/data/${yearToLoad}LiqIng.json`);
-		return data.default as IDataIngreso[];
+		try {
+			const data = await import(`../../assets/data/${yearToLoad}LiqIng.json`);
+			return data.default as IDataIngreso[];
+		} catch (error) {
+			console.log(error);
+			return null;
+		}
 	}
 }

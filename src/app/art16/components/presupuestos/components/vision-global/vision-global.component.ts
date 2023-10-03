@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
-
-import { CardIndiceComponent } from '../commons/components/card/card.component';
-import { CheckboxComponent } from '../commons/components/checkbox/checkbox.component';
-import { TableDataPresupuestoComponent } from './components/table/table.component';
+import { CardIndiceComponent } from '@app/commons/components/card/card.component';
+import { CheckboxComponent } from '@app/commons/components/checkbox/checkbox.component';
 import { SankeyGraphsComponent } from './components/sankey-graphs/sankey-graphs.component';
+import { TableDataPresupuestoComponent } from './components/table/table.component';
 
 @Component({
 	selector: 'app-vision-global',

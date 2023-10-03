@@ -10,6 +10,22 @@ export default [
 		loadComponent: () => import('./art10/art10.component')
 	},
 	{
+		path: 'art16',
+		loadComponent: () => import('./art16/art16.component')
+	},
+	{
+		path: 'presupuestos',
+		loadComponent: () => import('./art16/components/presupuestos/presupuestos.component')
+	},
+	{
+		path: 'visionGlobal',
+		loadComponent: () => import('./art16/components/presupuestos/components/vision-global/vision-global.component')
+	},
+	{
+		path: 'detalle',
+		loadComponent: () => import('./art16/components/presupuestos/components/detalle/detalle.component')
+	},
+	{
 		path: 'art10/plenos',
 		loadComponent: () => import('./art10/components/info-institucional/components/plenos/plenos.component')
 	},
@@ -18,38 +34,29 @@ export default [
 		loadComponent: () =>
 			import('./art10/components/info-institucional/components/plenos/components/pleno/pleno.component')
 	},
-	{
-		path: 'presupuestos',
-		loadComponent: () => import('./presupuestos/presupuestos.component')
-	},
-	{
-		path: 'visionGlobal',
-		loadComponent: () => import('./vision-global/vision-global.component')
-	},
-	{
-		path: 'detalle',
-		loadComponent: () => import('./detalle/detalle.component')
-	},
+
 	{
 		path: 'fichaIndice',
 		loadComponent: () =>
-			import('./detalle/components/table-programa-details/components/ficha-indice/ficha-indice.component')
+			import(
+				'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-indice/ficha-indice.component'
+			)
 	},
 	{
 		path: 'fichaPresupuesto',
 		loadComponent: () =>
-			import('./detalle/components/table-programa-details/components/ficha-presupuesto/ficha-presupuesto.component')
+			'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-presupuesto/ficha-presupuesto.component'
 	},
 	{
 		path: 'fichaGastos',
 		loadComponent: () =>
-			import('./detalle/components/table-programa-details/components/ficha-gastos/ficha-gastos.component')
+			'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-gastos/ficha-gastos.component'
 	},
 	{
 		path: 'fichaRemanentes',
 		loadComponent: () =>
 			import(
-				'./detalle/components/table-programa-details/components/ficha-remanentes-credito/ficha-remanentes-credito.component'
+				'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-remanentes-credito/ficha-remanentes-credito.component'
 			)
 	},
 	{
@@ -95,16 +102,21 @@ export default [
 	{
 		path: 'fichaEmpleados',
 		loadComponent: () =>
-			import('./detalle/components/table-programa-details/components/ficha-personal/ficha-personal.component')
+			import(
+				'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-personal/ficha-personal.component'
+			)
 	},
 	{
 		path: 'fichaNews/:codigo',
 		loadComponent: () =>
-			import('./detalle/components/table-programa-details/components/ficha-news/ficha-news.component')
+			'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-news/ficha-news.component'
 	},
 	{
 		path: 'tableProgramaDetails/:origen',
-		loadComponent: () => import('./detalle/components/table-programa-details/table-programa-details.component')
+		loadComponent: () =>
+			import(
+				'./art16/components/presupuestos/components/detalle/components/table-programa-details/table-programa-details.component'
+			)
 	},
 	{
 		path: 'licitaciones',
@@ -160,7 +172,8 @@ export default [
 	},
 	{
 		path: 'graphDetalle',
-		loadComponent: () => import('./detalle/components/graph-detalle/graph-detalle.component')
+		loadComponent: () =>
+			import('./art16/components/presupuestos/components/detalle/components/graph-detalle/graph-detalle.component')
 	},
 	{
 		path: 'rpt',
