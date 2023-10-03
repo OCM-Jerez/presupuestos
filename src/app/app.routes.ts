@@ -171,6 +171,10 @@ export default [
 		loadComponent: () => import('./empleados/components/retribuciones2022/retribuciones2022.component')
 	},
 	{
+		path: 'empleadosNews',
+		loadComponent: () => import('./empleados/components/noticias/noticias.component')
+	},
+	{
 		path: 'explicamos',
 		loadComponent: () => import('./explicamos/explicamos.component')
 	},

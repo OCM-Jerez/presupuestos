@@ -28,7 +28,8 @@ export default class EmpleadosComponent {
 			'/rpt',
 			'assets/img/home/menu2-400x250.webp',
 			'Relación puestos de trabajo. Incluye complemento específico anual.'
-		)
+		),
+		this.createCardMenu('Noticias', '/empleadosNews', 'assets/empleados/empleadosNews.jpg', 'Noticias relacionadas.')
 	];
 
 	createCardMenu(titulo: string, ruta: string, rutaImagen: string, subtitulo: string) {
