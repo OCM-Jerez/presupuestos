@@ -21,7 +21,44 @@ export default class HomeComponent {
 			'Artículo 10. Información institucional y organizativa.',
 			'/art10',
 			'assets/art10/ayto.webp',
-			'Ley 1/2014 de Transparencia Pública de Andalucía'
+			''
+		),
+		this.createCardMenu(
+			'Artículo 11. Información sobre altos cargos y personas que ejerzan la máxima responsabilidad de las entidades incluidas en el ámbito de aplicación de la Ley.',
+			'/art11',
+			'assets/art11/art11.jpg',
+			''
+		),
+		this.createCardMenu(
+			'Artículo 12. Información sobre planificación y evaluación.',
+			'/art12',
+			'assets/art12/art12.jpg',
+			''
+		),
+		this.createCardMenu('Artículo 13. Información de relevancia jurídica.', '/art13', 'assets/art13/art13.jpg', ''),
+		this.createCardMenu(
+			'Artículo 14. Información sobre procedimientos, cartas de servicio y participación ciudadana.',
+			'/art14',
+			'assets/art14/art14.jpg',
+			''
+		),
+		this.createCardMenu(
+			'Artículo 15. Información sobre contratos, convenios y subvenciones.',
+			'/art15',
+			'assets/art15/art15.jpg',
+			''
+		),
+		this.createCardMenu(
+			' Artículo 16. Información económica, financiera y presupuestaria.',
+			'/art16',
+			'assets/art16/art16.jpg',
+			''
+		),
+		this.createCardMenu(
+			'Medioambiental, urbanística y vivienda',
+			'/medioambientaf',
+			'assets/medioambiental/medioambiental.jpg',
+			''
 		),
 		this.createCardMenu(
 			'Presupuestos',
