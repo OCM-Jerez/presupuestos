@@ -21,6 +21,7 @@ export default class TemasComponent {
 		this.createCard('Asta Regia', 'astaRegia'),
 		this.createCard('Ifeca', 'ifeca'),
 		this.createCard('Arboles', 'arboles'),
+		this.createCard('Oficina de memoria democrática', 'oficinaMemoriaDemocratica'),
 		this.createCard('Declaraciones políticos', 'declaracionesPoliticos')
 	];
 

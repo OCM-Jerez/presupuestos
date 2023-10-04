@@ -20,7 +20,11 @@ export default class Art10Component {
 			'infoIntitucional',
 			`assets/art10/infoInstitucional/plenos/plenos.png`
 		),
-		this.createCard('Informacion organizativa', 'infoOrganizativa', `assets/art10/infoInstitucional/plenos/plenos.png`)
+		this.createCard(
+			'Informacion organizativa',
+			'infoOrganizativa',
+			`assets/art10/infoOrganizativa/infoOrganizativa.jpg`
+		)
 	];
 
 	createCard(titulo: string, route: string, rutaImagen: string) {
