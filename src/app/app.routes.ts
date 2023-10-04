@@ -38,7 +38,25 @@ export default [
 		loadComponent: () =>
 			import('./art10/components/info-institucional/components/plenos/components/pleno/pleno.component')
 	},
-
+	{
+		path: 'art10/comisiones',
+		loadComponent: () => import('./art10/components/info-institucional/components/comisiones/comisiones.component')
+	},
+	{
+		path: 'comision/:comision',
+		loadComponent: () =>
+			import('./art10/components/info-institucional/components/comisiones/components/comision/comision.component')
+	},
+	{
+		path: 'art10/entesDependientes',
+		loadComponent: () =>
+			import('./art10/components/info-institucional/components/entes-dependientes/entes-dependientes.component')
+	},
+	{
+		path: 'entesDependientes/:ente',
+		loadComponent: () =>
+			import('./art10/components/info-institucional/components/entes-dependientes/components/ente/ente.component')
+	},
 	{
 		path: 'fichaIndice',
 		loadComponent: () =>
@@ -63,15 +81,7 @@ export default [
 				'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-remanentes-credito/ficha-remanentes-credito.component'
 			)
 	},
-	{
-		path: 'comisiones',
-		loadComponent: () => import('./art10/components/info-institucional/components/comisiones/comisiones.component')
-	},
-	{
-		path: 'comision/:comision',
-		loadComponent: () =>
-			import('./art10/components/info-institucional/components/comisiones/components/comision/comision.component')
-	},
+
 	{
 		path: 'deuda',
 		loadComponent: () => import('./art16/components/deuda/deuda.component')
@@ -131,14 +141,6 @@ export default [
 	{
 		path: 'licitacion/:licitacion',
 		loadComponent: () => import('./art15/components/licitaciones/components/licitacion/licitacion.component')
-	},
-	{
-		path: 'entesDependientes',
-		loadComponent: () => import('./entes-dependientes/entes-dependientes.component')
-	},
-	{
-		path: 'entesDependientes/:ente',
-		loadComponent: () => import('./entes-dependientes/components/ente/ente.component')
 	},
 	{
 		path: 'temas',

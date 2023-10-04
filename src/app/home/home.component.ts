@@ -81,12 +81,12 @@ export default class HomeComponent {
 		// ),
 		// this.createCardMenu('Comisiones', '/comisiones', 'assets/comisiones/comisiones.jpg', 'Información comisiones'),
 
-		this.createCardMenu(
-			'Entes dependientes',
-			'/entesDependientes',
-			'assets/entes/fundarte/fundarte.jpg',
-			'Entes dependientes del Ayuntamiento'
-		),
+		// this.createCardMenu(
+		// 	'Entes dependientes',
+		// 	'/entesDependientes',
+		// 	'assets/entes/fundarte/fundarte.jpg',
+		// 	'Entes dependientes del Ayuntamiento'
+		// ),
 
 		this.createCardMenu('Eventos culturales', '/eventos', 'assets/eventos/feria/feria.jpg', 'Navidad, feria, etc   .'),
 		// this.createCardMenu(
