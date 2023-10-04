@@ -30,6 +30,10 @@ export default [
 		loadComponent: () => import('./art16/components/presupuestos/components/detalle/detalle.component')
 	},
 	{
+		path: 'art10/infoIntitucional',
+		loadComponent: () => import('./art10/components/info-institucional/info-institucional.component')
+	},
+	{
 		path: 'art10/plenos',
 		loadComponent: () => import('./art10/components/info-institucional/components/plenos/plenos.component')
 	},
@@ -56,6 +60,31 @@ export default [
 		path: 'entesDependientes/:ente',
 		loadComponent: () =>
 			import('./art10/components/info-institucional/components/entes-dependientes/components/ente/ente.component')
+	},
+	{
+		path: 'art10/infoOrganizativa',
+		loadComponent: () => import('./art10/components/info-organizativa/info-organizativa.component')
+	},
+	{
+		path: 'art10/empleados',
+		loadComponent: () => import('./art10/components/info-organizativa/components/empleados/empleados.component')
+	},
+	{
+		path: 'rpt',
+		loadComponent: () =>
+			import('./art10/components/info-organizativa/components/empleados/components/rpt/rpt.component')
+	},
+	{
+		path: 'retribuciones2022',
+		loadComponent: () =>
+			import(
+				'./art10/components/info-organizativa/components/empleados/components/retribuciones2022/retribuciones2022.component'
+			)
+	},
+	{
+		path: 'empleadosNews',
+		loadComponent: () =>
+			import('./art10/components/info-organizativa/components/empleados/components/noticias/noticias.component')
 	},
 	{
 		path: 'fichaIndice',
@@ -181,27 +210,16 @@ export default [
 		path: 'subvenciones/:subvencion',
 		loadComponent: () => import('./art15/components/subvenciones/components/subvencion/subvencion.component')
 	},
-	{
-		path: 'empleados',
-		loadComponent: () => import('./empleados/empleados.component')
-	},
+	// {
+	// 	path: 'empleados',
+	// 	loadComponent: () => import('./empleados/empleados.component')
+	// },
 	{
 		path: 'graphDetalle',
 		loadComponent: () =>
 			import('./art16/components/presupuestos/components/detalle/components/graph-detalle/graph-detalle.component')
 	},
-	{
-		path: 'rpt',
-		loadComponent: () => import('./empleados/components/rpt/rpt.component')
-	},
-	{
-		path: 'retribuciones2022',
-		loadComponent: () => import('./empleados/components/retribuciones2022/retribuciones2022.component')
-	},
-	{
-		path: 'empleadosNews',
-		loadComponent: () => import('./empleados/components/noticias/noticias.component')
-	},
+
 	{
 		path: 'explicamos',
 		loadComponent: () => import('./explicamos/explicamos.component')

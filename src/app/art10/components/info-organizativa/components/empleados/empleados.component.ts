@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgFor } from '@angular/common';
+import { NgFor, Location } from '@angular/common';
 
-import { CardMenuComponent } from '../commons/components/card-menu/card-menu.component';
+import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 
@@ -15,6 +15,7 @@ const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 })
 export default class EmpleadosComponent {
 	private _router = inject(Router);
+	private _location = inject(Location);
 
 	cardMenus = [
 		this.createCardMenu(
@@ -33,6 +34,8 @@ export default class EmpleadosComponent {
 	];
 
 	createCardMenu(titulo: string, ruta: string, rutaImagen: string, subtitulo: string) {
+		this._location.go('/art10');
+
 		return {
 			rutaImagen,
 			titulo,

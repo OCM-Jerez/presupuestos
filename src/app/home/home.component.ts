@@ -95,12 +95,12 @@ export default class HomeComponent {
 		// 	'assets/subvenciones/subvenciones.jpg',
 		// 	'Subvenciones recibidas por el Ayuntamiento'
 		// ),
-		this.createCardMenu(
-			'Empleados municipales',
-			'/empleados',
-			'assets/img/home/menu4-400x250.webp',
-			'Información sobre los empleados de nuestro Ayuntamiento'
-		),
+		// this.createCardMenu(
+		// 	'Empleados municipales',
+		// 	'/empleados',
+		// 	'assets/img/home/menu4-400x250.webp',
+		// 	'Información sobre los empleados de nuestro Ayuntamiento'
+		// ),
 		this.createCardMenu(
 			'Temas generales',
 			'/temas',

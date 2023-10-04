@@ -15,9 +15,12 @@ const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 export default class Art10Component {
 	private _router = inject(Router);
 	cardMenus = [
-		this.createCard('Plenos', 'plenos', `assets/art10/infoInstitucional/plenos/plenos.png`),
-		this.createCard('Comisiones', 'comisiones', 'assets/comisiones/comisiones.jpg'),
-		this.createCard('Entes dependientes', 'entesDependientes', 'assets/entes/fundarte/fundarte.jpg')
+		this.createCard(
+			'Informacion institucional',
+			'infoIntitucional',
+			`assets/art10/infoInstitucional/plenos/plenos.png`
+		),
+		this.createCard('Informacion organizativa', 'infoOrganizativa', `assets/art10/infoInstitucional/plenos/plenos.png`)
 	];
 
 	createCard(titulo: string, route: string, rutaImagen: string) {
