@@ -27,6 +27,12 @@ export default class MedioambientalComponent {
 			'/apartamentosTuristicos',
 			'assets/medioambiental/apartamentosTuristicos/apartamentosTuristicos.jpg',
 			''
+		),
+		this.createCardMenu(
+			'Proyectos construcción de viviendas',
+			'/proyectosViviendas',
+			'assets/medioambiental/proyectosViviendas/proyectosViviendas.jpg',
+			''
 		)
 	];
 

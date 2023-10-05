@@ -199,6 +199,10 @@ export default [
 		loadComponent: () => import('./medioambiental/components/apartamentos-turisticos/apartamentos-turisticos.component')
 	},
 	{
+		path: 'proyectosViviendas',
+		loadComponent: () => import('./medioambiental/components/proyectos-viviendas/proyectos-viviendas.component')
+	},
+	{
 		path: 'eventos',
 		loadComponent: () => import('./eventos/eventos.component')
 	},

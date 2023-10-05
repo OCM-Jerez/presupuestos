@@ -1,0 +1,78 @@
+<nav class="volver">
+	<button type="button" class="OCM-button" (click)="volver()">Volver</button>
+</nav>
+
+<header>
+	<h1 class="OCM-title">{{ descripcion }}</h1>
+</header>
+
+<h1 class="OCM-title">Documentos</h1>
+
+<div class="cardTableHome">
+	<table class="paleBlueRows">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Emisor</th>
+				<th>Título</th>
+				<th>URL</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let doc of docs">
+				<ng-container *ngIf="doc.URL !== ''">
+					<td>{{ doc.date }}</td>
+					<td>{{ doc.emisor }}</td>
+					<td>{{ doc.title }}</td>
+					<td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+				</ng-container>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h1 class="OCM-title">Comentarios</h1>
+
+<div class="cardTableHome">
+	<table class="paleBlueRows">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Emisor</th>
+				<th>texto</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let com of coms">
+				<td>{{ com.date }}</td>
+				<td>{{ com.emisor }}</td>
+				<td>{{ com.texto }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h1 class="OCM-title">Noticias</h1>
+
+<div class="cardTableHome">
+	<table class="paleBlueRows">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Medio</th>
+				<th>Título</th>
+				<th>URL</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let new of news">
+				<ng-container *ngIf="new.URL !== ''">
+					<td>{{ new.date }}</td>
+					<td>{{ new.medio }}</td>
+					<td>{{ new.title }}</td>
+					<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+				</ng-container>
+			</tr>
+		</tbody>
+	</table>
+</div>
