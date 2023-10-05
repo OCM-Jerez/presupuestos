@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import CardEdificioSingularComponent from './components/card-edificio-singular/card-edificio-singular.component';
+import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 
 @Component({
 	selector: 'app-temas',
 	standalone: true,
-	imports: [CommonModule, CardEdificioSingularComponent],
+	imports: [CommonModule, CardMenuComponent],
 	templateUrl: './edificios-singulares.component.html',
 	styleUrls: ['./edificios-singulares.component.scss']
 })

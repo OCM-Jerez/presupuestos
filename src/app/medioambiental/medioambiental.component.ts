@@ -21,6 +21,12 @@ export default class MedioambientalComponent {
 			'/edificiosSingulares',
 			'assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg',
 			''
+		),
+		this.createCardMenu(
+			'Apartamentos turísticos',
+			'/apartamentosTuristicos',
+			'assets/medioambiental/apartamentosTuristicos/apartamentosTuristicos.jpg',
+			''
 		)
 	];
 

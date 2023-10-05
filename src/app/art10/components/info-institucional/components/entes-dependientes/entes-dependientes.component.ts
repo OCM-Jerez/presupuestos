@@ -16,7 +16,10 @@ export default class EntesDependientesComponent {
 	private _router = inject(Router);
 	private _location = inject(Location);
 
-	cardMenus = [this.createCard('Fundación Universitaria (Teatro Villamarta)', 'fundarte')];
+	cardMenus = [
+		this.createCard('Fundación Universitaria (Teatro Villamarta)', 'fundarte'),
+		this.createCard('COMUJESA. Coporación Municipal de Jerez. S.A.', 'comujesa')
+	];
 
 	createCard(titulo: string, route: string) {
 		this._location.go('/art10');

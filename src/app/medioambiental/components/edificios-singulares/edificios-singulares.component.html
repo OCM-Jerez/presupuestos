@@ -2,7 +2,7 @@
 
 <div class="flex">
 	<div class="flex__cardMenu" *ngFor="let menu of cardMenus" [style.background]="menu.background">
-		<app-card-edificio-singular [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+		<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 	</div>
 </div>
 ```
