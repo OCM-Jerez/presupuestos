@@ -33,7 +33,8 @@ export default class LicitacionesComponent {
 		this.createCard('Remodelación plaza del Mercado', 'plazaMercado2023'),
 		this.createCard('Centro cultural Lola Flores', 'CentroCulturalLolaFlores2020'),
 		this.createCard('Mejora parque Scout', 'parqueScout2023'),
-		this.createCard('Adaptación Parque Williams ', 'parqueWilliams2023')
+		this.createCard('Adaptación Parque Williams ', 'parqueWilliams2023'),
+		this.createCard('Parque San Telmo', 'parqueSanTelmo2023')
 	];
 
 	createCard(titulo: string, route: string) {
