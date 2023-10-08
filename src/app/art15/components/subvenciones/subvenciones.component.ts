@@ -32,7 +32,10 @@ interface INew {
 })
 export default class SubvencionesComponent {
 	private _router = inject(Router);
-	cardMenus = [this.createCard('Fondos Diputación 2023', 'dipu2023')];
+	cardMenus = [
+		this.createCard('Fondos Diputación 2023', 'dipu2023'),
+		this.createCard('Programa de Fomento del Empleo Agrario (PFEA).', 'PFEA')
+	];
 
 	createCard(titulo: string, route: string) {
 		return {

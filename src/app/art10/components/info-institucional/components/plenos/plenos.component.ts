@@ -17,7 +17,10 @@ export default class PlenosComponent {
 	private _router = inject(Router);
 	private _location = inject(Location);
 
-	cardMenus = [this.createCard('Pleno ordinario 29 septiembre 2023', 'plenoOrdinario20230929')];
+	cardMenus = [
+		this.createCard('Pleno ordinario 29 septiembre 2023', 'plenoOrdinario20230929'),
+		this.createCard('Pleno extraorinario y solemne 7 octubre 2023', 'plenoExtraordinario20231007')
+	];
 
 	createCard(titulo: string, route: string) {
 		this._location.go('/art10');

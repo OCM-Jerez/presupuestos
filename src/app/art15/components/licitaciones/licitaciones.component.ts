@@ -35,7 +35,11 @@ export default class LicitacionesComponent {
 		this.createCard('Mejora parque Scout', 'parqueScout2023'),
 		this.createCard('Adaptación Parque Williams ', 'parqueWilliams2023'),
 		this.createCard('Parque San Telmo', 'parqueSanTelmo2023'),
-		this.createCard('Bulevar entre las calles Oro y Almargen', 'bulevarOroAlmargen')
+		this.createCard('Bulevar entre las calles Oro y Almargen', 'bulevarOroAlmargen'),
+		this.createCard(
+			'Proyecto de reordenación de la Calle Barranco y espacio libre de la calle Doctor Lillo	',
+			'callesBarrancoyDoctorLillo'
+		)
 	];
 
 	createCard(titulo: string, route: string) {

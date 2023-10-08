@@ -21,12 +21,16 @@
 		"value": "Abierto"
 	},
 	{
-		"data": "Fecha final licitación",
-		"value": ""
+		"data": "Valor estimado del contrato",
+		"value": "322.179.005,5"
 	},
 	{
-		"data": "Fecha Formalización",
-		"value": "15/03/2023 "
+		"data": "Presupuesto base de licitación",
+		"value": "161.015.984,16"
+	},
+	{
+		"data": "Presupuesto base de licitación sin impuestos",
+		"value": "146.378.167,42"
 	},
 	{
 		"data": "Duración del contrato",

@@ -4,5 +4,29 @@
 		"medio": "",
 		"title": "",
 		"URL": ""
+	},
+	{
+		"date": "7 octubre 2023",
+		"medio": "Diario de Jerez",
+		"title": "El parque de San Telmo se llamará 'Parque Sebastián Peña'",
+		"URL": "https://www.diariodejerez.es/jerez/Parque-San-Telmo-Sebastian-Pena_0_1836716673.html"
+	},
+	{
+		"date": "1 agosto 2023",
+		"medio": "Diario de Jerez",
+		"title": "El Ayuntamiento de Jerez aprueba -la solución contable- que permite acometer las obras del parque de San Telmo -sin perder los fondos europeos-",
+		"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-solucion-contable-parque-San-Telmo_0_1816619548.html"
+	},
+	{
+		"date": "27 junio 2023",
+		"medio": "Diario de Jerez",
+		"title": "El Ayuntamiento de Jerez rescinde el contrato con dos constructoras que hacían obras en parques públicos",
+		"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-jerez-rescinde-contratos-mejoras-parques_0_1805820096.html"
+	},
+	{
+		"date": "2 mayo 2023",
+		"medio": "Diario de Jerez",
+		"title": "El Parque de San Telmo tendrá un parque infantil, canino y zona de juegos de calistenia",
+		"URL": "https://www.diariodejerez.es/jerez/arreglos-zona-ocio-parque-San-Telmo_0_1679832241.html"
 	}
 ]
