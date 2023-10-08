@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { NgIf, Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,11 +10,13 @@ import { Router } from '@angular/router';
 	imports: [NgIf]
 })
 export class NavbarComponent {
-	private _router = inject(Router);
+	public router = inject(Router);
+	private _location = inject(Location);
+
 	public collapsed = false;
 
 	navigateTo(route: string) {
-		this._router.navigateByUrl(route);
+		this.router.navigateByUrl(route);
 		this.toggleCollapse(true);
 	}
 
@@ -25,5 +27,9 @@ export class NavbarComponent {
 				this.collapsed = false;
 			}, 0);
 		}
+	}
+
+	volver() {
+		this._location.back();
 	}
 }

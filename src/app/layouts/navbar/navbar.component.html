@@ -2,17 +2,24 @@
 	<div class="navbar--1row">
 		<div class="navbar--1row--logo"></div>
 		<div class="navbar--1row--title">Datos Ayuntamiento Jerez</div>
+
+		<div *ngIf="router.url === '/home'" class="homeEmpty"></div>
+		<div *ngIf="router.url !== '/home'" class="home">
+			<!-- <a routerLink="/" class="logoHome"></a> -->
+			<a class="logoVolver" (click)="volver()"></a>
+			<a class="logoHome" (click)="navigateTo('/')"></a>
+		</div>
 	</div>
 
-	<div class="navMenu">
+	<!-- <div class="navMenu">
 		<header class="header">
 			<input *ngIf="!collapsed" class="menu-btn" type="checkbox" id="menu-btn" />
 			<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-			<ul *ngIf="!collapsed" class="menu">
-				<li class="nav-item">
+			<ul *ngIf="!collapsed" class="menu"> -->
+	<!-- <li class="nav-item">
 					<a class="nav-link" (click)="navigateTo('/')">Inicio</a>
-				</li>
-				<!-- <li class="nav-item">
+				</li> -->
+	<!-- <li class="nav-item">
 					<a class="nav-link" (click)="navigateTo('/presupuestos')">Presupuestos</a>
 				</li>
 				<li class="nav-item">
@@ -33,9 +40,9 @@
 				<li class="nav-item">
 					<a class="nav-link" (click)="navigateTo('/glosario')">Glosario</a>
 				</li> -->
-			</ul>
+	<!-- </ul>
 		</header>
-	</div>
+	</div> -->
 
 	<!-- <div class="barraBuscar">
     <span class="barraBuscar--text">¿Buscas algo en concreto? </span>
