@@ -83,7 +83,7 @@ export default class PlanAjusteComponent implements OnInit {
 		};
 	}
 
-	volver() {
-		this._location.back();
-	}
+	// volver() {
+	// 	this._location.back();
+	// }
 }

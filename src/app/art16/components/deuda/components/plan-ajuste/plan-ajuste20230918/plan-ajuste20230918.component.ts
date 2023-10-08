@@ -61,9 +61,7 @@ export default class PlanAjuste20230918Component implements OnInit {
 		}
 	}
 
-	volver() {
-		this._location.back();
-	}
+	// volver() {
+	// 	this._location.back();
+	// }
 }
-
-// https://github.com/OCM-Jerez/presupuestos-v14/blob/develop/src/app/deuda/components/plan-ajuste/plan-ajuste20230918/plan-ajuste20230918.component.ts

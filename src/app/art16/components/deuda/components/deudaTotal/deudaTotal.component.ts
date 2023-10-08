@@ -30,7 +30,7 @@ export default class DeudaTotalComponent implements OnInit {
 		}
 	}
 
-	volver() {
-		this._location.back();
-	}
+	// volver() {
+	// 	this._location.back();
+	// }
 }

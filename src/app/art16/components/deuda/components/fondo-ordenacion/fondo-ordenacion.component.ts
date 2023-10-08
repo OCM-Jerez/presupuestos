@@ -46,7 +46,7 @@ export default class FondoOrdenacionComponent implements OnInit {
 		}
 	}
 
-	volver() {
-		this._location.back();
-	}
+	// volver() {
+	// 	this._location.back();
+	// }
 }

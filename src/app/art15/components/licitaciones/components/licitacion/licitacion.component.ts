@@ -71,7 +71,7 @@ export default class LicitacionComponent implements OnInit {
 		return object && Object.prototype.hasOwnProperty.call(object, key);
 	}
 
-	volver() {
-		this._location.back();
-	}
+	// volver() {
+	// 	this._location.back();
+	// }
 }
