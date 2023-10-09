@@ -70,8 +70,4 @@ export default class TemaComponent implements OnInit {
 	hasKey(object: unknown, key: string): boolean {
 		return object && Object.prototype.hasOwnProperty.call(object, key);
 	}
-
-	// volver() {
-	// 	this._location.back();
-	// }
 }

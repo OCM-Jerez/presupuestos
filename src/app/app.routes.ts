@@ -43,6 +43,14 @@ export default [
 			import('./art10/components/info-institucional/components/plenos/components/pleno/pleno.component')
 	},
 	{
+		path: 'art10/elas',
+		loadComponent: () => import('./art10/components/info-institucional/components/elas/elas.component')
+	},
+	{
+		path: 'ela/:ela',
+		loadComponent: () => import('./art10/components/info-institucional/components/elas/components/ela/ela.component')
+	},
+	{
 		path: 'art10/comisiones',
 		loadComponent: () => import('./art10/components/info-institucional/components/comisiones/comisiones.component')
 	},

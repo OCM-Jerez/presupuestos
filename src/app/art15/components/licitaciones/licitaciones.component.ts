@@ -37,9 +37,13 @@ export default class LicitacionesComponent {
 		this.createCard('Parque San Telmo', 'parqueSanTelmo2023'),
 		this.createCard('Bulevar entre las calles Oro y Almargen', 'bulevarOroAlmargen'),
 		this.createCard(
-			'Proyecto de reordenación de la Calle Barranco y espacio libre de la calle Doctor Lillo	',
+			'Proyecto de reordenación de la Calle Barranco y espacio libre de la calle Doctor Lillo',
 			'callesBarrancoyDoctorLillo'
-		)
+		),
+		this.createCard('Reforma integral de Plaza Madrid', 'plazaMadrid2023'),
+		this.createCard('Restauración del templete municipal de la Alameda Vieja', 'templeteAlamedaVieja2023'),
+		this.createCard('Reforma cubiertas Palacio Villapanés', 'palacioVillapanes2023'),
+		this.createCard('Ordenación de equipamiento público en Villas del Este', 'villasDelEste2023')
 	];
 
 	createCard(titulo: string, route: string) {
