@@ -201,7 +201,27 @@
 	},
 	{
 		"codigo": 16110,
-		"descripcion": "Abastecimiento domicializado agua"
+		"descripcion": "Abastecimiento domicializado agua",
+		"news": [
+			{
+				"date": "",
+				"medio": "",
+				"title": "",
+				"URL": ""
+			},
+			{
+				"date": "10 octubre 2023",
+				"medio": "Viva Jerez",
+				"title": "García-Pelayo ve “precipitado” hablar de una posible subida del precio del agua",
+				"URL": "https://vivajerez.es/jerez-local/1379244/garcia-pelayo-ve-precipitado-hablar-de-una-posible-subida-del-precio-del-agua/"
+			},
+			{
+				"date": "10 octubre 2023",
+				"medio": "Viva Jerez",
+				"title": "El presidente del Consorcio justifica la subida de la tasa al encarecerse el servicio",
+				"URL": "https://vivajerez.es/jerez-local/1378832/el-presidente-del-consorcio-justifica-la-subida-de-la-tasa-al-encarecerse-el-servicio/"
+			}
+		]
 	},
 	{
 		"codigo": 16111,

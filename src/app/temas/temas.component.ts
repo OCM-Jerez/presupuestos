@@ -15,6 +15,7 @@ const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 export default class TemasComponent {
 	private _router = inject(Router);
 	cardMenus = [
+		this.createCard('Museo del Flamenco', 'museoFlamenco'),
 		this.createCard('Museo del belén', 'museoBelen'),
 		this.createCard('Mesa del Caballo', 'mesaCaballo'),
 		this.createCard('Asesores', 'asesores'),
