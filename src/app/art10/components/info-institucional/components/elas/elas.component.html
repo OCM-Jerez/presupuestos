@@ -5,3 +5,27 @@
 		<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 	</section>
 </main>
+
+<section class="tableCard">
+	<header class="OCM-subtitle-dark">Noticias</header>
+	<table class="tableNews">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Medio</th>
+				<th>Título</th>
+				<th>URL</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let new of news">
+				<ng-container *ngIf="new.URL !== ''">
+					<td>{{ new.date }}</td>
+					<td>{{ new.medio }}</td>
+					<td>{{ new.title }}</td>
+					<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+				</ng-container>
+			</tr>
+		</tbody>
+	</table>
+</section>
