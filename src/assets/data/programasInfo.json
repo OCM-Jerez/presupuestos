@@ -48,6 +48,7 @@
 	{
 		"codigo": 13210,
 		"descripcion": "Policía Local",
+		"repositorio datos": "https://1drv.ms/f/s!AqUr6AaNBwpDh4oKkvunnC8AmhODFg?e=J307QU",
 		"cartaServicios": [
 			{ "ultimaActualizacion": "24.02.2017" },
 			{ "URL": "https://1drv.ms/b/s!AqUr6AaNBwpDpd9sNrb2SJzvoU_f0g" }
@@ -208,6 +209,24 @@
 				"medio": "",
 				"title": "",
 				"URL": ""
+			},
+			{
+				"date": "11 octubre 2023",
+				"medio": "Viva Jerez",
+				"title": "Jerez se enfrenta al desafío hídrico: Necesita reducir un 20% su consumo de agua",
+				"URL": "https://vivajerez.es/jerez-local/1381206/jerez-se-enfrenta-al-desafio-hidrico-necesita-reducir-un-20-su-consumo-de-agua/"
+			},
+			{
+				"date": "13 octubre 2023",
+				"medio": "Diario de Jerez",
+				"title": "El PSOE asegura que habrá -una doble- subida del recibo del agua en Jerez",
+				"URL": "https://www.diariodejerez.es/jerez/psoe-asegura-doble-subida-agua-jerez_0_1838217270.html"
+			},
+			{
+				"date": "13 octubre 2023",
+				"medio": "Diario de Jerez",
+				"title": "El Consorcio plantea una subida de la tarifa del agua a los ayuntamientos, entre ellos el de Jerez",
+				"URL": "https://www.diariodejerez.es/jerez/subida-tarifa-agua-consorcio-aguas-jerez_0_1838217198.html"
 			},
 			{
 				"date": "10 octubre 2023",

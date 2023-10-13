@@ -24,7 +24,8 @@ export default class TemasComponent {
 		this.createCard('Arboles', 'arboles'),
 		this.createCard('Oficina de memoria democrática', 'oficinaMemoriaDemocratica'),
 		this.createCard('Declaraciones políticos', 'declaracionesPoliticos'),
-		this.createCard('Plantas fotovoltaicas y parques eólicos', 'parquesEolicos&Fotovoltaicos')
+		this.createCard('Plantas fotovoltaicas y parques eólicos', 'parquesEolicos&Fotovoltaicos'),
+		this.createCard('Aeropuerto', 'aeropuerto')
 	];
 
 	createCard(titulo: string, route: string) {
