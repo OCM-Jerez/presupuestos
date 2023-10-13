@@ -188,6 +188,14 @@ export default [
 		loadComponent: () => import('./temas/components/tema/tema.component')
 	},
 	{
+		path: 'distritos',
+		loadComponent: () => import('./distritos/distritos.component')
+	},
+	{
+		path: 'distritos/:distrito',
+		loadComponent: () => import('./distritos/components/distrito/distrito.component')
+	},
+	{
 		path: 'medioambiental',
 		loadComponent: () => import('./medioambiental/medioambiental.component')
 	},
