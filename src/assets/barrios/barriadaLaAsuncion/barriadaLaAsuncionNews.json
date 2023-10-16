@@ -6,9 +6,27 @@
 		"URL": ""
 	},
 	{
+		"date": "14 octubre 2023",
+		"medio": "La Voz del Sur",
+		"title": "Cuenta atrás para los vecinos de La Asunción: menos de dos meses para saber si tienen que devolver la subvención",
+		"URL": "https://www.lavozdelsur.es/ediciones/jerez/cuenta-atras-vecinos-asuncion-menos-dos-meses-saber-si-tienen-devolver-subvencion_303568_102.html"
+	},
+	{
 		"date": "13 octubre 2023",
 		"medio": "Diario de Jerez",
 		"title": "La Asunción de Jerez: cronología de una rehabilitación con muchas sombras",
 		"URL": "https://www.diariodejerez.es/jerez/La-Asuncion-Jerez-cronologia-rehabilitacion-sombras_0_1838216777.html"
+	},
+	{
+		"date": "13 junio 2023",
+		"medio": "La Voz del Sur",
+		"title": "Los vecinos de La Asunción en Jerez, ante una rehabilitación que los lleva a la ruina",
+		"URL": "https://www.lavozdelsur.es/la-voz-seleccion/reportajes/vecinos-asuncion-en-jerez-rehabilitacion-lleva-ruina_296965_102.html"
+	},
+	{
+		"date": "24 julio 2022",
+		"medio": "La Voz del Sur",
+		"title": "La hiperinflación amenaza la reforma de un barrio de Jerez: “La Asunción es una olla a presión”",
+		"URL": "https://www.lavozdelsur.es/actualidad/economia/hiperinflacion-amenaza-reforma-barrio-jerez-la-asuncion-es-olla-presion_280256_102.html"
 	}
 ]
