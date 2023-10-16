@@ -19,7 +19,11 @@ export default class InfoInstitucionalComponent {
 	cardMenus = [
 		this.createCard('Plenos', 'plenos', `assets/art10/infoInstitucional/plenos/plenos.png`),
 		this.createCard('Comisiones', 'comisiones', 'assets/comisiones/comisiones.jpg'),
-		this.createCard('Entes dependientes', 'entesDependientes', 'assets/entes/fundarte/fundarte.jpg'),
+		this.createCard(
+			'Entes dependientes',
+			'entesDependientes',
+			'assets/art10/infoInstitucional/entes/fundarte/fundarte.jpg'
+		),
 		this.createCard('ELAS (Entidades Locales Autónomas)', 'elas', 'assets/art10/infoInstitucional/elas/elas.jpg')
 	];
 

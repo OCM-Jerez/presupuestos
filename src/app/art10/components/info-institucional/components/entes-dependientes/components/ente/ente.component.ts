@@ -46,10 +46,10 @@ export default class EnteComponent implements OnInit {
 
 		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = (path: string) => {
-			this.imgURL = `/assets/entes/${ente}/${ente}.jpg`;
-			const steps$ = this.http.get<IStep[]>(`/assets/entes/${path}/${path}Steps.json`);
-			const data$ = this.http.get<ILicitacion[]>(`/assets/entes/${path}/${path}.json`);
-			const news$ = this.http.get<INew[]>(`/assets/entes/${path}/${path}News.json`);
+			this.imgURL = `/assets/art10/infoInstitucional/entes/${ente}/${ente}.jpg`;
+			const steps$ = this.http.get<IStep[]>(`/assets/art10/infoInstitucional/entes/${path}/${path}Steps.json`);
+			const data$ = this.http.get<ILicitacion[]>(`/assets/art10/infoInstitucional/entes/${path}/${path}.json`);
+			const news$ = this.http.get<INew[]>(`/assets/art10/infoInstitucional/entes/${path}/${path}News.json`);
 
 			forkJoin({ steps$, data$, news$ }).subscribe(({ steps$, data$, news$ }) => {
 				this.steps = steps$;

@@ -1,8 +1,32 @@
-<h2 class="OCM-title-dark">Entes dependientes</h2>
+<header class="OCM-title-dark">Entes dependientes</header>
 
-<div class="flex">
-	<div class="flex__cardMenu" *ngFor="let menu of cardMenus" [style.background]="menu.background">
+<main class="flex">
+	<section class="flex__cardMenu" *ngFor="let menu of cardMenus" [style.background]="menu.background">
 		<app-card-ente [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-	</div>
-</div>
+	</section>
+</main>
 ```
+
+<section class="tableCard">
+	<header class="OCM-subtitle-dark">Noticias</header>
+	<table class="tableNews">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Medio</th>
+				<th>Título</th>
+				<th>URL</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let new of news">
+				<ng-container *ngIf="new.URL !== ''">
+					<td>{{ new.date }}</td>
+					<td>{{ new.medio }}</td>
+					<td>{{ new.title }}</td>
+					<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+				</ng-container>
+			</tr>
+		</tbody>
+	</table>
+</section>
