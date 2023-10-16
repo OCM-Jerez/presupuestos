@@ -196,6 +196,12 @@ export default [
 		loadComponent: () => import('./distritos/components/distrito/distrito.component')
 	},
 	{
+		// path: 'barrios/:barrio',
+		path: 'barrios',
+
+		loadComponent: () => import('./distritos/components/distrito/components/barrio/barrio.component')
+	},
+	{
 		path: 'medioambiental',
 		loadComponent: () => import('./medioambiental/medioambiental.component')
 	},

@@ -1,7 +1,7 @@
 [
 	{
 		"data": "Descripción",
-		"value": "Distrito centro"
+		"value": "Barriada La Asunción "
 	},
 	{
 		"data": "Mapa",
@@ -13,6 +13,18 @@
 	},
 	{
 		"data": "WordPress OCM",
+		"value": ""
+	},
+	{
+		"data": "AVV",
+		"value": ""
+	},
+	{
+		"data": "FaceBook AVV",
+		"value": ""
+	},
+	{
+		"data": "WEB AVV",
 		"value": ""
 	},
 	{

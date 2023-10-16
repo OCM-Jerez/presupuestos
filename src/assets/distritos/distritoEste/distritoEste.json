@@ -1,0 +1,25 @@
+[
+	{
+		"data": "Descripción",
+		"value": "Distrito Este"
+	},
+	{
+		"data": "Mapa",
+		"value": "Mapa",
+		"URL": "https://www.google.com/maps/d/viewer?mid=14b7CjPZDR7SGYAn_JDVvs5KlNFg&femb=1&ll=36.66998757361933%2C-6.108873499999998&z=15"
+	},
+	{
+		"data": "Web Ayuntamiento",
+		"value": "Web Ayuntamiento",
+		"URL": "https://www.jerez.es/ciudad/tu-distrito/distrito-este"
+	},
+	{
+		"data": "WordPress OCM",
+		"value": "WordPress OCM",
+		"URL": "https://w.ocmjerez.org/gastos/programas/9205-distritos/92054-distrito-este/"
+	},
+	{
+		"data": "Observaciones",
+		"value": "Completar con los datos que se consideren oportunos"
+	}
+]

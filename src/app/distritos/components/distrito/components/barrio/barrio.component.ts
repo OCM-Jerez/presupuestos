@@ -5,6 +5,12 @@ import { HttpClient } from '@angular/common/http';
 
 import { forkJoin } from 'rxjs';
 
+interface IBarrio {
+	data: string;
+	value: string;
+	URL?: string;
+}
+
 interface IDoc {
 	date: string;
 	emisor: string;
@@ -12,17 +18,6 @@ interface IDoc {
 	URL?: string;
 }
 
-interface IDistrito {
-	data: string;
-	value: string;
-	URL?: string;
-}
-
-interface IBarrio {
-	data: string;
-	value: string;
-	URL?: string;
-}
 interface INew {
 	date: string;
 	medio: string;
@@ -31,41 +26,41 @@ interface INew {
 }
 
 @Component({
-	selector: 'app-distrito',
+	selector: 'app-barrio',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './distrito.component.html',
-	styleUrls: ['./distrito.component.scss']
+	templateUrl: './barrio.component.html',
+	styleUrls: ['./barrio.component.scss']
 })
-export default class DistritoComponent implements OnInit {
+export default class BarrioComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
 	private _location = inject(Location);
 	private http = inject(HttpClient);
 
 	public docs: IDoc[] = [];
-	public data: IDistrito[] = [];
+	public data: IBarrio[] = [];
 	public news: INew[] = [];
-	public barrios: IBarrio[] = [];
 	public imgURL: string;
 	public descripcion: string;
 
 	ngOnInit() {
-		const distrito = this._route.snapshot.paramMap.get('distrito');
+		const barrio = this._route.snapshot.paramMap.get('barrio');
+		console.log(barrio);
 
 		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = (path: string) => {
-			const pathBase = '/assets/distritos';
-			this.imgURL = `${pathBase}/${distrito}/${distrito}.jpg`;
-			const data$ = this.http.get<IDistrito[]>(`${pathBase}/${path}/${path}.json`);
+			const pathBase = '/assets/barrios';
+			console.log(pathBase + '/' + path + '.json');
+
+			// this.imgURL = `${pathBase}/${barrio}/${barrio}.jpg`;
+			const data$ = this.http.get<IBarrio[]>(`${pathBase}/${path}/${path}.json`);
 			const docs$ = this.http.get<IDoc[]>(`${pathBase}/${path}/${path}Docs.json`);
 			const news$ = this.http.get<INew[]>(`${pathBase}/${path}/${path}News.json`);
-			const barrios$ = this.http.get<IBarrio[]>(`${pathBase}/${path}/${path}Barrios.json`);
 
-			forkJoin({ docs$, data$, news$, barrios$ }).subscribe(({ docs$, data$, news$, barrios$ }) => {
+			forkJoin({ docs$, data$, news$ }).subscribe(({ docs$, data$, news$ }) => {
 				this.docs = docs$;
 				this.data = data$;
 				this.news = news$;
-				this.barrios = barrios$;
 
 				const descripcionObj = data$.find((obj) => obj.data === 'Descripción');
 				if (descripcionObj) {
@@ -74,7 +69,7 @@ export default class DistritoComponent implements OnInit {
 			});
 		};
 
-		fetchData(distrito);
+		fetchData('barriadaLaAsuncion');
 	}
 
 	hasKey(object: unknown, key: string): boolean {

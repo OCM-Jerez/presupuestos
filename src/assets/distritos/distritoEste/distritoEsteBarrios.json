@@ -1,0 +1,17 @@
+[
+	{
+		"data": "Descripción",
+		"value": "Barriada La Asunción",
+		"URL": "http://localhost:4200/barrios"
+	},
+	{
+		"data": "Descripción",
+		"value": "Paseo de las Delicias.",
+		"URL": "www.ocmjerez.org"
+	},
+	{
+		"data": "Descripción",
+		"value": "Barriada La Vid.",
+		"URL": "www.ocmjerez.org"
+	}
+]
