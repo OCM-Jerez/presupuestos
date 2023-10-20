@@ -43,7 +43,20 @@ export default class LicitacionesComponent {
 		this.createCard('Reforma integral de Plaza Madrid', 'plazaMadrid2023'),
 		this.createCard('Restauración del templete municipal de la Alameda Vieja', 'templeteAlamedaVieja2023'),
 		this.createCard('Reforma cubiertas Palacio Villapanés', 'palacioVillapanes2023'),
-		this.createCard('Ordenación de equipamiento público en Villas del Este', 'villasDelEste2023')
+		this.createCard('Ordenación de equipamiento público en Villas del Este', 'villasDelEste2023'),
+		this.createCard(
+			'Intervención del área perimetral y anexas del Complejo Deportivo y Estadio Chapín',
+			'perimetroChapin2022'
+		),
+		this.createCard('Adecuación de parcela en Avda de las Acacias', 'acacias2023'),
+		this.createCard(
+			'Mejoras de las instalaciones deportivas y adyacentes del Complejo de la Juventud “Pedro Garrido” en 1ª y 2ª Fase',
+			'pedroGarrido2023'
+		),
+		this.createCard(
+			'Mejoras y nuevas instalaciones deportivas y el desarrollo de zonas adyacentes, inclusivos, lúdicos, intergeneracionales y no federados, del Complejo Deportivo “Manuel Mestre”',
+			'piscinaManuelMestre2023'
+		)
 	];
 
 	createCard(titulo: string, route: string) {

@@ -118,6 +118,16 @@ export default [
 				'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-remanentes-credito/ficha-remanentes-credito.component'
 			)
 	},
+	{
+		path: 'fichaNews',
+		loadComponent: () =>
+			'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-news/ficha-news.component'
+	},
+	{
+		path: 'fichaNews/:codigo',
+		loadComponent: () =>
+			'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-news/ficha-news.component'
+	},
 
 	{
 		path: 'deuda',
@@ -153,17 +163,17 @@ export default [
 		loadComponent: () => import('./art16/components/datos-economicos/components/pmp/pmp.component')
 	},
 	{
+		path: 'impuestos',
+		loadComponent: () => import('./art16/components/impuestos/impuestos.component')
+	},
+	{
 		path: 'fichaEmpleados',
 		loadComponent: () =>
 			import(
 				'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-personal/ficha-personal.component'
 			)
 	},
-	{
-		path: 'fichaNews/:codigo',
-		loadComponent: () =>
-			'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-news/ficha-news.component'
-	},
+
 	{
 		path: 'tableProgramaDetails/:origen',
 		loadComponent: () =>

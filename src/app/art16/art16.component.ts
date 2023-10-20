@@ -18,7 +18,8 @@ export default class Art16Component {
 	cardMenus = [
 		this.createCardMenu('Presupuestos', '/presupuestos', 'assets/img/home/menu1-400x250.webp', ''),
 		this.createCardMenu('Deuda', '/deuda', 'assets/deuda/deuda.jpg', 'Información sobre la deuda'),
-		this.createCardMenu('PMP', '/pmp', `assets/datosEconomicos/pmp/pmp.jpg`, '')
+		this.createCardMenu('PMP', '/pmp', `assets/datosEconomicos/pmp/pmp.jpg`, ''),
+		this.createCardMenu('Impuestos', '/impuestos', `assets/art16/impuestos/impuestos.jpg`, '')
 	];
 
 	createCardMenu(titulo: string, ruta: string, rutaImagen: string, subtitulo: string) {
