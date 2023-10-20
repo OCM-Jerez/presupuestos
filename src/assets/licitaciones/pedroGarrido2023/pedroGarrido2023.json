@@ -47,7 +47,7 @@
 	},
 	{
 		"data": "Financiación",
-		"value": ""
+		"value": "Condicionada la adjudicación a la efectividad de la concesión de la subvención de la Diputación de Cádiz"
 	},
 	{
 		"data": "Credito en que se ampara",
@@ -72,11 +72,11 @@
 	{
 		"data": "Geolocalización",
 		"value": "Pulsar en el enlace para ver la ubicación",
-		"URL": ""
+		"URL": "https://maps.app.goo.gl/acUhpeAEPEUxaSqt9"
 	},
 	{
 		"data": "Distrito",
 		"value": "Sur (Pulsar en el enlace para ver el contorno del distrito)",
-		"URL": ""
+		"URL": "https://www.google.com/maps/d/viewer?msa=0&ie=UTF8&t=h&ll=36.66438014071919%2C-6.146434106019147&spn=0.038555%2C0.062141&z=15&source=embed&mid=1oRK2SOYZN5d-9ErQwtiB9ROv3lg"
 	}
 ]
