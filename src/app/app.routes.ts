@@ -128,7 +128,6 @@ export default [
 		loadComponent: () =>
 			'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-news/ficha-news.component'
 	},
-
 	{
 		path: 'deuda',
 		loadComponent: () => import('./art16/components/deuda/deuda.component')

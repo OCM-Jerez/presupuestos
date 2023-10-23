@@ -273,9 +273,9 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 
 		console.log(this._location);
 
-		// this._location.go('/art16');
-		this._router.navigateByUrl(`/fichaNews`);
-		// this._router.navigateByUrl(`/fichaNews/${codigo}`);
+		this._location.go('/art16');
+		// this._router.navigateByUrl(`/fichaNews`);
+		this._router.navigateByUrl(`/fichaNews/${codigo}`);
 	}
 
 	async filterNewsByCode(codigo: number) {

@@ -82,7 +82,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		valueGetter: (params) => {
 			if (params?.data) {
 				return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: 14px; margin-left: 0px"">${
-					'       ' + params.data.CodEco + ' -+++++ ' + params.data.DesEco
+					'       ' + params.data.CodEco + ' - ' + params.data.DesEco
 				}</span>`;
 			} else {
 				return `<span style="white-space: pre;color: red; font-size: 18px; font-family:var(--fuente-principal);font-weight: bold;text-align: right;padding-left: 425px;">TOTAL PROGRAMA
@@ -103,7 +103,8 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this._dataTable = this._dataStoreService.dataTable;
 		this._clasificationType = this._dataTable.clasificationType;
 
-		const programa = this._dataStoreService.selectedCodeRowFirstLevel.split(' - ')[1];
+		// const programa = this._dataStoreService.selectedCodeRowFirstLevel.split(' - ')[1];
+		const programa = this._dataStoreService.selectedCodeRowFirstLevel;
 
 		switch (this._path) {
 			case 'details':

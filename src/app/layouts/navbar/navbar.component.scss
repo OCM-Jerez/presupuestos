@@ -62,6 +62,7 @@
 		grid-row-gap: 0px;
 		width: 99%;
 		height: 60px; // Con barraBuscar 150px
+		caret-color: transparent;
 		&--1row {
 			display: flex;
 			justify-content: space-between;

@@ -1,11 +1,16 @@
-.flex {
+.dark-teme {
+	background-color: #15202b;
+	min-height: 650px;
+	margin-bottom: 10px;
+	caret-color: transparent;
+}
+
+.img {
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
-	height: 200px;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 20px;
+	align-items: center;
+	height: 35vh;
+	margin: 20px;
 }
 
 .cardTableSeguimiento {

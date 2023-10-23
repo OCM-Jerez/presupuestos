@@ -52,7 +52,7 @@ export default class BarrioComponent implements OnInit {
 			const pathBase = '/assets/barrios';
 			console.log(pathBase + '/' + path + '.json');
 
-			// this.imgURL = `${pathBase}/${barrio}/${barrio}.jpg`;
+			this.imgURL = `${pathBase}/${path}/${path}.jpg`;
 			const data$ = this.http.get<IBarrio[]>(`${pathBase}/${path}/${path}.json`);
 			const docs$ = this.http.get<IDoc[]>(`${pathBase}/${path}/${path}Docs.json`);
 			const news$ = this.http.get<INew[]>(`${pathBase}/${path}/${path}News.json`);
