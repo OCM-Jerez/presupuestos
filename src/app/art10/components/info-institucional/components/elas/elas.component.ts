@@ -1,18 +1,20 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 
+import { INew } from '@interfaces/new.interface';
+
 const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
-	URL?: string;
-}
+// interface INew {
+// 	date: string;
+// 	medio: string;
+// 	title: string;
+// 	URL?: string;
+// }
 
 interface IEla {
 	data: string;
@@ -29,7 +31,6 @@ interface IEla {
 export default class ELAsComponent implements OnInit {
 	private _router = inject(Router);
 	private _location = inject(Location);
-	private _route = inject(ActivatedRoute);
 	private _http = inject(HttpClient);
 
 	public data: IEla[] = [];
@@ -42,9 +43,7 @@ export default class ELAsComponent implements OnInit {
 		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = () => {
 			const pathBase = '/assets/art10/infoInstitucional/elas';
-
 			// this.imgURL = `${pathBase}/${ela}/${ela}.jpg`;
-			// console.log(this.imgURL);
 
 			const data$ = this._http.get<IEla[]>(`${pathBase}/elas.json`);
 			const news$ = this._http.get<INew[]>(`${pathBase}/elasNews.json`);

@@ -4,16 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 
-import { CardEnteComponent } from './components/card-ente/card-ente.component';
+// import { CardEnteComponent } from './components/card-ente/card-ente.component';
+import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
+
+import { INew } from '@interfaces/new.interface';
 
 const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
-
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
-	URL?: string;
-}
 
 interface IEnte {
 	data: string;
@@ -24,7 +20,7 @@ interface IEnte {
 @Component({
 	selector: 'app-entes-dependientes',
 	standalone: true,
-	imports: [CommonModule, CardEnteComponent],
+	imports: [CommonModule, CardMenuComponent],
 	templateUrl: './entes-dependientes.component.html',
 	styleUrls: ['./entes-dependientes.component.scss']
 })

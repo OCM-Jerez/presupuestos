@@ -1,15 +1,15 @@
 <header class="OCM-title-dark">Entes dependientes</header>
 
-<main class="flex">
-	<section class="flex__cardMenu" *ngFor="let menu of cardMenus" [style.background]="menu.background">
-		<app-card-ente [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+<main class="OCM-flex">
+	<section class="OCM-flex__cardMenu" *ngFor="let menu of cardMenus" [style.background]="menu.background">
+		<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 	</section>
 </main>
 ```
 
-<section class="tableCard">
+<section class="OCM-tableCard">
 	<header class="OCM-subtitle-dark">Noticias</header>
-	<table class="tableNews">
+	<table class="OCM-tableNews">
 		<thead>
 			<tr>
 				<th>Fecha</th>

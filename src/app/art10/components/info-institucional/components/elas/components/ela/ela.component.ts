@@ -5,17 +5,19 @@ import { HttpClient } from '@angular/common/http';
 
 import { forkJoin } from 'rxjs';
 
+import { INew } from '@interfaces/new.interface';
+
 interface IEla {
 	data: string;
 	value: string;
 	URL?: string;
 }
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
-	URL?: string;
-}
+// interface INew {
+// 	date: string;
+// 	medio: string;
+// 	title: string;
+// 	URL?: string;
+// }
 
 @Component({
 	selector: 'app-ela',
@@ -35,15 +37,11 @@ export default class ElaComponent implements OnInit {
 
 	ngOnInit() {
 		const ela = this._route.snapshot.paramMap.get('ela');
-		console.log(ela);
-
 		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = (path: string) => {
 			const pathBase = '/assets/art10/infoInstitucional/elas';
 
 			this.imgURL = `${pathBase}/${ela}/${ela}.jpg`;
-			console.log(this.imgURL);
-
 			const data$ = this._http.get<IEla[]>(`${pathBase}/${path}/${path}.json`);
 			const news$ = this._http.get<INew[]>(`${pathBase}/${path}/${path}News.json`);
 

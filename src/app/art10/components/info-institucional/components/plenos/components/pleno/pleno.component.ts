@@ -1,32 +1,17 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 import { forkJoin } from 'rxjs';
 
+import { ICom } from '@interfaces/com.iterface';
+import { IDoc } from '@interfaces/doc.onterface';
+import { INew } from '@interfaces/new.interface';
+
 interface IPleno {
 	data: string;
 	value: string;
-	URL?: string;
-}
-interface IDoc {
-	date: string;
-	emisor: string;
-	title: string;
-	URL?: string;
-}
-
-interface ICom {
-	date: string;
-	emisor: string;
-	texto: string;
-}
-
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
 	URL?: string;
 }
 
@@ -39,7 +24,6 @@ interface INew {
 })
 export default class PlenoComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
-	private _location = inject(Location);
 	private _http = inject(HttpClient);
 
 	public dataPleno: IPleno[] = [];
@@ -79,8 +63,4 @@ export default class PlenoComponent implements OnInit {
 	hasKey(object: unknown, key: string): boolean {
 		return object && Object.prototype.hasOwnProperty.call(object, key);
 	}
-
-	// volver() {
-	// 	this._location.back();
-	// }
 }
