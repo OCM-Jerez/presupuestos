@@ -1,8 +1,8 @@
-<h2 class="OCM-title-dark">Eventos</h2>
+<header class="OCM-title-dark">Eventos</header>
 
-<div class="flex">
-	<div class="flex__cardMenu" *ngFor="let menu of cardMenus" [style.background]="menu.background">
+<main class="OCM-flex">
+	<section class="OCM-flex__cardMenu" *ngFor="let menu of cardMenus" [style.background]="menu.background">
 		<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-	</div>
-</div>
+	</section>
+</main>
 ```

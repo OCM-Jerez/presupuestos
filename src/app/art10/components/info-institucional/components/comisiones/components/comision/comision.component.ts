@@ -40,7 +40,6 @@ export default class ComisionComponent implements OnInit {
 		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = (path: string) => {
 			// this.imgURL = `/assets/comision/${comision}/${comision}.jpg`;
-			// const steps$ = this.http.get<IStep[]>(`/assets/comision/${path}/${path}Steps.json`);
 			const data$ = this.http.get<IComision[]>(`/assets/comisiones/permanentes/${path}/${path}.json`);
 			const news$ = this.http.get<INew[]>(`/assets/comisiones/permanentes/${path}/${path}News.json`);
 
@@ -61,8 +60,4 @@ export default class ComisionComponent implements OnInit {
 	hasKey(object: unknown, key: string): boolean {
 		return object && Object.prototype.hasOwnProperty.call(object, key);
 	}
-
-	// volver() {
-	// 	this._location.back();
-	// }
 }
