@@ -4,7 +4,7 @@
 	<section class="cardTableHomeData">
 		<table class="paleBlueRowsData">
 			<tbody>
-				<tr *ngFor="let data of dataComision">
+				<tr *ngFor="let data of data">
 					<!-- Solo muestra las filas donde 'data.value' no está vacío y 'data.URL' no es una clave o está vacío -->
 					<ng-container *ngIf="data.value !== '' && (!hasKey(data, 'URL') || (hasKey(data, 'URL') && data.URL !== ''))">
 						<td>{{ data.data }}</td>

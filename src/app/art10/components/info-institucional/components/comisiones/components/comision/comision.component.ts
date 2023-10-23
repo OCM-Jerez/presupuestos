@@ -30,7 +30,7 @@ export default class ComisionComponent implements OnInit {
 	private http = inject(HttpClient);
 
 	public news: INew[] = [];
-	public dataComision: IComision[] = [];
+	public data: IComision[] = [];
 
 	public imgURL: string;
 	public descripcion: string;
@@ -39,12 +39,13 @@ export default class ComisionComponent implements OnInit {
 		const comision = this._route.snapshot.paramMap.get('comision');
 		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = (path: string) => {
+			const pathBase = '/assets/art10/infoInstitucional/comisiones/permanentes/';
 			// this.imgURL = `/assets/comision/${comision}/${comision}.jpg`;
-			const data$ = this.http.get<IComision[]>(`/assets/comisiones/permanentes/${path}/${path}.json`);
-			const news$ = this.http.get<INew[]>(`/assets/comisiones/permanentes/${path}/${path}News.json`);
+			const data$ = this.http.get<IComision[]>(`${pathBase}/${path}/${path}.json`);
+			const news$ = this.http.get<INew[]>(`${pathBase}/${path}/${path}News.json`);
 
 			forkJoin({ data$, news$ }).subscribe(({ data$, news$ }) => {
-				this.dataComision = data$;
+				this.data = data$;
 				this.news = news$;
 
 				const descripcionObj = data$.find((obj) => obj.data === 'Descripción');
