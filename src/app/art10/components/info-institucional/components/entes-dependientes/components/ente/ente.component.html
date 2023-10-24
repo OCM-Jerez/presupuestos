@@ -1,14 +1,14 @@
 <main class="OCM-dark-teme">
-	<header class="OCM-title-dark">{{ nombre }}</header>
+	<header class="OCM-title-dark">{{ descripcion }}</header>
 
 	<figure class="img">
 		<img src="{{ imgURL }}" alt="Foto proyecto" />
 	</figure>
 
-	<section class="cardTableHomeData">
-		<table class="paleBlueRowsData">
+	<section class="OCM-tableContainer">
+		<table class="OCM-table">
 			<tbody>
-				<tr *ngFor="let data of dataLicitacion">
+				<tr *ngFor="let data of data">
 					<!-- Solo muestra las filas donde 'data.value' no está vacío y 'data.URL' no es una clave o está vacío -->
 					<ng-container *ngIf="data.value !== '' && (!hasKey(data, 'URL') || (hasKey(data, 'URL') && data.URL !== ''))">
 						<td>{{ data.data }}</td>
@@ -23,7 +23,29 @@
 		</table>
 	</section>
 
-	<header class="OCM-title">Noticias</header>
+	<section class="OCM-tableContainer">
+		<header class="OCM-subtitle-dark">Documentos</header>
+		<table class="OCM-table">
+			<thead>
+				<tr>
+					<th>Fecha</th>
+					<th>Emisor</th>
+					<th>Título</th>
+					<th>URL</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let doc of docs">
+					<ng-container *ngIf="doc.URL !== ''">
+						<td>{{ doc.date }}</td>
+						<td>{{ doc.emisor }}</td>
+						<td>{{ doc.title }}</td>
+						<td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+					</ng-container>
+				</tr>
+			</tbody>
+		</table>
+	</section>
 
 	<section class="OCM-tableContainer">
 		<header class="OCM-subtitle-dark">Noticias</header>
@@ -44,6 +66,26 @@
 						<td>{{ new.title }}</td>
 						<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
 					</ng-container>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
+	<section class="OCM-tableContainer">
+		<header class="OCM-subtitle-dark">Comentarios</header>
+		<table class="OCM-table">
+			<thead>
+				<tr>
+					<th>Fecha</th>
+					<th>Emisor</th>
+					<th>texto</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let com of coms">
+					<td>{{ com.date }}</td>
+					<td>{{ com.emisor }}</td>
+					<td>{{ com.texto }}</td>
 				</tr>
 			</tbody>
 		</table>

@@ -26,7 +26,7 @@ export default class PlenoComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
 	private _http = inject(HttpClient);
 
-	public dataPleno: IPleno[] = [];
+	public data: IPleno[] = [];
 	public docs: IDoc[] = [];
 	public coms: ICom[] = [];
 	public news: INew[] = [];
@@ -45,7 +45,7 @@ export default class PlenoComponent implements OnInit {
 			const coms$ = this._http.get<ICom[]>(`${pathBase}/${path}/${path}Coms.json`);
 
 			forkJoin({ data$, docs$, news$, coms$ }).subscribe(({ data$, docs$, news$, coms$ }) => {
-				this.dataPleno = data$;
+				this.data = data$;
 				this.docs = docs$;
 				this.news = news$;
 				this.coms = coms$;
