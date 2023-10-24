@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { forkJoin } from 'rxjs';
 
-import { ICom } from '@interfaces/com.iterface';
-import { IDoc } from '@interfaces/doc.onterface';
+import { ICom } from '@interfaces/com.interface';
+import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 
 interface IPleno {

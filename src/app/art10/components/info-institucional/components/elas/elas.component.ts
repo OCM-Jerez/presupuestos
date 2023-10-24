@@ -1,20 +1,16 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { Router } from '@angular/router';
-import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 import { HttpClient } from '@angular/common/http';
+
+import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
+
+import { ICom } from '@interfaces/com.interface';
+import { IDoc } from '@interfaces/doc.interface';
+import { INew } from '@interfaces/new.interface';
 import { forkJoin } from 'rxjs';
 
-import { INew } from '@interfaces/new.interface';
-
 const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
-
-// interface INew {
-// 	date: string;
-// 	medio: string;
-// 	title: string;
-// 	URL?: string;
-// }
 
 interface IEla {
 	data: string;
@@ -34,8 +30,11 @@ export default class ELAsComponent implements OnInit {
 	private _http = inject(HttpClient);
 
 	public data: IEla[] = [];
+	public coms: ICom[] = [];
+	public docs: IDoc[] = [];
 	public news: INew[] = [];
 	public imgURL: string;
+	public descripcion: string;
 
 	ngOnInit() {
 		// const ela = this._route.snapshot.paramMap.get('ela');
@@ -46,17 +45,21 @@ export default class ELAsComponent implements OnInit {
 			// this.imgURL = `${pathBase}/${ela}/${ela}.jpg`;
 
 			const data$ = this._http.get<IEla[]>(`${pathBase}/elas.json`);
+			const docs$ = this._http.get<IDoc[]>(`${pathBase}/elasDocs.json`);
 			const news$ = this._http.get<INew[]>(`${pathBase}/elasNews.json`);
+			const coms$ = this._http.get<ICom[]>(`${pathBase}/elasComs.json`);
 
-			forkJoin({ data$, news$ }).subscribe(({ data$, news$ }) => {
+			forkJoin({ data$, docs$, coms$, news$ }).subscribe(({ data$, docs$, coms$, news$ }) => {
 				this.data = data$;
+				this.docs = docs$;
 				this.news = news$;
-
-				// const descripcionObj = data$.find((obj) => obj.data === 'Descripción');
-				// if (descripcionObj) {
-				// 	this.descripcion = descripcionObj.value;
-				// }
+				this.coms = coms$;
 			});
+
+			const descripcionObj = this.data.find((obj) => obj.data === 'Descripción');
+			if (descripcionObj) {
+				this.descripcion = descripcionObj.value;
+			}
 		};
 
 		fetchData();

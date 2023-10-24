@@ -62,8 +62,8 @@ export default class DistritoComponent implements OnInit {
 			const barrios$ = this.http.get<IBarrio[]>(`${pathBase}/${path}/${path}Barrios.json`);
 
 			forkJoin({ docs$, data$, news$, barrios$ }).subscribe(({ docs$, data$, news$, barrios$ }) => {
-				this.docs = docs$;
 				this.data = data$;
+				this.docs = docs$;
 				this.news = news$;
 				this.barrios = barrios$;
 

@@ -1,12 +1,13 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 
-// import { CardEnteComponent } from './components/card-ente/card-ente.component';
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
+import { ICom } from '@interfaces/com.interface';
+import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 
 const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
@@ -27,23 +28,35 @@ interface IEnte {
 export default class EntesDependientesComponent implements OnInit {
 	private _router = inject(Router);
 	private _location = inject(Location);
-	private _route = inject(ActivatedRoute);
 	private _http = inject(HttpClient);
 
 	public data: IEnte[] = [];
+	public coms: ICom[] = [];
+	public docs: IDoc[] = [];
 	public news: INew[] = [];
+	public descripcion: string;
+
 	ngOnInit() {
 		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = () => {
 			const pathBase = '/assets/art10/infoInstitucional/entes';
 
 			const data$ = this._http.get<IEnte[]>(`${pathBase}/entes.json`);
+			const docs$ = this._http.get<IDoc[]>(`${pathBase}/entesDocs.json`);
 			const news$ = this._http.get<INew[]>(`${pathBase}/entesNews.json`);
+			const coms$ = this._http.get<ICom[]>(`${pathBase}/entesComs.json`);
 
-			forkJoin({ data$, news$ }).subscribe(({ data$, news$ }) => {
+			forkJoin({ data$, docs$, coms$, news$ }).subscribe(({ data$, docs$, coms$, news$ }) => {
 				this.data = data$;
+				this.docs = docs$;
 				this.news = news$;
+				this.coms = coms$;
 			});
+
+			const descripcionObj = this.data.find((obj) => obj.data === 'Descripción');
+			if (descripcionObj) {
+				this.descripcion = descripcionObj.value;
+			}
 		};
 
 		fetchData();
@@ -63,5 +76,9 @@ export default class EntesDependientesComponent implements OnInit {
 			funcion: () => this._router.navigateByUrl(`/entesDependientes/${route}`),
 			background: defaultBackground
 		};
+	}
+
+	hasKey(object: unknown, key: string): boolean {
+		return object && Object.prototype.hasOwnProperty.call(object, key);
 	}
 }
