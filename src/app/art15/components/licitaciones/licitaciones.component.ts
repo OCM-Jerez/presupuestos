@@ -44,7 +44,9 @@ export default class LicitacionesComponent {
 		this.createCard('Perimetro del Complejo Deportivo y Estadio Chapín', 'perimetroChapin2022'),
 		this.createCard('Adecuación de parcela en Avda de las Acacias', 'acacias2023'),
 		this.createCard('Mejoras instalaciones Complejo “Pedro Garrido”', 'pedroGarrido2023'),
-		this.createCard('Mejoras Complejo Deportivo “Manuel Mestre”', 'piscinaManuelMestre2023')
+		this.createCard('Mejoras Complejo Deportivo “Manuel Mestre”', 'piscinaManuelMestre2023'),
+		this.createCard('Reparación y conservación en la Torre de la Atalaya', 'torreAtalaya2023'),
+		this.createCard('Dotación de pasillo cubierto en el CEIP Las Granjas.', 'pasilloCubiertoCEIPLasGranjas2023')
 	];
 
 	createCard(titulo: string, route: string) {

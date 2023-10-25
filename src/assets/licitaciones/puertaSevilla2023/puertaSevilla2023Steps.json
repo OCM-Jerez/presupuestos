@@ -11,5 +11,12 @@
 		"date": "18 octubre 2022",
 		"step": "Formalizacion"
 	},
-	{ "date": "20 septiembre 2023", "step": "Ampliación plazo en 5 meses, Plazo total 20 meses" }
+	{
+		"date": "20 septiembre 2023",
+		"step": "Ampliación plazo en 5 meses, Plazo total 20 meses"
+	},
+	{
+		"date": "18 octubre 2023",
+		"step": "La adjudicataria abandona la obra"
+	}
 ]
