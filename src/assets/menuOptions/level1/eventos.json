@@ -1,0 +1,27 @@
+[
+	{
+		"titulo": "Festival de Jerez",
+		"route": "/eventos/festivalJerez",
+		"rutaImagen": "assets/eventos/festivalJerez/festivalJerez.jpg"
+	},
+	{
+		"titulo": "Feria",
+		"route": "/eventos/feria",
+		"rutaImagen": "assets/eventos/feria/feria.jpg"
+	},
+	{
+		"titulo": "Festival Internacional de titeres",
+		"route": "/eventos/titeres",
+		"rutaImagen": "assets/eventos/titeres/titeres.jpg"
+	},
+	{
+		"titulo": "Feria del libro",
+		"route": "/eventos/feriaLibro",
+		"rutaImagen": "assets/eventos/feriaLibro/feriaLibro.jpg"
+	},
+	{
+		"titulo": "Navidad",
+		"route": "/eventos/Navidad",
+		"rutaImagen": "assets/eventos/Navidad/Navidad.jpg"
+	}
+]

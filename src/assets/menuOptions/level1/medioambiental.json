@@ -1,0 +1,17 @@
+[
+	{
+		"titulo": "Edificios singulares",
+		"route": "/edificiosSingulares",
+		"rutaImagen": "assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg"
+	},
+	{
+		"titulo": "Apartamentos turísticos",
+		"route": "/apartamentosTuristicos",
+		"rutaImagen": "assets/medioambiental/apartamentosTuristicos/apartamentosTuristicos.jpg"
+	},
+	{
+		"titulo": "Proyectos construcción de viviendas",
+		"route": "/proyectosViviendas",
+		"rutaImagen": "assets/medioambiental/proyectosViviendas/proyectosViviendas.jpg"
+	}
+]

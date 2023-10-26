@@ -1,0 +1,22 @@
+[
+	{
+		"titulo": "Presupuestos",
+		"route": "/presupuestos",
+		"rutaImagen": "assets/img/home/menu1-400x250.webp"
+	},
+	{
+		"titulo": "Deuda",
+		"route": "/deuda",
+		"rutaImagen": "assets/deuda/deuda.jpg"
+	},
+	{
+		"titulo": "PMP",
+		"route": "/pmp",
+		"rutaImagen": "assets/datosEconomicos/pmp/pmp.jpg"
+	},
+	{
+		"titulo": "Impuestos",
+		"route": "/impuestos",
+		"rutaImagen": "assets/art16/impuestos/impuestos.jpg"
+	}
+]

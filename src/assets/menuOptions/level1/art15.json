@@ -1,0 +1,12 @@
+[
+	{
+		"titulo": "Licitaciones",
+		"route": "/licitaciones",
+		"rutaImagen": "assets/img/home/menu3-400x250.webp"
+	},
+	{
+		"titulo": "Subvenciones",
+		"route": "/subvenciones",
+		"rutaImagen": "assets/subvenciones/subvenciones.jpg"
+	}
+]
