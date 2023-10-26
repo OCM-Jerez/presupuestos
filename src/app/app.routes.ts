@@ -13,14 +13,14 @@ export default [
 		path: 'level1',
 		loadComponent: () => import('./level1/level1.component')
 	},
-	{
-		path: 'art15',
-		loadComponent: () => import('./art15/art15.component')
-	},
-	{
-		path: 'art16',
-		loadComponent: () => import('./art16/art16.component')
-	},
+	// {
+	// 	path: 'art15',
+	// 	loadComponent: () => import('./art15/art15.component')
+	// },
+	// {
+	// 	path: 'art16',
+	// 	loadComponent: () => import('./art16/art16.component')
+	// },
 	{
 		path: 'presupuestos',
 		loadComponent: () => import('./art16/components/presupuestos/presupuestos.component')
@@ -192,10 +192,10 @@ export default [
 		path: 'licitacion/:licitacion',
 		loadComponent: () => import('./art15/components/licitaciones/components/licitacion/licitacion.component')
 	},
-	{
-		path: 'temas',
-		loadComponent: () => import('./temas/temas.component')
-	},
+	// {
+	// 	path: 'temas',
+	// 	loadComponent: () => import('./temas/temas.component')
+	// },
 	{
 		path: 'temas/:tema',
 		loadComponent: () => import('./temas/components/tema/tema.component')
