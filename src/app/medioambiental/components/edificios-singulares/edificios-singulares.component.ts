@@ -19,7 +19,8 @@ export default class EdificiosSingularesComponent {
 		this.createCard('Antiguo asilo San Jose', 'asiloSanJose'),
 		this.createCard('Antigua comisaria Policia Nacional', 'antiguaComisariaPoliciaNacional'),
 		this.createCard('Antigua jefatura Policia Local', 'antiguaJefaturaPoliciaLocal'),
-		this.createCard('Bodegasd Croft', 'Croft')
+		this.createCard('Bodegasd Croft', 'Croft'),
+		this.createCard('Callejón de los Bolos', 'callejonBolos')
 	];
 
 	createCard(titulo: string, route: string) {
