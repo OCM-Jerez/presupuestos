@@ -21,18 +21,18 @@ export default class Art15Component {
 		this.createCardMenu('Subvenciones', '/subvenciones', 'assets/subvenciones/subvenciones.jpg', '')
 	];
 
-	createCardMenu(titulo: string, ruta: string, rutaImagen: string, subtitulo: string) {
+	createCardMenu(titulo: string, route: string, rutaImagen: string, subtitulo: string) {
 		return {
 			rutaImagen,
 			titulo,
 			subtitulo,
 			textButton: titulo,
 			background: defaultBackground,
-			funcion: () => this.navigate(ruta)
+			funcion: () => this._router.navigateByUrl(`${route}`)
 		};
 	}
 
-	navigate(ruta: string) {
-		this._router.navigateByUrl(ruta);
-	}
+	// navigate(ruta: string) {
+	// 	this._router.navigateByUrl(ruta);
+	// }
 }

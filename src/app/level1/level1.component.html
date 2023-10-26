@@ -1,0 +1,8 @@
+<h2 class="OCM-subtitle-dark">{{ titulo }}</h2>
+
+<div class="OCM-flex">
+	<div class="OCM-flex__cardMenu" *ngFor="let menu of createdCards" [style.background]="menu.background">
+		<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+	</div>
+</div>
+```

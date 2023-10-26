@@ -13,41 +13,38 @@ const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 	styleUrls: ['./medioambiental.component.scss']
 })
 export default class MedioambientalComponent {
-	private _router = inject(Router);
-
-	cardMenus = [
-		this.createCardMenu(
-			'Edificios singulares',
-			'/edificiosSingulares',
-			'assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg',
-			''
-		),
-		this.createCardMenu(
-			'Apartamentos turísticos',
-			'/apartamentosTuristicos',
-			'assets/medioambiental/apartamentosTuristicos/apartamentosTuristicos.jpg',
-			''
-		),
-		this.createCardMenu(
-			'Proyectos construcción de viviendas',
-			'/proyectosViviendas',
-			'assets/medioambiental/proyectosViviendas/proyectosViviendas.jpg',
-			''
-		)
-	];
-
-	createCardMenu(titulo: string, ruta: string, rutaImagen: string, subtitulo: string) {
-		return {
-			rutaImagen,
-			titulo,
-			subtitulo,
-			textButton: titulo,
-			background: defaultBackground,
-			funcion: () => this.navigate(ruta)
-		};
-	}
-
-	navigate(ruta: string) {
-		this._router.navigateByUrl(ruta);
-	}
+	// private _router = inject(Router);
+	// cardMenus = [
+	// 	this.createCardMenu(
+	// 		'Edificios singulares',
+	// 		'/edificiosSingulares',
+	// 		'assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg',
+	// 		''
+	// 	),
+	// 	this.createCardMenu(
+	// 		'Apartamentos turísticos',
+	// 		'/apartamentosTuristicos',
+	// 		'assets/medioambiental/apartamentosTuristicos/apartamentosTuristicos.jpg',
+	// 		''
+	// 	),
+	// 	this.createCardMenu(
+	// 		'Proyectos construcción de viviendas',
+	// 		'/proyectosViviendas',
+	// 		'assets/medioambiental/proyectosViviendas/proyectosViviendas.jpg',
+	// 		''
+	// 	)
+	// ];
+	// createCardMenu(titulo: string, ruta: string, rutaImagen: string, subtitulo: string) {
+	// 	return {
+	// 		rutaImagen,
+	// 		titulo,
+	// 		subtitulo,
+	// 		textButton: titulo,
+	// 		background: defaultBackground,
+	// 		funcion: () => this.navigate(ruta)
+	// 	};
+	// }
+	// navigate(ruta: string) {
+	// 	this._router.navigateByUrl(ruta);
+	// }
 }

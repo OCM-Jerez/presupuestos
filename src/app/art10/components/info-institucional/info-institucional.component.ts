@@ -18,24 +18,24 @@ export default class InfoInstitucionalComponent {
 	private _location = inject(Location);
 
 	cardMenus = [
-		this.createCard('Plenos', 'plenos', `assets/art10/infoInstitucional/plenos/plenos.png`),
-		this.createCard('Comisiones', 'comisiones', 'assets/art10/infoInstitucional/comisiones/comisiones.jpg'),
+		this.createCard('Plenos', '/plenos', `assets/art10/infoInstitucional/plenos/plenos.png`),
+		this.createCard('Comisiones', '/comisiones', 'assets/art10/infoInstitucional/comisiones/comisiones.jpg'),
 		this.createCard(
 			'Entes dependientes',
-			'entesDependientes',
+			'/entesDependientes',
 			'assets/art10/infoInstitucional/entes/fundarte/fundarte.jpg'
 		),
-		this.createCard('ELAS (Entidades Locales Autónomas)', 'elas', 'assets/art10/infoInstitucional/elas/elas.jpg')
+		this.createCard('ELAS (Entidades Locales Autónomas)', '/elas', 'assets/art10/infoInstitucional/elas/elas.jpg')
 	];
 
 	createCard(titulo: string, route: string, rutaImagen: string) {
-		this._location.go('/art10');
+		// this._location.go('/art10');
 
 		return {
 			titulo,
 			rutaImagen,
-			funcion: () => this._router.navigateByUrl(`/art10/${route}`),
-			background: defaultBackground
+			background: defaultBackground,
+			funcion: () => this._router.navigateByUrl(`${route}`)
 		};
 	}
 }

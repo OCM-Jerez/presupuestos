@@ -89,13 +89,13 @@ export default class ComisionesComponent implements OnInit {
 	];
 
 	createCard(titulo: string, route: string) {
-		this._location.go('/comisiones');
+		// this._location.go('/comisiones');
 
 		return {
 			titulo,
 			// rutaImagen: `assets/comisiones/${route}/${route}.jpg`,
-			funcion: () => this._router.navigateByUrl(`/comision/${route}`),
-			background: defaultBackground
+			background: defaultBackground,
+			funcion: () => this._router.navigateByUrl(`/comision/${route}`)
 		};
 	}
 }

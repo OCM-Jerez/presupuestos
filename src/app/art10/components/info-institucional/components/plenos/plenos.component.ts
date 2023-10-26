@@ -37,7 +37,6 @@ export default class PlenosComponent implements OnInit {
 	public descripcion: string;
 
 	ngOnInit() {
-		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = () => {
 			const pathBase = '/assets/art10/infoInstitucional/plenos';
 
@@ -68,13 +67,13 @@ export default class PlenosComponent implements OnInit {
 	];
 
 	createCard(titulo: string, route: string) {
-		this._location.go('/art10');
+		// this._location.go('/art10');
 
 		return {
 			titulo,
 			rutaImagen: `/assets/art10/infoInstitucional/plenos/plenos.png`,
-			funcion: () => this._router.navigateByUrl(`/pleno/${route}`),
-			background: defaultBackground
+			background: defaultBackground,
+			funcion: () => this._router.navigateByUrl(`/pleno/${route}`)
 		};
 	}
 }

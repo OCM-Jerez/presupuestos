@@ -5,9 +5,13 @@ export default [
 		path: 'home',
 		loadComponent: () => import('./home/home.component')
 	},
+	// {
+	// 	path: 'art10',
+	// 	loadComponent: () => import('./art10/art10.component')
+	// },
 	{
-		path: 'art10',
-		loadComponent: () => import('./art10/art10.component')
+		path: 'level1',
+		loadComponent: () => import('./level1/level1.component')
 	},
 	{
 		path: 'art15',
@@ -30,11 +34,11 @@ export default [
 		loadComponent: () => import('./art16/components/presupuestos/components/detalle/detalle.component')
 	},
 	{
-		path: 'art10/infoIntitucional',
+		path: 'infoIntitucional',
 		loadComponent: () => import('./art10/components/info-institucional/info-institucional.component')
 	},
 	{
-		path: 'art10/plenos',
+		path: 'plenos',
 		loadComponent: () => import('./art10/components/info-institucional/components/plenos/plenos.component')
 	},
 	{
@@ -43,7 +47,7 @@ export default [
 			import('./art10/components/info-institucional/components/plenos/components/pleno/pleno.component')
 	},
 	{
-		path: 'art10/elas',
+		path: 'elas',
 		loadComponent: () => import('./art10/components/info-institucional/components/elas/elas.component')
 	},
 	{
@@ -51,7 +55,7 @@ export default [
 		loadComponent: () => import('./art10/components/info-institucional/components/elas/components/ela/ela.component')
 	},
 	{
-		path: 'art10/comisiones',
+		path: 'comisiones',
 		loadComponent: () => import('./art10/components/info-institucional/components/comisiones/comisiones.component')
 	},
 	{
@@ -60,7 +64,7 @@ export default [
 			import('./art10/components/info-institucional/components/comisiones/components/comision/comision.component')
 	},
 	{
-		path: 'art10/entesDependientes',
+		path: 'entesDependientes',
 		loadComponent: () =>
 			import('./art10/components/info-institucional/components/entes-dependientes/entes-dependientes.component')
 	},
@@ -70,7 +74,7 @@ export default [
 			import('./art10/components/info-institucional/components/entes-dependientes/components/ente/ente.component')
 	},
 	{
-		path: 'art10/infoOrganizativa',
+		path: 'infoOrganizativa',
 		loadComponent: () => import('./art10/components/info-organizativa/info-organizativa.component')
 	},
 	{
@@ -196,10 +200,10 @@ export default [
 		path: 'temas/:tema',
 		loadComponent: () => import('./temas/components/tema/tema.component')
 	},
-	{
-		path: 'distritos',
-		loadComponent: () => import('./distritos/distritos.component')
-	},
+	// {
+	// 	path: 'distritos',
+	// 	loadComponent: () => import('./distritos/distritos.component')
+	// },
 	{
 		path: 'distritos/:distrito',
 		loadComponent: () => import('./distritos/components/distrito/distrito.component')
@@ -210,10 +214,10 @@ export default [
 
 		loadComponent: () => import('./distritos/components/distrito/components/barrio/barrio.component')
 	},
-	{
-		path: 'medioambiental',
-		loadComponent: () => import('./medioambiental/medioambiental.component')
-	},
+	// {
+	// 	path: 'medioambiental',
+	// 	loadComponent: () => import('./medioambiental/medioambiental.component')
+	// },
 	{
 		path: 'edificiosSingulares',
 		loadComponent: () => import('./medioambiental/components/edificios-singulares/edificios-singulares.component')
@@ -233,14 +237,18 @@ export default [
 		path: 'proyectosViviendas',
 		loadComponent: () => import('./medioambiental/components/proyectos-viviendas/proyectos-viviendas.component')
 	},
-	{
-		path: 'eventos',
-		loadComponent: () => import('./eventos/eventos.component')
-	},
+	// {
+	// 	path: 'eventos',
+	// 	loadComponent: () => import('./eventos/eventos.component')
+	// },
 	{
 		path: 'eventos/:evento',
 		loadComponent: () => import('./eventos/components/evento/evento.component')
 	},
+	// {
+	// 	path: 'eventos/feria',
+	// 	loadComponent: () => import('./eventos/components/evento/evento.component')
+	// },
 	{
 		path: 'subvenciones',
 		loadComponent: () => import('./art15/components/subvenciones/subvenciones.component')

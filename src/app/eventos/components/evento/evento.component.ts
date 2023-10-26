@@ -43,6 +43,7 @@ export default class EventoComponent implements OnInit {
 
 	ngOnInit() {
 		const evento = this._route.snapshot.paramMap.get('evento');
+		console.log(evento);
 
 		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = (path: string) => {

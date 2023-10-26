@@ -75,13 +75,13 @@ export default class ELAsComponent implements OnInit {
 	];
 
 	createCard(titulo: string, route: string) {
-		this._location.go('/art10');
+		// this._location.go('/art10');
 
 		return {
 			titulo,
 			rutaImagen: `/assets/art10/infoInstitucional/elas/${route}/${route}.jpg`,
-			funcion: () => this._router.navigateByUrl(`/ela/${route}`),
-			background: defaultBackground
+			background: defaultBackground,
+			funcion: () => this._router.navigateByUrl(`/ela/${route}`)
 		};
 	}
 }

@@ -19,12 +19,12 @@ export default class Art10Component {
 	cardMenus = [
 		this.createCard(
 			'Informacion institucional',
-			'infoIntitucional',
+			'/infoIntitucional',
 			`assets/art10/infoInstitucional/plenos/plenos.png`
 		),
 		this.createCard(
 			'Informacion organizativa',
-			'infoOrganizativa',
+			'/infoOrganizativa',
 			`assets/art10/infoOrganizativa/infoOrganizativa.jpg`
 		)
 	];
@@ -33,7 +33,7 @@ export default class Art10Component {
 		return {
 			titulo,
 			rutaImagen,
-			funcion: () => this._router.navigateByUrl(`/art10/${route}`),
+			funcion: () => this._router.navigateByUrl(`${route}`),
 			background: defaultBackground
 		};
 	}
