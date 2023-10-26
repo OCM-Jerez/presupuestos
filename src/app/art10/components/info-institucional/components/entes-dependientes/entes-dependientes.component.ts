@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+
 import { forkJoin } from 'rxjs';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
@@ -34,12 +35,13 @@ export default class EntesDependientesComponent implements OnInit {
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
+	public imgURL: string;
 	public descripcion: string;
 
 	ngOnInit() {
-		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = () => {
 			const pathBase = '/assets/art10/infoInstitucional/entes';
+			// this.imgURL = `${pathBase}/${ela}/${ela}.jpg`;
 
 			const data$ = this._http.get<IEnte[]>(`${pathBase}/entes.json`);
 			const docs$ = this._http.get<IDoc[]>(`${pathBase}/entesDocs.json`);
@@ -78,7 +80,7 @@ export default class EntesDependientesComponent implements OnInit {
 		};
 	}
 
-	hasKey(object: unknown, key: string): boolean {
-		return object && Object.prototype.hasOwnProperty.call(object, key);
-	}
+	// hasKey(object: unknown, key: string): boolean {
+	// 	return object && Object.prototype.hasOwnProperty.call(object, key);
+	// }
 }

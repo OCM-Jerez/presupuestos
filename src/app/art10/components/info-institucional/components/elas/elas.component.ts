@@ -3,12 +3,13 @@ import { CommonModule, Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
+import { forkJoin } from 'rxjs';
+
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
-import { forkJoin } from 'rxjs';
 
 const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 
@@ -17,6 +18,7 @@ interface IEla {
 	value: string;
 	URL?: string;
 }
+
 @Component({
 	selector: 'app-elas',
 	standalone: true,
@@ -37,9 +39,6 @@ export default class ELAsComponent implements OnInit {
 	public descripcion: string;
 
 	ngOnInit() {
-		// const ela = this._route.snapshot.paramMap.get('ela');
-
-		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = () => {
 			const pathBase = '/assets/art10/infoInstitucional/elas';
 			// this.imgURL = `${pathBase}/${ela}/${ela}.jpg`;
