@@ -1,25 +1,15 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 import { forkJoin } from 'rxjs';
+import { IStep } from '@interfaces/step.interface';
+import { INew } from '@interfaces/new.interface';
 
-interface IStep {
-	date: string;
-	step: string;
-	isFinish?: string;
-}
-
-interface ILicitacion {
+interface ITema {
 	data: string;
 	value: string;
-	URL?: string;
-}
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
 	URL?: string;
 }
 
@@ -32,28 +22,27 @@ interface INew {
 })
 export default class TemaComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
-	private _location = inject(Location);
 	private http = inject(HttpClient);
 
 	public steps: IStep[] = [];
-	public dataLicitacion: ILicitacion[] = [];
+	public data: ITema[] = [];
 	public news: INew[] = [];
 	public imgURL: string;
 	public descripcion: string;
 
 	ngOnInit() {
-		const licitacion = this._route.snapshot.paramMap.get('tema');
-		console.log(licitacion);
+		const tema = this._route.snapshot.paramMap.get('tema');
+		console.log(tema);
 
 		const fetchData = (path: string) => {
-			this.imgURL = `/assets/temas/${licitacion}/${licitacion}.jpg`;
+			this.imgURL = `/assets/temas/${tema}/${tema}.jpg`;
 			const steps$ = this.http.get<IStep[]>(`/assets/temas/${path}/${path}Steps.json`);
-			const data$ = this.http.get<ILicitacion[]>(`/assets/temas/${path}/${path}.json`);
+			const data$ = this.http.get<ITema[]>(`/assets/temas/${path}/${path}.json`);
 			const news$ = this.http.get<INew[]>(`/assets/temas/${path}/${path}News.json`);
 
 			forkJoin({ steps$, data$, news$ }).subscribe(({ steps$, data$, news$ }) => {
 				this.steps = steps$;
-				this.dataLicitacion = data$;
+				this.data = data$;
 				this.news = news$;
 
 				const descripcionObj = data$.find((obj) => obj.data === 'Descripción');
@@ -63,7 +52,7 @@ export default class TemaComponent implements OnInit {
 			});
 		};
 
-		fetchData(licitacion);
+		fetchData(tema);
 	}
 
 	hasKey(object: unknown, key: string): boolean {
