@@ -4,8 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 import { forkJoin } from 'rxjs';
-import { IStep } from '@interfaces/step.interface';
+
 import { INew } from '@interfaces/new.interface';
+import { IStep } from '@interfaces/step.interface';
 
 interface ITema {
 	data: string;
@@ -22,28 +23,26 @@ interface ITema {
 })
 export default class TemaComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
-	private http = inject(HttpClient);
+	private _http = inject(HttpClient);
 
-	public steps: IStep[] = [];
 	public data: ITema[] = [];
 	public news: INew[] = [];
+	public steps: IStep[] = [];
 	public imgURL: string;
 	public descripcion: string;
 
 	ngOnInit() {
 		const tema = this._route.snapshot.paramMap.get('tema');
-		console.log(tema);
-
 		const fetchData = (path: string) => {
 			this.imgURL = `/assets/temas/${tema}/${tema}.jpg`;
-			const steps$ = this.http.get<IStep[]>(`/assets/temas/${path}/${path}Steps.json`);
-			const data$ = this.http.get<ITema[]>(`/assets/temas/${path}/${path}.json`);
-			const news$ = this.http.get<INew[]>(`/assets/temas/${path}/${path}News.json`);
+			const data$ = this._http.get<ITema[]>(`/assets/temas/${path}/${path}.json`);
+			const news$ = this._http.get<INew[]>(`/assets/temas/${path}/${path}News.json`);
+			const steps$ = this._http.get<IStep[]>(`/assets/temas/${path}/${path}Steps.json`);
 
-			forkJoin({ steps$, data$, news$ }).subscribe(({ steps$, data$, news$ }) => {
-				this.steps = steps$;
+			forkJoin({ data$, news$, steps$ }).subscribe(({ data$, news$, steps$ }) => {
 				this.data = data$;
 				this.news = news$;
+				this.steps = steps$;
 
 				const descripcionObj = data$.find((obj) => obj.data === 'Descripción');
 				if (descripcionObj) {
