@@ -45,7 +45,6 @@ export default class TemaComponent implements OnInit {
 		const licitacion = this._route.snapshot.paramMap.get('tema');
 		console.log(licitacion);
 
-		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = (path: string) => {
 			this.imgURL = `/assets/temas/${licitacion}/${licitacion}.jpg`;
 			const steps$ = this.http.get<IStep[]>(`/assets/temas/${path}/${path}Steps.json`);

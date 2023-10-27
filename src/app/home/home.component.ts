@@ -16,11 +16,11 @@ const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 })
 export default class HomeComponent implements OnInit {
 	private _router = inject(Router);
-	private http = inject(HttpClient);
+	private _http = inject(HttpClient);
 	public menuOptionsHome = [];
 
 	ngOnInit() {
-		this.http.get<any[]>('/assets/menuOptions/home.json').subscribe((data) => {
+		this._http.get<any[]>('/assets/menuOptions/home.json').subscribe((data) => {
 			this.menuOptionsHome = data.map((item) =>
 				this.createCardMenu(item.titulo, item.route, item.rutaImagen, item.subtitulo)
 			);
@@ -31,37 +31,37 @@ export default class HomeComponent implements OnInit {
 		let menuOptionsLevel1;
 		switch (titulo) {
 			case 'Artículo 10. Información institucional y organizativa.':
-				this.http.get<any[]>('/assets/menuOptions/level1/art10.json').subscribe((data) => {
+				this._http.get<any[]>('/assets/menuOptions/level1/art10.json').subscribe((data) => {
 					menuOptionsLevel1 = data;
 				});
 				break;
 			case 'Artículo 15. Información sobre contratos, convenios y subvenciones.':
-				this.http.get<any[]>('/assets/menuOptions/level1/art15.json').subscribe((data) => {
+				this._http.get<any[]>('/assets/menuOptions/level1/art15.json').subscribe((data) => {
 					menuOptionsLevel1 = data;
 				});
 				break;
 			case 'Artículo 16. Información económica, financiera y presupuestaria.':
-				this.http.get<any[]>('/assets/menuOptions/level1/art16.json').subscribe((data) => {
+				this._http.get<any[]>('/assets/menuOptions/level1/art16.json').subscribe((data) => {
 					menuOptionsLevel1 = data;
 				});
 				break;
 			case 'Medioambiental, urbanística y vivienda':
-				this.http.get<any[]>('/assets/menuOptions/level1/medioambiental.json').subscribe((data) => {
+				this._http.get<any[]>('/assets/menuOptions/level1/medioambiental.json').subscribe((data) => {
 					menuOptionsLevel1 = data;
 				});
 				break;
 			case 'Eventos culturales':
-				this.http.get<any[]>('/assets/menuOptions/level1/eventos.json').subscribe((data) => {
+				this._http.get<any[]>('/assets/menuOptions/level1/eventos.json').subscribe((data) => {
 					menuOptionsLevel1 = data;
 				});
 				break;
 			case 'Temas generales':
-				this.http.get<any[]>('/assets/menuOptions/level1/temas.json').subscribe((data) => {
+				this._http.get<any[]>('/assets/menuOptions/level1/temas.json').subscribe((data) => {
 					menuOptionsLevel1 = data;
 				});
 				break;
 			case 'Distritos y barrios':
-				this.http.get<any[]>('/assets/menuOptions/level1/distritos.json').subscribe((data) => {
+				this._http.get<any[]>('/assets/menuOptions/level1/distritos.json').subscribe((data) => {
 					menuOptionsLevel1 = data;
 				});
 				break;
