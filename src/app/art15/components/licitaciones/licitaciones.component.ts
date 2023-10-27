@@ -46,7 +46,12 @@ export default class LicitacionesComponent {
 		this.createCard('Mejoras instalaciones Complejo “Pedro Garrido”', 'pedroGarrido2023'),
 		this.createCard('Mejoras Complejo Deportivo “Manuel Mestre”', 'piscinaManuelMestre2023'),
 		this.createCard('Reparación y conservación en la Torre de la Atalaya', 'torreAtalaya2023'),
-		this.createCard('Dotación de pasillo cubierto en el CEIP Las Granjas.', 'pasilloCubiertoCEIPLasGranjas2023')
+		this.createCard('Dotación de pasillo cubierto en el CEIP Las Granjas.', 'pasilloCubiertoCEIPLasGranjas2023'),
+		this.createCard('Proyecto Smart City Jerez (fase 1 y fase 2)', 'smartCity2023'),
+		this.createCard(
+			'Obras reforma y mejora de la eficiencia energética del CEIP Tartessos',
+			'rehabilitacionCEIPTartessos2023'
+		)
 	];
 
 	createCard(titulo: string, route: string) {

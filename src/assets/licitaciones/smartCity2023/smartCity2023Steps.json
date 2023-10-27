@@ -1,14 +1,14 @@
 [
 	{
-		"date": "8 agosto 2023",
+		"date": "",
+		"step": ""
+	},
+	{
+		"date": "9 junio 2023",
 		"step": "Publicación licitación"
 	},
 	{
 		"date": "26 octubre 2023",
 		"step": "Adjudicación"
-	},
-	{
-		"date": "",
-		"step": "Formalizacion"
 	}
 ]
