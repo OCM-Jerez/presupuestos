@@ -53,5 +53,10 @@
 		"titulo": "Aeropuerto",
 		"route": "/temas/aeropuerto",
 		"rutaImagen": "assets/temas/aeropuerto/aeropuerto.jpg"
+	},
+	{
+		"titulo": "Hermandades y cofradias",
+		"route": "/temas/hermandades",
+		"rutaImagen": "assets/temas/hermandades/hermandades.jpg"
 	}
 ]
