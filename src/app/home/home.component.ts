@@ -1,11 +1,16 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { Router } from '@angular/router';
 import { NgFor } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { CardMenuComponent } from '../commons/components/card-menu/card-menu.component';
-import { HttpClient } from '@angular/common/http';
 
-// const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
+interface MenuItem {
+	titulo: string;
+	route: string;
+	rutaImagen: string;
+	subtitulo: string;
+}
 
 @Component({
 	selector: 'app-home',
@@ -20,67 +25,31 @@ export default class HomeComponent implements OnInit {
 	public menuOptionsHome = [];
 
 	ngOnInit() {
-		this._http.get<any[]>('/assets/menuOptions/home.json').subscribe((data) => {
-			this.menuOptionsHome = data.map((item) =>
+		this._http.get<MenuItem[]>('/assets/menuOptions/home.json').subscribe((data) => {
+			const menuOptionsPromises = data.map((item) =>
 				this.createCardMenu(item.titulo, item.route, item.rutaImagen, item.subtitulo)
 			);
+			Promise.all(menuOptionsPromises).then((resolvedOptions) => {
+				this.menuOptionsHome = resolvedOptions;
+			});
 		});
 	}
 
-	createCardMenu(titulo: string, route: string, rutaImagen: string, subtitulo: string) {
-		let menuOptionsLevel1;
-		switch (titulo) {
-			case 'Artículo 10. Información institucional y organizativa.':
-				this._http.get<any[]>('/assets/menuOptions/level1/art10.json').subscribe((data) => {
-					menuOptionsLevel1 = data;
-				});
-				break;
-			case 'Artículo 15. Información sobre contratos, convenios y subvenciones.':
-				this._http.get<any[]>('/assets/menuOptions/level1/art15.json').subscribe((data) => {
-					menuOptionsLevel1 = data;
-				});
-				break;
-			case 'Artículo 16. Información económica, financiera y presupuestaria.':
-				this._http.get<any[]>('/assets/menuOptions/level1/art16.json').subscribe((data) => {
-					menuOptionsLevel1 = data;
-				});
-				break;
-			case 'Medioambiental, urbanística y vivienda':
-				this._http.get<any[]>('/assets/menuOptions/level1/medioambiental.json').subscribe((data) => {
-					menuOptionsLevel1 = data;
-				});
-				break;
-			case 'Eventos culturales':
-				this._http.get<any[]>('/assets/menuOptions/level1/eventos.json').subscribe((data) => {
-					menuOptionsLevel1 = data;
-				});
-				break;
-			case 'Temas generales':
-				this._http.get<any[]>('/assets/menuOptions/level1/temas.json').subscribe((data) => {
-					menuOptionsLevel1 = data;
-				});
-				break;
-			case 'Distritos y barrios':
-				this._http.get<any[]>('/assets/menuOptions/level1/distritos.json').subscribe((data) => {
-					menuOptionsLevel1 = data;
-				});
-				break;
-
-			default:
-				break;
-		}
-
+	async createCardMenu(titulo: string, route: string, rutaImagen: string, subtitulo: string) {
+		const jsonPath = `/assets/menuOptions/level1/${route.split('/').pop()}.json`;
+		const menuOptionsLevel1 = await this._http
+			.get<MenuItem[]>(jsonPath)
+			.toPromise()
+			.catch(() => []);
 		return {
 			rutaImagen,
 			titulo,
 			subtitulo,
-			textButton: titulo,
-			// background: defaultBackground,
 			funcion: () => {
 				const navigationExtras = {
-					queryParams: { menuOptionsLevel1: JSON.stringify(menuOptionsLevel1), titulo: titulo }
+					queryParams: { menuOptionsLevel1: JSON.stringify(menuOptionsLevel1), titulo }
 				};
-				this._router.navigate(['/level1'], navigationExtras);
+				this._router.navigate(['level1'], navigationExtras);
 			}
 		};
 	}
