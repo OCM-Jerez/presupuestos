@@ -5,7 +5,7 @@ import { NgFor } from '@angular/common';
 import { CardMenuComponent } from '../commons/components/card-menu/card-menu.component';
 import { HttpClient } from '@angular/common/http';
 
-const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
+// const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 
 @Component({
 	selector: 'app-home',
@@ -75,7 +75,7 @@ export default class HomeComponent implements OnInit {
 			titulo,
 			subtitulo,
 			textButton: titulo,
-			background: defaultBackground,
+			// background: defaultBackground,
 			funcion: () => {
 				const navigationExtras = {
 					queryParams: { menuOptionsLevel1: JSON.stringify(menuOptionsLevel1), titulo: titulo }
