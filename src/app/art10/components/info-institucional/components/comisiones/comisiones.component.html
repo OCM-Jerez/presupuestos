@@ -1,7 +1,7 @@
 <main class="OCM-dark-teme">
 	<header class="OCM-title-dark">Comisiones de Pleno permanentes</header>
 	<section class="OCM-flex">
-		<section class="OCM-flex__cardMenu" *ngFor="let menu of comisionesPermanentes" [style.background]="menu.background">
+		<section *ngFor="let menu of comisionesPermanentes" [style.background]="menu.background">
 			<app-card-menu [titulo]="menu.titulo" (click)="menu.funcion()" />
 		</section>
 	</section>
@@ -9,7 +9,7 @@
 
 	<header class="OCM-title-dark">Comisiones de Pleno especiales</header>
 	<section class="OCM-flex">
-		<section class="OCM-flex__cardMenu" *ngFor="let menu of comisionesEspeciales" [style.background]="menu.background">
+		<section *ngFor="let menu of comisionesEspeciales" [style.background]="menu.background">
 			<app-card-menu [titulo]="menu.titulo" (click)="menu.funcion()" />
 		</section>
 	</section>

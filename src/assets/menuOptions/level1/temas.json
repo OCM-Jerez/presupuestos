@@ -46,8 +46,8 @@
 	},
 	{
 		"titulo": "Plantas fotovoltaicas y parques eólicos",
-		"route": "/temas/parquesEolicosFotovoltaicos",
-		"rutaImagen": "assets/temas/parquesEolicosFotoVoltaicos/parquesEolicosFotoVoltaicos.jpg"
+		"route": "/temas/parquesEolicos",
+		"rutaImagen": "assets/temas/parquesEolicos/parquesEolicos.jpg"
 	},
 	{
 		"titulo": "Aeropuerto",

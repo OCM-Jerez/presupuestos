@@ -2,7 +2,7 @@
 	<header class="OCM-title-dark">Entes dependientes</header>
 
 	<section class="OCM-flex">
-		<section class="OCM-flex__cardMenu" *ngFor="let menu of cardMenus" [style.background]="menu.background">
+		<section *ngFor="let menu of cardMenus" [style.background]="menu.background">
 			<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 		</section>
 	</section>

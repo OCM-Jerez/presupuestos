@@ -1,12 +1,14 @@
 .cardMenu {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 50% 20% 30%;
+	grid-template-rows: 60% 40%;
 	justify-items: center;
 	gap: 2px 2px;
 	height: 100%;
 	border: 1px solid rgb(211, 214, 194);
 	border-radius: 10px;
+	background-color: #4d4e50;
+
 	&:hover {
 		box-shadow: 0 16px 32px 0 rgba(151, 4, 4, 0.82);
 		cursor: pointer;
@@ -16,6 +18,7 @@
 		height: 100%;
 		border-radius: 20px;
 		width: 98%;
+		background-size: cover;
 	}
 	&__title {
 		color: rgba(237, 235, 240, 0.913);
@@ -24,6 +27,7 @@
 		font-size: 1.6rem;
 		margin-top: 6px;
 		padding: 0px 20px 0px 20px;
+		height: 100%;
 	}
 	&__subtitle {
 		font-weight: 300;

@@ -2,14 +2,14 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
-import { CardLicitacionComponent } from './components/card-licitacion/card-licitacion.component';
+import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
-const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
+// const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 
 @Component({
 	selector: 'app-licitaciones',
 	standalone: true,
-	imports: [CommonModule, CardLicitacionComponent],
+	imports: [CommonModule, CardMenuComponent],
 	templateUrl: './licitaciones.component.html',
 	styleUrls: ['./licitaciones.component.scss']
 })
@@ -20,8 +20,8 @@ export default class LicitacionesComponent {
 		{
 			titulo: 'APP OCM',
 			rutaImagen: 'assets/licitaciones/appConOCM.jpg',
-			funcion: () => window.open('https://con.ocmjerez.org/', '_blank'),
-			background: defaultBackground
+			funcion: () => window.open('https://con.ocmjerez.org/', '_blank')
+			// background: defaultBackground
 		},
 		this.createCard('Mantenimiento señalización', 'manSeñal2020'),
 		this.createCard('Reordenación Puerta Sevilla', 'puertaSevilla2023'),
@@ -59,8 +59,8 @@ export default class LicitacionesComponent {
 			titulo,
 			// Tamaño de la imagen 910x682
 			rutaImagen: `assets/licitaciones/${route}/${route}.jpg`,
-			funcion: () => this._router.navigateByUrl(`/licitacion/${route}`),
-			background: defaultBackground
+			funcion: () => this._router.navigateByUrl(`/licitacion/${route}`)
+			// background: defaultBackground
 		};
 	}
 }

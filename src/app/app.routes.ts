@@ -5,22 +5,10 @@ export default [
 		path: 'home',
 		loadComponent: () => import('./home/home.component')
 	},
-	// {
-	// 	path: 'art10',
-	// 	loadComponent: () => import('./art10/art10.component')
-	// },
 	{
 		path: 'level1',
 		loadComponent: () => import('./level1/level1.component')
 	},
-	// {
-	// 	path: 'art15',
-	// 	loadComponent: () => import('./art15/art15.component')
-	// },
-	// {
-	// 	path: 'art16',
-	// 	loadComponent: () => import('./art16/art16.component')
-	// },
 	{
 		path: 'presupuestos',
 		loadComponent: () => import('./art16/components/presupuestos/presupuestos.component')
@@ -176,7 +164,6 @@ export default [
 				'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-personal/ficha-personal.component'
 			)
 	},
-
 	{
 		path: 'tableProgramaDetails/:origen',
 		loadComponent: () =>
@@ -192,18 +179,10 @@ export default [
 		path: 'licitacion/:licitacion',
 		loadComponent: () => import('./art15/components/licitaciones/components/licitacion/licitacion.component')
 	},
-	// {
-	// 	path: 'temas',
-	// 	loadComponent: () => import('./temas/temas.component')
-	// },
 	{
 		path: 'temas/:tema',
 		loadComponent: () => import('./temas/components/tema/tema.component')
 	},
-	// {
-	// 	path: 'distritos',
-	// 	loadComponent: () => import('./distritos/distritos.component')
-	// },
 	{
 		path: 'distritos/:distrito',
 		loadComponent: () => import('./distritos/components/distrito/distrito.component')
@@ -211,13 +190,8 @@ export default [
 	{
 		// path: 'barrios/:barrio',
 		path: 'barrios',
-
 		loadComponent: () => import('./distritos/components/distrito/components/barrio/barrio.component')
 	},
-	// {
-	// 	path: 'medioambiental',
-	// 	loadComponent: () => import('./medioambiental/medioambiental.component')
-	// },
 	{
 		path: 'edificiosSingulares',
 		loadComponent: () => import('./medioambiental/components/edificios-singulares/edificios-singulares.component')
@@ -237,18 +211,10 @@ export default [
 		path: 'proyectosViviendas',
 		loadComponent: () => import('./medioambiental/components/proyectos-viviendas/proyectos-viviendas.component')
 	},
-	// {
-	// 	path: 'eventos',
-	// 	loadComponent: () => import('./eventos/eventos.component')
-	// },
 	{
 		path: 'eventos/:evento',
 		loadComponent: () => import('./eventos/components/evento/evento.component')
 	},
-	// {
-	// 	path: 'eventos/feria',
-	// 	loadComponent: () => import('./eventos/components/evento/evento.component')
-	// },
 	{
 		path: 'subvenciones',
 		loadComponent: () => import('./art15/components/subvenciones/subvenciones.component')
@@ -257,16 +223,11 @@ export default [
 		path: 'subvenciones/:subvencion',
 		loadComponent: () => import('./art15/components/subvenciones/components/subvencion/subvencion.component')
 	},
-	// {
-	// 	path: 'empleados',
-	// 	loadComponent: () => import('./empleados/empleados.component')
-	// },
 	{
 		path: 'graphDetalle',
 		loadComponent: () =>
 			import('./art16/components/presupuestos/components/detalle/components/graph-detalle/graph-detalle.component')
 	},
-
 	{
 		path: 'explicamos',
 		loadComponent: () => import('./explicamos/explicamos.component')

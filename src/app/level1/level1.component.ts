@@ -4,8 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
-const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
-
 @Component({
 	selector: 'app-level1',
 	standalone: true,
@@ -14,7 +12,7 @@ const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 	styleUrls: ['./level1.component.scss']
 })
 export default class Level1Component implements OnInit {
-	public cardMenus: any;
+	public menuOptionsLevel1: any;
 	public createdCards: any[] = [];
 	public titulo: string;
 	private _route = inject(ActivatedRoute);
@@ -22,9 +20,9 @@ export default class Level1Component implements OnInit {
 
 	ngOnInit(): void {
 		this._route.queryParams.subscribe((params) => {
-			this.cardMenus = JSON.parse(params['cardMenus']);
+			this.menuOptionsLevel1 = JSON.parse(params['menuOptionsLevel1']);
 			this.titulo = params['titulo'];
-			this.createdCards = this.cardMenus.map((menu: { titulo: string; route: string; rutaImagen: string }) => {
+			this.createdCards = this.menuOptionsLevel1.map((menu: { titulo: string; route: string; rutaImagen: string }) => {
 				return this.createCard(menu.titulo, menu.route, menu.rutaImagen);
 			});
 		});
@@ -34,8 +32,7 @@ export default class Level1Component implements OnInit {
 		return {
 			titulo,
 			rutaImagen,
-			funcion: () => this._router.navigateByUrl(`${route}`),
-			background: defaultBackground
+			funcion: () => this._router.navigateByUrl(`${route}`)
 		};
 	}
 }

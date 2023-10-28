@@ -1,9 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { CardSubvencionComponent } from './components/card-subvencion/card-subvencion.component';
-
-const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
+import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 interface IStep {
 	date: string;
@@ -26,7 +24,7 @@ interface INew {
 @Component({
 	selector: 'app-subvenciones',
 	standalone: true,
-	imports: [CommonModule, CardSubvencionComponent],
+	imports: [CommonModule, CardMenuComponent],
 	templateUrl: './subvenciones.component.html',
 	styleUrls: ['./subvenciones.component.scss']
 })
@@ -40,10 +38,8 @@ export default class SubvencionesComponent {
 	createCard(titulo: string, route: string) {
 		return {
 			titulo,
-			// Tamaño de la imagen 910x682
 			rutaImagen: `assets/subvenciones/${route}/${route}.jpg`,
-			funcion: () => this._router.navigateByUrl(`/subvenciones/${route}`),
-			background: defaultBackground
+			funcion: () => this._router.navigateByUrl(`/subvenciones/${route}`)
 		};
 	}
 }

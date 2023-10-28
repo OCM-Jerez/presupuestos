@@ -78,7 +78,7 @@ export default class HomeComponent implements OnInit {
 			background: defaultBackground,
 			funcion: () => {
 				const navigationExtras = {
-					queryParams: { cardMenus: JSON.stringify(menuOptionsLevel1), titulo: titulo }
+					queryParams: { menuOptionsLevel1: JSON.stringify(menuOptionsLevel1), titulo: titulo }
 				};
 				this._router.navigate(['/level1'], navigationExtras);
 			}
