@@ -1,9 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
-const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
+import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 @Component({
 	selector: 'app-temas',
@@ -27,10 +26,8 @@ export default class EdificiosSingularesComponent {
 	createCard(titulo: string, route: string) {
 		return {
 			titulo,
-			// Tamaño de la imagen 910x682
 			rutaImagen: `assets/edificiosSingulares/${route}/${route}.jpg`,
-			funcion: () => this._router.navigateByUrl(`/edificiosSingulares/${route}`),
-			background: defaultBackground
+			funcion: () => this._router.navigateByUrl(`/edificiosSingulares/${route}`)
 		};
 	}
 }
