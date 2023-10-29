@@ -5,31 +5,15 @@ import { HttpClient } from '@angular/common/http';
 
 import { forkJoin } from 'rxjs';
 
+import { ICom } from '@interfaces/com.interface';
+import { IDoc } from '@interfaces/doc.interface';
+import { INew } from '@interfaces/new.interface';
+
 interface IData {
 	data: string;
 	value: string;
 	URL?: string;
 }
-interface IDoc {
-	date: string;
-	emisor: string;
-	title: string;
-	URL?: string;
-}
-
-interface ICom {
-	date: string;
-	emisor: string;
-	texto: string;
-}
-
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
-	URL?: string;
-}
-
 @Component({
 	selector: 'app-proyectos-viviendas',
 	standalone: true,
@@ -38,10 +22,7 @@ interface INew {
 	styleUrls: ['./proyectos-viviendas.component.scss']
 })
 export default class ProyectosViviendasComponent implements OnInit {
-	private _route = inject(ActivatedRoute);
-	private _location = inject(Location);
 	private _http = inject(HttpClient);
-
 	public data: IData[] = [];
 	public docs: IDoc[] = [];
 	public coms: ICom[] = [];
@@ -49,9 +30,6 @@ export default class ProyectosViviendasComponent implements OnInit {
 	public descripcion: string;
 
 	ngOnInit() {
-		// const pleno = this._route.snapshot.paramMap.get('apartamentosTuristicos');
-
-		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = () => {
 			const pathBase = '/assets/medioambiental';
 			const path = 'proyectosViviendas';
@@ -80,8 +58,4 @@ export default class ProyectosViviendasComponent implements OnInit {
 	hasKey(object: unknown, key: string): boolean {
 		return object && Object.prototype.hasOwnProperty.call(object, key);
 	}
-
-	// volver() {
-	// 	this._location.back();
-	// }
 }
