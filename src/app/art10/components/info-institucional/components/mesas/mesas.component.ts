@@ -3,47 +3,48 @@ import { CommonModule, Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
+import { forkJoin } from 'rxjs';
+
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
-import { forkJoin } from 'rxjs';
 
-const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
-
-interface IPleno {
+interface IMesa {
 	data: string;
 	value: string;
 	URL?: string;
 }
 
 @Component({
-	selector: 'app-plenos',
+	selector: 'app-mesas',
 	standalone: true,
 	imports: [CommonModule, CardMenuComponent],
-	templateUrl: './plenos.component.html',
-	styleUrls: ['./plenos.component.scss']
+	templateUrl: './mesas.component.html',
+	styleUrls: ['./mesas.component.scss']
 })
-export default class PlenosComponent implements OnInit {
+export default class MesasComponent implements OnInit {
 	private _router = inject(Router);
 	private _location = inject(Location);
 	private _http = inject(HttpClient);
 
-	public data: IPleno[] = [];
+	public data: IMesa[] = [];
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
+	public imgURL: string;
 	public descripcion: string;
 
 	ngOnInit() {
 		const fetchData = () => {
-			const pathBase = '/assets/art10/infoInstitucional/plenos';
+			const pathBase = '/assets/art10/infoInstitucional/mesas';
+			this.imgURL = `${pathBase}/mesas.jpg`;
 
-			const data$ = this._http.get<IPleno[]>(`${pathBase}/plenos.json`);
-			const docs$ = this._http.get<IDoc[]>(`${pathBase}/plenosDocs.json`);
-			const news$ = this._http.get<INew[]>(`${pathBase}/plenosNews.json`);
-			const coms$ = this._http.get<ICom[]>(`${pathBase}/plenosComs.json`);
+			const data$ = this._http.get<IMesa[]>(`${pathBase}/mesas.json`);
+			const docs$ = this._http.get<IDoc[]>(`${pathBase}/mesasDocs.json`);
+			const news$ = this._http.get<INew[]>(`${pathBase}/mesasNews.json`);
+			const coms$ = this._http.get<ICom[]>(`${pathBase}/mesasComs.json`);
 
 			forkJoin({ data$, docs$, coms$, news$ }).subscribe(({ data$, docs$, coms$, news$ }) => {
 				this.data = data$;
@@ -62,19 +63,15 @@ export default class PlenosComponent implements OnInit {
 	}
 
 	cardMenus = [
-		this.createCard('Pleno ordinario 29 septiembre 2023', 'plenoOrdinario20230929'),
-		this.createCard('Pleno extraorinario y solemne 7 octubre 2023', 'plenoExtraordinario20231007'),
-		this.createCard('Pleno ordinario 27 octubre 2023', 'plenoOrdinario20231027')
+		this.createCard('Mesa técnica de seguridad', 'mesaTecnicaSeguridad'),
+		this.createCard('Mesa del caballo', 'mesaCaballo')
 	];
 
 	createCard(titulo: string, route: string) {
-		// this._location.go('/art10');
-
 		return {
 			titulo,
-			rutaImagen: `/assets/art10/infoInstitucional/plenos/plenos.png`,
-			background: defaultBackground,
-			funcion: () => this._router.navigateByUrl(`/pleno/${route}`)
+			rutaImagen: `assets/art10/infoInstitucional/mesas/${route}/${route}.jpg`,
+			funcion: () => this._router.navigateByUrl(`/mesas/${route}`)
 		};
 	}
 }

@@ -25,7 +25,8 @@ export default class InfoInstitucionalComponent {
 			'/entesDependientes',
 			'assets/art10/infoInstitucional/entes/fundarte/fundarte.jpg'
 		),
-		this.createCard('ELAS (Entidades Locales Autónomas)', '/elas', 'assets/art10/infoInstitucional/elas/elas.jpg')
+		this.createCard('ELAS (Entidades Locales Autónomas)', '/elas', 'assets/art10/infoInstitucional/elas/elas.jpg'),
+		this.createCard('Mesas', '/mesas', 'assets/art10/infoInstitucional/mesas/mesas.jpg')
 	];
 
 	createCard(titulo: string, route: string, rutaImagen: string) {

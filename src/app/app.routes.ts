@@ -62,6 +62,14 @@ export default [
 			import('./art10/components/info-institucional/components/entes-dependientes/components/ente/ente.component')
 	},
 	{
+		path: 'mesas',
+		loadComponent: () => import('./art10/components/info-institucional/components/mesas/mesas.component')
+	},
+	{
+		path: 'mesas/:mesa',
+		loadComponent: () => import('./art10/components/info-institucional/components/mesas/components/mesa/mesa.component')
+	},
+	{
 		path: 'infoOrganizativa',
 		loadComponent: () => import('./art10/components/info-organizativa/info-organizativa.component')
 	},
