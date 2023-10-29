@@ -1,28 +1,17 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 import { forkJoin } from 'rxjs';
 
-interface IStep {
-	date: string;
-	step: string;
-	isFinish?: string;
-}
+import { INew } from '@interfaces/new.interface';
 
 interface IEvento {
 	data: string;
 	value: string;
 	URL?: string;
 }
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
-	URL?: string;
-}
-
 @Component({
 	selector: 'app-tema',
 	standalone: true,
@@ -32,10 +21,8 @@ interface INew {
 })
 export default class EventoComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
-	private _location = inject(Location);
 	private http = inject(HttpClient);
 
-	public steps: IStep[] = [];
 	public data: IEvento[] = [];
 	public news: INew[] = [];
 	public imgURL: string;
@@ -44,8 +31,6 @@ export default class EventoComponent implements OnInit {
 	ngOnInit() {
 		const evento = this._route.snapshot.paramMap.get('evento');
 		console.log(evento);
-
-		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = (path: string) => {
 			this.imgURL = `/assets/eventos/${evento}/${evento}.jpg`;
 			const data$ = this.http.get<IEvento[]>(`/assets/eventos/${path}/${path}.json`);

@@ -1,12 +1,12 @@
-<main class="dark-teme">
+<main class="OCM-dark-teme">
 	<header class="OCM-title-dark">{{ descripcion }}</header>
 
 	<figure class="img">
 		<img src="{{ imgURL }}" alt="Foto evento" />
 	</figure>
 
-	<section class="cardTableHomeData">
-		<table class="paleBlueRowsData">
+	<section class="OCM-tableContainer">
+		<table class="OCM-table">
 			<tbody>
 				<tr *ngFor="let data of data">
 					<!-- Solo muestra las filas donde 'data.value' no está vacío y 'data.URL' no es una clave o está vacío -->
@@ -23,10 +23,9 @@
 		</table>
 	</section>
 
-	<header class="OCM-title">Noticias</header>
-
-	<section class="cardTableHome">
-		<table class="paleBlueRows">
+	<section class="OCM-tableContainer">
+		<header class="OCM-subtitle-dark">Noticias</header>
+		<table class="OCM-table">
 			<thead>
 				<tr>
 					<th>Fecha</th>
