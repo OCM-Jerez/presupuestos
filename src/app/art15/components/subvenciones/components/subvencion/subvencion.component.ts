@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { forkJoin } from 'rxjs';
 
+import { INew } from '@interfaces/new.interface';
+
 interface IStep {
 	descripcion: string;
 	observaciones: string;
@@ -15,12 +17,6 @@ interface IStep {
 interface ILicitacion {
 	data: string;
 	value: string;
-	URL?: string;
-}
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
 	URL?: string;
 }
 
@@ -37,25 +33,22 @@ export default class SubvencionComponent implements OnInit {
 	private http = inject(HttpClient);
 
 	public steps: IStep[] = [];
-	public dataLicitacion: ILicitacion[] = [];
+	public data: ILicitacion[] = [];
 	public news: INew[] = [];
 	public imgURL: string;
 	public descripcion: string;
 
 	ngOnInit() {
-		const licitacion = this._route.snapshot.paramMap.get('subvencion');
-		console.log(licitacion);
-
-		// Función auxiliar para gestionar suscripciones HTTP
+		const subvencion = this._route.snapshot.paramMap.get('subvencion');
 		const fetchData = (path: string) => {
-			this.imgURL = `/assets/temas/${licitacion}/${licitacion}.jpg`;
+			this.imgURL = `/assets/temas/${subvencion}/${subvencion}.jpg`;
 			const steps$ = this.http.get<IStep[]>(`/assets/subvenciones/${path}/${path}Steps.json`);
 			const data$ = this.http.get<ILicitacion[]>(`/assets/subvenciones/${path}/${path}.json`);
 			const news$ = this.http.get<INew[]>(`/assets/subvenciones/${path}/${path}News.json`);
 
 			forkJoin({ steps$, data$, news$ }).subscribe(({ steps$, data$, news$ }) => {
 				this.steps = steps$;
-				this.dataLicitacion = data$;
+				this.data = data$;
 				this.news = news$;
 
 				const descripcionObj = data$.find((obj) => obj.data === 'Descripción');
@@ -65,14 +58,10 @@ export default class SubvencionComponent implements OnInit {
 			});
 		};
 
-		fetchData(licitacion);
+		fetchData(subvencion);
 	}
 
 	hasKey(object: unknown, key: string): boolean {
 		return object && Object.prototype.hasOwnProperty.call(object, key);
 	}
-
-	// volver() {
-	// 	this._location.back();
-	// }
 }

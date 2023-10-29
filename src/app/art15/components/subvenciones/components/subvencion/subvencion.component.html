@@ -1,13 +1,10 @@
-<!-- <div class="volver">
-	<button type="button" class="OCM-button" (click)="volver()">Volver</button>
-</div> -->
+<main class="OCM-dark-teme">
+	<header class="OCM-title-dark">{{ descripcion }}</header>
 
-<div class="dark-teme">
-	<h1 class="OCM-title-dark">{{ descripcion }}</h1>
-	<div class="cardTableHomeData">
-		<table class="paleBlueRowsData">
+	<section class="OCM-tableContainer">
+		<table class="OCM-table">
 			<tbody>
-				<tr *ngFor="let data of dataLicitacion">
+				<tr *ngFor="let data of data">
 					<!-- Solo muestra las filas donde 'data.value' no está vacío y 'data.URL' no es una clave o está vacío -->
 					<ng-container *ngIf="data.value !== '' && (!hasKey(data, 'URL') || (hasKey(data, 'URL') && data.URL !== ''))">
 						<td>{{ data.data }}</td>
@@ -20,10 +17,10 @@
 				</tr>
 			</tbody>
 		</table>
-	</div>
+	</section>
 
-	<div class="flex">
-		<div class="cardTableSeguimiento">
+	<section class="flex">
+		<div class="OCM-cardTableSeguimiento">
 			<table class="paleBlueRowsSeguimiento">
 				<thead>
 					<tr>
@@ -43,12 +40,11 @@
 				</tbody>
 			</table>
 		</div>
-	</div>
+	</section>
 
-	<h1 class="OCM-title">Noticias</h1>
-
-	<div class="cardTableHome">
-		<table class="paleBlueRows">
+	<section class="OCM-tableContainer">
+		<header class="OCM-subtitle-dark">Noticias</header>
+		<table class="OCM-table">
 			<thead>
 				<tr>
 					<th>Fecha</th>
@@ -68,5 +64,5 @@
 				</tr>
 			</tbody>
 		</table>
-	</div>
-</div>
+	</section>
+</main>
