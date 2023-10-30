@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -23,13 +23,12 @@ interface ILicitacion {
 @Component({
 	selector: 'app-subvencion',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [NgIf, NgFor],
 	templateUrl: './subvencion.component.html',
 	styleUrls: ['./subvencion.component.scss']
 })
 export default class SubvencionComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
-	private _location = inject(Location);
 	private http = inject(HttpClient);
 
 	public steps: IStep[] = [];
