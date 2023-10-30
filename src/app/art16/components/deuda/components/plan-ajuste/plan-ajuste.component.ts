@@ -1,40 +1,21 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Router } from '@angular/router';
 
-import { CardDeudaComponent } from '../../components/card-deuda/card-deuda.component';
+import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
-const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
-
-interface IDoc {
-	date: string;
-	emisor: string;
-	title: string;
-	URL?: string;
-}
-
-interface ICom {
-	date: string;
-	emisor: string;
-	texto: string;
-}
-
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
-	URL?: string;
-}
+import { ICom } from '@interfaces/com.interface';
+import { IDoc } from '@interfaces/doc.interface';
+import { INew } from '@interfaces/new.interface';
 
 @Component({
 	selector: 'app-plan-ajuste',
 	standalone: true,
-	imports: [CommonModule, CardDeudaComponent],
+	imports: [NgFor, CardMenuComponent],
 	templateUrl: './plan-ajuste.component.html',
 	styleUrls: ['./plan-ajuste.component.scss']
 })
 export default class PlanAjusteComponent implements OnInit {
-	private _location = inject(Location);
 	private _router = inject(Router);
 
 	public docs: IDoc[] = [];
@@ -73,17 +54,10 @@ export default class PlanAjusteComponent implements OnInit {
 	];
 
 	createCard(titulo: string, route: string) {
-		this._location.go('/deuda');
 		return {
 			titulo,
-			// Tamaño de la imagen 910x682
 			rutaImagen: `assets/deuda/planAjuste/${route}/${route}.jpg`,
-			funcion: () => this._router.navigateByUrl(`/deuda/${route}`),
-			background: defaultBackground
+			funcion: () => this._router.navigateByUrl(`/deuda/${route}`)
 		};
 	}
-
-	// volver() {
-	// 	this._location.back();
-	// }
 }

@@ -1,12 +1,7 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
-	URL?: string;
-}
+import { INew } from '@interfaces/new.interface';
 
 @Component({
 	standalone: true,
@@ -16,8 +11,6 @@ interface INew {
 	styleUrls: ['./deudaTotal.component.scss']
 })
 export default class DeudaTotalComponent implements OnInit {
-	private _location = inject(Location);
-
 	public news: INew[] = [];
 
 	async ngOnInit() {
@@ -29,8 +22,4 @@ export default class DeudaTotalComponent implements OnInit {
 			console.error('Error fetching news data:', error);
 		}
 	}
-
-	// volver() {
-	// 	this._location.back();
-	// }
 }

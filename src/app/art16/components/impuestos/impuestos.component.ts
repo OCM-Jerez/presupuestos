@@ -1,36 +1,18 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { NgFor } from '@angular/common';
 
-interface IDoc {
-	date: string;
-	emisor: string;
-	title: string;
-	URL?: string;
-}
-
-interface ICom {
-	date: string;
-	emisor: string;
-	texto: string;
-}
-
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
-	URL?: string;
-}
+import { ICom } from '@interfaces/com.interface';
+import { IDoc } from '@interfaces/doc.interface';
+import { INew } from '@interfaces/new.interface';
 
 @Component({
 	selector: 'app-impuestos',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [NgFor],
 	templateUrl: './impuestos.component.html',
 	styleUrls: ['./impuestos.component.scss']
 })
 export default class ImpuestosComponent implements OnInit {
-	private _location = inject(Location);
-
 	public docs: IDoc[] = [];
 	public coms: ICom[] = [];
 	public news: INew[] = [];

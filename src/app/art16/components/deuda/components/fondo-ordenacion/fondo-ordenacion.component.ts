@@ -1,19 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-interface IDoc {
-	date: string;
-	emisor: string;
-	title: string;
-	URL?: string;
-}
-
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
-	URL?: string;
-}
+import { IDoc } from '@interfaces/doc.interface';
+import { INew } from '@interfaces/new.interface';
 
 @Component({
 	selector: 'app-fondo-ordenacion',
@@ -23,8 +12,6 @@ interface INew {
 	styleUrls: ['./fondo-ordenacion.component.scss']
 })
 export default class FondoOrdenacionComponent implements OnInit {
-	private _location = inject(Location);
-
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
 
@@ -45,8 +32,4 @@ export default class FondoOrdenacionComponent implements OnInit {
 			console.error('Error fetching news data:', error);
 		}
 	}
-
-	// volver() {
-	// 	this._location.back();
-	// }
 }

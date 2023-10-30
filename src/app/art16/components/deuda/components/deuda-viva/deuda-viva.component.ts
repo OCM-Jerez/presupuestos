@@ -1,23 +1,15 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { NgFor } from '@angular/common';
 
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
-	URL?: string;
-}
-
+import { INew } from '@interfaces/new.interface';
 @Component({
 	selector: 'app-deuda-viva',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [NgFor],
 	templateUrl: './deuda-viva.component.html',
 	styleUrls: ['./deuda-viva.component.scss']
 })
 export default class DeudaVivaComponent implements OnInit {
-	private _location = inject(Location);
-
 	public news: INew[] = [];
 
 	async ngOnInit() {
@@ -28,9 +20,5 @@ export default class DeudaVivaComponent implements OnInit {
 		} catch (error) {
 			console.error('Error fetching news data:', error);
 		}
-	}
-
-	volver() {
-		this._location.back();
 	}
 }
