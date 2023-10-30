@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgIf, NgFor } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
@@ -11,7 +11,7 @@ import { INew } from '@interfaces/new.interface';
 @Component({
 	selector: 'app-plan-ajuste',
 	standalone: true,
-	imports: [NgFor, CardMenuComponent],
+	imports: [NgIf, NgFor, CardMenuComponent],
 	templateUrl: './plan-ajuste.component.html',
 	styleUrls: ['./plan-ajuste.component.scss']
 })

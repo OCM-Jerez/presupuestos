@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
@@ -8,7 +8,7 @@ import { INew } from '@interfaces/new.interface';
 @Component({
 	selector: 'app-impuestos',
 	standalone: true,
-	imports: [NgFor],
+	imports: [NgIf, NgFor],
 	templateUrl: './impuestos.component.html',
 	styleUrls: ['./impuestos.component.scss']
 })

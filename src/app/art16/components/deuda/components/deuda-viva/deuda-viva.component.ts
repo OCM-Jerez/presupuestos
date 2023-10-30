@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgIf, NgFor } from '@angular/common';
 
 import { INew } from '@interfaces/new.interface';
 @Component({
 	selector: 'app-deuda-viva',
 	standalone: true,
-	imports: [NgFor],
+	imports: [NgIf, NgFor],
 	templateUrl: './deuda-viva.component.html',
 	styleUrls: ['./deuda-viva.component.scss']
 })
