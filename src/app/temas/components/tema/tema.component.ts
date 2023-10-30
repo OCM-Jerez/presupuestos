@@ -26,8 +26,8 @@ export default class TemaComponent implements OnInit {
 	private _http = inject(HttpClient);
 
 	public data: ITema[] = [];
-	public news: INew[] = [];
 	public steps: IStep[] = [];
+	public news: INew[] = [];
 	public imgURL: string;
 	public descripcion: string;
 
@@ -36,8 +36,8 @@ export default class TemaComponent implements OnInit {
 		const fetchData = (path: string) => {
 			this.imgURL = `/assets/temas/${tema}/${tema}.jpg`;
 			const data$ = this._http.get<ITema[]>(`/assets/temas/${path}/${path}.json`);
-			const news$ = this._http.get<INew[]>(`/assets/temas/${path}/${path}News.json`);
 			const steps$ = this._http.get<IStep[]>(`/assets/temas/${path}/${path}Steps.json`);
+			const news$ = this._http.get<INew[]>(`/assets/temas/${path}/${path}News.json`);
 
 			forkJoin({ data$, news$, steps$ }).subscribe(({ data$, news$, steps$ }) => {
 				this.data = data$;
