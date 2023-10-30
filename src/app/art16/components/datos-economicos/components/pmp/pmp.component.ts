@@ -1,23 +1,15 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { NgFor } from '@angular/common';
 
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
-	URL?: string;
-}
-
+import { INew } from '@interfaces/new.interface';
 @Component({
 	selector: 'app-pmp',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [NgFor],
 	templateUrl: './pmp.component.html',
 	styleUrls: ['./pmp.component.scss']
 })
 export default class PmpComponent implements OnInit {
-	private _location = inject(Location);
-
 	public news: INew[] = [];
 
 	async ngOnInit() {
@@ -29,8 +21,4 @@ export default class PmpComponent implements OnInit {
 			console.error('Error fetching news data:', error);
 		}
 	}
-
-	// volver() {
-	// 	this._location.back();
-	// }
 }
