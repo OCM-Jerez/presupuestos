@@ -66,7 +66,8 @@ export default class EntesDependientesComponent implements OnInit {
 
 	cardMenus = [
 		this.createCard('Fundación Universitaria (Teatro Villamarta)', 'fundarte'),
-		this.createCard('COMUJESA. Coporación Municipal de Jerez. S.A.', 'comujesa')
+		this.createCard('COMUJESA. Corporación Municipal de Jerez. S.A.', 'comujesa'),
+		this.createCard('CIRJESA. Circuito de Jerez. S.A.', 'cirjesa')
 	];
 
 	createCard(titulo: string, route: string) {
