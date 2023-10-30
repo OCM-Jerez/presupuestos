@@ -1,25 +1,16 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 import { forkJoin } from 'rxjs';
 
-interface IStep {
-	date: string;
-	step: string;
-	isFinish?: string;
-}
+import { INew } from '@interfaces/new.interface';
+import { IStep } from '@interfaces/step.interface';
 
 interface ILicitacion {
 	data: string;
 	value: string;
-	URL?: string;
-}
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
 	URL?: string;
 }
 
@@ -32,29 +23,26 @@ interface INew {
 })
 export default class LicitacionComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
-	private _location = inject(Location);
 	private _http = inject(HttpClient);
 
+	public data: ILicitacion[] = [];
 	public steps: IStep[] = [];
-	public dataLicitacion: ILicitacion[] = [];
 	public news: INew[] = [];
 	public imgURL: string;
-	public gauge = '/assets/licitaciones/gauge.jpg';
 	public descripcion: string;
+	public gauge = '/assets/licitaciones/gauge.jpg';
 
 	ngOnInit() {
 		const licitacion = this._route.snapshot.paramMap.get('licitacion');
-
-		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = (path: string) => {
 			this.imgURL = `/assets/licitaciones/${licitacion}/${licitacion}.jpg`;
-			const steps$ = this._http.get<IStep[]>(`/assets/licitaciones/${path}/${path}Steps.json`);
 			const data$ = this._http.get<ILicitacion[]>(`/assets/licitaciones/${path}/${path}.json`);
+			const steps$ = this._http.get<IStep[]>(`/assets/licitaciones/${path}/${path}Steps.json`);
 			const news$ = this._http.get<INew[]>(`/assets/licitaciones/${path}/${path}News.json`);
 
 			forkJoin({ steps$, data$, news$ }).subscribe(({ steps$, data$, news$ }) => {
 				this.steps = steps$;
-				this.dataLicitacion = data$;
+				this.data = data$;
 				this.news = news$;
 
 				const descripcionObj = data$.find((obj) => obj.data === 'Descripción');
@@ -70,8 +58,4 @@ export default class LicitacionComponent implements OnInit {
 	hasKey(object: unknown, key: string): boolean {
 		return object && Object.prototype.hasOwnProperty.call(object, key);
 	}
-
-	// volver() {
-	// 	this._location.back();
-	// }
 }
