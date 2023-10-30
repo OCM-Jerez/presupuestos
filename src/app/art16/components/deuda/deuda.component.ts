@@ -1,15 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Router } from '@angular/router';
 
-import { CardDeudaComponent } from './components/card-deuda/card-deuda.component';
-
-const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
+import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 @Component({
 	selector: 'app-deuda',
 	standalone: true,
-	imports: [CommonModule, CardDeudaComponent],
+	imports: [NgFor, CardMenuComponent],
 	templateUrl: './deuda.component.html',
 	styleUrls: ['./deuda.component.scss']
 })
@@ -25,10 +23,8 @@ export default class DeudaComponent {
 	createCard(titulo: string, route: string) {
 		return {
 			titulo,
-			// Tamaño de la imagen 910x682
 			rutaImagen: `assets/deuda/${route}/${route}.jpg`,
-			funcion: () => this._router.navigateByUrl(`/deuda/${route}`),
-			background: defaultBackground
+			funcion: () => this._router.navigateByUrl(`/deuda/${route}`)
 		};
 	}
 }
