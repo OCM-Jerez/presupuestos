@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 
 import { INew } from '@interfaces/new.interface';
 @Component({
 	selector: 'app-pmp',
 	standalone: true,
-	imports: [NgFor],
+	imports: [NgFor, NgIf],
 	templateUrl: './pmp.component.html',
 	styleUrls: ['./pmp.component.scss']
 })
