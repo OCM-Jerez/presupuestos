@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgIf, NgFor } from '@angular/common';
 
 import { INew } from '@interfaces/new.interface';
 
 @Component({
 	standalone: true,
-	imports: [CommonModule],
+	imports: [NgIf, NgFor],
 	selector: 'app-deuda-total',
 	templateUrl: './deudaTotal.component.html',
 	styleUrls: ['./deudaTotal.component.scss']

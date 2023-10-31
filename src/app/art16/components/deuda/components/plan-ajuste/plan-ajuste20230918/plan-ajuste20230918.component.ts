@@ -1,26 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 
-interface IDoc {
-	date: string;
-	emisor: string;
-	title: string;
-	URL?: string;
-}
-
-interface ICom {
-	date: string;
-	emisor: string;
-	texto: string;
-}
-
-interface INew {
-	date: string;
-	medio: string;
-	title: string;
-	URL?: string;
-}
-
+import { ICom } from '@interfaces/com.interface';
+import { IDoc } from '@interfaces/doc.interface';
+import { INew } from '@interfaces/new.interface';
 @Component({
 	selector: 'app-plan-ajuste20230918',
 	standalone: true,
@@ -60,8 +43,4 @@ export default class PlanAjuste20230918Component implements OnInit {
 			console.error('Error fetching news data:', error);
 		}
 	}
-
-	// volver() {
-	// 	this._location.back();
-	// }
 }

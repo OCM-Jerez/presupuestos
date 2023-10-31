@@ -153,10 +153,10 @@ export default [
 		loadComponent: () =>
 			import('./art16/components/deuda/components/plan-ajuste/plan-ajuste20230918/plan-ajuste20230918.component')
 	},
-	{
-		path: 'datosEconomicos',
-		loadComponent: () => import('./art16/components/datos-economicos/datos-economicos.component')
-	},
+	// {
+	// 	path: 'datosEconomicos',
+	// 	loadComponent: () => import('./art16/components/datos-economicos/datos-economicos.component')
+	// },
 	{
 		path: 'pmp',
 		loadComponent: () => import('./art16/components/datos-economicos/components/pmp/pmp.component')

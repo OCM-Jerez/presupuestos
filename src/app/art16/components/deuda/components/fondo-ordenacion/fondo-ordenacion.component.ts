@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgIf, NgFor } from '@angular/common';
 
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
@@ -7,7 +7,7 @@ import { INew } from '@interfaces/new.interface';
 @Component({
 	selector: 'app-fondo-ordenacion',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [NgIf, NgFor],
 	templateUrl: './fondo-ordenacion.component.html',
 	styleUrls: ['./fondo-ordenacion.component.scss']
 })

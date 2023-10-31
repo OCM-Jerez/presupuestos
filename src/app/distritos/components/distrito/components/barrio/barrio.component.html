@@ -2,7 +2,7 @@
 	<header class="OCM-title-dark">{{ descripcion }}</header>
 
 	<figure>
-		<img src="{{ imgURL }}" alt="Foto barrio" />
+		<img class="OCM-imgGraph" src="{{ imgURL }}" alt="Foto barrio" />
 	</figure>
 
 	<section class="tableCard">
@@ -29,10 +29,9 @@
 		</table>
 	</section>
 
-	<header class="OCM-subtitle-dark">Documentos</header>
-
-	<section class="cardTableHome">
-		<table class="tableNews">
+	<section class="OCM-tableContainer">
+		<header class="OCM-subtitle-dark">Documentos</header>
+		<table class="OCM-table">
 			<thead>
 				<tr>
 					<th>Fecha</th>
@@ -54,9 +53,33 @@
 		</table>
 	</section>
 
-	<section class="tableCard">
+	<section class="OCM-tableContainer">
+		<header class="OCM-subtitle-dark">Documentos</header>
+		<table class="OCM-table">
+			<thead>
+				<tr>
+					<th>Fecha</th>
+					<th>Emisor</th>
+					<th>Título</th>
+					<th>URL</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let doc of docs">
+					<ng-container *ngIf="doc.URL !== ''">
+						<td>{{ doc.date }}</td>
+						<td>{{ doc.emisor }}</td>
+						<td>{{ doc.title }}</td>
+						<td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+					</ng-container>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
+	<section class="OCM-tableContainer">
 		<header class="OCM-subtitle-dark">Noticias</header>
-		<table class="tableNews">
+		<table class="OCM-table">
 			<thead>
 				<tr>
 					<th>Fecha</th>
