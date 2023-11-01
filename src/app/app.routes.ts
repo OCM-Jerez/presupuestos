@@ -46,10 +46,14 @@ export default [
 		path: 'comisiones',
 		loadComponent: () => import('./art10/components/info-institucional/components/comisiones/comisiones.component')
 	},
+	// {
+	// 	path: 'comision/:comision',
+	// 	loadComponent: () =>
+	// 		import('./art10/components/info-institucional/components/comisiones/components/comision/comision.component')
+	// },
 	{
 		path: 'comision/:comision',
-		loadComponent: () =>
-			import('./art10/components/info-institucional/components/comisiones/components/comision/comision.component')
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'entesDependientes',
@@ -187,9 +191,13 @@ export default [
 		path: 'licitacion/:licitacion',
 		loadComponent: () => import('./art15/components/licitaciones/components/licitacion/licitacion.component')
 	},
+	// {
+	// 	path: 'temas/:tema',
+	// 	loadComponent: () => import('./temas/components/tema/tema.component')
+	// },
 	{
 		path: 'temas/:tema',
-		loadComponent: () => import('./temas/components/tema/tema.component')
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'distritos/:distrito',
