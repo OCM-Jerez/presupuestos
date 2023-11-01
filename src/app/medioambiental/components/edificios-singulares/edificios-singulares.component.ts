@@ -20,7 +20,8 @@ export default class EdificiosSingularesComponent {
 		this.createCard('Antigua jefatura Policia Local', 'antiguaJefaturaPoliciaLocal'),
 		this.createCard('Bodegasd Croft', 'Croft'),
 		this.createCard('Callejón de los Bolos', 'callejonBolos'),
-		this.createCard('Palacio VillaPanés', 'palacioVillapanes')
+		this.createCard('Palacio VillaPanés', 'palacioVillapanes'),
+		this.createCard('Claustros de Santo Domingo', 'claustrosSantoDomingo')
 	];
 
 	createCard(titulo: string, route: string) {
