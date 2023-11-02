@@ -55,6 +55,11 @@
 		"rutaImagen": "assets/temas/aeropuerto/aeropuerto.jpg"
 	},
 	{
+		"titulo": "Presupuesto Junta de Andalucía",
+		"route": "/temas/presupuestoJuntaAndalucia",
+		"rutaImagen": "assets/temas/presupuestoJuntaAndalucia/presupuestoJuntaAndalucia.jpg"
+	},
+	{
 		"titulo": "Hermandades y cofradias",
 		"route": "/temas/hermandades",
 		"rutaImagen": "assets/temas/hermandades/hermandades.jpg"
