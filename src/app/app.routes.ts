@@ -29,18 +29,26 @@ export default [
 		path: 'plenos',
 		loadComponent: () => import('./art10/components/info-institucional/components/plenos/plenos.component')
 	},
+	// {
+	// 	path: 'pleno/:pleno',
+	// 	loadComponent: () =>
+	// 		import('./art10/components/info-institucional/components/plenos/components/pleno/pleno.component')
+	// },
 	{
 		path: 'pleno/:pleno',
-		loadComponent: () =>
-			import('./art10/components/info-institucional/components/plenos/components/pleno/pleno.component')
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'elas',
 		loadComponent: () => import('./art10/components/info-institucional/components/elas/elas.component')
 	},
+	// {
+	// 	path: 'ela/:ela',
+	// 	loadComponent: () => import('./art10/components/info-institucional/components/elas/components/ela/ela.component')
+	// },
 	{
 		path: 'ela/:ela',
-		loadComponent: () => import('./art10/components/info-institucional/components/elas/components/ela/ela.component')
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'comisiones',
@@ -69,9 +77,13 @@ export default [
 		path: 'mesas',
 		loadComponent: () => import('./art10/components/info-institucional/components/mesas/mesas.component')
 	},
+	// {
+	// 	path: 'mesas/:mesa',
+	// 	loadComponent: () => import('./art10/components/info-institucional/components/mesas/components/mesa/mesa.component')
+	// },
 	{
 		path: 'mesas/:mesa',
-		loadComponent: () => import('./art10/components/info-institucional/components/mesas/components/mesa/mesa.component')
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'infoOrganizativa',
@@ -187,9 +199,13 @@ export default [
 		path: 'licitaciones',
 		loadComponent: () => import('./art15/components/licitaciones/licitaciones.component')
 	},
+	// {
+	// 	path: 'licitacion/:licitacion',
+	// 	loadComponent: () => import('./art15/components/licitaciones/components/licitacion/licitacion.component')
+	// },
 	{
 		path: 'licitacion/:licitacion',
-		loadComponent: () => import('./art15/components/licitaciones/components/licitacion/licitacion.component')
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 	// {
 	// 	path: 'temas/:tema',
@@ -199,9 +215,13 @@ export default [
 		path: 'temas/:tema',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
+	// {
+	// 	path: 'distritos/:distrito',
+	// 	loadComponent: () => import('./distritos/components/distrito/distrito.component')
+	// },
 	{
 		path: 'distritos/:distrito',
-		loadComponent: () => import('./distritos/components/distrito/distrito.component')
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		// path: 'barrios/:barrio',
@@ -212,12 +232,16 @@ export default [
 		path: 'edificiosSingulares',
 		loadComponent: () => import('./medioambiental/components/edificios-singulares/edificios-singulares.component')
 	},
+	// {
+	// 	path: 'edificiosSingulares/:edificioSingular',
+	// 	loadComponent: () =>
+	// 		import(
+	// 			'./medioambiental/components/edificios-singulares/components/edificio-singular/edificio-singular.component'
+	// 		)
+	// },
 	{
 		path: 'edificiosSingulares/:edificioSingular',
-		loadComponent: () =>
-			import(
-				'./medioambiental/components/edificios-singulares/components/edificio-singular/edificio-singular.component'
-			)
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'apartamentosTuristicos',
@@ -227,17 +251,25 @@ export default [
 		path: 'proyectosViviendas',
 		loadComponent: () => import('./medioambiental/components/proyectos-viviendas/proyectos-viviendas.component')
 	},
+	// {
+	// 	path: 'eventos/:evento',
+	// 	loadComponent: () => import('./eventos/components/evento/evento.component')
+	// },
 	{
 		path: 'eventos/:evento',
-		loadComponent: () => import('./eventos/components/evento/evento.component')
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'subvenciones',
 		loadComponent: () => import('./art15/components/subvenciones/subvenciones.component')
 	},
+	// {
+	// 	path: 'subvenciones/:subvencion',
+	// 	loadComponent: () => import('./art15/components/subvenciones/components/subvencion/subvencion.component')
+	// },
 	{
 		path: 'subvenciones/:subvencion',
-		loadComponent: () => import('./art15/components/subvenciones/components/subvencion/subvencion.component')
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'graphDetalle',

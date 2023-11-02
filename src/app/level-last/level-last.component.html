@@ -1,24 +1,62 @@
 <main class="OCM-dark-teme">
 	<header class="OCM-title-dark">{{ descripcion }} usando level-last</header>
-
 	<section class="OCM-tableContainer">
 		<table class="OCM-table">
 			<tbody>
 				<tr *ngFor="let data of data">
-					<!-- Solo muestra las filas donde 'data.value' no está vacío y 'data.URL' no es una clave o está vacío -->
-					<ng-container
-						*ngIf="
-							data.value !== '' &&
-							(!hasKey(data, 'URL') || (hasKey(data, 'URL') && data.URL !== '')) &&
-							data.data !== 'Descripción'
-						"
-					>
+					<ng-container *ngIf="data.value !== '' && (!hasKey(data, 'URL') || (hasKey(data, 'URL') && data.URL !== ''))">
 						<td>{{ data.data }}</td>
 						<td>{{ data.value }}</td>
-						<!-- Solo muestra la columna de enlace cuando 'data.URL' no está vacío -->
 						<ng-container *ngIf="hasKey(data, 'URL') && data.URL !== ''">
 							<td><a href="{{ data.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
 						</ng-container>
+					</ng-container>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
+	<section class="flex">
+		<div class="OCM-cardTableSeguimiento">
+			<table class="paleBlueRowsSeguimiento">
+				<thead>
+					<tr>
+						<th>Descripción</th>
+						<th>Observaciones</th>
+						<th>Cuantia</th>
+						<!-- <th>Completada</th> -->
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let step of stepsSubvencion">
+						<td>{{ step.descripcion }}</td>
+						<td>{{ step.observaciones }}</td>
+						<td>{{ step.cuantia }}</td>
+						<!-- <td>{{ step.isFinish }}</td> -->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section class="OCM-tableContainer">
+		<header class="OCM-subtitle-dark">Documentos</header>
+		<table class="OCM-table">
+			<thead>
+				<tr>
+					<th>Fecha</th>
+					<th>Emisor</th>
+					<th>Título</th>
+					<th>URL</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let doc of docs">
+					<ng-container *ngIf="doc.URL !== ''">
+						<td>{{ doc.date }}</td>
+						<td>{{ doc.emisor }}</td>
+						<td>{{ doc.title }}</td>
+						<td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
 					</ng-container>
 				</tr>
 			</tbody>
@@ -44,6 +82,26 @@
 						<td>{{ new.title }}</td>
 						<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
 					</ng-container>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
+	<section class="OCM-tableContainer">
+		<header class="OCM-subtitle-dark">Comentarios</header>
+		<table class="OCM-table">
+			<thead>
+				<tr>
+					<th>Fecha</th>
+					<th>Emisor</th>
+					<th>texto</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let com of coms">
+					<td>{{ com.date }}</td>
+					<td>{{ com.emisor }}</td>
+					<td>{{ com.texto }}</td>
 				</tr>
 			</tbody>
 		</table>
