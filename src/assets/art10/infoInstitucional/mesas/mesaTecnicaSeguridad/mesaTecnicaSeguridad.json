@@ -1,4 +1,10 @@
 [
-	{ "data": "Descripción", "value": "" },
-	{ "data": "Observaciones", "value": "" }
+	{
+		"data": "Descripción",
+		"value": "Mesa técnica de seguridad"
+	},
+	{
+		"data": "Observaciones",
+		"value": ""
+	}
 ]
