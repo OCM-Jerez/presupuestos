@@ -3,7 +3,8 @@ import { NgFor, NgIf } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
-import { forkJoin } from 'rxjs';
+import { forkJoin, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
@@ -41,8 +42,119 @@ export default class LevelLastComponent implements OnInit {
 	public stepsSubvencion: IStepSubvencion[] = [];
 	public imgURL: string;
 	public descripcion: string;
+	public isSubvencion = false;
+	public isDistrito = false;
+	private _isTema = false;
+	public hasDocs = false;
+	public hasComs = false;
+	public hasNews = false;
+	private _option = '';
 
 	ngOnInit() {
+		const { paramMap, routeConfig } = this._route.snapshot;
+		const pathSegments = routeConfig?.path.split('/') || [];
+		const parametro = pathSegments.filter((segment) => !segment.startsWith(':'))[0];
+		const path = pathSegments[1]?.split(':')[1] || '';
+		console.log('path', path);
+		this._option = paramMap.get(`${path}`);
+
+		this.fetchData(parametro, path);
+	}
+
+	fetchData(parametro: string, path: string) {
+		switch (path) {
+			case 'comision':
+				parametro = `art10/infoInstitucional/comisiones/permanentes`;
+				break;
+			case 'ela':
+				parametro = `art10/infoInstitucional/elas`;
+				break;
+			case 'pleno':
+				parametro = `art10/infoInstitucional/plenos`;
+				break;
+			case 'mesa':
+				parametro = `art10/infoInstitucional/mesas`;
+				break;
+			case 'subvencion':
+				this.isSubvencion = true;
+				break;
+			case 'tema':
+				this._isTema = true;
+				break;
+			case 'distrito':
+				this.isDistrito = true;
+				this.imgURL = `/assets/${parametro}/${this._option}/${this._option}.jpg`;
+				break;
+		}
+
+		const pathBase = `/assets/${parametro}/`;
+
+		const commonRequests = {
+			data: this._http.get<IOption[]>(`${pathBase}${this._option}/${this._option}.json`),
+			// docs: this._http.get<IDoc[]>(`${pathBase}${this._option}/${this._option}Docs.json`),
+			// coms: this._http.get<ICom[]>(`${pathBase}${this._option}/${this._option}Coms.json`),
+			news: this._http.get<INew[]>(`${pathBase}${this._option}/${this._option}News.json`)
+		};
+
+		const docsRequest = !this._isTema
+			? { docs: this._http.get<IDoc[]>(`${pathBase}${this._option}/${this._option}Docs.json`) }
+			: {};
+
+		const comsRequest = !this._isTema
+			? { coms: this._http.get<ICom[]>(`${pathBase}${this._option}/${this._option}Coms.json`) }
+			: {};
+
+		const stepsRequest = this.isSubvencion
+			? { steps: this._http.get<IStepSubvencion[]>(`${pathBase}${this._option}/${this._option}Steps.json`) }
+			: {};
+
+		const allRequests = { ...commonRequests, ...docsRequest, ...comsRequest, ...stepsRequest };
+		console.log('allRequests', allRequests);
+
+		forkJoin(allRequests)
+			.pipe(
+				catchError((error) => {
+					console.error('Error fetching data:', error);
+					return of({
+						data: [],
+						docs: this._isTema ? [] : undefined,
+						coms: this._isTema ? [] : undefined,
+						news: [],
+						steps: this.isSubvencion ? [] : undefined
+					});
+				})
+			)
+			.subscribe((response) => {
+				this.data = response.data;
+				// this.docs = response.docs;
+				// this.coms = response.coms;
+				this.news = response.news;
+
+				this.hasDocs = this.docs.length > 1;
+				this.hasComs = this.coms.length > 1;
+				this.hasNews = this.news.length > 1;
+
+				if (this.isSubvencion) {
+					this.stepsSubvencion = response.steps as IStepSubvencion[];
+				}
+
+				if (this._isTema) {
+					this.docs = response.docs as IDoc[];
+					this.coms = response.coms as ICom[];
+				}
+
+				const descripcionObj = this.data.find((obj) => obj.data === 'Descripción');
+				if (descripcionObj) {
+					this.descripcion = descripcionObj.value;
+				}
+			});
+	}
+
+	hasKey(object: unknown, key: string): boolean {
+		return object && Object.prototype.hasOwnProperty.call(object, key);
+	}
+
+	ngOnInitOLD() {
 		let pathSegments = [];
 		let path = '';
 		let parametro = '';
@@ -191,7 +303,15 @@ export default class LevelLastComponent implements OnInit {
 						this.data = data$;
 						this.coms = coms$;
 						this.docs = docs$;
+
+						if (this.docs.length > 1) {
+							this.hasDocs = true;
+						}
 						this.news = news$;
+
+						if (this.news.length > 1) {
+							this.hasNews = true;
+						}
 						// this.steps = steps$;
 
 						const descripcionObj = data$.find((obj) => obj.data === 'Descripción');
@@ -288,6 +408,7 @@ export default class LevelLastComponent implements OnInit {
 				fetchData8();
 				break;
 			case 'subvencion':
+				this.isSubvencion = true;
 				const subvencion = paramMap.get(`${path}`);
 				console.log('subvencion', subvencion);
 
@@ -295,15 +416,15 @@ export default class LevelLastComponent implements OnInit {
 					const pathBase = `/assets/${parametro}/`;
 					this.imgURL = `/assets/${path}/${pathBase}/${pathBase}.jpg`;
 					const data$ = this._http.get<IOption[]>(`${pathBase}${subvencion}/${subvencion}.json`);
-					// const docs$ = this._http.get<IDoc[]>(`${pathBase}${subvencion}/${subvencion}Docs.json`);
-					// const coms$ = this._http.get<ICom[]>(`${pathBase}${subvencion}/${subvencion}Coms.json`);
+					const docs$ = this._http.get<IDoc[]>(`${pathBase}${subvencion}/${subvencion}Docs.json`);
+					const coms$ = this._http.get<ICom[]>(`${pathBase}${subvencion}/${subvencion}Coms.json`);
 					const news$ = this._http.get<INew[]>(`${pathBase}${subvencion}/${subvencion}News.json`);
 					const steps$ = this._http.get<IStepSubvencion[]>(`${pathBase}${subvencion}/${subvencion}Steps.json`);
 
-					forkJoin({ data$, news$, steps$ }).subscribe(({ data$, news$, steps$ }) => {
+					forkJoin({ data$, docs$, coms$, news$, steps$ }).subscribe(({ data$, docs$, coms$, news$, steps$ }) => {
 						this.data = data$;
-						// this.coms = coms$;
-						// this.docs = docs$;
+						this.coms = coms$;
+						this.docs = docs$;
 						this.news = news$;
 						this.stepsSubvencion = steps$;
 
@@ -346,7 +467,7 @@ export default class LevelLastComponent implements OnInit {
 		}
 	}
 
-	hasKey(object: unknown, key: string): boolean {
-		return object && Object.prototype.hasOwnProperty.call(object, key);
-	}
+	// 	hasKey(object: unknown, key: string): boolean {
+	// 		return object && Object.prototype.hasOwnProperty.call(object, key);
+	// 	}
 }

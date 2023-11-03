@@ -1,7 +1,13 @@
 <main class="OCM-dark-teme">
 	<header class="OCM-title-dark">{{ descripcion }} usando level-last</header>
+	<ng-container *ngIf="isDistrito">
+		<figure class="img">
+			<img class="OCM-imgGraph" src="{{ imgURL }}" alt="Foto proyecto" />
+		</figure>
+	</ng-container>
+
 	<section class="OCM-tableContainer">
-		<table class="OCM-table">
+		<table class="OCM-tableData">
 			<tbody>
 				<tr *ngFor="let data of data">
 					<ng-container *ngIf="data.value !== '' && (!hasKey(data, 'URL') || (hasKey(data, 'URL') && data.URL !== ''))">
@@ -16,12 +22,13 @@
 		</table>
 	</section>
 
-	<section class="flex">
-		<div class="OCM-cardTableSeguimiento">
-			<table class="paleBlueRowsSeguimiento">
+	<ng-container *ngIf="isSubvencion">
+		<header class="OCM-subtitle-dark">Seguimiento subvenciones</header>
+		<section class="OCM-tableContainer">
+			<table class="OCM-tableSeguimiento">
 				<thead>
 					<tr>
-						<th>Descripción</th>
+						<th>Subvención</th>
 						<th>Observaciones</th>
 						<th>Cuantia</th>
 						<!-- <th>Completada</th> -->
@@ -36,74 +43,80 @@
 					</tr>
 				</tbody>
 			</table>
-		</div>
-	</section>
+		</section>
+	</ng-container>
 
-	<section class="OCM-tableContainer">
+	<ng-container *ngIf="hasDocs">
 		<header class="OCM-subtitle-dark">Documentos</header>
-		<table class="OCM-table">
-			<thead>
-				<tr>
-					<th>Fecha</th>
-					<th>Emisor</th>
-					<th>Título</th>
-					<th>URL</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let doc of docs">
-					<ng-container *ngIf="doc.URL !== ''">
-						<td>{{ doc.date }}</td>
-						<td>{{ doc.emisor }}</td>
-						<td>{{ doc.title }}</td>
-						<td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
-					</ng-container>
-				</tr>
-			</tbody>
-		</table>
-	</section>
+		<section class="OCM-tableContainer">
+			<table class="OCM-tableDocumentos">
+				<thead>
+					<tr>
+						<th>Fechaaaa</th>
+						<th>Emisor</th>
+						<th>Título</th>
+						<th>URL</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let doc of docs">
+						<ng-container *ngIf="doc.URL !== ''">
+							<td>{{ doc.date }}</td>
+							<td>{{ doc.emisor }}</td>
+							<td>{{ doc.title }}</td>
+							<td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+						</ng-container>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</ng-container>
 
-	<section class="OCM-tableContainer">
+	<ng-container *ngIf="hasNews">
 		<header class="OCM-subtitle-dark">Noticias</header>
-		<table class="OCM-table">
-			<thead>
-				<tr>
-					<th>Fecha</th>
-					<th>Medio</th>
-					<th>Título</th>
-					<th>URL</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let new of news">
-					<ng-container *ngIf="new.URL !== ''">
-						<td>{{ new.date }}</td>
-						<td>{{ new.medio }}</td>
-						<td>{{ new.title }}</td>
-						<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
-					</ng-container>
-				</tr>
-			</tbody>
-		</table>
-	</section>
+		<section class="OCM-tableContainer">
+			<table class="OCM-tableNoticias">
+				<thead>
+					<tr>
+						<th>Fecha</th>
+						<th>Medio</th>
+						<th>Título</th>
+						<th>URL</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let new of news">
+						<ng-container *ngIf="new.URL !== ''">
+							<td>{{ new.date }}</td>
+							<td>{{ new.medio }}</td>
+							<td>{{ new.title }}</td>
+							<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+						</ng-container>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</ng-container>
 
-	<section class="OCM-tableContainer">
+	<ng-container *ngIf="hasComs">
 		<header class="OCM-subtitle-dark">Comentarios</header>
-		<table class="OCM-table">
-			<thead>
-				<tr>
-					<th>Fecha</th>
-					<th>Emisor</th>
-					<th>texto</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let com of coms">
-					<td>{{ com.date }}</td>
-					<td>{{ com.emisor }}</td>
-					<td>{{ com.texto }}</td>
-				</tr>
-			</tbody>
-		</table>
-	</section>
+		<section class="OCM-tableContainer">
+			<table class="OCM-tableComentarios">
+				<thead>
+					<tr>
+						<th>Fecha</th>
+						<th>Emisor</th>
+						<th>texto</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let com of coms">
+						<td>{{ com.date }}</td>
+						<td>{{ com.emisor }}</td>
+						<td>{{ com.texto }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</ng-container>
 </main>
