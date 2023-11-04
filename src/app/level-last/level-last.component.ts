@@ -45,6 +45,7 @@ export default class LevelLastComponent implements OnInit {
 	public isSubvencion = false;
 	public isDistrito = false;
 	public isLicitacion = false;
+	public isEdificioSingular = false;
 	private _isTema = false;
 	public hasDocs = false;
 	public hasComs = false;
@@ -83,6 +84,10 @@ export default class LevelLastComponent implements OnInit {
 			case 'tema':
 				this._isTema = true;
 				break;
+			case 'edificioSingular':
+				this.isEdificioSingular = true;
+				this.imgURL = `/assets/${parametro}/${this._option}/${this._option}.jpg`;
+				break;
 			case 'licitacion':
 				this.isLicitacion = true;
 				this.imgURL = `/assets/${parametro}/${this._option}/${this._option}.jpg`;
@@ -106,12 +111,12 @@ export default class LevelLastComponent implements OnInit {
 		console.log(!this._isTema && !this.isLicitacion);
 
 		const docsRequest =
-			!this._isTema && !this.isLicitacion
+			!this._isTema && !this.isLicitacion && !this.isEdificioSingular
 				? { docs: this._http.get<IDoc[]>(`${pathBase}${this._option}/${this._option}Docs.json`) }
 				: {};
 
 		const comsRequest =
-			!this._isTema && !this.isSubvencion && !this.isLicitacion
+			!this._isTema && !this.isSubvencion && !this.isLicitacion && !this.isEdificioSingular
 				? { coms: this._http.get<ICom[]>(`${pathBase}${this._option}/${this._option}Coms.json`) }
 				: {};
 

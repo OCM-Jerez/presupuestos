@@ -32,8 +32,14 @@
 	</ng-container>
 
 	<ng-container *ngIf="isDistrito">
-		<figure class="img">
+		<figure class="OCM-img">
 			<img class="OCM-imgGraph" src="{{ imgURL }}" alt="Foto proyecto" />
+		</figure>
+	</ng-container>
+
+	<ng-container *ngIf="isEdificioSingular">
+		<figure class="OCM-img">
+			<img class="OCM-imgEdificio" src="{{ imgURL }}" alt="Foto proyecto" />
 		</figure>
 	</ng-container>
 
