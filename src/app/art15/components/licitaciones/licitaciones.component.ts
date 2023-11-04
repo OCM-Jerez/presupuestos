@@ -55,7 +55,7 @@ export default class LicitacionesComponent {
 		return {
 			titulo,
 			rutaImagen: `assets/licitaciones/${route}/${route}.jpg`,
-			funcion: () => this._router.navigateByUrl(`/licitacion/${route}`)
+			funcion: () => this._router.navigateByUrl(`/licitaciones/${route}`)
 		};
 	}
 }

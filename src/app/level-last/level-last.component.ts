@@ -44,10 +44,12 @@ export default class LevelLastComponent implements OnInit {
 	public descripcion: string;
 	public isSubvencion = false;
 	public isDistrito = false;
+	public isLicitacion = false;
 	private _isTema = false;
 	public hasDocs = false;
 	public hasComs = false;
 	public hasNews = false;
+	public gauge = '/assets/licitaciones/gauge.jpg';
 	private _option = '';
 
 	ngOnInit() {
@@ -81,6 +83,10 @@ export default class LevelLastComponent implements OnInit {
 			case 'tema':
 				this._isTema = true;
 				break;
+			case 'licitacion':
+				this.isLicitacion = true;
+				this.imgURL = `/assets/${parametro}/${this._option}/${this._option}.jpg`;
+				break;
 			case 'distrito':
 				this.isDistrito = true;
 				this.imgURL = `/assets/${parametro}/${this._option}/${this._option}.jpg`;
@@ -96,19 +102,34 @@ export default class LevelLastComponent implements OnInit {
 			news: this._http.get<INew[]>(`${pathBase}${this._option}/${this._option}News.json`)
 		};
 
-		const docsRequest = !this._isTema
-			? { docs: this._http.get<IDoc[]>(`${pathBase}${this._option}/${this._option}Docs.json`) }
-			: {};
+		console.log(!this._isTema, this.isLicitacion);
+		console.log(!this._isTema && !this.isLicitacion);
 
-		const comsRequest = !this._isTema
-			? { coms: this._http.get<ICom[]>(`${pathBase}${this._option}/${this._option}Coms.json`) }
-			: {};
+		const docsRequest =
+			!this._isTema && !this.isLicitacion
+				? { docs: this._http.get<IDoc[]>(`${pathBase}${this._option}/${this._option}Docs.json`) }
+				: {};
 
-		const stepsRequest = this.isSubvencion
+		const comsRequest =
+			!this._isTema && !this.isSubvencion && !this.isLicitacion
+				? { coms: this._http.get<ICom[]>(`${pathBase}${this._option}/${this._option}Coms.json`) }
+				: {};
+
+		const stepsSubvencionRequest = this.isSubvencion
 			? { steps: this._http.get<IStepSubvencion[]>(`${pathBase}${this._option}/${this._option}Steps.json`) }
 			: {};
 
-		const allRequests = { ...commonRequests, ...docsRequest, ...comsRequest, ...stepsRequest };
+		const stepsRequest = this.isLicitacion
+			? { steps: this._http.get<IStep[]>(`${pathBase}${this._option}/${this._option}Steps.json`) }
+			: {};
+
+		const allRequests = {
+			...commonRequests,
+			...docsRequest,
+			...comsRequest,
+			...stepsRequest,
+			...stepsSubvencionRequest
+		};
 		console.log('allRequests', allRequests);
 
 		forkJoin(allRequests)
@@ -120,7 +141,7 @@ export default class LevelLastComponent implements OnInit {
 						docs: this._isTema ? [] : undefined,
 						coms: this._isTema ? [] : undefined,
 						news: [],
-						steps: this.isSubvencion ? [] : undefined
+						steps: this.isLicitacion ? [] : undefined
 					});
 				})
 			)
@@ -134,11 +155,15 @@ export default class LevelLastComponent implements OnInit {
 				this.hasComs = this.coms.length > 1;
 				this.hasNews = this.news.length > 1;
 
-				if (this.isSubvencion) {
+				if (this.isSubvencion || this.isLicitacion) {
 					this.stepsSubvencion = response.steps as IStepSubvencion[];
 				}
 
-				if (this._isTema) {
+				if (this.isLicitacion) {
+					this.steps = response.steps as IStep[];
+				}
+
+				if (this._isTema || this.isLicitacion) {
 					this.docs = response.docs as IDoc[];
 					this.coms = response.coms as ICom[];
 				}

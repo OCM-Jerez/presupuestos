@@ -204,7 +204,7 @@ export default [
 	// 	loadComponent: () => import('./art15/components/licitaciones/components/licitacion/licitacion.component')
 	// },
 	{
-		path: 'licitacion/:licitacion',
+		path: 'licitaciones/:licitacion',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	// {

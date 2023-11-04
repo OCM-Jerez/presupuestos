@@ -1,5 +1,36 @@
 <main class="OCM-dark-teme">
-	<header class="OCM-title-dark">{{ descripcion }} usando level-last</header>
+	<header *ngIf="!isLicitacion" class="OCM-title-dark">{{ descripcion }} usando level-last</header>
+	<header *ngIf="isLicitacion" class="OCM-subtitle-dark">{{ descripcion }} usando level-last</header>
+
+	<ng-container *ngIf="isLicitacion">
+		<section class="OCM-flexEstadoLicitacion">
+			<div class="OCM-ContainerEstadoLicitacion">
+				<img src="{{ imgURL }}" alt="Foto proyecto" />
+			</div>
+
+			<div class="OCM-ContainerEstadoLicitacion">
+				<table class="OCM-tablEstadoLicitacion">
+					<thead>
+						<tr>
+							<th>Fecha</th>
+							<th>Etapa</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let step of steps">
+							<td>{{ step.date }}</td>
+							<td>{{ step.step }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="OCM-ContainerEstadoLicitacion">
+				<img src="{{ gauge }}" alt="" />
+			</div>
+		</section>
+	</ng-container>
+
 	<ng-container *ngIf="isDistrito">
 		<figure class="img">
 			<img class="OCM-imgGraph" src="{{ imgURL }}" alt="Foto proyecto" />
@@ -25,7 +56,7 @@
 	<ng-container *ngIf="isSubvencion">
 		<header class="OCM-subtitle-dark">Seguimiento subvenciones</header>
 		<section class="OCM-tableContainer">
-			<table class="OCM-tableSeguimiento">
+			<table class="OCM-tableSeguimientoSubvenciones">
 				<thead>
 					<tr>
 						<th>Subvención</th>
