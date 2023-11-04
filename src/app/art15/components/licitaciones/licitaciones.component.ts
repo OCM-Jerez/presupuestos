@@ -21,7 +21,7 @@ export default class LicitacionesComponent {
 			funcion: () => window.open('https://con.ocmjerez.org/', '_blank')
 		},
 		this.createCard('Mantenimiento señalización', 'manSeñal2020'),
-		this.createCard('Reordenación Puerta Sevilla', 'puertaSevilla2023'),
+		this.createCard('Reordenación Puerta Sevilla-Puerta Santiago 1ª fase', 'puertaSevilla2023'),
 		this.createCard('Parque La Canaleja', 'laCanaleja2023'),
 		this.createCard('Plaza Venus', 'plazaVenus2023'),
 		this.createCard('Las Calandrias', 'lasCalandrias2023'),
@@ -48,7 +48,9 @@ export default class LicitacionesComponent {
 		this.createCard(
 			'Obras reforma y mejora de la eficiencia energética del CEIP Tartessos',
 			'rehabilitacionCEIPTartessos2023'
-		)
+		),
+		this.createCard('Conservación preventiva Palacio Riquelme', 'palacioRiquelme2023'),
+		this.createCard('Reordenación Puerta Sevilla-Puerta Santiago 2ª fase', 'puertaSevilla22023')
 	];
 
 	createCard(titulo: string, route: string) {
