@@ -2,7 +2,7 @@
 	<header class="OCM-title-dark">Plenos.</header>
 
 	<section class="OCM-flex">
-		<section *ngFor="let menu of cardMenus" [style.background]="menu.background">
+		<section *ngFor="let menu of cardMenus">
 			<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 		</section>
 	</section>

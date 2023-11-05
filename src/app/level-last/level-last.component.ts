@@ -1,7 +1,14 @@
-import { Component, OnInit, inject } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { ComentariosComponent } from './components/comentarios/comentarios.component';
+import DataGeneralComponent from './components/data-general/data-general.component';
+import DocumentosComponent from './components/documentos/documentos.component';
+import EstadoLicitacionComponent from './components/estado-licitacion/estado-licitacion.component';
+import NoticiasComponent from './components/noticias/noticias.component';
+import SeguimientoSubvencionComponent from './components/seguimiento-subvencion/seguimiento-subvencion.component';
 
 import { forkJoin, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -10,7 +17,6 @@ import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IStep } from '@interfaces/step.interface';
-
 interface IOption {
 	data: string;
 	value: string;
@@ -27,7 +33,16 @@ interface IStepSubvencion {
 @Component({
 	selector: 'app-level-last',
 	standalone: true,
-	imports: [NgFor, NgIf],
+	imports: [
+		NgFor,
+		NgIf,
+		EstadoLicitacionComponent,
+		DataGeneralComponent,
+		SeguimientoSubvencionComponent,
+		DocumentosComponent,
+		ComentariosComponent,
+		NoticiasComponent
+	],
 	templateUrl: './level-last.component.html',
 	styleUrls: ['./level-last.component.scss']
 })

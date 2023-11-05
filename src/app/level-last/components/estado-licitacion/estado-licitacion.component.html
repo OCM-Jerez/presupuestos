@@ -1,0 +1,28 @@
+<!-- <ng-container *ngIf="isLicitacion"> -->
+<section class="OCM-flexEstadoLicitacion">
+	<figure class="OCM-ContainerEstadoLicitacion">
+		<img src="{{ imgURL }}" alt="Foto proyecto" />
+	</figure>
+
+	<div class="OCM-ContainerEstadoLicitacion">
+		<table class="OCM-tablEstadoLicitacion">
+			<thead>
+				<tr>
+					<th>Fecha</th>
+					<th>Etapa</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let step of steps">
+					<td>{{ step.date }}</td>
+					<td>{{ step.step }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="OCM-ContainerEstadoLicitacion">
+		<img src="{{ gauge }}" alt="" />
+	</div>
+</section>
+<!-- </ng-container> -->

@@ -1,0 +1,25 @@
+<!-- <ng-container *ngIf="hasNews"> -->
+<header class="OCM-subtitle-dark">Noticias</header>
+<section class="OCM-tableContainer">
+	<table class="OCM-tableNoticias">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Medio</th>
+				<th>Título</th>
+				<th>URL</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let new of news">
+				<ng-container *ngIf="new.URL !== ''">
+					<td>{{ new.date }}</td>
+					<td>{{ new.medio }}</td>
+					<td>{{ new.title }}</td>
+					<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+				</ng-container>
+			</tr>
+		</tbody>
+	</table>
+</section>
+<!-- </ng-container> -->

@@ -1,0 +1,21 @@
+<!-- <ng-container *ngIf="hasComs"> -->
+<header class="OCM-subtitle-dark">Comentarios</header>
+<section class="OCM-tableContainer">
+	<table class="OCM-tableComentarios">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Emisor</th>
+				<th>texto</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let com of coms">
+				<td>{{ com.date }}</td>
+				<td>{{ com.emisor }}</td>
+				<td>{{ com.texto }}</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+<!-- </ng-container> -->

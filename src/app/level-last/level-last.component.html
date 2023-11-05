@@ -1,34 +1,7 @@
 <main class="OCM-dark-teme">
 	<header [class]="isLicitacion ? 'OCM-subtitle-dark' : 'OCM-title-dark'">{{ descripcion }} usando level-last</header>
 
-	<ng-container *ngIf="isLicitacion">
-		<section class="OCM-flexEstadoLicitacion">
-			<figure class="OCM-ContainerEstadoLicitacion">
-				<img src="{{ imgURL }}" alt="Foto proyecto" />
-			</figure>
-
-			<div class="OCM-ContainerEstadoLicitacion">
-				<table class="OCM-tablEstadoLicitacion">
-					<thead>
-						<tr>
-							<th>Fecha</th>
-							<th>Etapa</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr *ngFor="let step of steps">
-							<td>{{ step.date }}</td>
-							<td>{{ step.step }}</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-			<div class="OCM-ContainerEstadoLicitacion">
-				<img src="{{ gauge }}" alt="" />
-			</div>
-		</section>
-	</ng-container>
+	<app-estado-licitacion *ngIf="isLicitacion" [steps]="steps" [imgURL]="imgURL" [gauge]="gauge" />
 
 	<figure *ngIf="isDistrito || isEdificioSingular" class="OCM-img">
 		<img
@@ -38,121 +11,9 @@
 		/>
 	</figure>
 
-	<section class="OCM-tableContainer">
-		<table class="OCM-tableData">
-			<tbody>
-				<tr *ngFor="let data of data">
-					<ng-container
-						*ngIf="
-							data.value !== '' &&
-							data.data !== 'Descripción' &&
-							(!hasKey(data, 'URL') || (hasKey(data, 'URL') && data.URL !== ''))
-						"
-					>
-						<td>{{ data.data }}</td>
-						<td>{{ data.value }}</td>
-						<ng-container *ngIf="hasKey(data, 'URL') && data.URL !== ''">
-							<td><a href="{{ data.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
-						</ng-container>
-					</ng-container>
-				</tr>
-			</tbody>
-		</table>
-	</section>
-
-	<ng-container *ngIf="isSubvencion">
-		<header class="OCM-subtitle-dark">Seguimiento subvenciones</header>
-		<section class="OCM-tableContainer">
-			<table class="OCM-tableSeguimientoSubvenciones">
-				<thead>
-					<tr>
-						<th>Subvención</th>
-						<th>Observaciones</th>
-						<th>Cuantia</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr *ngFor="let step of stepsSubvencion">
-						<td>{{ step.descripcion }}</td>
-						<td>{{ step.observaciones }}</td>
-						<td>{{ step.cuantia }}</td>
-					</tr>
-				</tbody>
-			</table>
-		</section>
-	</ng-container>
-
-	<ng-container *ngIf="hasDocs">
-		<header class="OCM-subtitle-dark">Documentos</header>
-		<section class="OCM-tableContainer">
-			<table class="OCM-tableDocumentos">
-				<thead>
-					<tr>
-						<th>Fechaaaa</th>
-						<th>Emisor</th>
-						<th>Título</th>
-						<th>URL</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr *ngFor="let doc of docs">
-						<ng-container *ngIf="doc.URL !== ''">
-							<td>{{ doc.date }}</td>
-							<td>{{ doc.emisor }}</td>
-							<td>{{ doc.title }}</td>
-							<td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
-						</ng-container>
-					</tr>
-				</tbody>
-			</table>
-		</section>
-	</ng-container>
-
-	<ng-container *ngIf="hasNews">
-		<header class="OCM-subtitle-dark">Noticias</header>
-		<section class="OCM-tableContainer">
-			<table class="OCM-tableNoticias">
-				<thead>
-					<tr>
-						<th>Fecha</th>
-						<th>Medio</th>
-						<th>Título</th>
-						<th>URL</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr *ngFor="let new of news">
-						<ng-container *ngIf="new.URL !== ''">
-							<td>{{ new.date }}</td>
-							<td>{{ new.medio }}</td>
-							<td>{{ new.title }}</td>
-							<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
-						</ng-container>
-					</tr>
-				</tbody>
-			</table>
-		</section>
-	</ng-container>
-
-	<ng-container *ngIf="hasComs">
-		<header class="OCM-subtitle-dark">Comentarios</header>
-		<section class="OCM-tableContainer">
-			<table class="OCM-tableComentarios">
-				<thead>
-					<tr>
-						<th>Fecha</th>
-						<th>Emisor</th>
-						<th>texto</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr *ngFor="let com of coms">
-						<td>{{ com.date }}</td>
-						<td>{{ com.emisor }}</td>
-						<td>{{ com.texto }}</td>
-					</tr>
-				</tbody>
-			</table>
-		</section>
-	</ng-container>
+	<app-data-general *ngIf="isLicitacion" [data]="data" />
+	<app-seguimiento-subvencion *ngIf="isSubvencion" [stepsSubvencion]="stepsSubvencion" />
+	<app-documentos *ngIf="hasDocs" [docs]="docs" />
+	<app-noticias *ngIf="hasNews" [news]="news" />
+	<app-comentarios *ngIf="hasComs" [coms]="coms" />
 </main>

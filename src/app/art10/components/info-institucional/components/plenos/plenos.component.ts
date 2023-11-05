@@ -1,16 +1,15 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+
+import { forkJoin } from 'rxjs';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
-import { forkJoin } from 'rxjs';
-
-const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 
 interface IPleno {
 	data: string;
@@ -21,41 +20,33 @@ interface IPleno {
 @Component({
 	selector: 'app-plenos',
 	standalone: true,
-	imports: [CommonModule, CardMenuComponent],
+	imports: [NgFor, NgIf, CardMenuComponent],
 	templateUrl: './plenos.component.html',
 	styleUrls: ['./plenos.component.scss']
 })
 export default class PlenosComponent implements OnInit {
 	private _router = inject(Router);
-	private _location = inject(Location);
 	private _http = inject(HttpClient);
 
 	public data: IPleno[] = [];
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
-	public descripcion: string;
 
 	ngOnInit() {
 		const fetchData = () => {
 			const pathBase = '/assets/art10/infoInstitucional/plenos';
-
 			const data$ = this._http.get<IPleno[]>(`${pathBase}/plenos.json`);
+			const coms$ = this._http.get<ICom[]>(`${pathBase}/plenosComs.json`);
 			const docs$ = this._http.get<IDoc[]>(`${pathBase}/plenosDocs.json`);
 			const news$ = this._http.get<INew[]>(`${pathBase}/plenosNews.json`);
-			const coms$ = this._http.get<ICom[]>(`${pathBase}/plenosComs.json`);
 
-			forkJoin({ data$, docs$, coms$, news$ }).subscribe(({ data$, docs$, coms$, news$ }) => {
+			forkJoin({ data$, coms$, docs$, news$ }).subscribe(({ data$, coms$, docs$, news$ }) => {
 				this.data = data$;
+				this.coms = coms$;
 				this.docs = docs$;
 				this.news = news$;
-				this.coms = coms$;
 			});
-
-			const descripcionObj = this.data.find((obj) => obj.data === 'Descripción');
-			if (descripcionObj) {
-				this.descripcion = descripcionObj.value;
-			}
 		};
 
 		fetchData();
@@ -64,16 +55,14 @@ export default class PlenosComponent implements OnInit {
 	cardMenus = [
 		this.createCard('Pleno ordinario 29 septiembre 2023', 'plenoOrdinario20230929'),
 		this.createCard('Pleno extraorinario y solemne 7 octubre 2023', 'plenoExtraordinario20231007'),
-		this.createCard('Pleno ordinario 27 octubre 2023', 'plenoOrdinario20231027')
+		this.createCard('Pleno ordinario 27 octubre 2023', 'plenoOrdinario20231027'),
+		this.createCard('Pleno extraorinario 15 noviembre 2023', 'plenoExtraordinario20231115')
 	];
 
 	createCard(titulo: string, route: string) {
-		// this._location.go('/art10');
-
 		return {
 			titulo,
 			rutaImagen: `/assets/art10/infoInstitucional/plenos/plenos.png`,
-			background: defaultBackground,
 			funcion: () => this._router.navigateByUrl(`/pleno/${route}`)
 		};
 	}
