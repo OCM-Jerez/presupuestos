@@ -15,6 +15,9 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 export default class LicitacionesComponent {
 	private _router = inject(Router);
 	public searchText: string;
+	private getAllLicitaciones() {
+		return [...this.licitacionesCEE, ...this.licitacionesESP, ...this.licitacionesDiputacion, ...this.licitacionesAyto];
+	}
 
 	OCM = [
 		{
@@ -81,7 +84,6 @@ export default class LicitacionesComponent {
 
 	filterData() {
 		const lowercasedFilter = this.searchText.toLowerCase();
-		console.log('lowercasedFilter', lowercasedFilter);
 
 		if (!this.searchText) {
 			this.resetFilter();
@@ -91,27 +93,14 @@ export default class LicitacionesComponent {
 	}
 
 	resetFilter() {
-		[
-			...this.licitacionesCEE,
-			...this.licitacionesESP,
-			...this.licitacionesDiputacion,
-			...this.licitacionesAyto
-		].forEach((licitacion) => {
+		this.getAllLicitaciones().forEach((licitacion) => {
 			licitacion.highlighted = false;
 		});
 	}
 
 	applyFilter(filterValue: string) {
-		const allLicitaciones = [
-			...this.licitacionesCEE,
-			...this.licitacionesESP,
-			...this.licitacionesDiputacion,
-			...this.licitacionesAyto
-		];
-
-		allLicitaciones.forEach((licitacion) => {
+		this.getAllLicitaciones().forEach((licitacion) => {
 			licitacion.highlighted = licitacion.titulo.toLowerCase().includes(filterValue);
-			console.log('licitacion', licitacion);
 		});
 	}
 }
