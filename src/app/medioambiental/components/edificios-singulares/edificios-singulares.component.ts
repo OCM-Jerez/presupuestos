@@ -13,6 +13,7 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 })
 export default class EdificiosSingularesComponent {
 	private _router = inject(Router);
+
 	cardMenus = [
 		this.createCard('Palacio Riquelme', 'palacioRiquelme'),
 		this.createCard('Antiguo asilo San Jose', 'asiloSanJose'),

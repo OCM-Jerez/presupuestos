@@ -29,8 +29,6 @@ export default class Level1Component implements OnInit {
 	}
 
 	createCard(titulo: string, route: string, rutaImagen: string) {
-		// console.log(route);
-
 		return {
 			titulo,
 			rutaImagen,
