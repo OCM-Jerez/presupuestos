@@ -16,6 +16,12 @@
 // #region OCM
 // #region @media screen
 @media screen and (max-width: 6000px) {
+	.highlight {
+		// Estilos para resaltar la tarjeta
+		border: 8px solid #f20616; // ejemplo de borde resaltado
+		background-color: #fce3e3; // ejemplo de fondo resaltado
+	}
+
 	.OCM-dark-teme {
 		background-color: #15202b;
 		min-height: 650px;

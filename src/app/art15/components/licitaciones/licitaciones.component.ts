@@ -1,18 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 @Component({
 	selector: 'app-licitaciones',
 	standalone: true,
-	imports: [NgFor, CardMenuComponent],
+	imports: [NgFor, FormsModule, CardMenuComponent],
 	templateUrl: './licitaciones.component.html',
 	styleUrls: ['./licitaciones.component.scss']
 })
 export default class LicitacionesComponent {
 	private _router = inject(Router);
+	public searchText: string;
 
 	OCM = [
 		{
@@ -72,7 +74,44 @@ export default class LicitacionesComponent {
 		return {
 			titulo,
 			rutaImagen: `assets/licitaciones/${route}/${route}.jpg`,
-			funcion: () => this._router.navigateByUrl(`/licitaciones/${route}`)
+			funcion: () => this._router.navigateByUrl(`/licitaciones/${route}`),
+			highlighted: false
 		};
+	}
+
+	filterData() {
+		const lowercasedFilter = this.searchText.toLowerCase();
+		console.log('lowercasedFilter', lowercasedFilter);
+
+		if (!this.searchText) {
+			this.resetFilter();
+		} else {
+			this.applyFilter(lowercasedFilter);
+		}
+	}
+
+	resetFilter() {
+		[
+			...this.licitacionesCEE,
+			...this.licitacionesESP,
+			...this.licitacionesDiputacion,
+			...this.licitacionesAyto
+		].forEach((licitacion) => {
+			licitacion.highlighted = false;
+		});
+	}
+
+	applyFilter(filterValue: string) {
+		const allLicitaciones = [
+			...this.licitacionesCEE,
+			...this.licitacionesESP,
+			...this.licitacionesDiputacion,
+			...this.licitacionesAyto
+		];
+
+		allLicitaciones.forEach((licitacion) => {
+			licitacion.highlighted = licitacion.titulo.toLowerCase().includes(filterValue);
+			console.log('licitacion', licitacion);
+		});
 	}
 }
