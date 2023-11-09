@@ -1,9 +1,26 @@
 <main class="OCM-dark-teme">
 	<h2 class="OCM-title-dark">Licitaciones</h2>
 
-	<header class="OCM-subtitle-dark-left">
-		<input type="text" [(ngModel)]="searchText" (input)="filterData()" placeholder="Buscar licitaciones..." />
-	</header>
+	<section class="OCM-subtitle-dark-left">
+		<div class="InputContainer">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="#657789"
+				stroke-width="3"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="feather feather-search"
+			>
+				<circle cx="11" cy="11" r="8" />
+				<line x1="21" y1="21" x2="16.65" y2="16.65" />
+			</svg>
+			<input type="text" [(ngModel)]="searchText" (input)="filterData()" placeholder="Buscar licitaciones..." />
+		</div>
+	</section>
 
 	<header class="OCM-subtitle-dark-left">
 		Aplicación consulta de datos Plataforma Contratación del Sector Público
