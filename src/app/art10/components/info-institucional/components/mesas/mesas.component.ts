@@ -64,6 +64,7 @@ export default class MesasComponent implements OnInit {
 
 	cardMenus = [
 		this.createCard('Mesa técnica de seguridad', 'mesaTecnicaSeguridad'),
+		this.createCard('Consejo Local de la Infancia y Adolescencia', 'consejoLocalInfanciaAdolescencia'),
 		this.createCard('Mesa del caballo', 'mesaCaballo')
 	];
 
