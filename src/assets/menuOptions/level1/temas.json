@@ -68,5 +68,15 @@
 		"titulo": "Presupuesto Junta de Andalucía",
 		"route": "/temas/presupuestoJuntaAndalucia",
 		"rutaImagen": "assets/temas/presupuestoJuntaAndalucia/presupuestoJuntaAndalucia.jpg"
+	},
+	{
+		"titulo": "Terrazas",
+		"route": "/temas/terrazas",
+		"rutaImagen": "assets/temas/terrazas/terrazas.jpg"
+	},
+	{
+		"titulo": "Varios",
+		"route": "/temas/varios",
+		"rutaImagen": "assets/temas/varios/varios.jpg"
 	}
 ]

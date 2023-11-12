@@ -23,5 +23,10 @@
 		"titulo": "Navidad",
 		"route": "/eventos/Navidad",
 		"rutaImagen": "assets/eventos/Navidad/Navidad.jpg"
+	},
+	{
+		"titulo": "Zambombas",
+		"route": "/eventos/zambombas",
+		"rutaImagen": "assets/eventos/zambombas/zambombas.jpg"
 	}
 ]

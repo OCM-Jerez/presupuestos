@@ -1,1 +1,14 @@
-[{ "date": "", "medio": "", "title": "", "URL": "" }]
+[
+	{
+		"date": "",
+		"medio": "",
+		"title": "",
+		"URL": ""
+	},
+	{
+		"date": "12 noviembre 2023",
+		"medio": "Diario de Jerez",
+		"title": "Una aplicación informática permitirá consultar las plazas libres de carga y descarga en Jerez",
+		"URL": "https://www.diariodejerez.es/jerez/aplicacion-informatica-plazas-libres-carga-descarga-jerez_0_1846617037.html"
+	}
+]
