@@ -75,6 +75,11 @@
 		"rutaImagen": "assets/temas/terrazas/terrazas.jpg"
 	},
 	{
+		"titulo": "Señalización vertical y horizontal",
+		"route": "/temas/senalizacion",
+		"rutaImagen": "assets/temas/senalizacion/senalizacion.jpg"
+	},
+	{
 		"titulo": "Varios",
 		"route": "/temas/varios",
 		"rutaImagen": "assets/temas/varios/varios.jpg"
