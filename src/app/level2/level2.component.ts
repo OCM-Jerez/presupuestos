@@ -8,10 +8,9 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 	selector: 'app-level1',
 	standalone: true,
 	imports: [NgFor, CardMenuComponent],
-	templateUrl: './level1.component.html',
-	styleUrls: ['./level1.component.scss']
+	templateUrl: './level2.component.html'
 })
-export default class Level1Component implements OnInit {
+export default class Level2Component implements OnInit {
 	public menuOptionsLevel1: any;
 	public createdCards: any[] = [];
 	public titulo: string;
@@ -19,22 +18,22 @@ export default class Level1Component implements OnInit {
 	private _router = inject(Router);
 
 	ngOnInit(): void {
+		// console.log(this._route);
+
 		this._route.queryParams.subscribe((params) => {
-			this.menuOptionsLevel1 = JSON.parse(params['menuOptionsLevel1']);
+			console.log(this._route.snapshot.routeConfig?.path);
+
+			// this.menuOptionsLevel1 = JSON.parse(params['menuOptionsLevel1']);
 			// console.log(this.menuOptionsLevel1);
 
-			this.titulo = params['titulo'];
-			// console.log(this.titulo);
-
-			this.createdCards = this.menuOptionsLevel1.map((menu: { titulo: string; route: string; rutaImagen: string }) => {
-				return this.createCard(menu.titulo, menu.route, menu.rutaImagen);
-			});
+			// this.titulo = params['titulo'];
+			// this.createdCards = this.menuOptionsLevel1.map((menu: { titulo: string; route: string; rutaImagen: string }) => {
+			// 	return this.createCard(menu.titulo, menu.route, menu.rutaImagen);
+			// });
 		});
 	}
 
 	createCard(titulo: string, route: string, rutaImagen: string) {
-		// console.log(titulo, route);
-
 		return {
 			titulo,
 			rutaImagen,

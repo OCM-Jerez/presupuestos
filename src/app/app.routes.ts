@@ -9,6 +9,23 @@ export default [
 		path: 'level1',
 		loadComponent: () => import('./level1/level1.component')
 	},
+	// {
+	// 	path: 'infoIntitucional',
+	// 	loadComponent: () => import('./art10/components/info-institucional/info-institucional.component')
+	// },
+	// {
+	// 	path: 'infoOrganizativa',
+	// 	loadComponent: () => import('./art10/components/info-organizativa/info-organizativa.component')
+	// },
+	{
+		path: 'infoIntitucional',
+		loadComponent: () => import('./level2/level2.component')
+	},
+	{
+		path: 'infoOrganizativa',
+		loadComponent: () => import('./level2/level2.component')
+	},
+
 	{
 		path: 'presupuestos',
 		loadComponent: () => import('./art16/components/presupuestos/presupuestos.component')
@@ -21,10 +38,7 @@ export default [
 		path: 'detalle',
 		loadComponent: () => import('./art16/components/presupuestos/components/detalle/detalle.component')
 	},
-	{
-		path: 'infoIntitucional',
-		loadComponent: () => import('./art10/components/info-institucional/info-institucional.component')
-	},
+
 	{
 		path: 'plenos',
 		loadComponent: () => import('./art10/components/info-institucional/components/plenos/plenos.component')
@@ -85,10 +99,7 @@ export default [
 		path: 'mesas/:mesa',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
-	{
-		path: 'infoOrganizativa',
-		loadComponent: () => import('./art10/components/info-organizativa/info-organizativa.component')
-	},
+
 	{
 		path: 'art10/empleados',
 		loadComponent: () => import('./art10/components/info-organizativa/components/empleados/empleados.component')
