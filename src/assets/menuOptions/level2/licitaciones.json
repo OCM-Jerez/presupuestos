@@ -1,0 +1,12 @@
+[
+	{
+		"titulo": "Las Calandrias",
+		"route": "/licitaciones",
+		"rutaImagen": "assets/img/home/menu3-400x250.webp"
+	},
+	{
+		"titulo": "Parque La Canaleja",
+		"route": "/subvenciones",
+		"rutaImagen": "assets/subvenciones/subvenciones.jpg"
+	}
+]

@@ -10,7 +10,7 @@ export default [
 		loadComponent: () => import('./level1/level1.component')
 	},
 	// {
-	// 	path: 'infoIntitucional',
+	// 	path: 'infoInstitucional',
 	// 	loadComponent: () => import('./art10/components/info-institucional/info-institucional.component')
 	// },
 	// {
@@ -18,11 +18,21 @@ export default [
 	// 	loadComponent: () => import('./art10/components/info-organizativa/info-organizativa.component')
 	// },
 	{
-		path: 'infoIntitucional',
+		path: 'infoInstitucional',
 		loadComponent: () => import('./level2/level2.component')
 	},
 	{
 		path: 'infoOrganizativa',
+		loadComponent: () => import('./level2/level2.component')
+	},
+
+	// {
+	// 	path: 'licitaciones',
+	// 	loadComponent: () => import('./art15/components/licitaciones/licitaciones.component')
+	// },
+
+	{
+		path: 'licitaciones',
 		loadComponent: () => import('./level2/level2.component')
 	},
 
@@ -206,10 +216,7 @@ export default [
 				'./art16/components/presupuestos/components/detalle/components/table-programa-details/table-programa-details.component'
 			)
 	},
-	{
-		path: 'licitaciones',
-		loadComponent: () => import('./art15/components/licitaciones/licitaciones.component')
-	},
+
 	// {
 	// 	path: 'licitacion/:licitacion',
 	// 	loadComponent: () => import('./art15/components/licitaciones/components/licitacion/licitacion.component')
