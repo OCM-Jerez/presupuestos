@@ -21,18 +21,6 @@
 		"value": "Obras"
 	},
 	{
-		"data": "Fecha anuncio licitación",
-		"value": "8 agosto 2023"
-	},
-	{
-		"data": "Fecha fin de presentación de oferta",
-		"value": "28 agosto 2023"
-	},
-	{
-		"data": "Fecha Formalización",
-		"value": ""
-	},
-	{
 		"data": "Presupuesto base de licitación sin impuestos",
 		"value": "2.239.629,48 Euros"
 	},
@@ -42,24 +30,24 @@
 	},
 	{
 		"data": "Licitadores presentados",
-		"value": ""
+		"value": "2"
 	},
 	{
 		"data": "Adjudicatario",
-		"value": ""
+		"value": "Vivendio Sostenibilidad Energética, S.L.- Añil Servicios, Ingenieria y Obras SAU"
 	},
 	{
 		"data": "CIF Adjudicatario",
-		"value": ""
+		"value": "U19664853 "
 	},
 	{
 		"data": "Información sobre el adjudicatario",
 		"value": "Pulsar en enlace para ver la información",
-		"URL": ""
+		"URL": "https://www.iberinform.es/empresa/8069144/vivendio-sostenibilidad-energetica-sl-anil-servicios-ingenieria-y-obras-sau"
 	},
 	{
 		"data": "Importe de Adjudicación",
-		"value": ""
+		"value": "2.239.190,40 "
 	},
 	{
 		"data": "Financiación",
@@ -79,7 +67,7 @@
 	},
 	{
 		"data": "Económico",
-		"value": "63200 - Inversión, reposición edificios y otras construcciones"
+		"value": "63200 Inversión, reposición edificios y otras construcciones"
 	},
 	{
 		"data": "Plazo ejecución",

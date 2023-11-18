@@ -60,7 +60,8 @@ export default class LicitacionesComponent {
 		this.createCard('Bulevar entre las calles Oro y Almargen', 'bulevarOroAlmargen'),
 		this.createCard('Adecuación de parcela en Avda de las Acacias', 'acacias2023'),
 		this.createCard('Perimetro del Complejo Deportivo y Estadio Chapín', 'perimetroChapin2022'),
-		this.createCard('Restauración del templete municipal de la Alameda Vieja', 'templeteAlamedaVieja2023')
+		this.createCard('Restauración del templete municipal de la Alameda Vieja', 'templeteAlamedaVieja2023'),
+		this.createCard('Proyecto para albergue para mujeres solas o con responsabilidades', 'albergue2023')
 	];
 
 	licitacionesAyto = [
@@ -70,7 +71,8 @@ export default class LicitacionesComponent {
 		this.createCard('Ordenación de equipamiento público en Villas del Este', 'villasDelEste2023'),
 		this.createCard('Plaza Venus', 'plazaVenus2023'),
 		this.createCard('Reforma integral de Plaza Madrid', 'plazaMadrid2023'),
-		this.createCard('Reforma cubiertas Palacio Villapanés', 'palacioVillapanes2023')
+		this.createCard('Reforma cubiertas Palacio Villapanés', 'palacioVillapanes2023'),
+		this.createCard('Recogida animales perdidos', 'animalesPerdidos2023')
 	];
 
 	createCard(titulo: string, route: string) {
