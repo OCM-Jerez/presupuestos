@@ -66,11 +66,19 @@
 		],
 		"news": [
 			{
-				"date": "",
-				"medio": "",
-				"title": "",
-				"URL": ""
+				"date": " 17 noviembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "Interior solo amplía en tres puestos el catálogo de la Comisaría de la Policía Nacional de Jerez",
+				"URL": "https://www.diariodejerez.es/jerez/catalogo-policias-comisaria-policia-nacional-jerez_0_1848716906.html"
 			},
+
+			{
+				"date": " 17 noviembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "Exigen un aumento de policías nacionales en Jerez tras los graves hechos en calle Nueva",
+				"URL": "https://www.diariodejerez.es/jerez/Exigen-policias-nacionales-Jerez-Nueva_0_1848715865.html"
+			},
+
 			{
 				"date": "6 octubre 2023",
 				"medio": "Diario de Jerez",
