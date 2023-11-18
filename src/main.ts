@@ -1,18 +1,16 @@
 import { enableProdMode, importProvidersFrom } from '@angular/core';
-
+import { LOCALE_ID } from '@angular/core';
+import { HashLocationStrategy, LocationStrategy, registerLocaleData } from '@angular/common';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import localeDe from '@angular/common/locales/de';
+import { provideRouter } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
-// import { AppRoutingModule } from './app/app-routing.module';
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
-import { provideRouter } from '@angular/router';
 import APP_ROUTES from './app/app.routes';
-
-import { registerLocaleData } from '@angular/common';
-import localeDe from '@angular/common/locales/de';
-import { LOCALE_ID } from '@angular/core';
 
 registerLocaleData(localeDe, 'de-DE');
 
@@ -24,6 +22,10 @@ bootstrapApplication(AppComponent, {
 	providers: [
 		provideRouter(APP_ROUTES),
 		importProvidersFrom(BrowserModule, FormsModule, ReactiveFormsModule),
+		{
+			provide: LocationStrategy,
+			useClass: HashLocationStrategy
+		},
 		AvalaibleYearsService,
 		provideHttpClient(withInterceptorsFromDi()),
 		{ provide: LOCALE_ID, useValue: 'de-DE' }
