@@ -26,15 +26,15 @@ export default [
 		loadComponent: () => import('./level2/level2.component')
 	},
 
-	// {
-	// 	path: 'licitaciones',
-	// 	loadComponent: () => import('./art15/components/licitaciones/licitaciones.component')
-	// },
-
 	{
 		path: 'licitaciones',
-		loadComponent: () => import('./level2/level2.component')
+		loadComponent: () => import('./art15/components/licitaciones/licitaciones.component')
 	},
+
+	// {
+	// 	path: 'licitaciones',
+	// 	loadComponent: () => import('./level2/level2.component')
+	// },
 
 	{
 		path: 'presupuestos',
