@@ -55,8 +55,6 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 
 	ngAfterViewInit() {
 		this.renderChartLines();
-		this.renderChartMarker();
-		this.renderChart();
 	}
 
 	private async _createData() {
@@ -118,7 +116,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 			}
 		} else {
 			const yearsDefinitivas = accumulate('Definitivas', this._datos);
-			const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', this._datos);
+			const yearsObligacionesNetas = accumulate('Pagos', this._datos);
 			const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', this._datos);
 
 			this._nameSerie1 = 'Definitivas';
@@ -185,7 +183,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 			},
 			yAxis: {
 				title: {
-					text: 'en miles de Euros',
+					text: 'Euros',
 					style: {
 						fontSize: '16px'
 					}
@@ -210,7 +208,7 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 						fillColor: 'green',
 						radius: 8
 					},
-					name: 'Definitivas',
+					name: 'Creditos definitivos',
 					data: this.data.map((item) => item.Definitivas)
 				},
 				{
@@ -220,151 +218,14 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 						fillColor: 'red',
 						radius: 8
 					},
-					name: this._nameSerie2,
+					// name: this._nameSerie2,
+					name: 'Pagos',
 					data: this.data.map((item) => item.Netas)
 				}
 			]
 		});
 	}
 
-	renderChart() {
-		Highcharts.chart('chart-container', {
-			legend: {
-				itemStyle: {
-					fontSize: '16px'
-				}
-			},
-			chart: {
-				type: 'bubble'
-			},
-			title: {
-				text: ''
-			},
-			subtitle: {
-				text: ''
-			},
-			xAxis: {
-				title: {
-					text: 'Años',
-					style: {
-						fontSize: '16px'
-					}
-				},
-				labels: {
-					style: {
-						fontSize: '16px'
-					}
-				},
-				categories: this.data.map((item) => item.year + '')
-			},
-			yAxis: {
-				title: {
-					text: 'en miles de Euros',
-					style: {
-						fontSize: '16px'
-					}
-				}
-			},
-			plotOptions: {
-				bubble: {
-					dataLabels: {
-						enabled: true,
-						style: {
-							fontSize: '12px'
-						}
-					},
-					enableMouseTracking: false
-				}
-			},
-			series: [
-				{
-					type: 'bubble',
-					name: 'Definitivas',
-					data: this.data.map((item) => [item.year, item.Definitivas, item.Definitivas / 1000])
-				},
-				{
-					type: 'bubble',
-					name: this._nameSerie2,
-					data: this.data.map((item) => [item.year, item.Netas, item.Netas / 1000])
-				}
-			]
-		});
-	}
-
-	renderChartMarker() {
-		Highcharts.chart({
-			legend: {
-				itemStyle: {
-					fontSize: '16px'
-				}
-			},
-			chart: {
-				type: 'scatter',
-				renderTo: 'chart-containerMarker'
-			},
-			title: {
-				text: ''
-			},
-			subtitle: {
-				text: ''
-			},
-			xAxis: {
-				title: {
-					text: 'Años',
-					style: {
-						fontSize: '16px'
-					}
-				},
-				labels: {
-					style: {
-						fontSize: '16px'
-					}
-				},
-				categories: this.data.map((item) => item.year.toString())
-			},
-			yAxis: {
-				title: {
-					text: 'en miles de Euros',
-					style: {
-						fontSize: '16px'
-					}
-				}
-			},
-			plotOptions: {
-				line: {
-					dataLabels: {
-						enabled: true,
-						style: {
-							fontSize: '14px'
-						}
-					},
-					enableMouseTracking: false
-				}
-			},
-			series: [
-				{
-					type: 'scatter',
-					marker: {
-						symbol: 'circle',
-						fillColor: 'green',
-						radius: 8
-					},
-					name: 'Definitivas',
-					data: this.data.map((item) => item.Definitivas)
-				},
-				{
-					type: 'scatter',
-					marker: {
-						symbol: 'square',
-						fillColor: 'red',
-						radius: 8
-					},
-					name: this._nameSerie2,
-					data: this.data.map((item) => item.Netas)
-				}
-			]
-		});
-	}
 	private _createColumns(): void {
 		this.columnDefs = [
 			{
@@ -373,16 +234,17 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 				width: 70
 			},
 			{
-				headerName: 'Previsiones definitivas',
+				headerName: 'Creditos definitivos',
 				field: 'Definitivas',
-				width: 180,
+				width: 140,
 				aggFunc: 'sum',
 				cellRenderer: CellRendererOCM
 			},
 			{
-				headerName: this._nameSerie2,
+				// headerName: this._nameSerie2,
+				headerName: 'Pagos',
 				field: 'Netas',
-				width: 200,
+				width: 120,
 				aggFunc: 'sum',
 				cellRenderer: CellRendererOCM
 			}
