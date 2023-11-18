@@ -1,0 +1,22 @@
+[
+	{
+		"titulo": "Pleno ordinario 29 septiembre 2023",
+		"route": "/pleno/plenoOrdinario20230929",
+		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
+	},
+	{
+		"titulo": "Pleno extraorinario y solemne 7 octubre 2023",
+		"route": "/pleno/plenoExtraordinario20231007",
+		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
+	},
+	{
+		"titulo": "Pleno ordinario 27 octubre 2023",
+		"route": "/pleno/plenoOrdinario20231027",
+		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
+	},
+	{
+		"titulo": "Pleno extraorinario 15 noviembre 2023",
+		"route": "/pleno/plenoExtraordinario20231115",
+		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
+	}
+]

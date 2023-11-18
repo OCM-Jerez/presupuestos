@@ -49,9 +49,13 @@ export default [
 		loadComponent: () => import('./art16/components/presupuestos/components/detalle/detalle.component')
 	},
 
+	// {
+	// 	path: 'plenos',
+	// 	loadComponent: () => import('./art10/components/info-institucional/components/plenos/plenos.component')
+	// },
 	{
 		path: 'plenos',
-		loadComponent: () => import('./art10/components/info-institucional/components/plenos/plenos.component')
+		loadComponent: () => import('./level3/level3.component')
 	},
 	// {
 	// 	path: 'pleno/:pleno',
@@ -88,7 +92,7 @@ export default [
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'entesDependientes',
+		path: 'entes',
 		loadComponent: () =>
 			import('./art10/components/info-institucional/components/entes-dependientes/entes-dependientes.component')
 	},

@@ -21,10 +21,7 @@ export default class Level1Component implements OnInit {
 	ngOnInit(): void {
 		this._route.queryParams.subscribe((params) => {
 			this.menuOptionsLevel1 = JSON.parse(params['menuOptionsLevel1']);
-			// console.log(this.menuOptionsLevel1);
-
 			this.titulo = params['titulo'];
-			// console.log(this.titulo);
 
 			this.createdCards = this.menuOptionsLevel1.map((menu: { titulo: string; route: string; rutaImagen: string }) => {
 				return this.createCard(menu.titulo, menu.route, menu.rutaImagen);
@@ -33,8 +30,6 @@ export default class Level1Component implements OnInit {
 	}
 
 	createCard(titulo: string, route: string, rutaImagen: string) {
-		// console.log(titulo, route);
-
 		return {
 			titulo,
 			rutaImagen,

@@ -6,7 +6,22 @@
 	},
 	{
 		"titulo": "Entes",
-		"route": "/infoOrganizativa",
-		"rutaImagen": "assets/art10/infoOrganizativa/infoOrganizativa.jpg"
+		"route": "/infoIntitucional",
+		"rutaImagen": "assets/art10/infoInstitucional/entes/fundarte/fundarte.jpg"
+	},
+	{
+		"titulo": "Comisiones",
+		"route": "/infoIntitucional",
+		"rutaImagen": "assets/art10/infoInstitucional/comisiones/comisiones.jpg"
+	},
+	{
+		"titulo": "ELAs",
+		"route": "/infoIntitucional",
+		"rutaImagen": "assets/art10/infoInstitucional/elas/elas.jpg"
+	},
+	{
+		"titulo": "Mesas",
+		"route": "/infoIntitucional",
+		"rutaImagen": "assets/art10/infoInstitucional/mesas/mesas.jpg"
 	}
 ]
