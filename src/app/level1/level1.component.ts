@@ -14,8 +14,7 @@ interface MenuItem {
 	selector: 'app-level1',
 	standalone: true,
 	imports: [NgFor, CardMenuComponent],
-	templateUrl: './level1.component.html',
-	styleUrls: ['./level1.component.scss']
+	templateUrl: './level1.component.html'
 })
 export default class Level1Component implements OnInit {
 	public menuOptionsLevel1: MenuItem[] = [];
@@ -27,6 +26,7 @@ export default class Level1Component implements OnInit {
 		this._route.paramMap.subscribe((params) => {
 			const route = params.get('level1');
 			this.titulo = params.get('titulo');
+
 			import(`../../assets/menuOptions/level1/${route}.json`)
 				.then((data) => {
 					this.menuOptionsLevel1 = data.default.map((item: MenuItem) => this.createCardMenu(item));

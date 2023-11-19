@@ -17,7 +17,7 @@ interface MenuItem {
 	templateUrl: './level2.component.html'
 })
 export default class Level2Component implements OnInit {
-	public createdCards: MenuItem[] = [];
+	public menuOptionsLevel2: MenuItem[] = [];
 	public titulo: string;
 	private _route = inject(ActivatedRoute);
 	private _router = inject(Router);
@@ -27,16 +27,27 @@ export default class Level2Component implements OnInit {
 		this._route.queryParams.subscribe(() => {
 			this.titulo = this._route.snapshot.routeConfig?.path;
 
+			import(`../../assets/menuOptions/level2/${this.titulo}.json`)
+				.then((data) => {
+					this.menuOptionsLevel2 = data.default.map((item: MenuItem) => this.createCardMenu(item));
+				})
+				.catch((error) => console.error('Error al cargar el JSON:', error));
+		});
+	}
+
+	ngOnInitOLD(): void {
+		this._route.queryParams.subscribe(() => {
+			this.titulo = this._route.snapshot.routeConfig?.path;
+
 			this._http.get<MenuItem[]>(`/assets/menuOptions/level2/${this.titulo}.json`).subscribe((data) => {
-				this.createdCards = data.map((item) => this.createCardMenu(item));
+				this.menuOptionsLevel2 = data.map((item) => this.createCardMenu(item));
 			});
 		});
 	}
 
 	createCardMenu(item: MenuItem) {
 		return {
-			titulo: item.titulo,
-			rutaImagen: item.rutaImagen,
+			...item,
 			funcion: () => this._router.navigateByUrl(`${item.titulo.toLowerCase()}`)
 		};
 	}

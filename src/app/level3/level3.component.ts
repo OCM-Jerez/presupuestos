@@ -16,11 +16,10 @@ interface MenuItem {
 	selector: 'app-level3',
 	standalone: true,
 	imports: [NgFor, CardMenuComponent],
-	templateUrl: './level3.component.html',
-	styleUrls: ['./level3.component.scss']
+	templateUrl: './level3.component.html'
 })
 export default class Level3Component implements OnInit {
-	public createdCards: MenuItem[] = [];
+	public menuOptionsLevel3: MenuItem[] = [];
 	public titulo: string;
 	private _route = inject(ActivatedRoute);
 	private _router = inject(Router);
@@ -30,8 +29,20 @@ export default class Level3Component implements OnInit {
 		this._route.queryParams.subscribe(() => {
 			this.titulo = this._route.snapshot.routeConfig?.path;
 
+			import(`../../assets/menuOptions/level3/${this.titulo}.json`)
+				.then((data) => {
+					this.menuOptionsLevel3 = data.default.map((item: MenuItem) => this.createCardMenu(item));
+				})
+				.catch((error) => console.error('Error al cargar el JSON:', error));
+		});
+	}
+
+	ngOnInitOLD(): void {
+		this._route.queryParams.subscribe(() => {
+			this.titulo = this._route.snapshot.routeConfig?.path;
+
 			this._http.get<MenuItem[]>(`/assets/menuOptions/level3/${this.titulo}.json`).subscribe((data) => {
-				this.createdCards = data.map((item) => this.createCardMenu(item));
+				this.menuOptionsLevel3 = data.map((item) => this.createCardMenu(item));
 			});
 		});
 	}

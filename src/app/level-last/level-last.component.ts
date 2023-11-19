@@ -43,8 +43,7 @@ interface IStepSubvencion {
 		ComentariosComponent,
 		NoticiasComponent
 	],
-	templateUrl: './level-last.component.html',
-	styleUrls: ['./level-last.component.scss']
+	templateUrl: './level-last.component.html'
 })
 export default class LevelLastComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
