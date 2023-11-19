@@ -1,7 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+
+import homeMenuOptions from '../../assets/menuOptions/home.json';
 
 import { CardMenuComponent } from '../commons/components/card-menu/card-menu.component';
 
@@ -9,7 +10,7 @@ interface MenuItem {
 	titulo: string;
 	route: string;
 	rutaImagen: string;
-	subtitulo: string;
+	funcion: () => void;
 }
 
 @Component({
@@ -21,36 +22,17 @@ interface MenuItem {
 })
 export default class HomeComponent implements OnInit {
 	private _router = inject(Router);
-	private _http = inject(HttpClient);
-	public menuOptionsHome = [];
+	public menuOptionsHome: MenuItem[] = [];
 
 	ngOnInit() {
-		this._http.get<MenuItem[]>('/assets/menuOptions/home.json').subscribe((data) => {
-			const menuOptionsPromises = data.map((item) =>
-				this.createCardMenu(item.titulo, item.route, item.rutaImagen, item.subtitulo)
-			);
-			Promise.all(menuOptionsPromises).then((resolvedOptions) => {
-				this.menuOptionsHome = resolvedOptions;
-			});
-		});
+		this.menuOptionsHome = homeMenuOptions.map((item) => this.createCardMenu(item));
 	}
 
-	async createCardMenu(titulo: string, route: string, rutaImagen: string, subtitulo: string) {
-		const jsonPath = `/assets/menuOptions/level1/${route.split('/').pop()}.json`;
-		const menuOptionsLevel1 = await this._http
-			.get<MenuItem[]>(jsonPath)
-			.toPromise()
-			.catch(() => []);
+	createCardMenu(item: { titulo: string; route: string; rutaImagen: string }) {
 		return {
-			rutaImagen,
-			titulo,
-			subtitulo,
-			funcion: () => {
-				const navigationExtras = {
-					queryParams: { menuOptionsLevel1: JSON.stringify(menuOptionsLevel1), titulo }
-				};
-				this._router.navigate(['level1'], navigationExtras);
-			}
+			...item,
+			funcion: () =>
+				this._router.navigateByUrl(`level1/${encodeURIComponent(item.route)}/${encodeURIComponent(item.titulo)}`)
 		};
 	}
 }

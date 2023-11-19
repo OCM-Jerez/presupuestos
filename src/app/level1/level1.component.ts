@@ -4,6 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
+interface MenuItem {
+	titulo: string;
+	route: string;
+	rutaImagen: string;
+	funcion: () => void;
+}
 @Component({
 	selector: 'app-level1',
 	standalone: true,
@@ -12,28 +18,27 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 	styleUrls: ['./level1.component.scss']
 })
 export default class Level1Component implements OnInit {
-	public menuOptionsLevel1: any;
-	public createdCards: any[] = [];
+	public menuOptionsLevel1: MenuItem[] = [];
 	public titulo: string;
 	private _route = inject(ActivatedRoute);
 	private _router = inject(Router);
 
 	ngOnInit(): void {
-		this._route.queryParams.subscribe((params) => {
-			this.menuOptionsLevel1 = JSON.parse(params['menuOptionsLevel1']);
-			this.titulo = params['titulo'];
-
-			this.createdCards = this.menuOptionsLevel1.map((menu: { titulo: string; route: string; rutaImagen: string }) => {
-				return this.createCard(menu.titulo, menu.route, menu.rutaImagen);
-			});
+		this._route.paramMap.subscribe((params) => {
+			const route = params.get('level1');
+			this.titulo = params.get('titulo');
+			import(`../../assets/menuOptions/level1/${route}.json`)
+				.then((data) => {
+					this.menuOptionsLevel1 = data.default.map((item: MenuItem) => this.createCardMenu(item));
+				})
+				.catch((error) => console.error('Error al cargar el JSON:', error));
 		});
 	}
 
-	createCard(titulo: string, route: string, rutaImagen: string) {
+	createCardMenu(item: MenuItem) {
 		return {
-			titulo,
-			rutaImagen,
-			funcion: () => this._router.navigateByUrl(`${route}`)
+			...item,
+			funcion: () => this._router.navigateByUrl(`${item.route}`)
 		};
 	}
 }

@@ -37,8 +37,6 @@ export default class Level3Component implements OnInit {
 	}
 
 	createCardMenu(item: MenuItem) {
-		console.log(item.route);
-
 		return {
 			titulo: item.titulo,
 			route: item.route,
