@@ -9,14 +9,6 @@ export default [
 		path: 'level1/:level1/:titulo',
 		loadComponent: () => import('./level1/level1.component')
 	},
-	// {
-	// 	path: 'infoInstitucional',
-	// 	loadComponent: () => import('./art10/components/info-institucional/info-institucional.component')
-	// },
-	// {
-	// 	path: 'infoOrganizativa',
-	// 	loadComponent: () => import('./art10/components/info-organizativa/info-organizativa.component')
-	// },
 	{
 		path: 'infoInstitucional',
 		loadComponent: () => import('./level2/level2.component')
@@ -30,6 +22,53 @@ export default [
 		path: 'licitaciones',
 		loadComponent: () => import('./art15/components/licitaciones/licitaciones.component')
 	},
+	{
+		path: 'plenos',
+		loadComponent: () => import('./level3/level3.component')
+	},
+	{
+		path: 'pleno/:pleno',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
+		path: 'elas',
+		loadComponent: () => import('./art10/components/info-institucional/components/elas/elas.component')
+	},
+	{
+		path: 'ela/:ela',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
+		path: 'comisiones',
+		loadComponent: () => import('./art10/components/info-institucional/components/comisiones/comisiones.component')
+	},
+	{
+		path: 'comision/:comision',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
+		path: 'entes',
+		loadComponent: () =>
+			import('./art10/components/info-institucional/components/entes-dependientes/entes-dependientes.component')
+	},
+	{
+		path: 'entesDependientes/:ente',
+		loadComponent: () =>
+			import('./art10/components/info-institucional/components/entes-dependientes/components/ente/ente.component')
+	},
+	{
+		path: 'mesas',
+		loadComponent: () => import('./art10/components/info-institucional/components/mesas/mesas.component')
+	},
+
+	// {
+	// 	path: 'infoInstitucional',
+	// 	loadComponent: () => import('./art10/components/info-institucional/info-institucional.component')
+	// },
+	// {
+	// 	path: 'infoOrganizativa',
+	// 	loadComponent: () => import('./art10/components/info-organizativa/info-organizativa.component')
+	// },
 
 	// {
 	// 	path: 'licitaciones',
@@ -53,58 +92,24 @@ export default [
 	// 	path: 'plenos',
 	// 	loadComponent: () => import('./art10/components/info-institucional/components/plenos/plenos.component')
 	// },
-	{
-		path: 'plenos',
-		loadComponent: () => import('./level3/level3.component')
-	},
+
 	// {
 	// 	path: 'pleno/:pleno',
 	// 	loadComponent: () =>
 	// 		import('./art10/components/info-institucional/components/plenos/components/pleno/pleno.component')
 	// },
-	{
-		path: 'pleno/:pleno',
-		loadComponent: () => import('./level-last/level-last.component')
-	},
-	{
-		path: 'elas',
-		loadComponent: () => import('./art10/components/info-institucional/components/elas/elas.component')
-	},
+
 	// {
 	// 	path: 'ela/:ela',
 	// 	loadComponent: () => import('./art10/components/info-institucional/components/elas/components/ela/ela.component')
 	// },
-	{
-		path: 'ela/:ela',
-		loadComponent: () => import('./level-last/level-last.component')
-	},
-	{
-		path: 'comisiones',
-		loadComponent: () => import('./art10/components/info-institucional/components/comisiones/comisiones.component')
-	},
+
 	// {
 	// 	path: 'comision/:comision',
 	// 	loadComponent: () =>
 	// 		import('./art10/components/info-institucional/components/comisiones/components/comision/comision.component')
 	// },
-	{
-		path: 'comision/:comision',
-		loadComponent: () => import('./level-last/level-last.component')
-	},
-	{
-		path: 'entes',
-		loadComponent: () =>
-			import('./art10/components/info-institucional/components/entes-dependientes/entes-dependientes.component')
-	},
-	{
-		path: 'entesDependientes/:ente',
-		loadComponent: () =>
-			import('./art10/components/info-institucional/components/entes-dependientes/components/ente/ente.component')
-	},
-	{
-		path: 'mesas',
-		loadComponent: () => import('./art10/components/info-institucional/components/mesas/mesas.component')
-	},
+
 	// {
 	// 	path: 'mesas/:mesa',
 	// 	loadComponent: () => import('./art10/components/info-institucional/components/mesas/components/mesa/mesa.component')
