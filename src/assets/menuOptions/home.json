@@ -1,68 +1,57 @@
 [
 	{
 		"titulo": "Artículo 10. Información institucional y organizativa.",
-		"route": "/art10",
-		"rutaImagen": "assets/art10/ayto.webp",
-		"subtitulo": ""
+		"route": "art10",
+		"rutaImagen": "assets/art10/ayto.webp"
 	},
 	{
 		"titulo": "Artículo 11. Información sobre altos cargos y personas que ejerzan la máxima responsabilidad.",
-		"route": "/art11",
-		"rutaImagen": "assets/art11/art11.jpg",
-		"subtitulo": ""
+		"route": "art11",
+		"rutaImagen": "assets/art11/art11.jpg"
 	},
 	{
 		"titulo": "Artículo 12. Información sobre planificación y evaluación.",
-		"route": "/art12",
-		"rutaImagen": "assets/art12/art12.jpg",
-		"subtitulo": ""
+		"route": "art12",
+		"rutaImagen": "assets/art12/art12.jpg"
 	},
 	{
 		"titulo": "Artículo 13. Información de relevancia jurídica.",
-		"route": "/art13",
-		"rutaImagen": "assets/art13/art13.jpg",
-		"subtitulo": ""
+		"route": "art13",
+		"rutaImagen": "assets/art13/art13.jpg"
 	},
 	{
 		"titulo": "Artículo 14. Información sobre procedimientos, cartas de servicio y participación ciudadana.",
-		"route": "/art14",
-		"rutaImagen": "assets/art14/art14.jpg",
-		"subtitulo": ""
+		"route": "art14",
+		"rutaImagen": "assets/art14/art14.jpg"
 	},
 	{
 		"titulo": "Artículo 15. Información sobre contratos, convenios y subvenciones.",
-		"route": "/art15",
-		"rutaImagen": "assets/art15/art15.jpg",
-		"subtitulo": ""
+		"route": "art15",
+		"rutaImagen": "assets/art15/art15.jpg"
 	},
 	{
 		"titulo": "Artículo 16. Información económica, financiera y presupuestaria.",
-		"route": "/art16",
-		"rutaImagen": "assets/art16/art16.jpg",
-		"subtitulo": ""
+		"route": "art16",
+		"rutaImagen": "assets/art16/art16.jpg"
 	},
 	{
 		"titulo": "Medioambiental, urbanística y vivienda",
-		"route": "/medioambiental",
-		"rutaImagen": "assets/medioambiental/medioambiental.jpg",
-		"subtitulo": ""
+		"route": "medioambiental",
+		"rutaImagen": "assets/medioambiental/medioambiental.jpg"
 	},
 	{
 		"titulo": "Eventos culturales",
-		"route": "/eventos",
-		"rutaImagen": "assets/eventos/feria/feria.jpg",
-		"subtitulo": "Navidad, feria, etc."
+		"route": "eventos",
+		"rutaImagen": "assets/eventos/feria/feria.jpg"
 	},
 	{
 		"titulo": "Temas generales",
-		"route": "/temas",
-		"rutaImagen": "assets/temas/ifeca/ifeca.jpg",
-		"subtitulo": "Temas no incluidos en otros apartados"
+		"route": "temas",
+		"rutaImagen": "assets/temas/ifeca/ifeca.jpg"
 	},
 	{
 		"titulo": "Distritos y barrios",
-		"route": "/distritos",
-		"rutaImagen": "assets/distritos/distritos.jpg",
-		"subtitulo": "Información georeferenciada sobre distritos y barrios"
+		"route": "distritos",
+		"rutaImagen": "assets/distritos/distritos.jpg"
 	}
 ]
