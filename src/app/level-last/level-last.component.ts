@@ -171,7 +171,7 @@ export default class LevelLastComponent implements OnInit {
 
 				this.hasComs = this.coms.length > 1;
 				this.hasDocs = this.docs.length > 1;
-				this.hasNews = this.news.length > 1;
+				this.hasNews = this.news.length > 0;
 			});
 	}
 
