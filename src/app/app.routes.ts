@@ -49,17 +49,20 @@ export default [
 	},
 	{
 		path: 'entes',
-		loadComponent: () =>
-			import('./art10/components/info-institucional/components/entes-dependientes/entes-dependientes.component')
+		// loadComponent: () =>
+		// import('./art10/components/info-institucional/components/entes-dependientes/entes-dependientes.component')
+		loadComponent: () => import('./level3/level3.component')
 	},
 	{
-		path: 'entesDependientes/:ente',
-		loadComponent: () =>
-			import('./art10/components/info-institucional/components/entes-dependientes/components/ente/ente.component')
+		path: 'entes/:ente',
+		// loadComponent: () =>
+		// import('./art10/components/info-institucional/components/entes-dependientes/components/ente/ente.component')
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'mesas',
-		loadComponent: () => import('./art10/components/info-institucional/components/mesas/mesas.component')
+		// loadComponent: () => import('./art10/components/info-institucional/components/mesas/mesas.component')
+		loadComponent: () => import('./level3/level3.component')
 	},
 
 	// {

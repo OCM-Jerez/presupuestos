@@ -1,14 +1,14 @@
 import { NgFor, NgIf } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
-import { ComentariosComponent } from './components/comentarios/comentarios.component';
-import DataGeneralComponent from './components/data-general/data-general.component';
-import DocumentosComponent from './components/documentos/documentos.component';
-import EstadoLicitacionComponent from './components/estado-licitacion/estado-licitacion.component';
-import NoticiasComponent from './components/noticias/noticias.component';
-import SeguimientoSubvencionComponent from './components/seguimiento-subvencion/seguimiento-subvencion.component';
+import ComentariosComponent from '../commons/components/level/comentarios/comentarios.component';
+import DataGeneralComponent from '../commons/components/level/data-general/data-general.component';
+import DocumentosComponent from '../commons/components/level/documentos/documentos.component';
+import EstadoLicitacionComponent from '../commons/components/level/estado-licitacion/estado-licitacion.component';
+import NoticiasComponent from '../commons/components/level/noticias/noticias.component';
+import SeguimientoSubvencionComponent from '../commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
 
 import { forkJoin, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -82,6 +82,9 @@ export default class LevelLastComponent implements OnInit {
 		switch (path) {
 			case 'comision':
 				parametro = `art10/infoInstitucional/comisiones/permanentes`;
+				break;
+			case 'ente':
+				parametro = `art10/infoInstitucional/entes`;
 				break;
 			case 'ela':
 				parametro = `art10/infoInstitucional/elas`;
@@ -174,7 +177,7 @@ export default class LevelLastComponent implements OnInit {
 			});
 	}
 
-	hasKey(object: unknown, key: string): boolean {
-		return object && Object.prototype.hasOwnProperty.call(object, key);
-	}
+	// hasKey(object: unknown, key: string): boolean {
+	// 	return object && Object.prototype.hasOwnProperty.call(object, key);
+	// }
 }

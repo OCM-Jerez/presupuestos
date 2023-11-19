@@ -10,6 +10,6 @@ import { ICom } from '@interfaces/com.interface';
 	templateUrl: './comentarios.component.html',
 	styleUrls: ['./comentarios.component.scss']
 })
-export class ComentariosComponent {
+export default class ComentariosComponent {
 	@Input() coms: ICom[];
 }
