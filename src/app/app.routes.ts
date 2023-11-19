@@ -32,7 +32,8 @@ export default [
 	},
 	{
 		path: 'elas',
-		loadComponent: () => import('./art10/components/info-institucional/components/elas/elas.component')
+		// loadComponent: () => import('./art10/components/info-institucional/components/elas/elas.component')
+		loadComponent: () => import('./level3/level3.component')
 	},
 	{
 		path: 'ela/:ela',
@@ -255,10 +256,7 @@ export default [
 		path: 'barrios',
 		loadComponent: () => import('./distritos/components/distrito/components/barrio/barrio.component')
 	},
-	{
-		path: 'edificiosSingulares',
-		loadComponent: () => import('./medioambiental/components/edificios-singulares/edificios-singulares.component')
-	},
+
 	// {
 	// 	path: 'edificiosSingulares/:edificioSingular',
 	// 	loadComponent: () =>
@@ -266,6 +264,10 @@ export default [
 	// 			'./medioambiental/components/edificios-singulares/components/edificio-singular/edificio-singular.component'
 	// 		)
 	// },
+	{
+		path: 'edificiosSingulares',
+		loadComponent: () => import('./medioambiental/components/edificios-singulares/edificios-singulares.component')
+	},
 	{
 		path: 'edificiosSingulares/:edificioSingular',
 		loadComponent: () => import('./level-last/level-last.component')
