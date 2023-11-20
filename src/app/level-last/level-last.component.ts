@@ -72,13 +72,22 @@ export default class LevelLastComponent implements OnInit {
 		const pathSegments = routeConfig?.path.split('/') || [];
 		const parametro = pathSegments.filter((segment) => !segment.startsWith(':'))[0];
 		const path = pathSegments[1]?.split(':')[1] || '';
-		// console.log('path', path);
 		this._option = paramMap.get(`${path}`);
+		console.log('this._option', this._option);
+		console.log('parametro', parametro);
 
 		this.fetchData(parametro, path);
 	}
-
 	fetchData(parametro: string, path: string) {
+		switch (parametro) {
+			case 'registroSolares':
+				this._option = 'registroSolares';
+				parametro = `medioambiental`;
+				break;
+			default:
+				break;
+		}
+
 		switch (path) {
 			case 'comision':
 				parametro = `art10/infoInstitucional/comisiones/permanentes`;

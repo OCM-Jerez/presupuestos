@@ -283,6 +283,10 @@ export default [
 		path: 'proyectosViviendas',
 		loadComponent: () => import('./medioambiental/components/proyectos-viviendas/proyectos-viviendas.component')
 	},
+	{
+		path: 'registroSolares',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
 	// {
 	// 	path: 'eventos/:evento',
 	// 	loadComponent: () => import('./eventos/components/evento/evento.component')

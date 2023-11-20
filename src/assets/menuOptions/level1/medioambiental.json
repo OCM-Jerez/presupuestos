@@ -13,5 +13,10 @@
 		"titulo": "Proyectos construcción de viviendas",
 		"route": "/proyectosViviendas",
 		"rutaImagen": "assets/medioambiental/proyectosViviendas/proyectosViviendas.jpg"
+	},
+	{
+		"titulo": "Registro solares y edificaciones ruinosas",
+		"route": "/registroSolares",
+		"rutaImagen": "assets/medioambiental/registroSolares/registroSolares.jpg"
 	}
 ]
