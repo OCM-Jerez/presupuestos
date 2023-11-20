@@ -277,11 +277,13 @@ export default [
 	},
 	{
 		path: 'apartamentosTuristicos',
-		loadComponent: () => import('./medioambiental/components/apartamentos-turisticos/apartamentos-turisticos.component')
+		// loadComponent: () => import('./medioambiental/components/apartamentos-turisticos/apartamentos-turisticos.component')
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'proyectosViviendas',
-		loadComponent: () => import('./medioambiental/components/proyectos-viviendas/proyectos-viviendas.component')
+		// loadComponent: () => import('./medioambiental/components/proyectos-viviendas/proyectos-viviendas.component')
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'registroSolares',

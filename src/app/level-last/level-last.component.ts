@@ -84,6 +84,14 @@ export default class LevelLastComponent implements OnInit {
 				this._option = 'registroSolares';
 				parametro = `medioambiental`;
 				break;
+			case 'apartamentosTuristicos':
+				this._option = 'apartamentosTuristicos';
+				parametro = `medioambiental`;
+				break;
+			case 'proyectosViviendas':
+				this._option = 'proyectosViviendas';
+				parametro = `medioambiental`;
+				break;
 			default:
 				break;
 		}
