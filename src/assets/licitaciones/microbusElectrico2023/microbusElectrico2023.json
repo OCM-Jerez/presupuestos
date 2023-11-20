@@ -1,24 +1,84 @@
 [
-	{ "data": "Expediente", "value": "", "URL": "" },
-	{ "data": "Descripción", "value": "" },
-	{ "data": "Codigo CPV", "value": "" },
-	{ "data": "Procedimiento", "value": "" },
-	{ "data": "Tipo contrato", "value": "" },
-	{ "data": "Fecha final licitación", "value": "" },
-	{ "data": "Fecha Formalización", "value": "" },
-	{ "data": "Estado", "value": "Publicada" },
-	{ "data": "Valor estimado del contrato", "value": "" },
-	{ "data": "Licitadores presentados", "value": "" },
-	{ "data": "Adjudicatario", "value": "" },
-	{ "data": "CIF Adjudicatario", "value": "" },
-	{ "data": "Información sobre el adjudicatario", "value": "Pulsar en enlace para ver la información", "URL": "" },
-	{ "data": "Importe de Adjudicación", "value": "" },
-	{ "data": "Financiación", "value": "" },
-	{ "data": "Credito en que se ampara", "value": "" },
-	{ "data": "Organico", "value": "" },
-	{ "data": "Programa", "value": "" },
-	{ "data": "Económico", "value": "" },
-	{ "data": "Plazo ejecución", "value": "" },
-	{ "data": "Geolocalización", "value": "Pulsar en el enlace para ver la ubicación", "URL": "" },
-	{ "data": "Distrito", "value": "Sur (Pulsar en el enlace para ver el contorno del distrito)", "URL": "" }
+	{
+		"data": "Expediente",
+		"value": "1444",
+		"URL": "https://contrataciondelestado.es/wps/poc?uri=deeplink%3Adetalle_licitacion&idEvl=WAhhUeVFR84uf4aBO%2BvQlQ%3D%3D"
+	},
+	{
+		"data": "Descripción",
+		"value": "Suministro de un autobús de 7,50 metros con sistema de propulsión eléctrica y cargador "
+	},
+	{
+		"data": "Codigo CPV",
+		"value": "34121100"
+	},
+	{
+		"data": "Procedimiento",
+		"value": "Abierto"
+	},
+	{
+		"data": "Tipo contrato",
+		"value": "Suministros"
+	},
+	{
+		"data": "Fecha final licitación",
+		"value": ""
+	},
+	{
+		"data": "Fecha Formalización",
+		"value": ""
+	},
+	{
+		"data": "Estado",
+		"value": "Publicada"
+	},
+	{
+		"data": "Valor estimado del contrato",
+		"value": "259.793,39"
+	},
+	{
+		"data": "Licitadores presentados",
+		"value": ""
+	},
+	{
+		"data": "Adjudicatario",
+		"value": ""
+	},
+	{
+		"data": "CIF Adjudicatario",
+		"value": ""
+	},
+	{
+		"data": "Información sobre el adjudicatario",
+		"value": "Pulsar en enlace para ver la información",
+		"URL": ""
+	},
+	{
+		"data": "Importe de Adjudicación",
+		"value": ""
+	},
+	{
+		"data": "Financiación",
+		"value": "100% Fondos Europeos Next Generation EU (PRTR-NGEU)"
+	},
+	{
+		"data": "Credito en que se ampara",
+		"value": "Este es un gasto financiado al 100% por Fondos Europeos Next Generation EU y tiene crédito suficiente en las aplicaciones presupuestarias de gasto 21/44110/624.00 y P.G.F.A.: 2022.2.00000.18 (284.350,00 €) y 21/44110/623.00 y P.G.F.A.: 2022.2.00000.18 (30.000,00 €) del vigente presupuesto municipal, por lo que se efectúa reserva con la referencia indicada y número de operación RC 220230003555."
+	},
+	{
+		"data": "Organico",
+		"value": "21 Movilidad"
+	},
+	{
+		"data": "Programa",
+		"value": "44110 Transporte colectivo urbano de viajeros"
+	},
+	{
+		"data": "Económico",
+		"value": "62400 Adquisición elementos de transporte"
+	},
+	{
+		"data": "Plazo ejecución",
+		"value": "10 meses"
+	}
 ]
