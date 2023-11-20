@@ -73,8 +73,8 @@ export default class LevelLastComponent implements OnInit {
 		const parametro = pathSegments.filter((segment) => !segment.startsWith(':'))[0];
 		const path = pathSegments[1]?.split(':')[1] || '';
 		this._option = paramMap.get(`${path}`);
-		console.log('this._option', this._option);
-		console.log('parametro', parametro);
+		// console.log('this._option', this._option);
+		// console.log('parametro', parametro);
 
 		this.fetchData(parametro, path);
 	}

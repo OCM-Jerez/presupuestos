@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 
 interface MenuItem {
 	titulo: string;
+	route: string;
 	rutaImagen: string;
 	funcion: () => void;
 }
@@ -31,7 +32,7 @@ export default class Level2Component implements OnInit {
 				.then((data) => {
 					this.menuOptionsLevel2 = data.default.map((item: MenuItem) => this.createCardMenu(item));
 				})
-				.catch((error) => console.error('Error al cargar el JSON:', error));
+				.catch((error) => console.error(`ERROR ../../assets/menuOptions/level2/${this.titulo}.json`, error));
 		});
 	}
 
@@ -46,6 +47,20 @@ export default class Level2Component implements OnInit {
 	}
 
 	createCardMenu(item: MenuItem) {
+		// console.log(`${item.titulo.toLowerCase()}`);
+		switch (item.route.split('/')[0]) {
+			case 'edificiosSingulares':
+				// console.log(item.route);
+				return {
+					...item,
+					funcion: () => this._router.navigateByUrl(`${item.route}`)
+				};
+
+				break;
+
+			default:
+				break;
+		}
 		return {
 			...item,
 			funcion: () => this._router.navigateByUrl(`${item.titulo.toLowerCase()}`)

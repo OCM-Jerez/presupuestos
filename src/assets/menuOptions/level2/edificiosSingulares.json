@@ -1,0 +1,42 @@
+[
+	{
+		"titulo": "Palacio Riquelme",
+		"route": "edificiosSingulares/palacioRiquelme",
+		"rutaImagen": "assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg"
+	},
+	{
+		"titulo": "Antiguo asilo San Jose",
+		"route": "edificiosSingulares/asiloSanJose",
+		"rutaImagen": "assets/edificiosSingulares/asiloSanJose/asiloSanJose.jpg"
+	},
+	{
+		"titulo": "Antigua comisaria Policia Nacional",
+		"route": "edificiosSingulares/antiguaComisariaPoliciaNacional",
+		"rutaImagen": "assets/edificiosSingulares/antiguaComisariaPoliciaNacional/antiguaComisariaPoliciaNacional.jpg"
+	},
+	{
+		"titulo": "Antigua jefatura Policia Local",
+		"route": "edificiosSingulares/antiguaJefaturaPoliciaLocal",
+		"rutaImagen": "assets/edificiosSingulares/antiguaJefaturaPoliciaLocal/antiguaJefaturaPoliciaLocal.jpg"
+	},
+	{
+		"titulo": "Bodegas Croft",
+		"route": "edificiosSingulares/croft",
+		"rutaImagen": "assets/edificiosSingulares/croft/croft.jpg"
+	},
+	{
+		"titulo": "Callejón de los Bolos",
+		"route": "edificiosSingulares/callejonBolos",
+		"rutaImagen": "assets/edificiosSingulares/callejonBolos/callejonBolos.jpg"
+	},
+	{
+		"titulo": "Palacio VillaPanés",
+		"route": "edificiosSingulares/palacioVillapanes",
+		"rutaImagen": "assets/edificiosSingulares/palacioVillapanes/palacioVillapanes.jpg"
+	},
+	{
+		"titulo": "Claustros de Santo Domingo",
+		"route": "edificiosSingulares/claustrosSantoDomingo",
+		"rutaImagen": "assets/edificiosSingulares/claustrosSantoDomingo/claustrosSantoDomingo.jpg"
+	}
+]
