@@ -269,10 +269,43 @@ export default [
 	// },
 	{
 		path: 'edificiosSingulares',
-		loadComponent: () => import('./medioambiental/components/edificios-singulares/edificios-singulares.component')
+		// loadComponent: () => import('./medioambiental/components/edificios-singulares/edificios-singulares.component')
+		loadComponent: () => import('./level2/level2.component')
 	},
 	{
-		path: 'edificiosSingulares/:edificioSingular',
+		path: 'edificiosSingulares/:palacioRiquelme',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
+		path: 'edificiosSingulares/:asiloSanJose',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
+		path: 'edificiosSingulares/:antiguaComisariaPoliciaNacional',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
+		path: 'edificiosSingulares/:antiguaJefaturaPoliciaLocal',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
+		path: 'edificiosSingulares/:antiguaJefaturaPoliciaLocal',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
+		path: 'edificiosSingulares/:croft',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
+		path: 'edificiosSingulares/:callejonBolos',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
+		path: 'edificiosSingulares/:palacioVillapanes',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
+		path: 'edificiosSingulares/:claustrosSantoDomingo',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
