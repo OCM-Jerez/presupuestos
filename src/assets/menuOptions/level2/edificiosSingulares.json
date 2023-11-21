@@ -38,5 +38,10 @@
 		"titulo": "Claustros de Santo Domingo",
 		"route": "edificiosSingulares/claustrosSantoDomingo",
 		"rutaImagen": "assets/edificiosSingulares/claustrosSantoDomingo/claustrosSantoDomingo.jpg"
+	},
+	{
+		"titulo": "Cartuja",
+		"route": "edificiosSingulares/cartuja",
+		"rutaImagen": "assets/edificiosSingulares/cartuja/cartuja.jpg"
 	}
 ]
