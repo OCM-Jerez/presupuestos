@@ -1,4 +1,10 @@
 [
-	{ "data": "Descripción", "value": "" },
-	{ "data": "Observaciones", "value": "" }
+	{
+		"data": "Descripción",
+		"value": "Claustros de Santo Domingo"
+	},
+	{
+		"data": "Observaciones",
+		"value": ""
+	}
 ]
