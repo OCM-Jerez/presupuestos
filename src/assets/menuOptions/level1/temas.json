@@ -40,11 +40,6 @@
 		"rutaImagen": "assets/temas/ifeca/ifeca.jpg"
 	},
 	{
-		"titulo": "Mesa del Caballo",
-		"route": "/temas/mesaCaballo",
-		"rutaImagen": "assets/temas/mesaCaballo/mesaCaballo.jpg"
-	},
-	{
 		"titulo": "Museo del belén",
 		"route": "/temas/museoBelen",
 		"rutaImagen": "assets/temas/museoBelen/museoBelen.jpg"
