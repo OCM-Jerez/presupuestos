@@ -168,21 +168,9 @@ export default class Level3Component implements OnInit {
 			});
 	}
 
-	ngOnInitOLD(): void {
-		this._route.queryParams.subscribe(() => {
-			this.titulo = this._route.snapshot.routeConfig?.path;
-
-			this._http.get<MenuItem[]>(`/assets/menuOptions/level3/${this.titulo}.json`).subscribe((data) => {
-				this.menuOptionsLevel3 = data.map((item) => this.createCardMenu(item));
-			});
-		});
-	}
-
 	createCardMenu(item: MenuItem) {
 		return {
-			titulo: item.titulo,
-			route: item.route,
-			rutaImagen: item.rutaImagen,
+			...item,
 			funcion: () => this._router.navigateByUrl(`${item.route}`)
 		};
 	}

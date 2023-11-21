@@ -1,27 +1,27 @@
 [
 	{
 		"titulo": "Plenos",
-		"route": "/infoIntitucional",
+		"route": "plenos",
 		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
 	},
 	{
 		"titulo": "Entes",
-		"route": "/infoIntitucional",
+		"route": "entes",
 		"rutaImagen": "assets/art10/infoInstitucional/entes/fundarte/fundarte.jpg"
 	},
 	{
 		"titulo": "Comisiones",
-		"route": "/infoIntitucional",
+		"route": "comisiones",
 		"rutaImagen": "assets/art10/infoInstitucional/comisiones/comisiones.jpg"
 	},
 	{
 		"titulo": "ELAs",
-		"route": "/infoIntitucional",
+		"route": "elas",
 		"rutaImagen": "assets/art10/infoInstitucional/elas/elas.jpg"
 	},
 	{
 		"titulo": "Mesas",
-		"route": "/infoIntitucional",
+		"route": "mesas",
 		"rutaImagen": "assets/art10/infoInstitucional/mesas/mesas.jpg"
 	}
 ]

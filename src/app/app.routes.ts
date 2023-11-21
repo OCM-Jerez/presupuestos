@@ -24,7 +24,6 @@ export default [
 	},
 	{
 		path: 'edificiosSingulares',
-		// loadComponent: () => import('./medioambiental/components/edificios-singulares/edificios-singulares.component')
 		loadComponent: () => import('./level2/level2.component')
 	},
 
@@ -35,18 +34,14 @@ export default [
 	},
 	{
 		path: 'entes',
-		// loadComponent: () =>
-		// import('./art10/components/info-institucional/components/entes-dependientes/entes-dependientes.component')
 		loadComponent: () => import('./level3/level3.component')
 	},
 	{
 		path: 'mesas',
-		// loadComponent: () => import('./art10/components/info-institucional/components/mesas/mesas.component')
 		loadComponent: () => import('./level3/level3.component')
 	},
 	{
 		path: 'elas',
-		// loadComponent: () => import('./art10/components/info-institucional/components/elas/elas.component')
 		loadComponent: () => import('./level3/level3.component')
 	},
 
@@ -65,8 +60,6 @@ export default [
 	},
 	{
 		path: 'entes/:ente',
-		// loadComponent: () =>
-		// import('./art10/components/info-institucional/components/entes-dependientes/components/ente/ente.component')
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
@@ -86,49 +79,15 @@ export default [
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'edificiosSingulares/:palacioRiquelme',
-		loadComponent: () => import('./level-last/level-last.component')
-	},
-	{
-		path: 'edificiosSingulares/:asiloSanJose',
-		loadComponent: () => import('./level-last/level-last.component')
-	},
-	{
-		path: 'edificiosSingulares/:antiguaComisariaPoliciaNacional',
-		loadComponent: () => import('./level-last/level-last.component')
-	},
-	{
-		path: 'edificiosSingulares/:antiguaJefaturaPoliciaLocal',
-		loadComponent: () => import('./level-last/level-last.component')
-	},
-	{
-		path: 'edificiosSingulares/:antiguaJefaturaPoliciaLocal',
-		loadComponent: () => import('./level-last/level-last.component')
-	},
-	{
-		path: 'edificiosSingulares/:croft',
-		loadComponent: () => import('./level-last/level-last.component')
-	},
-	{
-		path: 'edificiosSingulares/:callejonBolos',
-		loadComponent: () => import('./level-last/level-last.component')
-	},
-	{
-		path: 'edificiosSingulares/:palacioVillapanes',
-		loadComponent: () => import('./level-last/level-last.component')
-	},
-	{
-		path: 'edificiosSingulares/:claustrosSantoDomingo',
+		path: 'edificiosSingulares/:edificio',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'apartamentosTuristicos',
-		// loadComponent: () => import('./medioambiental/components/apartamentos-turisticos/apartamentos-turisticos.component')
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'proyectosViviendas',
-		// loadComponent: () => import('./medioambiental/components/proyectos-viviendas/proyectos-viviendas.component')
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
@@ -302,82 +261,3 @@ export default [
 	// ============================================================================================================================================
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }
 ] as Routes;
-
-// {
-// 	path: 'infoInstitucional',
-// 	loadComponent: () => import('./art10/components/info-institucional/info-institucional.component')
-// },
-// {
-// 	path: 'infoOrganizativa',
-// 	loadComponent: () => import('./art10/components/info-organizativa/info-organizativa.component')
-// },
-
-// {
-// 	path: 'licitaciones',
-// 	loadComponent: () => import('./level2/level2.component')
-// },
-
-// {
-// 	path: 'plenos',
-// 	loadComponent: () => import('./art10/components/info-institucional/components/plenos/plenos.component')
-// },
-
-// {
-// 	path: 'pleno/:pleno',
-// 	loadComponent: () =>
-// 		import('./art10/components/info-institucional/components/plenos/components/pleno/pleno.component')
-// },
-
-// {
-// 	path: 'ela/:ela',
-// 	loadComponent: () => import('./art10/components/info-institucional/components/elas/components/ela/ela.component')
-// },
-
-// {
-// 	path: 'comision/:comision',
-// 	loadComponent: () =>
-// 		import('./art10/components/info-institucional/components/comisiones/components/comision/comision.component')
-// },
-
-// {
-// 	path: 'mesas/:mesa',
-// 	loadComponent: () => import('./art10/components/info-institucional/components/mesas/components/mesa/mesa.component')
-// },
-
-// {
-// 	path: 'datosEconomicos',
-// 	loadComponent: () => import('./art16/components/datos-economicos/datos-economicos.component')
-// },
-
-// {
-// 	path: 'licitacion/:licitacion',
-// 	loadComponent: () => import('./art15/components/licitaciones/components/licitacion/licitacion.component')
-// },
-
-// {
-// 	path: 'temas/:tema',
-// 	loadComponent: () => import('./temas/components/tema/tema.component')
-// },
-
-// {
-// 	path: 'distritos/:distrito',
-// 	loadComponent: () => import('./distritos/components/distrito/distrito.component')
-// },
-
-// {
-// 	path: 'edificiosSingulares/:edificioSingular',
-// 	loadComponent: () =>
-// 		import(
-// 			'./medioambiental/components/edificios-singulares/components/edificio-singular/edificio-singular.component'
-// 		)
-// },
-
-// {
-// 	path: 'subvenciones/:subvencion',
-// 	loadComponent: () => import('./art15/components/subvenciones/components/subvencion/subvencion.component')
-// },
-
-// {
-// 	path: 'eventos/:evento',
-// 	loadComponent: () => import('./eventos/components/evento/evento.component')
-// },

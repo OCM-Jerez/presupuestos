@@ -17,7 +17,7 @@ interface MenuItem {
 	templateUrl: './level1.component.html'
 })
 export default class Level1Component implements OnInit {
-	public menuOptionsLevel1: MenuItem[] = [];
+	public menuOptions: MenuItem[] = [];
 	public titulo: string;
 	private _route = inject(ActivatedRoute);
 	private _router = inject(Router);
@@ -29,13 +29,14 @@ export default class Level1Component implements OnInit {
 
 			import(`../../assets/menuOptions/level1/${route}.json`)
 				.then((data) => {
-					this.menuOptionsLevel1 = data.default.map((item: MenuItem) => this.createCardMenu(item));
+					this.menuOptions = data.default.map((item: MenuItem) => this.createCardMenu(item));
 				})
-				.catch((error) => console.error('Error al cargar el JSON:', error));
+				.catch((error) => console.error(`ERROR ../../assets/menuOptions/level1/${this.titulo}.json`, error));
 		});
 	}
 
 	createCardMenu(item: MenuItem) {
+		// console.log(`Level 1 Ruta= ${item.route}`);
 		return {
 			...item,
 			funcion: () => this._router.navigateByUrl(`${item.route}`)

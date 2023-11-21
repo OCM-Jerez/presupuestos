@@ -73,11 +73,12 @@ export default class LevelLastComponent implements OnInit {
 		const parametro = pathSegments.filter((segment) => !segment.startsWith(':'))[0];
 		const path = pathSegments[1]?.split(':')[1] || '';
 		this._option = paramMap.get(`${path}`);
-		// console.log('this._option', this._option);
-		// console.log('parametro', parametro);
+		// console.log('Level last this._option', this._option);
+		// console.log('Level last parametro', parametro);
 
 		this.fetchData(parametro, path);
 	}
+
 	fetchData(parametro: string, path: string) {
 		switch (parametro) {
 			case 'registroSolares':
@@ -193,8 +194,4 @@ export default class LevelLastComponent implements OnInit {
 				this.hasNews = this.news.length > 0;
 			});
 	}
-
-	// hasKey(object: unknown, key: string): boolean {
-	// 	return object && Object.prototype.hasOwnProperty.call(object, key);
-	// }
 }
