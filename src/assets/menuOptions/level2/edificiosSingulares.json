@@ -40,6 +40,11 @@
 		"rutaImagen": "assets/edificiosSingulares/claustrosSantoDomingo/claustrosSantoDomingo.jpg"
 	},
 	{
+		"titulo": "Mercado de abastos",
+		"route": "edificiosSingulares/mercadoAbastos",
+		"rutaImagen": "assets/edificiosSingulares/mercadoAbastos/mercadoAbastos.jpg"
+	},
+	{
 		"titulo": "Cartuja",
 		"route": "edificiosSingulares/cartuja",
 		"rutaImagen": "assets/edificiosSingulares/cartuja/cartuja.jpg"
