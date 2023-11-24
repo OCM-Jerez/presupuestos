@@ -1,7 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+
+import NoticiasComponent from '@commons/components/level/noticias/noticias.component';
 
 import { forkJoin } from 'rxjs';
 
@@ -13,21 +14,17 @@ interface INew {
 }
 
 @Component({
-	selector: 'app-noticias',
+	selector: 'app-noticias-empleados',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [CommonModule, NoticiasComponent],
 	templateUrl: './noticias.component.html',
 	styleUrls: ['./noticias.component.scss']
 })
-export default class NoticiasComponent implements OnInit {
-	private _route = inject(ActivatedRoute);
-	private _location = inject(Location);
+export default class NoticiasEmpleadosComponent implements OnInit {
 	private _http = inject(HttpClient);
-
 	public news: INew[] = [];
 
 	ngOnInit() {
-		// Función auxiliar para gestionar suscripciones HTTP
 		const fetchData = () => {
 			const news$ = this._http.get<INew[]>(`/assets/empleados/empleadosNews.json`);
 
@@ -38,12 +35,4 @@ export default class NoticiasComponent implements OnInit {
 
 		fetchData();
 	}
-
-	hasKey(object: unknown, key: string): boolean {
-		return object && Object.prototype.hasOwnProperty.call(object, key);
-	}
-
-	// volver() {
-	// 	this._location.back();
-	// }
 }

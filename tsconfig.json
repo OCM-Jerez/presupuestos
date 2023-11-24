@@ -32,7 +32,8 @@
             "@environments/*": ["src/environments/*"],
             "@appTypes/*": ["src/app/commons/types/*"],
             "@utils/*": ["src/app/commons/util/*"],
-            "@app/*": ["src/app/*"]
+            "@app/*": ["src/app/*"],
+            "@commons/*": ["src/app/commons/*"],
         }
     },
     "angularCompilerOptions": {

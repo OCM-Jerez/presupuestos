@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import homeMenuOptions from '../../assets/menuOptions/home.json';
 
-import { CardMenuComponent } from '../commons/components/card-menu/card-menu.component';
+import { CardMenuComponent } from '@commons/components/card-menu/card-menu.component';
 
 interface MenuItem {
 	titulo: string;

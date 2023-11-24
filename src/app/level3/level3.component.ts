@@ -5,12 +5,12 @@ import { HttpClient } from '@angular/common/http';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
-import ComentariosComponent from '../commons/components/level/comentarios/comentarios.component';
-import DataGeneralComponent from '../commons/components/level/data-general/data-general.component';
-import DocumentosComponent from '../commons/components/level/documentos/documentos.component';
-import EstadoLicitacionComponent from '../commons/components/level/estado-licitacion/estado-licitacion.component';
-import NoticiasComponent from '../commons/components/level/noticias/noticias.component';
-import SeguimientoSubvencionComponent from '../commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
+import ComentariosComponent from '@commons/components/level/comentarios/comentarios.component';
+import DataGeneralComponent from '@commons/components/level/data-general/data-general.component';
+import DocumentosComponent from '@commons/components/level/documentos/documentos.component';
+import EstadoLicitacionComponent from '@commons/components/level/estado-licitacion/estado-licitacion.component';
+import NoticiasComponent from '@commons/components/level/noticias/noticias.component';
+import SeguimientoSubvencionComponent from '@commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
 import { catchError, forkJoin, of } from 'rxjs';
 
 import { ICom } from '@interfaces/com.interface';
@@ -56,9 +56,9 @@ export default class Level3Component implements OnInit {
 
 	ngOnInit(): void {
 		this._route.queryParams.subscribe(() => {
-			console.log(this._route.snapshot.routeConfig);
-
+			// console.log(this._route.snapshot.routeConfig);
 			this.titulo = this._route.snapshot.routeConfig?.path;
+			console.log('this.titulo', this.titulo);
 
 			import(`../../assets/menuOptions/level3/${this.titulo}.json`)
 				.then((data) => {
@@ -83,8 +83,12 @@ export default class Level3Component implements OnInit {
 			case 'mesas':
 				titulo = `art10/infoInstitucional`;
 				break;
-			case 'pleno':
-				titulo = `art10/infoInstitucional/plenos`;
+			case 'plenos':
+				titulo = `art10/infoInstitucional`;
+				break;
+				break;
+			case 'retribuciones2022':
+				titulo = `art10/infoInstitucional/retribuciones2022`;
 				break;
 			case 'subvencion':
 				// this.isSubvencion = true;

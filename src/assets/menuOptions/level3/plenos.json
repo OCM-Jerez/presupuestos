@@ -15,8 +15,23 @@
 		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
 	},
 	{
-		"titulo": "Pleno extraorinario 15 noviembre 2023",
+		"titulo": "Pleno extraordinario 15 noviembre 2023",
 		"route": "/pleno/plenoExtraordinario20231115",
+		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
+	},
+	{
+		"titulo": "Pleno extraordinario y urgente 15 noviembre 2023",
+		"route": "/pleno/plenoExtraordinarioUrgente20231115",
+		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
+	},
+	{
+		"titulo": "Pleno extraordinario 22 noviembre 2023",
+		"route": "/pleno/plenoExtraordinario20231122",
+		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
+	},
+	{
+		"titulo": "Pleno ordinario 24 noviembre 2023",
+		"route": "/pleno/plenoOrdinario20231124",
 		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
 	}
 ]

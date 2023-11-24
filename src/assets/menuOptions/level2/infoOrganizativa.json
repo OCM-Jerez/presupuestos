@@ -1,0 +1,17 @@
+[
+	{
+		"titulo": "Retribuciones",
+		"route": "retribuciones2022",
+		"rutaImagen": "assets/img/home/menu1-400x250.webp"
+	},
+	{
+		"titulo": "RPT",
+		"route": "/rpt",
+		"rutaImagen": "assets/img/home/menu2-400x250.webp"
+	},
+	{
+		"titulo": "Noticias",
+		"route": "/empleadosNews",
+		"rutaImagen": "assets/empleados/empleadosNews.jpg"
+	}
+]
