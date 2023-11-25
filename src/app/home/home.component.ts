@@ -2,16 +2,9 @@ import { Component, OnInit, inject } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { Router } from '@angular/router';
 
-import homeMenuOptions from '../../assets/menuOptions/home.json';
-
 import { CardMenuComponent } from '@commons/components/card-menu/card-menu.component';
 
-interface MenuItem {
-	titulo: string;
-	route: string;
-	rutaImagen: string;
-	funcion: () => void;
-}
+import { IMenuItem } from '@interfaces/menu.interface';
 
 @Component({
 	selector: 'app-home',
@@ -22,13 +15,15 @@ interface MenuItem {
 })
 export default class HomeComponent implements OnInit {
 	private _router = inject(Router);
-	public menuOptionsHome: MenuItem[] = [];
+	public menuOptionsHome: IMenuItem[] = [];
 
 	ngOnInit() {
-		this.menuOptionsHome = homeMenuOptions.map((item) => this.createCardMenu(item));
+		import(`@assets/menuOptions/home.json`).then((data) => {
+			this.menuOptionsHome = data.default.map((item: IMenuItem) => this.createCardMenu(item));
+		});
 	}
 
-	createCardMenu(item: { titulo: string; route: string; rutaImagen: string }) {
+	createCardMenu(item: IMenuItem) {
 		return {
 			...item,
 			funcion: () =>

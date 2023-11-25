@@ -4,12 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
-interface MenuItem {
-	titulo: string;
-	route: string;
-	rutaImagen: string;
-	funcion: () => void;
-}
+import { IMenuItem } from '@interfaces/menu.interface';
+
 @Component({
 	selector: 'app-level1',
 	standalone: true,
@@ -17,7 +13,7 @@ interface MenuItem {
 	templateUrl: './level1.component.html'
 })
 export default class Level1Component implements OnInit {
-	public menuOptions: MenuItem[] = [];
+	public menuOptions: IMenuItem[] = [];
 	public titulo: string;
 	private _route = inject(ActivatedRoute);
 	private _router = inject(Router);
@@ -27,15 +23,13 @@ export default class Level1Component implements OnInit {
 			const route = params.get('level1');
 			this.titulo = params.get('titulo');
 
-			import(`../../assets/menuOptions/level1/${route}.json`)
-				.then((data) => {
-					this.menuOptions = data.default.map((item: MenuItem) => this.createCardMenu(item));
-				})
-				.catch((error) => console.error(`ERROR ../../assets/menuOptions/level1/${this.titulo}.json`, error));
+			import(`../../assets/menuOptions/level1/${route}.json`).then((data) => {
+				this.menuOptions = data.default.map((item: IMenuItem) => this.createCardMenu(item));
+			});
 		});
 	}
 
-	createCardMenu(item: MenuItem) {
+	createCardMenu(item: IMenuItem) {
 		// console.log(`Level 1 Ruta= ${item.route}`);
 		return {
 			...item,
