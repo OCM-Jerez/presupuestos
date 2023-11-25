@@ -3,7 +3,7 @@ import { LOCALE_ID } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy, registerLocaleData } from '@angular/common';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import localeDe from '@angular/common/locales/de';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 
@@ -20,7 +20,7 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
 	providers: [
-		provideRouter(APP_ROUTES),
+		provideRouter(APP_ROUTES, withComponentInputBinding()),
 		importProvidersFrom(BrowserModule, FormsModule, ReactiveFormsModule),
 		{
 			provide: LocationStrategy,
