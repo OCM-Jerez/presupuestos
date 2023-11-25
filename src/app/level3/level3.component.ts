@@ -1,6 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
@@ -36,9 +36,11 @@ import { IMenuItem } from '@interfaces/menu.interface';
 	templateUrl: './level3.component.html'
 })
 export default class Level3Component implements OnInit {
-	public menuOptionsLevel3: IMenuItem[] = [];
-	public titulo: string;
-	private _route = inject(ActivatedRoute);
+	public menuOptions: IMenuItem[] = [];
+	@Input() path?: string;
+	@Input() title?: string;
+	// public titulo: string;
+	// private _route = inject(ActivatedRoute);
 	private _router = inject(Router);
 	private _http = inject(HttpClient);
 
@@ -49,41 +51,51 @@ export default class Level3Component implements OnInit {
 	public hasComs = false;
 	public hasNews = false;
 
-	ngOnInit(): void {
-		this._route.queryParams.subscribe(() => {
-			// console.log(this._route.snapshot.routeConfig);
-			this.titulo = this._route.snapshot.routeConfig?.path;
-			console.log('this.titulo', this.titulo);
+	public isComisiones = false;
 
-			import(`../../assets/menuOptions/level3/${this.titulo}.json`)
-				.then((data) => {
-					this.menuOptionsLevel3 = data.default.map((item: IMenuItem) => this.createCardMenu(item));
-					this.fetchData(this.titulo);
-				})
-				.catch((error) => console.error('Error al cargar el JSON:', error));
+	ngOnInit(): void {
+		console.log('Level3 ', this.path, this.title);
+		console.log(`../../assets/menuOptions/level3/${this.path}.json`);
+
+		import(`../../assets/menuOptions/level3/${this.path}.json`).then((data) => {
+			this.menuOptions = data.default.map((item: IMenuItem) => this.createCardMenu(item));
+			this.fetchData(this.path);
 		});
 	}
 
-	fetchData(titulo: string) {
-		switch (titulo) {
-			case 'comision':
-				// parametro = `art10/infoInstitucional/comisiones/permanentes`;
-				break;
-			case 'elas':
-				titulo = `art10/infoInstitucional`;
+	fetchData(path: string) {
+		switch (path) {
+			case 'plenos':
+				path = `art10/infoInstitucional`;
 				break;
 			case 'entes':
-				titulo = `art10/infoInstitucional`;
+				path = `art10/infoInstitucional`;
+				break;
+			case 'comisiones':
+				path = `art10/infoInstitucional/`;
+				this.isComisiones = true;
+				break;
+			case 'elas':
+				path = `art10/infoInstitucional`;
 				break;
 			case 'mesas':
-				titulo = `art10/infoInstitucional`;
+				path = `art10/infoInstitucional`;
 				break;
-			case 'plenos':
-				titulo = `art10/infoInstitucional`;
-				break;
-				break;
+
 			case 'retribuciones2022':
-				titulo = `art10/infoInstitucional/retribuciones2022`;
+				console.log('retribuciones2022');
+				path = `art10/infoInstitucional/retribuciones2022`;
+				break;
+
+			case 'rpt':
+				console.log('retribuciones2022');
+				path = `art10/infoInstitucional/retribuciones2022`;
+				break;
+
+			case 'empleadosNews':
+				console.log('empleadosNews');
+				// src\assets\empleados\empleadosNews.json
+				path = `empleadosNews`;
 				break;
 			case 'subvencion':
 				// this.isSubvencion = true;
@@ -105,13 +117,14 @@ export default class Level3Component implements OnInit {
 				break;
 		}
 
-		const pathBase = `/assets/${titulo}/`;
+		const pathBase = `/assets/${path}/`;
+		console.log('pathBase', pathBase);
 
 		const commonRequests = {
 			// data: this._http.get<IOption[]>(`${pathBase}${this._option}/${this._option}.json`),
-			coms: this._http.get<ICom[]>(`${pathBase}${this.titulo}/${this.titulo}Coms.json`),
-			docs: this._http.get<IDoc[]>(`${pathBase}${this.titulo}/${this.titulo}Docs.json`),
-			news: this._http.get<INew[]>(`${pathBase}${this.titulo}/${this.titulo}News.json`)
+			coms: this._http.get<ICom[]>(`${pathBase}${this.path}/${this.path}Coms.json`),
+			docs: this._http.get<IDoc[]>(`${pathBase}${this.path}/${this.path}Docs.json`),
+			news: this._http.get<INew[]>(`${pathBase}${this.path}/${this.path}News.json`)
 		};
 
 		// const stepsSubvencionRequest = this.isSubvencion

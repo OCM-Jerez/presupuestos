@@ -6,12 +6,12 @@
 	},
 	{
 		"title": "RPT",
-		"path": "/rpt",
+		"path": "rpt",
 		"rutaImagen": "assets/img/home/menu2-400x250.webp"
 	},
 	{
 		"title": "Noticias",
-		"path": "/empleadosNews",
+		"path": "empleadosNews",
 		"rutaImagen": "assets/empleados/empleadosNews.jpg"
 	}
 ]

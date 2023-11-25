@@ -34,9 +34,14 @@ export default [
 
 	// level3  ============================================================================================================================================
 	{
-		path: 'plenos',
+		path: 'level3/:path/:title',
 		loadComponent: () => import('./level3/level3.component')
+		// loadComponent: () => import('./art10/components/info-institucional/components/comisiones/comisiones.component')
 	},
+	// {
+	// 	path: 'plenos',
+	// 	loadComponent: () => import('./level3/level3.component')
+	// },
 	{
 		path: 'entes',
 		loadComponent: () => import('./level3/level3.component')
@@ -51,6 +56,17 @@ export default [
 	},
 
 	// level last ============================================================================================================================================
+	// {
+	// 	path: '',
+	// 	loadComponent: () =>
+	// 		import('./art10/components/info-organizativa/components/empleados/components/noticias/noticias.component')
+	// },
+	{
+		path: 'empleadosNews',
+		loadComponent: () =>
+			import('./art10/components/info-organizativa/components/empleados/components/noticias/noticias.component')
+		// loadComponent: () => import('./level-last/level-last.component')
+	},
 	{
 		path: 'pleno/:pleno',
 		loadComponent: () => import('./level-last/level-last.component')
@@ -113,10 +129,10 @@ export default [
 	},
 
 	// Art 10 ============================================================================================================================================
-	{
-		path: 'comisiones',
-		loadComponent: () => import('./art10/components/info-institucional/components/comisiones/comisiones.component')
-	},
+	// {
+	// 	path: 'comisiones',
+	// 	loadComponent: () => import('./art10/components/info-institucional/components/comisiones/comisiones.component')
+	// },
 	{
 		path: 'art10/empleados',
 		loadComponent: () => import('./art10/components/info-organizativa/components/empleados/empleados.component')
@@ -132,11 +148,6 @@ export default [
 			import(
 				'./art10/components/info-organizativa/components/empleados/components/retribuciones2022/retribuciones2022.component'
 			)
-	},
-	{
-		path: 'empleadosNews',
-		loadComponent: () =>
-			import('./art10/components/info-organizativa/components/empleados/components/noticias/noticias.component')
 	},
 
 	// Art 15 ============================================================================================================================================

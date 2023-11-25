@@ -1,0 +1,57 @@
+[
+	{
+		"title": "Comisión de presidencia, centro histórico, fondos europeos, coordinación de gobierno y ordenación del territorio",
+		"path": "/comision/presidencia",
+		"rutaImagen": ""
+	},
+	{
+		"title": "Comisión de servicios públicos, desarrollo sostenible, medio ambiente, protección animal y participación ciudadana",
+		"path": "/comision/serviciosPublicos",
+		"rutaImagen": ""
+	},
+	{
+		"title": "Comisión de inclusión social, familias, igualdad y diversidad y medio rural",
+		"path": "/comision/inclusion",
+		"rutaImagen": ""
+	},
+	{
+		"title": "Comisión de turismo, cultura, educación, deportes y juventud",
+		"path": "/comision/turismo",
+		"rutaImagen": ""
+	},
+	{
+		"title": "Comisión de empleo, economía, patrimonio, seguridad, recursos humanos, simplificación administrativa y transparencia",
+		"path": "/comision/patrimonio",
+		"rutaImagen": ""
+	},
+	{
+		"title": "Comisión especial de cuentas",
+		"path": "/comision/cuentas",
+		"rutaImagen": ""
+	},
+	{
+		"title": "Comisión especial de sugerencias y reclamaciones",
+		"path": "/comision/sugerencias",
+		"rutaImagen": ""
+	},
+	{
+		"title": "Comisión especial de capitalidad cultural",
+		"path": "/comision/capitabilidad",
+		"rutaImagen": ""
+	},
+	{
+		"title": "Comisión especial de presupuestos participativos",
+		"path": "/comision/presupuestos",
+		"rutaImagen": ""
+	},
+	{
+		"title": "Comisión especial de regeneración democrática y calidad institucional",
+		"path": "/comision/regeneracion",
+		"rutaImagen": ""
+	},
+	{
+		"title": "Comisión especial de impulso y seguimiento de las mesas sectoriales",
+		"path": "/comision/impulso",
+		"rutaImagen": ""
+	}
+]

@@ -1,11 +1,27 @@
 <main class="OCM-dark-teme">
-	<header class="OCM-subtitle-dark">{{ titulo }}</header>
+	<header class="OCM-subtitle-dark">{{ title }}</header>
 
-	<section class="OCM-flex">
-		<div *ngFor="let menu of menuOptionsLevel3">
+	<section *ngIf="!isComisiones" class="OCM-flex">
+		<div *ngFor="let menu of menuOptions">
 			<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 		</div>
 	</section>
+
+	<ng-container *ngIf="isComisiones">
+		<header class="OCM-title-dark">Permanentes</header>
+		<section class="OCM-flex">
+			<div *ngFor="let menu of menuOptions.slice(0, 5)">
+				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+			</div>
+		</section>
+
+		<header class="OCM-title-dark">Especiales</header>
+		<section class="OCM-flex">
+			<div *ngFor="let menu of menuOptions.slice(5, 11)">
+				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+			</div>
+		</section>
+	</ng-container>
 
 	<!-- <app-data-general *ngIf="isLicitacion" [data]="data" />
 	<app-seguimiento-subvencion *ngIf="isSubvencion" [stepsSubvencion]="stepsSubvencion" /> -->

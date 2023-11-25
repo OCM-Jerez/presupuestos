@@ -28,7 +28,9 @@ export default class Level2Component implements OnInit {
 	createCardMenu(item: IMenuItem) {
 		return {
 			...item,
-			funcion: () => this._router.navigateByUrl(`${item.path}`)
+			// funcion: () => this._router.navigateByUrl(`${item.path}`)
+			funcion: () =>
+				this._router.navigateByUrl(`level3/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`)
 		};
 	}
 }
