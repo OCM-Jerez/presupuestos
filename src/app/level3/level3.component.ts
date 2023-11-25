@@ -17,12 +17,7 @@ import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 
-interface MenuItem {
-	titulo: string;
-	route: string;
-	rutaImagen: string;
-	funcion: () => void;
-}
+import { IMenuItem } from '@interfaces/menu.interface';
 
 @Component({
 	selector: 'app-level3',
@@ -41,7 +36,7 @@ interface MenuItem {
 	templateUrl: './level3.component.html'
 })
 export default class Level3Component implements OnInit {
-	public menuOptionsLevel3: MenuItem[] = [];
+	public menuOptionsLevel3: IMenuItem[] = [];
 	public titulo: string;
 	private _route = inject(ActivatedRoute);
 	private _router = inject(Router);
@@ -62,7 +57,7 @@ export default class Level3Component implements OnInit {
 
 			import(`../../assets/menuOptions/level3/${this.titulo}.json`)
 				.then((data) => {
-					this.menuOptionsLevel3 = data.default.map((item: MenuItem) => this.createCardMenu(item));
+					this.menuOptionsLevel3 = data.default.map((item: IMenuItem) => this.createCardMenu(item));
 					this.fetchData(this.titulo);
 				})
 				.catch((error) => console.error('Error al cargar el JSON:', error));
@@ -172,7 +167,7 @@ export default class Level3Component implements OnInit {
 			});
 	}
 
-	createCardMenu(item: MenuItem) {
+	createCardMenu(item: IMenuItem) {
 		return {
 			...item,
 			funcion: () => this._router.navigateByUrl(`${item.route}`)
