@@ -1,7 +1,7 @@
 [
 	{
 		"title": "Presupuestos",
-		"path": "/presupuestos",
+		"path": "presupuestos",
 		"rutaImagen": "assets/img/home/menu1-400x250.webp"
 	},
 	{

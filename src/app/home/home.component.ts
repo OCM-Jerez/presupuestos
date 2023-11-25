@@ -4,7 +4,15 @@ import { Router } from '@angular/router';
 
 import { CardMenuComponent } from '@commons/components/card-menu/card-menu.component';
 
-import { IMenuItem } from '@interfaces/menu.interface';
+// import { IMenuItem } from '@interfaces/menu.interface';
+
+interface IMenuItemHome {
+	title: string;
+	path: string;
+	rutaImagen: string;
+	funcion: () => void;
+	levels: number;
+}
 
 @Component({
 	selector: 'app-home',
@@ -15,19 +23,21 @@ import { IMenuItem } from '@interfaces/menu.interface';
 })
 export default class HomeComponent implements OnInit {
 	private _router = inject(Router);
-	public menuOptionsHome: IMenuItem[] = [];
+	public menuOptionsHome: IMenuItemHome[] = [];
 
 	ngOnInit() {
 		import(`@assets/menuOptions/home.json`).then((data) => {
-			this.menuOptionsHome = data.default.map((item: IMenuItem) => this.createCardMenu(item));
+			this.menuOptionsHome = data.default.map((item: IMenuItemHome) => this.createCardMenu(item));
 		});
 	}
 
-	createCardMenu(item: IMenuItem) {
+	createCardMenu(item: IMenuItemHome) {
 		return {
 			...item,
 			funcion: () =>
-				this._router.navigateByUrl(`level1/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`)
+				this._router.navigateByUrl(
+					`level1/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(item.levels)}`
+				)
 		};
 	}
 }

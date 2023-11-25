@@ -15,22 +15,33 @@ import { IMenuItem } from '@interfaces/menu.interface';
 export default class Level1Component implements OnInit {
 	@Input() path?: string;
 	@Input() title?: string;
+	@Input() levels?: string;
 	public menuOptions: IMenuItem[] = [];
 	private _router = inject(Router);
 
 	ngOnInit(): void {
-		console.log('Level1 ', this.path, this.title);
+		console.log('Level1 ', this.path, this.title, this.levels);
 		import(`../../assets/menuOptions/level1/${this.path}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => this.createCardMenu(item));
 		});
 	}
 
 	createCardMenu(item: IMenuItem) {
+		let URL = ``;
+		switch (this.levels) {
+			case '1':
+				URL = `${item.path}`;
+				break;
+
+			default:
+				URL = `level2/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(
+					this.levels
+				)}`;
+				break;
+		}
 		return {
 			...item,
-			// funcion: () => this._router.navigateByUrl(`${item.route}`)
-			funcion: () =>
-				this._router.navigateByUrl(`level2/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`)
+			funcion: () => this._router.navigateByUrl(URL)
 		};
 	}
 }

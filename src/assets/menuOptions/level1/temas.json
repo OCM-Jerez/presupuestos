@@ -1,82 +1,82 @@
 [
 	{
 		"title": "Aeropuerto",
-		"path": "/temas/aeropuerto",
+		"path": "temas/aeropuerto",
 		"rutaImagen": "assets/temas/aeropuerto/aeropuerto.jpg"
 	},
 	{
 		"title": "Arboles",
-		"path": "/temas/arboles",
+		"path": "temas/arboles",
 		"rutaImagen": "assets/temas/arboles/arboles.jpg"
 	},
 	{
 		"title": "Asesores",
-		"path": "/temas/asesores",
+		"path": "temas/asesores",
 		"rutaImagen": "assets/temas/asesores/asesores.jpg"
 	},
 	{
 		"title": "Asta Regia",
-		"path": "/temas/astaRegia",
+		"path": "temas/astaRegia",
 		"rutaImagen": "assets/temas/astaRegia/astaRegia.jpg"
 	},
 	{
 		"title": "Banda Municipal de música",
-		"path": "/temas/bandaMusica",
+		"path": "temas/bandaMusica",
 		"rutaImagen": "assets/temas/bandaMusica/bandaMusica.jpg"
 	},
 	{
 		"title": "Declaraciones políticos",
-		"path": "/temas/declaracionesPoliticos",
+		"path": "temas/declaracionesPoliticos",
 		"rutaImagen": "assets/temas/declaracionesPoliticos/declaracionesPoliticos.jpg"
 	},
 	{
 		"title": "Hermandades y cofradias",
-		"path": "/temas/hermandades",
+		"path": "temas/hermandades",
 		"rutaImagen": "assets/temas/hermandades/hermandades.jpg"
 	},
 	{
 		"title": "Ifeca",
-		"path": "/temas/ifeca",
+		"path": "temas/ifeca",
 		"rutaImagen": "assets/temas/ifeca/ifeca.jpg"
 	},
 	{
 		"title": "Museo del belén",
-		"path": "/temas/museoBelen",
+		"path": "temas/museoBelen",
 		"rutaImagen": "assets/temas/museoBelen/museoBelen.jpg"
 	},
 	{
 		"title": "Museo del Flamenco",
-		"path": "/temas/museoFlamenco",
+		"path": "temas/museoFlamenco",
 		"rutaImagen": "assets/temas/museoFlamenco/museoFlamenco.jpg"
 	},
 	{
 		"title": "Oficina de memoria democrática",
-		"path": "/temas/oficinaMemoriaDemocratica",
+		"path": "temas/oficinaMemoriaDemocratica",
 		"rutaImagen": "assets/temas/oficinaMemoriaDemocratica/oficinaMemoriaDemocratica.jpg"
 	},
 	{
 		"title": "Plantas fotovoltaicas y parques eólicos",
-		"path": "/temas/parquesEolicos",
+		"path": "temas/parquesEolicos",
 		"rutaImagen": "assets/temas/parquesEolicos/parquesEolicos.jpg"
 	},
 	{
 		"title": "Presupuesto Junta de Andalucía",
-		"path": "/temas/presupuestoJuntaAndalucia",
+		"path": "temas/presupuestoJuntaAndalucia",
 		"rutaImagen": "assets/temas/presupuestoJuntaAndalucia/presupuestoJuntaAndalucia.jpg"
 	},
 	{
 		"title": "Terrazas",
-		"path": "/temas/terrazas",
+		"path": "temas/terrazas",
 		"rutaImagen": "assets/temas/terrazas/terrazas.jpg"
 	},
 	{
 		"title": "Señalización vertical y horizontal",
-		"path": "/temas/senalizacion",
+		"path": "temas/senalizacion",
 		"rutaImagen": "assets/temas/senalizacion/senalizacion.jpg"
 	},
 	{
 		"title": "Varios",
-		"path": "/temas/varios",
+		"path": "temas/varios",
 		"rutaImagen": "assets/temas/varios/varios.jpg"
 	}
 ]

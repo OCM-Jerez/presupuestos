@@ -97,24 +97,26 @@ export default class Level3Component implements OnInit {
 				// src\assets\empleados\empleadosNews.json
 				path = `empleadosNews`;
 				break;
-			case 'subvencion':
-				// this.isSubvencion = true;
-				break;
-			case 'tema':
-				// this._isTema = true;
-				break;
-			case 'edificioSingular':
-				// this.isEdificioSingular = true;
-				// this.imgURL = `/assets/${parametro}/${this._option}/${this._option}.jpg`;
-				break;
-			case 'licitacion':
-				// this.isLicitacion = true;
-				// this.imgURL = `/assets/${parametro}/${this._option}/${this._option}.jpg`;
-				break;
-			case 'distrito':
-				// this.isDistrito = true;
-				// this.imgURL = `/assets/${parametro}/${this._option}/${this._option}.jpg`;
-				break;
+			// case 'subvencion':
+			// this.isSubvencion = true;
+			// break;
+			// case 'tema':
+			// this._isTema = true;
+			// break;
+			// case 'edificioSingular':
+			// 	console.log('edificioSingular');
+			// 	path = `mediomabiental/edificiosSingulares/:edificio`;
+			// this.isEdificioSingular = true;
+			// this.imgURL = `/assets/${parametro}/${this._option}/${this._option}.jpg`;
+			// break;
+			// case 'licitacion':
+			// this.isLicitacion = true;
+			// this.imgURL = `/assets/${parametro}/${this._option}/${this._option}.jpg`;
+			// break;
+			// case 'distrito':
+			// this.isDistrito = true;
+			// this.imgURL = `/assets/${parametro}/${this._option}/${this._option}.jpg`;
+			// break;
 		}
 
 		const pathBase = `/assets/${path}/`;
