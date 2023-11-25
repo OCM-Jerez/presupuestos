@@ -1,27 +1,27 @@
 [
 	{
-		"titulo": "Edificios singulares",
-		"route": "edificiosSingulares",
+		"title": "Edificios singulares",
+		"path": "edificiosSingulares",
 		"rutaImagen": "assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg"
 	},
 	{
-		"titulo": "Apartamentos turísticos",
-		"route": "apartamentosTuristicos",
+		"title": "Apartamentos turísticos",
+		"path": "apartamentosTuristicos",
 		"rutaImagen": "assets/medioambiental/apartamentosTuristicos/apartamentosTuristicos.jpg"
 	},
 	{
-		"titulo": "Proyectos construcción de viviendas",
-		"route": "proyectosViviendas",
+		"title": "Proyectos construcción de viviendas",
+		"path": "proyectosViviendas",
 		"rutaImagen": "assets/medioambiental/proyectosViviendas/proyectosViviendas.jpg"
 	},
 	{
-		"titulo": "Registro solares y edificaciones ruinosas",
-		"route": "registroSolares",
+		"title": "Registro solares y edificaciones ruinosas",
+		"path": "registroSolares",
 		"rutaImagen": "assets/medioambiental/registroSolares/registroSolares.jpg"
 	},
 	{
-		"titulo": "Mercados",
-		"route": "mercados",
+		"title": "Mercados",
+		"path": "mercados",
 		"rutaImagen": "assets/medioambiental/mercados/mercados.jpg"
 	}
 ]

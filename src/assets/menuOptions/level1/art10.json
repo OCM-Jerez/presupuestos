@@ -1,12 +1,12 @@
 [
 	{
-		"titulo": "Información institucional",
-		"route": "infoInstitucional",
+		"title": "Información institucional",
+		"path": "infoInstitucional",
 		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
 	},
 	{
-		"titulo": "Información organizativa",
-		"route": "infoOrganizativa",
+		"title": "Información organizativa",
+		"path": "infoOrganizativa",
 		"rutaImagen": "assets/art10/infoOrganizativa/infoOrganizativa.jpg"
 	}
 ]

@@ -1,27 +1,27 @@
 [
 	{
-		"titulo": "Mesa técnica de seguridad",
-		"route": "/mesas/mesaTecnicaSeguridad",
+		"title": "Mesa técnica de seguridad",
+		"path": "/mesas/mesaTecnicaSeguridad",
 		"rutaImagen": "assets/art10/infoInstitucional/mesas/mesaTecnicaSeguridad/mesaTecnicaSeguridad.jpg"
 	},
 	{
-		"titulo": "Mesa de empleo",
-		"route": "/mesas/mesaEmpleo",
+		"title": "Mesa de empleo",
+		"path": "/mesas/mesaEmpleo",
 		"rutaImagen": "assets/art10/infoInstitucional/mesas/mesaEmpleo/mesaEmpleo.jpg"
 	},
 	{
-		"titulo": "Consejo Local de la Infancia y Adolescencia",
-		"route": "/mesas/consejoLocalInfanciaAdolescencia",
+		"title": "Consejo Local de la Infancia y Adolescencia",
+		"path": "/mesas/consejoLocalInfanciaAdolescencia",
 		"rutaImagen": "assets/art10/infoInstitucional/mesas/consejoLocalInfanciaAdolescencia/consejoLocalInfanciaAdolescencia.jpg"
 	},
 	{
-		"titulo": "Mesa de la convivenccia",
-		"route": "/mesas/mesaConvivencia",
+		"title": "Mesa de la convivenccia",
+		"path": "/mesas/mesaConvivencia",
 		"rutaImagen": "assets/art10/infoInstitucional/mesas/mesaConvivencia/mesaConvivencia.jpg"
 	},
 	{
-		"titulo": "Mesa del caballo",
-		"route": "/mesas/mesaCaballo",
+		"title": "Mesa del caballo",
+		"path": "/mesas/mesaCaballo",
 		"rutaImagen": "assets/art10/infoInstitucional/mesas/mesaCaballo/mesaCaballo.jpg"
 	}
 ]

@@ -1,37 +1,37 @@
 [
 	{
-		"titulo": "Distrito Centro",
-		"route": "/distritos/distritoCentro",
+		"title": "Distrito Centro",
+		"path": "/distritos/distritoCentro",
 		"rutaImagen": "assets/distritos/distritoCentro/distritoCentro.jpg"
 	},
 	{
-		"titulo": "Distrito Norte",
-		"route": "/distritos/distritoNorte",
+		"title": "Distrito Norte",
+		"path": "/distritos/distritoNorte",
 		"rutaImagen": "assets/distritos/distritoNorte/distritoNorte.jpg"
 	},
 	{
-		"titulo": "Distrito Sur",
-		"route": "/distritos/distritoSur",
+		"title": "Distrito Sur",
+		"path": "/distritos/distritoSur",
 		"rutaImagen": "assets/distritos/distritoSur/distritoSur.jpg"
 	},
 	{
-		"titulo": "Distrito Este",
-		"route": "/distritos/distritoEste",
+		"title": "Distrito Este",
+		"path": "/distritos/distritoEste",
 		"rutaImagen": "assets/distritos/distritoEste/distritoEste.jpg"
 	},
 	{
-		"titulo": "Distrito Oeste",
-		"route": "/distritos/distritoOeste",
+		"title": "Distrito Oeste",
+		"path": "/distritos/distritoOeste",
 		"rutaImagen": "assets/distritos/distritoOeste/distritoOeste.jpg"
 	},
 	{
-		"titulo": "Distrito Noreste",
-		"route": "/distritos/distritoNoreste",
+		"title": "Distrito Noreste",
+		"path": "/distritos/distritoNoreste",
 		"rutaImagen": "assets/distritos/distritoNoreste/distritoNoreste.jpg"
 	},
 	{
-		"titulo": "Distrito Rural",
-		"route": "/distritos/distritoRural",
+		"title": "Distrito Rural",
+		"path": "/distritos/distritoRural",
 		"rutaImagen": "assets/distritos/distritoRural/distritoRural.jpg"
 	}
 ]

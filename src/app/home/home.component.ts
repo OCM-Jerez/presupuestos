@@ -27,7 +27,7 @@ export default class HomeComponent implements OnInit {
 		return {
 			...item,
 			funcion: () =>
-				this._router.navigateByUrl(`level1/${encodeURIComponent(item.route)}/${encodeURIComponent(item.titulo)}`)
+				this._router.navigateByUrl(`level1/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`)
 		};
 	}
 }

@@ -1,32 +1,32 @@
 [
 	{
-		"titulo": "Festival de Jerez",
-		"route": "/eventos/festivalJerez",
+		"title": "Festival de Jerez",
+		"path": "/eventos/festivalJerez",
 		"rutaImagen": "assets/eventos/festivalJerez/festivalJerez.jpg"
 	},
 	{
-		"titulo": "Feria",
-		"route": "/eventos/feria",
+		"title": "Feria",
+		"path": "/eventos/feria",
 		"rutaImagen": "assets/eventos/feria/feria.jpg"
 	},
 	{
-		"titulo": "Festival Internacional de titeres",
-		"route": "/eventos/titeres",
+		"title": "Festival Internacional de titeres",
+		"path": "/eventos/titeres",
 		"rutaImagen": "assets/eventos/titeres/titeres.jpg"
 	},
 	{
-		"titulo": "Feria del libro",
-		"route": "/eventos/feriaLibro",
+		"title": "Feria del libro",
+		"path": "/eventos/feriaLibro",
 		"rutaImagen": "assets/eventos/feriaLibro/feriaLibro.jpg"
 	},
 	{
-		"titulo": "Navidad",
-		"route": "/eventos/Navidad",
+		"title": "Navidad",
+		"path": "/eventos/Navidad",
 		"rutaImagen": "assets/eventos/Navidad/Navidad.jpg"
 	},
 	{
-		"titulo": "Zambombas",
-		"route": "/eventos/zambombas",
+		"title": "Zambombas",
+		"path": "/eventos/zambombas",
 		"rutaImagen": "assets/eventos/zambombas/zambombas.jpg"
 	}
 ]

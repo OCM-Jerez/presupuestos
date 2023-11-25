@@ -1,6 +1,6 @@
 export interface IMenuItem {
-	titulo: string;
-	route: string;
+	title: string;
+	path: string;
 	rutaImagen: string;
 	funcion: () => void;
 }

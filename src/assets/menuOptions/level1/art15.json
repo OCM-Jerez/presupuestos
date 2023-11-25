@@ -1,12 +1,12 @@
 [
 	{
-		"titulo": "Licitaciones",
-		"route": "/licitaciones",
+		"title": "Licitaciones",
+		"path": "/licitaciones",
 		"rutaImagen": "assets/img/home/menu3-400x250.webp"
 	},
 	{
-		"titulo": "Subvenciones",
-		"route": "/subvenciones",
+		"title": "Subvenciones",
+		"path": "/subvenciones",
 		"rutaImagen": "assets/subvenciones/subvenciones.jpg"
 	}
 ]

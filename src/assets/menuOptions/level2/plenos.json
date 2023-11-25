@@ -1,7 +1,7 @@
 [
 	{
-		"titulo": "plenos",
-		"route": "plenos",
+		"title": "plenos",
+		"path": "plenos",
 		"rutaImagen": "assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg"
 	}
 ]

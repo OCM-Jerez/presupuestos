@@ -170,7 +170,7 @@ export default class Level3Component implements OnInit {
 	createCardMenu(item: IMenuItem) {
 		return {
 			...item,
-			funcion: () => this._router.navigateByUrl(`${item.route}`)
+			funcion: () => this._router.navigateByUrl(`${item.path}`)
 		};
 	}
 }

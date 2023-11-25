@@ -1,52 +1,52 @@
 [
 	{
-		"titulo": "Palacio Riquelme",
-		"route": "edificiosSingulares/palacioRiquelme",
+		"title": "Palacio Riquelme",
+		"path": "edificiosSingulares/palacioRiquelme",
 		"rutaImagen": "assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg"
 	},
 	{
-		"titulo": "Antiguo asilo San Jose",
-		"route": "edificiosSingulares/asiloSanJose",
+		"title": "Antiguo asilo San Jose",
+		"path": "edificiosSingulares/asiloSanJose",
 		"rutaImagen": "assets/edificiosSingulares/asiloSanJose/asiloSanJose.jpg"
 	},
 	{
-		"titulo": "Antigua comisaria Policia Nacional",
-		"route": "edificiosSingulares/antiguaComisariaPoliciaNacional",
+		"title": "Antigua comisaria Policia Nacional",
+		"path": "edificiosSingulares/antiguaComisariaPoliciaNacional",
 		"rutaImagen": "assets/edificiosSingulares/antiguaComisariaPoliciaNacional/antiguaComisariaPoliciaNacional.jpg"
 	},
 	{
-		"titulo": "Antigua jefatura Policia Local",
-		"route": "edificiosSingulares/antiguaJefaturaPoliciaLocal",
+		"title": "Antigua jefatura Policia Local",
+		"path": "edificiosSingulares/antiguaJefaturaPoliciaLocal",
 		"rutaImagen": "assets/edificiosSingulares/antiguaJefaturaPoliciaLocal/antiguaJefaturaPoliciaLocal.jpg"
 	},
 	{
-		"titulo": "Bodegas Croft",
-		"route": "edificiosSingulares/croft",
+		"title": "Bodegas Croft",
+		"path": "edificiosSingulares/croft",
 		"rutaImagen": "assets/edificiosSingulares/croft/croft.jpg"
 	},
 	{
-		"titulo": "Callejón de los Bolos",
-		"route": "edificiosSingulares/callejonBolos",
+		"title": "Callejón de los Bolos",
+		"path": "edificiosSingulares/callejonBolos",
 		"rutaImagen": "assets/edificiosSingulares/callejonBolos/callejonBolos.jpg"
 	},
 	{
-		"titulo": "Palacio VillaPanés",
-		"route": "edificiosSingulares/palacioVillapanes",
+		"title": "Palacio VillaPanés",
+		"path": "edificiosSingulares/palacioVillapanes",
 		"rutaImagen": "assets/edificiosSingulares/palacioVillapanes/palacioVillapanes.jpg"
 	},
 	{
-		"titulo": "Claustros de Santo Domingo",
-		"route": "edificiosSingulares/claustrosSantoDomingo",
+		"title": "Claustros de Santo Domingo",
+		"path": "edificiosSingulares/claustrosSantoDomingo",
 		"rutaImagen": "assets/edificiosSingulares/claustrosSantoDomingo/claustrosSantoDomingo.jpg"
 	},
 	{
-		"titulo": "Mercado de abastos",
-		"route": "edificiosSingulares/mercadoAbastos",
+		"title": "Mercado de abastos",
+		"path": "edificiosSingulares/mercadoAbastos",
 		"rutaImagen": "assets/edificiosSingulares/mercadoAbastos/mercadoAbastos.jpg"
 	},
 	{
-		"titulo": "Cartuja",
-		"route": "edificiosSingulares/cartuja",
+		"title": "Cartuja",
+		"path": "edificiosSingulares/cartuja",
 		"rutaImagen": "assets/edificiosSingulares/cartuja/cartuja.jpg"
 	}
 ]

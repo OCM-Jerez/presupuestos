@@ -1,82 +1,82 @@
 [
 	{
-		"titulo": "Aeropuerto",
-		"route": "/temas/aeropuerto",
+		"title": "Aeropuerto",
+		"path": "/temas/aeropuerto",
 		"rutaImagen": "assets/temas/aeropuerto/aeropuerto.jpg"
 	},
 	{
-		"titulo": "Arboles",
-		"route": "/temas/arboles",
+		"title": "Arboles",
+		"path": "/temas/arboles",
 		"rutaImagen": "assets/temas/arboles/arboles.jpg"
 	},
 	{
-		"titulo": "Asesores",
-		"route": "/temas/asesores",
+		"title": "Asesores",
+		"path": "/temas/asesores",
 		"rutaImagen": "assets/temas/asesores/asesores.jpg"
 	},
 	{
-		"titulo": "Asta Regia",
-		"route": "/temas/astaRegia",
+		"title": "Asta Regia",
+		"path": "/temas/astaRegia",
 		"rutaImagen": "assets/temas/astaRegia/astaRegia.jpg"
 	},
 	{
-		"titulo": "Banda Municipal de música",
-		"route": "/temas/bandaMusica",
+		"title": "Banda Municipal de música",
+		"path": "/temas/bandaMusica",
 		"rutaImagen": "assets/temas/bandaMusica/bandaMusica.jpg"
 	},
 	{
-		"titulo": "Declaraciones políticos",
-		"route": "/temas/declaracionesPoliticos",
+		"title": "Declaraciones políticos",
+		"path": "/temas/declaracionesPoliticos",
 		"rutaImagen": "assets/temas/declaracionesPoliticos/declaracionesPoliticos.jpg"
 	},
 	{
-		"titulo": "Hermandades y cofradias",
-		"route": "/temas/hermandades",
+		"title": "Hermandades y cofradias",
+		"path": "/temas/hermandades",
 		"rutaImagen": "assets/temas/hermandades/hermandades.jpg"
 	},
 	{
-		"titulo": "Ifeca",
-		"route": "/temas/ifeca",
+		"title": "Ifeca",
+		"path": "/temas/ifeca",
 		"rutaImagen": "assets/temas/ifeca/ifeca.jpg"
 	},
 	{
-		"titulo": "Museo del belén",
-		"route": "/temas/museoBelen",
+		"title": "Museo del belén",
+		"path": "/temas/museoBelen",
 		"rutaImagen": "assets/temas/museoBelen/museoBelen.jpg"
 	},
 	{
-		"titulo": "Museo del Flamenco",
-		"route": "/temas/museoFlamenco",
+		"title": "Museo del Flamenco",
+		"path": "/temas/museoFlamenco",
 		"rutaImagen": "assets/temas/museoFlamenco/museoFlamenco.jpg"
 	},
 	{
-		"titulo": "Oficina de memoria democrática",
-		"route": "/temas/oficinaMemoriaDemocratica",
+		"title": "Oficina de memoria democrática",
+		"path": "/temas/oficinaMemoriaDemocratica",
 		"rutaImagen": "assets/temas/oficinaMemoriaDemocratica/oficinaMemoriaDemocratica.jpg"
 	},
 	{
-		"titulo": "Plantas fotovoltaicas y parques eólicos",
-		"route": "/temas/parquesEolicos",
+		"title": "Plantas fotovoltaicas y parques eólicos",
+		"path": "/temas/parquesEolicos",
 		"rutaImagen": "assets/temas/parquesEolicos/parquesEolicos.jpg"
 	},
 	{
-		"titulo": "Presupuesto Junta de Andalucía",
-		"route": "/temas/presupuestoJuntaAndalucia",
+		"title": "Presupuesto Junta de Andalucía",
+		"path": "/temas/presupuestoJuntaAndalucia",
 		"rutaImagen": "assets/temas/presupuestoJuntaAndalucia/presupuestoJuntaAndalucia.jpg"
 	},
 	{
-		"titulo": "Terrazas",
-		"route": "/temas/terrazas",
+		"title": "Terrazas",
+		"path": "/temas/terrazas",
 		"rutaImagen": "assets/temas/terrazas/terrazas.jpg"
 	},
 	{
-		"titulo": "Señalización vertical y horizontal",
-		"route": "/temas/senalizacion",
+		"title": "Señalización vertical y horizontal",
+		"path": "/temas/senalizacion",
 		"rutaImagen": "assets/temas/senalizacion/senalizacion.jpg"
 	},
 	{
-		"titulo": "Varios",
-		"route": "/temas/varios",
+		"title": "Varios",
+		"path": "/temas/varios",
 		"rutaImagen": "assets/temas/varios/varios.jpg"
 	}
 ]

@@ -1,7 +1,7 @@
 [
 	{
-		"titulo": "Proyectos viviendas",
-		"route": "proyectosViviendas",
+		"title": "Proyectos viviendas",
+		"path": "proyectosViviendas",
 		"rutaImagen": "assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg"
 	}
 ]

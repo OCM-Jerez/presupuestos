@@ -1,37 +1,37 @@
 [
 	{
-		"titulo": "Pleno ordinario 29 septiembre 2023",
-		"route": "/pleno/plenoOrdinario20230929",
+		"title": "Pleno ordinario 29 septiembre 2023",
+		"path": "/pleno/plenoOrdinario20230929",
 		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
 	},
 	{
-		"titulo": "Pleno extraorinario y solemne 7 octubre 2023",
-		"route": "/pleno/plenoExtraordinario20231007",
+		"title": "Pleno extraorinario y solemne 7 octubre 2023",
+		"path": "/pleno/plenoExtraordinario20231007",
 		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
 	},
 	{
-		"titulo": "Pleno ordinario 27 octubre 2023",
-		"route": "/pleno/plenoOrdinario20231027",
+		"title": "Pleno ordinario 27 octubre 2023",
+		"path": "/pleno/plenoOrdinario20231027",
 		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
 	},
 	{
-		"titulo": "Pleno extraordinario 15 noviembre 2023",
-		"route": "/pleno/plenoExtraordinario20231115",
+		"title": "Pleno extraordinario 15 noviembre 2023",
+		"path": "/pleno/plenoExtraordinario20231115",
 		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
 	},
 	{
-		"titulo": "Pleno extraordinario y urgente 15 noviembre 2023",
-		"route": "/pleno/plenoExtraordinarioUrgente20231115",
+		"title": "Pleno extraordinario y urgente 15 noviembre 2023",
+		"path": "/pleno/plenoExtraordinarioUrgente20231115",
 		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
 	},
 	{
-		"titulo": "Pleno extraordinario 22 noviembre 2023",
-		"route": "/pleno/plenoExtraordinario20231122",
+		"title": "Pleno extraordinario 22 noviembre 2023",
+		"path": "/pleno/plenoExtraordinario20231122",
 		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
 	},
 	{
-		"titulo": "Pleno ordinario 24 noviembre 2023",
-		"route": "/pleno/plenoOrdinario20231124",
+		"title": "Pleno ordinario 24 noviembre 2023",
+		"path": "/pleno/plenoOrdinario20231124",
 		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
 	}
 ]

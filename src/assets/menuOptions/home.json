@@ -1,57 +1,57 @@
 [
 	{
-		"titulo": "Artículo 10. Información institucional y organizativa.",
-		"route": "art10",
+		"title": "Artículo 10. Información institucional y organizativa.",
+		"path": "art10",
 		"rutaImagen": "assets/art10/ayto.webp"
 	},
 	{
-		"titulo": "Artículo 11. Información sobre altos cargos y personas que ejerzan la máxima responsabilidad.",
-		"route": "art11",
+		"title": "Artículo 11. Información sobre altos cargos y personas que ejerzan la máxima responsabilidad.",
+		"path": "art11",
 		"rutaImagen": "assets/art11/art11.jpg"
 	},
 	{
-		"titulo": "Artículo 12. Información sobre planificación y evaluación.",
-		"route": "art12",
+		"title": "Artículo 12. Información sobre planificación y evaluación.",
+		"path": "art12",
 		"rutaImagen": "assets/art12/art12.jpg"
 	},
 	{
-		"titulo": "Artículo 13. Información de relevancia jurídica.",
-		"route": "art13",
+		"title": "Artículo 13. Información de relevancia jurídica.",
+		"path": "art13",
 		"rutaImagen": "assets/art13/art13.jpg"
 	},
 	{
-		"titulo": "Artículo 14. Información sobre procedimientos, cartas de servicio y participación ciudadana.",
-		"route": "art14",
+		"title": "Artículo 14. Información sobre procedimientos, cartas de servicio y participación ciudadana.",
+		"path": "art14",
 		"rutaImagen": "assets/art14/art14.jpg"
 	},
 	{
-		"titulo": "Artículo 15. Información sobre contratos, convenios y subvenciones.",
-		"route": "art15",
+		"title": "Artículo 15. Información sobre contratos, convenios y subvenciones.",
+		"path": "art15",
 		"rutaImagen": "assets/art15/art15.jpg"
 	},
 	{
-		"titulo": "Artículo 16. Información económica, financiera y presupuestaria.",
-		"route": "art16",
+		"title": "Artículo 16. Información económica, financiera y presupuestaria.",
+		"path": "art16",
 		"rutaImagen": "assets/art16/art16.jpg"
 	},
 	{
-		"titulo": "Medioambiental, urbanística y vivienda",
-		"route": "medioambiental",
+		"title": "Medioambiental, urbanística y vivienda",
+		"path": "medioambiental",
 		"rutaImagen": "assets/medioambiental/medioambiental.jpg"
 	},
 	{
-		"titulo": "Eventos culturales",
-		"route": "eventos",
+		"title": "Eventos culturales",
+		"path": "eventos",
 		"rutaImagen": "assets/eventos/feria/feria.jpg"
 	},
 	{
-		"titulo": "Temas generales",
-		"route": "temas",
+		"title": "Temas generales",
+		"path": "temas",
 		"rutaImagen": "assets/temas/ifeca/ifeca.jpg"
 	},
 	{
-		"titulo": "Distritos y barrios",
-		"route": "distritos",
+		"title": "Distritos y barrios",
+		"path": "distritos",
 		"rutaImagen": "assets/distritos/distritos.jpg"
 	}
 ]

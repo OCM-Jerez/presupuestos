@@ -1,7 +1,7 @@
 [
 	{
-		"titulo": "Apartamentos turísticos",
-		"route": "apartamentosTuristicos",
+		"title": "Apartamentos turísticos",
+		"path": "apartamentosTuristicos",
 		"rutaImagen": "assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg"
 	}
 ]

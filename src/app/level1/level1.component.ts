@@ -30,7 +30,7 @@ export default class Level1Component implements OnInit {
 			...item,
 			// funcion: () => this._router.navigateByUrl(`${item.route}`)
 			funcion: () =>
-				this._router.navigateByUrl(`level2/${encodeURIComponent(item.route)}/${encodeURIComponent(item.titulo)}`)
+				this._router.navigateByUrl(`level2/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`)
 		};
 	}
 }
