@@ -18,5 +18,10 @@
 		"titulo": "Registro solares y edificaciones ruinosas",
 		"route": "/registroSolares",
 		"rutaImagen": "assets/medioambiental/registroSolares/registroSolares.jpg"
+	},
+	{
+		"titulo": "Mercados",
+		"route": "/mercados",
+		"rutaImagen": "assets/medioambiental/mercados/mercados.jpg"
 	}
 ]

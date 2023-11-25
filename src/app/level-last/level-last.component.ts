@@ -93,6 +93,10 @@ export default class LevelLastComponent implements OnInit {
 				this._option = 'proyectosViviendas';
 				parametro = `medioambiental`;
 				break;
+			case 'mercados':
+				this._option = 'mercados';
+				parametro = `medioambiental`;
+				break;
 			default:
 				break;
 		}

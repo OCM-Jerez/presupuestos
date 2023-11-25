@@ -95,6 +95,10 @@ export default [
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
+		path: 'mercados',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
 		path: 'eventos/:evento',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
