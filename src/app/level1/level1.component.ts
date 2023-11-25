@@ -19,7 +19,7 @@ export default class Level1Component implements OnInit {
 	private _router = inject(Router);
 
 	ngOnInit(): void {
-		console.log(this.route, this.title);
+		console.log('Level1 ', this.route, this.title);
 		import(`../../assets/menuOptions/level1/${this.route}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => this.createCardMenu(item));
 		});
@@ -28,7 +28,9 @@ export default class Level1Component implements OnInit {
 	createCardMenu(item: IMenuItem) {
 		return {
 			...item,
-			funcion: () => this._router.navigateByUrl(`${item.route}`)
+			// funcion: () => this._router.navigateByUrl(`${item.route}`)
+			funcion: () =>
+				this._router.navigateByUrl(`level2/${encodeURIComponent(item.route)}/${encodeURIComponent(item.titulo)}`)
 		};
 	}
 }

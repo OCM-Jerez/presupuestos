@@ -15,17 +15,22 @@ export default [
 
 	// level2 ============================================================================================================================================
 	{
-		path: 'infoInstitucional',
+		path: 'level2/:route/:title',
 		loadComponent: () => import('./level2/level2.component')
 	},
-	{
-		path: 'infoOrganizativa',
-		loadComponent: () => import('./level2/level2.component')
-	},
-	{
-		path: 'edificiosSingulares',
-		loadComponent: () => import('./level2/level2.component')
-	},
+
+	// {
+	// 	path: 'infoInstitucional',
+	// 	loadComponent: () => import('./level2/level2.component')
+	// },
+	// {
+	// 	path: 'infoOrganizativa',
+	// 	loadComponent: () => import('./level2/level2.component')
+	// },
+	// {
+	// 	path: 'edificiosSingulares',
+	// 	loadComponent: () => import('./level2/level2.component')
+	// },
 
 	// level3  ============================================================================================================================================
 	{

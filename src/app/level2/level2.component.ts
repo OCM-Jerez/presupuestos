@@ -1,6 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
@@ -17,26 +17,19 @@ interface MenuItem {
 	templateUrl: './level2.component.html'
 })
 export default class Level2Component implements OnInit {
+	@Input() route?: string;
+	@Input() title?: string;
 	public menuOptions: MenuItem[] = [];
-	public titulo: string;
-	private _route = inject(ActivatedRoute);
 	private _router = inject(Router);
 
 	ngOnInit(): void {
-		this._route.queryParams.subscribe(() => {
-			// route
-			this.titulo = this._route.snapshot.routeConfig?.path;
-
-			import(`../../assets/menuOptions/level2/${this.titulo}.json`)
-				.then((data) => {
-					this.menuOptions = data.default.map((item: MenuItem) => this.createCardMenu(item));
-				})
-				.catch((error) => console.error(`ERROR ../../assets/menuOptions/level2/${this.titulo}.json`, error));
+		console.log('Level2 ', this.route, this.title);
+		import(`../../assets/menuOptions/level2/${this.route}.json`).then((data) => {
+			this.menuOptions = data.default.map((item: MenuItem) => this.createCardMenu(item));
 		});
 	}
 
 	createCardMenu(item: MenuItem) {
-		// console.log(`Level 2 Ruta= ${item.route}`);
 		return {
 			...item,
 			funcion: () => this._router.navigateByUrl(`${item.route}`)
