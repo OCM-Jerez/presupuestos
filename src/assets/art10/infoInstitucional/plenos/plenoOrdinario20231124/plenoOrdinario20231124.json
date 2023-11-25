@@ -1,4 +1,10 @@
 [
-	{ "data": "Descripción", "value": "" },
-	{ "data": "Observaciones", "value": "" }
+	{
+		"data": "Descripción",
+		"value": "Pleno ordinario del 24 noviembre 2023"
+	},
+	{
+		"data": "Observaciones",
+		"value": ""
+	}
 ]
