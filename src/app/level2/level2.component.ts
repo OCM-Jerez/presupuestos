@@ -13,14 +13,14 @@ import { IMenuItem } from '@interfaces/menu.interface';
 	templateUrl: './level2.component.html'
 })
 export default class Level2Component implements OnInit {
-	@Input() route?: string;
+	@Input() path?: string;
 	@Input() title?: string;
 	public menuOptions: IMenuItem[] = [];
 	private _router = inject(Router);
 
 	ngOnInit(): void {
-		console.log('Level2 ', this.route, this.title);
-		import(`../../assets/menuOptions/level2/${this.route}.json`).then((data) => {
+		console.log('Level2 ', this.path, this.title);
+		import(`../../assets/menuOptions/level2/${this.path}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => this.createCardMenu(item));
 		});
 	}
