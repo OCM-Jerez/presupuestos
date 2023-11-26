@@ -2,11 +2,13 @@
 	{
 		"title": "Información institucional",
 		"path": "infoInstitucional",
+		"hasMenu": true,
 		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
 	},
 	{
 		"title": "Información organizativa",
 		"path": "infoOrganizativa",
+		"hasMenu": true,
 		"rutaImagen": "assets/art10/infoOrganizativa/infoOrganizativa.jpg"
 	}
 ]

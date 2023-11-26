@@ -2,21 +2,25 @@
 	{
 		"title": "Presupuestos",
 		"path": "presupuestos",
+		"hasMenu": false,
 		"rutaImagen": "assets/img/home/menu1-400x250.webp"
 	},
 	{
 		"title": "Deuda",
 		"path": "/deuda",
+		"hasMenu": false,
 		"rutaImagen": "assets/deuda/deuda.jpg"
 	},
 	{
 		"title": "PMP",
 		"path": "/pmp",
+		"hasMenu": false,
 		"rutaImagen": "assets/datosEconomicos/pmp/pmp.jpg"
 	},
 	{
 		"title": "Impuestos",
 		"path": "/impuestos",
+		"hasMenu": false,
 		"rutaImagen": "assets/art16/impuestos/impuestos.jpg"
 	}
 ]

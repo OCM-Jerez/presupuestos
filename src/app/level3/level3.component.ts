@@ -54,7 +54,7 @@ export default class Level3Component implements OnInit {
 	public isComisiones = false;
 
 	ngOnInit(): void {
-		// console.log('Level3 ', this.path, this.title);
+		console.log('Level3 ', this.path, this.title);
 		// console.log(`../../assets/menuOptions/level3/${this.path}.json`);
 
 		import(`../../assets/menuOptions/level3/${this.path}.json`).then((data) => {

@@ -9,7 +9,7 @@ export default [
 
 	// level1 =============================================================================================================================================
 	{
-		path: 'level1/:path/:title/:hasMenu',
+		path: 'level1/:path/:title',
 		loadComponent: () => import('./level1/level1.component')
 	},
 
