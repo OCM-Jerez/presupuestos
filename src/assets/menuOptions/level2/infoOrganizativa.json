@@ -2,16 +2,19 @@
 	{
 		"title": "Retribuciones",
 		"path": "retribuciones2022",
+		"isLastLevel": true,
 		"rutaImagen": "assets/img/home/menu1-400x250.webp"
 	},
 	{
 		"title": "RPT",
 		"path": "rpt",
+		"isLastLevel": true,
 		"rutaImagen": "assets/img/home/menu2-400x250.webp"
 	},
 	{
 		"title": "Noticias",
 		"path": "empleadosNews",
+		"isLastLevel": true,
 		"rutaImagen": "assets/empleados/empleadosNews.jpg"
 	}
 ]

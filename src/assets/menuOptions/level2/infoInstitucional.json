@@ -2,26 +2,31 @@
 	{
 		"title": "Plenos",
 		"path": "plenos",
+		"isLastLevel": false,
 		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
 	},
 	{
 		"title": "Entes",
 		"path": "entes",
+		"isLastLevel": false,
 		"rutaImagen": "assets/art10/infoInstitucional/entes/fundarte/fundarte.jpg"
 	},
 	{
 		"title": "Comisiones de Pleno",
 		"path": "comisiones",
+		"isLastLevel": false,
 		"rutaImagen": "assets/art10/infoInstitucional/comisiones/comisiones.jpg"
 	},
 	{
 		"title": "ELAs",
 		"path": "elas",
+		"isLastLevel": false,
 		"rutaImagen": "assets/art10/infoInstitucional/elas/elas.jpg"
 	},
 	{
 		"title": "Mesas",
 		"path": "mesas",
+		"isLastLevel": false,
 		"rutaImagen": "assets/art10/infoInstitucional/mesas/mesas.jpg"
 	}
 ]

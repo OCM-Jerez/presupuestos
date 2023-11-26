@@ -2,16 +2,19 @@
 	{
 		"title": "Palacio Riquelme",
 		"path": "edificiosSingulares/palacioRiquelme",
+		"isLastLevel": true,
 		"rutaImagen": "assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg"
 	},
 	{
 		"title": "Antiguo asilo San Jose",
 		"path": "edificiosSingulares/asiloSanJose",
+		"isLastLevel": true,
 		"rutaImagen": "assets/edificiosSingulares/asiloSanJose/asiloSanJose.jpg"
 	},
 	{
 		"title": "Antigua comisaria Policia Nacional",
 		"path": "edificiosSingulares/antiguaComisariaPoliciaNacional",
+		"isLastLevel": true,
 		"rutaImagen": "assets/edificiosSingulares/antiguaComisariaPoliciaNacional/antiguaComisariaPoliciaNacional.jpg"
 	},
 	{
@@ -22,31 +25,37 @@
 	{
 		"title": "Bodegas Croft",
 		"path": "edificiosSingulares/croft",
+		"isLastLevel": true,
 		"rutaImagen": "assets/edificiosSingulares/croft/croft.jpg"
 	},
 	{
 		"title": "Callejón de los Bolos",
 		"path": "edificiosSingulares/callejonBolos",
+		"isLastLevel": true,
 		"rutaImagen": "assets/edificiosSingulares/callejonBolos/callejonBolos.jpg"
 	},
 	{
 		"title": "Palacio VillaPanés",
 		"path": "edificiosSingulares/palacioVillapanes",
+		"isLastLevel": true,
 		"rutaImagen": "assets/edificiosSingulares/palacioVillapanes/palacioVillapanes.jpg"
 	},
 	{
 		"title": "Claustros de Santo Domingo",
 		"path": "edificiosSingulares/claustrosSantoDomingo",
+		"isLastLevel": true,
 		"rutaImagen": "assets/edificiosSingulares/claustrosSantoDomingo/claustrosSantoDomingo.jpg"
 	},
 	{
 		"title": "Mercado de abastos",
 		"path": "edificiosSingulares/mercadoAbastos",
+		"isLastLevel": true,
 		"rutaImagen": "assets/edificiosSingulares/mercadoAbastos/mercadoAbastos.jpg"
 	},
 	{
 		"title": "Cartuja",
 		"path": "edificiosSingulares/cartuja",
+		"isLastLevel": true,
 		"rutaImagen": "assets/edificiosSingulares/cartuja/cartuja.jpg"
 	}
 ]
