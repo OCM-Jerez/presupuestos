@@ -11,7 +11,7 @@ interface IMenuItemHome {
 	path: string;
 	rutaImagen: string;
 	funcion: () => void;
-	levels: number;
+	hasMenu: string;
 }
 
 @Component({
@@ -32,11 +32,15 @@ export default class HomeComponent implements OnInit {
 	}
 
 	createCardMenu(item: IMenuItemHome) {
+		console.log('item ', item.path, item.hasMenu);
+
 		return {
 			...item,
 			funcion: () =>
 				this._router.navigateByUrl(
-					`level1/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(item.levels)}`
+					`level1/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(
+						item.hasMenu
+					)}`
 				)
 		};
 	}

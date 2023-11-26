@@ -15,7 +15,7 @@ import { IMenuItem } from '@interfaces/menu.interface';
 export default class Level2Component implements OnInit {
 	@Input() path?: string;
 	@Input() title?: string;
-	@Input() levels?: string;
+	// @Input() levels?: string;
 	public menuOptions: IMenuItem[] = [];
 	private _router = inject(Router);
 
