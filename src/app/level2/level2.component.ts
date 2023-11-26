@@ -20,7 +20,7 @@ export default class Level2Component implements OnInit {
 	private _router = inject(Router);
 
 	ngOnInit(): void {
-		console.log('Level2 ', this.path, this.title);
+		// console.log('Level2 ', this.path, this.title);
 		let URL = ``;
 
 		// console.log('item ', this.path);
@@ -36,7 +36,7 @@ export default class Level2Component implements OnInit {
 				this._router.navigateByUrl(URL);
 				break;
 			default:
-				console.log('URL ', URL);
+				// console.log('URL ', URL);
 				import(`../../assets/menuOptions/level2/${this.path}.json`).then((data) => {
 					this.menuOptions = data.default.map((item: IMenuItem) => this.createCardMenu(item));
 				});
@@ -63,7 +63,7 @@ export default class Level2Component implements OnInit {
 				URL = `level3/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
 				break;
 		}
-		console.log('URL ', URL);
+		// console.log('URL ', URL);
 		return {
 			...item,
 			// funcion: () => this._router.navigateByUrl(`${item.path}`)

@@ -54,8 +54,8 @@ export default class Level3Component implements OnInit {
 	public isComisiones = false;
 
 	ngOnInit(): void {
-		console.log('Level3 ', this.path, this.title);
-		console.log(`../../assets/menuOptions/level3/${this.path}.json`);
+		// console.log('Level3 ', this.path, this.title);
+		// console.log(`../../assets/menuOptions/level3/${this.path}.json`);
 
 		import(`../../assets/menuOptions/level3/${this.path}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => this.createCardMenu(item));
@@ -93,7 +93,7 @@ export default class Level3Component implements OnInit {
 				break;
 
 			case 'empleadosNews':
-				console.log('empleadosNews');
+				// console.log('empleadosNews');
 				// src\assets\empleados\empleadosNews.json
 				path = `empleadosNews`;
 				break;
@@ -120,7 +120,7 @@ export default class Level3Component implements OnInit {
 		}
 
 		const pathBase = `/assets/${path}/`;
-		console.log('pathBase', pathBase);
+		// console.log('pathBase', pathBase);
 
 		const commonRequests = {
 			// data: this._http.get<IOption[]>(`${pathBase}${this._option}/${this._option}.json`),

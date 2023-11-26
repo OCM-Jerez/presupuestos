@@ -11,7 +11,7 @@ interface IMenuItemHome {
 	path: string;
 	rutaImagen: string;
 	funcion: () => void;
-	hasMenu: string;
+	hasMenu: boolean;
 }
 
 @Component({
@@ -32,8 +32,6 @@ export default class HomeComponent implements OnInit {
 	}
 
 	createCardMenu(item: IMenuItemHome) {
-		console.log('item ', item.path, item.hasMenu);
-
 		return {
 			...item,
 			funcion: () =>
