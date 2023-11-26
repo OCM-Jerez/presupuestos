@@ -72,15 +72,15 @@ export default [
 	// 	loadComponent: () => import('./level-last/level-last.component')
 	// },
 	{
-		path: 'pleno/:pleno',
+		path: 'plenos/:pleno',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'ela/:ela',
+		path: 'elas/:ela',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'comision/:comision',
+		path: 'comisiones/:comision',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
