@@ -1,57 +1,57 @@
 [
 	{
 		"title": "Comisión de presidencia, centro histórico, fondos europeos, coordinación de gobierno y ordenación del territorio",
-		"path": "/comision/presidencia",
+		"path": "/comisiones/presidencia",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión de servicios públicos, desarrollo sostenible, medio ambiente, protección animal y participación ciudadana",
-		"path": "/comision/serviciosPublicos",
+		"path": "/comisiones/serviciosPublicos",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión de inclusión social, familias, igualdad y diversidad y medio rural",
-		"path": "/comision/inclusion",
+		"path": "/comisiones/inclusion",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión de turismo, cultura, educación, deportes y juventud",
-		"path": "/comision/turismo",
+		"path": "/comisiones/turismo",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión de empleo, economía, patrimonio, seguridad, recursos humanos, simplificación administrativa y transparencia",
-		"path": "/comision/patrimonio",
+		"path": "/comisiones/patrimonio",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión especial de cuentas",
-		"path": "/comision/cuentas",
+		"path": "/comisiones/cuentas",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión especial de sugerencias y reclamaciones",
-		"path": "/comision/sugerencias",
+		"path": "/comisiones/sugerencias",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión especial de capitalidad cultural",
-		"path": "/comision/capitabilidad",
+		"path": "/comisiones/capitabilidad",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión especial de presupuestos participativos",
-		"path": "/comision/presupuestos",
+		"path": "/comisiones/presupuestos",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión especial de regeneración democrática y calidad institucional",
-		"path": "/comision/regeneracion",
+		"path": "/comisiones/regeneracion",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión especial de impulso y seguimiento de las mesas sectoriales",
-		"path": "/comision/impulso",
+		"path": "/comisiones/impulso",
 		"rutaImagen": ""
 	}
 ]

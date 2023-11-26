@@ -11,6 +11,7 @@ import DocumentosComponent from '@commons/components/level/documentos/documentos
 import EstadoLicitacionComponent from '@commons/components/level/estado-licitacion/estado-licitacion.component';
 import NoticiasComponent from '@commons/components/level/noticias/noticias.component';
 import SeguimientoSubvencionComponent from '@commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
+
 import { catchError, forkJoin, of } from 'rxjs';
 
 import { ICom } from '@interfaces/com.interface';
@@ -36,17 +37,16 @@ import { IMenuItem } from '@interfaces/menu.interface';
 	templateUrl: './level3.component.html'
 })
 export default class Level3Component implements OnInit {
-	public menuOptions: IMenuItem[] = [];
 	@Input() path?: string;
 	@Input() title?: string;
-	// public titulo: string;
-	// private _route = inject(ActivatedRoute);
+	public menuOptions: IMenuItem[] = [];
 	private _router = inject(Router);
 	private _http = inject(HttpClient);
 
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
+
 	public hasDocs = false;
 	public hasComs = false;
 	public hasNews = false;
@@ -56,7 +56,6 @@ export default class Level3Component implements OnInit {
 	ngOnInit(): void {
 		console.log('Level3 ', this.path, this.title);
 		// console.log(`../../assets/menuOptions/level3/${this.path}.json`);
-
 		import(`../../assets/menuOptions/level3/${this.path}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => this.createCardMenu(item));
 			this.fetchData(this.path);
@@ -183,6 +182,8 @@ export default class Level3Component implements OnInit {
 	}
 
 	createCardMenu(item: IMenuItem) {
+		console.log('createCardMenu', item);
+
 		return {
 			...item,
 			funcion: () => this._router.navigateByUrl(`${item.path}`)

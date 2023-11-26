@@ -17,6 +17,7 @@ import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IStep } from '@interfaces/step.interface';
+
 interface IOption {
 	data: string;
 	value: string;
@@ -48,22 +49,27 @@ interface IStepSubvencion {
 export default class LevelLastComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
 	private _http = inject(HttpClient);
-	public data: IOption[] = [];
+
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
+	public data: IOption[] = [];
 	public steps: IStep[] = [];
 	public stepsSubvencion: IStepSubvencion[] = [];
+
 	public imgURL: string;
 	public descripcion: string;
+
 	public isSubvencion = false;
 	public isDistrito = false;
 	public isLicitacion = false;
 	public isEdificioSingular = false;
 	private _isTema = false;
+
 	public hasDocs = false;
 	public hasComs = false;
 	public hasNews = false;
+
 	public gauge = '/assets/licitaciones/gauge.jpg';
 	private _option = '';
 
@@ -73,8 +79,9 @@ export default class LevelLastComponent implements OnInit {
 		const parametro = pathSegments.filter((segment) => !segment.startsWith(':'))[0];
 		const path = pathSegments[1]?.split(':')[1] || '';
 		this._option = paramMap.get(`${path}`);
-		// console.log('Level last this._option', this._option);
-		// console.log('Level last parametro', parametro);
+		console.log('Level last this._option', this._option);
+		console.log('Level last parametro', parametro);
+		console.log('Level last path', path);
 
 		this.fetchData(parametro, path);
 	}
