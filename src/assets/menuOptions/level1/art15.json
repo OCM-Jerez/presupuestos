@@ -2,11 +2,13 @@
 	{
 		"title": "Licitaciones",
 		"path": "/licitaciones",
+		"isLastLevel": false,
 		"rutaImagen": "assets/img/home/menu3-400x250.webp"
 	},
 	{
 		"title": "Subvenciones",
 		"path": "/subvenciones",
+		"isLastLevel": false,
 		"rutaImagen": "assets/subvenciones/subvenciones.jpg"
 	}
 ]

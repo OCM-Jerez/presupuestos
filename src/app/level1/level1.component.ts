@@ -9,7 +9,7 @@ interface IMenuItemHome {
 	path: string;
 	rutaImagen: string;
 	funcion: () => void;
-	hasMenu?: boolean;
+	isLastLevel?: boolean;
 }
 
 @Component({
@@ -32,9 +32,9 @@ export default class Level1Component implements OnInit {
 	}
 
 	createCardMenu(item: IMenuItemHome) {
-		const URL = item.hasMenu
-			? `level2/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)} )}`
-			: item.path;
+		const URL = item.isLastLevel
+			? item.path
+			: `level2/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)} )}`;
 
 		return {
 			...item,

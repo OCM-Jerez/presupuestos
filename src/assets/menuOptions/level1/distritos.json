@@ -2,36 +2,43 @@
 	{
 		"title": "Distrito Centro",
 		"path": "distritos/distritoCentro",
+		"isLastLevel": true,
 		"rutaImagen": "assets/distritos/distritoCentro/distritoCentro.jpg"
 	},
 	{
 		"title": "Distrito Norte",
 		"path": "distritos/distritoNorte",
+		"isLastLevel": true,
 		"rutaImagen": "assets/distritos/distritoNorte/distritoNorte.jpg"
 	},
 	{
 		"title": "Distrito Sur",
 		"path": "distritos/distritoSur",
+		"isLastLevel": true,
 		"rutaImagen": "assets/distritos/distritoSur/distritoSur.jpg"
 	},
 	{
 		"title": "Distrito Este",
 		"path": "distritos/distritoEste",
+		"isLastLevel": true,
 		"rutaImagen": "assets/distritos/distritoEste/distritoEste.jpg"
 	},
 	{
 		"title": "Distrito Oeste",
 		"path": "distritos/distritoOeste",
+		"isLastLevel": true,
 		"rutaImagen": "assets/distritos/distritoOeste/distritoOeste.jpg"
 	},
 	{
 		"title": "Distrito Noreste",
 		"path": "distritos/distritoNoreste",
+		"isLastLevel": true,
 		"rutaImagen": "assets/distritos/distritoNoreste/distritoNoreste.jpg"
 	},
 	{
 		"title": "Distrito Rural",
 		"path": "distritos/distritoRural",
+		"isLastLevel": true,
 		"rutaImagen": "assets/distritos/distritoRural/distritoRural.jpg"
 	}
 ]

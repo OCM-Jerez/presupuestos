@@ -2,31 +2,31 @@
 	{
 		"title": "Edificios singulares",
 		"path": "edificiosSingulares",
-		"hasMenu": true,
+		"isLastLevel": false,
 		"rutaImagen": "assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg"
 	},
 	{
 		"title": "Apartamentos turísticos",
 		"path": "apartamentosTuristicos",
-		"hasMenu": false,
+		"isLastLevel": true,
 		"rutaImagen": "assets/medioambiental/apartamentosTuristicos/apartamentosTuristicos.jpg"
 	},
 	{
 		"title": "Proyectos construcción de viviendas",
 		"path": "proyectosViviendas",
-		"hasMenu": false,
+		"isLastLevel": true,
 		"rutaImagen": "assets/medioambiental/proyectosViviendas/proyectosViviendas.jpg"
 	},
 	{
 		"title": "Registro solares y edificaciones ruinosas",
 		"path": "registroSolares",
-		"hasMenu": false,
+		"isLastLevel": true,
 		"rutaImagen": "assets/medioambiental/registroSolares/registroSolares.jpg"
 	},
 	{
 		"title": "Mercados",
 		"path": "mercados",
-		"hasMenu": false,
+		"isLastLevel": true,
 		"rutaImagen": "assets/medioambiental/mercados/mercados.jpg"
 	}
 ]
