@@ -90,6 +90,12 @@
 		"rutaImagen": "assets/temas/senalizacion/senalizacion.jpg"
 	},
 	{
+		"title": "Recogida naranjas",
+		"path": "temas/naranjas",
+		"isLastLevel": true,
+		"rutaImagen": "assets/temas/naranjas/naranjas.jpg"
+	},
+	{
 		"title": "Varios",
 		"path": "temas/varios",
 		"isLastLevel": true,

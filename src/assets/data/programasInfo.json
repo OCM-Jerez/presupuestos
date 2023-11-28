@@ -303,11 +303,12 @@
 		"descripcion": "Limpieza viaria",
 		"news": [
 			{
-				"date": "",
-				"medio": "",
-				"title": "",
-				"URL": ""
+				"date": "27 noviembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "El Ayuntamiento de Jerez amplía el servicio de limpieza en las barriadas rurales",
+				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-ampliacion-servicio-barriadas-rurales_0_1852016394.html"
 			},
+
 			{
 				"date": "9 noviembre 2023",
 				"medio": "Diario de Jerez",
