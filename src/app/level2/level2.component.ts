@@ -34,7 +34,7 @@ export default class Level2Component implements OnInit {
 	createCardMenu(item: IMenuItemHome) {
 		const URL = item.isLastLevel
 			? item.path
-			: `level3/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)} )}`;
+			: `level3/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
 
 		return {
 			...item,

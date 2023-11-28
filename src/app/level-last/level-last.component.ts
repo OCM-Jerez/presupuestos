@@ -75,18 +75,22 @@ export default class LevelLastComponent implements OnInit {
 
 	ngOnInit() {
 		const { paramMap, routeConfig } = this._route.snapshot;
+		const pathFull = routeConfig?.path || '';
 		const pathSegments = routeConfig?.path.split('/') || [];
 		const parametro = pathSegments.filter((segment) => !segment.startsWith(':'))[0];
 		const path = pathSegments[1]?.split(':')[1] || '';
 		this._option = paramMap.get(`${path}`);
+
+		console.log('Level last paramMap', pathSegments);
+		console.log('Level last pathFull', pathFull);
 		console.log('Level last this._option', this._option);
 		console.log('Level last parametro', parametro);
 		console.log('Level last path', path);
 
-		this.fetchData(parametro, path);
+		this.fetchData(parametro, path, pathFull);
 	}
 
-	fetchData(parametro: string, path: string) {
+	fetchData(parametro: string, path: string, pathFull: string) {
 		switch (parametro) {
 			case 'registroSolares':
 				this._option = 'registroSolares';
@@ -124,6 +128,7 @@ export default class LevelLastComponent implements OnInit {
 			case 'mesa':
 				parametro = `art10/infoInstitucional/mesas`;
 				break;
+
 			case 'subvencion':
 				this.isSubvencion = true;
 				break;

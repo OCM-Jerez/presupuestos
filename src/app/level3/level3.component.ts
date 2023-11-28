@@ -63,37 +63,27 @@ export default class Level3Component implements OnInit {
 	}
 
 	fetchData(path: string) {
-		switch (path) {
-			case 'plenos':
-				path = `art10/infoInstitucional`;
-				break;
-			case 'entes':
-				path = `art10/infoInstitucional`;
-				break;
-			case 'comisiones':
-				path = `art10/infoInstitucional/`;
-				this.isComisiones = true;
-				break;
-			case 'elas':
-				path = `art10/infoInstitucional`;
-				break;
-			case 'mesas':
-				path = `art10/infoInstitucional`;
-				break;
-			case 'retribuciones2022':
-				console.log('retribuciones2022');
-				path = `art10/infoInstitucional/retribuciones2022`;
-				break;
-			case 'rpt':
-				console.log('retribuciones2022');
-				path = `art10/infoInstitucional/retribuciones2022`;
-				break;
-			case 'empleadosNews':
-				path = `empleadosNews`;
-				break;
-		}
+		// switch (path) {
+		// 	case 'plenos':
+		// 		path = `art10/infoInstitucional`;
+		// 		break;
+		// 	case 'entes':
+		// 		path = `art10/infoInstitucional`;
+		// 		break;
+		// 	case 'comisiones':
+		// 		path = `art10/infoInstitucional/`;
+		// 		this.isComisiones = true;
+		// 		break;
+		// 	case 'elas':
+		// 		path = `art10/infoInstitucional`;
+		// 		break;
+		// 	case 'mesas':
+		// 		path = `art10/infoInstitucional`;
+		// 		break;
+		// }
 
-		const pathBase = `/assets/${path}/`;
+		const pathBase = `/assets/art10/infoInstitucional/`;
+
 		// console.log('pathBase', pathBase);
 
 		const commonRequests = {

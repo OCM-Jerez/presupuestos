@@ -19,64 +19,17 @@ export default [
 		loadComponent: () => import('./level2/level2.component')
 	},
 
-	// {
-	// 	path: 'infoInstitucional',
-	// 	loadComponent: () => import('./level2/level2.component')
-	// },
-	// {
-	// 	path: 'infoOrganizativa',
-	// 	loadComponent: () => import('./level2/level2.component')
-	// },
-	// {
-	// 	path: 'edificiosSingulares',
-	// 	loadComponent: () => import('./level2/level2.component')
-	// },
-
 	// level3  ============================================================================================================================================
 	{
 		path: 'level3/:path/:title',
 		loadComponent: () => import('./level3/level3.component')
-		// loadComponent: () => import('./art10/components/info-institucional/components/comisiones/comisiones.component')
 	},
-	// {
-	// 	path: 'plenos',
-	// 	loadComponent: () => import('./level3/level3.component')
-	// },
-	{
-		path: 'entes',
-		loadComponent: () => import('./level3/level3.component')
-	},
-	{
-		path: 'mesas',
-		loadComponent: () => import('./level3/level3.component')
-	},
-	{
-		path: 'elas',
-		loadComponent: () => import('./level3/level3.component')
-	},
-
-	// level last ============================================================================================================================================
-	// {
-	// 	path: '',
-	// 	loadComponent: () =>
-	// 		import('./art10/components/info-organizativa/components/empleados/components/noticias/noticias.component')
-	// },
-	{
-		path: 'empleadosNews',
-		loadComponent: () =>
-			import('./art10/components/info-organizativa/components/empleados/components/noticias/noticias.component')
-		// loadComponent: () => import('./level-last/level-last.component')
-	},
-	// {
-	// 	path: 'lastLevel',
-	// 	loadComponent: () => import('./level-last/level-last.component')
-	// },
 	{
 		path: 'plenos/:pleno',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'elas/:ela',
+		path: 'entes/:ente',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
@@ -84,7 +37,7 @@ export default [
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'entes/:ente',
+		path: 'elas/:ela',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
@@ -133,13 +86,12 @@ export default [
 	},
 
 	// Art 10 ============================================================================================================================================
-	// {
-	// 	path: 'comisiones',
-	// 	loadComponent: () => import('./art10/components/info-institucional/components/comisiones/comisiones.component')
-	// },
 	{
-		path: 'art10/empleados',
-		loadComponent: () => import('./art10/components/info-organizativa/components/empleados/empleados.component')
+		path: 'retribuciones2022',
+		loadComponent: () =>
+			import(
+				'./art10/components/info-organizativa/components/empleados/components/retribuciones2022/retribuciones2022.component'
+			)
 	},
 	{
 		path: 'rpt',
@@ -147,11 +99,9 @@ export default [
 			import('./art10/components/info-organizativa/components/empleados/components/rpt/rpt.component')
 	},
 	{
-		path: 'retribuciones2022',
+		path: 'empleadosNews',
 		loadComponent: () =>
-			import(
-				'./art10/components/info-organizativa/components/empleados/components/retribuciones2022/retribuciones2022.component'
-			)
+			import('./art10/components/info-organizativa/components/empleados/components/noticias/noticias.component')
 	},
 
 	// Art 15 ============================================================================================================================================
@@ -268,7 +218,6 @@ export default [
 
 	//  ============================================================================================================================================
 	{
-		// path: 'barrios/:barrio',
 		path: 'barrios',
 		loadComponent: () => import('./distritos/components/distrito/components/barrio/barrio.component')
 	},
