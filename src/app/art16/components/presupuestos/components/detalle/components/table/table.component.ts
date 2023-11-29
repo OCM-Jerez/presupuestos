@@ -236,7 +236,7 @@ export class TableComponent implements OnInit, OnDestroy {
 				{ name: 'GastosComprometidos', width: 140, show: 'open' },
 				{ name: 'ObligacionesReconocidasNetas', width: 135, show: 'open' },
 				{ name: 'Pagos', show: 'closed' },
-				{ name: 'ObligacionesPendientePago', width: 120, show: 'closed' }
+				{ name: 'ObligacionesPendientePago', width: 120, show: 'open' }
 			]),
 			{
 				headerName: 'Remanente Credito',
@@ -255,7 +255,7 @@ export class TableComponent implements OnInit, OnDestroy {
 					headerName: 'Creditos definitivos',
 					field: `Definitivas${year}`,
 					width: 140,
-					columnGroupShow: 'closed',
+					columnGroupShow: 'open',
 					sort: 'desc'
 				}
 			]

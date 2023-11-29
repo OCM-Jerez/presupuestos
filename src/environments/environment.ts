@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   currentYear: 2023,
   liqDate2022: '31/12/2022',
-  liqDate2023: '08/08/2023'
+  liqDate2023: '28/11/2023'
 };
 
 /*
