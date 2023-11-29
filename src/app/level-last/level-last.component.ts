@@ -61,6 +61,7 @@ export default class LevelLastComponent implements OnInit {
 	public descripcion: string;
 
 	public isPMP = false;
+	public isImpuestos = false;
 	public isSubvencion = false;
 	public isDistrito = false;
 	public isLicitacion = false;
@@ -97,6 +98,11 @@ export default class LevelLastComponent implements OnInit {
 				this.isPMP = true;
 				parametro = 'art16';
 				this._option = 'pmp';
+				break;
+			case 'impuestos':
+				this.isImpuestos = true;
+				parametro = 'art16';
+				this._option = 'impuestos';
 				break;
 			case 'registroSolares':
 				this._option = 'registroSolares';

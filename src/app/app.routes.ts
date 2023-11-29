@@ -160,7 +160,7 @@ export default [
 	},
 	{
 		path: 'impuestos',
-		loadComponent: () => import('./art16/components/impuestos/impuestos.component')
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 
 	{
