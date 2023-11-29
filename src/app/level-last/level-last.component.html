@@ -11,6 +11,10 @@
 		/>
 	</figure>
 
+	<figure *ngIf="isPMP">
+		<img class="OCM-imgGraph" src="./../../../../assets/art16/pmp/2023-09.jpg" alt="Grafico pmp" />
+	</figure>
+
 	<app-data-general *ngIf="isLicitacion" [data]="data" />
 	<app-seguimiento-subvencion *ngIf="isSubvencion" [stepsSubvencion]="stepsSubvencion" />
 	<app-documentos *ngIf="hasDocs" [docs]="docs" />

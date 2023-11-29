@@ -60,6 +60,7 @@ export default class LevelLastComponent implements OnInit {
 	public imgURL: string;
 	public descripcion: string;
 
+	public isPMP = false;
 	public isSubvencion = false;
 	public isDistrito = false;
 	public isLicitacion = false;
@@ -92,6 +93,11 @@ export default class LevelLastComponent implements OnInit {
 
 	fetchData(parametro: string, path: string, pathFull: string) {
 		switch (parametro) {
+			case 'pmp':
+				this.isPMP = true;
+				parametro = 'art16';
+				this._option = 'pmp';
+				break;
 			case 'registroSolares':
 				this._option = 'registroSolares';
 				parametro = `medioambiental`;
@@ -132,6 +138,7 @@ export default class LevelLastComponent implements OnInit {
 			case 'subvencion':
 				this.isSubvencion = true;
 				break;
+
 			case 'tema':
 				this._isTema = true;
 				break;

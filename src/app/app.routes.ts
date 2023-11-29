@@ -156,7 +156,7 @@ export default [
 	},
 	{
 		path: 'pmp',
-		loadComponent: () => import('./art16/components/datos-economicos/components/pmp/pmp.component')
+		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'impuestos',

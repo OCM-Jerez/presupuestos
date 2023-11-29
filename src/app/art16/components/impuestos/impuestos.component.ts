@@ -9,8 +9,7 @@ import { INew } from '@interfaces/new.interface';
 	selector: 'app-impuestos',
 	standalone: true,
 	imports: [NgIf, NgFor],
-	templateUrl: './impuestos.component.html',
-	styleUrls: ['./impuestos.component.scss']
+	templateUrl: './impuestos.component.html'
 })
 export default class ImpuestosComponent implements OnInit {
 	public docs: IDoc[] = [];

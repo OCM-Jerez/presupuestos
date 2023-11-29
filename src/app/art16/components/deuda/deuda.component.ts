@@ -8,8 +8,7 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 	selector: 'app-deuda',
 	standalone: true,
 	imports: [NgFor, CardMenuComponent],
-	templateUrl: './deuda.component.html',
-	styleUrls: ['./deuda.component.scss']
+	templateUrl: './deuda.component.html'
 })
 export default class DeudaComponent {
 	private _router = inject(Router);
