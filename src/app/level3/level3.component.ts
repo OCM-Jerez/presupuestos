@@ -63,24 +63,11 @@ export default class Level3Component implements OnInit {
 	}
 
 	fetchData(path: string) {
-		// switch (path) {
-		// 	case 'plenos':
-		// 		path = `art10/infoInstitucional`;
-		// 		break;
-		// 	case 'entes':
-		// 		path = `art10/infoInstitucional`;
-		// 		break;
-		// 	case 'comisiones':
-		// 		path = `art10/infoInstitucional/`;
-		// 		this.isComisiones = true;
-		// 		break;
-		// 	case 'elas':
-		// 		path = `art10/infoInstitucional`;
-		// 		break;
-		// 	case 'mesas':
-		// 		path = `art10/infoInstitucional`;
-		// 		break;
-		// }
+		switch (path) {
+			case 'comisiones':
+				this.isComisiones = true;
+				break;
+		}
 
 		const pathBase = `/assets/art10/infoInstitucional/`;
 
@@ -120,7 +107,7 @@ export default class Level3Component implements OnInit {
 	}
 
 	createCardMenu(item: IMenuItem) {
-		console.log('createCardMenu', item);
+		// console.log('createCardMenu', item);
 
 		return {
 			...item,

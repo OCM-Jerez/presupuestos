@@ -19,31 +19,33 @@ export default [
 		loadComponent: () => import('./level2/level2.component')
 	},
 
-	// level3  ============================================================================================================================================
+	// level3  art10/infoInstitucional   ============================================================================================================================================
 	{
 		path: 'level3/:path/:title',
 		loadComponent: () => import('./level3/level3.component')
 	},
 	{
-		path: 'plenos/:pleno',
+		path: 'art10/infoInstitucional/plenos/:pleno',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'entes/:ente',
+		path: 'art10/infoInstitucional/entes/:ente',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'comisiones/:comision',
+		path: 'art10/infoInstitucional/comisiones/:comision',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'elas/:ela',
+		path: 'art10/infoInstitucional/elas/:ela',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'mesas/:mesa',
+		path: 'art10/infoInstitucional/mesas/:mesa',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
+	//  ============================================================================================================================================
+
 	{
 		path: 'licitaciones/:licitacion',
 		loadComponent: () => import('./level-last/level-last.component')
@@ -60,20 +62,22 @@ export default [
 		path: 'edificiosSingulares/:edificio',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
+
+	// medioambiental  ============================================================================================================================================
 	{
-		path: 'apartamentosTuristicos',
+		path: 'medioambiental/apartamentosTuristicos',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'proyectosViviendas',
+		path: 'medioambiental/proyectosViviendas',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'registroSolares',
+		path: 'medioambiental/registroSolares',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'mercados',
+		path: 'medioambiental/mercados',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
@@ -155,11 +159,11 @@ export default [
 			)
 	},
 	{
-		path: 'pmp',
+		path: 'art16/pmp',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'impuestos',
+		path: 'art16/impuestos',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 

@@ -78,97 +78,74 @@ export default class LevelLastComponent implements OnInit {
 	ngOnInit() {
 		const { paramMap, routeConfig } = this._route.snapshot;
 		const pathFull = routeConfig?.path || '';
-		const pathSegments = routeConfig?.path.split('/') || [];
-		const parametro = pathSegments.filter((segment) => !segment.startsWith(':'))[0];
-		const path = pathSegments[1]?.split(':')[1] || '';
-		this._option = paramMap.get(`${path}`);
+		const pathSegments = pathFull.split('/');
 
-		console.log('Level last paramMap', pathSegments);
-		console.log('Level last pathFull', pathFull);
-		console.log('Level last this._option', this._option);
-		console.log('Level last parametro', parametro);
-		console.log('Level last path', path);
+		let staticPath = pathSegments.slice(0, -1).join('/');
+		let param = '';
 
-		this.fetchData(parametro, path, pathFull);
+		// Si el último segmento de la ruta es dinámico, extrae el parámetro
+		if (pathFull.includes('/:') && pathSegments.length > 1) {
+			const dynamicSegment = pathSegments[pathSegments.length - 1];
+			param = dynamicSegment.split(':')[1];
+			this._option = paramMap.get(param);
+		} else {
+			// Si no es dinámico, utiliza el último segmento como parámetro, si existe
+			param = pathSegments.length > 1 ? pathSegments[pathSegments.length - 1] : '';
+			this._option = param;
+		}
+
+		staticPath = staticPath ? `${staticPath}/` : '';
+
+		// Logs consolidados
+		console.log('pathFull', pathFull);
+		console.log('staticPath', staticPath);
+		console.log('param', param);
+		console.log('this._option', this._option);
+
+		this.fetchData(staticPath, this._option);
 	}
 
-	fetchData(parametro: string, path: string, pathFull: string) {
-		switch (parametro) {
+	fetchData(path: string, param: string) {
+		console.log('fetchData', path, param);
+
+		switch (param) {
 			case 'pmp':
 				this.isPMP = true;
-				parametro = 'art16';
-				this._option = 'pmp';
 				break;
 			case 'impuestos':
 				this.isImpuestos = true;
-				parametro = 'art16';
-				this._option = 'impuestos';
 				break;
-			case 'registroSolares':
-				this._option = 'registroSolares';
-				parametro = `medioambiental`;
-				break;
-			case 'apartamentosTuristicos':
-				this._option = 'apartamentosTuristicos';
-				parametro = `medioambiental`;
-				break;
-			case 'proyectosViviendas':
-				this._option = 'proyectosViviendas';
-				parametro = `medioambiental`;
-				break;
-			case 'mercados':
-				this._option = 'mercados';
-				parametro = `medioambiental`;
-				break;
-			default:
-				break;
-		}
-
-		switch (path) {
-			case 'comision':
-				parametro = `art10/infoInstitucional/comisiones/permanentes`;
-				break;
-			case 'ente':
-				parametro = `art10/infoInstitucional/entes`;
-				break;
-			case 'ela':
-				parametro = `art10/infoInstitucional/elas`;
-				break;
-			case 'pleno':
-				parametro = `art10/infoInstitucional/plenos`;
-				break;
-			case 'mesa':
-				parametro = `art10/infoInstitucional/mesas`;
-				break;
+			// case 'comision':
+			// 	path = `art10/infoInstitucional/comisiones`;
+			// 	break;
 
 			case 'subvencion':
 				this.isSubvencion = true;
 				break;
-
 			case 'tema':
 				this._isTema = true;
 				break;
 			case 'edificioSingular':
 				this.isEdificioSingular = true;
-				this.imgURL = `/assets/${parametro}/${this._option}/${this._option}.jpg`;
+				this.imgURL = `/assets/${path}/${this._option}/${this._option}.jpg`;
 				break;
 			case 'licitacion':
 				this.isLicitacion = true;
-				this.imgURL = `/assets/${parametro}/${this._option}/${this._option}.jpg`;
+				this.imgURL = `/assets/${path}/${this._option}/${this._option}.jpg`;
 				break;
 			case 'distrito':
 				this.isDistrito = true;
-				this.imgURL = `/assets/${parametro}/${this._option}/${this._option}.jpg`;
+				this.imgURL = `/assets/${path}/${this._option}/${this._option}.jpg`;
 				break;
 		}
 
-		const pathBase = `/assets/${parametro}/`;
+		const pathBase = `/assets/${path}/`;
 
 		const commonRequests = {
-			data: this._http.get<IOption[]>(`${pathBase}${this._option}/${this._option}.json`),
-			coms: this._http.get<ICom[]>(`${pathBase}${this._option}/${this._option}Coms.json`),
-			docs: this._http.get<IDoc[]>(`${pathBase}${this._option}/${this._option}Docs.json`),
-			news: this._http.get<INew[]>(`${pathBase}${this._option}/${this._option}News.json`)
+			data: this._http.get<IOption[]>(`${pathBase}${param}/${param}.json`),
+			coms: this._http.get<ICom[]>(`${pathBase}${param}/${param}Coms.json`),
+			docs: this._http.get<IDoc[]>(`${pathBase}${param}/${param}Docs.json`),
+			news: this._http.get<INew[]>(`${pathBase}${param}/${param}News.json`)
 		};
 
 		const stepsSubvencionRequest = this.isSubvencion

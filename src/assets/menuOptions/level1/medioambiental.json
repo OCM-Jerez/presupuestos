@@ -7,25 +7,25 @@
 	},
 	{
 		"title": "Apartamentos turísticos",
-		"path": "apartamentosTuristicos",
+		"path": "medioambiental/apartamentosTuristicos",
 		"isLastLevel": true,
 		"rutaImagen": "assets/medioambiental/apartamentosTuristicos/apartamentosTuristicos.jpg"
 	},
 	{
 		"title": "Proyectos construcción de viviendas",
-		"path": "proyectosViviendas",
+		"path": "medioambiental/proyectosViviendas",
 		"isLastLevel": true,
 		"rutaImagen": "assets/medioambiental/proyectosViviendas/proyectosViviendas.jpg"
 	},
 	{
 		"title": "Registro solares y edificaciones ruinosas",
-		"path": "registroSolares",
+		"path": "medioambiental/registroSolares",
 		"isLastLevel": true,
 		"rutaImagen": "assets/medioambiental/registroSolares/registroSolares.jpg"
 	},
 	{
 		"title": "Mercados",
-		"path": "mercados",
+		"path": "medioambiental/mercados",
 		"isLastLevel": true,
 		"rutaImagen": "assets/medioambiental/mercados/mercados.jpg"
 	}

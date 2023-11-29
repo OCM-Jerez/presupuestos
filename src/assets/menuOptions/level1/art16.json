@@ -13,13 +13,13 @@
 	},
 	{
 		"title": "PMP",
-		"path": "/pmp",
+		"path": "art16/pmp",
 		"isLastLevel": true,
 		"rutaImagen": "assets/art16/pmp/2023-09.jpg"
 	},
 	{
 		"title": "Impuestos",
-		"path": "/impuestos",
+		"path": "art16/impuestos",
 		"isLastLevel": true,
 		"rutaImagen": "assets/art16/impuestos/impuestos.jpg"
 	}
