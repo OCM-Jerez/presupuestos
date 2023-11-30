@@ -33,7 +33,7 @@ export default [
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
-		path: 'art10/infoInstitucional/comisiones/:comision',
+		path: 'art10/infoInstitucional/comisiones/permanentes/:comision',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{

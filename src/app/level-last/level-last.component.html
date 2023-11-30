@@ -15,6 +15,23 @@
 		<img class="OCM-imgGraph" src="./../../../../assets/art16/pmp/2023-09.jpg" alt="Grafico pmp" />
 	</figure>
 
+	<section *ngIf="isDistrito" class="OCM-tableContainer">
+		<table class="OCM-tableDocumentos">
+			<thead>
+				<tr>
+					<th>Barrio</th>
+					<th>URL</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let barrio of barrios">
+					<td>{{ barrio.value }}</td>
+					<!-- <td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td> -->
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
 	<app-data-general *ngIf="isLicitacion" [data]="data" />
 	<app-seguimiento-subvencion *ngIf="isSubvencion" [stepsSubvencion]="stepsSubvencion" />
 	<app-documentos *ngIf="hasDocs" [docs]="docs" />

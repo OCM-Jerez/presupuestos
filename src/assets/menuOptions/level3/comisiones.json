@@ -1,57 +1,57 @@
 [
 	{
 		"title": "Comisión de presidencia, centro histórico, fondos europeos, coordinación de gobierno y ordenación del territorio",
-		"path": "art10/infoInstitucional/comisiones/presidencia",
+		"path": "art10/infoInstitucional/comisiones/permanentes/presidencia",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión de servicios públicos, desarrollo sostenible, medio ambiente, protección animal y participación ciudadana",
-		"path": "art10/infoInstitucional/comisiones/serviciosPublicos",
+		"path": "art10/infoInstitucional/comisionespermanentes//serviciosPublicos",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión de inclusión social, familias, igualdad y diversidad y medio rural",
-		"path": "art10/infoInstitucional/comisiones/inclusion",
+		"path": "art10/infoInstitucional/comisiones/permanentes/inclusion",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión de turismo, cultura, educación, deportes y juventud",
-		"path": "art10/infoInstitucional/comisiones/turismo",
+		"path": "art10/infoInstitucional/comisiones/permanentes/turismo",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión de empleo, economía, patrimonio, seguridad, recursos humanos, simplificación administrativa y transparencia",
-		"path": "art10/infoInstitucional/comisiones/patrimonio",
+		"path": "art10/infoInstitucional/comisiones/permanentes/patrimonio",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión especial de cuentas",
-		"path": "art10/infoInstitucional/comisiones/cuentas",
+		"path": "art10/infoInstitucional/comisiones/especiales/cuentas",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión especial de sugerencias y reclamaciones",
-		"path": "art10/infoInstitucional/comisiones/sugerencias",
+		"path": "art10/infoInstitucional/comisiones/especiales/sugerencias",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión especial de capitalidad cultural",
-		"path": "art10/infoInstitucional/comisiones/capitabilidad",
+		"path": "art10/infoInstitucional/comisiones/especiales/capitabilidad",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión especial de presupuestos participativos",
-		"path": "art10/infoInstitucional/comisiones/presupuestos",
+		"path": "art10/infoInstitucional/comisiones/especiales/presupuestos",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión especial de regeneración democrática y calidad institucional",
-		"path": "art10/infoInstitucional/comisiones/regeneracion",
+		"path": "art10/infoInstitucional/comisiones/especiales/regeneracion",
 		"rutaImagen": ""
 	},
 	{
 		"title": "Comisión especial de impulso y seguimiento de las mesas sectoriales",
-		"path": "art10/infoInstitucional/comisiones/impulso",
+		"path": "art10/infoInstitucional/comisiones/especiales/impulso",
 		"rutaImagen": ""
 	}
 ]

@@ -31,6 +31,12 @@ interface IStepSubvencion {
 	isFinish?: string;
 }
 
+interface IBarrio {
+	data: string;
+	value: string;
+	URL?: string;
+}
+
 @Component({
 	selector: 'app-level-last',
 	standalone: true,
@@ -55,6 +61,7 @@ export default class LevelLastComponent implements OnInit {
 	public news: INew[] = [];
 	public data: IOption[] = [];
 	public steps: IStep[] = [];
+	public barrios: IBarrio[] = [];
 	public stepsSubvencion: IStepSubvencion[] = [];
 
 	public imgURL: string;
@@ -91,6 +98,16 @@ export default class LevelLastComponent implements OnInit {
 		} else {
 			// Si no es dinámico, utiliza el último segmento como parámetro, si existe
 			param = pathSegments.length > 1 ? pathSegments[pathSegments.length - 1] : '';
+
+			switch (param) {
+				case 'pmp':
+					this.isPMP = true;
+					break;
+				case 'impuestos':
+					this.isImpuestos = true;
+					break;
+			}
+
 			this._option = param;
 		}
 
@@ -101,6 +118,15 @@ export default class LevelLastComponent implements OnInit {
 		console.log('staticPath', staticPath);
 		console.log('param', param);
 		console.log('this._option', this._option);
+
+		switch (staticPath) {
+			case 'distritos/':
+				this.isDistrito = true;
+				this.imgURL = `/assets/${staticPath}/${this._option}/${this._option}.jpg`;
+				console.log('this.imgURL', this.imgURL);
+
+				break;
+		}
 
 		this.fetchData(staticPath, this._option);
 	}
@@ -139,7 +165,9 @@ export default class LevelLastComponent implements OnInit {
 				break;
 		}
 
-		const pathBase = `/assets/${path}/`;
+		const pathBase = `/assets/${path}`;
+		console.log('pathBase', pathBase);
+		console.log(`${pathBase}${this._option}/${this._option}Barrios.json`);
 
 		const commonRequests = {
 			data: this._http.get<IOption[]>(`${pathBase}${param}/${param}.json`),
@@ -156,10 +184,15 @@ export default class LevelLastComponent implements OnInit {
 			? { steps: this._http.get<IStep[]>(`${pathBase}${this._option}/${this._option}Steps.json`) }
 			: {};
 
+		const barrios = this.isDistrito
+			? { barrios: this._http.get<IBarrio[]>(`${pathBase}${this._option}/${this._option}Barrios.json`) }
+			: {};
+
 		const allRequests = {
 			...commonRequests,
 			...stepsRequest,
-			...stepsSubvencionRequest
+			...stepsSubvencionRequest,
+			...barrios
 		};
 		// console.log('allRequests', allRequests);
 
@@ -172,7 +205,8 @@ export default class LevelLastComponent implements OnInit {
 						coms: this._isTema ? [] : undefined,
 						docs: this._isTema ? [] : undefined,
 						news: [],
-						steps: this.isLicitacion ? [] : undefined
+						steps: this.isLicitacion ? [] : undefined,
+						barrios: this.isDistrito ? [] : undefined
 					});
 				})
 			)
@@ -188,6 +222,10 @@ export default class LevelLastComponent implements OnInit {
 
 				if (this.isLicitacion) {
 					this.steps = response.steps as IStep[];
+				}
+
+				if (this.isDistrito) {
+					this.barrios = response.barrios as IBarrio[];
 				}
 
 				const descripcionObj = this.data.find((obj) => obj.data === 'Descripción');
