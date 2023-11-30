@@ -221,10 +221,10 @@ export default [
 	},
 
 	//  ============================================================================================================================================
-	{
-		path: 'barrios',
-		loadComponent: () => import('./distritos/components/distrito/components/barrio/barrio.component')
-	},
+	// {
+	// 	path: 'barrios',
+	// 	loadComponent: () => import('./distritos/components/distrito/components/barrio/barrio.component')
+	// },
 
 	{
 		path: 'explicamos',
