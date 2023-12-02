@@ -120,11 +120,24 @@ export default class LevelLastComponent implements OnInit {
 		console.log('this._option', this._option);
 
 		switch (staticPath) {
+			case 'licitaciones/':
+				this.isLicitacion = true;
+				this.imgURL = `/assets/${staticPath}/${this._option}/${this._option}.jpg`;
+				break;
+			case 'edificioSingular/':
+				this.isEdificioSingular = true;
+				this.imgURL = `/assets/${staticPath}/${this._option}/${this._option}.jpg`;
+				break;
+			case 'tema/':
+				this._isTema = true;
+				break;
+			case 'subvencion/':
+				this.isSubvencion = true;
+				break;
 			case 'distritos/':
 				this.isDistrito = true;
 				this.imgURL = `/assets/${staticPath}/${this._option}/${this._option}.jpg`;
-				console.log('this.imgURL', this.imgURL);
-
+				// console.log('this.imgURL', this.imgURL);
 				break;
 		}
 
@@ -134,40 +147,40 @@ export default class LevelLastComponent implements OnInit {
 	fetchData(path: string, param: string) {
 		console.log('fetchData', path, param);
 
-		switch (param) {
-			case 'pmp':
-				this.isPMP = true;
-				break;
-			case 'impuestos':
-				this.isImpuestos = true;
-				break;
-			// case 'comision':
-			// 	path = `art10/infoInstitucional/comisiones`;
-			// 	break;
+		// switch (param) {
+		// case 'pmp':
+		// 	this.isPMP = true;
+		// 	break;
+		// case 'impuestos':
+		// 	this.isImpuestos = true;
+		// 	break;
+		// case 'comision':
+		// 	path = `art10/infoInstitucional/comisiones`;
+		// 	break;
 
-			case 'subvencion':
-				this.isSubvencion = true;
-				break;
-			case 'tema':
-				this._isTema = true;
-				break;
-			case 'edificioSingular':
-				this.isEdificioSingular = true;
-				this.imgURL = `/assets/${path}/${this._option}/${this._option}.jpg`;
-				break;
-			case 'licitacion':
-				this.isLicitacion = true;
-				this.imgURL = `/assets/${path}/${this._option}/${this._option}.jpg`;
-				break;
-			case 'distrito':
-				this.isDistrito = true;
-				this.imgURL = `/assets/${path}/${this._option}/${this._option}.jpg`;
-				break;
-		}
+		// case 'subvencion':
+		// 	this.isSubvencion = true;
+		// 	break;
+		// case 'tema':
+		// 	this._isTema = true;
+		// 	break;
+		// case 'edificioSingular':
+		// 	this.isEdificioSingular = true;
+		// 	this.imgURL = `/assets/${path}/${this._option}/${this._option}.jpg`;
+		// 	break;
+		// case 'licitacion':
+		// 	this.isLicitacion = true;
+		// 	this.imgURL = `/assets/${path}/${this._option}/${this._option}.jpg`;
+		// 	break;
+		// case 'distrito':
+		// 	this.isDistrito = true;
+		// 	this.imgURL = `/assets/${path}/${this._option}/${this._option}.jpg`;
+		// 	break;
+		// }
 
 		const pathBase = `/assets/${path}`;
 		console.log('pathBase', pathBase);
-		console.log(`${pathBase}${this._option}/${this._option}Barrios.json`);
+		console.log(`${pathBase}${this._option}/${this._option}.json`);
 
 		const commonRequests = {
 			data: this._http.get<IOption[]>(`${pathBase}${param}/${param}.json`),
