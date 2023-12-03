@@ -16,5 +16,12 @@
 		"path": "empleadosNews",
 		"isLastLevel": true,
 		"rutaImagen": "assets/empleados/empleadosNews.jpg"
+	},
+
+	{
+		"title": "Organigrama",
+		"path": "organigrama",
+		"isLastLevel": true,
+		"rutaImagen": "assets/empleados/organigrama.jpg"
 	}
 ]

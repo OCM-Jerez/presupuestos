@@ -11,6 +11,7 @@ import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 import APP_ROUTES from './app/app.routes';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 registerLocaleData(localeDe, 'de-DE');
 
@@ -21,7 +22,7 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
 	providers: [
 		provideRouter(APP_ROUTES, withComponentInputBinding()),
-		importProvidersFrom(BrowserModule, FormsModule, ReactiveFormsModule),
+		importProvidersFrom(BrowserModule, FormsModule, ReactiveFormsModule, HighchartsChartModule),
 		{
 			provide: LocationStrategy,
 			useClass: HashLocationStrategy

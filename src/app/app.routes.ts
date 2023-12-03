@@ -227,6 +227,15 @@ export default [
 	// },
 
 	{
+		path: 'organigrama',
+		loadComponent: () => import('./organigrama/organigrama/organigrama.component')
+	},
+	{
+		path: 'pelayo',
+		loadComponent: () => import('./organigrama/pelayo/pelayo.component')
+	},
+
+	{
 		path: 'explicamos',
 		loadComponent: () => import('./explicamos/explicamos.component')
 	},
