@@ -36,6 +36,8 @@ export default class OrganigramaComponent {
 				type: 'organization',
 				name: 'Highsoft',
 				keys: ['from', 'to'],
+				// nodePadding: 20,
+
 				data: [
 					// { from: 'Shareholders', to: 'Board' },
 					// { from: 'Board', to: 'alcaldesa' },
@@ -106,13 +108,13 @@ export default class OrganigramaComponent {
 					{
 						id: 'Board',
 						title: 'Ayuntamiento de Jerez',
-						name: ' '
+						name: ' ',
+						description: 'Ayuntamiento de Jerez'
 					},
 					{
 						id: 'alcaldesa',
 						title: 'Alcaldesa ',
 						name: 'Mª Jose Garcia Pelayo',
-
 						image:
 							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/MJoseGarciaPelayo.jpg'
 					},
@@ -121,8 +123,11 @@ export default class OrganigramaComponent {
 						id: 'PRE',
 						title: 'PRESIDENCIA',
 						name: 'Agustín Muñoz Martín',
+						// info: "Statistics of International Trade in Services Section",
 						image:
-							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg'
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg',
+						offsetHorizontal: -10,
+						offsetVertical: -10
 					},
 					{
 						id: 'SER',
@@ -150,6 +155,8 @@ export default class OrganigramaComponent {
 						id: 'EMP',
 						title: 'Empleo',
 						name: 'Jose Ignacio Martinez Moreno',
+						// offsetHorizontal: -10,
+						// offsetVertical: 50,
 						// color: '#007ad0',
 						image:
 							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JIgancioMartinez.jpg'
@@ -168,6 +175,7 @@ export default class OrganigramaComponent {
 						id: 'URB',
 						title: 'URBANISMO',
 						name: 'Belén de la Cuadra Guerrero',
+						// column: 3,
 						image:
 							'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
 					},
@@ -256,7 +264,8 @@ export default class OrganigramaComponent {
 				},
 				borderColor: 'white',
 				nodeWidth: 85,
-				nodePadding: 25
+				minNodeLength: 10,
+				nodePadding: 10
 			}
 		]
 	};
