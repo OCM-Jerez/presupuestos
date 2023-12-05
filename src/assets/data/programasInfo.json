@@ -66,6 +66,18 @@
 		],
 		"news": [
 			{
+				"date": "5 diciembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "El Ayuntamiento de Jerez dotará a la Policía Local de un moderno sistema de digitalización",
+				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-dotara-Policia-Local-sistema-digitalizacion_0_1854115680.html"
+			},
+			{
+				"date": "5 diciembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "La nueva Jefatura de la Policía Local, en La Asunción, ya está en funcionamiento",
+				"URL": "https://www.diariodejerez.es/jerez/Abre-nueva-jefatura-policia-local-jerez_0_1854116371.html"
+			},
+			{
 				"date": "4 diciembre 2023",
 				"medio": "Diario de Jerez",
 				"title": "La nueva jefatura de Policía Local de Jerez estará en servicio desde este lunes 4 de diciembre",
