@@ -27,9 +27,12 @@ export default class OrganigramaComponent {
 			}
 		},
 		chart: {
-			height: 400,
+			height: 475,
 			width: 1200,
 			inverted: true
+			// height: 475,
+			// width: 450,
+			// inverted: false
 		},
 		series: [
 			{
@@ -39,8 +42,6 @@ export default class OrganigramaComponent {
 				// nodePadding: 20,
 
 				data: [
-					// { from: 'Shareholders', to: 'Board' },
-					// { from: 'Board', to: 'alcaldesa' },
 					{ from: 'alcaldesa', to: 'PRE' },
 					{ from: 'alcaldesa', to: 'SER' },
 					{ from: 'alcaldesa', to: 'INC' },
@@ -50,8 +51,8 @@ export default class OrganigramaComponent {
 					{ from: 'PRE', to: 'URB' },
 					{ from: 'SER', to: 'DELSER' },
 					{ from: 'SER', to: 'DELEDU' },
+					{ from: 'INC', to: 'DELRUR' },
 					{ from: 'INC', to: 'DELINC' },
-					{ from: 'INC', to: 'DELIGU' },
 					{ from: 'INC', to: 'DELPAR' },
 					{ from: 'TUR', to: 'DELTUR' },
 					{ from: 'TUR', to: 'DELCUL' },
@@ -109,28 +110,83 @@ export default class OrganigramaComponent {
 						id: 'Board',
 						title: 'Ayuntamiento de Jerez',
 						name: ' ',
-						description: 'Ayuntamiento de Jerez'
+						description: 'Ayuntamiento de Jerez',
+						color: 'red'
 					},
+					// D:\presupuestos\node_modules\highcharts\highcharts.src.d.ts
 					{
+						colorIndex: 0,
+						// color: 'blue',
+						column: 0,
+						dataLabels: {
+							align: 'right',
+							allowOverlap: true,
+							animation: true,
+							// backgroundSColor: 'green',
+							borderColor: 'red',
+							borderRadius: 0,
+							borderWidth: 0,
+							className: 'highcharts-data-label-box',
+							color: 'white',
+							crop: false,
+							defer: false,
+							enabled: true,
+							// filter: {},
+							// format: '{point.name}',
+							// formatter: function () {
+							// 	return this.point.name;
+							// },
+							inside: true,
+							// // linkTextPath: 'foo',
+							// nodeFormat: '{point.name}',
+							// nodeFormatter: function () {
+							// 	return this.point.name;
+							// },
+							// nullFormat: 'null',
+							// nullFormatter: function () {
+							// 	return 'null';
+							// },
+							overflow: 'justify',
+							padding: 5,
+							position: 'center',
+							rotation: 0,
+							shadow: false,
+							shape: 'square',
+							style: {
+								color: 'red',
+								fontSize: '10px',
+								fontWeight: 'bold',
+								textOutline: '1px contrast'
+							},
+							// useHTML: boolean,
+							verticalAlign: 'right',
+							x: 0,
+							y: 0,
+							zIndex: 6
+						},
+						description: 'Descripcion Alcaldesa',
 						id: 'alcaldesa',
-						title: 'Alcaldesa ',
-						name: 'Mª Jose Garcia Pelayo',
 						image:
-							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/MJoseGarciaPelayo.jpg'
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/MJoseGarciaPelayo.jpg',
+						layout: 'normal',
+						level: 0,
+						name: 'Mª Jose Garcia Pelayo',
+						offsetHorizontal: -10,
+						offsetVertical: -50,
+						title: 'title Alcaldesa '
 					},
 
 					{
 						id: 'PRE',
+						color: 'green',
 						title: 'PRESIDENCIA',
 						name: 'Agustín Muñoz Martín',
-						// info: "Statistics of International Trade in Services Section",
 						image:
-							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg',
-						offsetHorizontal: -10,
-						offsetVertical: -10
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg'
 					},
 					{
 						id: 'SER',
+						color: 'green',
 						title: 'Servicios públicos',
 						name: 'Jaime Espinar Villar',
 						image:
@@ -138,6 +194,7 @@ export default class OrganigramaComponent {
 					},
 					{
 						id: 'INC',
+						color: 'green',
 						title: 'Inclusión social',
 						name: 'Susana Sánchez Toro',
 						image:
@@ -145,19 +202,17 @@ export default class OrganigramaComponent {
 					},
 					{
 						id: 'TUR',
+						color: 'green',
 						title: 'Turismo',
 						name: 'Antonio Real Granado',
-						// color: '#007ad0',
 						image:
 							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AntonioReal.jpg'
 					},
 					{
 						id: 'EMP',
+						color: 'green',
 						title: 'Empleo',
 						name: 'Jose Ignacio Martinez Moreno',
-						// offsetHorizontal: -10,
-						// offsetVertical: 50,
-						// color: '#007ad0',
 						image:
 							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JIgancioMartinez.jpg'
 					},
@@ -166,95 +221,124 @@ export default class OrganigramaComponent {
 					// Presidencia
 					{
 						id: 'CEN',
+						color: '#7DCEA0',
 						title: 'Centro histórico',
 						name: 'Agustín Muñoz Martín',
+						column: 2,
 						image:
-							'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg'
 					},
 					{
 						id: 'URB',
+						color: '#7DCEA0',
 						title: 'URBANISMO',
 						name: 'Belén de la Cuadra Guerrero',
-						// column: 3,
+						column: 3,
 						image:
-							'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/BelenDeLaCuadra.jpg'
 					},
 
 					//Servicios
 					{
 						id: 'DELSER',
-						title: 'Educación',
-						name: 'Agustín Muñoz Martín',
+						color: '#7DCEA0',
+						title: 'Servicios',
+						name: 'Jaime Espinar Villar',
+						column: 2,
 						image:
-							'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JaimaEspinar.jpg'
 					},
 					{
 						id: 'DELEDU',
+						color: '#7DCEA0',
 						title: 'Educación',
-						name: 'Agustín Muñoz Martín',
+						name: 'José Angel Aparicio Hormigo',
+						column: 3,
 						image:
-							'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JAngelAparicio.jpg'
 					},
 
 					//Inclusión social
 					{
-						id: 'DELINC',
-						title: 'Educación',
-						name: 'Agustín Muñoz Martín',
+						id: 'DELRUR',
+						color: '#7DCEA0',
+						title: 'Rural',
+						name: 'Susana Sánchez Toro',
+						column: 2,
 						image:
-							'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
-					},
-					{
-						id: 'DELIGU',
-						title: 'Educación',
-						name: 'Agustín Muñoz Martín',
-						image:
-							'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/SusanaSanchez.jpg'
 					},
 					{
 						id: 'DELPAR',
-						title: 'Educación',
-						name: 'Agustín Muñoz Martín',
+						color: '#7DCEA0',
+						title: 'Participación ciudadana',
+						name: 'Carmen Pina Lorente',
+						column: 3,
 						image:
-							'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/CarmenPina.jpg'
+					},
+					{
+						id: 'DELINC',
+						color: '#7DCEA0',
+						title: 'Inclusión social',
+						name: 'Yesika Quintero Palma',
+						column: 3,
+						image:
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/YessicaQuintero.jpg',
+						offsetVertical: 42
 					},
 
 					//Turismo
 					{
 						id: 'DELTUR',
+						color: '#7DCEA0',
 						title: 'Educación',
 						name: 'Antonio Real Granado',
-						image: 'https://www.jerez.es/nc/especiales/imagenes/2019/10/antonio_real_granado.jpg'
+						column: 2,
+						image:
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AntonioReal.jpg'
 					},
 					{
 						id: 'DELCUL',
-						title: 'Educación',
-						name: 'Agustín Muñoz Martín',
+						color: '#7DCEA0',
+						title: 'Cultura y fiestas',
+						name: 'Francisco Zurita Martín',
+						column: 3,
 						image:
-							'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/FranciscoZurita.jpg'
 					},
 
 					//Empleo
-					{
-						id: 'DELECO',
-						title: 'Educación',
-						name: 'Agustín Muñoz Martín',
-						image:
-							'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
-					},
+
 					{
 						id: 'DELSEG',
+						color: '#7DCEA0',
 						title: 'Educación',
-						name: 'Agustín Muñoz Martín',
+						name: 'Jose Ignacio Martinez Moreno',
+						column: 2,
 						image:
-							'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JIgancioMartinez.jpg'
+					},
+					{
+						id: 'DELECO',
+						color: '#7DCEA0',
+						title: 'Economía y hacienda',
+						name: 'Francisco Delgado aguilera',
+						column: 3,
+						image:
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/FranciscoDelgado.jpg'
 					},
 					{
 						id: 'DELEMP',
-						title: 'Educación',
-						name: 'Agustín Muñoz Martín',
+						color: '#7DCEA0',
+						title: 'Empleo',
+						name: 'Nela García Jarillo',
+						column: 3,
 						image:
-							'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
+							'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/NelaGarcia.jpg',
+						// offsetVertical: 100 // izquierda - derecha
+						offsetVertical: 125
+						// offsetHorizontal: -80 // arriba-abajo
 					}
 				],
 				colorByPoint: false,
@@ -263,9 +347,10 @@ export default class OrganigramaComponent {
 					color: 'white'
 				},
 				borderColor: 'white',
-				nodeWidth: 85,
+				nodeWidth: 60,
 				minNodeLength: 10,
-				nodePadding: 10
+				nodePadding: 10,
+				minLinkWidth: 12
 			}
 		]
 	};
