@@ -1,8 +1,18 @@
+// Basado en https://stackblitz.com/edit/js-pr15gr?file=index.html
+
 import { Component, ElementRef, ViewChild, AfterViewInit, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import * as d3 from 'd3';
 import { OrgChart } from 'd3-org-chart';
+
+interface INodeInfo {
+	id: number;
+	parentId?: number;
+	name: string;
+	position: string;
+	image: string;
+}
 
 @Component({
 	selector: 'app-d3',
@@ -14,9 +24,10 @@ import { OrgChart } from 'd3-org-chart';
 export default class D3Component implements AfterViewInit, OnChanges {
 	@ViewChild('chartContainer') private chartContainer: ElementRef;
 	chart: OrgChart;
-	data: any[] = [
+	data: INodeInfo[] = [
 		{
 			id: 100,
+			// parentId: 0,
 			name: 'Mª Jose Garcia Pelayo',
 			position: 'Alcaldesa',
 			image:
@@ -30,7 +41,7 @@ export default class D3Component implements AfterViewInit, OnChanges {
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg'
 		},
 		{
-			id: '102',
+			id: 102,
 			parentId: 100,
 			name: 'Jaime Espinar Villar',
 			position: 'Area de Gobierno de servicios públicos',
@@ -174,8 +185,6 @@ export default class D3Component implements AfterViewInit, OnChanges {
 	}
 
 	private initChart() {
-		console.log(this.data);
-
 		this.chart = new OrgChart()
 			.compact(false)
 			.pagingStep((d) => 5)
@@ -185,7 +194,10 @@ export default class D3Component implements AfterViewInit, OnChanges {
 			.svgHeight(600)
 			.data(this.data)
 			.onNodeClick((d) => {
-				console.log('Node clicked:', d);
+				// console.log('Node clicked:', d);
+				console.log(d);
+				console.log(typeof d);
+
 				switch (d.data.id) {
 					case 100:
 						window.location.href = '/#/pelayo';
