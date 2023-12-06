@@ -17,10 +17,15 @@
 		"isLastLevel": true,
 		"rutaImagen": "assets/empleados/empleadosNews.jpg"
 	},
-
 	{
 		"title": "Organigrama",
 		"path": "organigrama",
+		"isLastLevel": true,
+		"rutaImagen": "assets/empleados/organigrama.jpg"
+	},
+	{
+		"title": "Organigrama en d3",
+		"path": "organigramaD3",
 		"isLastLevel": true,
 		"rutaImagen": "assets/empleados/organigrama.jpg"
 	}

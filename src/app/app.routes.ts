@@ -231,6 +231,11 @@ export default [
 		loadComponent: () => import('./organigrama/organigrama/organigrama.component')
 	},
 	{
+		path: 'organigramaD3',
+		loadComponent: () => import('./organigrama/d3/d3.component')
+	},
+
+	{
 		path: 'pelayo',
 		loadComponent: () => import('./organigrama/pelayo/pelayo.component')
 	},
