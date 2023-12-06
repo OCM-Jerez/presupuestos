@@ -22,40 +22,42 @@
 		</div>
 	</section>
 
-	<header class="OCM-subtitle-dark-left">
-		Aplicación consulta de datos Plataforma Contratación del Sector Público
-	</header>
-	<section class="OCM-flex">
-		<section *ngFor="let menu of OCM">
-			<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+	<section class="reveal-animation">
+		<header class="OCM-subtitle-dark-left">
+			Aplicación consulta de datos Plataforma Contratación del Sector Público
+		</header>
+		<section class="OCM-flex">
+			<section *ngFor="let menu of OCM">
+				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+			</section>
 		</section>
-	</section>
 
-	<header class="OCM-subtitle-dark-left">Con subvención CEE</header>
-	<section class="OCM-flex">
-		<section *ngFor="let menu of licitacionesCEE" [class.highlight]="menu.highlighted">
-			<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+		<header class="OCM-subtitle-dark-left">Con subvención CEE</header>
+		<section class="OCM-flex">
+			<section *ngFor="let menu of licitacionesCEE" [class.highlight]="menu.highlighted">
+				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+			</section>
 		</section>
-	</section>
 
-	<header class="OCM-subtitle-dark-left">Con subvención Gobierno de España</header>
-	<section class="OCM-flex">
-		<section *ngFor="let menu of licitacionesESP" [class.highlight]="menu.highlighted">
-			<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+		<header class="OCM-subtitle-dark-left">Con subvención Gobierno de España</header>
+		<section class="OCM-flex">
+			<section *ngFor="let menu of licitacionesESP" [class.highlight]="menu.highlighted">
+				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+			</section>
 		</section>
-	</section>
 
-	<header class="OCM-subtitle-dark-left">Con subvención Diputación Provincial de Cádiz</header>
-	<section class="OCM-flex">
-		<section *ngFor="let menu of licitacionesDiputacion" [class.highlight]="menu.highlighted">
-			<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+		<header class="OCM-subtitle-dark-left">Con subvención Diputación Provincial de Cádiz</header>
+		<section class="OCM-flex">
+			<section *ngFor="let menu of licitacionesDiputacion" [class.highlight]="menu.highlighted">
+				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+			</section>
 		</section>
-	</section>
 
-	<header class="OCM-subtitle-dark-left">Con fondos propios del Ayuntamiento</header>
-	<section class="OCM-flex">
-		<section *ngFor="let menu of licitacionesAyto" [class.highlight]="menu.highlighted">
-			<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+		<header class="OCM-subtitle-dark-left">Con fondos propios del Ayuntamiento</header>
+		<section class="OCM-flex">
+			<section *ngFor="let menu of licitacionesAyto" [class.highlight]="menu.highlighted">
+				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+			</section>
 		</section>
 	</section>
 </main>
