@@ -21,16 +21,8 @@
 		"value": "Suministros"
 	},
 	{
-		"data": "Fecha final licitación",
-		"value": "17 noviembre 2023"
-	},
-	{
-		"data": "Fecha Formalización",
-		"value": ""
-	},
-	{
 		"data": "Estado",
-		"value": "Publicada"
+		"value": "Adjudicada"
 	},
 	{
 		"data": "Valor estimado del contrato",
@@ -38,24 +30,24 @@
 	},
 	{
 		"data": "Licitadores presentados",
-		"value": ""
+		"value": "4"
 	},
 	{
 		"data": "Adjudicatario",
-		"value": ""
+		"value": "FOTO K, S.A."
 	},
 	{
 		"data": "CIF Adjudicatario",
-		"value": ""
+		"value": "A58444878"
 	},
 	{
 		"data": "Información sobre el adjudicatario",
 		"value": "Pulsar en enlace para ver la información",
-		"URL": ""
+		"URL": "https://librebor.me/borme/empresa/foto-k/"
 	},
 	{
 		"data": "Importe de Adjudicación",
-		"value": ""
+		"value": "37.561"
 	},
 	{
 		"data": "Financiación",

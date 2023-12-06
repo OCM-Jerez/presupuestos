@@ -23,5 +23,10 @@
 		"title": "Mesa del caballo",
 		"path": "art10/infoInstitucional/mesas/mesaCaballo",
 		"rutaImagen": "assets/art10/infoInstitucional/mesas/mesaCaballo/mesaCaballo.jpg"
+	},
+	{
+		"title": "Mesa Local de la Juventud",
+		"path": "art10/infoInstitucional/mesas/mesaLocalJuventud",
+		"rutaImagen": "assets/art10/infoInstitucional/mesas/mesaCaballo/mesaCaballo.jpg"
 	}
 ]

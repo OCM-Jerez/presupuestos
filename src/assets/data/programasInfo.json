@@ -497,7 +497,15 @@
 	},
 	{
 		"codigo": 24121,
-		"descripcion": "Plan promocion empleo"
+		"descripcion": "Plan promocion empleo",
+		"news": [
+			{
+				"date": "6 diciembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "El Ayuntamiento de Jerez recibe una subvención de 400.000 euros para un proyecto de Empleo y Formación",
+				"URL": "https://www.diariodejerez.es/jerez/ayuntamiento-jerez-subvencion-proyecto-empleo-formacion_0_1854416522.html"
+			}
+		]
 	},
 	{
 		"codigo": 24130,
