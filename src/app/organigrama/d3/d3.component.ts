@@ -1,6 +1,6 @@
 // Basado en https://stackblitz.com/edit/js-pr15gr?file=index.html
 
-import { Component, ElementRef, ViewChild, AfterViewInit, OnChanges } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import * as d3 from 'd3';
@@ -11,6 +11,7 @@ interface INodeInfo {
 	parentId?: number;
 	name: string;
 	position: string;
+	salary?: number;
 	image: string;
 	expanded?: boolean;
 }
@@ -31,6 +32,7 @@ export default class D3Component implements AfterViewInit {
 			// parentId: 0,
 			name: 'Mª Jose Garcia Pelayo',
 			position: 'Alcaldesa',
+			salary: 102.432,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/MJoseGarciaPelayo.jpg'
 		},
@@ -181,10 +183,6 @@ export default class D3Component implements AfterViewInit {
 		this.initChart();
 	}
 
-	// ngOnChanges() {
-	// 	this.updateChart();
-	// }
-
 	private initChart() {
 		console.log('initChart');
 		this.chart = new OrgChart()
@@ -223,7 +221,7 @@ export default class D3Component implements AfterViewInit {
 			// 			`;
 			// })
 			.nodeWidth((d) => 160 + 2)
-			.nodeHeight((d) => 100 + 25)
+			.nodeHeight((d) => 150 + 25)
 			.childrenMargin((d) => 50)
 			.compactMarginBetween((d) => 35)
 			.compactMarginPair((d) => 30)
@@ -246,6 +244,7 @@ export default class D3Component implements AfterViewInit {
 					d.data._highlighted || d.data._upToTheRootHighlighted ? '5px solid #E27396"' : '2px solid #808080"' // style node border
 					// d.data._highlighted || d.data._upToTheRootHighlighted ? '5px solid #E27396"' : '1px solid #E4E2E9"'
 				}">
+				<div style="display:flex;justify-content:flex-end;margin-top:5px;margin-right:8px">${d.data.salary} € </div>
 				  <div style="display:flex;justify-content:flex-end;margin-top:5px;margin-right:8px">.</div>
 				  <div style="background-color:${color};margin-top:${
 					-imageDiffVert - 20
@@ -357,11 +356,4 @@ export default class D3Component implements AfterViewInit {
 
 		console.log('filtering chart', e.srcElement.value);
 	}
-
-	// private updateChart() {
-	// 	console.log('updateChart');
-	// 	if (this.chart && this.data) {
-	// 		this.chart.data(this.data).render();
-	// 	}
-	// }
 }
