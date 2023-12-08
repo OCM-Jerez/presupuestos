@@ -32,7 +32,7 @@ export default class D3Component implements AfterViewInit {
 			// parentId: 0,
 			name: 'Mª Jose Garcia Pelayo',
 			position: 'Alcaldesa',
-			salary: 102.432,
+			salary: 102.793,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/MJoseGarciaPelayo.jpg'
 		},
@@ -41,6 +41,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 100,
 			name: 'Agustín Muñoz Martín',
 			position: 'Area de Gobierno de Presidencia',
+			salary: 57.867,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg'
 		},
 		{
@@ -48,6 +49,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 100,
 			name: 'Jaime Espinar Villar',
 			position: 'Area de Gobierno de servicios públicos',
+			salary: 57.867,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JaimaEspinar.jpg'
 		},
 		{
@@ -55,6 +57,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 100,
 			name: 'Susana Sánchez Toro',
 			position: 'Area de Gobierno de Inclusión social',
+			salary: 57.867,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/SusanaSanchez.jpg'
 		},
@@ -63,6 +66,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 100,
 			name: 'Antonio Real Granado',
 			position: 'Area de Gobierno de turismo',
+			salary: 57.867,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AntonioReal.jpg'
 		},
 		{
@@ -70,6 +74,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 100,
 			name: 'Jose Ignacio Martinez Moreno',
 			position: 'Area de Gobierno de empleo',
+			salary: 57.867,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JIgancioMartinez.jpg'
 		},
@@ -81,6 +86,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 101,
 			name: 'Agustín Muñoz Martín',
 			position: 'Delegación centro histórico',
+			salary: 57.867,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg'
 		},
 		{
@@ -88,6 +94,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 101,
 			name: 'Belén de la Cuadra Guerrero',
 			position: 'Delegación urbanismo',
+			salary: 52.517,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/BelenDeLaCuadra.jpg'
 		},
@@ -98,6 +105,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 102,
 			name: 'Jaime Espinar Villar',
 			position: 'Delegación servicios públicos',
+			salary: 57.867,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JaimaEspinar.jpg'
 		},
 		{
@@ -105,6 +113,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 102,
 			name: 'José Angel Aparicio Hormigo',
 			position: 'Delegación educación',
+			salary: 52.517,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JaimaEspinar.jpg'
 		},
 
@@ -114,6 +123,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 103,
 			name: 'Susana Sánchez Toro',
 			position: 'Delegación ,medio rural, igualdad y diversidad',
+			salary: 57.867,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/SusanaSanchez.jpg'
 		},
@@ -122,6 +132,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 103,
 			name: 'Carmen Pina Lorente',
 			position: 'Delegación participación ciudadana',
+			salary: 52.517,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/CarmenPina.jpg'
 		},
 		{
@@ -129,6 +140,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 103,
 			name: 'Yesika Quintero Palma',
 			position: 'Delegación inclusión social',
+			salary: 52.517,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/YessicaQuintero.jpg'
 		},
@@ -139,6 +151,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 104,
 			name: 'Antonio Real Granado',
 			position: 'Delegación turismo y promoción de la ciudad',
+			salary: 57.867,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AntonioReal.jpg'
 		},
 		{
@@ -146,6 +159,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 104,
 			name: 'Francisco Zurita Martín',
 			position: 'Delegación fiestas y cultura',
+			salary: 52.517,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/FranciscoZurita.jpg'
 		},
@@ -155,6 +169,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 105,
 			name: 'Jose Ignacio Martinez Moreno',
 			position: 'Delegación seguridad, recursos humanos y administración electrónica y c ',
+			salary: 57.867,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JIgancioMartinez.jpg'
 		},
@@ -163,6 +178,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 105,
 			name: 'Francisco Delgado Aguilera',
 			position: 'Delegación economía  hacienda y patrimonio',
+			salary: 52.517,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/FranciscoDelgado.jpg'
 		},
@@ -171,6 +187,7 @@ export default class D3Component implements AfterViewInit {
 			parentId: 105,
 			name: 'Nela García Jarillo',
 			position: 'Delegación emple, trabajo autónomo  comercio y empresa',
+			salary: 52.517,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/NelaGarcia.jpg'
 		}
 	];
@@ -186,7 +203,6 @@ export default class D3Component implements AfterViewInit {
 	private initChart() {
 		console.log('initChart');
 		this.chart = new OrgChart()
-
 			.compact(false)
 			.container(this.chartContainer.nativeElement)
 			.svgWidth(800)
@@ -228,12 +244,8 @@ export default class D3Component implements AfterViewInit {
 			.neighbourMargin((a, b) => 20)
 			.nodeContent((d, i, arr, state) => {
 				d3.selectAll('.link').style('stroke', 'grey').style('stroke-width', '2px'); // style lineas de unión
-				// this.data.forEach((d) => (d.expanded = true));  // NO FUNCIONA
 				const color = '#FFFFFF';
 				const imageDiffVert = 25 + 2;
-
-				// d3.selectAll('div.node-button-div').style('border', '6px');
-
 				return `
 			  <div style='width:${d.width}px;height:${d.height}px;padding-top:${
 					imageDiffVert - 2
@@ -244,7 +256,9 @@ export default class D3Component implements AfterViewInit {
 					d.data._highlighted || d.data._upToTheRootHighlighted ? '5px solid #E27396"' : '2px solid #808080"' // style node border
 					// d.data._highlighted || d.data._upToTheRootHighlighted ? '5px solid #E27396"' : '1px solid #E4E2E9"'
 				}">
-				<div style="display:flex;justify-content:flex-end;margin-top:5px;margin-right:8px">${d.data.salary} € </div>
+				<div style="font-size:15px;display:flex;justify-content:flex-end;margin-top:5px;margin-right:8px">${
+					d.data.salary
+				} € </div>
 				  <div style="display:flex;justify-content:flex-end;margin-top:5px;margin-right:8px">.</div>
 				  <div style="background-color:${color};margin-top:${
 					-imageDiffVert - 20
@@ -259,8 +273,6 @@ export default class D3Component implements AfterViewInit {
 			`;
 				// <div style="display:flex;justify-content:flex-end;margin-top:5px;margin-right:8px">#${d.data.id}</div>
 			})
-			// Agrega el botón de paginación y otras configuraciones aquí
-			// .connections([{ from: 100, to: 101, label: 'Delega en' }])
 			.render();
 	}
 
@@ -273,7 +285,6 @@ export default class D3Component implements AfterViewInit {
 	}
 
 	expandDelegaciones() {
-		console.log('expandDelegaciones');
 		this.chart.setExpanded(201);
 		this.chart.setExpanded(203);
 		this.chart.setExpanded(205);
@@ -285,7 +296,6 @@ export default class D3Component implements AfterViewInit {
 	}
 
 	collapseDelegaciones() {
-		console.log('expandDelegaciones');
 		this.chart.setExpanded(201, false);
 		this.chart.setExpanded(203, false);
 		this.chart.setExpanded(205, false);
@@ -301,59 +311,21 @@ export default class D3Component implements AfterViewInit {
 		this.chart.zoomOut(1);
 	}
 
-	searchName(e) {
-		// Get input value
-		const value = e.srcElement.value;
+	searchNode(e, option: string) {
+		const value = e.srcElement.value.toLowerCase();
+		if (!value) {
+			this.chart.clearHighlighting();
+			return;
+		}
 
-		// Clear previous higlighting
-		this.chart.clearHighlighting();
-
-		// Get chart nodes
 		const data = this.chart.data();
-
-		// Mark all previously expanded nodes for collapse
-		data.forEach((d) => (d._expanded = false));
-
-		// Loop over data and check if input value matches any name
 		data.forEach((d) => {
-			if (value != '' && d.name.toLowerCase().includes(value.toLowerCase())) {
-				// If matches, mark node as highlighted
-				d._highlighted = true;
-				d._expanded = true;
-			}
+			const content = d[option].toLowerCase();
+			const isMatch = content.includes(value);
+			d._highlighted = isMatch;
+			d._expanded = isMatch;
 		});
 
-		// Update data and rerender graph
 		this.chart.data(data).render().fit();
-
-		console.log('filtering chart', e.srcElement.value);
-	}
-
-	searchPuesto(e) {
-		// Get input value
-		const value = e.srcElement.value;
-
-		// Clear previous higlighting
-		this.chart.clearHighlighting();
-
-		// Get chart nodes
-		const data = this.chart.data();
-
-		// Mark all previously expanded nodes for collapse
-		data.forEach((d) => (d._expanded = false));
-
-		// Loop over data and check if input value matches any name
-		data.forEach((d) => {
-			if (value != '' && d.position.toLowerCase().includes(value.toLowerCase())) {
-				// If matches, mark node as highlighted
-				d._highlighted = true;
-				d._expanded = true;
-			}
-		});
-
-		// Update data and rerender graph
-		this.chart.data(data).render().fit();
-
-		console.log('filtering chart', e.srcElement.value);
 	}
 }

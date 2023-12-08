@@ -7,13 +7,13 @@
 				type="search"
 				id="searchName"
 				placeholder="Introduce nombre a buscar"
-				(input)="searchName($event)"
+				(input)="searchNode($event, 'name')"
 			/>
 			<input
 				style="width: 300px"
 				type="search"
 				placeholder="Introduce puesto a buscar"
-				(input)="searchPuesto($event)"
+				(input)="searchNode($event, 'position')"
 			/>
 
 			<button (click)="expandDelegaciones()">Delegaciones +</button>
