@@ -208,6 +208,8 @@ export default class D3Component implements AfterViewInit {
 			.compactMarginPair((d) => 30)
 			.container(this.chartContainer.nativeElement)
 			.data(this.data)
+			.initialExpandLevel(2)
+			.initialZoom(0.7)
 			.neighbourMargin((a, b) => 20)
 			.nodeHeight((d) => 150 + 25)
 			.nodeWidth((d) => 160 + 2)
@@ -283,6 +285,7 @@ export default class D3Component implements AfterViewInit {
 		this.chart.setExpanded(210);
 		this.chart.zoomOut(1);
 		this.chart.render();
+
 		// this.chart.setCentered(100);
 	}
 
