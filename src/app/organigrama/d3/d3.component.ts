@@ -591,7 +591,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Silvia Rodríguez Robles',
 			position: 'Secretaria grupo 50%',
 			salary: this.salarioSecretarioGrupo50,
-			image: ''
+			image: 'assets/organigrama/mujer.png'
 		},
 		{
 			id: 6000,
@@ -599,7 +599,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Cayetano Soto Cáceres',
 			position: 'Secretario grupo 50%',
 			salary: this.salarioSecretarioGrupo50,
-			image: ''
+			image: 'assets/organigrama/hombre.png'
 		},
 
 		// Secretarios Grupo municipal PSOE
@@ -609,7 +609,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Esther María Mayolin Galán',
 			position: 'Secretaria grupo 75%',
 			salary: this.salarioSecretarioGrupo75,
-			image: ''
+			image: 'assets/organigrama/mujer.png'
 		},
 		{
 			id: 6000,
@@ -617,7 +617,7 @@ export default class D3Component implements AfterViewInit {
 			name: ' Alberto Pozo de los Ríos',
 			position: 'Secretaria grupo 25%',
 			salary: this.salarioSecretarioGrupo25,
-			image: ''
+			image: 'assets/organigrama/hombre.png'
 		},
 		// Secretarios Grupo municipal Confluencia
 		{
@@ -626,7 +626,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Violeta Márquez Ruiz',
 			position: 'Secretaria grupo 100%',
 			salary: this.salarioSecretarioGrupo,
-			image: ''
+			image: 'assets/organigrama/mujer.png'
 		},
 
 		// Secretarios Grupo municipal VOX
@@ -636,7 +636,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'María Jesús Herencia Montaño',
 			position: 'Secretaria grupo 50%',
 			salary: this.salarioSecretarioGrupo50,
-			image: ''
+			image: 'assets/organigrama/mujer.png'
 		},
 		{
 			id: 6001,
@@ -644,7 +644,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Manuel Jesus Mesa Calvo',
 			position: 'Secretario grupo 50%',
 			salary: this.salarioSecretarioGrupo50,
-			image: ''
+			image: 'assets/organigrama/hombre.png'
 		},
 
 		// Asesores
@@ -653,9 +653,8 @@ export default class D3Component implements AfterViewInit {
 			parentId: 40,
 			name: 'Gobierno local',
 			// position: '',
-			salary: 102.793
-			// image:
-			// 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/MJoseGarciaPelayo.jpg'
+			salary: 102.793,
+			image: 'assets/organigrama/gobierno.png'
 		},
 		{
 			id: 1110,
@@ -697,7 +696,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'José Antonio Vázquez Laboisse',
 			position: 'Asesor comunicación 100%',
 			salary: this.salarioAsesorComunicacion,
-			image: ''
+			image: 'assets/organigrama/hombre.png'
 		},
 		{
 			id: 6002,
@@ -705,7 +704,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Tomás Pablo Sampalo Torres',
 			position: '100%',
 			salary: this.SalarioAsesorGobierno,
-			image: ''
+			image: 'assets/organigrama/hombre.png'
 		},
 		{
 			id: 6003,
@@ -713,7 +712,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Rafael Mantaras Durán ',
 			position: '100%',
 			salary: this.SalarioAsesorGobierno,
-			image: ''
+			image: 'assets/organigrama/hombre.png'
 		},
 		{
 			id: 6004,
@@ -721,7 +720,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Manuel Moure Sánchez ',
 			position: '100%',
 			salary: this.SalarioAsesorGobierno,
-			image: ''
+			image: 'assets/organigrama/hombre.png'
 		},
 		{
 			id: 6005,
@@ -729,7 +728,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Aiad Abdel-lah Ahmed ',
 			position: '100%',
 			salary: this.SalarioAsesorGobierno,
-			image: ''
+			image: 'assets/organigrama/hombre.png'
 		},
 		{
 			id: 6007,
@@ -737,7 +736,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Dolores Francisca Vallespí Aubá ',
 			position: '100%',
 			salary: this.SalarioAsesorGobierno,
-			image: ''
+			image: 'assets/organigrama/mujer.png'
 		},
 		{
 			id: 6008,
@@ -745,7 +744,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Cristóbal Ortega Muñoz',
 			position: '50%',
 			salary: this.SalarioAsesorGobierno50,
-			image: ''
+			image: 'assets/organigrama/hombre.png'
 		},
 		{
 			id: 6009,
@@ -753,7 +752,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Leopoldo Fernández Vargas-Machuca ',
 			position: '50%',
 			salary: this.SalarioAsesorGobierno50,
-			image: ''
+			image: 'assets/organigrama/hombre.png'
 		},
 		{
 			id: 6010,
@@ -761,7 +760,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Juan Alvarado Garrido',
 			position: '50%',
 			salary: this.SalarioAsesorGobierno50,
-			image: ''
+			image: 'assets/organigrama/hombre.png'
 		},
 
 		// Asesores Grupo municipal pp
@@ -771,7 +770,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Elvira González Castro',
 			position: '50%',
 			salary: this.salarioAsesorGrupo50,
-			image: ''
+			image: 'assets/organigrama/mujer.png'
 		},
 		{
 			id: 6000,
@@ -779,7 +778,7 @@ export default class D3Component implements AfterViewInit {
 			name: 'Javier Mantaras Mechén',
 			position: '50%',
 			salary: this.salarioAsesorGrupo50,
-			image: ''
+			image: 'assets/organigrama/hombre.png'
 		},
 
 		// Asesores Grupo municipal PSOE
@@ -789,7 +788,7 @@ export default class D3Component implements AfterViewInit {
 			name: ' Irene Canca Arévalo ',
 			position: '50%',
 			salary: this.salarioAsesorGrupo50,
-			image: ''
+			image: 'assets/organigrama/mujer.png'
 		},
 		{
 			id: 6000,
@@ -797,7 +796,7 @@ export default class D3Component implements AfterViewInit {
 			name: ' Inmaculada de la Corte Granado ',
 			position: '50%',
 			salary: this.salarioAsesorGrupo50,
-			image: ''
+			image: 'assets/organigrama/mujer.png'
 		}
 	];
 
