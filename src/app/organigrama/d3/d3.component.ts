@@ -489,40 +489,40 @@ export default class D3Component implements AfterViewInit {
 			id: 2010,
 			parentId: 2000,
 			name: 'Mamen Sánchez Díaz',
-			// position: '',
-			// salary: '',
+			position: 'Concejala',
+			salary: 0,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2019-2023/PSOE/MCSANCHEZ.svg'
 		},
 		{
 			id: 2003,
 			parentId: 2000,
 			name: 'Jesús Alba Guerra',
-			position: '',
-			// salary: 0,
+			position: 'Concejal',
+			salary: 0,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2019-2023/PSOE/JESUSALBA.svg'
 		},
 		{
 			id: 2004,
 			parentId: 2000,
 			name: 'Mª del Carmen Collado Jiménez',
-			position: '',
-			// salary: 0,
+			position: 'Concejala',
+			salary: 0,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2019-2023/PSOE/COLLADO.svg'
 		},
 		{
 			id: 2006,
 			parentId: 2000,
 			name: 'Ana Herica Ramos Campos',
-			position: '',
-			// salary: 0,
+			position: 'Concejala',
+			salary: 0,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2019-2023/PSOE/ANAHERICA.svg'
 		},
 		{
 			id: 2007,
 			parentId: 2000,
 			name: 'Dionisio Díaz Fernández',
-			position: '',
-			// salary: 0,
+			position: 'Concejal',
+			salary: 0,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PSOE/DionisioDiaz.jpg'
 		},
@@ -530,8 +530,8 @@ export default class D3Component implements AfterViewInit {
 			id: 2008,
 			parentId: 2000,
 			name: 'Almudena Navarro Romero',
-			position: '',
-			// salary: 0,
+			position: 'Concejala',
+			salary: 0,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PSOE/Almudena_Navarro.jpg'
 		},
@@ -539,8 +539,8 @@ export default class D3Component implements AfterViewInit {
 			id: 2009,
 			parentId: 2000,
 			name: 'Susana Romero Lobato',
-			position: '',
-			// salary: 0,
+			position: 'Concejala',
+			salary: 0,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PSOE/Susana_Romero_Lobato.png'
 		},
@@ -873,7 +873,6 @@ export default class D3Component implements AfterViewInit {
 			<div style="${imageContainerStyle}"><img src="${d.data.image}" style="${imageStyle}" /></div>
 			<div style="${nameStyle}">${d.data.name}</div>
 			<div style="${positionStyle}">${d.data.position}</div>
-			<div style="${positionStyle}">${d.data.id}</div>
 			</div>
 		</div>
 	  `;
