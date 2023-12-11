@@ -1,0 +1,665 @@
+[
+	{
+		"id": 0,
+		"name": "Corporación 2023-2027",
+		"position": "",
+		"salary": 1490583,
+		"image": "assets/organigrama/corporacion.png"
+	},
+	{
+		"id": 10,
+		"parentId": 0,
+		"name": "Gobierno Local",
+		"position": "",
+		"salary": 719516,
+		"image": "assets/organigrama/gobierno.png"
+	},
+	{
+		"id": 20,
+		"parentId": 0,
+		"name": "Grupos municipales",
+		"position": "",
+		"salary": 239346,
+		"image": "assets/organigrama/grupoMunicipal.png"
+	},
+	{
+		"id": 30,
+		"parentId": 0,
+		"name": "Secretarios Grupos Municipales",
+		"position": "",
+		"salary": 131020,
+		"image": "assets/organigrama/secretario.png"
+	},
+	{
+		"id": 40,
+		"parentId": 0,
+		"name": "Asesores",
+		"position": "",
+		"salary": 400701,
+		"image": "assets/organigrama/asesor.png"
+	},
+	{
+		"id": 1000,
+		"parentId": 20,
+		"name": "PP",
+		"position": "Grupo municipal",
+		"salary": 0,
+		"image": "assets/organigrama/logoPP.jpg"
+	},
+	{
+		"id": 2000,
+		"parentId": 20,
+		"name": "PSOE",
+		"position": "Grupo municipal",
+		"salary": 79782,
+		"image": "assets/organigrama/logoPSOE.jpg"
+	},
+	{
+		"id": 3000,
+		"parentId": 20,
+		"name": "La Confluencia",
+		"position": "Grupo municipal",
+		"salary": 79782,
+		"image": "assets/organigrama/logoLaConfluencia.jpg"
+	},
+	{
+		"id": 4000,
+		"parentId": 20,
+		"name": "Vox",
+		"position": "Grupo municipal",
+		"salary": 79782,
+		"image": "assets/organigrama/logoVOX.jpg"
+	},
+	{
+		"id": 1100,
+		"parentId": 30,
+		"name": "PP",
+		"position": "Secretario grupo",
+		"salary": 32755,
+		"image": "assets/organigrama/logoPP.jpg"
+	},
+	{
+		"id": 2100,
+		"parentId": 30,
+		"name": "PSOE",
+		"position": "Secretario grupo",
+		"salary": 32755,
+		"image": "assets/organigrama/logoPSOE.jpg"
+	},
+	{
+		"id": 3100,
+		"parentId": 30,
+		"name": "La Confluencia",
+		"position": "Secretario grupo",
+		"salary": 32755,
+		"image": "assets/organigrama/logoLaConfluencia.jpg"
+	},
+	{
+		"id": 4100,
+		"parentId": 30,
+		"name": "Vox",
+		"position": "Secretario grupo",
+		"salary": 32755,
+		"image": "assets/organigrama/logoVOX.jpg"
+	},
+	{
+		"id": 1,
+		"parentId": 10,
+		"name": "Mª Jose Garcia Pelayo",
+		"position": "Alcaldesa",
+		"salary": 74135,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/MJoseGarciaPelayo.jpg"
+	},
+	{
+		"id": 101,
+		"parentId": 1,
+		"name": "Agustín Muñoz Martín",
+		"position": "Área gobierno de presidencia, centro histórico, fondos europeos, coordinación de gobierno y ordenación del territorio",
+		"salary": 57867,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg"
+	},
+	{
+		"id": 102,
+		"parentId": 1,
+		"name": "Jaime Espinar Villar",
+		"position": "Área de gobierno de coordinación de servicios públicos, desarrollo sostenible, medio ambiente, protección animal, educación y deportes",
+		"salary": 57867,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JaimaEspinar.jpg"
+	},
+	{
+		"id": 103,
+		"parentId": 1,
+		"name": "Susana Sánchez Toro",
+		"position": "Área de gobierno de inclusión social, familias, igualdad y diversidad, medio rural, participación ciudadana y juventud",
+		"salary": 57867,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/SusanaSanchez.jpg"
+	},
+	{
+		"id": 104,
+		"parentId": 1,
+		"name": "Antonio Real Granado",
+		"position": "Área de Gobierno de turismo y cultura",
+		"salary": 57867,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AntonioReal.jpg"
+	},
+	{
+		"id": 105,
+		"parentId": 1,
+		"name": "Jose Ignacio Martinez Moreno",
+		"position": "Área de gobierno de empleo, economía, patrimonio, seguridad, recursos humanos y simplificación administrativa y transparencia",
+		"salary": 46294,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JIgancioMartinez.jpg"
+	},
+	{
+		"id": 201,
+		"parentId": 101,
+		"name": "Agustín Muñoz Martín",
+		"position": "Delegación de presidencia, centro histórico, fondos europeos y coordinación de gobierno",
+		"salary": 57867,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg"
+	},
+	{
+		"id": 202,
+		"parentId": 101,
+		"name": "Belén de la Cuadra Guerrero",
+		"position": "Delegación de urbanismo, ordenación del territorio y vivienda",
+		"salary": 52517,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/BelenDeLaCuadra.jpg"
+	},
+	{
+		"id": 203,
+		"parentId": 102,
+		"name": "Jaime Espinar Villar",
+		"position": "Delegación de servicios públicos, medio ambiente y protección animal",
+		"salary": 57867,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JaimaEspinar.jpg"
+	},
+	{
+		"id": 204,
+		"parentId": 102,
+		"name": "José Angel Aparicio Hormigo",
+		"position": "Delegación de desarrollo educativo, formación profesional, universidades y deportes",
+		"salary": 52517,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JAngelAparicio.jpg"
+	},
+	{
+		"id": 205,
+		"parentId": 103,
+		"name": "Susana Sánchez Toro",
+		"position": "Delegación medio rural, igualdad y diversidad",
+		"salary": 57867,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/SusanaSanchez.jpg"
+	},
+	{
+		"id": 206,
+		"parentId": 103,
+		"name": "Carmen Pina Lorente",
+		"position": "Delegación participación ciudadana y juventud",
+		"salary": 52517,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/CarmenPina.jpg"
+	},
+	{
+		"id": 207,
+		"parentId": 103,
+		"name": "Yesika Quintero Palma",
+		"position": "Delegación de inclusión social, dependencia, mayores y familia",
+		"salary": 52517,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/YessicaQuintero.jpg"
+	},
+	{
+		"id": 208,
+		"parentId": 104,
+		"name": "Antonio Real Granado",
+		"position": "Delegación turismo y promoción de la ciudad",
+		"salary": 57867,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AntonioReal.jpg"
+	},
+	{
+		"id": 209,
+		"parentId": 104,
+		"name": "Francisco Zurita Martín",
+		"position": "Delegación de cultura, fiestas, patrimonio histórico y capitalidad cultural",
+		"salary": 52517,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/FranciscoZurita.jpg"
+	},
+	{
+		"id": 210,
+		"parentId": 105,
+		"name": "Jose Ignacio Martinez Moreno",
+		"position": "Delegación de seguridad, recursos humanos, transformación digital, simplificación administrativa y transparencia",
+		"salary": 46294,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JIgancioMartinez.jpg"
+	},
+	{
+		"id": 211,
+		"parentId": 105,
+		"name": "Francisco Delgado Aguilera",
+		"position": "Delegación economía  hacienda y patrimonio",
+		"salary": 52517,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/FranciscoDelgado.jpg"
+	},
+	{
+		"id": 212,
+		"parentId": 105,
+		"name": "Nela García Jarillo",
+		"position": "Delegación de empleo, trabajo autónomo, comercio y empresa",
+		"salary": 52517,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/NelaGarcia.jpg"
+	},
+	{
+		"id": 114,
+		"parentId": 1000,
+		"name": "Mª Jose Garcia Pelayo",
+		"position": "Alcaldesa",
+		"salary": 74135,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/MJoseGarciaPelayo.jpg"
+	},
+	{
+		"id": 10114,
+		"parentId": 1000,
+		"name": "Agustín Muñoz Martín",
+		"position": "Area de Gobierno de Presidencia",
+		"salary": 57867,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg"
+	},
+	{
+		"id": 10214,
+		"parentId": 1000,
+		"name": "Jaime Espinar Villar",
+		"position": "Area de Gobierno de servicios públicos",
+		"salary": 57867,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JaimaEspinar.jpg"
+	},
+	{
+		"id": 10314,
+		"parentId": 1000,
+		"name": "Susana Sánchez Toro",
+		"position": "Area de Gobierno de Inclusión social",
+		"salary": 57867,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/SusanaSanchez.jpg"
+	},
+	{
+		"id": 10414,
+		"parentId": 1000,
+		"name": "Antonio Real Granado",
+		"position": "Area de Gobierno de turismo",
+		"salary": 57867,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AntonioReal.jpg"
+	},
+	{
+		"id": 10514,
+		"parentId": 1000,
+		"name": "Jose Ignacio Martinez Moreno",
+		"position": "Area de Gobierno de empleo",
+		"salary": 46294,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JIgancioMartinez.jpg"
+	},
+	{
+		"id": 20214,
+		"parentId": 1000,
+		"name": "Belén de la Cuadra Guerrero",
+		"position": "Delegación urbanismo",
+		"salary": 52517,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/BelenDeLaCuadra.jpg"
+	},
+	{
+		"id": 20414,
+		"parentId": 1000,
+		"name": "José Angel Aparicio Hormigo",
+		"position": "Delegación educación",
+		"salary": 52517,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JaimaEspinar.jpg"
+	},
+	{
+		"id": 20614,
+		"parentId": 1000,
+		"name": "Carmen Pina Lorente",
+		"position": "Delegación participación ciudadana",
+		"salary": 52517,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/CarmenPina.jpg"
+	},
+	{
+		"id": 20714,
+		"parentId": 1000,
+		"name": "Yesika Quintero Palma",
+		"position": "Delegación inclusión social",
+		"salary": 52517,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/YessicaQuintero.jpg"
+	},
+	{
+		"id": 20914,
+		"parentId": 1000,
+		"name": "Francisco Zurita Martín",
+		"position": "Delegación fiestas y cultura",
+		"salary": 52517,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/FranciscoZurita.jpg"
+	},
+	{
+		"id": 21114,
+		"parentId": 1000,
+		"name": "Francisco Delgado Aguilera",
+		"position": "Delegación economía  hacienda y patrimonio",
+		"salary": 52517,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/FranciscoDelgado.jpg"
+	},
+	{
+		"id": 21214,
+		"parentId": 1000,
+		"name": "Nela García Jarillo",
+		"position": "Delegación emple, trabajo autónomo  comercio y empresa",
+		"salary": 52517,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/NelaGarcia.jpg"
+	},
+	{
+		"id": 21215,
+		"parentId": 1000,
+		"name": "Almudena Marina Martínez del Junco",
+		"position": "Presidenta Dipuitación de Cádiz",
+		"salary": 0,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AlmudenaMartinez.jpg"
+	},
+	{
+		"id": 2001,
+		"parentId": 2000,
+		"name": "José Antonio Díaz Hernández",
+		"position": "Portavoz grupo",
+		"salary": 43782,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2019-2023/PSOE/JANTONIO.svg"
+	},
+	{
+		"id": 2002,
+		"parentId": 2000,
+		"name": "Laura Álvarez Cabrera",
+		"position": "VivePortavoz grupo",
+		"salary": 36000,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2019-2023/PSOE/LAURA.svg"
+	},
+	{
+		"id": 2010,
+		"parentId": 2000,
+		"name": "Mamen Sánchez Díaz",
+		"position": "Concejala",
+		"salary": 0,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2019-2023/PSOE/MCSANCHEZ.svg"
+	},
+	{
+		"id": 2003,
+		"parentId": 2000,
+		"name": "Jesús Alba Guerra",
+		"position": "Concejal",
+		"salary": 0,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2019-2023/PSOE/JESUSALBA.svg"
+	},
+	{
+		"id": 2004,
+		"parentId": 2000,
+		"name": "Mª del Carmen Collado Jiménez",
+		"position": "Concejala",
+		"salary": 0,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2019-2023/PSOE/COLLADO.svg"
+	},
+	{
+		"id": 2006,
+		"parentId": 2000,
+		"name": "Ana Herica Ramos Campos",
+		"position": "Concejala",
+		"salary": 0,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2019-2023/PSOE/ANAHERICA.svg"
+	},
+	{
+		"id": 2007,
+		"parentId": 2000,
+		"name": "Dionisio Díaz Fernández",
+		"position": "Concejal",
+		"salary": 0,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PSOE/DionisioDiaz.jpg"
+	},
+	{
+		"id": 2008,
+		"parentId": 2000,
+		"name": "Almudena Navarro Romero",
+		"position": "Concejala",
+		"salary": 0,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PSOE/Almudena_Navarro.jpg"
+	},
+	{
+		"id": 2009,
+		"parentId": 2000,
+		"name": "Susana Romero Lobato",
+		"position": "Concejala",
+		"salary": 0,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PSOE/Susana_Romero_Lobato.png"
+	},
+	{
+		"id": 3001,
+		"parentId": 3000,
+		"name": "Raul Ruiz-Berdejo",
+		"position": "Portavoz grupo",
+		"salary": 43782,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/LACONFLUENCIA/RaulRuizBerdejo.jpg"
+	},
+	{
+		"id": 3002,
+		"parentId": 3000,
+		"name": "Ángeles González Eslava",
+		"position": "VicePortavoz grupo",
+		"salary": 36000,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/LACONFLUENCIA/KikaGonzalez.png"
+	},
+	{
+		"id": 4001,
+		"parentId": 4000,
+		"name": "Antonio Fernández Campos",
+		"position": "Portavoz grupo",
+		"salary": 43782,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/VOX/AntonioFernandez.jpg"
+	},
+	{
+		"id": 4002,
+		"parentId": 4000,
+		"name": "F. Ignacio Soto",
+		"position": "VicePortavoz grupo",
+		"salary": 36000,
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/VOX/IgnacioSoto.jpg"
+	},
+	{
+		"id": 6000,
+		"parentId": 1100,
+		"name": "Silvia Rodríguez Robles",
+		"position": "Secretaria grupo 50%",
+		"salary": 16378,
+		"image": "assets/organigrama/mujer.png"
+	},
+	{
+		"id": 6000,
+		"parentId": 1100,
+		"name": "Cayetano Soto Cáceres",
+		"position": "Secretario grupo 50%",
+		"salary": 16378,
+		"image": "assets/organigrama/hombre.png"
+	},
+	{
+		"id": 6000,
+		"parentId": 2100,
+		"name": "Esther María Mayolin Galán",
+		"position": "Secretaria grupo 75%",
+		"salary": 24566,
+		"image": "assets/organigrama/mujer.png"
+	},
+	{
+		"id": 6000,
+		"parentId": 2100,
+		"name": " Alberto Pozo de los Ríos",
+		"position": "Secretaria grupo 25%",
+		"salary": 8189,
+		"image": "assets/organigrama/hombre.png"
+	},
+	{
+		"id": 6000,
+		"parentId": 3100,
+		"name": "Violeta Márquez Ruiz",
+		"position": "Secretaria grupo 100%",
+		"salary": 32755,
+		"image": "assets/organigrama/mujer.png"
+	},
+	{
+		"id": 6000,
+		"parentId": 4100,
+		"name": "María Jesús Herencia Montaño",
+		"position": "Secretaria grupo 50%",
+		"salary": 16378,
+		"image": "assets/organigrama/mujer.png"
+	},
+	{
+		"id": 6001,
+		"parentId": 4100,
+		"name": "Manuel Jesus Mesa Calvo",
+		"position": "Secretario grupo 50%",
+		"salary": 16378,
+		"image": "assets/organigrama/hombre.png"
+	},
+	{
+		"id": 1111,
+		"parentId": 40,
+		"name": "Gobierno local",
+		"position": "",
+		"salary": 335191,
+		"image": "assets/organigrama/gobierno.png"
+	},
+	{
+		"id": 1110,
+		"parentId": 40,
+		"name": "PP",
+		"position": "",
+		"salary": 32755,
+		"image": "assets/organigrama/logoPP.jpg"
+	},
+	{
+		"id": 2220,
+		"parentId": 40,
+		"name": "PSOE",
+		"position": "",
+		"salary": 32755,
+		"image": "assets/organigrama/logoPSOE.jpg"
+	},
+	{
+		"id": 3330,
+		"parentId": 40,
+		"name": "La Confluencia",
+		"position": "",
+		"salary": 0,
+		"image": "assets/organigrama/logoLaConfluencia.jpg"
+	},
+	{
+		"id": 4440,
+		"parentId": 40,
+		"name": "Vox",
+		"position": "",
+		"salary": 0,
+		"image": "assets/organigrama/logoVOX.jpg"
+	},
+	{
+		"id": 6001,
+		"parentId": 1111,
+		"name": "José Antonio Vázquez Laboisse",
+		"position": "Asesor comunicación 100%",
+		"salary": 51316,
+		"image": "assets/organigrama/hombre.png"
+	},
+	{
+		"id": 6002,
+		"parentId": 1111,
+		"name": "Tomás Pablo Sampalo Torres",
+		"position": "100%",
+		"salary": 46673,
+		"image": "assets/organigrama/hombre.png"
+	},
+	{
+		"id": 6003,
+		"parentId": 1111,
+		"name": "Rafael Mantaras Durán ",
+		"position": "100%",
+		"salary": 46673,
+		"image": "assets/organigrama/hombre.png"
+	},
+	{
+		"id": 6004,
+		"parentId": 1111,
+		"name": "Manuel Moure Sánchez ",
+		"position": "100%",
+		"salary": 46673,
+		"image": "assets/organigrama/hombre.png"
+	},
+	{
+		"id": 6005,
+		"parentId": 1111,
+		"name": "Aiad Abdel-lah Ahmed ",
+		"position": "100%",
+		"salary": 46673,
+		"image": "assets/organigrama/hombre.png"
+	},
+	{
+		"id": 6007,
+		"parentId": 1111,
+		"name": "Dolores Francisca Vallespí Aubá ",
+		"position": "100%",
+		"salary": 46673,
+		"image": "assets/organigrama/mujer.png"
+	},
+	{
+		"id": 6008,
+		"parentId": 1111,
+		"name": "Cristóbal Ortega Muñoz",
+		"position": "50%",
+		"salary": 21837,
+		"image": "assets/organigrama/hombre.png"
+	},
+	{
+		"id": 6009,
+		"parentId": 1111,
+		"name": "Leopoldo Fernández Vargas-Machuca ",
+		"position": "50%",
+		"salary": 21837,
+		"image": "assets/organigrama/hombre.png"
+	},
+	{
+		"id": 6010,
+		"parentId": 1111,
+		"name": "Juan Alvarado Garrido",
+		"position": "50%",
+		"salary": 21837,
+		"image": "assets/organigrama/hombre.png"
+	},
+	{
+		"id": 6000,
+		"parentId": 1110,
+		"name": "Elvira González Castro",
+		"position": "50%",
+		"salary": 16378,
+		"image": "assets/organigrama/mujer.png"
+	},
+	{
+		"id": 6000,
+		"parentId": 1110,
+		"name": "Javier Mantaras Mechén",
+		"position": "50%",
+		"salary": 16378,
+		"image": "assets/organigrama/hombre.png"
+	},
+	{
+		"id": 6000,
+		"parentId": 2220,
+		"name": " Irene Canca Arévalo ",
+		"position": "50%",
+		"salary": 16378,
+		"image": "assets/organigrama/mujer.png"
+	},
+	{
+		"id": 6000,
+		"parentId": 2220,
+		"name": " Inmaculada de la Corte Granado ",
+		"position": "50%",
+		"salary": 16378,
+		"image": "assets/organigrama/mujer.png"
+	}
+]
