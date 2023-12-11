@@ -835,7 +835,6 @@ export default class D3Component implements AfterViewInit {
 					case 1:
 						window.location.href = '/#/pelayo';
 						break;
-
 					default:
 						break;
 				}
@@ -902,10 +901,9 @@ export default class D3Component implements AfterViewInit {
 		this.chart.setExpanded(205);
 		this.chart.setExpanded(208);
 		this.chart.setExpanded(210);
-		this.chart.zoomOut(1);
+		this.chart.setCentered(10);
+		this.chart.initialZoom(0.6);
 		this.chart.render();
-
-		// this.chart.setCentered(100);
 	}
 
 	collapseDelegaciones() {
@@ -913,7 +911,7 @@ export default class D3Component implements AfterViewInit {
 		this.chart.setExpanded(203, false);
 		this.chart.setExpanded(205, false);
 		this.chart.setExpanded(208, false);
-		this.chart.setExpanded(210, false).setCentered(100).render();
+		this.chart.setExpanded(210, false).setCentered(10).render();
 	}
 
 	zoomIn() {
