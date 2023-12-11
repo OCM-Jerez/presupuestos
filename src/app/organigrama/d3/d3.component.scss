@@ -27,10 +27,8 @@
 	}
 
 	button {
-		font-family: Arial, Helvetica, sans-serif;
-		font-weight: bold;
 		color: white;
-		background-color: #171717;
+		background-color: #4d4e50;
 		padding: 1em 2em;
 		border: none;
 		border-radius: 0.6rem;
@@ -39,23 +37,23 @@
 		overflow: hidden;
 		padding: 10px;
 		margin-left: 6px;
+		&:hover {
+			border: 1px solid rgb(147, 138, 138);
+		}
 	}
 
-	.input {
-		max-width: 190px;
-		height: 2rem;
-		background-color: transparent;
-		border: 2px solid transparent;
-		color: white;
+	input {
+		width: 200px;
 		padding: 1rem;
-		box-shadow: 2px 2px 5px black, inset 2px 2px 5px rgb(53, 51, 51), -1px -1px 20px rgba(59, 56, 56, 0.781);
-		outline: none;
-		border-radius: 10px;
-		font-size: medium;
+		border: none;
+		border-radius: 8px;
+		&:hover {
+			border: 1px solid rgb(147, 138, 138);
+		}
 	}
 
-	.input:focus {
-		box-shadow: 2px 2px 5px black, inset 2px 2px 5px black, -1px -1px 5px rgba(68, 67, 67, 0.781),
-			inset -1px -1px 5px rgba(66, 65, 65, 0.822);
-	}
+	// .input:focus {
+	// 	box-shadow: 2px 2px 5px black, inset 2px 2px 5px black, -1px -1px 5px rgba(68, 67, 67, 0.781),
+	// 		inset -1px -1px 5px rgba(66, 65, 65, 0.822);
+	// }
 }

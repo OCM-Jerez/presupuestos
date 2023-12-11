@@ -1,29 +1,17 @@
-<div style="width: 2200px; max-height: 800px">
-	<nav class="navbar">
-		<div class="navbar--1row">
-			<!-- <label for="searchName">Busca por nombre</label> -->
-			<input
-				style="width: 300px"
-				type="search"
-				id="searchName"
-				placeholder="Introduce nombre a buscar"
-				(input)="searchNode($event, 'name')"
-			/>
-			<input
-				style="width: 300px"
-				type="search"
-				placeholder="Introduce puesto a buscar"
-				(input)="searchNode($event, 'position')"
-			/>
+<!-- <div style="width: 1200px; max-height: 600px"> -->
+<nav class="navbar">
+	<div class="navbar--1row">
+		<input type="search" id="searchName" placeholder="Introduce nombre a buscar" (input)="searchNode($event, 'name')" />
+		<input type="search" placeholder="Introduce puesto a buscar" (input)="searchNode($event, 'position')" />
 
-			<button (click)="expandDelegaciones()">Delegaciones +</button>
-			<button (click)="collapseDelegaciones()">Delegaciones -</button>
-			<button (click)="zoomIn()">+</button>
-			<button (click)="zoomOut()">-</button>
-			<button (click)="showConnections()">Connections +</button>
-			<button (click)="hideConnections()">Connections -</button>
-		</div>
-	</nav>
+		<button (click)="expandDelegaciones()">Delegaciones +</button>
+		<button (click)="collapseDelegaciones()">Delegaciones -</button>
+		<button (click)="zoomIn()">+</button>
+		<button (click)="zoomOut()">-</button>
+		<!-- <button (click)="showConnections()">Connections +</button>
+		<button (click)="hideConnections()">Connections -</button> -->
+	</div>
+</nav>
 
-	<div #chartContainer style="width: 2200px; max-height: 800px"></div>
-</div>
+<div #chartContainer style="width: 2200px; max-height: 800px"></div>
+<!-- </div> -->
