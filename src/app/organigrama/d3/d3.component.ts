@@ -51,18 +51,18 @@ export default class D3Component implements AfterViewInit {
 	salarioAsesorGrupo50 = this.formatter.format(32755 * 0.5);
 
 	totalSecretariosGrupo = this.formatter.format(32755 * 4);
-	totalAsesoresGobierno = this.formatter.format(43673 * 7.5); // El maximo es 8
+	totalAsesoresGobierno = this.formatter.format(51316 + 43673 * 6.5); // Asesor de com unicación. El maximo es 8
 	totalAsesoresGrupos = this.formatter.format(32755 * 2); // Solo tienen el PP y PSOE
-	totalAsesores = this.formatter.format(43673 * 7.5 + 32755 * 2);
+	totalAsesores = this.formatter.format(400701);
 
 	totalGrupoMunicipal = this.formatter.format(43782 + 36000);
 	totalGruposMunicipales = this.formatter.format(43782 + 36000 + 43782 + 36000 + 43782 + 36000);
 
+	totalAlcaldesa = 74135;
 	totalTenienteAlcaldesa = 57867 * 4 + 57867 * 0.8;
 	totalDelegados = 52517 * 7;
-	totalGobiernoLocal = this.formatter.format(74135 + this.totalTenienteAlcaldesa + this.totalDelegados);
-
-	totalCorporacion = this.formatter.format(719516 + 239346 + 131020 + 393058);
+	totalGobiernoLocal = this.formatter.format(this.totalAlcaldesa + this.totalTenienteAlcaldesa + this.totalDelegados);
+	totalCorporacion = this.formatter.format(719516 + 239346 + 131020 + 400701);
 
 	chart: OrgChart;
 	data: INodeInfo[] = [
@@ -80,7 +80,7 @@ export default class D3Component implements AfterViewInit {
 			id: 10,
 			parentId: 0,
 			name: 'Gobierno Local',
-			// position: '',
+			position: '',
 			salary: this.totalGobiernoLocal,
 			image: 'assets/organigrama/gobierno.png'
 		},
@@ -96,7 +96,7 @@ export default class D3Component implements AfterViewInit {
 			id: 30,
 			parentId: 0,
 			name: 'Secretarios Grupos Municipales',
-			// position: '',
+			position: '',
 			salary: this.totalSecretariosGrupo,
 			image: 'assets/organigrama/secretario.png'
 		},
@@ -104,7 +104,7 @@ export default class D3Component implements AfterViewInit {
 			id: 40,
 			parentId: 0,
 			name: 'Asesores',
-			// position: '',
+			position: '',
 			salary: this.totalAsesores,
 			image: 'assets/organigrama/asesor.png'
 		},
@@ -191,7 +191,8 @@ export default class D3Component implements AfterViewInit {
 			id: 101,
 			parentId: 1,
 			name: 'Agustín Muñoz Martín',
-			position: 'Area de Gobierno de Presidencia',
+			position:
+				'Área gobierno de presidencia, centro histórico, fondos europeos, coordinación de gobierno y ordenación del territorio',
 			salary: this.salarioTenienteAlcaldesa,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg'
 		},
@@ -199,7 +200,8 @@ export default class D3Component implements AfterViewInit {
 			id: 102,
 			parentId: 1,
 			name: 'Jaime Espinar Villar',
-			position: 'Area de Gobierno de servicios públicos',
+			position:
+				'Área de gobierno de coordinación de servicios públicos, desarrollo sostenible, medio ambiente, protección animal, educación y deportes',
 			salary: this.salarioTenienteAlcaldesa,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JaimaEspinar.jpg'
 		},
@@ -207,7 +209,8 @@ export default class D3Component implements AfterViewInit {
 			id: 103,
 			parentId: 1,
 			name: 'Susana Sánchez Toro',
-			position: 'Area de Gobierno de Inclusión social',
+			position:
+				'Área de gobierno de inclusión social, familias, igualdad y diversidad, medio rural, participación ciudadana y juventud',
 			salary: this.salarioTenienteAlcaldesa,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/SusanaSanchez.jpg'
@@ -216,7 +219,7 @@ export default class D3Component implements AfterViewInit {
 			id: 104,
 			parentId: 1,
 			name: 'Antonio Real Granado',
-			position: 'Area de Gobierno de turismo',
+			position: 'Área de Gobierno de turismo y cultura',
 			salary: this.salarioTenienteAlcaldesa,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AntonioReal.jpg'
 		},
@@ -224,7 +227,8 @@ export default class D3Component implements AfterViewInit {
 			id: 105,
 			parentId: 1,
 			name: 'Jose Ignacio Martinez Moreno',
-			position: 'Area de Gobierno de empleo',
+			position:
+				'Área de gobierno de empleo, economía, patrimonio, seguridad, recursos humanos y simplificación administrativa y transparencia',
 			salary: this.salarioTenienteAlcaldesa80,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JIgancioMartinez.jpg'
@@ -236,7 +240,7 @@ export default class D3Component implements AfterViewInit {
 			id: 201,
 			parentId: 101,
 			name: 'Agustín Muñoz Martín',
-			position: 'Delegación centro histórico',
+			position: 'Delegación de presidencia, centro histórico, fondos europeos y coordinación de gobierno',
 			salary: this.salarioTenienteAlcaldesa,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg'
 		},
@@ -244,7 +248,7 @@ export default class D3Component implements AfterViewInit {
 			id: 202,
 			parentId: 101,
 			name: 'Belén de la Cuadra Guerrero',
-			position: 'Delegación urbanismo',
+			position: 'Delegación de urbanismo, ordenación del territorio y vivienda',
 			salary: this.salarioDelegado,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/BelenDeLaCuadra.jpg'
@@ -255,7 +259,7 @@ export default class D3Component implements AfterViewInit {
 			id: 203,
 			parentId: 102,
 			name: 'Jaime Espinar Villar',
-			position: 'Delegación servicios públicos',
+			position: 'Delegación de servicios públicos, medio ambiente y protección animal',
 			salary: this.salarioTenienteAlcaldesa,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JaimaEspinar.jpg'
 		},
@@ -263,9 +267,10 @@ export default class D3Component implements AfterViewInit {
 			id: 204,
 			parentId: 102,
 			name: 'José Angel Aparicio Hormigo',
-			position: 'Delegación educación',
+			position: 'Delegación de desarrollo educativo, formación profesional, universidades y deportes',
 			salary: this.salarioDelegado,
-			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JaimaEspinar.jpg'
+			image:
+				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JAngelAparicio.jpg'
 		},
 
 		//Inclusión social
@@ -273,7 +278,7 @@ export default class D3Component implements AfterViewInit {
 			id: 205,
 			parentId: 103,
 			name: 'Susana Sánchez Toro',
-			position: 'Delegación ,medio rural, igualdad y diversidad',
+			position: 'Delegación medio rural, igualdad y diversidad',
 			salary: this.salarioTenienteAlcaldesa,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/SusanaSanchez.jpg'
@@ -282,7 +287,7 @@ export default class D3Component implements AfterViewInit {
 			id: 206,
 			parentId: 103,
 			name: 'Carmen Pina Lorente',
-			position: 'Delegación participación ciudadana',
+			position: 'Delegación participación ciudadana y juventud',
 			salary: this.salarioDelegado,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/CarmenPina.jpg'
 		},
@@ -290,7 +295,7 @@ export default class D3Component implements AfterViewInit {
 			id: 207,
 			parentId: 103,
 			name: 'Yesika Quintero Palma',
-			position: 'Delegación inclusión social',
+			position: 'Delegación de inclusión social, dependencia, mayores y familia',
 			salary: this.salarioDelegado,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/YessicaQuintero.jpg'
@@ -309,7 +314,7 @@ export default class D3Component implements AfterViewInit {
 			id: 209,
 			parentId: 104,
 			name: 'Francisco Zurita Martín',
-			position: 'Delegación fiestas y cultura',
+			position: 'Delegación de cultura, fiestas, patrimonio histórico y capitalidad cultural',
 			salary: this.salarioDelegado,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/FranciscoZurita.jpg'
@@ -319,7 +324,8 @@ export default class D3Component implements AfterViewInit {
 			id: 210,
 			parentId: 105,
 			name: 'Jose Ignacio Martinez Moreno',
-			position: 'Delegación seguridad, recursos humanos y administración electrónica y c ',
+			position:
+				'Delegación de seguridad, recursos humanos, transformación digital, simplificación administrativa y transparencia',
 			salary: this.salarioTenienteAlcaldesa80,
 			image:
 				'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JIgancioMartinez.jpg'
@@ -337,7 +343,7 @@ export default class D3Component implements AfterViewInit {
 			id: 212,
 			parentId: 105,
 			name: 'Nela García Jarillo',
-			position: 'Delegación emple, trabajo autónomo  comercio y empresa',
+			position: 'Delegación de empleo, trabajo autónomo, comercio y empresa',
 			salary: this.salarioDelegado,
 			image: 'https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/NelaGarcia.jpg'
 		},
@@ -652,15 +658,15 @@ export default class D3Component implements AfterViewInit {
 			id: 1111,
 			parentId: 40,
 			name: 'Gobierno local',
-			// position: '',
-			salary: 102.793,
+			position: '',
+			salary: this.totalAsesoresGobierno,
 			image: 'assets/organigrama/gobierno.png'
 		},
 		{
 			id: 1110,
 			parentId: 40,
 			name: 'PP',
-			// position: '',
+			position: '',
 			salary: this.salarioAsesorGrupo,
 			image: 'assets/organigrama/logoPP.jpg'
 		},
@@ -668,7 +674,7 @@ export default class D3Component implements AfterViewInit {
 			id: 2220,
 			parentId: 40,
 			name: 'PSOE',
-			// position: '',
+			position: '',
 			salary: this.salarioAsesorGrupo,
 			image: 'assets/organigrama/logoPSOE.jpg'
 		},
@@ -676,7 +682,7 @@ export default class D3Component implements AfterViewInit {
 			id: 3330,
 			parentId: 40,
 			name: 'La Confluencia',
-			// position: '',
+			position: '',
 			salary: 0,
 			image: 'assets/organigrama/logoLaConfluencia.jpg'
 		},
@@ -684,7 +690,7 @@ export default class D3Component implements AfterViewInit {
 			id: 4440,
 			parentId: 40,
 			name: 'Vox',
-			// position: '',
+			position: '',
 			salary: 0,
 			image: 'assets/organigrama/logoVOX.jpg'
 		},
@@ -801,6 +807,8 @@ export default class D3Component implements AfterViewInit {
 	];
 
 	ngAfterViewInit() {
+		console.log(this.totalAsesoresGobierno);
+
 		// d3.csv('https://raw.githubusercontent.com/bumbeishvili/sample-data/main/data-oracle.csv').then((data) => {
 		// 	this.data = data;
 		// 	this.initChart();
@@ -816,10 +824,10 @@ export default class D3Component implements AfterViewInit {
 			.compactMarginPair((d) => 30)
 			.container(this.chartContainer.nativeElement)
 			.data(this.data)
-			.initialExpandLevel(5)
+			.initialExpandLevel(1)
 			.initialZoom(0.7)
 			.neighbourMargin((a, b) => 20)
-			.nodeHeight((d) => 150 + 25)
+			.nodeHeight((d) => 160 + 25)
 			.nodeWidth((d) => 160 + 2)
 			.svgHeight(600)
 			.svgWidth(800)
