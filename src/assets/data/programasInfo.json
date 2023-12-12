@@ -66,6 +66,12 @@
 		],
 		"news": [
 			{
+				"date": "12 diciembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "Jerez acapara el 40% de las denuncias que se presentan en la provincia de Cádiz",
+				"URL": "https://www.diariodejerez.es/jerez/Jerez-denuncias-presentan-provincia-Cadiz-seguridad_0_1856514967.html"
+			},
+			{
 				"date": "5 diciembre 2023",
 				"medio": "Diario de Jerez",
 				"title": "El Ayuntamiento de Jerez dotará a la Policía Local de un moderno sistema de digitalización",
@@ -237,10 +243,10 @@
 		"descripcion": "Abastecimiento domicializado agua",
 		"news": [
 			{
-				"date": "",
-				"medio": "",
-				"title": "",
-				"URL": ""
+				"date": "12 diciembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "El Ayuntamiento de Jerez acuerda la aprobación del proyecto de Ordenanza de Sequía",
+				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-aprobacion-Ordenanza-Sequia_0_1856515564.html"
 			},
 			{
 				"date": "9 noviembre 2023",
