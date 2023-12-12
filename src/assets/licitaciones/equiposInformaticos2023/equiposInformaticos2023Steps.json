@@ -1,10 +1,18 @@
 [
 	{
-		"date": "",
-		"step": ""
-	},
-	{
 		"date": "3 noviembre 2023",
 		"step": "Publicación licitación"
+	},
+	{
+		"date": "12 noviembre 2023",
+		"step": "Fecha final licitación"
+	},
+	{
+		"date": "11 diciembre 2023",
+		"step": "Adjudicación"
+	},
+	{
+		"date": "12 diciembre 2023",
+		"step": "Formalización"
 	}
 ]
