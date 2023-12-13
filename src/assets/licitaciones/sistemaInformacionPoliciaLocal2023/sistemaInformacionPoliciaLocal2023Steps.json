@@ -9,6 +9,10 @@
 	},
 	{
 		"date": "5 diciembre 2023",
-		"step": "Adjudicada"
+		"step": "Adjudicación"
+	},
+	{
+		"date": "12 diciembre 2023",
+		"step": "Formalización"
 	}
 ]
