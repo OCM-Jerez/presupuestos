@@ -46,7 +46,8 @@ export default class LicitacionesComponent {
 		this.createCard('Suministro de software BIM (Building Information Modeling) ', 'softwareBIM2023'),
 		this.createCard('Suministro de un autobús eléctrico 7,50 metros', 'microbusElectrico2023'),
 		this.createCard('Suministro de equipos de topografía', 'equiposTopografia2023'),
-		this.createCard('Espacios de sombra en Plaza Belén', 'plazaBelen2023')
+		this.createCard('Espacios de sombra en Plaza Belén', 'plazaBelen2023'),
+		this.createCard('Reparación cubierta sala Pescaderia Vieja', 'salaPescaderia2023')
 	];
 
 	licitacionesESP = [];
