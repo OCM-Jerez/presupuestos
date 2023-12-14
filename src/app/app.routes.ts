@@ -236,7 +236,7 @@ export default [
 	},
 
 	{
-		path: 'pelayo',
+		path: 'pelayo/:id',
 		loadComponent: () => import('./organigrama/pelayo/pelayo.component')
 	},
 

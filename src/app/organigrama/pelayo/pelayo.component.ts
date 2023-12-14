@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 import ComentariosComponent from '@commons/components/level/comentarios/comentarios.component';
 import DataGeneralComponent from '@commons/components/level/data-general/data-general.component';
@@ -33,18 +34,36 @@ interface IOption {
 	styleUrls: ['./pelayo.component.scss']
 })
 export default class PelayoComponent implements OnInit {
+	@Input() id?: number;
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
-	public data: IOption[] = [];
+	public data: any = {};
 	public steps: IStep[] = [];
+	public name: string;
+
+	private _http = inject(HttpClient);
 
 	ngOnInit(): void {
-		this.data = [
-			{ data: 'General', value: 'general', URL: 'general' },
-			{ data: 'Seguimiento', value: 'seguimiento', URL: 'seguimiento' },
-			{ data: 'Documentos', value: 'documentos', URL: 'documentos' }
-		];
-		console.log('this.data', this.data);
+		// this.data = [
+		// 	{ data: 'General', value: 'general', URL: 'general' },
+		// 	{ data: 'Seguimiento', value: 'seguimiento', URL: 'seguimiento' },
+		// 	{ data: 'Documentos', value: 'documentos', URL: 'documentos' }
+		// ];
+		// console.log('this.data', this.data);
+		console.log('this.id', this.id);
+
+		const url = `/assets/puestos/${this.id}.json`;
+		this._http.get(url).subscribe(
+			(data: any) => {
+				this.data = data;
+				this.name = `${this.data.person.name} ${this.data.person.firstName} ${this.data.person.lastName}`;
+
+				console.log(this.data);
+			},
+			(error) => {
+				console.error('Error al obtener los datos:', error);
+			}
+		);
 	}
 }

@@ -1,0 +1,42 @@
+{
+	"id": 1,
+	"prop": {
+		"denominacion": "Alcaldia-Presidencia",
+		"tipe": "Político",
+		"RPT-URL": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/a-infopublica/a02-organizativa/c-personal/rpt/RPT__ALCALDIA-PRESIDENCIA_diciembre2022.pdf",
+		"observaciones": "Los puestos políticos no se detallan en la RPT"
+	},
+	"person": {
+		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/MJoseGarciaPelayo.jpg",
+		"name": "María José",
+		"firstName": "García",
+		"lastName": "Pelayo",
+		"salary": "Ayuntamiento = 74.135,35 Senado= 28.658,14 Total= 102.793,49 link",
+		"Ayto-URL": "https://transparencia.jerez.es/infopublica/institucional/corporacion/2023-2027/maria-jose-garcia-pelayo",
+		"CV": "Poco detallado",
+		"bienes": "Poco detallada",
+		"contact": "Ninguno",
+		"lindledin-URL": "No tiene"
+	},
+	"cargos": [
+		{
+			"cargo": "Senadora",
+			"URL": "https://transparentia.newtral.es/ficha/maria-jose-garcia-pelayo-jurado",
+			"salary": "28.658,14",
+			"observaciones": ""
+		},
+		{
+			"cargo": "Presidenta FEMP",
+			"URL": "",
+			"salary": "0 €",
+			"observaciones": "Hay que confirma dato sueldo."
+		}
+	],
+	"historial": {
+		"date": "2011-2023",
+		"name": "Mamén",
+		"firstName": "Sánchez",
+		"lastName": "Díaz",
+		"salary": "72.000"
+	}
+}

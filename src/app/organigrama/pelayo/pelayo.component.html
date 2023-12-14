@@ -12,16 +12,10 @@
 				<th>Observaciones</th>
 			</tr>
 			<tr>
-				<td>Alcaldia-Presidencia</td>
-				<td>Político</td>
+				<td>{{ data.prop.denominacion }}</td>
+				<td>{{ data.prop.tipe }}</td>
 				<td>
-					<a
-						href="https://transparencia.jerez.es/infopublica/institucional/corporacion/2023-2027/maria-jose-garcia-pelayo"
-						target="_blank"
-						rel="nofollow"
-						aria-label="Ayto"
-						>link</a
-					>
+					<a href="{{ data.prop['RPT-URL'] }}" target="_blank" rel="nofollow" aria-label="Ayto"> link </a>
 				</td>
 				<td>Los puestos políticos no se detallan en la RPT</td>
 			</tr>
@@ -52,23 +46,13 @@
 			</tr>
 			<tr>
 				<td>
-					<img
-						style="border-radius: 50%; width: 100px"
-						src="https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/MJoseGarciaPelayo.jpg"
-						alt="Mª Jose Garcia Pelayo"
-					/>
+					<img style="border-radius: 50%; width: 100px" src="{{ data.person.image }}" alt="foto" />
 				</td>
 
-				<td>Mª Jose Garcia Pelayo</td>
+				<td>{{ name }}</td>
 				<td>
-					Ayuntamiento = 74.135,35 Senado= 28.658,14 Total= 102.793,49
-					<a
-						href="https://transparentia.newtral.es/ficha/maria-jose-garcia-pelayo-jurado"
-						target="_blank"
-						rel="nofollow"
-						aria-label="Ayto"
-						>link</a
-					>
+					{{ data.person.salary }}
+					<a href="{{ data.prop['Ayto-URL'] }}" target="_blank" rel="nofollow" aria-label="Ayto">link</a>
 				</td>
 				<td>
 					<a
@@ -105,35 +89,40 @@
 				<th>Observaciones</th>
 			</tr>
 			<tr>
-				<td>Senadora</td>
+				<td>{{ data.cargos[0].cargo }}</td>
 
 				<td>
-					<a
-						href="https://www.senado.es/web/composicionorganizacion/senadores/composicionsenado/fichasenador/index.html;jsessionid=LSnLjHNGpSbJBH23J3kBhFwG6n4kw1gJhTz5lwD9Fh0PQjpgB1ps!973582117?id1=15295&legis=14"
-						target="_blank"
-						rel="nofollow"
-						aria-label="Ayto"
-						>Senadora</a
-					>
+					<a href="{{ data.cargos[0].URL }}" target="_blank" rel="nofollow" aria-label="Ayto">Link</a>
 				</td>
 				<td>
-					28.658,14 €
-					<a
+					{{ data.cargos[0].salary }}
+					<!-- <a
 						href="https://transparentia.newtral.es/ficha/maria-jose-garcia-pelayo-jurado"
 						target="_blank"
 						rel="nofollow"
 						aria-label="Ayto"
 						>link</a
-					>
+					> -->
 				</td>
 				<td></td>
 			</tr>
 			<tr>
-				<td>Presidenta FEMP</td>
+				<td>{{ data.cargos[1].cargo }}</td>
 
+				<td>
+					<a href="{{ data.cargos[1].URL }}" target="_blank" rel="nofollow" aria-label="Ayto"></a>
+				</td>
+				<td>
+					{{ data.cargos[1].salary }}
+					<!-- <a
+						href="https://transparentia.newtral.es/ficha/maria-jose-garcia-pelayo-jurado"
+						target="_blank"
+						rel="nofollow"
+						aria-label="Ayto"
+						>link</a
+					> -->
+				</td>
 				<td></td>
-				<td>0 €</td>
-				<td>Hay que confirma dato sueldo.</td>
 			</tr>
 		</table>
 	</section>
@@ -141,7 +130,7 @@
 	<section class="OCM-tableContainer">
 		<h2 class="OCM-subtitle">Personas que han ocupado el puesto</h2>
 		<table class="tableDataPersona">
-			<tr>
+			<!-- <tr>
 				<th>Periodo</th>
 				<th>Persona</th>
 				<th>Sueldo</th>
@@ -161,19 +150,19 @@
 						>link</a
 					>
 				</td>
-			</tr>
+			</tr> -->
 			<tr>
-				<td>2011-2023</td>
-				<td>Mamen Sánchez</td>
-				<td>72.000</td>
+				<td>{{ data.historial.date }}</td>
+				<td>{{ data.historial.name }} {{ data.historial.firstName }} {{ data.historial.lastName }}</td>
+				<td>{{ data.historial.salary }}</td>
 				<td>
-					<a
+					<!-- <a
 						href="https://es.wikipedia.org/wiki/Mar%C3%ADa_Jos%C3%A9_Garc%C3%ADa-Pelayo_Jurado"
 						target="_blank"
 						rel="nofollow"
 						aria-label="Ayto"
 						>link</a
-					>
+					> -->
 				</td>
 			</tr>
 		</table>

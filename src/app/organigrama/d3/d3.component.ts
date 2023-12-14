@@ -58,19 +58,13 @@ export default class D3Component implements AfterViewInit {
 			.svgWidth(600)
 			.onNodeClick((d) => {
 				console.log(d);
-				switch (d.data.id) {
-					case 1:
-						window.location.href = '/#/pelayo';
-						break;
-					default:
-						break;
-				}
+				window.location.href = `/#/pelayo/${d.data.id}`;
 			})
 			.nodeContent((d, i, arr, state) => {
 				return this.createNodeHtml(d);
 			})
 			.render();
-		console.log(this.chart);
+		// console.log(this.chart);
 
 		// this.chart.setCentered();
 		// this.chart.fit();
