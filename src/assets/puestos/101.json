@@ -1,10 +1,10 @@
 {
-	"id": 1,
+	"id": 101,
 	"prop": {
-		"denominacion": "Teniente Alcaldia",
-		"tipe": "Político",
+		"position": "Teniente Alcaldia",
+		"type": "Político",
 		"RPT-URL": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/a-infopublica/a02-organizativa/c-personal/rpt/RPT__ALCALDIA-PRESIDENCIA_diciembre2022.pdf",
-		"observaciones": "Los puestos políticos no se detallan en la RPT"
+		"obs": "Los puestos políticos no se detallan en la RPT"
 	},
 	"person": {
 		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg",
@@ -14,16 +14,17 @@
 		"salary": "Ayuntamiento = 74.135,35 Senado= 28.658,14 Total= 102.793,49 link",
 		"Ayto-URL": "https://transparencia.jerez.es/infopublica/institucional/corporacion/2023-2027/maria-jose-garcia-pelayo",
 		"CV": "Poco detallado",
-		"bienes": "Poco detallada",
+		"assets": "Poco detallada",
 		"contact": "Ninguno",
 		"lindledin-URL": "No tiene"
 	},
-	"cargos": [],
-	"historial": {
+	"positions": [],
+	"records": {
 		"date": "2011-2023",
 		"name": "Mamén",
 		"firstName": "Sánchez",
 		"lastName": "Díaz",
-		"salary": "72.000"
+		"salary": "72.000",
+		"obs": "Hay que confirma dato sueldo."
 	}
 }

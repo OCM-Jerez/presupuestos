@@ -1,4 +1,4 @@
-<body style="background-color: #15202b">
+<body *ngIf="data" style="background-color: #15202b">
 	<!-- <app-data-general [data]="data" /> -->
 
 	<title>Ficha persona que ocupa el puesto</title>
@@ -12,8 +12,8 @@
 				<th>Observaciones</th>
 			</tr>
 			<tr>
-				<td>{{ data.prop.denominacion }}</td>
-				<td>{{ data.prop.tipe }}</td>
+				<td>{{ data.prop.position }}</td>
+				<td>{{ data.prop.type }}</td>
 				<td>
 					<a href="{{ data.prop['RPT-URL'] }}" target="_blank" rel="nofollow" aria-label="Ayto"> link </a>
 				</td>
@@ -63,9 +63,9 @@
 						>link</a
 					>
 				</td>
-				<td>Poco detallado</td>
-				<td>Poco detallada</td>
-				<td>Ninguno</td>
+				<td>{{ data.person.CV }}</td>
+				<td>{{ data.person.assets }}</td>
+				<td>{{ data.person.contact }}</td>
 				<td>
 					<a
 						href="https://transparencia.jerez.es/infopublica/institucional/corporacion/2023-2027/maria-jose-garcia-pelayo"
@@ -89,13 +89,13 @@
 				<th>Observaciones</th>
 			</tr>
 			<tr>
-				<td>{{ data.cargos[0].cargo }}</td>
+				<td>{{ data.positions[0].position }}</td>
 
 				<td>
-					<a href="{{ data.cargos[0].URL }}" target="_blank" rel="nofollow" aria-label="Ayto">Link</a>
+					<a href="{{ data.positions[0].URL }}" target="_blank" rel="nofollow" aria-label="Ayto">Link</a>
 				</td>
 				<td>
-					{{ data.cargos[0].salary }}
+					{{ data.positions[0].salary }}
 					<!-- <a
 						href="https://transparentia.newtral.es/ficha/maria-jose-garcia-pelayo-jurado"
 						target="_blank"
@@ -107,13 +107,13 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td>{{ data.cargos[1].cargo }}</td>
+				<td>{{ data.positions[1].position }}</td>
 
 				<td>
-					<a href="{{ data.cargos[1].URL }}" target="_blank" rel="nofollow" aria-label="Ayto"></a>
+					<a href="{{ data.positions[1].URL }}" target="_blank" rel="nofollow" aria-label="Ayto"></a>
 				</td>
 				<td>
-					{{ data.cargos[1].salary }}
+					{{ data.positions[1].salary }}
 					<!-- <a
 						href="https://transparentia.newtral.es/ficha/maria-jose-garcia-pelayo-jurado"
 						target="_blank"
@@ -152,9 +152,9 @@
 				</td>
 			</tr> -->
 			<tr>
-				<td>{{ data.historial.date }}</td>
-				<td>{{ data.historial.name }} {{ data.historial.firstName }} {{ data.historial.lastName }}</td>
-				<td>{{ data.historial.salary }}</td>
+				<td>{{ data.records.date }}</td>
+				<td>{{ data.records.name }} {{ data.records.firstName }} {{ data.records.lastName }}</td>
+				<td>{{ data.records.salary }}</td>
 				<td>
 					<!-- <a
 						href="https://es.wikipedia.org/wiki/Mar%C3%ADa_Jos%C3%A9_Garc%C3%ADa-Pelayo_Jurado"

@@ -38,27 +38,19 @@ export default class PelayoComponent implements OnInit {
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
-	public data: any = {};
+	public data: any = null;
 	public steps: IStep[] = [];
 	public name: string;
 
 	private _http = inject(HttpClient);
 
 	ngOnInit(): void {
-		// this.data = [
-		// 	{ data: 'General', value: 'general', URL: 'general' },
-		// 	{ data: 'Seguimiento', value: 'seguimiento', URL: 'seguimiento' },
-		// 	{ data: 'Documentos', value: 'documentos', URL: 'documentos' }
-		// ];
-		// console.log('this.data', this.data);
 		console.log('this.id', this.id);
-
-		const url = `/assets/puestos/${this.id}.json`;
-		this._http.get(url).subscribe(
+		// const url = `/assets/puestos/${this.id}.json`;
+		this._http.get(`/assets/puestos/${this.id}.json`).subscribe(
 			(data: any) => {
 				this.data = data;
 				this.name = `${this.data.person.name} ${this.data.person.firstName} ${this.data.person.lastName}`;
-
 				console.log(this.data);
 			},
 			(error) => {
