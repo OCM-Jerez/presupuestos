@@ -1,28 +1,10 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Ficha persona que ocupa el puesto</title>
-		<style>
-			table {
-				width: 100%;
-				border-collapse: collapse;
-			}
-			table,
-			th,
-			td {
-				border: 1px solid black;
-			}
-			th,
-			td {
-				padding: 8px;
-				text-align: left;
-				font-size: 16px;
-			}
-		</style>
-	</head>
-	<body>
+<body style="background-color: #15202b">
+	<!-- <app-data-general [data]="data" /> -->
+
+	<title>Ficha persona que ocupa el puesto</title>
+	<section class="OCM-tableContainer">
 		<h2 class="OCM-subtitle">Caracteristicas del puesto</h2>
-		<table>
+		<table class="tableDataPersona">
 			<tr>
 				<th>Denominación</th>
 				<th>Tipo</th>
@@ -44,28 +26,29 @@
 				<td>Los puestos políticos no se detallan en la RPT</td>
 			</tr>
 		</table>
+	</section>
 
-		<section style="font-size: 14px">
-			<h1>Descripción del puesto: diferencias entre puesto y plaza.</h1>
-			<h1>
-				Datos no recogidos en ficha puesto RPT. Forma de acceso al puesto: oposición, concurso, libre designación, etc.
-			</h1>
-			<h1>¿A quién reporta?</h1>
-			<h1>Grafico de evolución de sueldo asignado al puesto</h1>
-		</section>
+	<!-- <section style="font-size: 14px">
+		<h1>Descripción del puesto: diferencias entre puesto y plaza.</h1>
+		<h1>
+			Datos no recogidos en ficha puesto RPT. Forma de acceso al puesto: oposición, concurso, libre designación, etc.
+		</h1>
+		<h1>¿A quién reporta?</h1>
+		<h1>Grafico de evolución de sueldo asignado al puesto</h1>
+	</section> -->
 
-		<br />
-		<br />
-		<h2 class="OCM-subtitle">Persona que actualemente ocupa el puesto</h2>
-		<table>
+	<section class="OCM-tableContainer">
+		<h2 class="OCM-subtitle">Persona que actualmente ocupa el puesto</h2>
+		<table class="tableDataPersona">
 			<tr>
 				<th>Foto</th>
 				<th>Nombre</th>
 				<th>Sueldo</th>
-				<td>WEB Ayto</td>
+				<th>WEB Ayto</th>
 				<th>CV</th>
 				<th>Declaración de bienes</th>
 				<th>Contacto publicado</th>
+				<th>Linkedin</th>
 			</tr>
 			<tr>
 				<td>
@@ -99,16 +82,26 @@
 				<td>Poco detallado</td>
 				<td>Poco detallada</td>
 				<td>Ninguno</td>
+				<td>
+					<a
+						href="https://transparencia.jerez.es/infopublica/institucional/corporacion/2023-2027/maria-jose-garcia-pelayo"
+						target="_blank"
+						rel="nofollow"
+						aria-label="Ayto"
+						>Linkedin</a
+					>
+				</td>
 			</tr>
 		</table>
-		<br />
-		<br />
+	</section>
+
+	<section class="OCM-tableContainer">
 		<h2 class="OCM-subtitle">Cargos que compatibiliza la persona que ocupa el puesto</h2>
-		<table>
+		<table class="tableDataPersona">
 			<tr>
 				<th>Cargo</th>
 				<th>LINK</th>
-				<td>Sueldo</td>
+				<th>Sueldo</th>
 				<th>Observaciones</th>
 			</tr>
 			<tr>
@@ -143,10 +136,11 @@
 				<td>Hay que confirma dato sueldo.</td>
 			</tr>
 		</table>
-		<br />
-		<br />
+	</section>
+
+	<section class="OCM-tableContainer">
 		<h2 class="OCM-subtitle">Personas que han ocupado el puesto</h2>
-		<table>
+		<table class="tableDataPersona">
 			<tr>
 				<th>Periodo</th>
 				<th>Persona</th>
@@ -172,7 +166,16 @@
 				<td>2011-2023</td>
 				<td>Mamen Sánchez</td>
 				<td>72.000</td>
+				<td>
+					<a
+						href="https://es.wikipedia.org/wiki/Mar%C3%ADa_Jos%C3%A9_Garc%C3%ADa-Pelayo_Jurado"
+						target="_blank"
+						rel="nofollow"
+						aria-label="Ayto"
+						>link</a
+					>
+				</td>
 			</tr>
 		</table>
-	</body>
-</html>
+	</section>
+</body>

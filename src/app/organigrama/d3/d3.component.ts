@@ -903,6 +903,7 @@ export default class D3Component implements AfterViewInit {
 		this.chart.setExpanded(210);
 		this.chart.setCentered(10);
 		this.chart.initialZoom(0.6);
+		d3.selectAll('.node').style('border', '2px solid red');
 		this.chart.render();
 	}
 
