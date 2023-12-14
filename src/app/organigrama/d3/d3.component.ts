@@ -31,39 +31,6 @@ export default class D3Component implements AfterViewInit {
 		maximumFractionDigits: 0
 	});
 
-	// Salarios
-	// salarioAlcaldesa = this.formatter.format(74135);
-	// salarioTenienteAlcaldesa = this.formatter.format(57867);
-	// salarioTenienteAlcaldesa80 = this.formatter.format(57867 * 0.8);
-	// salarioDelegado = this.formatter.format(52517);
-
-	// salarioPortavozGrupo = this.formatter.format(43782);
-	// salarioVicePortavozGrupo = this.formatter.format(36000);
-
-	// salarioAsesorComunicacion = this.formatter.format(51316);
-	// SalarioAsesorGobierno = this.formatter.format(43673);
-	// SalarioAsesorGobierno50 = this.formatter.format(43673 * 0.5);
-	// salarioSecretarioGrupo = this.formatter.format(32755);
-	// salarioSecretarioGrupo25 = this.formatter.format(32755 * 0.25);
-	// salarioSecretarioGrupo50 = this.formatter.format(32755 * 0.5);
-	// salarioSecretarioGrupo75 = this.formatter.format(32755 * 0.75);
-	// salarioAsesorGrupo = this.formatter.format(32755);
-	// salarioAsesorGrupo50 = this.formatter.format(32755 * 0.5);
-
-	// totalSecretariosGrupo = this.formatter.format(32755 * 4);
-	// totalAsesoresGobierno = this.formatter.format(51316 + 43673 * 6.5); // Asesor de com unicación. El maximo es 8
-	// totalAsesoresGrupos = this.formatter.format(32755 * 2); // Solo tienen el PP y PSOE
-	// totalAsesores = this.formatter.format(400701);
-
-	// totalGrupoMunicipal = this.formatter.format(43782 + 36000);
-	// totalGruposMunicipales = this.formatter.format(43782 + 36000 + 43782 + 36000 + 43782 + 36000);
-
-	// totalAlcaldesa = 74135;
-	// totalTenienteAlcaldesa = 57867 * 4 + 57867 * 0.8;
-	// totalDelegados = 52517 * 7;
-	// totalGobiernoLocal = this.formatter.format(this.totalAlcaldesa + this.totalTenienteAlcaldesa + this.totalDelegados);
-	// totalCorporacion = this.formatter.format(719516 + 239346 + 131020 + 400701);
-
 	chart: OrgChart;
 	data: INodeInfo[] = [];
 
