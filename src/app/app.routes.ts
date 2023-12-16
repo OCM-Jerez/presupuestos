@@ -235,7 +235,7 @@ export default [
 		loadComponent: () => import('./organigrama/d3/d3.component')
 	},
 	{
-		path: 'supabase',
+		path: 'supabase/:id',
 		loadComponent: () => import('./organigrama/supabase/supabase/supabase.component')
 	},
 

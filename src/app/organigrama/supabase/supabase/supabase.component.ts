@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SupabaseService } from './supabase.service';
 
@@ -10,6 +10,7 @@ import { SupabaseService } from './supabase.service';
 	styleUrls: ['./supabase.component.scss']
 })
 export default class SupabaseComponent implements OnInit {
+	@Input() id?: number;
 	public employeeData: any[] = null;
 	public positionData: any[] = null;
 	public positionExternalData: any[] = null;
@@ -23,11 +24,12 @@ export default class SupabaseComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.fetchData();
+		console.log(this.id);
 	}
 
 	async fetchData() {
 		try {
-			const data = await this.supabaseService.fetchTableData('positions');
+			const data = await this.supabaseService.fetchTableData('positions', this.id);
 			this.positionData = data;
 
 			console.log(this.positionData);
@@ -36,7 +38,7 @@ export default class SupabaseComponent implements OnInit {
 		}
 
 		try {
-			const data = await this.supabaseService.fetchTableData('employees');
+			const data = await this.supabaseService.fetchTableData('employees', this.id);
 			this.employeeData = data;
 			console.log(this.employeeData[0].linkedin_url);
 
@@ -52,7 +54,7 @@ export default class SupabaseComponent implements OnInit {
 		}
 
 		try {
-			const data = await this.supabaseService.fetchTableData('positions_external');
+			const data = await this.supabaseService.fetchTableData('positions_external', this.id);
 			this.positionExternalData = data;
 			console.log(this.positionExternalData);
 		} catch (error) {
@@ -60,7 +62,7 @@ export default class SupabaseComponent implements OnInit {
 		}
 
 		try {
-			const data = await this.supabaseService.fetchTableData('records');
+			const data = await this.supabaseService.fetchTableData('records', this.id);
 			this.recordData = data;
 			if (this.recordData[0].linkedin_url) {
 				this.hasRecordLinkedin = true;
