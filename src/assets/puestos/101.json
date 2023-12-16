@@ -1,22 +1,20 @@
 {
 	"id": 101,
-	"prop": {
-		"position": "Teniente Alcaldia",
-		"type": "Político",
-		"RPT-URL": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/a-infopublica/a02-organizativa/c-personal/rpt/RPT__ALCALDIA-PRESIDENCIA_diciembre2022.pdf",
-		"obs": "Los puestos políticos no se detallan en la RPT"
-	},
+	"position": "Teniente Alcaldia",
+	"type": "Político",
+	"RPT-URL": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/a-infopublica/a02-organizativa/c-personal/rpt/RPT__ALCALDIA-PRESIDENCIA_diciembre2022.pdf",
+	"obs": "Los puestos políticos no se detallan en la RPT",
 	"person": {
 		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg",
 		"name": "Agustín",
 		"firstName": "Muñoz",
 		"lastName": "Martín",
-		"salary": "Ayuntamiento = 74.135,35 Senado= 28.658,14 Total= 102.793,49 link",
-		"Ayto-URL": "https://transparencia.jerez.es/infopublica/institucional/corporacion/2023-2027/maria-jose-garcia-pelayo",
+		"salary": "Ayuntamiento = 57.867 euros",
+		"Ayto-URL": "https://transparencia.jerez.es/infopublica/institucional/corporacion/agustin-munoz",
 		"CV": "Poco detallado",
 		"assets": "Poco detallada",
 		"contact": "Ninguno",
-		"lindledin-URL": "No tiene"
+		"linkedin-URL": "No tiene"
 	},
 	"positions": [],
 	"records": {

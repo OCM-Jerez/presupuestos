@@ -234,10 +234,14 @@ export default [
 		path: 'organigramaD3',
 		loadComponent: () => import('./organigrama/d3/d3.component')
 	},
+	{
+		path: 'supabase',
+		loadComponent: () => import('./organigrama/supabase/supabase/supabase.component')
+	},
 
 	{
-		path: 'pelayo/:id',
-		loadComponent: () => import('./organigrama/pelayo/pelayo.component')
+		path: 'employeeRecod/:id',
+		loadComponent: () => import('./organigrama/employeeRecod/employeeRecod.component')
 	},
 
 	{

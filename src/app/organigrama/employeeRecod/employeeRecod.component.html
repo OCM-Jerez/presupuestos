@@ -12,10 +12,10 @@
 				<th>Observaciones</th>
 			</tr>
 			<tr>
-				<td>{{ data.prop.position }}</td>
-				<td>{{ data.prop.type }}</td>
+				<td>{{ data.position }}</td>
+				<td>{{ data.type }}</td>
 				<td>
-					<a href="{{ data.prop['RPT-URL'] }}" target="_blank" rel="nofollow" aria-label="Ayto"> link </a>
+					<a href="{{ data['RPT-URL'] }}" target="_blank" rel="nofollow" aria-label="Ayto"> link </a>
 				</td>
 				<td>Los puestos políticos no se detallan en la RPT</td>
 			</tr>
@@ -42,7 +42,7 @@
 				<th>CV</th>
 				<th>Declaración de bienes</th>
 				<th>Contacto publicado</th>
-				<th>Linkedin</th>
+				<th>linkedin</th>
 			</tr>
 			<tr>
 				<td>
@@ -52,28 +52,22 @@
 				<td>{{ name }}</td>
 				<td>
 					{{ data.person.salary }}
-					<a href="{{ data.prop['Ayto-URL'] }}" target="_blank" rel="nofollow" aria-label="Ayto">link</a>
+					<a href="{{ data.positions[0].URL }}" target="_blank" rel="nofollow" aria-label="Ayto">Link</a>
 				</td>
 				<td>
-					<a
-						href="https://transparencia.jerez.es/infopublica/institucional/corporacion/2023-2027/maria-jose-garcia-pelayo"
-						target="_blank"
-						rel="nofollow"
-						aria-label="Ayto"
-						>link</a
-					>
+					<a href="{{ data.person['Ayto-URL'] }}" target="_blank" rel="nofollow" aria-label="Ayto">link</a>
 				</td>
 				<td>{{ data.person.CV }}</td>
 				<td>{{ data.person.assets }}</td>
 				<td>{{ data.person.contact }}</td>
 				<td>
-					<a
+					<!-- <a
 						href="https://transparencia.jerez.es/infopublica/institucional/corporacion/2023-2027/maria-jose-garcia-pelayo"
 						target="_blank"
 						rel="nofollow"
 						aria-label="Ayto"
 						>Linkedin</a
-					>
+					> -->
 				</td>
 			</tr>
 		</table>

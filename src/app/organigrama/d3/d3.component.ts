@@ -58,7 +58,7 @@ export default class D3Component implements AfterViewInit {
 			.svgWidth(600)
 			.onNodeClick((d) => {
 				console.log(d);
-				window.location.href = `/#/pelayo/${d.data.id}`;
+				window.location.href = `/#/employeeRecod/${d.data.id}`;
 			})
 			.nodeContent((d, i, arr, state) => {
 				return this.createNodeHtml(d);
