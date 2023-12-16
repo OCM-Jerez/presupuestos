@@ -21,18 +21,6 @@
 		"value": "Suministros"
 	},
 	{
-		"data": "Fecha final licitación",
-		"value": ""
-	},
-	{
-		"data": "Fecha Formalización",
-		"value": ""
-	},
-	{
-		"data": "Estado",
-		"value": "Publicada"
-	},
-	{
 		"data": "Valor estimado del contrato",
 		"value": "39.000,00   "
 	},
@@ -41,21 +29,28 @@
 		"value": ""
 	},
 	{
-		"data": "Adjudicatario",
-		"value": ""
+		"data": "Adjudicatario Lote 1 Licencia de Autodesk AEC Collection",
+		"value": "Seidor Tech, S.A.  9.598,45"
 	},
 	{
 		"data": "CIF Adjudicatario",
-		"value": ""
+		"value": "A33204306"
 	},
 	{
-		"data": "Información sobre el adjudicatario",
-		"value": "Pulsar en enlace para ver la información",
-		"URL": ""
+		"data": "Adjudicatario Lote 2 Licencias de Autodesk Revit LT",
+		"value": "GRAITEC SPAIN, S.L.  15.453,42"
 	},
 	{
-		"data": "Importe de Adjudicación",
-		"value": ""
+		"data": "CIF Adjudicatario",
+		"value": "B85329696"
+	},
+	{
+		"data": "Adjudicatario Lote 3  Licencias del software GeoSpatial Analysis",
+		"value": "Implemental Systems S.L.   17.242,5"
+	},
+	{
+		"data": "CIF Adjudicatario",
+		"value": "B81775769"
 	},
 	{
 		"data": "Financiación",
