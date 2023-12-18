@@ -33,5 +33,10 @@
 		"title": "Pleno ordinario 24 noviembre 2023",
 		"path": "art10/infoInstitucional/plenos/plenoOrdinario20231124",
 		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
+	},
+	{
+		"title": "Pleno extraordinario 15 diciembre 2023",
+		"path": "art10/infoInstitucional/plenos/plenoExtraordinario20231215",
+		"rutaImagen": "assets/art10/infoInstitucional/plenos/plenos.png"
 	}
 ]

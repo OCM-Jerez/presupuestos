@@ -13,5 +13,10 @@
 		"title": "CIRJESA. Circuito de Jerez. S.A.",
 		"path": "art10/infoInstitucional/entes/cirjesa",
 		"rutaImagen": "assets/art10/infoInstitucional/entes/cirjesa/cirjesa.jpg"
+	},
+	{
+		"title": "EMUVIJESA. Empresa municipal de vivienda S.A.",
+		"path": "art10/infoInstitucional/entes/emuvijesa",
+		"rutaImagen": "assets/art10/infoInstitucional/entes/emuvijesa/emuvijesa.jpg"
 	}
 ]

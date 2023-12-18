@@ -243,6 +243,18 @@
 		"descripcion": "Abastecimiento domicializado agua",
 		"news": [
 			{
+				"date": "18 diciembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "La depuradora de El Portal obtendrá hidrógeno verde tras regenerar agua y energía solar",
+				"URL": "https://www.diariodejerez.es/jerez/hidrogeno-verde_0_1858014674.html"
+			},
+			{
+				"date": "18 diciembre 2023",
+				"medio": "La Voz del Sur",
+				"title": "24 horas con los 'cazadores' de fugas de agua en plena sequía",
+				"URL": "https://www.lavozdelsur.es/la-voz-seleccion/reportajes/24-horas-con-cazadores-fugas-agua-en-plena-sequia_306960_102.html"
+			},
+			{
 				"date": "12 diciembre 2023",
 				"medio": "Diario de Jerez",
 				"title": "El Ayuntamiento de Jerez acuerda la aprobación del proyecto de Ordenanza de Sequía",
