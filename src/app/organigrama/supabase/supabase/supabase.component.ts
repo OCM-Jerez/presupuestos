@@ -10,6 +10,7 @@ import { SupabaseService } from './supabase.service';
 	styleUrls: ['./supabase.component.scss']
 })
 export default class SupabaseComponent implements OnInit {
+	s;
 	@Input() id?: number;
 	public employeeData: any[] = null;
 	public positionData: any[] = null;
@@ -25,13 +26,13 @@ export default class SupabaseComponent implements OnInit {
 	ngOnInit(): void {
 		this.fetchData();
 		console.log(this.id);
+		this.useGraphQL();
 	}
 
 	async fetchData() {
 		try {
 			const data = await this.supabaseService.fetchTableData('positions', this.id);
 			this.positionData = data;
-
 			console.log(this.positionData);
 		} catch (error) {
 			console.error('Error fetching data:', error);
@@ -45,6 +46,7 @@ export default class SupabaseComponent implements OnInit {
 			if (this.employeeData[0].linkedin_url) {
 				this.hasEmployeeLinkedin = true;
 			}
+
 			console.log(this.hasEmployeeLinkedin);
 			this.employeeName =
 				this.employeeData[0].name + ' ' + this.employeeData[0].firstname + ' ' + this.employeeData[0].lastname;
@@ -72,5 +74,43 @@ export default class SupabaseComponent implements OnInit {
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
+	}
+
+	async useGraphQL() {
+		const data = await this.supabaseService.fetchQuery('employees', this.id);
+		console.log(data);
+
+		const jsonData = {
+			data: {
+				employeesCollection: {
+					edges: [
+						{
+							node: {
+								id: 1,
+								name: 'María José',
+								salary: 'Ayuntamiento = 74.135,35 Senado= 28.658,14 Total= 102.793,49  ',
+								ayto_url:
+									'https://transparencia.jerez.es/infopublica/institucional/corporacion/2023-2027/maria-jose-garcia-pelayo',
+								lastname: 'Pelayo',
+								firstname: 'García'
+							}
+						}
+					]
+				},
+				positionsCollection: {
+					edges: [
+						{
+							node: {
+								id: 1,
+								position: 'Alcaldía-Presidencia'
+							}
+						}
+					]
+				}
+			}
+		};
+
+		const idValue = jsonData.data.employeesCollection.edges[0].node.name;
+		console.log(idValue); // Esto mostrará 101
 	}
 }
