@@ -19,6 +19,7 @@ export default class SupabaseComponent implements OnInit {
 
 	public employeeName: string = null;
 	public hasEmployeeLinkedin = false;
+	public hasEmployeeWikipedia = false;
 	public hasRecordLinkedin = false;
 
 	constructor(private supabaseService: SupabaseService) {}
@@ -26,7 +27,7 @@ export default class SupabaseComponent implements OnInit {
 	ngOnInit(): void {
 		this.fetchData();
 		console.log(this.id);
-		this.useGraphQL();
+		// this.useGraphQL();
 	}
 
 	async fetchData() {
@@ -45,6 +46,10 @@ export default class SupabaseComponent implements OnInit {
 
 			if (this.employeeData[0].linkedin_url) {
 				this.hasEmployeeLinkedin = true;
+			}
+
+			if (this.employeeData[0].wikipedia_url) {
+				this.hasEmployeeWikipedia = true;
 			}
 
 			console.log(this.hasEmployeeLinkedin);

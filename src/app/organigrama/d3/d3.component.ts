@@ -49,7 +49,7 @@ export default class D3Component implements AfterViewInit {
 			.compactMarginPair((d) => 30)
 			.container(this.chartContainer.nativeElement)
 			.data(this.data)
-			.initialExpandLevel(1)
+			.initialExpandLevel(4)
 			.initialZoom(0.7)
 			.neighbourMargin((a, b) => 20)
 			.nodeHeight((d) => 160 + 25)

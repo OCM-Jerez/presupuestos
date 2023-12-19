@@ -59,7 +59,14 @@
 					>
 				</td>
 				<td>
-					<a href="{{ employeeData[0].wikipedia_url }}" target="_blank" rel="nofollow" aria-label="Ayto">link</a>
+					<a
+						*ngIf="hasEmployeeWikipedia"
+						href="{{ employeeData[0].wikipedia_url }}"
+						target="_blank"
+						rel="nofollow"
+						aria-label="Ayto"
+						>link</a
+					>
 				</td>
 			</tr>
 		</table>
