@@ -15,12 +15,15 @@ export default class SupabaseComponent implements OnInit {
 	public employeeData: any[] = null;
 	public positionData: any[] = null;
 	public positionExternalData: any[] = null;
+	public positionExternalData11: any[] = null;
 	public recordData: any[] = null;
 
 	public employeeName: string = null;
 	public hasEmployeeLinkedin = false;
 	public hasEmployeeWikipedia = false;
 	public hasPositionExternal = false;
+	public hasPositionExternal11 = false;
+
 	public hasRecord = false;
 	public hasRecordLinkedin = false;
 
@@ -53,6 +56,15 @@ export default class SupabaseComponent implements OnInit {
 			console.log(this.positionExternalData);
 
 			if (this.positionExternalData[0].position !== null) this.hasPositionExternal = true;
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
+
+		try {
+			this.positionExternalData11 = await this.supabaseService.fetchTableData('positions_external', 11);
+			console.log(this.positionExternalData11);
+
+			if (this.positionExternalData11[0].position !== null) this.hasPositionExternal11 = true;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}

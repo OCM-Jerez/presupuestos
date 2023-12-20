@@ -93,16 +93,16 @@
 					{{ positionExternalData[0].obs }}
 				</td>
 			</tr>
-			<tr>
-				<td>{{ positionExternalData[1].position }}</td>
+			<tr *ngIf="hasPositionExternal11">
+				<td>{{ positionExternalData11[0].position }}</td>
 				<td>
-					<a href="{{ positionExternalData[1].url }}" target="_blank" rel="nofollow" aria-label="Ayto">Link</a>
+					<a href="{{ positionExternalData11[0].url }}" target="_blank" rel="nofollow" aria-label="Ayto">Link</a>
 				</td>
 				<td>
-					{{ positionExternalData[1].salary }}
+					{{ positionExternalData11[0].salary }}
 				</td>
 				<td>
-					{{ positionExternalData[1].obs }}
+					{{ positionExternalData11[0].obs }}
 				</td>
 			</tr>
 		</table>
