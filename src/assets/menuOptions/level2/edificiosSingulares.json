@@ -57,5 +57,11 @@
 		"path": "edificiosSingulares/cartuja",
 		"isLastLevel": true,
 		"rutaImagen": "assets/edificiosSingulares/cartuja/cartuja.jpg"
+	},
+	{
+		"title": "El Gallo Azul",
+		"path": "edificiosSingulares/galloAzul",
+		"isLastLevel": true,
+		"rutaImagen": "assets/edificiosSingulares/galloAzul/galloAzul.jpg"
 	}
 ]

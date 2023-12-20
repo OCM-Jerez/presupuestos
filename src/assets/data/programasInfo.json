@@ -32,17 +32,51 @@
 	{
 		"codigo": 13010,
 		"descripcion": "Administración general de la seguridad y protección civil",
-		"cartaServicios": [{ "ultimaActualizacion": "Sin datos" }, { "URL": "" }],
+		"cartaServicios": [
+			{
+				"ultimaActualizacion": "Sin datos"
+			},
+			{
+				"URL": ""
+			}
+		],
 		"indicadores": [
-			{ "year": "2015", "URL": "" },
-			{ "year": "2016", "URL": "" },
-			{ "year": "Sin datos", "URL": "" },
-			{ "year": "2018", "URL": "" },
-			{ "year": "2019", "URL": "" },
-			{ "year": "2020", "URL": "" },
-			{ "year": "2021", "URL": "" },
-			{ "year": "2022", "URL": "" },
-			{ "year": "2023", "URL": "" }
+			{
+				"year": "2015",
+				"URL": ""
+			},
+			{
+				"year": "2016",
+				"URL": ""
+			},
+			{
+				"year": "Sin datos",
+				"URL": ""
+			},
+			{
+				"year": "2018",
+				"URL": ""
+			},
+			{
+				"year": "2019",
+				"URL": ""
+			},
+			{
+				"year": "2020",
+				"URL": ""
+			},
+			{
+				"year": "2021",
+				"URL": ""
+			},
+			{
+				"year": "2022",
+				"URL": ""
+			},
+			{
+				"year": "2023",
+				"URL": ""
+			}
 		]
 	},
 	{
@@ -50,19 +84,50 @@
 		"descripcion": "Policía Local",
 		"repositorio datos": "https://1drv.ms/f/s!AqUr6AaNBwpDh4oKkvunnC8AmhODFg?e=J307QU",
 		"cartaServicios": [
-			{ "ultimaActualizacion": "24.02.2017" },
-			{ "URL": "https://1drv.ms/b/s!AqUr6AaNBwpDpd9sNrb2SJzvoU_f0g" }
+			{
+				"ultimaActualizacion": "24.02.2017"
+			},
+			{
+				"URL": "https://1drv.ms/b/s!AqUr6AaNBwpDpd9sNrb2SJzvoU_f0g"
+			}
 		],
 		"indicadores": [
-			{ "year": "2015", "URL": "" },
-			{ "year": "2016", "URL": "" },
-			{ "year": "2017", "URL": "https://1drv.ms/b/s!AqUr6AaNBwpDpd9uLHVX0XHahETupQ" },
-			{ "year": "2018", "URL": "" },
-			{ "year": "2019", "URL": "" },
-			{ "year": "2020", "URL": "" },
-			{ "year": "2021", "URL": "" },
-			{ "year": "2022", "URL": "" },
-			{ "year": "2023", "URL": "" }
+			{
+				"year": "2015",
+				"URL": ""
+			},
+			{
+				"year": "2016",
+				"URL": ""
+			},
+			{
+				"year": "2017",
+				"URL": "https://1drv.ms/b/s!AqUr6AaNBwpDpd9uLHVX0XHahETupQ"
+			},
+			{
+				"year": "2018",
+				"URL": ""
+			},
+			{
+				"year": "2019",
+				"URL": ""
+			},
+			{
+				"year": "2020",
+				"URL": ""
+			},
+			{
+				"year": "2021",
+				"URL": ""
+			},
+			{
+				"year": "2022",
+				"URL": ""
+			},
+			{
+				"year": "2023",
+				"URL": ""
+			}
 		],
 		"news": [
 			{
@@ -101,14 +166,12 @@
 				"title": "Interior solo amplía en tres puestos el catálogo de la Comisaría de la Policía Nacional de Jerez",
 				"URL": "https://www.diariodejerez.es/jerez/catalogo-policias-comisaria-policia-nacional-jerez_0_1848716906.html"
 			},
-
 			{
 				"date": " 17 noviembre 2023",
 				"medio": "Diario de Jerez",
 				"title": "Exigen un aumento de policías nacionales en Jerez tras los graves hechos en calle Nueva",
 				"URL": "https://www.diariodejerez.es/jerez/Exigen-policias-nacionales-Jerez-Nueva_0_1848715865.html"
 			},
-
 			{
 				"date": "6 octubre 2023",
 				"medio": "Diario de Jerez",
@@ -117,21 +180,47 @@
 			}
 		]
 	},
-
 	{
 		"codigo": 13220,
 		"descripcion": "Academia de Policía",
 		"cartaServicios": [],
 		"indicadores": [
-			{ "year": "2015", "URL": "" },
-			{ "year": "2016", "URL": "" },
-			{ "year": "2017", "URL": "" },
-			{ "year": "2018", "URL": "" },
-			{ "year": "2019", "URL": "" },
-			{ "year": "2020", "URL": "" },
-			{ "year": "2021", "URL": "" },
-			{ "year": "2022", "URL": "" },
-			{ "year": "2023", "URL": "" }
+			{
+				"year": "2015",
+				"URL": ""
+			},
+			{
+				"year": "2016",
+				"URL": ""
+			},
+			{
+				"year": "2017",
+				"URL": ""
+			},
+			{
+				"year": "2018",
+				"URL": ""
+			},
+			{
+				"year": "2019",
+				"URL": ""
+			},
+			{
+				"year": "2020",
+				"URL": ""
+			},
+			{
+				"year": "2021",
+				"URL": ""
+			},
+			{
+				"year": "2022",
+				"URL": ""
+			},
+			{
+				"year": "2023",
+				"URL": ""
+			}
 		],
 		"news": [
 			{
@@ -334,7 +423,15 @@
 	},
 	{
 		"codigo": 16210,
-		"descripcion": "Recogida de residuos"
+		"descripcion": "Recogida de residuos",
+		"news": [
+			{
+				"date": "20 diciembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "Detectan un aumento del depósito de basuras en la calle fuera del horario permitido en el centro de Jerez",
+				"URL": "https://www.diariodejerez.es/jerez/basuras-centro-jerez-aumento-apartamentos-turisticos_0_1858616130.html"
+			}
+		]
 	},
 	{
 		"codigo": 16230,
@@ -350,7 +447,6 @@
 				"title": "El Ayuntamiento de Jerez amplía el servicio de limpieza en las barriadas rurales",
 				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-ampliacion-servicio-barriadas-rurales_0_1852016394.html"
 			},
-
 			{
 				"date": "9 noviembre 2023",
 				"medio": "Diario de Jerez",
