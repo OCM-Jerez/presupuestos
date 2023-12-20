@@ -16,10 +16,7 @@
 		"data": "Tipo contrato",
 		"value": "Obras"
 	},
-	{
-		"data": "Estado",
-		"value": "Resuelta"
-	},
+
 	{
 		"data": "Valor estimado del contrato",
 		"value": "495.464,04"
@@ -67,7 +64,7 @@
 	},
 	{
 		"data": "Plazo ejecución",
-		"value": "5 meses"
+		"value": "11 meses"
 	},
 	{
 		"data": "Geolocalización",

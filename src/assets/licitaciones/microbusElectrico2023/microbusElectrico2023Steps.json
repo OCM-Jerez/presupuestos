@@ -1,4 +1,14 @@
 [
-	{ "date": "26 febrero 2023", "step": "Publicación licitación" },
-	{ "date": "14 julio 2023", "step": "Suspendida por incidencias técnicas" }
+	{
+		"date": "26 febrero 2023",
+		"step": "Publicación licitación"
+	},
+	{
+		"date": "14 julio 2023",
+		"step": "Suspendida por incidencias técnicas"
+	},
+	{
+		"date": "19 diciembre 2023",
+		"step": "Adjudicación"
+	}
 ]

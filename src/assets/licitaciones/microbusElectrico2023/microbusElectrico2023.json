@@ -21,41 +21,29 @@
 		"value": "Suministros"
 	},
 	{
-		"data": "Fecha final licitación",
-		"value": ""
-	},
-	{
-		"data": "Fecha Formalización",
-		"value": ""
-	},
-	{
-		"data": "Estado",
-		"value": "Publicada"
-	},
-	{
 		"data": "Valor estimado del contrato",
 		"value": "259.793,39"
 	},
 	{
 		"data": "Licitadores presentados",
-		"value": ""
+		"value": "1"
 	},
 	{
 		"data": "Adjudicatario",
-		"value": ""
+		"value": "MICROBUSES DE LUJO, S.L."
 	},
 	{
 		"data": "CIF Adjudicatario",
-		"value": ""
+		"value": "B65602369"
 	},
 	{
 		"data": "Información sobre el adjudicatario",
 		"value": "Pulsar en enlace para ver la información",
-		"URL": ""
+		"URL": "https://librebor.me/borme/empresa/microbuses-de-lujo/"
 	},
 	{
 		"data": "Importe de Adjudicación",
-		"value": ""
+		"value": "314.116"
 	},
 	{
 		"data": "Financiación",
