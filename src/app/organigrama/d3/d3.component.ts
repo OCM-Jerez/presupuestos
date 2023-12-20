@@ -57,7 +57,7 @@ export default class D3Component implements AfterViewInit {
 			.svgHeight(600)
 			.svgWidth(600)
 			.onNodeClick((d) => {
-				console.log(d);
+				// console.log(d);
 				// window.location.href = `/#/employeeRecod/${d.data.id}`;
 				window.location.href = `/#/supabase/${d.data.id}`;
 			})
@@ -104,6 +104,7 @@ export default class D3Component implements AfterViewInit {
 			<div style="${imageContainerStyle}"><img src="${d.data.image}" style="${imageStyle}" /></div>
 			<div style="${nameStyle}">${d.data.name}</div>
 			<div style="${positionStyle}">${d.data.position}</div>
+			<div style="${positionStyle}">${d.data.id}</div>
 			</div>
 		</div>
 	  `;

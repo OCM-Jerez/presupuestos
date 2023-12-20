@@ -20,62 +20,47 @@ export default class SupabaseComponent implements OnInit {
 	public employeeName: string = null;
 	public hasEmployeeLinkedin = false;
 	public hasEmployeeWikipedia = false;
+	public hasPositionExternal = false;
+	public hasRecord = false;
 	public hasRecordLinkedin = false;
 
 	constructor(private supabaseService: SupabaseService) {}
 
 	ngOnInit(): void {
 		this.fetchData();
-		console.log(this.id);
+		// console.log(this.id);
 		// this.useGraphQL();
 	}
 
 	async fetchData() {
 		try {
-			const data = await this.supabaseService.fetchTableData('positions', this.id);
-			this.positionData = data;
-			console.log(this.positionData);
+			this.positionData = await this.supabaseService.fetchTableData('positions', this.id);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
 
 		try {
-			const data = await this.supabaseService.fetchTableData('employees', this.id);
-			this.employeeData = data;
-			console.log(this.employeeData[0].linkedin_url);
-
-			if (this.employeeData[0].linkedin_url) {
-				this.hasEmployeeLinkedin = true;
-			}
-
-			if (this.employeeData[0].wikipedia_url) {
-				this.hasEmployeeWikipedia = true;
-			}
-
-			console.log(this.hasEmployeeLinkedin);
-			this.employeeName =
-				this.employeeData[0].name + ' ' + this.employeeData[0].firstname + ' ' + this.employeeData[0].lastname;
-			console.log(this.employeeData);
+			this.employeeData = await this.supabaseService.fetchTableData('employees', this.id);
+			if (this.employeeData[0].linkedin_url) this.hasEmployeeLinkedin = true;
+			if (this.employeeData[0].wikipedia_url) this.hasEmployeeWikipedia = true;
+			this.employeeName = `${this.employeeData[0].name} ${this.employeeData[0].firstname} ${this.employeeData[0].lastname}`;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
 
 		try {
-			const data = await this.supabaseService.fetchTableData('positions_external', this.id);
-			this.positionExternalData = data;
+			this.positionExternalData = await this.supabaseService.fetchTableData('positions_external', this.id);
 			console.log(this.positionExternalData);
+
+			if (this.positionExternalData[0].position !== null) this.hasPositionExternal = true;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
 
 		try {
-			const data = await this.supabaseService.fetchTableData('records', this.id);
-			this.recordData = data;
-			if (this.recordData[0].linkedin_url) {
-				this.hasRecordLinkedin = true;
-			}
-			console.log(this.hasRecordLinkedin);
-			console.log(this.recordData);
+			this.recordData = await this.supabaseService.fetchTableData('records', this.id);
+			if (this.recordData[0].name !== null) this.hasRecord = true;
+			if (this.recordData[0].linkedin_url) this.hasRecordLinkedin = true;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}

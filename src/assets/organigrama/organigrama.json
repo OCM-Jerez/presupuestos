@@ -155,7 +155,7 @@
 		"parentId": 101,
 		"name": "Agustín Muñoz Martín",
 		"position": "Delegación de presidencia, centro histórico, fondos europeos y coordinación de gobierno",
-		"salary": 57867,
+		"salary": 0,
 		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AgustinMunoz.jpg"
 	},
 	{
@@ -171,7 +171,7 @@
 		"parentId": 102,
 		"name": "Jaime Espinar Villar",
 		"position": "Delegación de servicios públicos, medio ambiente y protección animal",
-		"salary": 57867,
+		"salary": 0,
 		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JaimaEspinar.jpg"
 	},
 	{
@@ -187,7 +187,7 @@
 		"parentId": 103,
 		"name": "Susana Sánchez Toro",
 		"position": "Delegación medio rural, igualdad y diversidad",
-		"salary": 57867,
+		"salary": 0,
 		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/SusanaSanchez.jpg"
 	},
 	{
@@ -211,7 +211,7 @@
 		"parentId": 104,
 		"name": "Antonio Real Granado",
 		"position": "Delegación turismo y promoción de la ciudad",
-		"salary": 57867,
+		"salary": 0,
 		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/AntonioReal.jpg"
 	},
 	{
@@ -227,14 +227,14 @@
 		"parentId": 105,
 		"name": "Jose Ignacio Martinez Moreno",
 		"position": "Delegación de seguridad, recursos humanos, transformación digital, simplificación administrativa y transparencia",
-		"salary": 46294,
+		"salary": 0,
 		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/JIgancioMartinez.jpg"
 	},
 	{
 		"id": 211,
 		"parentId": 105,
 		"name": "Francisco Delgado Aguilera",
-		"position": "Delegación economía  hacienda y patrimonio",
+		"position": "Delegación economía, hacienda y patrimonio",
 		"salary": 52517,
 		"image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2023-2027/PP/FranciscoDelgado.jpg"
 	},

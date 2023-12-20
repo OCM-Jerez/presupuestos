@@ -117,6 +117,44 @@ https://supabase.com/dashboard/project/cswdadlxiubwdzvqzywc/api/graphiql
 
   ====================================================================================================
 
+{
+  employeesCollection(filter: {id: {eq: 1}}) {
+    edges {
+      node {
+        id
+        name
+        firstname
+        lastname
+      }
+    }
+  }
+  positionsCollection(filter: {id: {eq: 1}}) {
+    edges {
+      node {
+        id
+        position
+      }
+    }
+  }
+  positions_externalCollection(filter: {id: {eq: 1}}) {
+    edges {
+      node {
+        id
+        position
+      }
+    }
+  }
+  recordsCollection(filter: {id: {eq: 1}}) {
+    edges {
+      node {
+        id
+        name
+      }
+    }
+  }
+}
+
+
 
 
 NO FUNCIONA
