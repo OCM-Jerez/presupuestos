@@ -236,7 +236,7 @@ export default [
 	},
 	{
 		path: 'supabase/:id',
-		loadComponent: () => import('./organigrama/supabase/supabase/supabase.component')
+		loadComponent: () => import('./organigrama/supabase/supabase.component')
 	},
 
 	{
