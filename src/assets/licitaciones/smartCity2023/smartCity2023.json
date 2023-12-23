@@ -22,24 +22,24 @@
 	},
 	{
 		"data": "Licitadores presentados",
-		"value": ""
+		"value": "2"
 	},
 	{
 		"data": "Adjudicatario",
-		"value": ""
+		"value": "INNOVACIONES TECNOLÓGICAS DEL SUR, S.L."
 	},
 	{
 		"data": "CIF Adjudicatario",
-		"value": ""
+		"value": "B23592181"
 	},
 	{
 		"data": "Información sobre el adjudicatario",
 		"value": "Pulsar en enlace para ver la información",
-		"URL": ""
+		"URL": "https://librebor.me/borme/empresa/innovaciones-tecnologicas-del-sur/"
 	},
 	{
 		"data": "Importe de Adjudicación",
-		"value": ""
+		"value": "304.016,52"
 	},
 	{
 		"data": "Financiación",
@@ -64,15 +64,5 @@
 	{
 		"data": "Plazo ejecución",
 		"value": "Hasta el 15 de diciembre de 2023"
-	},
-	{
-		"data": "Geolocalización",
-		"value": "Pulsar en el enlace para ver la ubicación",
-		"URL": ""
-	},
-	{
-		"data": "Distrito",
-		"value": "Sur (Pulsar en el enlace para ver el contorno del distrito)",
-		"URL": ""
 	}
 ]

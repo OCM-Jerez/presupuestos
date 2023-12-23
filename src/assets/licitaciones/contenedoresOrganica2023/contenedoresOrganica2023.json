@@ -9,28 +9,12 @@
 		"value": "Suministro de contenedores de materia orgánica de carga lateral, cubos domiciliarios y bolsas compostables"
 	},
 	{
-		"data": "Estado de la licitación",
-		"value": "Evaluación"
-	},
-	{
 		"data": "Procedimiento de contratación",
 		"value": "Abierto"
 	},
 	{
 		"data": "Tipo contrato",
 		"value": "Suministros"
-	},
-	{
-		"data": "Fecha anuncio licitación",
-		"value": "4 agosto 2023"
-	},
-	{
-		"data": "Fecha fin de presentación de oferta",
-		"value": "1 septiembre 2023"
-	},
-	{
-		"data": "Apertura sobre oferta económica",
-		"value": "3 septiembre 2023"
 	},
 	{
 		"data": "Presupuesto base de licitación sin impuestos",
@@ -42,7 +26,7 @@
 	},
 	{
 		"data": "Licitadores presentados",
-		"value": ""
+		"value": "2"
 	},
 	{
 		"data": "Adjudicatario",

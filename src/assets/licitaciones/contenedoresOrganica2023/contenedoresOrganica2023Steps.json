@@ -4,11 +4,19 @@
 		"step": "Publicación licitación"
 	},
 	{
+		"data": "Fecha fin de presentación de oferta",
+		"value": "1 septiembre 2023"
+	},
+	{
 		"date": "13 octubre 2023",
 		"step": "Aperturas de ofertas"
 	},
 	{
 		"date": "28 noviembre 2023",
 		"step": "Licitador selecionado en 1er lugar no cumple requisito"
+	},
+	{
+		"date": "30 noviembre 2023",
+		"step": "Licitador selecionado en 1er lugar SI cumple requisito"
 	}
 ]

@@ -1,10 +1,14 @@
 [
 	{
-		"date": "",
-		"step": ""
-	},
-	{
 		"date": "25 octubre 2023",
 		"step": "Publicación licitación"
+	},
+	{
+		"data": "Fecha final licitación",
+		"value": "14 noviembre 2023"
+	},
+	{
+		"data": "Mesa contratación",
+		"value": "23 noviembre 2023"
 	}
 ]
