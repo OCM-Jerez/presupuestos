@@ -43,27 +43,43 @@ export default class D3Component implements AfterViewInit {
 
 	private initChart() {
 		this.chart = new OrgChart()
-			.childrenMargin((d) => 50)
+			.childrenMargin(() => 50)
 			.compact(false)
-			.compactMarginBetween((d) => 35)
-			.compactMarginPair((d) => 30)
+			.compactMarginBetween(() => 35)
+			.compactMarginPair(() => 30)
 			.container(this.chartContainer.nativeElement)
 			.data(this.data)
 			.initialExpandLevel(1)
 			.initialZoom(0.7)
 			.neighbourMargin((a, b) => 20)
-			.nodeHeight((d) => 160 + 25)
-			.nodeWidth((d) => 160 + 2)
+			.nodeHeight(() => 160 + 25)
+			.nodeWidth(() => 160 + 2)
 			.svgHeight(950)
 			.svgWidth(600)
+			// d es la data del node selelect
 			.onNodeClick((d) => {
-				// console.log(d);
+				console.log(d);
 				// window.location.href = `/#/employeeRecod/${d.data.id}`;
 				window.location.href = `/#/supabase/${d.data.id}`;
 			})
 			.nodeContent((d, i, arr, state) => {
+				if (d.data.id === 1) {
+					// console.log(d);
+					return this.createNodeHtmlAlcalde(d);
+				}
+
+				if (d.data.id === 101) {
+					// console.log(d);
+					return this.createNodeHtmlPrimerTeniente(d);
+				}
+
+				if (d.data.id > 101 && d.data.id < 200) {
+					return this.createNodeHtmlTeniente(d);
+				}
+
 				return this.createNodeHtml(d);
 			})
+
 			.render();
 
 		setTimeout(() => {
@@ -90,6 +106,115 @@ export default class D3Component implements AfterViewInit {
 		const imageStyle = `border-radius:100px; width:40px; height:40px;`;
 		const nameStyle = `font-size:15px; color:#08011E; margin-left:20px; margin-top:10px`;
 		const positionStyle = `color:#716E7B; margin-left:20px; margin-top:3px; font-size:10px`;
+
+		// Aplicación de estilos a las líneas de enlaces
+		d3.selectAll('.link').style('stroke', 'grey').style('stroke-width', '2px');
+
+		return `
+		<div style="${nodeContainerStyle}">
+		  <div style="${nodeStyle}">
+			<div style="${dotStyle}">.</div>
+			<div style="${salaryStyle}">${this.formatter.format(d.data.salary)} €</div>
+			<div style="${coloredCircleStyle}"></div>
+			<div style="${imageContainerStyle}"><img src="${d.data.image}" style="${imageStyle}" /></div>
+			<div style="${nameStyle}">${d.data.name}</div>
+			<div style="${positionStyle}">${d.data.position}</div>
+			<div style="${positionStyle}">${d.data.id}</div>
+			</div>
+		</div>
+	  `;
+	}
+	createNodeHtmlAlcalde(d) {
+		const paddingSize = 25 + 2;
+		const nodeWidth = d.width + 150;
+		const nodeHeight = d.height - paddingSize;
+		const marginTop = -(paddingSize + 20);
+		const borderStyle =
+			d.data._highlighted || d.data._upToTheRootHighlighted ? '5px solid #E27396' : '2px solid #808080';
+
+		// Estilos definidos como constantes
+		const nodeContainerStyle = `width:${d.width}px; height:${d.height}px; padding-top:${paddingSize}px; padding-left:1px; padding-right:1px`;
+		const nodeStyle = `font-family: 'Inter', sans-serif; margin-left:-1px; border-radius:10px; background-color:#009aaf; width:${nodeWidth}px; height:${nodeHeight}px; border: ${borderStyle}`;
+		const salaryStyle = `font-size:15px; color: white; display:flex; justify-content:flex-end; margin-top:5px; margin-right:8px`;
+		const dotStyle = `display:flex; justify-content:flex-end; margin-top:5px; margin-right:8px`;
+		const coloredCircleStyle = `background-color:#FFFFFF; margin-top:${marginTop}px; margin-left:15px; border-radius:100px; width:50px; height:50px;`;
+		const imageContainerStyle = `margin-top:${marginTop}px; margin-left:20px;`;
+		const imageStyle = `border-radius:100px; width:40px; height:40px;`;
+		const nameStyle = `font-size:15px; color:white; margin-left:20px; margin-top:10px`;
+		const positionStyle = `color:white; margin-left:20px; margin-top:3px; font-size:18px`;
+
+		// Aplicación de estilos a las líneas de enlaces
+		d3.selectAll('.link').style('stroke', 'grey').style('stroke-width', '2px');
+
+		return `
+		<div style="${nodeContainerStyle}">
+		  <div style="${nodeStyle}">
+			<div style="${dotStyle}">.</div>
+			<div style="${salaryStyle}">${this.formatter.format(d.data.salary)} €</div>
+			<div style="${coloredCircleStyle}"></div>
+			<div style="${imageContainerStyle}"><img src="${d.data.image}" style="${imageStyle}" /></div>
+			<div style="${nameStyle}">${d.data.name}</div>
+			<div style="${positionStyle}">${d.data.position}</div>
+			<div style="${positionStyle}">${d.data.id}</div>
+			</div>
+		</div>
+	  `;
+	}
+	createNodeHtmlPrimerTeniente(d) {
+		const paddingSize = 25 + 2;
+		const nodeWidth = d.width + 200;
+		const nodeHeight = d.height - paddingSize;
+		const marginTop = -(paddingSize + 20);
+		const borderStyle =
+			d.data._highlighted || d.data._upToTheRootHighlighted ? '5px solid #E27396' : '2px solid #808080';
+
+		// Estilos definidos como constantes
+		const nodeContainerStyle = `width:${d.width}px; height:${d.height}px; padding-top:${paddingSize}px; padding-left:1px; padding-right:1px`;
+		const nodeStyle = `font-family: 'Inter', sans-serif; margin-left:-1px; border-radius:10px; background-color:#24e9ff; width:${nodeWidth}px; height:${nodeHeight}px; border: ${borderStyle}`;
+		const salaryStyle = `font-size:15px; color: black; display:flex; justify-content:flex-end; margin-top:5px; margin-right:8px`;
+		const dotStyle = `display:flex; justify-content:flex-end; margin-top:5px; margin-right:8px`;
+		const coloredCircleStyle = `background-color:#FFFFFF; margin-top:${marginTop}px; margin-left:15px; border-radius:100px; width:50px; height:50px;`;
+		const imageContainerStyle = `margin-top:${marginTop}px; margin-left:20px;`;
+		const imageStyle = `border-radius:100px; width:40px; height:40px;`;
+		const nameStyle = `font-size:15px; color:black; margin-left:20px; margin-top:10px`;
+		const positionStyle = `color:black; margin-left:20px; margin-top:3px; font-size:18px`;
+
+		// Aplicación de estilos a las líneas de enlaces
+		d3.selectAll('.link').style('stroke', 'grey').style('stroke-width', '2px');
+
+		return `
+		<div style="${nodeContainerStyle}">
+		  <div style="${nodeStyle}">
+			<div style="${dotStyle}">.</div>
+			<div style="${salaryStyle}">${this.formatter.format(d.data.salary)} €</div>
+			<div style="${coloredCircleStyle}"></div>
+			<div style="${imageContainerStyle}"><img src="${d.data.image}" style="${imageStyle}" /></div>
+			<div style="${nameStyle}">${d.data.name}</div>
+			<div style="${positionStyle}">${d.data.position}</div>
+			<div style="${positionStyle}">${d.data.id}</div>
+			</div>
+		</div>
+	  `;
+	}
+
+	createNodeHtmlTeniente(d) {
+		const paddingSize = 25 + 2;
+		const nodeWidth = d.width + 200;
+		const nodeHeight = d.height - paddingSize;
+		const marginTop = -(paddingSize + 20);
+		const borderStyle =
+			d.data._highlighted || d.data._upToTheRootHighlighted ? '5px solid #E27396' : '2px solid #808080';
+
+		// Estilos definidos como constantes
+		const nodeContainerStyle = `width:${d.width}px; height:${d.height}px; padding-top:${paddingSize}px; padding-left:1px; padding-right:1px`;
+		const nodeStyle = `font-family: 'Inter', sans-serif; margin-left:-1px; border-radius:10px; background-color:#ccfaff; width:${nodeWidth}px; height:${nodeHeight}px; border: ${borderStyle}`;
+		const salaryStyle = `font-size:15px; color: black; display:flex; justify-content:flex-end; margin-top:5px; margin-right:8px`;
+		const dotStyle = `display:flex; justify-content:flex-end; margin-top:5px; margin-right:8px`;
+		const coloredCircleStyle = `background-color:#FFFFFF; margin-top:${marginTop}px; margin-left:15px; border-radius:100px; width:50px; height:50px;`;
+		const imageContainerStyle = `margin-top:${marginTop}px; margin-left:20px;`;
+		const imageStyle = `border-radius:100px; width:40px; height:40px;`;
+		const nameStyle = `font-size:15px; color:black; margin-left:20px; margin-top:10px`;
+		const positionStyle = `color:black; margin-left:20px; margin-top:3px; font-size:18px`;
 
 		// Aplicación de estilos a las líneas de enlaces
 		d3.selectAll('.link').style('stroke', 'grey').style('stroke-width', '2px');
