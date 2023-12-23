@@ -70,6 +70,12 @@ export default class D3Component implements AfterViewInit {
 			// .nodeContent((d, i, arr, state) => {  No se para que sirven el resto de params
 			.nodeContent((d) => {
 				if (d.data.id === 0) {
+					d.x = -150; // Mueve el node
+
+					// this.chart.nodeButtonX((d) => {
+					// 	return 55;
+					// });
+
 					return this.createNodeHtmlAyto(d);
 				}
 				if (d.data.id === 1) {
@@ -95,7 +101,17 @@ export default class D3Component implements AfterViewInit {
 			.render();
 
 		this.chart.nodeButtonX((d) => {
-			if (d.data.id === 1) return 55;
+			console.log('d.data.id', d.data.id);
+
+			if (d.data.id === 0) {
+				console.log('d.data.id', d.data.id);
+				return 5;
+			}
+			if (d.data.id === 1) {
+				console.log('d.data.id', d.data.id);
+				return 55;
+			}
+			// if (d.data.id === 1) return 55;
 			// if (d.data.id === 101) return 30;
 			return -20;
 		});
