@@ -49,12 +49,12 @@ export default class D3Component implements AfterViewInit {
 			.compactMarginPair((d) => 30)
 			.container(this.chartContainer.nativeElement)
 			.data(this.data)
-			.initialExpandLevel(4)
+			.initialExpandLevel(1)
 			.initialZoom(0.7)
 			.neighbourMargin((a, b) => 20)
 			.nodeHeight((d) => 160 + 25)
 			.nodeWidth((d) => 160 + 2)
-			.svgHeight(600)
+			.svgHeight(950)
 			.svgWidth(600)
 			.onNodeClick((d) => {
 				// console.log(d);
@@ -65,11 +65,10 @@ export default class D3Component implements AfterViewInit {
 				return this.createNodeHtml(d);
 			})
 			.render();
-		// console.log(this.chart);
 
-		// this.chart.setCentered();
-		// this.chart.fit();
-		// this.chart.render();
+		setTimeout(() => {
+			this.expandDelegaciones();
+		}, 1000);
 	}
 
 	createNodeHtml(d) {
@@ -124,9 +123,10 @@ export default class D3Component implements AfterViewInit {
 		this.chart.setExpanded(205);
 		this.chart.setExpanded(208);
 		this.chart.setExpanded(210);
-		this.chart.setCentered(10);
+		this.chart.setCentered(104);
 		this.chart.initialZoom(0.6);
-		d3.selectAll('.node').style('border', '2px solid red');
+		// d3.selectAll('.node').style('border', '2px solid red');
+		// this.chart.fit();
 		this.chart.render();
 	}
 
@@ -135,7 +135,7 @@ export default class D3Component implements AfterViewInit {
 		this.chart.setExpanded(203, false);
 		this.chart.setExpanded(205, false);
 		this.chart.setExpanded(208, false);
-		this.chart.setExpanded(210, false).setCentered(10).render();
+		this.chart.setExpanded(210, false).setCentered(105).render();
 	}
 
 	zoomIn() {
