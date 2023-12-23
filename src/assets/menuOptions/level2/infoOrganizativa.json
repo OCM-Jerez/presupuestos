@@ -22,11 +22,5 @@
 		"path": "organigramaD3",
 		"isLastLevel": true,
 		"rutaImagen": "assets/empleados/organigrama.jpg"
-	},
-	{
-		"title": "Supabase",
-		"path": "supabase/2",
-		"isLastLevel": true,
-		"rutaImagen": "assets/empleados/organigrama.jpg"
 	}
 ]
