@@ -332,6 +332,12 @@
 		"descripcion": "Abastecimiento domicializado agua",
 		"news": [
 			{
+				"date": "23 diciembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "Primer paso para que Jerez cuente con una ordenanza para reducir el consumo de agua contra la sequía",
+				"URL": "https://www.diariodejerez.es/jerez/Aprobacion-inicial-ordenanza-sequia-jerez_0_1859214342.html"
+			},
+			{
 				"date": "18 diciembre 2023",
 				"medio": "Diario de Jerez",
 				"title": "La depuradora de El Portal obtendrá hidrógeno verde tras regenerar agua y energía solar",
