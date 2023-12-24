@@ -12,11 +12,11 @@ import { SupabaseService } from './supabase.service';
 export default class SupabaseComponent implements OnInit {
 	s;
 	@Input() id?: number;
-	public employeeData: any[] = null;
 	public positionData: any[] = null;
-	public positionExternalData: any[] = null;
-	public positionExternalData11: any[] = null;
-	public recordData: any[] = null;
+	// public employeeData: any[] = null;
+	// public positionExternalData: any[] = null;
+	// public positionExternalData11: any[] = null;
+	// public recordData: any[] = null;
 
 	public employeeName: string = null;
 	public hasEmployeeLinkedin = false;
@@ -36,48 +36,48 @@ export default class SupabaseComponent implements OnInit {
 		// this.useGraphQL();
 	}
 
-	async fetchData() {
-		try {
-			this.positionData = await this.supabaseService.fetchTableData('positions', this.id);
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
+	// async fetchData() {
+	// 	try {
+	// 		this.positionData = await this.supabaseService.fetchTableData('positions', this.id);
+	// 	} catch (error) {
+	// 		console.error('Error fetching data:', error);
+	// 	}
 
-		try {
-			this.employeeData = await this.supabaseService.fetchTableData('employees', this.id);
-			if (this.employeeData[0].linkedin_url) this.hasEmployeeLinkedin = true;
-			if (this.employeeData[0].wikipedia_url) this.hasEmployeeWikipedia = true;
-			this.employeeName = `${this.employeeData[0].name} ${this.employeeData[0].firstname} ${this.employeeData[0].lastname}`;
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
+	// 	try {
+	// 		this.employeeData = await this.supabaseService.fetchTableData('employees', this.id);
+	// 		if (this.employeeData[0].linkedin_url) this.hasEmployeeLinkedin = true;
+	// 		if (this.employeeData[0].wikipedia_url) this.hasEmployeeWikipedia = true;
+	// 		this.employeeName = `${this.employeeData[0].name} ${this.employeeData[0].firstname} ${this.employeeData[0].lastname}`;
+	// 	} catch (error) {
+	// 		console.error('Error fetching data:', error);
+	// 	}
 
-		try {
-			this.positionExternalData = await this.supabaseService.fetchTableData('positions_external', this.id);
-			// console.log(this.positionExternalData);
+	// 	try {
+	// 		this.positionExternalData = await this.supabaseService.fetchTableData('positions_external', this.id);
+	// 		// console.log(this.positionExternalData);
 
-			if (this.positionExternalData[0].position !== null) this.hasPositionExternal = true;
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
+	// 		if (this.positionExternalData[0].position !== null) this.hasPositionExternal = true;
+	// 	} catch (error) {
+	// 		console.error('Error fetching data:', error);
+	// 	}
 
-		try {
-			this.positionExternalData11 = await this.supabaseService.fetchTableData('positions_external', 11);
-			// console.log(this.positionExternalData11);
+	// 	try {
+	// 		this.positionExternalData11 = await this.supabaseService.fetchTableData('positions_external', 11);
+	// 		// console.log(this.positionExternalData11);
 
-			if (this.positionExternalData11[0].position !== null) this.hasPositionExternal11 = true;
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
+	// 		if (this.positionExternalData11[0].position !== null) this.hasPositionExternal11 = true;
+	// 	} catch (error) {
+	// 		console.error('Error fetching data:', error);
+	// 	}
 
-		try {
-			this.recordData = await this.supabaseService.fetchTableData('records', this.id);
-			if (this.recordData[0].name !== null) this.hasRecord = true;
-			if (this.recordData[0].linkedin_url) this.hasRecordLinkedin = true;
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
-	}
+	// 	try {
+	// 		this.recordData = await this.supabaseService.fetchTableData('records', this.id);
+	// 		if (this.recordData[0].name !== null) this.hasRecord = true;
+	// 		if (this.recordData[0].linkedin_url) this.hasRecordLinkedin = true;
+	// 	} catch (error) {
+	// 		console.error('Error fetching data:', error);
+	// 	}
+	// }
 
 	async fetchDataFromView() {
 		try {
