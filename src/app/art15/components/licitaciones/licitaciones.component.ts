@@ -79,6 +79,8 @@ export default class LicitacionesComponent {
 		this.createCard('Recogida animales perdidos', 'animalesPerdidos2023')
 	];
 
+	licitacionesSolares = [this.createCard('Calle Morla 1', 'subastaInmuebleMorla1')];
+
 	createCard(titulo: string, route: string) {
 		return {
 			titulo,

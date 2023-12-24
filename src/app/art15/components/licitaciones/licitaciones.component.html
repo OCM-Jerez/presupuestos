@@ -59,5 +59,12 @@
 				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 			</section>
 		</section>
+
+		<header class="OCM-subtitle-dark-left">Subastas Registro Municipal de Solares y Edificaciones Ruinosas</header>
+		<section class="OCM-flex">
+			<section *ngFor="let menu of licitacionesSolares" [class.highlight]="menu.highlighted">
+				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+			</section>
+		</section>
 	</section>
 </main>
