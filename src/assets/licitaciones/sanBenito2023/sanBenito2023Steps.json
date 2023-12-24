@@ -1,4 +1,6 @@
 [
-	{ "date": "", "step": "" },
-	{ "date": "25 octubre 2023", "step": "Publicación licitación" }
+	{
+		"date": "25 octubre 2023",
+		"step": "Publicación licitación"
+	}
 ]
