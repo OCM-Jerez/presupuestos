@@ -29,7 +29,7 @@ export default class SupabaseComponent implements OnInit {
 
 	async fetchDataFromView() {
 		try {
-			this.positionData = await this._supabaseService.fetchTableDataFromView(this.id);
+			this.positionData = await this._supabaseService.fetchDataFromView(this.id);
 			// TODO:  Nombre completo en el server
 			this.employeeName = `${this.positionData[0].name} ${this.positionData[0].firstname} ${this.positionData[0].lastname}`;
 			this.hasPositionExternal = this.positionData[0].position_ext;

@@ -1,5 +1,7 @@
 // https://supabase.com/docs/guides/getting-started/tutorials/with-angular
 import { Injectable } from '@angular/core';
+import { environment } from '@environments/environment';
+
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 @Injectable({
@@ -9,19 +11,18 @@ export class SupabaseService {
 	private _supabase: SupabaseClient;
 
 	constructor() {
-		const supabaseUrl = 'https://cswdadlxiubwdzvqzywc.supabase.co';
-		const supabaseKey =
-			'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNzd2RhZGx4aXVid2R6dnF6eXdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDI2MTkxODAsImV4cCI6MjAxODE5NTE4MH0.m2uvFmJvUoNc2qLndRZT0WhpMARVk7D4L1QveHsoapQ';
+		const supabaseUrl = environment.supabaseUrl;
+		const supabaseKey = environment.supabaseKey;
 		this._supabase = createClient(supabaseUrl, supabaseKey);
 	}
 
-	async fetchTableData(tableName: string, id: number): Promise<any> {
+	async fetchData(tableName: string, id: number): Promise<any> {
 		const { data, error } = await this._supabase.from(tableName).select('*').eq('id', id);
 		if (error) throw error;
 		return data;
 	}
 
-	async fetchTableDataFromView(id: number): Promise<any> {
+	async fetchDataFromView(id: number): Promise<any> {
 		const { data, error } = await this._supabase.from('employee_details').select('*').eq('id', id);
 		if (error) throw error;
 		console.log(JSON.stringify(data));
