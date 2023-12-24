@@ -63,7 +63,7 @@ export default class D3Component implements AfterViewInit {
 			.svgWidth(600)
 			// d es la data del node selelect
 			.onNodeClick((d) => {
-				console.log(d);
+				// console.log(d);
 				// window.location.href = `/#/employeeRecod/${d.data.id}`;
 				window.location.href = `/#/supabase/${d.data.id}`;
 			})
@@ -101,14 +101,15 @@ export default class D3Component implements AfterViewInit {
 			.render();
 
 		this.chart.nodeButtonX((d) => {
-			console.log('d.data.id', d.data.id);
+			// console.log('d.data.id', d.data.id);
 
+			// FIXME: No detecta el paso por el node 0
 			if (d.data.id === 0) {
-				console.log('d.data.id', d.data.id);
+				// console.log('d.data.id', d.data.id);
 				return 5;
 			}
 			if (d.data.id === 1) {
-				console.log('d.data.id', d.data.id);
+				// console.log('d.data.id', d.data.id);
 				return 55;
 			}
 			// if (d.data.id === 1) return 55;

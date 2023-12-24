@@ -22,7 +22,7 @@ export default class SupabaseComponent implements OnInit {
 	public hasEmployeeLinkedin = false;
 	public hasEmployeeWikipedia = false;
 	public hasPositionExternal = false;
-	public hasPositionExternal11 = false;
+	public hasPositionExternal11 = true;
 
 	public hasRecord = false;
 	public hasRecordLinkedin = false;
@@ -30,7 +30,8 @@ export default class SupabaseComponent implements OnInit {
 	constructor(private supabaseService: SupabaseService) {}
 
 	ngOnInit(): void {
-		this.fetchData();
+		// this.fetchData();
+		this.fetchDataFromView();
 		// console.log(this.id);
 		// this.useGraphQL();
 	}
@@ -53,7 +54,7 @@ export default class SupabaseComponent implements OnInit {
 
 		try {
 			this.positionExternalData = await this.supabaseService.fetchTableData('positions_external', this.id);
-			console.log(this.positionExternalData);
+			// console.log(this.positionExternalData);
 
 			if (this.positionExternalData[0].position !== null) this.hasPositionExternal = true;
 		} catch (error) {
@@ -62,7 +63,7 @@ export default class SupabaseComponent implements OnInit {
 
 		try {
 			this.positionExternalData11 = await this.supabaseService.fetchTableData('positions_external', 11);
-			console.log(this.positionExternalData11);
+			// console.log(this.positionExternalData11);
 
 			if (this.positionExternalData11[0].position !== null) this.hasPositionExternal11 = true;
 		} catch (error) {
@@ -73,6 +74,19 @@ export default class SupabaseComponent implements OnInit {
 			this.recordData = await this.supabaseService.fetchTableData('records', this.id);
 			if (this.recordData[0].name !== null) this.hasRecord = true;
 			if (this.recordData[0].linkedin_url) this.hasRecordLinkedin = true;
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
+	}
+
+	async fetchDataFromView() {
+		try {
+			this.positionData = await this.supabaseService.fetchTableDataFromView(this.id);
+			console.log(this.id);
+
+			this.employeeName = `${this.positionData[0].name} ${this.positionData[0].firstname} ${this.positionData[0].lastname}`;
+			this.hasPositionExternal = this.positionData[0].position_ext;
+			this.hasRecord = this.positionData[0].record_name;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
