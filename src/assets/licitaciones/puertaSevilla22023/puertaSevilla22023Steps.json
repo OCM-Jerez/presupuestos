@@ -1,4 +1,14 @@
 [
-	{ "date": "", "step": "" },
-	{ "date": "25 octubre 2023", "step": "Publicación licitación" }
+	{
+		"date": "25 octubre 2023",
+		"step": "Publicación licitación"
+	},
+	{
+		"data": "Fecha final licitación",
+		"value": "20 noviembre 2023"
+	},
+	{
+		"date": "23 noviembre 2023",
+		"step": "Mesa contratación propone a  MAVAR OBRAS Y SERVICIOS S.L."
+	}
 ]

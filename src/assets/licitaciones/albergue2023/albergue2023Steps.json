@@ -4,7 +4,11 @@
 		"step": "Publicación licitación"
 	},
 	{
+		"data": "Fecha final licitación",
+		"value": "07/12/2023 "
+	},
+	{
 		"date": "20 diciembre 2023",
-		"step": "Acta mesa de contratación"
+		"step": "Acta mesa de contratación. Solicita informe anormalidades"
 	}
 ]

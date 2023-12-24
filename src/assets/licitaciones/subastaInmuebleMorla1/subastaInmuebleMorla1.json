@@ -1,28 +1,36 @@
 [
 	{
 		"data": "Expediente",
-		"value": "Asueco-2023/1769",
-		"URL": "https://contrataciondelestado.es/wps/poc?uri=deeplink%3Adetalle_licitacion&idEvl=f6PlhuqpWvfXOjazN1Dw9Q%3D%3D"
+		"value": "Asnoec 2315",
+		"URL": "https://contrataciondelestado.es/wps/poc?uri=deeplink%3Adetalle_licitacion&idEvl=y%2BxhP12v89g2wEhQbcAqug%3D%3D"
 	},
 	{
 		"data": "Descripción",
-		"value": "Obras del Proyecto de reordenación y urbanización del eje viario puerta Sevilla – puerta Santiago, 2ª fase"
+		"value": "Convocatoria de procedimiento para la Sustitución de Propietarios Incumplidores de los Inmuebles sitos en C/ Morla N.º 1 y Pza. Cocheras N.º 8 "
+	},
+	{
+		"data": "Codigo CPV",
+		"value": "70000000"
 	},
 	{
 		"data": "Procedimiento",
-		"value": "Abierto simplificado"
+		"value": "Restringido"
+	},
+	{
+		"data": "Tipo tramitación",
+		"value": "Ordinaria"
 	},
 	{
 		"data": "Tipo contrato",
-		"value": "Obras"
+		"value": "Privado"
 	},
 	{
 		"data": "Valor estimado del contrato",
-		"value": " 148.717,82"
+		"value": ""
 	},
 	{
 		"data": "Licitadores presentados",
-		"value": "4"
+		"value": ""
 	},
 	{
 		"data": "Adjudicatario",
@@ -42,33 +50,9 @@
 		"value": ""
 	},
 	{
-		"data": "Financiación",
-		"value": "Subvención Diputación de Cádiz"
-	},
-	{
-		"data": "Credito en que se ampara",
-		"value": ""
-	},
-	{
-		"data": "Organico",
-		"value": ""
-	},
-	{
-		"data": "Programa",
-		"value": ""
-	},
-	{
-		"data": "Económico",
-		"value": ""
-	},
-	{
-		"data": "Plazo ejecución",
-		"value": "8 meses"
-	},
-	{
 		"data": "Geolocalización",
 		"value": "Pulsar en el enlace para ver la ubicación",
-		"URL": "https://goo.gl/maps/TtGoNz8XTdbR85527"
+		"URL": "https://maps.app.goo.gl/m2onjtwi3Mvx1D917"
 	},
 	{
 		"data": "Distrito",

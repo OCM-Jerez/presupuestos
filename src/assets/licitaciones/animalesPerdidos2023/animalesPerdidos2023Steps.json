@@ -1,4 +1,14 @@
 [
-	{ "date": "", "step": "" },
-	{ "date": "25 noviembre 2023", "step": "Publicación licitación" }
+	{
+		"date": "25 noviembre 2023",
+		"step": "Publicación licitación"
+	},
+	{
+		"data": "Fecha final licitación",
+		"value": "16 diciembre 2023"
+	},
+	{
+		"data": "acta órgano de asistencia unico licitador Athisa Medio Ambiente, SAU",
+		"value": "20 diciembre 2023"
+	}
 ]
