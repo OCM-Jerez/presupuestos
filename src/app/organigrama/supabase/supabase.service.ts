@@ -16,7 +16,14 @@ export class SupabaseService {
 		this._supabase = createClient(supabaseUrl, supabaseKey);
 	}
 
-	async fetchData(tableName: string, id: number): Promise<any> {
+	// TODO: - Add types
+	async fetchData(tableName: string): Promise<any> {
+		const { data, error } = await this._supabase.from(tableName).select('*');
+		if (error) throw error;
+		return data;
+	}
+
+	async fetchDataById(tableName: string, id: number): Promise<any> {
 		const { data, error } = await this._supabase.from(tableName).select('*').eq('id', id);
 		if (error) throw error;
 		return data;

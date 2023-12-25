@@ -1,10 +1,11 @@
 // Basado en https://stackblitz.com/edit/js-pr15gr?file=index.html
 
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import * as d3 from 'd3';
 import { OrgChart } from 'd3-org-chart';
+import { SupabaseService } from '../supabase/supabase.service';
 
 interface INodeInfo {
 	id: number;
@@ -25,6 +26,11 @@ interface INodeInfo {
 })
 export default class D3Component implements AfterViewInit {
 	@ViewChild('chartContainer') private chartContainer: ElementRef;
+
+	private _supabaseService = inject(SupabaseService);
+
+	public positionData: any[] = null;
+
 	formatter = new Intl.NumberFormat('de-DE', {
 		style: 'decimal',
 		minimumFractionDigits: 0,
@@ -35,10 +41,20 @@ export default class D3Component implements AfterViewInit {
 	data: INodeInfo[] = [];
 
 	ngAfterViewInit() {
-		d3.json('assets/organigrama/organigrama.json').then((data: INodeInfo[]) => {
-			this.data = data;
+		// d3.json('assets/organigrama/organigrama.json').then((data: INodeInfo[]) => {
+		// 	this.data = data;
+		// 	this.initChart();
+		// });
+		this.fetchData();
+	}
+
+	async fetchData() {
+		try {
+			this.data = await this._supabaseService.fetchData('organigrama');
 			this.initChart();
-		});
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
 	}
 
 	private initChart() {
@@ -122,6 +138,7 @@ export default class D3Component implements AfterViewInit {
 		}, 1000);
 	}
 
+	// TODO: Refactorizar
 	createNodeHtmlAyto(d) {
 		const paddingSize = 25 + 2;
 		const nodeWidth = d.width + 350;
@@ -158,6 +175,7 @@ export default class D3Component implements AfterViewInit {
 	  `;
 	}
 
+	// TODO: Refactorizar
 	createNodeHtmlAlcalde(d) {
 		const paddingSize = 25 + 2;
 		const nodeWidth = d.width + 150;
@@ -195,6 +213,7 @@ export default class D3Component implements AfterViewInit {
 	  `;
 	}
 
+	// TODO: Refactorizar
 	createNodeHtmlPrimerTeniente(d) {
 		const paddingSize = 25 + 2;
 		const nodeWidth = d.width + 200;
@@ -232,6 +251,7 @@ export default class D3Component implements AfterViewInit {
 	  `;
 	}
 
+	// TODO: Refactorizar
 	createNodeHtmlTeniente(d) {
 		const paddingSize = 25 + 2;
 		const nodeWidth = d.width + 200;
@@ -269,6 +289,7 @@ export default class D3Component implements AfterViewInit {
 	  `;
 	}
 
+	// TODO: Refactorizar
 	createNodeHtml(d) {
 		// Pre-cálculo de valores
 		const paddingSize = 25 + 2;
