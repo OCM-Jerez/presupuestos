@@ -14,12 +14,6 @@ export default class SupabaseComponent implements OnInit {
 	//TODO: - Add types
 	public positionData: any[] = null;
 	public employeeName: string = null;
-	public hasEmployeeLinkedin = false;
-	public hasEmployeeWikipedia = false;
-	public hasPositionExternal = false;
-	public hasPositionExternal11 = true;
-	public hasRecord = false;
-	public hasRecordLinkedin = false;
 
 	private _supabaseService = inject(SupabaseService);
 
@@ -32,8 +26,6 @@ export default class SupabaseComponent implements OnInit {
 			this.positionData = await this._supabaseService.fetchDataFromView(this.id);
 			// TODO:  Nombre completo en el server
 			this.employeeName = `${this.positionData[0].name} ${this.positionData[0].firstname} ${this.positionData[0].lastname}`;
-			this.hasPositionExternal = this.positionData[0].position_ext;
-			this.hasRecord = this.positionData[0].record_name;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}

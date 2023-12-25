@@ -20,10 +20,19 @@
 		"type": "Político",
 		"position_ext_id": 1,
 		"position_ext": "Senadora",
-		"salary_ext": "28.658,14 euros",
+		"position_ext_salary": "28.658,14 euros",
+		"position_ext_obs": null,
+		"position_ext_url": "https://transparentia.newtral.es/ficha/maria-jose-garcia-pelayo-jurado",
 		"record_id": 1,
 		"date": "2015-2023",
-		"record_name": "Mamén"
+		"record_name": "Mamén",
+		"record_firstname": "Sánchez",
+		"record_lastname": "Díaz",
+		"record_image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2019-2023/PSOE/MCSANCHEZ.svg",
+		"record_salary": "72.000 ",
+		"record_obs": "obs in records",
+		"record_wikipedia_url": "https://es.wikipedia.org/wiki/Mamen_S%C3%A1nchez_D%C3%ADaz",
+		"record_linkedin_url": null
 	},
 	{
 		"id": 1,
@@ -46,10 +55,19 @@
 		"type": "Político",
 		"position_ext_id": 11,
 		"position_ext": "Presidenta FEMP (Federación Española de Municipios y Provincias)",
-		"salary_ext": null,
+		"position_ext_salary": null,
+		"position_ext_obs": null,
+		"position_ext_url": null,
 		"record_id": 1,
 		"date": "2015-2023",
-		"record_name": "Mamén"
+		"record_name": "Mamén",
+		"record_firstname": "Sánchez",
+		"record_lastname": "Díaz",
+		"record_image": "https://transparencia.jerez.es/fileadmin/Documentos/Transparencia/img/fotos/2019-2023/PSOE/MCSANCHEZ.svg",
+		"record_salary": "72.000 ",
+		"record_obs": "obs in records",
+		"record_wikipedia_url": "https://es.wikipedia.org/wiki/Mamen_S%C3%A1nchez_D%C3%ADaz",
+		"record_linkedin_url": null
 	},
 	{
 		"id": 101,

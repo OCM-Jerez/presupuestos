@@ -1,5 +1,5 @@
-<body style="background-color: #15202b">
-	<section *ngIf="positionData" class="OCM-tableContainer">
+<body *ngIf="positionData" style="background-color: #15202b">
+	<section class="OCM-tableContainer">
 		<h2 class="OCM-subtitle">Caracteristicas del puesto</h2>
 		<table class="tableDataPersona">
 			<tr>
@@ -19,7 +19,7 @@
 		</table>
 	</section>
 
-	<section *ngIf="positionData" class="OCM-tableContainer">
+	<section class="OCM-tableContainer">
 		<h2 class="OCM-subtitle">Persona que actualmente ocupa el puesto</h2>
 		<table class="tableDataPersona">
 			<tr>
@@ -50,7 +50,7 @@
 				<td>{{ positionData[0].contact }}</td>
 				<td>
 					<a
-						*ngIf="hasEmployeeLinkedin"
+						*ngIf="positionData[0].linkedin_url"
 						href="{{ positionData[0].linkedin_url }}"
 						target="_blank"
 						rel="nofollow"
@@ -60,7 +60,7 @@
 				</td>
 				<td>
 					<a
-						*ngIf="hasEmployeeWikipedia"
+						*ngIf="positionData[0].wikipedia_url"
 						href="{{ positionData[0].wikipedia_url }}"
 						target="_blank"
 						rel="nofollow"
@@ -72,7 +72,7 @@
 		</table>
 	</section>
 
-	<section *ngIf="hasPositionExternal" class="OCM-tableContainer">
+	<section *ngIf="positionData[0].position_ext" class="OCM-tableContainer">
 		<h2 class="OCM-subtitle">Cargos que compatibiliza la persona que ocupa el puesto</h2>
 		<table class="tableDataPersona">
 			<tr>
@@ -84,7 +84,7 @@
 			<tr>
 				<td>{{ positionData[0].position_ext }}</td>
 				<td>
-					<a href="{{ positionData[0].position_ext_url }}" target="_blank" rel="nofollow" aria-label="Ayto">Link</a>
+					<a href="{{ positionData[0].position_ext_url }}" target="_blank" rel="nofollow" aria-label="External">Link</a>
 				</td>
 				<td>
 					{{ positionData[0].position_ext_salary }}
@@ -93,10 +93,10 @@
 					{{ positionData[0].position_ext_obs }}
 				</td>
 			</tr>
-			<tr *ngIf="hasPositionExternal11">
+			<tr *ngIf="positionData[1].position_ext">
 				<td>{{ positionData[1].position_ext }}</td>
 				<td>
-					<a href="{{ positionData[1].position_ext_url }}" target="_blank" rel="nofollow" aria-label="Ayto">Link</a>
+					<a href="{{ positionData[1].position_ext_url }}" target="_blank" rel="nofollow" aria-label="External">Link</a>
 				</td>
 				<td>
 					{{ positionData[1].position_ext_salary }}
@@ -108,7 +108,7 @@
 		</table>
 	</section>
 
-	<section *ngIf="hasRecord" class="OCM-tableContainer">
+	<section *ngIf="positionData[0].record_name" class="OCM-tableContainer">
 		<h2 class="OCM-subtitle">Personas que han ocupado el puesto</h2>
 		<table class="tableDataPersona">
 			<tr>
@@ -133,16 +133,23 @@
 				<td>{{ positionData[0].record_obs }}</td>
 				<td>
 					<a
-						*ngIf="hasRecordLinkedin"
+						*ngIf="positionData[0].record_linkedin_url"
 						href="{{ positionData[0].record_linkedin_url }}"
 						target="_blank"
 						rel="nofollow"
-						aria-label="Ayto"
+						aria-label="Linkedin"
 						>Link</a
 					>
 				</td>
 				<td>
-					<a href="{{ positionData[0].record_wikipedia_url }}" target="_blank" rel="nofollow" aria-label="Ayto">Link</a>
+					<a
+						*ngIf="positionData[0].record_wikipedia_url"
+						href="{{ positionData[0].record_wikipedia_url }}"
+						target="_blank"
+						rel="nofollow"
+						aria-label="Wikipedia"
+						>Link</a
+					>
 				</td>
 			</tr>
 		</table>
