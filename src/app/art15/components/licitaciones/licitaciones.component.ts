@@ -15,6 +15,7 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 export default class LicitacionesComponent {
 	private _router = inject(Router);
 	public searchText: string;
+
 	private getAllLicitaciones() {
 		return [...this.licitacionesCEE, ...this.licitacionesESP, ...this.licitacionesDiputacion, ...this.licitacionesAyto];
 	}
