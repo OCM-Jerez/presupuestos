@@ -26,9 +26,7 @@ interface INodeInfo {
 })
 export default class D3Component implements AfterViewInit {
 	@ViewChild('chartContainer') private chartContainer: ElementRef;
-
 	private _supabaseService = inject(SupabaseService);
-
 	public positionData: any[] = null;
 
 	formatter = new Intl.NumberFormat('de-DE', {

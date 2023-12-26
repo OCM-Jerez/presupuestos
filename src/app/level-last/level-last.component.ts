@@ -13,6 +13,8 @@ import SeguimientoSubvencionComponent from '@commons/components/level/seguimient
 import { forkJoin, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
+import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
+
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
@@ -53,6 +55,7 @@ interface IBarrio {
 	templateUrl: './level-last.component.html'
 })
 export default class LevelLastComponent implements OnInit {
+	private _supabaseService = inject(SupabaseService);
 	private _route = inject(ActivatedRoute);
 	private _http = inject(HttpClient);
 
@@ -60,6 +63,7 @@ export default class LevelLastComponent implements OnInit {
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
 	public data: IOption[] = [];
+	public dataSupabase: any[] = [];
 	public steps: IStep[] = [];
 	public barrios: IBarrio[] = [];
 	public stepsSubvencion: IStepSubvencion[] = [];
@@ -114,13 +118,14 @@ export default class LevelLastComponent implements OnInit {
 		staticPath = staticPath ? `${staticPath}/` : '';
 
 		// Logs consolidados
-		console.log('pathFull', pathFull);
-		console.log('staticPath', staticPath);
-		console.log('param', param);
-		console.log('this._option', this._option);
+		// console.log('pathFull', pathFull);
+		// console.log('staticPath', staticPath);
+		// console.log('param', param);
+		// console.log('this._option', this._option);
 
 		switch (staticPath) {
 			case 'licitaciones/':
+				console.log('staticPath', staticPath);
 				this.isLicitacion = true;
 				this.imgURL = `/assets/${staticPath}/${this._option}/${this._option}.jpg`;
 				break;
@@ -142,10 +147,21 @@ export default class LevelLastComponent implements OnInit {
 		}
 
 		this.fetchData(staticPath, this._option);
+		// this.fetchDataFromSupabase(staticPath, this._option);
+	}
+
+	async fetchDataFromSupabase(path: string, param: string) {
+		console.log('fetchDataFromSupabase', path, param);
+		try {
+			this.dataSupabase = await this._supabaseService.fetchDataByTag('licitaciones', param);
+			// console.log('dataSupabase', this.data);
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
 	}
 
 	fetchData(path: string, param: string) {
-		console.log('fetchData', path, param);
+		// console.log('fetchData', path, param);
 
 		// switch (param) {
 		// case 'pmp':
@@ -179,8 +195,8 @@ export default class LevelLastComponent implements OnInit {
 		// }
 
 		const pathBase = `/assets/${path}`;
-		console.log('pathBase', pathBase);
-		console.log(`${pathBase}${this._option}/${this._option}.json`);
+		// console.log('pathBase', pathBase);
+		// console.log(`${pathBase}${this._option}/${this._option}.json`);
 
 		const commonRequests = {
 			data: this._http.get<IOption[]>(`${pathBase}${param}/${param}.json`),

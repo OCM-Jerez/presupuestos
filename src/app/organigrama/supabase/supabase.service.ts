@@ -29,6 +29,12 @@ export class SupabaseService {
 		return data;
 	}
 
+	async fetchDataByTag(tableName: string, tag: string): Promise<any> {
+		const { data, error } = await this._supabase.from(tableName).select('*').eq('tag', tag);
+		if (error) throw error;
+		return data;
+	}
+
 	async fetchDataFromView(view: string, id: number | string): Promise<any> {
 		const { data, error } = await this._supabase.from(view).select('*').eq('id', id);
 		if (error) throw error;

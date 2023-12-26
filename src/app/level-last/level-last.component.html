@@ -33,6 +33,7 @@
 	</section>
 
 	<app-data-general *ngIf="isLicitacion" [data]="data" />
+	<!-- <app-data-general *ngIf="isLicitacion" [data]="dataSupabase" /> -->
 	<app-seguimiento-subvencion *ngIf="isSubvencion" [stepsSubvencion]="stepsSubvencion" />
 	<app-documentos *ngIf="hasDocs" [docs]="docs" />
 	<app-noticias *ngIf="hasNews" [news]="news" />
