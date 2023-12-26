@@ -63,6 +63,7 @@ export default class LevelLastComponent implements OnInit {
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
 	public data: IOption[] = [];
+	// TODO: - Typar
 	public dataSupabase: any[] = [];
 	public steps: IStep[] = [];
 	public barrios: IBarrio[] = [];
@@ -125,7 +126,7 @@ export default class LevelLastComponent implements OnInit {
 
 		switch (staticPath) {
 			case 'licitaciones/':
-				console.log('staticPath', staticPath);
+				// console.log('staticPath', staticPath);
 				this.isLicitacion = true;
 				this.imgURL = `/assets/${staticPath}/${this._option}/${this._option}.jpg`;
 				break;
@@ -147,14 +148,33 @@ export default class LevelLastComponent implements OnInit {
 		}
 
 		this.fetchData(staticPath, this._option);
-		// this.fetchDataFromSupabase(staticPath, this._option);
+		this.fetchDataFromSupabase(staticPath, this._option);
 	}
 
 	async fetchDataFromSupabase(path: string, param: string) {
-		console.log('fetchDataFromSupabase', path, param);
+		// console.log('fetchDataFromSupabase', path, param);
 		try {
-			this.dataSupabase = await this._supabaseService.fetchDataByTag('licitaciones', param);
-			// console.log('dataSupabase', this.data);
+			const data1 = await this._supabaseService.fetchDataByTag('licitaciones', param);
+			setTimeout(() => {
+				const dataO = [];
+				// TODO crear view en Supabase para hacerlo en ella
+				const excludeKeys = ['id', 'tag', 'url_image'];
+				const keyMap = { expediente: 'Expediente', descripcion: 'Descripción' }; // Añade aquí las claves que quieres mapear
+
+				for (const [key, value] of Object.entries(data1)) {
+					for (const [subKey, subValue] of Object.entries(value)) {
+						if (subValue !== null && !excludeKeys.includes(subKey)) {
+							const mappedKey = keyMap[subKey] || subKey; // Si la subKey está en el objeto de mapeo, usa el nuevo nombre, de lo contrario usa la subKey original
+							dataO.push({
+								data: mappedKey,
+								value: subValue
+							});
+						}
+					}
+				}
+				this.data = dataO;
+				// console.log('dataSupabase', dataO);
+			}, 1000);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
@@ -266,5 +286,9 @@ export default class LevelLastComponent implements OnInit {
 				this.hasDocs = this.docs.length > 1;
 				this.hasNews = this.news.length > 0;
 			});
+
+		// setTimeout(() => {
+		// 	console.log('this.data', this.data);
+		// }, 1000);
 	}
 }

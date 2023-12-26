@@ -1,15 +1,22 @@
-<!-- <section class="OCM-tableContainer">
+<section class="OCM-tableContainer">
 	<table class="OCM-tableData">
 		<tbody>
 			<tr *ngFor="let data of data">
-				<td>{{ data[0][1]['expediente'] }}</td>
-				<td>{{ data[1].value }}</td>
+				<ng-container>
+					<td>{{ data.data }}</td>
+					<ng-container *ngIf="!data.data.startsWith('url')">
+						<td>{{ data.value }}</td>
+					</ng-container>
+					<ng-container *ngIf="data.data.startsWith('url') && data.value !== ''">
+						<td><a href="{{ data.value }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+					</ng-container>
+				</ng-container>
 			</tr>
 		</tbody>
 	</table>
-</section> -->
+</section>
 
-<section class="OCM-tableContainer">
+<!-- <section class="OCM-tableContainer">
 	<table class="OCM-tableData">
 		<tbody>
 			<tr *ngFor="let data of data">
@@ -29,4 +36,4 @@
 			</tr>
 		</tbody>
 	</table>
-</section>
+</section> -->
