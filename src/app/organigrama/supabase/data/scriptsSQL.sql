@@ -39,3 +39,19 @@ FROM
     INNER JOIN positions n ON n.employee_id = s.id
     LEFT JOIN positions_external p_ext ON p_ext.employee_id = s.id
     LEFT JOIN records r ON r.id = s.id
+
+
+CREATE OR REPLACE VIEW licitacion_news AS
+SELECT
+  l.*,
+  n.id AS news_id,
+  n.created_at AS news_created_at,
+  n.date AS news_date,
+  n.media AS news_media,
+  n.title AS news_title,
+  n.url AS news_url
+FROM
+  licitaciones l
+  LEFT JOIN news n ON n.licitacion_id = l.id
+WHERE
+ l.id = '6482b989-9afa-4551-85b4-52f157d8624d';
