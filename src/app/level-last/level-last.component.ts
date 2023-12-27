@@ -157,7 +157,7 @@ export default class LevelLastComponent implements OnInit {
 			const data1 = await this._supabaseService.fetchDataByTag('licitaciones', param);
 			setTimeout(() => {
 				const dataO = [];
-				// TODO crear view en Supabase para hacerlo en ella
+				// TODO: crear view en Supabase para hacerlo en ella
 				const excludeKeys = ['id', 'tag', 'url_image'];
 				const keyMap = { expediente: 'Expediente', descripcion: 'Descripción' }; // Añade aquí las claves que quieres mapear
 
@@ -175,6 +175,13 @@ export default class LevelLastComponent implements OnInit {
 				this.data = dataO;
 				// console.log('dataSupabase', dataO);
 			}, 1000);
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
+
+		try {
+			this.news = await this._supabaseService.fetchDataByTag('news', param);
+			this.hasNews = this.news.length > 0;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
@@ -288,7 +295,7 @@ export default class LevelLastComponent implements OnInit {
 			});
 
 		// setTimeout(() => {
-		// 	console.log('this.data', this.data);
+		// 	console.log('this.news', this.news);
 		// }, 1000);
 	}
 }

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
-import { INew } from '@interfaces/new.interface';
+// import { INew } from '@interfaces/new.interface';
 
 @Component({
 	selector: 'app-noticias',
@@ -11,5 +11,5 @@ import { INew } from '@interfaces/new.interface';
 	styleUrls: ['./noticias.component.scss']
 })
 export default class NoticiasComponent {
-	@Input() news: INew[];
+	@Input() news: any[];
 }

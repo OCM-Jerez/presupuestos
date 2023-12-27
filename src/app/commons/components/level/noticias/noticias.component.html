@@ -1,4 +1,3 @@
-<!-- <ng-container *ngIf="hasNews"> -->
 <header class="OCM-subtitle-dark">Noticias</header>
 <section class="OCM-tableContainer">
 	<table class="OCM-tableNoticias">
@@ -13,13 +12,12 @@
 		<tbody>
 			<tr *ngFor="let new of news">
 				<ng-container *ngIf="new.URL !== ''">
-					<td>{{ new.date }}</td>
-					<td>{{ new.medio }}</td>
+					<td>{{ new.date | date : 'd-MM-yyyy' }}</td>
+					<td>{{ new.media }}</td>
 					<td>{{ new.title }}</td>
-					<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+					<td><a href="{{ new.url_new }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
 				</ng-container>
 			</tr>
 		</tbody>
 	</table>
 </section>
-<!-- </ng-container> -->
