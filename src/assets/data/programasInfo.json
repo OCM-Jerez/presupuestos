@@ -32,6 +32,20 @@
 	{
 		"codigo": 13010,
 		"descripcion": "Administración general de la seguridad y protección civil",
+		"news": [
+			{
+				"date": "",
+				"medio": "",
+				"title": "",
+				"URL": ""
+			},
+			{
+				"date": "27 diciembre 2023",
+				"medio": "Diario de Jerez",
+				"title": "La Agrupación Local de Voluntarios de Protección Civil de Jerez recibe nuevos medios técnicos y materiales que reforzarán el servicio",
+				"URL": "https://www.diariodejerez.es/jerez/Agrupacion-Local-Voluntarios-Proteccion-Civil-Jerez-nuevos-medios_0_1861014181.html"
+			}
+		],
 		"cartaServicios": [
 			{
 				"ultimaActualizacion": "Sin datos"

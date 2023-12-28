@@ -77,7 +77,9 @@ export default class LicitacionesComponent {
 		this.createCard('Plaza Venus', 'plazaVenus2023'),
 		this.createCard('Reforma integral de Plaza Madrid', 'plazaMadrid2023'),
 		this.createCard('Reforma cubiertas Palacio Villapanés', 'palacioVillapanes2023'),
-		this.createCard('Recogida animales perdidos', 'animalesPerdidos2023')
+		this.createCard('Recogida animales perdidos', 'animalesPerdidos2023'),
+		this.createCard('Suministro de equipos de protección individual (EPIS)', 'epis2023'),
+		this.createCard('Montaje palcos Semana Santa', 'palcos2023')
 	];
 
 	licitacionesSolares = [this.createCard('Calle Morla 1', 'subastaInmuebleMorla1')];
