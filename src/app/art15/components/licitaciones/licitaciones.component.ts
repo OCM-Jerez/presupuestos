@@ -33,7 +33,7 @@ export default class LicitacionesComponent {
 		this.createCard('Contenedores orgánica', 'contenedoresOrganica2023'),
 		this.createCard('Rehabilitacion CEIP Nebrija', 'rehabilitacionCEIPNebrija2023'),
 		this.createCard('Remodelación plaza del Mercado', 'plazaMercado2023'),
-		this.createCard('Centro cultural Lola Flores', 'CentroCulturalLolaFlores2020'),
+		this.createCard('Centro cultural Lola Flores', 'centroCulturalLolaFlores2023'),
 		this.createCard('Mejora parque Scout', 'parqueScout2023'),
 		this.createCard('Adaptación Parque Williams ', 'parqueWilliams2023'),
 		this.createCard('Proyecto Smart City Jerez (fase 1 y fase 2)', 'smartCity2023'),
