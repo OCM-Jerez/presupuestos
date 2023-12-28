@@ -31,6 +31,17 @@ export class SupabaseService {
 
 	async fetchDataByTag(tableName: string, tag: string): Promise<any> {
 		const { data, error } = await this._supabase.from(tableName).select('*').eq('tag', tag);
+
+		if (error) throw error;
+		return data;
+	}
+
+	async fetchDataByTagOrder(tableName: string, tag: string, order: boolean): Promise<any> {
+		const { data, error } = await this._supabase
+			.from(tableName)
+			.select('*')
+			.eq('tag', tag)
+			.order('date', { ascending: order });
 		if (error) throw error;
 		return data;
 	}

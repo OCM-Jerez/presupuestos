@@ -153,7 +153,7 @@ export default class LevelLastComponent implements OnInit {
 
 	async fetchDataFromSupabase(path: string, param: string) {
 		try {
-			this.steps = await this._supabaseService.fetchDataByTag('steps', param);
+			this.steps = await this._supabaseService.fetchDataByTagOrder('steps', param, true);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
@@ -183,7 +183,7 @@ export default class LevelLastComponent implements OnInit {
 		}
 
 		try {
-			this.news = await this._supabaseService.fetchDataByTag('news', param);
+			this.news = await this._supabaseService.fetchDataByTagOrder('news', param, false);
 			this.hasNews = this.news.length > 0;
 		} catch (error) {
 			console.error('Error fetching data:', error);
