@@ -4,8 +4,8 @@
 		"step": "Publicación licitación"
 	},
 	{
-		"data": "Fecha fin de presentación de oferta",
-		"value": "1 septiembre 2023"
+		"date": "1 septiembre 2023",
+		"step": "Fecha fin de presentación de oferta"
 	},
 	{
 		"date": "13 octubre 2023",

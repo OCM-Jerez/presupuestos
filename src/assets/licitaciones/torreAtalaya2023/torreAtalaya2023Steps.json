@@ -4,11 +4,11 @@
 		"step": "Publicación licitación"
 	},
 	{
-		"data": "Fecha final licitación",
-		"step": "14 noviembre 2023"
+		"date": "14 noviembre 2023",
+		"step": "Fecha final licitación"
 	},
 	{
-		"data": "Mesa contratación",
-		"step": "23 noviembre 2023"
+		"date": "23 noviembre 2023",
+		"step": "Mesa contratación"
 	}
 ]

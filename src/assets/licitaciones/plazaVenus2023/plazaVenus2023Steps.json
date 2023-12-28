@@ -4,15 +4,15 @@
 		"step": "Anuncio licitación"
 	},
 	{
-		"data": "Fecha final licitación",
-		"step": "4 mayo 2023"
+		"date": "4 mayo 2023",
+		"step": "Fecha final licitación"
 	},
 	{
 		"date": "18 mayo 2023",
 		"step": "Aperturas de ofertas"
 	},
 	{
-		"date": "4 de agosto 2023",
+		"date": "4 agosto 2023",
 		"step": "Adjudicación"
 	},
 	{
