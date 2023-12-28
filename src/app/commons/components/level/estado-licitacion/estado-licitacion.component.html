@@ -14,7 +14,7 @@
 			</thead>
 			<tbody>
 				<tr *ngFor="let step of steps">
-					<td>{{ step.date }}</td>
+					<td>{{ step.date | date : 'd-MM-yyyy' }}</td>
 					<td>{{ step.step }}</td>
 				</tr>
 			</tbody>
