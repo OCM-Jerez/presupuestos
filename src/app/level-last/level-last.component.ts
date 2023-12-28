@@ -147,34 +147,37 @@ export default class LevelLastComponent implements OnInit {
 				break;
 		}
 
-		this.fetchData(staticPath, this._option);
+		// this.fetchData(staticPath, this._option);
 		this.fetchDataFromSupabase(staticPath, this._option);
 	}
 
 	async fetchDataFromSupabase(path: string, param: string) {
-		// console.log('fetchDataFromSupabase', path, param);
+		try {
+			this.steps = await this._supabaseService.fetchDataByTag('steps', param);
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
+
 		try {
 			const data1 = await this._supabaseService.fetchDataByTag('licitaciones', param);
-			setTimeout(() => {
-				const dataO = [];
-				// TODO: crear view en Supabase para hacerlo en ella
-				const excludeKeys = ['id', 'tag', 'url_image'];
-				const keyMap = { expediente: 'Expediente', descripcion: 'Descripción' }; // Añade aquí las claves que quieres mapear
-
-				for (const [key, value] of Object.entries(data1)) {
-					for (const [subKey, subValue] of Object.entries(value)) {
-						if (subValue !== null && !excludeKeys.includes(subKey)) {
-							const mappedKey = keyMap[subKey] || subKey; // Si la subKey está en el objeto de mapeo, usa el nuevo nombre, de lo contrario usa la subKey original
-							dataO.push({
-								data: mappedKey,
-								value: subValue
-							});
-						}
+			// setTimeout(() => {
+			const dataO = [];
+			// TODO: crear view en Supabase para hacerlo en ella
+			const excludeKeys = ['id', 'tag', 'url_image'];
+			const keyMap = { expediente: 'Expediente', descripcion: 'Descripción' };
+			for (const [key, value] of Object.entries(data1)) {
+				for (const [subKey, subValue] of Object.entries(value)) {
+					if (subValue !== null && !excludeKeys.includes(subKey)) {
+						const mappedKey = keyMap[subKey] || subKey; // Si la subKey está en el objeto de mapeo, usa el nuevo nombre, de lo contrario usa la subKey original
+						dataO.push({
+							data: mappedKey,
+							value: subValue
+						});
 					}
 				}
-				this.data = dataO;
-				// console.log('dataSupabase', dataO);
-			}, 1000);
+			}
+			this.data = dataO;
+			// }, 1000);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
