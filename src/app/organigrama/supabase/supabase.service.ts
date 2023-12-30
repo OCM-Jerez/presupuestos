@@ -52,4 +52,11 @@ export class SupabaseService {
 		console.log(JSON.stringify(data));
 		return data;
 	}
+
+	async insertRow(tableName: string, data: any): Promise<any> {
+		const { data: insertedData, error } = await this._supabase.from(tableName).insert([data]);
+
+		if (error) throw error;
+		return insertedData;
+	}
 }

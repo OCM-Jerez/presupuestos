@@ -252,6 +252,10 @@ export default [
 		path: 'glosario',
 		loadComponent: () => import('./glosario/glosario.component')
 	},
+	{
+		path: 'addNew/:param',
+		loadComponent: () => import('./news/news-form/news-form.component')
+	},
 
 	// ============================================================================================================================================
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }
