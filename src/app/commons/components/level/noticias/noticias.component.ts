@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '@environments/environment';
 
 // import { INew } from '@interfaces/new.interface';
 
@@ -16,6 +17,7 @@ export default class NoticiasComponent implements OnInit {
 	private _router = inject(Router);
 	private _route = inject(ActivatedRoute);
 	private _param = '';
+	public canAddRowSupabase = environment.canAddRowSupabase;
 
 	ngOnInit(): void {
 		const routeConfig = this._route.snapshot.routeConfig;
