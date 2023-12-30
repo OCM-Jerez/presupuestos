@@ -160,31 +160,51 @@ export default class LevelLastComponent implements OnInit {
 
 		try {
 			const data1 = await this._supabaseService.fetchDataByTag('licitaciones', param);
-			// setTimeout(() => {
-			const dataO = [];
 			// TODO: crear view en Supabase para hacerlo en ella
-			const excludeKeys = ['id', 'tag', 'url_image'];
-			const keyMap = { expediente: 'Expediente', descripcion: 'Descripción' };
-			for (const [key, value] of Object.entries(data1)) {
-				for (const [subKey, subValue] of Object.entries(value)) {
-					if (subValue !== null && !excludeKeys.includes(subKey)) {
-						const mappedKey = keyMap[subKey] || subKey; // Si la subKey está en el objeto de mapeo, usa el nuevo nombre, de lo contrario usa la subKey original
-						dataO.push({
-							data: mappedKey,
-							value: subValue
-						});
-					}
-				}
-			}
-			this.data = dataO;
-			// }, 1000);
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
+			// Lo hago desde este código para evitar problemas con la asignación de nombres en la view con SQL.
+			// Ademas que hago la ordenación a la vez de los campos en el orden que quiero que aparezcan en la tabla
 
-		try {
-			this.news = await this._supabaseService.fetchDataByTagOrder('news', param, false);
-			this.hasNews = this.news.length > 0;
+			const keyMap = new Map([
+				['expediente', 'Expediente'],
+				['descripcion', 'Descripción'],
+				['codigo_cpv', 'Código CPV'],
+				['url_plataforma', 'url Plataforma Contratación'],
+				['tipo_contrato', 'Tipo de Contrato'],
+				['procedimiento_contratacion', 'Procedimiento'],
+				['tipo_tramitación', 'Tramitación'],
+				['presupuesto_base_sin_impuestos', 'Presupuesto base sin impuestos'],
+				['presupuesto_base_licitación_con_impuestos', 'Presupuesto base licitación con impuestos'],
+				['plazo_ejecución', 'Plazo ejecución'],
+				['licitadores_presentados', 'Licitadores presentados'],
+				['adjudicatario', 'Adjudicatario'],
+				['cif_adjudicatario', 'CIF adjudicatario'],
+				['url_adjudicatario', 'url Información adjudicatario'],
+				['importe_adjudicación_sin_impuestos', 'Importe adjudicación sin impuestos'],
+				['importe_adjudicación_con_impuestos', 'Importe adjudicación con impuestos'],
+				['tipo_financiacion', 'Tipo financiación'],
+				['credito_ampara', 'Credito en que se ampara'],
+				['organico', 'Orgánico'],
+				['programa', 'Programa'],
+				['economico', 'Económico'],
+				['distrito', 'Distrito'],
+				['url_distrito', 'url Distrito'],
+				['url_geolocalización', 'url Geolocalización'],
+				['duración_contrato', 'Duración contrato'],
+				['canon_concesional', 'Canon concesional']
+				// ['valor_estimado_contrato', 'Valor estimado'],
+				// ['tag', 'tag'],
+			]);
+
+			const dataO = data1.flatMap((item) =>
+				Array.from(keyMap.keys())
+					.filter((key) => item[key] !== null && item[key] !== '')
+					.map((key) => ({
+						data: keyMap.get(key),
+						value: item[key]
+					}))
+			);
+
+			this.data = dataO;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
