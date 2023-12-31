@@ -62,6 +62,7 @@ export default class Level3Component implements OnInit {
 		import(`../../assets/menuOptions/level3/${this.path}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => {
 				if (this.path === 'comisiones') {
+					this.isComisiones = true;
 					this.fetchDataFromSupabase(this.path);
 					return this.createCardMenu(item);
 				} else {
