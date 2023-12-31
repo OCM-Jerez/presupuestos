@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
-import { ICom } from '@interfaces/com.interface';
+// import { ICom } from '@interfaces/com.interface';
 
 @Component({
 	selector: 'app-comentarios',
@@ -11,5 +11,6 @@ import { ICom } from '@interfaces/com.interface';
 	styleUrls: ['./comentarios.component.scss']
 })
 export default class ComentariosComponent {
-	@Input() coms: ICom[];
+	// TODO: Typar
+	@Input() coms: any[];
 }

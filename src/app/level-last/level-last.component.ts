@@ -315,6 +315,13 @@ export default class LevelLastComponent implements OnInit {
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
+
+		try {
+			this.coms = await this._supabaseService.fetchDataByTagOrder('comments', param, false);
+			this.hasComs = this.coms.length > 0;
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
 	}
 
 	fetchData(path: string, param: string) {
