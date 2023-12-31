@@ -20,6 +20,7 @@
 	{
 		"title": "Antigua jefatura Policia Local",
 		"path": "edificiosSingulares/antiguaJefaturaPoliciaLocal",
+		"isLastLevel": true,
 		"rutaImagen": "antiguaJefaturaPoliciaLocal.jpg"
 	},
 	{

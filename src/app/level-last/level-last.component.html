@@ -1,5 +1,6 @@
 <main class="OCM-dark-teme">
-	<header [class]="isLicitacion ? 'OCM-subtitle-dark' : 'OCM-title-dark'">{{ descripcion }}</header>
+	<header *ngIf="isLicitacion" class="OCM-subtitle-dark">{{ descripcion }}</header>
+	<header *ngIf="!isLicitacion" class="OCM-title-dark">{{ title }}</header>
 
 	<app-estado-licitacion *ngIf="isLicitacion" [steps]="steps" [imgURL]="imgURL" [gauge]="gauge" />
 

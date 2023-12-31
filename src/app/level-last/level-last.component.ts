@@ -85,7 +85,101 @@ export default class LevelLastComponent implements OnInit {
 	public hasNews = false;
 
 	public gauge = '/assets/licitaciones/gauge.jpg';
-	private _option = '';
+	public _option = '';
+	public title = '';
+
+	private titleMap: { [key: string]: string } = {
+		festivalJerez: 'Festival de Jerez',
+		feria: 'Feria del Caballo',
+		titeres: 'Festival Internacional de titeres',
+		feriaLibro: 'Feria del libro',
+		Navidad: 'Navidad',
+		zambombas: 'Zambombas',
+		aeropuerto: 'Aeropuerto',
+		arboles: 'Arboles',
+		asesores: 'Asesores',
+		astaRegia: 'Asta Regia',
+		bandaMusica: 'Banda Municipal de música',
+		declaracionesPoliticos: 'Declaraciones políticos',
+		hermandades: 'Hermandades y cofradias',
+		ifeca: 'Ifeca',
+		museoBelen: 'Museo del belén',
+		museoFlamenco: 'Museo del Flamenco',
+		oficinaMemoriaDemocratica: 'Oficina de memoria democrática',
+		parquesEolicos: 'Plantas fotovoltaicas y parques eólicos',
+		presupuestoJuntaAndalucia: 'Presupuesto Junta de Andalucía',
+		terrazas: 'Terrazas',
+		senalizacion: 'Señalización vertical y horizontal',
+		naranjas: 'Recogida naranjas',
+		varios: 'Varios',
+		palacioRiquelme: 'Palacio Riquelme',
+		asiloSanJose: 'Antiguo asilo San Jose',
+		antiguaComisariaPoliciaNacional: 'Antigua comisaria Policía Nacional',
+		antiguaJefaturaPoliciaLocal: 'Antigua jefatura Policía Local',
+		croft: 'Croft',
+		callejonBolos: 'Callejón de los bolos',
+		palacioVillapanes: 'Palacio de Villapanés',
+		claustrosSantoDomingo: 'Claustros de Santo Domingo',
+		mercadoAbastos: 'Mercado de Abastos',
+		cartuja: 'Cartuja',
+		galloAzul: 'El Gallo Azul',
+		edificiosSingulares: 'Edificios Singulares',
+		apartamentosTuristicos: 'Apartamentos Turísticos',
+		proyectosViviendas: 'Proyectos construcción de viviendas',
+		registroSolares: 'Registro solares y edificaciones ruinosas',
+		mercados: 'Mercados',
+		plenoOrdinario20230929: 'Pleno ordinario 29 septiembre 2023',
+		plenoExtraordinario20231007: 'Pleno extraordinario y solemne 7 octubre 2023',
+		plenoOrdinario20231027: 'Pleno ordinario 27 octubre 2023',
+		plenoExtraordinario20231115: 'Pleno extraordinario 15 noviembre 2023',
+		plenoExtraordinarioUrgente20231115: 'Pleno extraordinario y urgente 15 noviembre 2023',
+		plenoExtraordinario20231122: 'Pleno extraordinario 22 noviembre 2023',
+		plenoOrdinario20231124: 'Pleno ordinario 24 noviembre 2023',
+		plenoExtraordinario20231215: 'Pleno extraordinario 15 diciembre 2023',
+		fundarte: 'Fundación Universitaria (Teatro Villamarta)',
+		comujesa: 'COMUJESA. Corporación Municipal de Jerez. S.A.',
+		cirjesa: 'CIRJESA. Circuito de Jerez. S.A.',
+		emuvijesa: 'EMUVIJESA. Empresa municipal de vivienda S.A.',
+		mesaTecnicaSeguridad: 'Mesa técnica de seguridad',
+		mesaEmpleo: 'Mesa de empleo',
+		consejoLocalInfanciaAdolescencia: 'Consejo local de infancia y adolescencia',
+		mesaConvivencia: 'Mesa de convivencia',
+		mesaCaballo: 'Mesa del caballo',
+		mesaLocalJuventud: 'Mesa local de la juventud',
+		elTorno: 'El Torno',
+		guadalcacin: 'Guadalcacín',
+		laBarca: 'La Barca de la Florida',
+		estella: 'Estella del Marqués',
+		nuevaJarilla: 'Nueva Jarilla',
+		sanIsidro: 'San Isidro del Guadalete',
+		torrecera: 'Torrecera',
+		presidencia:
+			'Comisión de presidencia, centro histórico, fondos europeos, coordinación de gobierno y ordenación del territorio',
+		serviciosPublicos:
+			'Servicios Comisión de servicios públicos, desarrollo sostenible, medio ambiente, protección animal y participación ciudadana',
+		inclusion: 'Comisión de inclusión social, familias, igualdad y diversidad y medio rural',
+		turismo: 'Comisión de turismo, cultura, educación, deportes y juventud',
+		patrimonio:
+			'Comisión de empleo, economía, patrimonio, seguridad, recursos humanos, simplificación administrativa y transparencia',
+		cuentas: 'Comisión especial de cuentas',
+		sugerencias: 'Comisión especial de sugerencias y reclamaciones',
+		capitabilidad: 'Comisión especial de capitalidad cultural',
+		presupuestos: 'Comisión especial de presupuestos participativos',
+		regeneracion: 'Comisión especial de regeneración democrática y calidad institucional',
+		impulso: 'Comisión especial de impulso y seguimiento de las mesas sectoriales',
+		deuda: 'Deuda',
+		pmp: 'Periodo medio de pago a proveedores',
+		impuestos: 'Impuestos',
+		dipu2023: 'Subvenciones Diputación 2023',
+		PFEA: 'Programa de Fomento del Empleo Agrario (PFEA)',
+		distritoCentro: 'Distrito Centro',
+		distritoNorte: 'Distrito Norte',
+		distritoOeste: 'Distrito Oeste',
+		distritoSur: 'Distrito Sur',
+		distritoEste: 'Distrito Este',
+		distritoNoreste: 'Distrito Noroeste',
+		distritoRural: 'Distrito Rural'
+	};
 
 	ngOnInit() {
 		const { paramMap, routeConfig } = this._route.snapshot;
@@ -114,8 +208,10 @@ export default class LevelLastComponent implements OnInit {
 			}
 
 			this._option = param;
+			console.log('this._option', this._option);
 		}
 
+		this.title = this.titleMap[this._option] || 'FALTA AÑADIR Title';
 		staticPath = staticPath ? `${staticPath}/` : '';
 
 		// Logs consolidados
@@ -203,8 +299,12 @@ export default class LevelLastComponent implements OnInit {
 						value: item[key]
 					}))
 			);
-
 			this.data = dataO;
+
+			const descripcionObj = this.data.find((obj) => obj.data === 'Descripción');
+			if (descripcionObj) {
+				this.descripcion = descripcionObj.value;
+			}
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
@@ -254,6 +354,8 @@ export default class LevelLastComponent implements OnInit {
 		const pathBase = `/assets/${path}`;
 		// console.log('pathBase', pathBase);
 		// console.log(`${pathBase}${this._option}/${this._option}.json`);
+
+		console.log('param', param);
 
 		const commonRequests = {
 			data: this._http.get<IOption[]>(`${pathBase}${param}/${param}.json`),
