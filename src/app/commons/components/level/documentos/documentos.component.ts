@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { IDoc } from '@interfaces/doc.interface';
+// import { IDoc } from '@interfaces/doc.interface';
 
 @Component({
 	selector: 'app-documentos',
@@ -10,5 +10,6 @@ import { IDoc } from '@interfaces/doc.interface';
 	styleUrls: ['./documentos.component.scss']
 })
 export default class DocumentosComponent {
-	@Input() docs: IDoc[];
+	// TODO: Typar
+	@Input() docs: any[];
 }

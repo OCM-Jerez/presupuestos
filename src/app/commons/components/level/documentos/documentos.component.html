@@ -12,11 +12,11 @@
 		</thead>
 		<tbody>
 			<tr *ngFor="let doc of docs">
-				<ng-container *ngIf="doc.URL !== ''">
+				<ng-container *ngIf="doc.url !== ''">
 					<td>{{ doc.date }}</td>
 					<td>{{ doc.emisor }}</td>
 					<td>{{ doc.title }}</td>
-					<td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+					<td><a href="{{ doc.url }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
 				</ng-container>
 			</tr>
 		</tbody>
