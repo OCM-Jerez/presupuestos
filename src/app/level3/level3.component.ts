@@ -18,7 +18,10 @@ import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 
+import { environment } from '@environments/environment';
+
 import { IMenuItem } from '@interfaces/menu.interface';
+import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
 
 @Component({
 	selector: 'app-level3',
@@ -39,6 +42,8 @@ import { IMenuItem } from '@interfaces/menu.interface';
 export default class Level3Component implements OnInit {
 	@Input() path?: string;
 	@Input() title?: string;
+	private _supabaseService = inject(SupabaseService);
+
 	public menuOptions: IMenuItem[] = [];
 	private _router = inject(Router);
 	private _http = inject(HttpClient);
@@ -53,13 +58,41 @@ export default class Level3Component implements OnInit {
 
 	public isComisiones = false;
 
-	ngOnInit(): void {
+	ngOnInit() {
+		import(`../../assets/menuOptions/level3/${this.path}.json`).then((data) => {
+			this.menuOptions = data.default.map((item: IMenuItem) => {
+				if (this.path === 'comisiones') {
+					this.fetchDataFromSupabase(this.path);
+					return this.createCardMenu(item);
+				} else {
+					const modifiedItem = {
+						...item,
+						rutaImagen: environment.pathImgSupabase + item.rutaImagen
+					};
+					this.fetchDataFromSupabase(this.path);
+					return this.createCardMenu(modifiedItem);
+				}
+			});
+		});
+	}
+
+	ngOnInitOLD(): void {
 		console.log('Level3 ', this.path, this.title);
 		// console.log(`../../assets/menuOptions/level3/${this.path}.json`);
 		import(`../../assets/menuOptions/level3/${this.path}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => this.createCardMenu(item));
-			this.fetchData(this.path);
+			// this.fetchData(this.path);
+			this.fetchDataFromSupabase(this.path);
 		});
+	}
+
+	async fetchDataFromSupabase(param: string) {
+		try {
+			this.news = await this._supabaseService.fetchDataByTagOrder('news', param, false);
+			this.hasNews = this.news.length > 0;
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
 	}
 
 	fetchData(path: string) {

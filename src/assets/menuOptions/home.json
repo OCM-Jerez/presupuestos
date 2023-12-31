@@ -2,56 +2,56 @@
 	{
 		"title": "Artículo 10. Información institucional y organizativa.",
 		"path": "art10",
-		"rutaImagen": "assets/art10/ayto.webp"
+		"rutaImagen": "ayto.webp"
 	},
 	{
 		"title": "Artículo 11. Información sobre altos cargos y personas que ejerzan la máxima responsabilidad.",
 		"path": "art11",
-		"rutaImagen": "assets/art11/art11.jpg"
+		"rutaImagen": "art11.jpg"
 	},
 	{
 		"title": "Artículo 12. Información sobre planificación y evaluación.",
 		"path": "art12",
-		"rutaImagen": "assets/art12/art12.jpg"
+		"rutaImagen": "art12.jpg"
 	},
 	{
 		"title": "Artículo 13. Información de relevancia jurídica.",
 		"path": "art13",
-		"rutaImagen": "assets/art13/art13.jpg"
+		"rutaImagen": "art13.jpg"
 	},
 	{
 		"title": "Artículo 14. Información sobre procedimientos, cartas de servicio y participación ciudadana.",
 		"path": "art14",
-		"rutaImagen": "assets/art14/art14.jpg"
+		"rutaImagen": "art14.jpg"
 	},
 	{
 		"title": "Artículo 15. Información sobre contratos, convenios y subvenciones.",
 		"path": "art15",
-		"rutaImagen": "assets/art15/art15.jpg"
+		"rutaImagen": "art15.jpg"
 	},
 	{
 		"title": "Artículo 16. Información económica, financiera y presupuestaria.",
 		"path": "art16",
-		"rutaImagen": "assets/art16/art16.jpg"
+		"rutaImagen": "art16.jpg"
 	},
 	{
 		"title": "Medioambiental, urbanística y vivienda",
 		"path": "medioambiental",
-		"rutaImagen": "assets/medioambiental/medioambiental.jpg"
+		"rutaImagen": "/medioambiental.jpg"
 	},
 	{
 		"title": "Eventos culturales",
 		"path": "eventos",
-		"rutaImagen": "assets/eventos/feria/feria.jpg"
+		"rutaImagen": "feria.jpg"
 	},
 	{
 		"title": "Temas generales",
 		"path": "temas",
-		"rutaImagen": "assets/temas/ifeca/ifeca.jpg"
+		"rutaImagen": "ifeca.jpg"
 	},
 	{
 		"title": "Distritos y barrios",
 		"path": "distritos",
-		"rutaImagen": "assets/distritos/distritos.jpg"
+		"rutaImagen": "distritos.jpg"
 	}
 ]

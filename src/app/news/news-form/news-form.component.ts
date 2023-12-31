@@ -54,4 +54,12 @@ export default class NewsFormComponent implements OnInit {
 			}
 		}
 	}
+
+	addImg(event): void {
+		const file = event.target.files[0];
+
+		// console.log(file);
+		this._supabaseService.uploadFile(file);
+		// this._supabaseService.uploadFileFromJSON();
+	}
 }

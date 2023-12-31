@@ -3,102 +3,102 @@
 		"title": "Aeropuerto",
 		"path": "temas/aeropuerto",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/aeropuerto/aeropuerto.jpg"
+		"rutaImagen": "aeropuerto.jpg"
 	},
 	{
 		"title": "Arboles",
 		"path": "temas/arboles",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/arboles/arboles.jpg"
+		"rutaImagen": "arboles.jpg"
 	},
 	{
 		"title": "Asesores",
 		"path": "temas/asesores",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/asesores/asesores.jpg"
+		"rutaImagen": "asesores.jpg"
 	},
 	{
 		"title": "Asta Regia",
 		"path": "temas/astaRegia",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/astaRegia/astaRegia.jpg"
+		"rutaImagen": "astaRegia.jpg"
 	},
 	{
 		"title": "Banda Municipal de música",
 		"path": "temas/bandaMusica",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/bandaMusica/bandaMusica.jpg"
+		"rutaImagen": "bandaMusica.jpg"
 	},
 	{
 		"title": "Declaraciones políticos",
 		"path": "temas/declaracionesPoliticos",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/declaracionesPoliticos/declaracionesPoliticos.jpg"
+		"rutaImagen": "declaracionesPoliticos.jpg"
 	},
 	{
 		"title": "Hermandades y cofradias",
 		"path": "temas/hermandades",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/hermandades/hermandades.jpg"
+		"rutaImagen": "hermandades.jpg"
 	},
 	{
 		"title": "Ifeca",
 		"path": "temas/ifeca",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/ifeca/ifeca.jpg"
+		"rutaImagen": "ifeca.jpg"
 	},
 	{
 		"title": "Museo del belén",
 		"path": "temas/museoBelen",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/museoBelen/museoBelen.jpg"
+		"rutaImagen": "museoBelen.jpg"
 	},
 	{
 		"title": "Museo del Flamenco",
 		"path": "temas/museoFlamenco",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/museoFlamenco/museoFlamenco.jpg"
+		"rutaImagen": "museoFlamenco.jpg"
 	},
 	{
 		"title": "Oficina de memoria democrática",
 		"path": "temas/oficinaMemoriaDemocratica",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/oficinaMemoriaDemocratica/oficinaMemoriaDemocratica.jpg"
+		"rutaImagen": "oficinaMemoriaDemocratica.jpg"
 	},
 	{
 		"title": "Plantas fotovoltaicas y parques eólicos",
 		"path": "temas/parquesEolicos",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/parquesEolicos/parquesEolicos.jpg"
+		"rutaImagen": "parquesEolicos.jpg"
 	},
 	{
 		"title": "Presupuesto Junta de Andalucía",
 		"path": "temas/presupuestoJuntaAndalucia",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/presupuestoJuntaAndalucia/presupuestoJuntaAndalucia.jpg"
+		"rutaImagen": "presupuestoJuntaAndalucia.jpg"
 	},
 	{
 		"title": "Terrazas",
 		"path": "temas/terrazas",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/terrazas/terrazas.jpg"
+		"rutaImagen": "terrazas.jpg"
 	},
 	{
 		"title": "Señalización vertical y horizontal",
 		"path": "temas/senalizacion",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/senalizacion/senalizacion.jpg"
+		"rutaImagen": "senalizacion.jpg"
 	},
 	{
 		"title": "Recogida naranjas",
 		"path": "temas/naranjas",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/naranjas/naranjas.jpg"
+		"rutaImagen": "naranjas.jpg"
 	},
 	{
 		"title": "Varios",
 		"path": "temas/varios",
 		"isLastLevel": true,
-		"rutaImagen": "assets/temas/varios/varios.jpg"
+		"rutaImagen": "varios.jpg"
 	}
 ]

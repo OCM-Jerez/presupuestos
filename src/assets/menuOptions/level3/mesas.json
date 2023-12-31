@@ -2,31 +2,31 @@
 	{
 		"title": "Mesa técnica de seguridad",
 		"path": "art10/infoInstitucional/mesas/mesaTecnicaSeguridad",
-		"rutaImagen": "assets/art10/infoInstitucional/mesas/mesaTecnicaSeguridad/mesaTecnicaSeguridad.jpg"
+		"rutaImagen": "mesaTecnicaSeguridad.jpg"
 	},
 	{
 		"title": "Mesa de empleo",
 		"path": "art10/infoInstitucional/mesas/mesaEmpleo",
-		"rutaImagen": "assets/art10/infoInstitucional/mesas/mesaEmpleo/mesaEmpleo.jpg"
+		"rutaImagen": "mesaEmpleo.jpg"
 	},
 	{
 		"title": "Consejo Local de la Infancia y Adolescencia",
 		"path": "art10/infoInstitucional/mesas/consejoLocalInfanciaAdolescencia",
-		"rutaImagen": "assets/art10/infoInstitucional/mesas/consejoLocalInfanciaAdolescencia/consejoLocalInfanciaAdolescencia.jpg"
+		"rutaImagen": "consejoLocalInfanciaAdolescencia.jpg"
 	},
 	{
 		"title": "Mesa de la convivenccia",
 		"path": "art10/infoInstitucional/mesas/mesaConvivencia",
-		"rutaImagen": "assets/art10/infoInstitucional/mesas/mesaConvivencia/mesaConvivencia.jpg"
+		"rutaImagen": "mesaConvivencia.jpg"
 	},
 	{
 		"title": "Mesa del caballo",
 		"path": "art10/infoInstitucional/mesas/mesaCaballo",
-		"rutaImagen": "assets/art10/infoInstitucional/mesas/mesaCaballo/mesaCaballo.jpg"
+		"rutaImagen": "mesaCaballo.jpg"
 	},
 	{
 		"title": "Mesa Local de la Juventud",
 		"path": "art10/infoInstitucional/mesas/mesaLocalJuventud",
-		"rutaImagen": "assets/art10/infoInstitucional/mesas/mesaCaballo/mesaCaballo.jpg"
+		"rutaImagen": "mesaCaballo.jpg"
 	}
 ]

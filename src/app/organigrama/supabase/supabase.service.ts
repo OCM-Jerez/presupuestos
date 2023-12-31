@@ -1,8 +1,10 @@
 // https://supabase.com/docs/guides/getting-started/tutorials/with-angular
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
 
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
+
+import fileData from 'D:/create-licitacion/jpgFiles.json';
 
 @Injectable({
 	providedIn: 'root'
@@ -58,5 +60,57 @@ export class SupabaseService {
 
 		if (error) throw error;
 		return insertedData;
+	}
+
+	// uploadFile = async (bucketName, filePath, fileData?, options?) => {
+	// 	console.log('uploadFile');
+
+	// 	try {
+	// 		// Obtener la imagen como blob
+	// 		const response = await fetch(filePath);
+	// 		if (!response.ok) throw new Error('Network response was not ok');
+	// 		const imageBlob = await response.blob();
+
+	// 		// Cargar el blob a Supabase
+	// 		const { data, error } = await this._supabase.storage.from(bucketName).upload(filePath, imageBlob, options);
+
+	// 		if (error) throw error;
+
+	// 		console.log(`File uploaded to ${filePath}`, data);
+	// 	} catch (error) {
+	// 		console.error('Error:', error);
+	// 	}
+	// };
+
+	async uploadFile(file) {
+		const filePath = `${file.name}`; // Asegúrate de cambiar 'nombre_del_directorio' al directorio deseado en Supabase Storage
+
+		try {
+			const { error, data } = await this._supabase.storage.from('imgEmpleados').upload(filePath, file);
+
+			if (error) {
+				throw error;
+			}
+
+			console.log('Archivo subido con éxito:', data);
+		} catch (error) {
+			console.error('Error en la subida del archivo:', error);
+		}
+	}
+
+	async uploadFileFromJSON(fileData) {
+		const filePath = `${fileData.name}`; // Asegúrate de cambiar 'nombre_del_directorio' al directorio deseado en Supabase Storage
+
+		try {
+			const { error, data } = await this._supabase.storage.from('imgParaClasificar').upload(filePath, filePath);
+
+			if (error) {
+				throw error;
+			}
+
+			console.log('Archivo subido con éxito:', data);
+		} catch (error) {
+			console.error('Error en la subida del archivo:', error);
+		}
 	}
 }

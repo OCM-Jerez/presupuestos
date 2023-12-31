@@ -3,24 +3,24 @@
 		"title": "Presupuestos",
 		"path": "presupuestos",
 		"isLastLevel": true,
-		"rutaImagen": "assets/img/home/menu1-400x250.webp"
+		"rutaImagen": "menu1-400x250.webp"
 	},
 	{
 		"title": "Deuda",
 		"path": "/deuda",
 		"isLastLevel": true,
-		"rutaImagen": "assets/deuda/deuda.jpg"
+		"rutaImagen": "deuda.jpg"
 	},
 	{
 		"title": "PMP",
 		"path": "art16/pmp",
 		"isLastLevel": true,
-		"rutaImagen": "assets/art16/pmp/2023-10.jpg"
+		"rutaImagen": "2023-10.jpg"
 	},
 	{
 		"title": "Impuestos",
 		"path": "art16/impuestos",
 		"isLastLevel": true,
-		"rutaImagen": "assets/art16/impuestos/impuestos.jpg"
+		"rutaImagen": "impuestos.jpg"
 	}
 ]

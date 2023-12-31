@@ -3,65 +3,65 @@
 		"title": "Palacio Riquelme",
 		"path": "edificiosSingulares/palacioRiquelme",
 		"isLastLevel": true,
-		"rutaImagen": "assets/edificiosSingulares/palacioRiquelme/palacioRiquelme.jpg"
+		"rutaImagen": "palacioRiquelme.jpg"
 	},
 	{
 		"title": "Antiguo asilo San Jose",
 		"path": "edificiosSingulares/asiloSanJose",
 		"isLastLevel": true,
-		"rutaImagen": "assets/edificiosSingulares/asiloSanJose/asiloSanJose.jpg"
+		"rutaImagen": "asiloSanJose.jpg"
 	},
 	{
 		"title": "Antigua comisaria Policia Nacional",
 		"path": "edificiosSingulares/antiguaComisariaPoliciaNacional",
 		"isLastLevel": true,
-		"rutaImagen": "assets/edificiosSingulares/antiguaComisariaPoliciaNacional/antiguaComisariaPoliciaNacional.jpg"
+		"rutaImagen": "antiguaComisariaPoliciaNacional.jpg"
 	},
 	{
 		"title": "Antigua jefatura Policia Local",
 		"path": "edificiosSingulares/antiguaJefaturaPoliciaLocal",
-		"rutaImagen": "assets/edificiosSingulares/antiguaJefaturaPoliciaLocal/antiguaJefaturaPoliciaLocal.jpg"
+		"rutaImagen": "antiguaJefaturaPoliciaLocal.jpg"
 	},
 	{
 		"title": "Bodegas Croft",
 		"path": "edificiosSingulares/croft",
 		"isLastLevel": true,
-		"rutaImagen": "assets/edificiosSingulares/croft/croft.jpg"
+		"rutaImagen": "croft.jpg"
 	},
 	{
 		"title": "Callejón de los Bolos",
 		"path": "edificiosSingulares/callejonBolos",
 		"isLastLevel": true,
-		"rutaImagen": "assets/edificiosSingulares/callejonBolos/callejonBolos.jpg"
+		"rutaImagen": "callejonBolos.jpg"
 	},
 	{
 		"title": "Palacio VillaPanés",
 		"path": "edificiosSingulares/palacioVillapanes",
 		"isLastLevel": true,
-		"rutaImagen": "assets/edificiosSingulares/palacioVillapanes/palacioVillapanes.jpg"
+		"rutaImagen": "palacioVillapanes.jpg"
 	},
 	{
 		"title": "Claustros de Santo Domingo",
 		"path": "edificiosSingulares/claustrosSantoDomingo",
 		"isLastLevel": true,
-		"rutaImagen": "assets/edificiosSingulares/claustrosSantoDomingo/claustrosSantoDomingo.jpg"
+		"rutaImagen": "claustrosSantoDomingo.jpg"
 	},
 	{
 		"title": "Mercado de abastos",
 		"path": "edificiosSingulares/mercadoAbastos",
 		"isLastLevel": true,
-		"rutaImagen": "assets/edificiosSingulares/mercadoAbastos/mercadoAbastos.jpg"
+		"rutaImagen": "mercadoAbastos.jpg"
 	},
 	{
 		"title": "Cartuja",
 		"path": "edificiosSingulares/cartuja",
 		"isLastLevel": true,
-		"rutaImagen": "assets/edificiosSingulares/cartuja/cartuja.jpg"
+		"rutaImagen": "cartuja.jpg"
 	},
 	{
 		"title": "El Gallo Azul",
 		"path": "edificiosSingulares/galloAzul",
 		"isLastLevel": true,
-		"rutaImagen": "assets/edificiosSingulares/galloAzul/galloAzul.jpg"
+		"rutaImagen": "galloAzul.jpg"
 	}
 ]
