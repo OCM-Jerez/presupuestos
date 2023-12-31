@@ -16,6 +16,7 @@
     "github.copilot-chat",
     "eamodio.gitlens",
     "pkief.material-icon-theme",
-    "stalyo.select-quotes"
+    "stalyo.select-quotes",
+    "janisdd.vscode-edit-csv"
   ]
 }
