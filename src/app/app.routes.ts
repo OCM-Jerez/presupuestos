@@ -37,6 +37,10 @@ export default [
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
+		path: 'art10/infoInstitucional/comisiones/especiales/:comision',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
 		path: 'art10/infoInstitucional/elas/:ela',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
