@@ -208,7 +208,7 @@ export default class LevelLastComponent implements OnInit {
 			}
 
 			this._option = param;
-			console.log('this._option', this._option);
+			// console.log('this._option', this._option);
 		}
 
 		this.title = this.titleMap[this._option] || 'FALTA AÑADIR Title';

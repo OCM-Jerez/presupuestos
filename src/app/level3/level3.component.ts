@@ -78,7 +78,7 @@ export default class Level3Component implements OnInit {
 	}
 
 	ngOnInitOLD(): void {
-		console.log('Level3 ', this.path, this.title);
+		// console.log('Level3 ', this.path, this.title);
 		// console.log(`../../assets/menuOptions/level3/${this.path}.json`);
 		import(`../../assets/menuOptions/level3/${this.path}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => this.createCardMenu(item));

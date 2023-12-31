@@ -31,10 +31,10 @@ export default class NoticiasComponent implements OnInit {
 				const paramName = dynamicSegment.substring(1);
 				this._param = paramMap.get(paramName);
 			} else {
-				console.log('No hay parámetros dinámicos en la ruta');
+				// console.log('No hay parámetros dinámicos en la ruta');
 			}
 		} else {
-			console.log('Configuración de ruta no disponible');
+			// console.log('Configuración de ruta no disponible');
 		}
 	}
 

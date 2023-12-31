@@ -49,7 +49,6 @@ export default class Level2Component implements OnInit {
 		const URL = item.isLastLevel
 			? item.path
 			: `level3/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
-		console.log('createCardMenu', item, URL);
 
 		return {
 			...item,
