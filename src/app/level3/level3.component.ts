@@ -77,16 +77,6 @@ export default class Level3Component implements OnInit {
 		});
 	}
 
-	ngOnInitOLD(): void {
-		// console.log('Level3 ', this.path, this.title);
-		// console.log(`../../assets/menuOptions/level3/${this.path}.json`);
-		import(`../../assets/menuOptions/level3/${this.path}.json`).then((data) => {
-			this.menuOptions = data.default.map((item: IMenuItem) => this.createCardMenu(item));
-			// this.fetchData(this.path);
-			this.fetchDataFromSupabase(this.path);
-		});
-	}
-
 	async fetchDataFromSupabase(param: string) {
 		try {
 			this.news = await this._supabaseService.fetchDataByTagOrder('news', param, false);
@@ -141,8 +131,6 @@ export default class Level3Component implements OnInit {
 	}
 
 	createCardMenu(item: IMenuItem) {
-		// console.log('createCardMenu', item);
-
 		return {
 			...item,
 			funcion: () => this._router.navigateByUrl(`${item.path}`)

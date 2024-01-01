@@ -38,18 +38,10 @@ export default class Level1Component implements OnInit {
 		});
 	}
 
-	ngOnInitOLD(): void {
-		// console.log('Level1 ', this.path, this.title);
-		import(`../../assets/menuOptions/level1/${this.path}.json`).then((data) => {
-			this.menuOptions = data.default.map((item: IMenuItemHome) => this.createCardMenu(item));
-		});
-	}
-
 	createCardMenu(item: IMenuItemHome) {
 		const URL = item.isLastLevel
 			? item.path
 			: `level2/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)} )}`;
-
 		return {
 			...item,
 			funcion: () => this._router.navigateByUrl(URL)
