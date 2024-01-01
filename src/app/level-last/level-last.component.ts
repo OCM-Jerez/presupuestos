@@ -10,6 +10,8 @@ import EstadoLicitacionComponent from '@commons/components/level/estado-licitaci
 import NoticiasComponent from '@commons/components/level/noticias/noticias.component';
 import SeguimientoSubvencionComponent from '@commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
 
+import { environment } from '@environments/environment';
+
 import { forkJoin, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -224,7 +226,8 @@ export default class LevelLastComponent implements OnInit {
 			case 'licitaciones/':
 				// console.log('staticPath', staticPath);
 				this.isLicitacion = true;
-				this.imgURL = `/assets/${staticPath}/${this._option}/${this._option}.jpg`;
+				this.imgURL = environment.pathImgSupabase + this._option + '.jpg';
+				// this.imgURL = `/assets/${staticPath}/${this._option}/${this._option}.jpg`;
 				break;
 			case 'edificioSingular/':
 				this.isEdificioSingular = true;

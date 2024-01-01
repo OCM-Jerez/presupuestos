@@ -3,6 +3,8 @@ import { NgFor } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+import { environment } from '@environments/environment';
+
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 @Component({
@@ -87,7 +89,8 @@ export default class LicitacionesComponent {
 	createCard(titulo: string, route: string) {
 		return {
 			titulo,
-			rutaImagen: `assets/licitaciones/${route}/${route}.jpg`,
+			rutaImagen: environment.pathImgSupabase + route + '.jpg',
+			// rutaImagen: `assets/licitaciones/${route}/${route}.jpg`,
 			funcion: () => this._router.navigateByUrl(`/licitaciones/${route}`),
 			highlighted: false
 		};
