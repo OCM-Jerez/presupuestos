@@ -25,7 +25,8 @@ export default class LicitacionesComponent {
 	OCM = [
 		{
 			titulo: 'APP OCM',
-			rutaImagen: 'assets/licitaciones/appConOCM.jpg',
+			// rutaImagen: 'assets/licitaciones/appConOCM.jpg',
+			rutaImagen: environment.pathImgSupabase + 'appConOCM.jpg',
 			funcion: () => window.open('https://con.ocmjerez.org/', '_blank')
 		}
 	];
