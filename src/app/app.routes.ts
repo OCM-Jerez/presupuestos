@@ -258,7 +258,15 @@ export default [
 	},
 	{
 		path: 'addNew/:param',
-		loadComponent: () => import('./news/news-form/news-form.component')
+		loadComponent: () => import('./addNewRecodsToSupabase/news-form/news-form.component')
+	},
+	{
+		path: 'addCom/:param',
+		loadComponent: () => import('./addNewRecodsToSupabase/coms-form/coms-form.component')
+	},
+	{
+		path: 'addDoc/:param',
+		loadComponent: () => import('./addNewRecodsToSupabase/docs-form/docs-form.component')
 	},
 
 	// ============================================================================================================================================

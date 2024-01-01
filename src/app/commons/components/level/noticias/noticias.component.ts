@@ -42,4 +42,14 @@ export default class NoticiasComponent implements OnInit {
 		// console.log('news', this.news);
 		this._router.navigateByUrl(`/addNew/${this._param}`);
 	}
+
+	addCom(): void {
+		// console.log('news', this.news);
+		this._router.navigateByUrl(`/addCom/${this._param}`);
+	}
+
+	addDoc(): void {
+		// console.log('news', this.news);
+		this._router.navigateByUrl(`/addDoc/${this._param}`);
+	}
 }

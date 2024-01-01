@@ -5,13 +5,13 @@ import { ActivatedRoute } from '@angular/router';
 import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
 
 @Component({
-	selector: 'app-news-form',
+	selector: 'app-coms-form',
 	standalone: true,
 	imports: [CommonModule, FormsModule, ReactiveFormsModule],
-	templateUrl: './news-form.component.html',
-	styleUrls: ['./news-form.component.scss']
+	templateUrl: './coms-form.component.html',
+	styleUrls: ['./coms-form.component.scss']
 })
-export default class NewsFormComponent implements OnInit {
+export default class ComsFormComponent implements OnInit {
 	userForm: any;
 
 	constructor(private formBuilder: FormBuilder) {}
@@ -22,16 +22,13 @@ export default class NewsFormComponent implements OnInit {
 	ngOnInit(): void {
 		const { paramMap } = this._route.snapshot;
 		this.tag = paramMap['params'].param;
-		// console.log('paramMap', paramMap);
 
 		console.log('param', this.tag);
 
 		this.userForm = this.formBuilder.group({
 			date: ['', Validators.required],
-			media: ['', Validators.required],
-			title: ['', Validators.required],
-			url_new: ['', Validators.required]
-			// gender: ['', Validators.required]
+			sender: ['', Validators.required],
+			text: ['', Validators.required]
 		});
 	}
 
@@ -47,19 +44,11 @@ export default class NewsFormComponent implements OnInit {
 			console.log('Form data with param:', formData);
 
 			try {
-				const insertedData = await this._supabaseService.insertRow('news', formData);
+				const insertedData = await this._supabaseService.insertRow('comments', formData);
 				console.log('Datos insertados:', insertedData);
 			} catch (error) {
 				console.error('Error al insertar datos:', error);
 			}
 		}
-	}
-
-	addImg(event): void {
-		const file = event.target.files[0];
-
-		// console.log(file);
-		this._supabaseService.uploadFile(file);
-		// this._supabaseService.uploadFileFromJSON();
 	}
 }
