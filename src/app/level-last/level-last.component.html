@@ -36,6 +36,7 @@
 	<app-data-general *ngIf="isLicitacion" [data]="data" />
 	<app-seguimiento-subvencion *ngIf="isSubvencion" [stepsSubvencion]="stepsSubvencion" />
 	<app-documentos *ngIf="hasDocs" [docs]="docs" />
-	<app-noticias *ngIf="hasNews" [news]="news" />
+	<!-- <app-noticias *ngIf="hasNews" [news]="news" /> -->
+	<app-noticias [news]="news" />
 	<app-comentarios *ngIf="hasComs" [coms]="coms" />
 </main>

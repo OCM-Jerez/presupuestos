@@ -21,6 +21,8 @@ export default class NewsFormComponent implements OnInit {
 
 	ngOnInit(): void {
 		const { paramMap } = this._route.snapshot;
+		console.log('this._route.snapshot', this._route.snapshot);
+
 		this.tag = paramMap['params'].param;
 		// console.log('paramMap', paramMap);
 

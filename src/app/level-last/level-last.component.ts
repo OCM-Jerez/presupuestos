@@ -180,7 +180,9 @@ export default class LevelLastComponent implements OnInit {
 		distritoSur: 'Distrito Sur',
 		distritoEste: 'Distrito Este',
 		distritoNoreste: 'Distrito Noroeste',
-		distritoRural: 'Distrito Rural'
+		distritoRural: 'Distrito Rural',
+		centroSanJose: 'FUNDACION CENTRO DE ACOGIDA SAN JOSÉ',
+		empleadosNews: 'empleadosNews'
 	};
 
 	ngOnInit() {

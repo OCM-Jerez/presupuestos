@@ -145,6 +145,12 @@
 		],
 		"news": [
 			{
+				"date": "3 enero 2024",
+				"medio": "Diario de Jerez",
+				"title": "La Policía Local de Jerez contará con dos nuevos coches y una furgoneta para atestados",
+				"URL": "https://www.diariodejerez.es/jerez/Policia-Local-Jerez-nuevos-coches-furgoneta_0_1863114094.html"
+			},
+			{
 				"date": "12 diciembre 2023",
 				"medio": "Diario de Jerez",
 				"title": "Jerez acapara el 40% de las denuncias que se presentan en la provincia de Cádiz",

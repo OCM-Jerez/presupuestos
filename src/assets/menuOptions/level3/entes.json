@@ -18,5 +18,10 @@
 		"title": "EMUVIJESA. Empresa municipal de vivienda S.A.",
 		"path": "art10/infoInstitucional/entes/emuvijesa",
 		"rutaImagen": "emuvijesa.jpg"
+	},
+	{
+		"title": "FUNDACION CENTRO DE ACOGIDA SAN JOSÉ",
+		"path": "art10/infoInstitucional/entes/centroSanJose",
+		"rutaImagen": "centroSanJose.jpg"
 	}
 ]
