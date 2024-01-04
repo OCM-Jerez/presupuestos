@@ -74,7 +74,7 @@ export default class LicitacionesComponent {
 
 	licitacionesAyto = [
 		this.createCard('Las Calandrias', 'lasCalandrias2023'),
-		this.createCard('Mantenimiento señalización', 'manSeñal2020'),
+		this.createCard('Mantenimiento señalización', 'manSenal2020'),
 		this.createCard('Parque La Canaleja', 'laCanaleja2023'),
 		this.createCard('Ordenación de equipamiento público en Villas del Este', 'villasDelEste2023'),
 		this.createCard('Plaza Venus', 'plazaVenus2023'),
@@ -82,7 +82,9 @@ export default class LicitacionesComponent {
 		this.createCard('Reforma cubiertas Palacio Villapanés', 'palacioVillapanes2023'),
 		this.createCard('Recogida animales perdidos', 'animalesPerdidos2023'),
 		this.createCard('Suministro de equipos de protección individual (EPIS)', 'epis2023'),
-		this.createCard('Montaje palcos Semana Santa', 'palcos2023')
+		this.createCard('Montaje palcos Semana Santa', 'palcos2023'),
+		this.createCard('Renting vehiculos policía local', 'vehiculosPolicia2024'),
+		this.createCard('Renovación de Licencias Cytomic ciberseguridad', 'licenciasCytomic2024')
 	];
 
 	licitacionesSolares = [this.createCard('Calle Morla 1', 'subastaInmuebleMorla1')];
