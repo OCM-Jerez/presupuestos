@@ -268,6 +268,10 @@ export default [
 		path: 'addDoc/:param',
 		loadComponent: () => import('./addNewRecodsToSupabase/docs-form/docs-form.component')
 	},
+	{
+		path: 'addNewLicitacion',
+		loadComponent: () => import('./addNewRecodsToSupabase/licitacion-form/licitacion-form.component')
+	},
 
 	// ============================================================================================================================================
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }

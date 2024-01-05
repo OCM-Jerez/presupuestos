@@ -20,6 +20,7 @@
 			</svg>
 			<input type="text" [(ngModel)]="searchText" (input)="filterData()" placeholder="Buscar licitaciones..." />
 		</div>
+		<button *ngIf="canAddRowSupabase" class="OCM-button" (click)="addNew()">Añadir licitación</button>
 	</section>
 
 	<section class="reveal-animation">

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -10,13 +10,15 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 @Component({
 	selector: 'app-licitaciones',
 	standalone: true,
-	imports: [NgFor, FormsModule, CardMenuComponent],
+	imports: [NgFor, NgIf, FormsModule, CardMenuComponent],
 	templateUrl: './licitaciones.component.html',
 	styleUrls: ['./licitaciones.component.scss']
 })
 export default class LicitacionesComponent {
 	private _router = inject(Router);
 	public searchText: string;
+
+	public canAddRowSupabase = environment.canAddRowSupabase;
 
 	private getAllLicitaciones() {
 		return [...this.licitacionesCEE, ...this.licitacionesESP, ...this.licitacionesDiputacion, ...this.licitacionesAyto];
@@ -119,5 +121,10 @@ export default class LicitacionesComponent {
 		this.getAllLicitaciones().forEach((licitacion) => {
 			licitacion.highlighted = licitacion.titulo.toLowerCase().includes(filterValue);
 		});
+	}
+
+	addNew(): void {
+		// console.log('news', this.news);
+		this._router.navigateByUrl('/addNewLicitacion');
 	}
 }

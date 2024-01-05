@@ -1,0 +1,27 @@
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.column {
+	flex: 1; /* Las columnas crecen igualmente para ocupar el espacio */
+	background-color: #cbd89b; /* Solo para visualización, se puede cambiar */
+	padding: 10px; /* Espaciado dentro de cada columna */
+	margin: 0 5px; /* Margen entre columnas */
+	border: 1px solid #ccc; /* Borde para visualización, se puede cambiar */
+}
+
+.first-column {
+	flex: 0 0 600px; /* Esto desactiva la capacidad de crecer o encogerse y fija el ancho en 600px */
+}
+
+.form-control {
+	margin: 0 0 20px 0;
+	max-width: 300px;
+}
+
+.form-media {
+	margin: 0 0 20px 0;
+	max-width: 700px;
+}
