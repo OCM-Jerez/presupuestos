@@ -272,6 +272,10 @@ export default [
 		path: 'addNewLicitacion',
 		loadComponent: () => import('./addNewRecodsToSupabase/licitacion-form/licitacion-form.component')
 	},
+	{
+		path: 'addStep/:param',
+		loadComponent: () => import('./addNewRecodsToSupabase/step-form/step-form.component')
+	},
 
 	// ============================================================================================================================================
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }

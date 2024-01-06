@@ -25,4 +25,7 @@
 		<img src="{{ gauge }}" alt="" />
 	</div>
 </section>
+
+<button *ngIf="canAddRowSupabase" class="OCM-button" (click)="addStep()">Añadir step</button>
+<button *ngIf="canAddRowSupabase" class="OCM-button" (click)="editLicitacion()">Editar licitación</button>
 <!-- </ng-container> -->
