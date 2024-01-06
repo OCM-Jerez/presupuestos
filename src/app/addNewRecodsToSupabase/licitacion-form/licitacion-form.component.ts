@@ -4,8 +4,6 @@ import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angu
 import { ActivatedRoute } from '@angular/router';
 import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
 
-import { environment } from '@environments/environment';
-
 @Component({
 	selector: 'app-licitacion-form',
 	standalone: true,
