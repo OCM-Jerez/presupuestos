@@ -22,20 +22,34 @@ export default class LicitacionFormComponent implements OnInit {
 	public tag: string;
 
 	ngOnInit(): void {
-		const { paramMap } = this._route.snapshot;
-		console.log('this._route.snapshot', this._route.snapshot);
-
-		this.tag = paramMap['params'].param;
-		// console.log('paramMap', paramMap);
-
-		console.log('param', this.tag);
-
 		this.userForm = this.formBuilder.group({
 			tag: ['', Validators.required],
 			expediente: ['', Validators.required],
 			descripcion: ['', Validators.required],
-			codigo_cpv: ['', Validators.required],
-			url_plataforma: ['', Validators.required]
+			codigo_cpv: [''],
+			url_plataforma: [''],
+			tipo_financiacion: [''],
+			tipo_contrato: [''],
+			procedimiento_contratacion: [''],
+			tipo_tramitación: [''],
+			presupuesto_base_sin_impuestos: [''],
+			valor_estimado_contrato: [null],
+			presupuesto_base_licitación_con_impuestos: [null],
+			plazo_ejecución: [''],
+			licitadores_presentados: [null],
+			adjudicatario: [''],
+			cif_adjudicatario: [''],
+			url_adjudicatario: [''],
+			importe_adjudicación_sin_impuestos: [null],
+			importe_adjudicación_con_impuestos: [null],
+			credito_ampara: [''],
+			organico: [''],
+			programa: [''],
+			economico: [''],
+			distrito: [''],
+			url_geolocalización: [''],
+			duración_contrato: [''],
+			canon_concesional: [null]
 		});
 	}
 
@@ -43,16 +57,9 @@ export default class LicitacionFormComponent implements OnInit {
 		console.log('submitForm');
 
 		if (this.userForm?.valid) {
-			const formData = {
-				...this.userForm.value,
-				tag: this.tag
-			};
-
-			console.log('Form data with param:', formData);
-
 			try {
-				const insertedData = await this._supabaseService.insertRow('licitaciones', formData);
-				console.log('Datos insertados:', insertedData);
+				await this._supabaseService.insertRow('licitaciones', this.userForm.value);
+				console.log('Datos insertados:', this.userForm.value);
 			} catch (error) {
 				console.error('Error al insertar datos:', error);
 			}
