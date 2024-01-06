@@ -49,8 +49,7 @@ export default class EstadoLicitacionComponent implements OnInit {
 		this._router.navigateByUrl(`/addStep/${this._param}`);
 	}
 
-	editLicitacion(): void {
-		// console.log('news', this.news);
-		// this._router.navigateByUrl(`/addCom/${this._param}`);
+	updateLicitacion(): void {
+		this._router.navigateByUrl(`/updateLicitacion/${this._param}`);
 	}
 }

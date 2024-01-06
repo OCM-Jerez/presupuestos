@@ -34,6 +34,7 @@ export default class LicitacionesComponent {
 	];
 
 	licitacionesCEE = [
+		this.createCard('Borrar', 'borrar'),
 		this.createCard('Reordenación Puerta Sevilla-Puerta Santiago 1ª fase', 'puertaSevilla2023'),
 		this.createCard('Contenedores orgánica', 'contenedoresOrganica2023'),
 		this.createCard('Rehabilitacion CEIP Nebrija', 'rehabilitacionCEIPNebrija2023'),

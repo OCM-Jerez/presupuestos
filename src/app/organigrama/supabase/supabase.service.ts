@@ -62,6 +62,15 @@ export class SupabaseService {
 		return insertedData;
 	}
 
+	async updateRow(tableName: string, newValues, tag: string) {
+		console.log(newValues);
+
+		const { data, error } = await this._supabase.from(tableName).update(newValues).eq('tag', tag).select();
+
+		if (error) throw error;
+		return data;
+	}
+
 	// uploadFile = async (bucketName, filePath, fileData?, options?) => {
 	// 	console.log('uploadFile');
 
