@@ -28,5 +28,10 @@
 		"title": "Mesa Local de la Juventud",
 		"path": "art10/infoInstitucional/mesas/mesaLocalJuventud",
 		"rutaImagen": "mesaCaballo.jpg"
+	},
+	{
+		"title": "Mesa Centro Histórico",
+		"path": "art10/infoInstitucional/mesas/mesaCentroHistorico",
+		"rutaImagen": "mesaCentroHistorico.jpg"
 	}
 ]

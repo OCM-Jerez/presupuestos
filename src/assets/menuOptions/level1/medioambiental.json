@@ -18,6 +18,12 @@
 		"rutaImagen": "proyectosViviendas.jpg"
 	},
 	{
+		"title": "Poligonos industriales",
+		"path": "medioambiental/poligonosIndustriales",
+		"isLastLevel": true,
+		"rutaImagen": "poligonosIndustriales.jpg"
+	},
+	{
 		"title": "Registro solares y edificaciones ruinosas",
 		"path": "medioambiental/registroSolares",
 		"isLastLevel": true,

@@ -77,6 +77,10 @@ export default [
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
+		path: 'medioambiental/poligonosIndustriales',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
 		path: 'medioambiental/registroSolares',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
