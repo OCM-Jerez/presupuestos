@@ -41,6 +41,7 @@ FROM
     LEFT JOIN records r ON r.id = s.id
 
 
+
 CREATE OR REPLACE VIEW licitacion_news AS
 SELECT
   l.*,
@@ -55,3 +56,12 @@ FROM
   LEFT JOIN news n ON n.licitacion_id = l.id
 WHERE
  l.id = '6482b989-9afa-4551-85b4-52f157d8624d';
+
+
+
+ insert into "depende-eo" values 
+(2, 1);
+
+
+
+SELECT * FROM entidades_organizativas WHERE nombre LIKE '%atención %';
