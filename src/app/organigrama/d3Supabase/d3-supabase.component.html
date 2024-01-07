@@ -1,0 +1,22 @@
+<div style="width: 100%; height: 800px">
+	<nav class="navbar">
+		<div class="navbar--1row">
+			<input
+				type="search"
+				id="searchName"
+				placeholder="SUPABASE Introduce nombre a buscar"
+				(input)="searchNode($event, 'name')"
+			/>
+			<input type="search" placeholder="Introduce puesto a buscar" (input)="searchNode($event, 'position')" />
+
+			<button (click)="expandDelegaciones()">Delegaciones +</button>
+			<button (click)="collapseDelegaciones()">Delegaciones -</button>
+			<button (click)="zoomIn()">+</button>
+			<button (click)="zoomOut()">-</button>
+			<!-- <button (click)="showConnections()">Connections +</button>
+		<button (click)="hideConnections()">Connections -</button> -->
+		</div>
+	</nav>
+
+	<div #chartContainer style="width: 2200px; max-height: 800px"></div>
+</div>

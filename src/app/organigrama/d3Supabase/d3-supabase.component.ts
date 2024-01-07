@@ -1,11 +1,9 @@
-// Basado en https://stackblitz.com/edit/js-pr15gr?file=index.html
-
 import { Component, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import * as d3 from 'd3';
 import { OrgChart } from 'd3-org-chart';
-import { SupabaseService } from '../supabase/supabase.service';
+import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
 
 interface INodeInfo {
 	id: number;
@@ -18,13 +16,13 @@ interface INodeInfo {
 }
 
 @Component({
-	selector: 'app-d3',
+	selector: 'app-d3-supabase',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './d3.component.html',
-	styleUrls: ['./d3.component.scss']
+	templateUrl: './d3-supabase.component.html',
+	styleUrls: ['./d3-supabase.component.scss']
 })
-export default class D3Component implements AfterViewInit {
+export default class D3SupabaseComponent implements AfterViewInit {
 	@ViewChild('chartContainer') private chartContainer: ElementRef;
 	private _supabaseService = inject(SupabaseService);
 	public positionData: any[] = null;
@@ -48,9 +46,8 @@ export default class D3Component implements AfterViewInit {
 
 	async fetchData() {
 		try {
-			this.data = await this._supabaseService.fetchData('organigrama');
+			this.data = await this._supabaseService.fetchData('depende-eo_duplicate');
 			console.log('this.data', this.data);
-
 			this.initChart();
 		} catch (error) {
 			console.error('Error fetching data:', error);
@@ -58,6 +55,8 @@ export default class D3Component implements AfterViewInit {
 	}
 
 	private initChart() {
+		console.log('this.initChart');
+
 		this.chart = new OrgChart()
 			.childrenMargin(() => 50)
 			.compact(false)
@@ -65,7 +64,7 @@ export default class D3Component implements AfterViewInit {
 			.compactMarginPair(() => 30)
 			.container(this.chartContainer.nativeElement)
 			.data(this.data)
-			.initialExpandLevel(1)
+			.initialExpandLevel(2)
 			.initialZoom(0.7)
 			.neighbourMargin((a, b) => 100)
 			.nodeHeight(() => 160 + 25)
@@ -77,7 +76,7 @@ export default class D3Component implements AfterViewInit {
 			// .node.x(() => 20)
 			.svgHeight(950)
 			.svgWidth(600)
-			// d es la data del node selelect
+			// d es la data del node selected
 			.onNodeClick((d) => {
 				// console.log(d);
 				// window.location.href = `/#/employeeRecod/${d.data.id}`;
@@ -85,57 +84,58 @@ export default class D3Component implements AfterViewInit {
 			})
 			// .nodeContent((d, i, arr, state) => {  No se para que sirven el resto de params
 			.nodeContent((d) => {
-				if (d.data.id === 0) {
-					d.x = -150; // Mueve el node
+				// if (d.data.id === 0) {
+				// 	d.x = -150; // Mueve el node
 
-					// this.chart.nodeButtonX((d) => {
-					// 	return 55;
-					// });
+				// 	// this.chart.nodeButtonX((d) => {
+				// 	// 	return 55;
+				// 	// });
 
-					return this.createNodeHtmlAyto(d);
-				}
-				if (d.data.id === 1) {
-					d.x = -350; // Mueve el node
-					// d.nodeButtonx = -260; // NO FUNCIONA
-					// this.chart.nodeButtonX((d) => -60);
+				// 	return this.createNodeHtmlAyto(d);
+				// }
+				// if (d.data.id === 1) {
+				// 	d.x = -350; // Mueve el node
+				// 	// d.nodeButtonx = -260; // NO FUNCIONA
+				// 	// this.chart.nodeButtonX((d) => -60);
 
-					return this.createNodeHtmlAlcalde(d);
-				}
+				// 	return this.createNodeHtmlAlcalde(d);
+				// }
 
-				if (d.data.id === 101) {
-					// d.x = -1400; // Mueve el node
-					return this.createNodeHtmlPrimerTeniente(d);
-				}
+				// if (d.data.id === 101) {
+				// 	// d.x = -1400; // Mueve el node
+				// 	return this.createNodeHtmlPrimerTeniente(d);
+				// }
 
-				if (d.data.id > 101 && d.data.id < 200) {
-					return this.createNodeHtmlTeniente(d);
-				}
+				// if (d.data.id > 101 && d.data.id < 200) {
+				// 	return this.createNodeHtmlTeniente(d);
+				// }
+				console.log('d', d);
 
 				return this.createNodeHtml(d);
 			})
 
 			.render();
 
-		this.chart.nodeButtonX((d) => {
-			// console.log('d.data.id', d.data.id);
+		// this.chart.nodeButtonX((d) => {
+		// 	// console.log('d.data.id', d.data.id);
 
-			// FIXME: No detecta el paso por el node 0
-			if (d.data.id === 0) {
-				// console.log('d.data.id', d.data.id);
-				return 5;
-			}
-			if (d.data.id === 1) {
-				// console.log('d.data.id', d.data.id);
-				return 55;
-			}
-			// if (d.data.id === 1) return 55;
-			// if (d.data.id === 101) return 30;
-			return -20;
-		});
+		// 	// FIXME: No detecta el paso por el node 0
+		// 	if (d.data.id === 0) {
+		// 		// console.log('d.data.id', d.data.id);
+		// 		return 5;
+		// 	}
+		// 	if (d.data.id === 1) {
+		// 		// console.log('d.data.id', d.data.id);
+		// 		return 55;
+		// 	}
+		// 	// if (d.data.id === 1) return 55;
+		// 	// if (d.data.id === 101) return 30;
+		// 	return -20;
+		// });
 
-		setTimeout(() => {
-			this.expandDelegaciones();
-		}, 1000);
+		// setTimeout(() => {
+		// 	this.expandDelegaciones();
+		// }, 1000);
 	}
 
 	// TODO: Refactorizar
@@ -291,6 +291,8 @@ export default class D3Component implements AfterViewInit {
 
 	// TODO: Refactorizar
 	createNodeHtml(d) {
+		console.log('d', d);
+
 		// Pre-cálculo de valores
 		const paddingSize = 25 + 2;
 		const nodeWidth = d.width - 2;
@@ -317,11 +319,11 @@ export default class D3Component implements AfterViewInit {
 		<div style="${nodeContainerStyle}">
 		  <div style="${nodeStyle}">
 			<div style="${dotStyle}">.</div>
-			<div style="${salaryStyle}">${this.formatter.format(d.data.salary)} €</div>
+			<div style="${salaryStyle}">${this.formatter.format(d.data.id)} €</div>
 			<div style="${coloredCircleStyle}"></div>
-			<div style="${imageContainerStyle}"><img src="${d.data.image}" style="${imageStyle}" /></div>
-			<div style="${nameStyle}">${d.data.name}</div>
-			<div style="${positionStyle}">${d.data.position}</div>
+			<div style="${imageContainerStyle}"><img src="${d.data.id}" style="${imageStyle}" /></div>
+			<div style="${nameStyle}">${d.data.id}</div>
+			<div style="${positionStyle}">${d.data.id}</div>
 			<div style="${positionStyle}">${d.data.id}</div>
 			</div>
 		</div>

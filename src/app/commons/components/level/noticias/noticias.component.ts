@@ -20,7 +20,6 @@ export default class NoticiasComponent implements OnInit {
 	ngOnInit(): void {
 		const routeConfig = this._route.snapshot.routeConfig;
 		const paramMap = this._route.snapshot.paramMap;
-		console.log('this._route.snapshot', this._route.snapshot);
 
 		if (routeConfig && routeConfig.path) {
 			const pathSegments = routeConfig.path.split('/');

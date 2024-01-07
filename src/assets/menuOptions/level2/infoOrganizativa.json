@@ -16,5 +16,11 @@
 		"path": "organigramaD3",
 		"isLastLevel": true,
 		"rutaImagen": "organigrama.jpg"
+	},
+	{
+		"title": "Organigrama + Supabase",
+		"path": "organigramaD3Supabase",
+		"isLastLevel": true,
+		"rutaImagen": "organigrama.jpg"
 	}
 ]

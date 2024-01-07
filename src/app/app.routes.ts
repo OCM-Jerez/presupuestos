@@ -242,6 +242,11 @@ export default [
 		path: 'organigramaD3',
 		loadComponent: () => import('./organigrama/d3/d3.component')
 	},
+
+	{
+		path: 'organigramaD3Supabase',
+		loadComponent: () => import('./organigrama/d3Supabase/d3-supabase.component')
+	},
 	{
 		path: 'supabase/:id',
 		loadComponent: () => import('./organigrama/supabase/supabase.component')
