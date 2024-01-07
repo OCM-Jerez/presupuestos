@@ -110,11 +110,11 @@ export default [
 		loadComponent: () =>
 			import('./art10/components/info-organizativa/components/empleados/components/rpt/rpt.component')
 	},
-	{
-		path: 'empleadosNews',
-		loadComponent: () =>
-			import('./art10/components/info-organizativa/components/empleados/components/noticias/noticias.component')
-	},
+	// {
+	// 	path: 'empleadosNews',
+	// 	loadComponent: () =>
+	// 		import('./art10/components/info-organizativa/components/empleados/components/noticias/noticias.component')
+	// },
 
 	// Art 15 ============================================================================================================================================
 	{
