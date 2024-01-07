@@ -3,8 +3,6 @@ import { Component, Input, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '@environments/environment';
 
-// import { INew } from '@interfaces/new.interface';
-
 @Component({
 	selector: 'app-noticias',
 	standalone: true,
@@ -31,11 +29,9 @@ export default class NoticiasComponent implements OnInit {
 				// Extraer el nombre del parámetro dinámico (sin los dos puntos ':')
 				const paramName = dynamicSegment.substring(1);
 				this._param = paramMap.get(paramName);
-				console.log('param', this._param);
 			} else {
 				this._param = routeConfig.path.includes('/') ? routeConfig.path.split('/')[1] : routeConfig.path;
 				console.log(this._param);
-				// console.log('No hay parámetros dinámicos en la ruta');
 			}
 		} else {
 			console.log('Configuración de ruta no disponible');
@@ -43,17 +39,14 @@ export default class NoticiasComponent implements OnInit {
 	}
 
 	addNew(): void {
-		// console.log('news', this.news);
 		this._router.navigateByUrl(`/addNew/${this._param}`);
 	}
 
 	addCom(): void {
-		// console.log('news', this.news);
 		this._router.navigateByUrl(`/addCom/${this._param}`);
 	}
 
 	addDoc(): void {
-		// console.log('news', this.news);
 		this._router.navigateByUrl(`/addDoc/${this._param}`);
 	}
 }
