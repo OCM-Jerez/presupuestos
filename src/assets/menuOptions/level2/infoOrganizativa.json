@@ -12,12 +12,6 @@
 		"rutaImagen": "menu2-400x250.webp"
 	},
 	{
-		"title": "Noticias",
-		"path": "empleadosNews",
-		"isLastLevel": true,
-		"rutaImagen": "empleadosNews.jpg"
-	},
-	{
 		"title": "Organigrama",
 		"path": "organigramaD3",
 		"isLastLevel": true,
