@@ -100,5 +100,11 @@
 		"path": "temas/varios",
 		"isLastLevel": true,
 		"rutaImagen": "varios.jpg"
+	},
+	{
+		"title": "Comercio",
+		"path": "temas/comercio",
+		"isLastLevel": true,
+		"rutaImagen": "comercio.jpg"
 	}
 ]

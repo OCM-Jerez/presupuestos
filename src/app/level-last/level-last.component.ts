@@ -184,7 +184,8 @@ export default class LevelLastComponent implements OnInit {
 		distritoNoreste: 'Distrito Noroeste',
 		distritoRural: 'Distrito Rural',
 		centroSanJose: 'FUNDACION CENTRO DE ACOGIDA SAN JOSÉ',
-		empleadosNews: 'empleadosNews'
+		empleadosNews: 'empleadosNews',
+		comercio: 'Comercio'
 	};
 
 	ngOnInit() {
@@ -217,7 +218,7 @@ export default class LevelLastComponent implements OnInit {
 			// console.log('this._option', this._option);
 		}
 
-		this.title = this.titleMap[this._option] || 'FALTA AÑADIR Title';
+		this.title = this.titleMap[this._option] || 'FALTA AÑADIR Title en level-last.component.ts';
 		staticPath = staticPath ? `${staticPath}/` : '';
 
 		// Logs consolidados
