@@ -12,13 +12,13 @@
 		"rutaImagen": "menu2-400x250.webp"
 	},
 	{
-		"title": "Organigrama",
+		"title": "Organigrama estructura política",
 		"path": "organigramaD3",
 		"isLastLevel": true,
 		"rutaImagen": "organigrama.jpg"
 	},
 	{
-		"title": "Organigrama + Supabase",
+		"title": "Organigrama estructura funcional. Servicios-departamentos-unidades",
 		"path": "organigramaD3Supabase",
 		"isLastLevel": true,
 		"rutaImagen": "organigrama.jpg"

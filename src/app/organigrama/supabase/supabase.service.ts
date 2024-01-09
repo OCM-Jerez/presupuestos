@@ -4,7 +4,7 @@ import { environment } from '@environments/environment';
 
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-import fileData from 'D:/create-licitacion/jpgFiles.json';
+// import fileData from 'D:/create-licitacion/jpgFiles.json';
 
 @Injectable({
 	providedIn: 'root'
