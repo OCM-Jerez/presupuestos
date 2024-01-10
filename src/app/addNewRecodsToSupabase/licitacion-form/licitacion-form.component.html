@@ -20,7 +20,7 @@
 
 			<div class="form-group">
 				<label for="media">descripcion</label>
-				<input type="text" class="form-media" id="descripcion" formControlName="descripcion" />
+				<input type="text" class="form-long" id="descripcion" formControlName="descripcion" />
 				<div *ngIf="userForm?.get('descripcion')?.invalid && userForm?.get('descripcion')?.touched" class="text-danger">
 					descripcion es requerido.
 				</div>
@@ -39,7 +39,7 @@
 
 			<div class="form-group">
 				<label for="title">tipo_financiacion</label>
-				<input type="text" class="form-control" id="tipo_financiacion" formControlName="tipo_financiacion" />
+				<input type="text" class="form-media" id="tipo_financiacion" formControlName="tipo_financiacion" />
 				<div
 					*ngIf="userForm?.get('tipo_financiacion')?.invalid && userForm?.get('tipo_financiacion')?.touched"
 					class="text-danger"
@@ -118,6 +118,17 @@
 				<input type="text" class="form-control" id="codigo_cpv" formControlName="codigo_cpv" />
 				<div *ngIf="userForm?.get('codigo_cpv')?.invalid && userForm?.get('codigo_cpv')?.touched" class="text-danger">
 					codigo_cpv es requerido.
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="title">Sistema de contratación</label>
+				<input type="text" class="form-control" id="sistema_contratacion" formControlName="sistema_contratacion" />
+				<div
+					*ngIf="userForm?.get('sistema_contratacion')?.invalid && userForm?.get('sistema_contratacion')?.touched"
+					class="text-danger"
+				>
+					procedimiento_contratacion es requerido.
 				</div>
 			</div>
 

@@ -28,6 +28,7 @@ export default class LicitacionFormComponent implements OnInit {
 			url_plataforma: [''],
 			tipo_financiacion: [''],
 			tipo_contrato: [''],
+			sistema_contratacion: [''],
 			procedimiento_contratacion: [''],
 			tipo_tramitación: [''],
 			presupuesto_base_sin_impuestos: [''],

@@ -17,12 +17,14 @@ export default class EstadoLicitacionComponent implements OnInit {
 	@Input() steps: IStep[];
 	@Input() imgURL: string;
 	@Input() gauge: string;
+
 	private _router = inject(Router);
 	private _route = inject(ActivatedRoute);
 	private _param = '';
 	public canAddRowSupabase = environment.canAddRowSupabase;
 
 	ngOnInit(): void {
+		this.gauge = environment.pathImgSupabase + 'gauge.jpg';
 		const routeConfig = this._route.snapshot.routeConfig;
 		const paramMap = this._route.snapshot.paramMap;
 		console.log('this._route.snapshot', this._route.snapshot);

@@ -34,7 +34,6 @@ export default class LicitacionesComponent {
 	];
 
 	licitacionesCEE = [
-		this.createCard('Borrar', 'borrar'),
 		this.createCard('Reordenación Puerta Sevilla-Puerta Santiago 1ª fase', 'puertaSevilla2023'),
 		this.createCard('Contenedores orgánica', 'contenedoresOrganica2023'),
 		this.createCard('Rehabilitacion CEIP Nebrija', 'rehabilitacionCEIPNebrija2023'),
@@ -87,7 +86,7 @@ export default class LicitacionesComponent {
 		this.createCard('Suministro de equipos de protección individual (EPIS)', 'epis2023'),
 		this.createCard('Montaje palcos Semana Santa', 'palcos2023'),
 		this.createCard('Renting vehiculos policía local', 'vehiculosPolicia2024'),
-		this.createCard('Renovación de Licencias Cytomic ciberseguridad', 'licenciasCytomic2024')
+		this.createCard('Servicios de vigilancia de seguridad y de auxiliares de control', 'vigilancia2024')
 	];
 
 	licitacionesSolares = [this.createCard('Calle Morla 1', 'subastaInmuebleMorla1')];
