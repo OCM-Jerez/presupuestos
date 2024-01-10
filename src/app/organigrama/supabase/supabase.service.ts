@@ -42,9 +42,15 @@ export class SupabaseService {
 	}
 
 	async fetchDataByIdString(tableName: string, id: string) {
+		console.log('id', id);
+
 		const { data, error } = await this._supabase.from(tableName).select('*').eq('id', +id);
+		if (+id === 284) {
+			console.log('data', data);
+		}
+
 		if (error) throw error;
-		return data[0].nombre;
+		return data;
 	}
 
 	async fetchDataByTag(tableName: string, tag: string): Promise<any> {

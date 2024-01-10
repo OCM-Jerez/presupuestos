@@ -15,6 +15,9 @@ interface INodeInfo {
 	image?: string;
 	expanded?: boolean;
 	puesto?: string;
+	nombrePuesto?: string;
+	situacionPuesto?: string;
+	rpt_id?: string;
 }
 
 @Component({
@@ -53,20 +56,28 @@ export default class D3SupabaseComponent implements AfterViewInit {
 			const promises = this.data.map(async (d) => {
 				try {
 					const nombre = await this._supabaseService.fetchDataByIdString('entidades_organizativas', String(d.id));
-					d.nombre = nombre;
+					d.nombre = nombre[0].nombre;
 
+					// if (d.id === 233) {
 					try {
-						if (d.id === 233) {
-							console.log(d.id);
-
-							const puesto = await this._supabaseService.fetchDataByIdPuesto('puesto-eo', String(d.id));
-							console.log('puesto', puesto);
-							d.puesto = puesto[0].id_puesto;
-						}
+						const puesto = await this._supabaseService.fetchDataByIdPuesto('puesto-eo', String(d.id));
+						d.puesto = puesto[0].id_puesto;
 					} catch (error) {
 						console.error('Error al obtener el puesto:', error);
 						d.puesto = 'Puesto no disponible'; // O manejar el error como prefieras
 					}
+
+					try {
+						const nombrePuesto = await this._supabaseService.fetchDataByIdString('puestos', String(d.puesto));
+						console.log('nombrePuesto', nombrePuesto);
+						d.rpt_id = nombrePuesto[0].rpt_id;
+						d.nombrePuesto = nombrePuesto[0].nombre;
+						d.situacionPuesto = nombrePuesto[0].situacion;
+					} catch (error) {
+						console.error('Error al obtener el puesto:', error);
+						d.puesto = 'Puesto no disponible'; // O manejar el error como prefieras
+					}
+					// }
 				} catch (error) {
 					console.error('Error al obtener el nombre:', error);
 					d.nombre = 'Nombre no disponible'; // O manejar el error como prefieras
@@ -95,8 +106,8 @@ export default class D3SupabaseComponent implements AfterViewInit {
 			.initialExpandLevel(4)
 			.initialZoom(0.7)
 			.neighbourMargin((a, b) => 100)
-			.nodeHeight(() => 260 + 25)
-			.nodeWidth(() => 160 + 2)
+			.nodeHeight(() => 300 + 25)
+			.nodeWidth(() => 260 + 2)
 			.nodeButtonWidth(() => 40) // Configure expand & collapse button width
 			.nodeButtonHeight(() => 40) // Configure expand & collapse button height
 			.nodeButtonX(() => -20) // Configure expand & collapse button x position
@@ -136,7 +147,11 @@ export default class D3SupabaseComponent implements AfterViewInit {
 		  <div style="${nodeStyle}">
 			<div style="${idStyle}">${this.formatter.format(d.data.id)}</div>
 			<div style="${nameStyle}">${d.data.nombre}</div>
-			<div style="${nameStyle}">${d.data.puesto}</div>
+			<div style="${idStyle}">${d.data.puesto}</div>
+			<div style="${nameStyle}">${d.data.rpt_id}</div>
+			<div style="${nameStyle}">${d.data.nombrePuesto}</div>
+			<div style="${nameStyle}">${d.data.situacionPuesto}</div>
+
 			</div>
 		</div>
 	  `;
