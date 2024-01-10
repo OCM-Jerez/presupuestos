@@ -14,6 +14,7 @@ interface INodeInfo {
 	salary?: any;
 	image?: string;
 	expanded?: boolean;
+	puesto?: string;
 }
 
 @Component({
@@ -53,6 +54,19 @@ export default class D3SupabaseComponent implements AfterViewInit {
 				try {
 					const nombre = await this._supabaseService.fetchDataByIdString('entidades_organizativas', String(d.id));
 					d.nombre = nombre;
+
+					try {
+						if (d.id === 233) {
+							console.log(d.id);
+
+							const puesto = await this._supabaseService.fetchDataByIdPuesto('puesto-eo', String(d.id));
+							console.log('puesto', puesto);
+							d.puesto = puesto[0].id_puesto;
+						}
+					} catch (error) {
+						console.error('Error al obtener el puesto:', error);
+						d.puesto = 'Puesto no disponible'; // O manejar el error como prefieras
+					}
 				} catch (error) {
 					console.error('Error al obtener el nombre:', error);
 					d.nombre = 'Nombre no disponible'; // O manejar el error como prefieras
@@ -62,6 +76,7 @@ export default class D3SupabaseComponent implements AfterViewInit {
 			// Esperar a que todas las promesas se resuelvan
 			await Promise.all(promises);
 			this.initChart();
+			this.collapseServicios();
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
@@ -80,7 +95,7 @@ export default class D3SupabaseComponent implements AfterViewInit {
 			.initialExpandLevel(4)
 			.initialZoom(0.7)
 			.neighbourMargin((a, b) => 100)
-			.nodeHeight(() => 160 + 25)
+			.nodeHeight(() => 260 + 25)
 			.nodeWidth(() => 160 + 2)
 			.nodeButtonWidth(() => 40) // Configure expand & collapse button width
 			.nodeButtonHeight(() => 40) // Configure expand & collapse button height
@@ -121,6 +136,7 @@ export default class D3SupabaseComponent implements AfterViewInit {
 		  <div style="${nodeStyle}">
 			<div style="${idStyle}">${this.formatter.format(d.data.id)}</div>
 			<div style="${nameStyle}">${d.data.nombre}</div>
+			<div style="${nameStyle}">${d.data.puesto}</div>
 			</div>
 		</div>
 	  `;
@@ -133,6 +149,37 @@ export default class D3SupabaseComponent implements AfterViewInit {
 	hideConnections() {
 		this.chart.connections([{ from: 100, to: 1000, label: '' }], false).render();
 		this.chart.setHighlighted(100);
+	}
+
+	collapseServicios() {
+		this.chart.setExpanded(297, false);
+		this.chart.setExpanded(290, false);
+		this.chart.setExpanded(289, false);
+		this.chart.setExpanded(301, false);
+		this.chart.setExpanded(293, false);
+		this.chart.setExpanded(298, false);
+		this.chart.setExpanded(33, false);
+		this.chart.setExpanded(34, false);
+		this.chart.setExpanded(35, false);
+		this.chart.setExpanded(304, false);
+		this.chart.setExpanded(288, false);
+		this.chart.setExpanded(287, false);
+		this.chart.setExpanded(286, false);
+		this.chart.setExpanded(284, false);
+		this.chart.setExpanded(299, false);
+		this.chart.setExpanded(296, false);
+		this.chart.setExpanded(295, false);
+		this.chart.setExpanded(300, false);
+		this.chart.setExpanded(307, false);
+		this.chart.setExpanded(306, false);
+		this.chart.setExpanded(305, false);
+		this.chart.setExpanded(283, false);
+		this.chart.setExpanded(303, false);
+		this.chart.setExpanded(291, false);
+		this.chart.setExpanded(36, false);
+		this.chart.setExpanded(294, false);
+		this.chart.setExpanded(282).setCentered(282).render();
+		this.chart.render();
 	}
 
 	expandDelegaciones() {

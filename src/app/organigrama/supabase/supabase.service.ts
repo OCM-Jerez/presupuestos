@@ -28,6 +28,16 @@ export class SupabaseService {
 	async fetchDataById(tableName: string, id: number): Promise<any> {
 		const { data, error } = await this._supabase.from(tableName).select('*').eq('id', id);
 		if (error) throw error;
+		console.log('data', data);
+
+		return data;
+	}
+
+	async fetchDataByIdPuesto(tableName: string, id: string): Promise<any> {
+		const { data, error } = await this._supabase.from(tableName).select('*').eq('id_uo', +id);
+		if (error) throw error;
+		console.log('data', data);
+
 		return data;
 	}
 
