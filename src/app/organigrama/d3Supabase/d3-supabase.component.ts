@@ -30,7 +30,6 @@ interface INodeInfo {
 export default class D3SupabaseComponent implements AfterViewInit {
 	@ViewChild('chartContainer') private chartContainer: ElementRef;
 	private _supabaseService = inject(SupabaseService);
-	public positionData: any[] = null;
 
 	formatter = new Intl.NumberFormat('de-DE', {
 		style: 'decimal',
@@ -42,60 +41,27 @@ export default class D3SupabaseComponent implements AfterViewInit {
 	data: INodeInfo[] = [];
 
 	ngAfterViewInit() {
-		// d3.json('assets/organigrama/organigrama.json').then((data: INodeInfo[]) => {
-		// 	this.data = data;
-		// 	this.initChart();
-		// });
 		this.fetchData();
 	}
 
 	async fetchData() {
 		try {
-			this.data = await this._supabaseService.fetchData('depende-eo');
-			// Crear una promesa para cada elemento en this.data
-			const promises = this.data.map(async (d) => {
-				try {
-					const nombre = await this._supabaseService.fetchDataByIdString('entidades_organizativas', String(d.id));
-					d.nombre = nombre[0].nombre;
+			this.data = await this._supabaseService.fetchData('datos_organigrama');
+			console.log('this.data', this.data);
 
-					// if (d.id === 233) {
-					try {
-						const puesto = await this._supabaseService.fetchDataByIdPuesto('puesto-eo', String(d.id));
-						d.puesto = puesto[0].id_puesto;
-					} catch (error) {
-						console.error('Error al obtener el puesto:', error);
-						d.puesto = 'Puesto no disponible'; // O manejar el error como prefieras
-					}
-
-					try {
-						const nombrePuesto = await this._supabaseService.fetchDataByIdString('puestos', String(d.puesto));
-						console.log('nombrePuesto', nombrePuesto);
-						d.rpt_id = nombrePuesto[0].rpt_id;
-						d.nombrePuesto = nombrePuesto[0].nombre;
-						d.situacionPuesto = nombrePuesto[0].situacion;
-					} catch (error) {
-						console.error('Error al obtener el puesto:', error);
-						d.puesto = 'Puesto no disponible'; // O manejar el error como prefieras
-					}
-					// }
-				} catch (error) {
-					console.error('Error al obtener el nombre:', error);
-					d.nombre = 'Nombre no disponible'; // O manejar el error como prefieras
-				}
-			});
-
-			// Esperar a que todas las promesas se resuelvan
-			await Promise.all(promises);
-			this.initChart();
-			this.collapseServicios();
+			// Asumiendo que 'data' es un array de tipo INodeInfo[]
+			if (this.data && Array.isArray(this.data)) {
+				await this.initChart();
+				await this.collapseServicios();
+			} else {
+				console.error('No se recibieron datos.');
+			}
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
 	}
 
-	private initChart() {
-		console.log('initChart');
-
+	async initChart() {
 		this.chart = new OrgChart()
 			.childrenMargin(() => 50)
 			.compact(false)
@@ -146,12 +112,11 @@ export default class D3SupabaseComponent implements AfterViewInit {
 		<div style="${nodeContainerStyle}">
 		  <div style="${nodeStyle}">
 			<div style="${idStyle}">${this.formatter.format(d.data.id)}</div>
-			<div style="${nameStyle}">${d.data.nombre}</div>
-			<div style="${idStyle}">${d.data.puesto}</div>
+			<div style="${nameStyle}">${d.data.nombre_entidad}</div>
+			<div style="${idStyle}">${d.data.id_puesto}</div>
 			<div style="${nameStyle}">${d.data.rpt_id}</div>
-			<div style="${nameStyle}">${d.data.nombrePuesto}</div>
-			<div style="${nameStyle}">${d.data.situacionPuesto}</div>
-
+			<div style="${nameStyle}">${d.data.nombre_puesto}</div>
+			<div style="${nameStyle}">${d.data.situacion_puesto}</div>
 			</div>
 		</div>
 	  `;
@@ -166,7 +131,7 @@ export default class D3SupabaseComponent implements AfterViewInit {
 		this.chart.setHighlighted(100);
 	}
 
-	collapseServicios() {
+	async collapseServicios() {
 		this.chart.setExpanded(297, false);
 		this.chart.setExpanded(290, false);
 		this.chart.setExpanded(289, false);
@@ -197,27 +162,6 @@ export default class D3SupabaseComponent implements AfterViewInit {
 		this.chart.render();
 	}
 
-	expandDelegaciones() {
-		this.chart.setExpanded(201);
-		this.chart.setExpanded(203);
-		this.chart.setExpanded(205);
-		this.chart.setExpanded(208);
-		this.chart.setExpanded(210);
-		this.chart.setCentered(104);
-		this.chart.initialZoom(0.6);
-		// d3.selectAll('.node').style('border', '2px solid red');
-		// this.chart.fit();
-		this.chart.render();
-	}
-
-	collapseDelegaciones() {
-		this.chart.setExpanded(201, false);
-		this.chart.setExpanded(203, false);
-		this.chart.setExpanded(205, false);
-		this.chart.setExpanded(208, false);
-		this.chart.setExpanded(210, false).setCentered(105).render();
-	}
-
 	zoomIn() {
 		this.chart.zoomIn(1);
 	}
@@ -226,7 +170,7 @@ export default class D3SupabaseComponent implements AfterViewInit {
 		this.chart.zoomOut(1);
 	}
 
-	searchNode(e, option: string) {
+	searchNode(e) {
 		const value = e.srcElement.value.toLowerCase();
 		if (!value) {
 			this.chart.clearHighlighting();
@@ -235,7 +179,7 @@ export default class D3SupabaseComponent implements AfterViewInit {
 
 		const data = this.chart.data();
 		data.forEach((d) => {
-			const content = d[option].toLowerCase();
+			const content = d.nombre_entidad.toLowerCase();
 			const isMatch = content.includes(value);
 			d._highlighted = isMatch;
 			d._expanded = isMatch;

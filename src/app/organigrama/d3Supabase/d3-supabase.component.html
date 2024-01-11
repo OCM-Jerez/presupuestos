@@ -1,20 +1,9 @@
 <div style="width: 100%; height: 800px">
 	<nav class="navbar">
 		<div class="navbar--1row">
-			<input
-				type="search"
-				id="searchName"
-				placeholder="Introduce nombre a buscar"
-				(input)="searchNode($event, 'nombre')"
-			/>
-			<!-- <input type="search" placeholder="Introduce puesto a buscar" (input)="searchNode($event, 'position')" /> -->
-
-			<!-- <button (click)="expandDelegaciones()">Delegaciones +</button>
-			<button (click)="collapseDelegaciones()">Delegaciones -</button> -->
+			<input type="search" id="searchName" placeholder="Introduce nombre a buscar" (input)="searchNode($event)" />
 			<button (click)="zoomIn()">+</button>
 			<button (click)="zoomOut()">-</button>
-			<!-- <button (click)="showConnections()">Connections +</button>
-		<button (click)="hideConnections()">Connections -</button> -->
 		</div>
 	</nav>
 
