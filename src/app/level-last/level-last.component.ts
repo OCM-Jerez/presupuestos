@@ -86,7 +86,8 @@ export default class LevelLastComponent implements OnInit {
 	public hasComs = false;
 	public hasNews = false;
 
-	public gauge = '/assets/licitaciones/gauge.jpg';
+	public gauge = environment.pathImgSupabase + 'gauge.jpg';
+	public pmpURL = environment.pathImgSupabase + '2023-11.jpg';
 	public _option = '';
 	public title = '';
 
