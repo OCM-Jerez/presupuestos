@@ -4,14 +4,16 @@ import { CommonModule, Location } from '@angular/common';
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
+import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
 @Component({
 	selector: 'app-plan-ajuste20230918',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './plan-ajuste20230918.component.html',
-	styleUrls: ['./plan-ajuste20230918.component.scss']
+	templateUrl: './plan-ajuste20230918.component.html'
 })
 export default class PlanAjuste20230918Component implements OnInit {
+	private _supabaseService = inject(SupabaseService);
+
 	private _location = inject(Location);
 
 	public docs: IDoc[] = [];
@@ -19,28 +21,14 @@ export default class PlanAjuste20230918Component implements OnInit {
 	public news: INew[] = [];
 
 	async ngOnInit() {
-		try {
-			const response = await fetch('/assets/deuda/planAjuste/planAjusteDocs.json');
-			const data = await response.json();
-			this.docs = data;
-		} catch (error) {
-			console.error('Error fetching news data:', error);
-		}
+		this.fetchDataFromSupabase('news', 'deudaTotal');
+	}
 
+	async fetchDataFromSupabase(path: string, param: string) {
 		try {
-			const response = await fetch('/assets/deuda/planAjuste/planAjusteComs.json');
-			const data = await response.json();
-			this.coms = data;
+			this.news = await this._supabaseService.fetchDataByTagOrder('news', param, false);
 		} catch (error) {
-			console.error('Error fetching news data:', error);
-		}
-
-		try {
-			const response = await fetch('/assets/deuda/planAjuste/planAjusteNews.json');
-			const data = await response.json();
-			this.news = data;
-		} catch (error) {
-			console.error('Error fetching news data:', error);
+			console.error('Error fetching data:', error);
 		}
 	}
 }

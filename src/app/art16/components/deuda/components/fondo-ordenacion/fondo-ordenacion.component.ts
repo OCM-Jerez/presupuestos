@@ -1,35 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NgIf, NgFor } from '@angular/common';
 
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 
+import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
+
 @Component({
 	selector: 'app-fondo-ordenacion',
 	standalone: true,
 	imports: [NgIf, NgFor],
-	templateUrl: './fondo-ordenacion.component.html',
-	styleUrls: ['./fondo-ordenacion.component.scss']
+	templateUrl: './fondo-ordenacion.component.html'
 })
 export default class FondoOrdenacionComponent implements OnInit {
+	private _supabaseService = inject(SupabaseService);
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
 
 	async ngOnInit() {
+		this.fetchDataFromSupabase('news', 'deudaTotal');
+	}
+
+	async fetchDataFromSupabase(path: string, param: string) {
 		try {
-			const response = await fetch('/assets/deuda/fondoOrdenacion/fondoOrdenacionDocs.json');
-			const data = await response.json();
-			this.docs = data;
+			this.news = await this._supabaseService.fetchDataByTagOrder('news', param, false);
 		} catch (error) {
-			console.error('Error fetching news data:', error);
+			console.error('Error fetching data:', error);
 		}
 
 		try {
-			const response = await fetch('/assets/deuda/fondoOrdenacion/fondoOrdenacionNews.json');
-			const data = await response.json();
-			this.news = data;
+			this.docs = await this._supabaseService.fetchDataByTagOrder('documents', param, false);
 		} catch (error) {
-			console.error('Error fetching news data:', error);
+			console.error('Error fetching data:', error);
 		}
 	}
 }

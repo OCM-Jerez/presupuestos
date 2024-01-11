@@ -8,43 +8,58 @@ import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 
+import { environment } from '@environments/environment';
+import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
+
 @Component({
 	selector: 'app-plan-ajuste',
 	standalone: true,
 	imports: [NgIf, NgFor, CardMenuComponent],
-	templateUrl: './plan-ajuste.component.html',
-	styleUrls: ['./plan-ajuste.component.scss']
+	templateUrl: './plan-ajuste.component.html'
 })
 export default class PlanAjusteComponent implements OnInit {
+	private _supabaseService = inject(SupabaseService);
 	private _router = inject(Router);
 
 	public docs: IDoc[] = [];
 	public coms: ICom[] = [];
 	public news: INew[] = [];
 
+	// async ngOnInit() {
+	// 	try {
+	// 		const response = await fetch('/assets/deuda/planAjuste/planAjusteDocs.json');
+	// 		const data = await response.json();
+	// 		this.docs = data;
+	// 	} catch (error) {
+	// 		console.error('Error fetching news data:', error);
+	// 	}
+
+	// 	try {
+	// 		const response = await fetch('/assets/deuda/planAjuste/planAjusteComs.json');
+	// 		const data = await response.json();
+	// 		this.coms = data;
+	// 	} catch (error) {
+	// 		console.error('Error fetching news data:', error);
+	// 	}
+
+	// 	try {
+	// 		const response = await fetch('/assets/deuda/planAjuste/planAjusteNews.json');
+	// 		const data = await response.json();
+	// 		this.news = data;
+	// 	} catch (error) {
+	// 		console.error('Error fetching news data:', error);
+	// 	}
+	// }
+
 	async ngOnInit() {
-		try {
-			const response = await fetch('/assets/deuda/planAjuste/planAjusteDocs.json');
-			const data = await response.json();
-			this.docs = data;
-		} catch (error) {
-			console.error('Error fetching news data:', error);
-		}
+		this.fetchDataFromSupabase('news', 'deudaTotal');
+	}
 
+	async fetchDataFromSupabase(path: string, param: string) {
 		try {
-			const response = await fetch('/assets/deuda/planAjuste/planAjusteComs.json');
-			const data = await response.json();
-			this.coms = data;
+			this.news = await this._supabaseService.fetchDataByTagOrder('news', param, false);
 		} catch (error) {
-			console.error('Error fetching news data:', error);
-		}
-
-		try {
-			const response = await fetch('/assets/deuda/planAjuste/planAjusteNews.json');
-			const data = await response.json();
-			this.news = data;
-		} catch (error) {
-			console.error('Error fetching news data:', error);
+			console.error('Error fetching data:', error);
 		}
 	}
 
@@ -56,7 +71,7 @@ export default class PlanAjusteComponent implements OnInit {
 	createCard(titulo: string, route: string) {
 		return {
 			titulo,
-			rutaImagen: `assets/deuda/planAjuste/${route}/${route}.jpg`,
+			rutaImagen: `${environment.pathImgSupabase}/${route}.jpg`,
 			funcion: () => this._router.navigateByUrl(`/deuda/${route}`)
 		};
 	}

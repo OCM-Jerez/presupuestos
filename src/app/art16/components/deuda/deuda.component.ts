@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
+import { environment } from '@environments/environment';
+
 @Component({
 	selector: 'app-deuda',
 	standalone: true,
@@ -22,7 +24,7 @@ export default class DeudaComponent {
 	createCard(titulo: string, route: string) {
 		return {
 			titulo,
-			rutaImagen: `assets/deuda/${route}/${route}.jpg`,
+			rutaImagen: `${environment.pathImgSupabase}/${route}.jpg`,
 			funcion: () => this._router.navigateByUrl(`/deuda/${route}`)
 		};
 	}
