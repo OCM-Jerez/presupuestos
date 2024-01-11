@@ -65,3 +65,22 @@ WHERE
 
 
 SELECT * FROM entidades_organizativas WHERE nombre LIKE '%atención %';
+
+
+-- =================================================================================================
+create view
+  public.datos_organigrama as
+select
+  deo.id,
+  deo."parentId",
+  eo.nombre as nombre_entidad,
+  peo.id_puesto,
+  p.nombre as nombre_puesto,
+  p.rpt_id,
+  p.situacion as situacion_puesto
+from
+  "depende-eo" deo
+  left join entidades_organizativas eo on deo.id = eo.id
+  left join "puesto-eo" peo on deo.id = peo.id_uo
+  left join puestos p on peo.id_puesto = p.id;
+-- =================================================================================================
