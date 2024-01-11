@@ -106,5 +106,11 @@
 		"path": "temas/comercio",
 		"isLastLevel": true,
 		"rutaImagen": "comercio.jpg"
+	},
+	{
+		"title": "Centro Tecnológico del Vino",
+		"path": "temas/centroTecnologicoVino",
+		"isLastLevel": true,
+		"rutaImagen": "centroTecnologicoVino.jpg"
 	}
 ]
