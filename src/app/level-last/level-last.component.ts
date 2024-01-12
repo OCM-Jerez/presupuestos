@@ -79,6 +79,8 @@ export default class LevelLastComponent implements OnInit {
 	public deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
 	public isDeudaViva = false;
 	public deudaVivaImgURL = `${environment.pathImgSupabase}/2023.06.29.jpg`;
+	public isFondoOrdenacion = false;
+	public planAjuste20230918 = false;
 	public isImpuestos = false;
 	public isSubvencion = false;
 	public isDistrito = false;
@@ -193,7 +195,9 @@ export default class LevelLastComponent implements OnInit {
 		comercio: 'Comercio',
 		centroTecnologicoVino: 'Centro Tecnológico del Vino',
 		deudaTotal: 'Deuda total',
-		deudaViva: 'Deuda viva'
+		deudaViva: 'Deuda viva',
+		fondoOrdenacion: 'Fondo de Ordenación',
+		planAjuste20230918: 'Plan de ajuste revisión Pleno 18/09/2023'
 	};
 
 	ngOnInit() {
@@ -221,6 +225,12 @@ export default class LevelLastComponent implements OnInit {
 					break;
 				case 'deudaViva':
 					this.isDeudaViva = true;
+					break;
+				case 'fondoOrdenacion':
+					this.isFondoOrdenacion = true;
+					break;
+				case 'planAjuste20230918':
+					this.planAjuste20230918 = true;
 					break;
 				case 'pmp':
 					this.isPMP = true;

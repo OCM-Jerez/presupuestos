@@ -25,32 +25,6 @@ export default class PlanAjusteComponent implements OnInit {
 	public coms: ICom[] = [];
 	public news: INew[] = [];
 
-	// async ngOnInit() {
-	// 	try {
-	// 		const response = await fetch('/assets/deuda/planAjuste/planAjusteDocs.json');
-	// 		const data = await response.json();
-	// 		this.docs = data;
-	// 	} catch (error) {
-	// 		console.error('Error fetching news data:', error);
-	// 	}
-
-	// 	try {
-	// 		const response = await fetch('/assets/deuda/planAjuste/planAjusteComs.json');
-	// 		const data = await response.json();
-	// 		this.coms = data;
-	// 	} catch (error) {
-	// 		console.error('Error fetching news data:', error);
-	// 	}
-
-	// 	try {
-	// 		const response = await fetch('/assets/deuda/planAjuste/planAjusteNews.json');
-	// 		const data = await response.json();
-	// 		this.news = data;
-	// 	} catch (error) {
-	// 		console.error('Error fetching news data:', error);
-	// 	}
-	// }
-
 	async ngOnInit() {
 		this.fetchDataFromSupabase('news', 'deudaTotal');
 	}
@@ -64,8 +38,8 @@ export default class PlanAjusteComponent implements OnInit {
 	}
 
 	cardMenus = [
-		this.createCard('Revisión 18/09/2023', 'planAjuste20230918'),
 		this.createCard('Revisión 18/09/2023', 'planAjuste20230918')
+		// this.createCard('Revisión 18/09/2023', 'planAjuste20230918')
 	];
 
 	createCard(titulo: string, route: string) {

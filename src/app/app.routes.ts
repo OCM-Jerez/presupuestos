@@ -156,7 +156,8 @@ export default [
 	},
 	{
 		path: 'deuda/fondoOrdenacion',
-		loadComponent: () => import('./art16/components/deuda/components/fondo-ordenacion/fondo-ordenacion.component')
+		loadComponent: () => import('./level-last/level-last.component')
+		// loadComponent: () => import('./art16/components/deuda/components/fondo-ordenacion/fondo-ordenacion.component')
 	},
 	{
 		path: 'deuda/planAjuste',
@@ -164,8 +165,9 @@ export default [
 	},
 	{
 		path: 'deuda/planAjuste20230918',
-		loadComponent: () =>
-			import('./art16/components/deuda/components/plan-ajuste/plan-ajuste20230918/plan-ajuste20230918.component')
+		loadComponent: () => import('./level-last/level-last.component')
+		// loadComponent: () =>
+		// 	import('./art16/components/deuda/components/plan-ajuste/plan-ajuste20230918/plan-ajuste20230918.component')
 	},
 	// Deuda ============================================================================================================================================
 	{
