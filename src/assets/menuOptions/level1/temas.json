@@ -112,5 +112,17 @@
 		"path": "temas/centroTecnologicoVino",
 		"isLastLevel": true,
 		"rutaImagen": "centroTecnologicoVino.jpg"
+	},
+	{
+		"title": "2030 Capitalidad Europea de la Cultura",
+		"path": "temas/capitalidadCultura2030",
+		"isLastLevel": true,
+		"rutaImagen": "capitalidadCultura2030.jpg"
+	},
+	{
+		"title": "Turismo",
+		"path": "temas/turismo",
+		"isLastLevel": true,
+		"rutaImagen": "turismo.jpg"
 	}
 ]
