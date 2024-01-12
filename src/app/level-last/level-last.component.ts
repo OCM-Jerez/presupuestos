@@ -75,6 +75,8 @@ export default class LevelLastComponent implements OnInit {
 	public descripcion: string;
 
 	public isPMP = false;
+	public isDeudaTotal = false;
+	public deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
 	public isImpuestos = false;
 	public isSubvencion = false;
 	public isDistrito = false;
@@ -187,7 +189,8 @@ export default class LevelLastComponent implements OnInit {
 		centroSanJose: 'FUNDACION CENTRO DE ACOGIDA SAN JOSÉ',
 		empleadosNews: 'empleadosNews',
 		comercio: 'Comercio',
-		centroTecnologicoVino: 'Centro Tecnológico del Vino'
+		centroTecnologicoVino: 'Centro Tecnológico del Vino',
+		deudaTotal: 'Deuda total'
 	};
 
 	ngOnInit() {
@@ -206,8 +209,13 @@ export default class LevelLastComponent implements OnInit {
 		} else {
 			// Si no es dinámico, utiliza el último segmento como parámetro, si existe
 			param = pathSegments.length > 1 ? pathSegments[pathSegments.length - 1] : '';
+			console.log('param', param);
 
 			switch (param) {
+				case 'deudaTotal':
+					this.isDeudaTotal = true;
+					// this.deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
+					break;
 				case 'pmp':
 					this.isPMP = true;
 					break;

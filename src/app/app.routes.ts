@@ -139,13 +139,15 @@ export default [
 		path: 'detalle',
 		loadComponent: () => import('./art16/components/presupuestos/components/detalle/detalle.component')
 	},
+	//Deuda ============================================================================================================================================
 	{
 		path: 'deuda',
 		loadComponent: () => import('./art16/components/deuda/deuda.component')
 	},
 	{
 		path: 'deuda/deudaTotal',
-		loadComponent: () => import('./art16/components/deuda/components/deudaTotal/deudaTotal.component')
+		loadComponent: () => import('./level-last/level-last.component')
+		// loadComponent: () => import('./art16/components/deuda/components/deudaTotal/deudaTotal.component')
 	},
 	{
 		path: 'deuda/deudaViva',
@@ -159,6 +161,12 @@ export default [
 		path: 'deuda/planAjuste',
 		loadComponent: () => import('./art16/components/deuda/components/plan-ajuste/plan-ajuste.component')
 	},
+	{
+		path: 'deuda/planAjuste20230918',
+		loadComponent: () =>
+			import('./art16/components/deuda/components/plan-ajuste/plan-ajuste20230918/plan-ajuste20230918.component')
+	},
+	// Deuda ============================================================================================================================================
 	{
 		path: 'fichaIndice',
 		loadComponent: () =>
@@ -221,11 +229,6 @@ export default [
 			import(
 				'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-personal/ficha-personal.component'
 			)
-	},
-	{
-		path: 'deuda/planAjuste20230918',
-		loadComponent: () =>
-			import('./art16/components/deuda/components/plan-ajuste/plan-ajuste20230918/plan-ajuste20230918.component')
 	},
 
 	//  ============================================================================================================================================

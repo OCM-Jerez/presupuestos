@@ -13,8 +13,11 @@
 	</figure>
 
 	<figure *ngIf="isPMP">
-		<!-- <img class="OCM-imgGraph" src="assets/art16/pmp/2023-10.jpg" alt="Grafico pmp" /> -->
 		<img class="OCM-imgGraph" [src]="pmpURL" alt="Grafico pmp" />
+	</figure>
+
+	<figure *ngIf="isDeudaTotal">
+		<img class="OCM-imgGraph" [src]="deudaTotalImgURL" alt="Grafico pmp" />
 	</figure>
 
 	<section *ngIf="isDistrito" class="OCM-tableContainer">
