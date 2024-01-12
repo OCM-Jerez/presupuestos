@@ -77,6 +77,8 @@ export default class LevelLastComponent implements OnInit {
 	public isPMP = false;
 	public isDeudaTotal = false;
 	public deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
+	public isDeudaViva = false;
+	public deudaVivaImgURL = `${environment.pathImgSupabase}/2023.06.29.jpg`;
 	public isImpuestos = false;
 	public isSubvencion = false;
 	public isDistrito = false;
@@ -190,7 +192,8 @@ export default class LevelLastComponent implements OnInit {
 		empleadosNews: 'empleadosNews',
 		comercio: 'Comercio',
 		centroTecnologicoVino: 'Centro Tecnológico del Vino',
-		deudaTotal: 'Deuda total'
+		deudaTotal: 'Deuda total',
+		deudaViva: 'Deuda viva'
 	};
 
 	ngOnInit() {
@@ -215,6 +218,9 @@ export default class LevelLastComponent implements OnInit {
 				case 'deudaTotal':
 					this.isDeudaTotal = true;
 					// this.deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
+					break;
+				case 'deudaViva':
+					this.isDeudaViva = true;
 					break;
 				case 'pmp':
 					this.isPMP = true;

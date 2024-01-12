@@ -20,6 +20,10 @@
 		<img class="OCM-imgGraph" [src]="deudaTotalImgURL" alt="Grafico pmp" />
 	</figure>
 
+	<figure *ngIf="isDeudaViva">
+		<img class="OCM-imgGraph" [src]="deudaVivaImgURL" alt="Grafico pmp" />
+	</figure>
+
 	<section *ngIf="isDistrito" class="OCM-tableContainer">
 		<table class="OCM-tableDocumentos">
 			<thead>

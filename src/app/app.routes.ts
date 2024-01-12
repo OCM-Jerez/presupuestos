@@ -151,7 +151,8 @@ export default [
 	},
 	{
 		path: 'deuda/deudaViva',
-		loadComponent: () => import('./art16/components/deuda/components/deuda-viva/deuda-viva.component')
+		loadComponent: () => import('./level-last/level-last.component')
+		// loadComponent: () => import('./art16/components/deuda/components/deuda-viva/deuda-viva.component')
 	},
 	{
 		path: 'deuda/fondoOrdenacion',
