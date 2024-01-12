@@ -108,6 +108,8 @@ export default class D3SupabaseComponent implements AfterViewInit {
 		// Aplicación de estilos a las líneas de enlaces
 		d3.selectAll('.link').style('stroke', 'grey').style('stroke-width', '2px');
 
+		d.data.situacion_puesto = d.data.situacion_puesto ? d.data.situacion_puesto : '';
+
 		return `
 		<div style="${nodeContainerStyle}">
 		  <div style="${nodeStyle}">
