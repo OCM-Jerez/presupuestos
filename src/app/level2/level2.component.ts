@@ -5,9 +5,9 @@ import { Router } from '@angular/router';
 import { environment } from '@environments/environment';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
+import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
 import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
 import { INew } from '@interfaces/new.interface';
-import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
 
 interface IMenuItemHome {
 	title: string;
@@ -27,11 +27,9 @@ export default class Level2Component implements OnInit {
 	@Input() path?: string;
 	@Input() title?: string;
 	private _supabaseService = inject(SupabaseService);
-
-	public menuOptions: IMenuItemHome[] = [];
 	private _router = inject(Router);
+	public menuOptions: IMenuItemHome[] = [];
 	public news: INew[] = [];
-
 	public hasNews = false;
 
 	ngOnInit() {
@@ -60,7 +58,6 @@ export default class Level2Component implements OnInit {
 		const URL = item.isLastLevel
 			? item.path
 			: `level3/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
-
 		return {
 			...item,
 			funcion: () => this._router.navigateByUrl(URL)

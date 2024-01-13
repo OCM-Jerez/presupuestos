@@ -7,8 +7,8 @@
 	},
 	{
 		"title": "Deuda",
-		"path": "/deuda",
-		"isLastLevel": true,
+		"path": "deuda",
+		"isLastLevel": false,
 		"rutaImagen": "deuda.jpg"
 	},
 	{

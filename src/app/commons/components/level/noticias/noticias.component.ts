@@ -30,7 +30,6 @@ export default class NoticiasComponent implements OnInit {
 				this._param = paramMap.get(paramName);
 			} else {
 				this._param = routeConfig.path.includes('/') ? routeConfig.path.split('/')[1] : routeConfig.path;
-				console.log(this._param);
 			}
 		} else {
 			console.log('Configuración de ruta no disponible');

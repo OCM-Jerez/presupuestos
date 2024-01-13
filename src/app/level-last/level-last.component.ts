@@ -216,8 +216,7 @@ export default class LevelLastComponent implements OnInit {
 			this._option = paramMap.get(param);
 		} else {
 			// Si no es dinámico, utiliza el último segmento como parámetro, si existe
-			param = pathSegments.length > 1 ? pathSegments[pathSegments.length - 1] : '';
-			console.log('param', param);
+			param = pathSegments.length > 1 ? pathSegments[pathSegments.length - 1] : pathSegments[0];
 
 			switch (param) {
 				case 'deudaTotal':

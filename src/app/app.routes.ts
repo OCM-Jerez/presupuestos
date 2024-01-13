@@ -142,32 +142,27 @@ export default [
 	//Deuda ============================================================================================================================================
 	{
 		path: 'deuda',
-		loadComponent: () => import('./art16/components/deuda/deuda.component')
+		loadComponent: () => import('./level2/level2.component')
 	},
 	{
-		path: 'deuda/deudaTotal',
+		path: 'deudaTotal',
 		loadComponent: () => import('./level-last/level-last.component')
-		// loadComponent: () => import('./art16/components/deuda/components/deudaTotal/deudaTotal.component')
 	},
 	{
-		path: 'deuda/deudaViva',
+		path: 'deudaViva',
 		loadComponent: () => import('./level-last/level-last.component')
-		// loadComponent: () => import('./art16/components/deuda/components/deuda-viva/deuda-viva.component')
 	},
 	{
-		path: 'deuda/fondoOrdenacion',
+		path: 'fondoOrdenacion',
 		loadComponent: () => import('./level-last/level-last.component')
-		// loadComponent: () => import('./art16/components/deuda/components/fondo-ordenacion/fondo-ordenacion.component')
 	},
 	{
-		path: 'deuda/planAjuste',
-		loadComponent: () => import('./art16/components/deuda/components/plan-ajuste/plan-ajuste.component')
+		path: 'planAjuste/planAjuste',
+		loadComponent: () => import('./level3/level3.component')
 	},
 	{
-		path: 'deuda/planAjuste20230918',
+		path: 'planAjuste20230918',
 		loadComponent: () => import('./level-last/level-last.component')
-		// loadComponent: () =>
-		// 	import('./art16/components/deuda/components/plan-ajuste/plan-ajuste20230918/plan-ajuste20230918.component')
 	},
 	// Deuda ============================================================================================================================================
 	{
