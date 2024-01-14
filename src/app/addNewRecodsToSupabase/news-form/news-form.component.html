@@ -1,6 +1,6 @@
 <div class="OCM-container">
 	<h2 class="heading">Añadir noticia en {{ tag }}</h2>
-	<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+	<form [formGroup]="userForm" (ngSubmit)="guardar()">
 		<div class="form-group">
 			<label for="date">Fecha</label>
 			<input type="date" class="form-date" id="date" formControlName="date" />
@@ -19,7 +19,7 @@
 
 		<div class="form-group">
 			<label for="title">Titulo</label>
-			<input type="text" class="form-control" id="title" formControlName="title" />
+			<input type="text" class="form-long" id="title" formControlName="title" />
 			<div *ngIf="userForm?.get('title')?.invalid && userForm?.get('title')?.touched" class="text-danger">
 				titulo es requerido.
 			</div>
@@ -27,12 +27,12 @@
 
 		<div class="form-group">
 			<label for="url_new">URL</label>
-			<input type="text" class="form-control" id="url_new" formControlName="url_new" />
+			<input type="text" class="form-long" id="url_new" formControlName="url_new" />
 			<div *ngIf="userForm?.get('url_new')?.invalid && userForm?.get('url_new')?.touched" class="text-danger">
 				URL es requerido.
 			</div>
 		</div>
 
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">Guardar</button>
 	</form>
 </div>

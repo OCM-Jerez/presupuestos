@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, ViewChild, ViewContainerRef, inject } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild, ViewContainerRef, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import NewsFormComponent from '@app/addNewRecodsToSupabase/news-form/news-form.component';
-import { ModalContentComponent } from '@app/layouts/modal-content/modal-content.component';
 import { ModalService } from '@app/layouts/modal/modal.service';
 import { environment } from '@environments/environment';
-import { PathStoreService } from '@services/pathStore.service';
+import { TagStoreService } from '@services/tagStore.service';
 
 @Component({
 	selector: 'app-noticias',
@@ -15,13 +14,16 @@ import { PathStoreService } from '@services/pathStore.service';
 	styleUrls: ['./noticias.component.scss']
 })
 export default class NoticiasComponent implements OnInit {
-	@ViewChild('view', { static: true, read: ViewContainerRef })
-	vcr!: ViewContainerRef;
+	// @ViewChild('view', { static: true, read: ViewContainerRef })
+	@ViewChild('modal')
+	modal!: ElementRef<HTMLDivElement>;
+	@ViewChild('overlay') overlay!: ElementRef<HTMLDivElement>;
+	// vcr!: ViewContainerRef;
 	@Input() news: any[];
 	private _router = inject(Router);
 	private _route = inject(ActivatedRoute);
 	private _modalService = inject(ModalService);
-	private _pathStoreService = inject(PathStoreService);
+	private _tagStoreService = inject(TagStoreService);
 	private _param = '';
 	public canAddRowSupabase = environment.canAddRowSupabase;
 
@@ -45,9 +47,12 @@ export default class NoticiasComponent implements OnInit {
 	}
 
 	addNew(): void {
+		this._tagStoreService.setTag(this._param);
 		// this._router.navigateByUrl(`/addNew/${this._param}`);
+		this.useModal();
+	}
 
-		this._pathStoreService.setPath(this._param);
+	useModal() {
 		this._modalService.open(NewsFormComponent, {
 			animations: {
 				modal: {
@@ -60,7 +65,8 @@ export default class NoticiasComponent implements OnInit {
 				}
 			},
 			size: {
-				width: '40rem'
+				width: '40rem',
+				minWidth: '850px'
 			}
 		});
 	}
@@ -71,23 +77,5 @@ export default class NoticiasComponent implements OnInit {
 
 	addDoc(): void {
 		this._router.navigateByUrl(`/addDoc/${this._param}`);
-	}
-
-	openModalComponent() {
-		this._modalService.open(ModalContentComponent, {
-			animations: {
-				modal: {
-					enter: 'enter-scaling 0.3s ease-out',
-					leave: 'fade-out 0.1s forwards'
-				},
-				overlay: {
-					enter: 'fade-in 1s',
-					leave: 'fade-out 0.3s forwards'
-				}
-			},
-			size: {
-				width: '40rem'
-			}
-		});
 	}
 }

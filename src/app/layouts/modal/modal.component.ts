@@ -24,15 +24,15 @@ export class ModalComponent implements AfterViewInit {
 
 	constructor(private modalService: ModalService, private element: ElementRef) {}
 
-	@HostListener('document:keydown.escape')
-	onEscape() {
-		this.modalService.close();
-	}
+	// @HostListener('document:keydown.escape')
+	// onEscape() {
+	// 	this.modalService.close();
+	// }
 
-	onClose() {
-		// outside click
-		this.modalService.close();
-	}
+	// onClose() {
+	// 	// outside click
+	// 	this.modalService.close();
+	// }
 
 	ngAfterViewInit() {
 		this.options = this.modalService.options;

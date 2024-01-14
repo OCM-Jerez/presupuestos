@@ -26,7 +26,7 @@ export class ModalService {
 
 	open<C>(vcrOrComponent: ViewContainerRef | Type<C>, param2?: TemplateRef<Element> | Options, options?: Options) {
 		if (vcrOrComponent instanceof ViewContainerRef) {
-			this.openWithTemplate(vcrOrComponent, param2 as TemplateRef<Element>);
+			// this.openWithTemplate(vcrOrComponent, param2 as TemplateRef<Element>);
 			this.options = options;
 		} else {
 			this.openWithComponent(vcrOrComponent);
@@ -34,18 +34,19 @@ export class ModalService {
 		}
 	}
 
-	private openWithTemplate(vcr: ViewContainerRef, content: TemplateRef<Element>) {
-		vcr.clear();
+	// private openWithTemplate(vcr: ViewContainerRef, content: TemplateRef<Element>) {
+	// 	vcr.clear();
 
-		const innerContent = vcr.createEmbeddedView(content);
+	// 	const innerContent = vcr.createEmbeddedView(content);
 
-		this.newModalComponent = vcr.createComponent(ModalComponent, {
-			environmentInjector: this.injector,
-			projectableNodes: [innerContent.rootNodes]
-		});
-	}
+	// 	this.newModalComponent = vcr.createComponent(ModalComponent, {
+	// 		environmentInjector: this.injector,
+	// 		projectableNodes: [innerContent.rootNodes]
+	// 	});
+	// }
 
 	private openWithComponent(component: Type<unknown>) {
+		console.log(this.options);
 		const newComponent = createComponent(component, {
 			environmentInjector: this.injector
 		});

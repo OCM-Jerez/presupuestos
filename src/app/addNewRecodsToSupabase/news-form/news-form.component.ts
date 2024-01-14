@@ -1,10 +1,10 @@
 import { NgIf, Location } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ModalService } from '@app/layouts/modal/modal.service';
 
 import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
-import { PathStoreService } from '@services/pathStore.service';
+import { TagStoreService } from '@services/tagStore.service';
 
 @Component({
 	selector: 'app-news-form',
@@ -17,15 +17,13 @@ export default class NewsFormComponent implements OnInit {
 	// TODO: Typar
 	userForm: any;
 	private _formBuilder = inject(FormBuilder);
-	private _route = inject(ActivatedRoute);
 	private _supabaseService = inject(SupabaseService);
 	private _location = inject(Location);
-	private _pathStoreService = inject(PathStoreService);
-
-	public tag: string;
+	private _tagStoreService = inject(TagStoreService);
+	private _modalService = inject(ModalService);
+	public tag = this._tagStoreService.getTag();
 
 	ngOnInit(): void {
-		this.tag = this._pathStoreService.getPath();
 		this.userForm = this._formBuilder.group({
 			date: ['', Validators.required],
 			media: ['', Validators.required],
@@ -34,7 +32,7 @@ export default class NewsFormComponent implements OnInit {
 		});
 	}
 
-	async submitForm(): Promise<void> {
+	async guardar(): Promise<void> {
 		if (this.userForm?.valid) {
 			const formData = {
 				...this.userForm.value,
@@ -43,6 +41,7 @@ export default class NewsFormComponent implements OnInit {
 
 			try {
 				await this._supabaseService.insertRow('news', formData);
+				this._modalService.close(); // NO FUNCIONA
 				this._location.back();
 			} catch (error) {
 				console.error('Error al insertar datos:', error);
