@@ -49,8 +49,7 @@ export default class D3Component implements AfterViewInit {
 	async fetchData() {
 		try {
 			this.data = await this._supabaseService.fetchData('organigrama');
-			console.log('this.data', this.data);
-
+			this.data.sort((a, b) => a.id - b.id);
 			this.initChart();
 		} catch (error) {
 			console.error('Error fetching data:', error);
@@ -81,35 +80,39 @@ export default class D3Component implements AfterViewInit {
 			.onNodeClick((d) => {
 				// console.log(d);
 				// window.location.href = `/#/employeeRecod/${d.data.id}`;
-				window.location.href = `/#/supabase/${d.data.id}`;
+				if (d.data.id === 1) {
+					window.location.href = `/#/supabase/${d.data.id}`;
+				} else {
+					alert('No hay datos por el momento');
+				}
 			})
 			// .nodeContent((d, i, arr, state) => {  No se para que sirven el resto de params
 			.nodeContent((d) => {
-				if (d.data.id === 0) {
-					d.x = -150; // Mueve el node
+				// if (d.data.id === 0) {
+				// 	d.x = -150; // Mueve el node
 
-					// this.chart.nodeButtonX((d) => {
-					// 	return 55;
-					// });
+				// 	// this.chart.nodeButtonX((d) => {
+				// 	// 	return 55;
+				// 	// });
 
-					return this.createNodeHtmlAyto(d);
-				}
-				if (d.data.id === 1) {
-					d.x = -350; // Mueve el node
-					// d.nodeButtonx = -260; // NO FUNCIONA
-					// this.chart.nodeButtonX((d) => -60);
+				// 	return this.createNodeHtmlAyto(d);
+				// }
+				// if (d.data.id === 1) {
+				// 	d.x = -350; // Mueve el node
+				// 	// d.nodeButtonx = -260; // NO FUNCIONA
+				// 	// this.chart.nodeButtonX((d) => -60);
 
-					return this.createNodeHtmlAlcalde(d);
-				}
+				// 	return this.createNodeHtmlAlcalde(d);
+				// }
 
-				if (d.data.id === 101) {
-					// d.x = -1400; // Mueve el node
-					return this.createNodeHtmlPrimerTeniente(d);
-				}
+				// if (d.data.id === 101) {
+				// 	// d.x = -1400; // Mueve el node
+				// 	return this.createNodeHtmlPrimerTeniente(d);
+				// }
 
-				if (d.data.id > 101 && d.data.id < 200) {
-					return this.createNodeHtmlTeniente(d);
-				}
+				// if (d.data.id > 101 && d.data.id < 200) {
+				// 	return this.createNodeHtmlTeniente(d);
+				// }
 
 				return this.createNodeHtml(d);
 			})

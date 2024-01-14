@@ -31,14 +31,14 @@ export default class SupabaseComponent implements OnInit {
 			console.error('Error fetching data:', error);
 		}
 
-		try {
-			this.licitacion = await this._supabaseService.fetchDataFromView(
-				'licitacion_news',
-				'6482b989-9afa-4551-85b4-52f157d8624d'
-			);
-			console.log(this.licitacion);
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
+		// try {
+		// 	this.licitacion = await this._supabaseService.fetchDataFromView(
+		// 		'licitacion_news',
+		// 		'6482b989-9afa-4551-85b4-52f157d8624d'
+		// 	);
+		// 	console.log(this.licitacion);
+		// } catch (error) {
+		// 	console.error('Error fetching data:', error);
+		// }
 	}
 }
