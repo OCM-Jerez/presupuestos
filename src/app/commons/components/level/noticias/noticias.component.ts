@@ -1,7 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ViewContainerRef, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import NewsFormComponent from '@app/addNewRecodsToSupabase/news-form/news-form.component';
+import { ModalContentComponent } from '@app/layouts/modal-content/modal-content.component';
+import { ModalService } from '@app/layouts/modal/modal.service';
 import { environment } from '@environments/environment';
+import { PathStoreService } from '@services/pathStore.service';
 
 @Component({
 	selector: 'app-noticias',
@@ -11,9 +15,13 @@ import { environment } from '@environments/environment';
 	styleUrls: ['./noticias.component.scss']
 })
 export default class NoticiasComponent implements OnInit {
+	@ViewChild('view', { static: true, read: ViewContainerRef })
+	vcr!: ViewContainerRef;
 	@Input() news: any[];
 	private _router = inject(Router);
 	private _route = inject(ActivatedRoute);
+	private _modalService = inject(ModalService);
+	private _pathStoreService = inject(PathStoreService);
 	private _param = '';
 	public canAddRowSupabase = environment.canAddRowSupabase;
 
@@ -37,7 +45,24 @@ export default class NoticiasComponent implements OnInit {
 	}
 
 	addNew(): void {
-		this._router.navigateByUrl(`/addNew/${this._param}`);
+		// this._router.navigateByUrl(`/addNew/${this._param}`);
+
+		this._pathStoreService.setPath(this._param);
+		this._modalService.open(NewsFormComponent, {
+			animations: {
+				modal: {
+					enter: 'enter-scaling 0.3s ease-out',
+					leave: 'fade-out 0.1s forwards'
+				},
+				overlay: {
+					enter: 'fade-in 1s',
+					leave: 'fade-out 0.3s forwards'
+				}
+			},
+			size: {
+				width: '40rem'
+			}
+		});
 	}
 
 	addCom(): void {
@@ -46,5 +71,23 @@ export default class NoticiasComponent implements OnInit {
 
 	addDoc(): void {
 		this._router.navigateByUrl(`/addDoc/${this._param}`);
+	}
+
+	openModalComponent() {
+		this._modalService.open(ModalContentComponent, {
+			animations: {
+				modal: {
+					enter: 'enter-scaling 0.3s ease-out',
+					leave: 'fade-out 0.1s forwards'
+				},
+				overlay: {
+					enter: 'fade-in 1s',
+					leave: 'fade-out 0.3s forwards'
+				}
+			},
+			size: {
+				width: '40rem'
+			}
+		});
 	}
 }

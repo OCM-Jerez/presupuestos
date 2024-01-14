@@ -1,31 +1,31 @@
-import { NgIf, Location } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CommonModule, Location } from '@angular/common';
+import { ModalService } from '../modal/modal.service';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-
 import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
-import { PathStoreService } from '@services/pathStore.service';
 
 @Component({
-	selector: 'app-news-form',
+	selector: 'app-modal-content',
 	standalone: true,
-	imports: [NgIf, FormsModule, ReactiveFormsModule],
-	templateUrl: './news-form.component.html',
-	styleUrls: ['./news-form.component.scss']
+	imports: [CommonModule, FormsModule, ReactiveFormsModule],
+	templateUrl: './modal-content.component.html',
+	styleUrls: ['./modal-content.component.css']
 })
-export default class NewsFormComponent implements OnInit {
-	// TODO: Typar
+export class ModalContentComponent {
+	private modalService = inject(ModalService);
 	userForm: any;
+
 	private _formBuilder = inject(FormBuilder);
 	private _route = inject(ActivatedRoute);
 	private _supabaseService = inject(SupabaseService);
 	private _location = inject(Location);
-	private _pathStoreService = inject(PathStoreService);
-
 	public tag: string;
 
 	ngOnInit(): void {
-		this.tag = this._pathStoreService.getPath();
+		const { paramMap } = this._route.snapshot;
+		this.tag = paramMap['params'].param;
+
 		this.userForm = this._formBuilder.group({
 			date: ['', Validators.required],
 			media: ['', Validators.required],
@@ -48,5 +48,11 @@ export default class NewsFormComponent implements OnInit {
 				console.error('Error al insertar datos:', error);
 			}
 		}
+	}
+
+	close() {
+		console.log('ModalContentComponent.close()');
+
+		this.modalService.close();
 	}
 }
