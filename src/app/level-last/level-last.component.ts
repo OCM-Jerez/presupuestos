@@ -198,7 +198,10 @@ export default class LevelLastComponent implements OnInit {
 		deudaViva: 'Deuda viva',
 		fondoOrdenacion: 'Fondo de Ordenación',
 		planAjuste20230918: 'Plan de ajuste revisión Pleno 18/09/2023',
-		capitalidadCultura2030: 'Capitalidad Europea de la Cultura 2030'
+		capitalidadCultura2031: 'Capitalidad Europea de la Cultura 2031',
+		cineJerezano: 'Cine Jerezano',
+		depositoSementales: 'Depósito de Sementales',
+		mesaTurismo: 'Mesa de Turismo'
 	};
 
 	ngOnInit() {

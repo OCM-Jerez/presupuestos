@@ -52,7 +52,7 @@ export default class D3SupabaseComponent implements AfterViewInit {
 			// Asumiendo que 'data' es un array de tipo INodeInfo[]
 			if (this.data && Array.isArray(this.data)) {
 				await this.initChart();
-				await this.collapseServicios();
+				// await this.collapseServicios();
 			} else {
 				console.error('No se recibieron datos.');
 			}
@@ -108,6 +108,9 @@ export default class D3SupabaseComponent implements AfterViewInit {
 		// Aplicación de estilos a las líneas de enlaces
 		d3.selectAll('.link').style('stroke', 'grey').style('stroke-width', '2px');
 
+		d.data.id_puesto = d.data.id_puesto ? d.data.id_puesto : '';
+		d.data.rpt_id = d.data.rpt_id ? d.data.rpt_id : '';
+		d.data.nombre_puesto = d.data.nombre_puesto ? d.data.nombre_puesto : '';
 		d.data.situacion_puesto = d.data.situacion_puesto ? d.data.situacion_puesto : '';
 
 		return `

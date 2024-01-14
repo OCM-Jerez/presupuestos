@@ -64,5 +64,17 @@
 		"path": "edificiosSingulares/galloAzul",
 		"isLastLevel": true,
 		"rutaImagen": "galloAzul.jpg"
+	},
+	{
+		"title": "Cine Jerezano",
+		"path": "edificiosSingulares/cineJerezano",
+		"isLastLevel": true,
+		"rutaImagen": "cineJerezano.jpg"
+	},
+	{
+		"title": "Deposito de Sementales",
+		"path": "edificiosSingulares/depositoSementales",
+		"isLastLevel": true,
+		"rutaImagen": "depositoSementales.jpg"
 	}
 ]

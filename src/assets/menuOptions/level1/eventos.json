@@ -6,6 +6,12 @@
 		"rutaImagen": "festivalJerez.jpg"
 	},
 	{
+		"title": "Carnaval",
+		"path": "eventos/carnaval",
+		"isLastLevel": true,
+		"rutaImagen": "carnaval.jpg"
+	},
+	{
 		"title": "Feria",
 		"path": "eventos/feria",
 		"isLastLevel": true,

@@ -33,5 +33,10 @@
 		"title": "Mesa Centro Histórico",
 		"path": "art10/infoInstitucional/mesas/mesaCentroHistorico",
 		"rutaImagen": "mesaCentroHistorico.jpg"
+	},
+	{
+		"title": "Mesa de turismo",
+		"path": "art10/infoInstitucional/mesas/mesaTurismo",
+		"rutaImagen": "mesaTurismo.jpg"
 	}
 ]
