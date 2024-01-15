@@ -48,8 +48,8 @@ export default class NoticiasComponent implements OnInit {
 
 	addNew(): void {
 		this._tagStoreService.setTag(this._param);
-		// this._router.navigateByUrl(`/addNew/${this._param}`);
-		this.useModal();
+		this._router.navigateByUrl(`/addNew/${this._param}`);
+		// this.useModal();
 	}
 
 	useModal() {

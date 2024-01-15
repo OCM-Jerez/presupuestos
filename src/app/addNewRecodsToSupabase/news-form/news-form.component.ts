@@ -41,7 +41,7 @@ export default class NewsFormComponent implements OnInit {
 
 			try {
 				await this._supabaseService.insertRow('news', formData);
-				this._modalService.close(); // NO FUNCIONA
+				// this._modalService.close(); // NO FUNCIONA
 				this._location.back();
 			} catch (error) {
 				console.error('Error al insertar datos:', error);

@@ -75,6 +75,7 @@ export default class LicitacionesComponent {
 	];
 
 	licitacionesAyto = [
+		this.createCard('Parque Salud Pérez Leytón', 'parqueSaludPerezLeyton2022'),
 		this.createCard('Las Calandrias', 'lasCalandrias2023'),
 		this.createCard('Mantenimiento señalización', 'manSenal2020'),
 		this.createCard('Parque La Canaleja', 'laCanaleja2023'),
