@@ -1,15 +1,6 @@
-import {
-	ApplicationRef,
-	ComponentRef,
-	EnvironmentInjector,
-	Injectable,
-	TemplateRef,
-	Type,
-	ViewContainerRef,
-	createComponent
-} from '@angular/core';
-import { ModalComponent } from './modal.component';
+import { ApplicationRef, ComponentRef, EnvironmentInjector, Injectable, Type, createComponent } from '@angular/core';
 import { Options } from './modal-options';
+import { ModalComponent } from './modal.component';
 
 @Injectable({
 	providedIn: 'root'
@@ -20,33 +11,15 @@ export class ModalService {
 
 	constructor(private appRef: ApplicationRef, private injector: EnvironmentInjector) {}
 
-	open(vcrOrComponent: ViewContainerRef, content: TemplateRef<Element>, options?: Options): void;
-
-	open<C>(vcrOrComponent: Type<C>, options?: Options): void;
-
-	open<C>(vcrOrComponent: ViewContainerRef | Type<C>, param2?: TemplateRef<Element> | Options, options?: Options) {
-		if (vcrOrComponent instanceof ViewContainerRef) {
-			// this.openWithTemplate(vcrOrComponent, param2 as TemplateRef<Element>);
-			this.options = options;
-		} else {
-			this.openWithComponent(vcrOrComponent);
-			this.options = param2 as Options | undefined;
-		}
+	open<C>(vcrOrComponent: Type<C>, param2?: Options, options?: Options) {
+		console.log('vcrOrComponent', vcrOrComponent);
+		console.log('param2', param2);
+		console.log('options', options);
+		this.openWithComponent(vcrOrComponent);
+		this.options = param2 as Options | undefined;
 	}
 
-	// private openWithTemplate(vcr: ViewContainerRef, content: TemplateRef<Element>) {
-	// 	vcr.clear();
-
-	// 	const innerContent = vcr.createEmbeddedView(content);
-
-	// 	this.newModalComponent = vcr.createComponent(ModalComponent, {
-	// 		environmentInjector: this.injector,
-	// 		projectableNodes: [innerContent.rootNodes]
-	// 	});
-	// }
-
 	private openWithComponent(component: Type<unknown>) {
-		console.log(this.options);
 		const newComponent = createComponent(component, {
 			environmentInjector: this.injector
 		});
@@ -64,7 +37,6 @@ export class ModalService {
 	}
 
 	close() {
-		console.log('ModalService.close()');
 		this.newModalComponent.instance.close();
 	}
 }
