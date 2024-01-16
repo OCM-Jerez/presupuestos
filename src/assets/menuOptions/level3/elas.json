@@ -2,36 +2,36 @@
 	{
 		"title": "El Torno",
 		"path": "art10/infoInstitucional/elas/elTorno",
-		"rutaImagen": "elTorno.jpg"
+		"tag": "elTorno"
 	},
 	{
 		"title": "Guadalcacín",
 		"path": "art10/infoInstitucional/elas/guadalcacin",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "La Barca de la Florida",
 		"path": "art10/infoInstitucional/elas/laBarca",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "Estella del Marqués",
 		"path": "art10/infoInstitucional/elas/estella",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "Nueva Jarilla",
 		"path": "art10/infoInstitucional/elas/nuevaJarilla",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "San Isidro del Guadalete",
 		"path": "art10/infoInstitucional/elas/sanIsidro",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "Torrecera",
 		"path": "art10/infoInstitucional/elas/torrecera",
-		"rutaImagen": ""
+		"tag": ""
 	}
 ]

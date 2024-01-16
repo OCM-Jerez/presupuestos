@@ -3,24 +3,24 @@
 		"title": "Deuda total",
 		"path": "deudaTotal",
 		"isLastLevel": true,
-		"rutaImagen": "deudaTotal.jpg"
+		"tag": "deudaTotal"
 	},
 	{
 		"title": "Deudad viva",
 		"path": "deudaViva",
 		"isLastLevel": true,
-		"rutaImagen": "deudaViva.jpg"
+		"tag": "deudaViva"
 	},
 	{
 		"title": "Fondo de Ordenación",
 		"path": "fondoOrdenacion",
 		"isLastLevel": true,
-		"rutaImagen": "fondoOrdenacion.jpg"
+		"tag": "fondoOrdenacion"
 	},
 	{
 		"title": "Plan de Ajuste",
 		"path": "planAjuste",
 		"isLastLevel": false,
-		"rutaImagen": "planAjuste.jpg"
+		"tag": "planAjuste"
 	}
 ]

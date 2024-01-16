@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
@@ -11,8 +10,6 @@ import DocumentosComponent from '@commons/components/level/documentos/documentos
 import EstadoLicitacionComponent from '@commons/components/level/estado-licitacion/estado-licitacion.component';
 import NoticiasComponent from '@commons/components/level/noticias/noticias.component';
 import SeguimientoSubvencionComponent from '@commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
-
-import { catchError, forkJoin, of } from 'rxjs';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
@@ -26,6 +23,7 @@ import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
 interface IMenuItemHome {
 	title: string;
 	path: string;
+	tag: string;
 	rutaImagen: string;
 	funcion: () => void;
 	isLastLevel?: boolean;
@@ -54,7 +52,6 @@ export default class Level3Component implements OnInit {
 
 	public menuOptions: IMenuItem[] = [];
 	private _router = inject(Router);
-	private _http = inject(HttpClient);
 
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
@@ -69,7 +66,7 @@ export default class Level3Component implements OnInit {
 	ngOnInit() {
 		console.log('path', this.path);
 		import(`../../assets/menuOptions/level3/${this.path}.json`).then((data) => {
-			this.menuOptions = data.default.map((item: IMenuItem) => {
+			this.menuOptions = data.default.map((item: IMenuItemHome) => {
 				if (this.path === 'comisiones') {
 					this.isComisiones = true;
 					this.fetchDataFromSupabase(this.path);
@@ -77,7 +74,7 @@ export default class Level3Component implements OnInit {
 				} else {
 					const modifiedItem = {
 						...item,
-						rutaImagen: environment.pathImgSupabase + item.rutaImagen
+						rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
 					};
 					this.fetchDataFromSupabase(this.path);
 					return this.createCardMenu(modifiedItem);
@@ -95,57 +92,13 @@ export default class Level3Component implements OnInit {
 		}
 	}
 
-	fetchData(path: string) {
-		switch (path) {
-			case 'comisiones':
-				this.isComisiones = true;
-				break;
-		}
-
-		const pathBase = `/assets/art10/infoInstitucional/`;
-
-		// console.log('pathBase', pathBase);
-
-		const commonRequests = {
-			coms: this._http.get<ICom[]>(`${pathBase}${this.path}/${this.path}Coms.json`),
-			docs: this._http.get<IDoc[]>(`${pathBase}${this.path}/${this.path}Docs.json`),
-			news: this._http.get<INew[]>(`${pathBase}${this.path}/${this.path}News.json`)
-		};
-
-		const allRequests = {
-			...commonRequests
-		};
-		// console.log('allRequests', allRequests);
-
-		forkJoin(allRequests)
-			.pipe(
-				catchError((error) => {
-					console.error('Error fetching data:', error);
-					return of({
-						coms: [],
-						docs: [],
-						news: []
-					});
-				})
-			)
-			.subscribe((response) => {
-				this.docs = response.docs;
-				this.coms = response.coms;
-				this.news = response.news;
-
-				this.hasComs = this.coms.length > 1;
-				this.hasDocs = this.docs.length > 1;
-				this.hasNews = this.news.length > 0;
-			});
-	}
-
 	createCardMenu(item: IMenuItemHome) {
-		const URL = item.isLastLevel
-			? `levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`
-			: `level3/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
 		return {
 			...item,
-			funcion: () => this._router.navigateByUrl(URL)
+			funcion: () =>
+				this._router.navigateByUrl(
+					`levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(item.tag)}`
+				)
 		};
 	}
 }

@@ -2,56 +2,56 @@
 	{
 		"title": "Comisión de presidencia, centro histórico, fondos europeos, coordinación de gobierno y ordenación del territorio",
 		"path": "art10/infoInstitucional/comisiones/permanentes/presidencia",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "Comisión de servicios públicos, desarrollo sostenible, medio ambiente, protección animal y participación ciudadana",
 		"path": "art10/infoInstitucional/comisiones/permanentes/serviciosPublicos",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "Comisión de inclusión social, familias, igualdad y diversidad y medio rural",
 		"path": "art10/infoInstitucional/comisiones/permanentes/inclusion",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "Comisión de turismo, cultura, educación, deportes y juventud",
 		"path": "art10/infoInstitucional/comisiones/permanentes/turismo",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "Comisión de empleo, economía, patrimonio, seguridad, recursos humanos, simplificación administrativa y transparencia",
 		"path": "art10/infoInstitucional/comisiones/permanentes/patrimonio",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "Comisión especial de cuentas",
 		"path": "art10/infoInstitucional/comisiones/especiales/cuentas",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "Comisión especial de sugerencias y reclamaciones",
 		"path": "art10/infoInstitucional/comisiones/especiales/sugerencias",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "Comisión especial de capitalidad cultural",
 		"path": "art10/infoInstitucional/comisiones/especiales/capitabilidad",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "Comisión especial de presupuestos participativos",
 		"path": "art10/infoInstitucional/comisiones/especiales/presupuestos",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "Comisión especial de regeneración democrática y calidad institucional",
 		"path": "art10/infoInstitucional/comisiones/especiales/regeneracion",
-		"rutaImagen": ""
+		"tag": ""
 	},
 	{
 		"title": "Comisión especial de impulso y seguimiento de las mesas sectoriales",
 		"path": "art10/infoInstitucional/comisiones/especiales/impulso",
-		"rutaImagen": ""
+		"tag": ""
 	}
 ]

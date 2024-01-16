@@ -31,12 +31,6 @@ export default class HomeComponent implements OnInit {
 		});
 	}
 
-	ngOnInitOLD() {
-		import(`@assets/menuOptions/home.json`).then((data) => {
-			this.menuOptionsHome = data.default.map((item: IMenuItem) => this.createCardMenu(item));
-		});
-	}
-
 	createCardMenu(item: IMenuItem) {
 		return {
 			...item,

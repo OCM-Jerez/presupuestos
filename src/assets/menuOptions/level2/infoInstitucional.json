@@ -3,30 +3,30 @@
 		"title": "Plenos",
 		"path": "plenos",
 		"isLastLevel": false,
-		"rutaImagen": "plenos.png"
+		"tag": "plenos"
 	},
 	{
 		"title": "Entes",
 		"path": "entes",
 		"isLastLevel": false,
-		"rutaImagen": "fundarte.jpg"
+		"tag": "fundarte"
 	},
 	{
 		"title": "Comisiones de Pleno",
 		"path": "comisiones",
 		"isLastLevel": false,
-		"rutaImagen": "comisiones.jpg"
+		"tag": "comisiones"
 	},
 	{
 		"title": "ELAs",
 		"path": "elas",
 		"isLastLevel": false,
-		"rutaImagen": "elas.jpg"
+		"tag": "elas"
 	},
 	{
 		"title": "Mesas",
 		"path": "mesas",
 		"isLastLevel": false,
-		"rutaImagen": "mesas.jpg"
+		"tag": "mesas"
 	}
 ]

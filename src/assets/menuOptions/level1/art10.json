@@ -3,12 +3,12 @@
 		"title": "Información institucional",
 		"path": "infoInstitucional",
 		"isLastLevel": false,
-		"rutaImagen": "plenos.png"
+		"tag": "plenos"
 	},
 	{
 		"title": "Información organizativa",
 		"path": "infoOrganizativa",
 		"isLastLevel": false,
-		"rutaImagen": "infoOrganizativa.jpg"
+		"tag": "infoOrganizativa"
 	}
 ]

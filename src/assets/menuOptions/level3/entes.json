@@ -2,26 +2,26 @@
 	{
 		"title": "Fundación Universitaria (Teatro Villamarta)",
 		"path": "art10/infoInstitucional/entes/fundarte",
-		"rutaImagen": "fundarte.jpg"
+		"tag": "fundarte"
 	},
 	{
 		"title": "COMUJESA. Corporación Municipal de Jerez. S.A.",
 		"path": "art10/infoInstitucional/entes/comujesa",
-		"rutaImagen": "comujesa.jpg"
+		"tag": "comujesa"
 	},
 	{
 		"title": "CIRJESA. Circuito de Jerez. S.A.",
 		"path": "art10/infoInstitucional/entes/cirjesa",
-		"rutaImagen": "cirjesa.jpg"
+		"tag": "cirjesa"
 	},
 	{
 		"title": "EMUVIJESA. Empresa municipal de vivienda S.A.",
 		"path": "art10/infoInstitucional/entes/emuvijesa",
-		"rutaImagen": "emuvijesa.jpg"
+		"tag": "emuvijesa"
 	},
 	{
 		"title": "FUNDACION CENTRO DE ACOGIDA SAN JOSÉ",
 		"path": "art10/infoInstitucional/entes/centroSanJose",
-		"rutaImagen": "centroSanJose.jpg"
+		"tag": "centroSanJose"
 	}
 ]

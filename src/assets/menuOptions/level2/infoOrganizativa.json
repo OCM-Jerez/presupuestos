@@ -3,24 +3,24 @@
 		"title": "Retribuciones",
 		"path": "retribuciones2022",
 		"isLastLevel": true,
-		"rutaImagen": "menu1-400x250.webp"
+		"tag": "retribuciones"
 	},
 	{
 		"title": "RPT",
 		"path": "rpt",
 		"isLastLevel": true,
-		"rutaImagen": "menu2-400x250.webp"
+		"tag": "rpt"
 	},
 	{
 		"title": "Organigrama estructura política",
 		"path": "organigramaD3",
 		"isLastLevel": true,
-		"rutaImagen": "organigrama.jpg"
+		"tag": "organigrama"
 	},
 	{
 		"title": "Organigrama estructura funcional. Servicios-departamentos-unidades",
 		"path": "organigramaD3Supabase",
 		"isLastLevel": true,
-		"rutaImagen": "organigrama.jpg"
+		"tag": "organigrama"
 	}
 ]

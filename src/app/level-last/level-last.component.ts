@@ -1,7 +1,5 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 import ComentariosComponent from '@commons/components/level/comentarios/comentarios.component';
 import DataGeneralComponent from '@commons/components/level/data-general/data-general.component';
@@ -58,9 +56,6 @@ export default class LevelLastComponent implements OnInit {
 	@Input() title?: string;
 	@Input() tag?: string;
 	private _supabaseService = inject(SupabaseService);
-	private _route = inject(ActivatedRoute);
-	private _http = inject(HttpClient);
-
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
@@ -86,12 +81,9 @@ export default class LevelLastComponent implements OnInit {
 	public isDistrito = false;
 	public isLicitacion = false;
 	public isEdificioSingular = false;
-	private _isTema = false;
-
 	public hasDocs = false;
 	public hasComs = false;
 	public hasNews = false;
-
 	public gauge = environment.pathImgSupabase + 'gauge.jpg';
 	public pmpURL = environment.pathImgSupabase + '2023-11.jpg';
 
@@ -99,45 +91,38 @@ export default class LevelLastComponent implements OnInit {
 		console.log('this.path', this.path);
 		console.log('this.title', this.title);
 
-		switch (this.tag) {
+		switch (this.path) {
 			case 'deudaTotal':
 				this.isDeudaTotal = true;
 				break;
 			case 'deudaViva':
 				this.isDeudaViva = true;
 				break;
-			case 'fondoOrdenacion':
-				this.isFondoOrdenacion = true;
-				break;
-			case 'planAjuste20230918':
-				this.planAjuste20230918 = true;
-				break;
+			// case 'fondoOrdenacion':
+			// 	this.isFondoOrdenacion = true;
+			// 	break;
+			// case 'planAjuste20230918':
+			// 	this.planAjuste20230918 = true;
+			// 	break;
 			case 'pmp':
 				this.isPMP = true;
 				break;
-			case 'impuestos':
-				this.isImpuestos = true;
-				break;
-		}
-
-		switch (this.path) {
+			// case 'impuestos':
+			// 	this.isImpuestos = true;
+			// 	break;
 			case 'licitaciones':
 				this.isLicitacion = true;
 				this.imgURL = environment.pathImgSupabase + this.tag + '.jpg';
 				break;
 			case 'edificioSingular':
 				this.isEdificioSingular = true;
-				// this.imgURL = `/assets/${this.path}/${this._option}/${this._option}.jpg`;
-				break;
-			case 'temas':
-				this._isTema = true;
 				break;
 			case 'subvencion':
 				this.isSubvencion = true;
 				break;
 			case 'distritos':
 				this.isDistrito = true;
-				// this.imgURL = `/assets/${this.path}/${this._option}/${this._option}.jpg`;
+				this.imgURL = environment.pathImgSupabase + this.tag + '.jpg';
 				break;
 		}
 

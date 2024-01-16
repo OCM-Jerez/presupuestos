@@ -3,12 +3,12 @@
 		"title": "Licitaciones",
 		"path": "licitaciones",
 		"isLastLevel": true,
-		"rutaImagen": "menu3-400x250.webp"
+		"tag": "licitaciones"
 	},
 	{
 		"title": "Subvenciones",
 		"path": "subvenciones",
 		"isLastLevel": true,
-		"rutaImagen": "subvenciones.jpg"
+		"tag": "subvenciones"
 	}
 ]
