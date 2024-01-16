@@ -13,9 +13,10 @@ import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
 interface IMenuItemHome {
 	title: string;
 	path: string;
-	rutaImagen: string;
+	tag: string;
 	funcion: () => void;
 	isLastLevel?: boolean;
+	rutaImagen?: string;
 }
 
 @Component({
@@ -38,7 +39,7 @@ export default class Level1Component implements OnInit {
 			this.menuOptions = data.default.map((item: IMenuItemHome) => {
 				const modifiedItem = {
 					...item,
-					rutaImagen: environment.pathImgSupabase + item.rutaImagen
+					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
 				};
 				this.fetchDataFromSupabase(this.path);
 
@@ -57,7 +58,7 @@ export default class Level1Component implements OnInit {
 
 	createCardMenu(item: IMenuItemHome) {
 		let URL = item.isLastLevel
-			? `levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`
+			? `levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(item.tag)}`
 			: `level2/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
 
 		console.log('item.path', item.path);

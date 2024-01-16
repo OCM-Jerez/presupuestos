@@ -1,80 +1,80 @@
 [
 	{
 		"title": "Palacio Riquelme",
-		"path": "edificiosSingulares/palacioRiquelme",
+		"path": "edificiosSingulares",
 		"isLastLevel": true,
-		"rutaImagen": "palacioRiquelme.jpg"
+		"tag": "palacioRiquelme"
 	},
 	{
 		"title": "Antiguo asilo San Jose",
-		"path": "edificiosSingulares/asiloSanJose",
+		"path": "edificiosSingulares",
 		"isLastLevel": true,
-		"rutaImagen": "asiloSanJose.jpg"
+		"tag": "asiloSanJose"
 	},
 	{
 		"title": "Antigua comisaria Policia Nacional",
-		"path": "edificiosSingulares/antiguaComisariaPoliciaNacional",
+		"path": "edificiosSingulares",
 		"isLastLevel": true,
-		"rutaImagen": "antiguaComisariaPoliciaNacional.jpg"
+		"tag": "antiguaComisariaPoliciaNacional"
 	},
 	{
 		"title": "Antigua jefatura Policia Local",
-		"path": "edificiosSingulares/antiguaJefaturaPoliciaLocal",
+		"path": "edificiosSingulares",
 		"isLastLevel": true,
-		"rutaImagen": "antiguaJefaturaPoliciaLocal.jpg"
+		"tag": "antiguaJefaturaPoliciaLocal"
 	},
 	{
 		"title": "Bodegas Croft",
-		"path": "edificiosSingulares/croft",
+		"path": "edificiosSingulares",
 		"isLastLevel": true,
-		"rutaImagen": "croft.jpg"
+		"tag": "croft"
 	},
 	{
 		"title": "Callejón de los Bolos",
-		"path": "edificiosSingulares/callejonBolos",
+		"path": "edificiosSingulares",
 		"isLastLevel": true,
-		"rutaImagen": "callejonBolos.jpg"
+		"tag": "callejonBolos"
 	},
 	{
 		"title": "Palacio VillaPanés",
-		"path": "edificiosSingulares/palacioVillapanes",
+		"path": "edificiosSingulares",
 		"isLastLevel": true,
-		"rutaImagen": "palacioVillapanes.jpg"
+		"tag": "palacioVillapanes"
 	},
 	{
 		"title": "Claustros de Santo Domingo",
-		"path": "edificiosSingulares/claustrosSantoDomingo",
+		"path": "edificiosSingulares",
 		"isLastLevel": true,
-		"rutaImagen": "claustrosSantoDomingo.jpg"
+		"tag": "claustrosSantoDomingo"
 	},
 	{
 		"title": "Mercado de abastos",
-		"path": "edificiosSingulares/mercadoAbastos",
+		"path": "edificiosSingulares",
 		"isLastLevel": true,
-		"rutaImagen": "mercadoAbastos.jpg"
+		"tag": "mercadoAbastos"
 	},
 	{
 		"title": "Cartuja",
-		"path": "edificiosSingulares/cartuja",
+		"path": "edificiosSingulares",
 		"isLastLevel": true,
-		"rutaImagen": "cartuja.jpg"
+		"tag": "cartuja"
 	},
 	{
 		"title": "El Gallo Azul",
-		"path": "edificiosSingulares/galloAzul",
+		"path": "edificiosSingulares",
 		"isLastLevel": true,
-		"rutaImagen": "galloAzul.jpg"
+		"tag": "galloAzul"
 	},
 	{
 		"title": "Cine Jerezano",
-		"path": "edificiosSingulares/cineJerezano",
+		"path": "edificiosSingulares",
 		"isLastLevel": true,
-		"rutaImagen": "cineJerezano.jpg"
+		"tag": "cineJerezano"
 	},
 	{
 		"title": "Deposito de Sementales",
-		"path": "edificiosSingulares/depositoSementales",
+		"path": "edificiosSingulares",
 		"isLastLevel": true,
-		"rutaImagen": "depositoSementales.jpg"
+		"tag": "depositoSementales"
 	}
 ]

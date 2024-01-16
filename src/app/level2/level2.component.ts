@@ -12,11 +12,11 @@ import { INew } from '@interfaces/new.interface';
 interface IMenuItemHome {
 	title: string;
 	path: string;
-	rutaImagen: string;
+	tag: string;
 	funcion: () => void;
 	isLastLevel?: boolean;
+	rutaImagen?: string;
 }
-
 @Component({
 	selector: 'app-level2',
 	standalone: true,
@@ -37,7 +37,7 @@ export default class Level2Component implements OnInit {
 			this.menuOptions = data.default.map((item: IMenuItemHome) => {
 				const modifiedItem = {
 					...item,
-					rutaImagen: environment.pathImgSupabase + item.rutaImagen
+					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
 				};
 				this.fetchDataFromSupabase(this.path);
 				return this.createCardMenu(modifiedItem);
@@ -56,7 +56,7 @@ export default class Level2Component implements OnInit {
 
 	createCardMenu(item: IMenuItemHome) {
 		const URL = item.isLastLevel
-			? `levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`
+			? `levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(item.tag)}`
 			: `level3/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
 		return {
 			...item,

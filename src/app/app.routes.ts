@@ -21,7 +21,7 @@ export default [
 
 	// levelLast ============================================================================================================================================
 	{
-		path: 'levelLast/:path/:title',
+		path: 'levelLast/:path/:title/:tag',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 

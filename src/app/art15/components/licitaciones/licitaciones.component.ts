@@ -92,13 +92,13 @@ export default class LicitacionesComponent {
 
 	licitacionesSolares = [this.createCard('Calle Morla 1', 'subastaInmuebleMorla1')];
 
-	createCard(titulo: string, route: string) {
+	createCard(titulo: string, tag: string) {
 		return {
 			titulo,
-			rutaImagen: environment.pathImgSupabase + route + '.jpg',
+			rutaImagen: environment.pathImgSupabase + tag + '.jpg',
 			// rutaImagen: `assets/licitaciones/${route}/${route}.jpg`,
 			// funcion: () => this._router.navigateByUrl(`//licitaciones/${route}`),
-			funcion: () => this._router.navigateByUrl(`levelLast/licitaciones/${route}`),
+			funcion: () => this._router.navigateByUrl(`levelLast/licitaciones/${titulo}/${tag}`),
 			highlighted: false
 		};
 	}

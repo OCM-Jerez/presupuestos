@@ -1,122 +1,103 @@
 [
 	{
 		"title": "Aeropuerto",
-		"path": "temas/",
 		"isLastLevel": true,
-		"rutaImagen": "aeropuerto.jpg"
+		"tag": "aeropuerto"
 	},
 	{
 		"title": "Arboles",
-		"path": "temas/arboles",
 		"isLastLevel": true,
-		"rutaImagen": "arboles.jpg"
+		"tag": "arboles"
 	},
 	{
 		"title": "Asesores",
-		"path": "temas/asesores",
 		"isLastLevel": true,
-		"rutaImagen": "asesores.jpg"
+		"tag": "asesores"
 	},
 	{
 		"title": "Asta Regia",
-		"path": "temas/astaRegia",
 		"isLastLevel": true,
-		"rutaImagen": "astaRegia.jpg"
+		"tag": "astaRegia"
 	},
 	{
 		"title": "Banda Municipal de música",
-		"path": "temas/bandaMusica",
 		"isLastLevel": true,
-		"rutaImagen": "bandaMusica.jpg"
+		"tag": "bandaMusica"
 	},
 	{
 		"title": "Declaraciones políticos",
-		"path": "temas/declaracionesPoliticos",
 		"isLastLevel": true,
-		"rutaImagen": "declaracionesPoliticos.jpg"
+		"tag": "declaracionesPoliticos"
 	},
 	{
 		"title": "Hermandades y cofradias",
-		"path": "temas/hermandades",
 		"isLastLevel": true,
-		"rutaImagen": "hermandades.jpg"
+		"tag": "hermandades"
 	},
 	{
 		"title": "Ifeca",
-		"path": "temas/ifeca",
 		"isLastLevel": true,
-		"rutaImagen": "ifeca.jpg"
+		"tag": "ifeca"
 	},
 	{
 		"title": "Museo del belén",
-		"path": "temas/museoBelen",
 		"isLastLevel": true,
-		"rutaImagen": "museoBelen.jpg"
+		"tag": "museoBelen"
 	},
 	{
 		"title": "Museo del Flamenco",
-		"path": "temas/museoFlamenco",
 		"isLastLevel": true,
-		"rutaImagen": "museoFlamenco.jpg"
+		"tag": "museoFlamenco"
 	},
 	{
 		"title": "Oficina de memoria democrática",
-		"path": "temas/oficinaMemoriaDemocratica",
 		"isLastLevel": true,
-		"rutaImagen": "oficinaMemoriaDemocratica.jpg"
+		"tag": "oficinaMemoriaDemocratica"
 	},
 	{
 		"title": "Plantas fotovoltaicas y parques eólicos",
-		"path": "temas/parquesEolicos",
 		"isLastLevel": true,
-		"rutaImagen": "parquesEolicos.jpg"
+		"tag": "parquesEolicos"
 	},
 	{
 		"title": "Presupuesto Junta de Andalucía",
-		"path": "temas/presupuestoJuntaAndalucia",
 		"isLastLevel": true,
-		"rutaImagen": "presupuestoJuntaAndalucia.jpg"
+		"tag": "presupuestoJuntaAndalucia"
 	},
 	{
 		"title": "Terrazas",
-		"path": "temas/terrazas",
 		"isLastLevel": true,
-		"rutaImagen": "terrazas.jpg"
+		"tag": "terrazas"
 	},
 	{
 		"title": "Señalización vertical y horizontal",
-		"path": "temas/senalizacion",
 		"isLastLevel": true,
-		"rutaImagen": "senalizacion.jpg"
+		"tag": "senalizacion"
 	},
 	{
 		"title": "Recogida naranjas",
-		"path": "temas/naranjas",
 		"isLastLevel": true,
-		"rutaImagen": "naranjas.jpg"
+		"tag": "naranjas"
 	},
 	{
 		"title": "Varios",
-		"path": "temas/varios",
 		"isLastLevel": true,
-		"rutaImagen": "varios.jpg"
+		"tag": "varios"
 	},
 	{
 		"title": "Comercio",
-		"path": "temas/comercio",
 		"isLastLevel": true,
-		"rutaImagen": "comercio.jpg"
+		"tag": "comercio"
 	},
 	{
 		"title": "Centro Tecnológico del Vino",
-		"path": "temas/centroTecnologicoVino",
 		"isLastLevel": true,
-		"rutaImagen": "centroTecnologicoVino.jpg"
+		"tag": "centroTecnologicoVino"
 	},
 	{
 		"title": "2031 Capitalidad Europea de la Cultura",
-		"path": "temas/capitalidadCultura2031",
+		"path": "temas/1",
 		"isLastLevel": true,
-		"rutaImagen": "capitalidadCultura2031.jpg"
+		"tag": "capitalidadCultura2031"
 	}
 ]
