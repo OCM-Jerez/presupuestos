@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 
 import * as d3 from 'd3';
 import { OrgChart } from 'd3-org-chart';
+
 import { SupabaseService } from '../supabase/supabase.service';
 
 interface INodeInfo {
@@ -69,12 +70,12 @@ export default class D3Component implements AfterViewInit {
 			.neighbourMargin((a, b) => 100)
 			.nodeHeight(() => 160 + 25)
 			.nodeWidth(() => 160 + 2)
-			.nodeButtonWidth(() => 40) // Configure expand & collapse button width
-			.nodeButtonHeight(() => 40) // Configure expand & collapse button height
-			.nodeButtonX(() => -20) // Configure expand & collapse button x position
-			.nodeButtonY(() => -20) // Configure expand & collapse button y position
+			.nodeButtonWidth(() => 40)
+			.nodeButtonHeight(() => 40)
+			.nodeButtonX(() => -20)
+			.nodeButtonY(() => -20)
 			// .node.x(() => 20)
-			.svgHeight(950)
+			.svgHeight(750)
 			.svgWidth(600)
 			// d es la data del node selelect
 			.onNodeClick((d) => {

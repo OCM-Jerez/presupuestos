@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import * as d3 from 'd3';
 import { OrgChart } from 'd3-org-chart';
+
 import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
 
 interface INodeInfo {
@@ -47,8 +48,6 @@ export default class D3SupabaseComponent implements AfterViewInit {
 	async fetchData() {
 		try {
 			this.data = await this._supabaseService.fetchData('datos_organigrama');
-			console.log('this.data', this.data);
-
 			// Asumiendo que 'data' es un array de tipo INodeInfo[]
 			if (this.data && Array.isArray(this.data)) {
 				await this.initChart();
@@ -69,17 +68,16 @@ export default class D3SupabaseComponent implements AfterViewInit {
 			.compactMarginPair(() => 30)
 			.container(this.chartContainer.nativeElement)
 			.data(this.data)
-			.initialExpandLevel(4)
-			.initialZoom(0.7)
+			.initialExpandLevel(2)
+			.initialZoom(0.6)
 			.neighbourMargin((a, b) => 100)
 			.nodeHeight(() => 300 + 25)
 			.nodeWidth(() => 260 + 2)
-			.nodeButtonWidth(() => 40) // Configure expand & collapse button width
-			.nodeButtonHeight(() => 40) // Configure expand & collapse button height
-			.nodeButtonX(() => -20) // Configure expand & collapse button x position
-			.nodeButtonY(() => -20) // Configure expand & collapse button y position
-			// .node.x(() => 20)
-			.svgHeight(950)
+			.nodeButtonWidth(() => 40)
+			.nodeButtonHeight(() => 40)
+			.nodeButtonX(() => -20)
+			.nodeButtonY(() => -20)
+			.svgHeight(750)
 			.svgWidth(600)
 			.onNodeClick((d) => {
 				window.location.href = `/#/supabase/${d.data.id}`;
@@ -88,6 +86,7 @@ export default class D3SupabaseComponent implements AfterViewInit {
 				return this.createNodeHtml(d);
 			})
 			.render();
+		// .node.x(() => 20)
 	}
 
 	// TODO: Refactorizar
