@@ -26,7 +26,7 @@ export default class EstadoLicitacionComponent implements OnInit {
 	ngOnInit(): void {
 		const routeConfig = this._route.snapshot.routeConfig;
 		const paramMap = this._route.snapshot.paramMap;
-		console.log('this._route.snapshot', this._route.snapshot);
+		// console.log('this._route.snapshot', this._route.snapshot);
 
 		if (routeConfig && routeConfig.path) {
 			const pathSegments = routeConfig.path.split('/');
@@ -35,7 +35,7 @@ export default class EstadoLicitacionComponent implements OnInit {
 				// Extraer el nombre del parámetro dinámico (sin los dos puntos ':')
 				const paramName = dynamicSegment.substring(1);
 				this._param = paramMap.get(paramName);
-				console.log('param', this._param);
+				// console.log('param', this._param);
 			} else {
 				this._param = routeConfig.path.includes('/') ? routeConfig.path.split('/')[1] : routeConfig.path;
 				console.log(this._param);

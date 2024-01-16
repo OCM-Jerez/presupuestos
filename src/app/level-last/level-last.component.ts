@@ -88,9 +88,6 @@ export default class LevelLastComponent implements OnInit {
 	public pmpURL = environment.pathImgSupabase + '2023-11.jpg';
 
 	ngOnInit() {
-		console.log('this.path', this.path);
-		console.log('this.title', this.title);
-
 		switch (this.path) {
 			case 'deudaTotal':
 				this.isDeudaTotal = true;
@@ -198,7 +195,6 @@ export default class LevelLastComponent implements OnInit {
 		try {
 			this.news = await this._supabaseService.fetchDataByTagOrder('news', tag, false);
 			this.hasNews = this.news.length > 0;
-			console.log('this.news', this.news);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}

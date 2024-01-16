@@ -59,7 +59,7 @@ export default class Level2Component implements OnInit {
 			? `levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(item.tag)}`
 			: `level3/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
 
-		console.log('item.title', item.title);
+		// console.log('item.title', item.title);
 		switch (item.path) {
 			case 'retribuciones2022':
 				URL = 'retribuciones2022';

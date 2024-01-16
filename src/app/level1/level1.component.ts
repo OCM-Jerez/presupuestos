@@ -61,14 +61,12 @@ export default class Level1Component implements OnInit {
 			? `levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(item.tag)}`
 			: `level2/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
 
-		console.log('item.path', item.path);
+		// console.log('item.path', item.path);
 		if (item.title === 'Licitaciones') {
 			URL = 'licitaciones';
-			console.log('URL', URL);
 		}
 		if (item.title === 'Presupuestos') {
 			URL = 'presupuestos';
-			console.log('URL', URL);
 		}
 		return {
 			...item,
