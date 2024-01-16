@@ -19,6 +19,12 @@ export default [
 		loadComponent: () => import('./level2/level2.component')
 	},
 
+	// levelLast ============================================================================================================================================
+	{
+		path: 'levelLast/:path/:title',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+
 	// level3  art10/infoInstitucional   ============================================================================================================================================
 	{
 		path: 'level3/:path/:title',

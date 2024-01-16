@@ -23,6 +23,14 @@ import { environment } from '@environments/environment';
 import { IMenuItem } from '@interfaces/menu.interface';
 import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
 
+interface IMenuItemHome {
+	title: string;
+	path: string;
+	rutaImagen: string;
+	funcion: () => void;
+	isLastLevel?: boolean;
+}
+
 @Component({
 	selector: 'app-level3',
 	standalone: true,
@@ -131,10 +139,13 @@ export default class Level3Component implements OnInit {
 			});
 	}
 
-	createCardMenu(item: IMenuItem) {
+	createCardMenu(item: IMenuItemHome) {
+		const URL = item.isLastLevel
+			? `levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`
+			: `level3/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
 		return {
 			...item,
-			funcion: () => this._router.navigateByUrl(`${item.path}`)
+			funcion: () => this._router.navigateByUrl(URL)
 		};
 	}
 }

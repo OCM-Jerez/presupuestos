@@ -56,9 +56,15 @@ export default class Level1Component implements OnInit {
 	}
 
 	createCardMenu(item: IMenuItemHome) {
-		const URL = item.isLastLevel
-			? item.path
-			: `level2/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)} )}`;
+		let URL = item.isLastLevel
+			? `levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`
+			: `level2/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
+
+		console.log('item.path', item.path);
+		if (item.path === 'licitaciones') {
+			URL = 'licitaciones';
+			console.log('URL', URL);
+		}
 		return {
 			...item,
 			funcion: () => this._router.navigateByUrl(URL)

@@ -57,6 +57,8 @@ interface IBarrio {
 	templateUrl: './level-last.component.html'
 })
 export default class LevelLastComponent implements OnInit {
+	@Input() path?: string;
+	@Input() title?: string;
 	private _supabaseService = inject(SupabaseService);
 	private _route = inject(ActivatedRoute);
 	private _http = inject(HttpClient);
@@ -95,160 +97,169 @@ export default class LevelLastComponent implements OnInit {
 	public gauge = environment.pathImgSupabase + 'gauge.jpg';
 	public pmpURL = environment.pathImgSupabase + '2023-11.jpg';
 	public _option = '';
-	public title = '';
+	public title1 = '';
 
-	private titleMap: { [key: string]: string } = {
-		festivalJerez: 'Festival de Jerez',
-		feria: 'Feria del Caballo',
-		titeres: 'Festival Internacional de titeres',
-		feriaLibro: 'Feria del libro',
-		Navidad: 'Navidad',
-		zambombas: 'Zambombas',
-		aeropuerto: 'Aeropuerto',
-		arboles: 'Arboles',
-		asesores: 'Asesores',
-		astaRegia: 'Asta Regia',
-		bandaMusica: 'Banda Municipal de música',
-		declaracionesPoliticos: 'Declaraciones políticos',
-		hermandades: 'Hermandades y cofradias',
-		ifeca: 'Ifeca',
-		museoBelen: 'Museo del belén',
-		museoFlamenco: 'Museo del Flamenco',
-		oficinaMemoriaDemocratica: 'Oficina de memoria democrática',
-		parquesEolicos: 'Plantas fotovoltaicas y parques eólicos',
-		presupuestoJuntaAndalucia: 'Presupuesto Junta de Andalucía',
-		terrazas: 'Terrazas',
-		senalizacion: 'Señalización vertical y horizontal',
-		naranjas: 'Recogida naranjas',
-		varios: 'Varios',
-		palacioRiquelme: 'Palacio Riquelme',
-		asiloSanJose: 'Antiguo asilo San Jose',
-		antiguaComisariaPoliciaNacional: 'Antigua comisaria Policía Nacional',
-		antiguaJefaturaPoliciaLocal: 'Antigua jefatura Policía Local',
-		croft: 'Croft',
-		callejonBolos: 'Callejón de los bolos',
-		palacioVillapanes: 'Palacio de Villapanés',
-		claustrosSantoDomingo: 'Claustros de Santo Domingo',
-		mercadoAbastos: 'Mercado de Abastos',
-		cartuja: 'Cartuja',
-		galloAzul: 'El Gallo Azul',
-		edificiosSingulares: 'Edificios Singulares',
-		apartamentosTuristicos: 'Apartamentos Turísticos',
-		proyectosViviendas: 'Proyectos construcción de viviendas',
-		poligonosIndustriales: 'Poligonos industriales',
-		registroSolares: 'Registro solares y edificaciones ruinosas',
-		mercados: 'Mercados',
-		plenoOrdinario20230929: 'Pleno ordinario 29 septiembre 2023',
-		plenoExtraordinario20231007: 'Pleno extraordinario y solemne 7 octubre 2023',
-		plenoOrdinario20231027: 'Pleno ordinario 27 octubre 2023',
-		plenoExtraordinario20231115: 'Pleno extraordinario 15 noviembre 2023',
-		plenoExtraordinarioUrgente20231115: 'Pleno extraordinario y urgente 15 noviembre 2023',
-		plenoExtraordinario20231122: 'Pleno extraordinario 22 noviembre 2023',
-		plenoOrdinario20231124: 'Pleno ordinario 24 noviembre 2023',
-		plenoExtraordinario20231215: 'Pleno extraordinario 15 diciembre 2023',
-		fundarte: 'Fundación Universitaria (Teatro Villamarta)',
-		comujesa: 'COMUJESA. Corporación Municipal de Jerez. S.A.',
-		cirjesa: 'CIRJESA. Circuito de Jerez. S.A.',
-		emuvijesa: 'EMUVIJESA. Empresa municipal de vivienda S.A.',
-		mesaTecnicaSeguridad: 'Mesa técnica de seguridad',
-		mesaEmpleo: 'Mesa de empleo',
-		consejoLocalInfanciaAdolescencia: 'Consejo local de infancia y adolescencia',
-		mesaConvivencia: 'Mesa de convivencia',
-		mesaCaballo: 'Mesa del caballo',
-		mesaLocalJuventud: 'Mesa local de la juventud',
-		mesaCentroHistorico: 'Mesa del Centro Histórico',
-		elTorno: 'El Torno',
-		guadalcacin: 'Guadalcacín',
-		laBarca: 'La Barca de la Florida',
-		estella: 'Estella del Marqués',
-		nuevaJarilla: 'Nueva Jarilla',
-		sanIsidro: 'San Isidro del Guadalete',
-		torrecera: 'Torrecera',
-		presidencia:
-			'Comisión de presidencia, centro histórico, fondos europeos, coordinación de gobierno y ordenación del territorio',
-		serviciosPublicos:
-			'Servicios Comisión de servicios públicos, desarrollo sostenible, medio ambiente, protección animal y participación ciudadana',
-		inclusion: 'Comisión de inclusión social, familias, igualdad y diversidad y medio rural',
-		turismo: 'Comisión de turismo, cultura, educación, deportes y juventud',
-		patrimonio:
-			'Comisión de empleo, economía, patrimonio, seguridad, recursos humanos, simplificación administrativa y transparencia',
-		cuentas: 'Comisión especial de cuentas',
-		sugerencias: 'Comisión especial de sugerencias y reclamaciones',
-		capitabilidad: 'Comisión especial de capitalidad cultural',
-		presupuestos: 'Comisión especial de presupuestos participativos',
-		regeneracion: 'Comisión especial de regeneración democrática y calidad institucional',
-		impulso: 'Comisión especial de impulso y seguimiento de las mesas sectoriales',
-		deuda: 'Deuda',
-		pmp: 'Periodo medio de pago a proveedores',
-		impuestos: 'Impuestos',
-		dipu2023: 'Subvenciones Diputación 2023',
-		PFEA: 'Programa de Fomento del Empleo Agrario (PFEA)',
-		distritoCentro: 'Distrito Centro',
-		distritoNorte: 'Distrito Norte',
-		distritoOeste: 'Distrito Oeste',
-		distritoSur: 'Distrito Sur',
-		distritoEste: 'Distrito Este',
-		distritoNoreste: 'Distrito Noroeste',
-		distritoRural: 'Distrito Rural',
-		centroSanJose: 'FUNDACION CENTRO DE ACOGIDA SAN JOSÉ',
-		empleadosNews: 'empleadosNews',
-		comercio: 'Comercio',
-		centroTecnologicoVino: 'Centro Tecnológico del Vino',
-		deudaTotal: 'Deuda total',
-		deudaViva: 'Deuda viva',
-		fondoOrdenacion: 'Fondo de Ordenación',
-		planAjuste20230918: 'Plan de ajuste revisión Pleno 18/09/2023',
-		capitalidadCultura2031: 'Capitalidad Europea de la Cultura 2031',
-		cineJerezano: 'Cine Jerezano',
-		depositoSementales: 'Depósito de Sementales',
-		mesaTurismo: 'Mesa de Turismo'
-	};
+	// private titleMap: { [key: string]: string } = {
+	// 	festivalJerez: 'Festival de Jerez',
+	// 	feria: 'Feria del Caballo',
+	// 	titeres: 'Festival Internacional de titeres',
+	// 	feriaLibro: 'Feria del libro',
+	// 	Navidad: 'Navidad',
+	// 	zambombas: 'Zambombas',
+	// 	aeropuerto: 'Aeropuerto',
+	// 	arboles: 'Arboles',
+	// 	asesores: 'Asesores',
+	// 	astaRegia: 'Asta Regia',
+	// 	bandaMusica: 'Banda Municipal de música',
+	// 	declaracionesPoliticos: 'Declaraciones políticos',
+	// 	hermandades: 'Hermandades y cofradias',
+	// 	ifeca: 'Ifeca',
+	// 	museoBelen: 'Museo del belén',
+	// 	museoFlamenco: 'Museo del Flamenco',
+	// 	oficinaMemoriaDemocratica: 'Oficina de memoria democrática',
+	// 	parquesEolicos: 'Plantas fotovoltaicas y parques eólicos',
+	// 	presupuestoJuntaAndalucia: 'Presupuesto Junta de Andalucía',
+	// 	terrazas: 'Terrazas',
+	// 	senalizacion: 'Señalización vertical y horizontal',
+	// 	naranjas: 'Recogida naranjas',
+	// 	varios: 'Varios',
+	// 	palacioRiquelme: 'Palacio Riquelme',
+	// 	asiloSanJose: 'Antiguo asilo San Jose',
+	// 	antiguaComisariaPoliciaNacional: 'Antigua comisaria Policía Nacional',
+	// 	antiguaJefaturaPoliciaLocal: 'Antigua jefatura Policía Local',
+	// 	croft: 'Croft',
+	// 	callejonBolos: 'Callejón de los bolos',
+	// 	palacioVillapanes: 'Palacio de Villapanés',
+	// 	claustrosSantoDomingo: 'Claustros de Santo Domingo',
+	// 	mercadoAbastos: 'Mercado de Abastos',
+	// 	cartuja: 'Cartuja',
+	// 	galloAzul: 'El Gallo Azul',
+	// 	edificiosSingulares: 'Edificios Singulares',
+	// 	apartamentosTuristicos: 'Apartamentos Turísticos',
+	// 	proyectosViviendas: 'Proyectos construcción de viviendas',
+	// 	poligonosIndustriales: 'Poligonos industriales',
+	// 	registroSolares: 'Registro solares y edificaciones ruinosas',
+	// 	mercados: 'Mercados',
+	// 	plenoOrdinario20230929: 'Pleno ordinario 29 septiembre 2023',
+	// 	plenoExtraordinario20231007: 'Pleno extraordinario y solemne 7 octubre 2023',
+	// 	plenoOrdinario20231027: 'Pleno ordinario 27 octubre 2023',
+	// 	plenoExtraordinario20231115: 'Pleno extraordinario 15 noviembre 2023',
+	// 	plenoExtraordinarioUrgente20231115: 'Pleno extraordinario y urgente 15 noviembre 2023',
+	// 	plenoExtraordinario20231122: 'Pleno extraordinario 22 noviembre 2023',
+	// 	plenoOrdinario20231124: 'Pleno ordinario 24 noviembre 2023',
+	// 	plenoExtraordinario20231215: 'Pleno extraordinario 15 diciembre 2023',
+	// 	fundarte: 'Fundación Universitaria (Teatro Villamarta)',
+	// 	comujesa: 'COMUJESA. Corporación Municipal de Jerez. S.A.',
+	// 	cirjesa: 'CIRJESA. Circuito de Jerez. S.A.',
+	// 	emuvijesa: 'EMUVIJESA. Empresa municipal de vivienda S.A.',
+	// 	mesaTecnicaSeguridad: 'Mesa técnica de seguridad',
+	// 	mesaEmpleo: 'Mesa de empleo',
+	// 	consejoLocalInfanciaAdolescencia: 'Consejo local de infancia y adolescencia',
+	// 	mesaConvivencia: 'Mesa de convivencia',
+	// 	mesaCaballo: 'Mesa del caballo',
+	// 	mesaLocalJuventud: 'Mesa local de la juventud',
+	// 	mesaCentroHistorico: 'Mesa del Centro Histórico',
+	// 	elTorno: 'El Torno',
+	// 	guadalcacin: 'Guadalcacín',
+	// 	laBarca: 'La Barca de la Florida',
+	// 	estella: 'Estella del Marqués',
+	// 	nuevaJarilla: 'Nueva Jarilla',
+	// 	sanIsidro: 'San Isidro del Guadalete',
+	// 	torrecera: 'Torrecera',
+	// 	presidencia:
+	// 		'Comisión de presidencia, centro histórico, fondos europeos, coordinación de gobierno y ordenación del territorio',
+	// 	serviciosPublicos:
+	// 		'Servicios Comisión de servicios públicos, desarrollo sostenible, medio ambiente, protección animal y participación ciudadana',
+	// 	inclusion: 'Comisión de inclusión social, familias, igualdad y diversidad y medio rural',
+	// 	turismo: 'Comisión de turismo, cultura, educación, deportes y juventud',
+	// 	patrimonio:
+	// 		'Comisión de empleo, economía, patrimonio, seguridad, recursos humanos, simplificación administrativa y transparencia',
+	// 	cuentas: 'Comisión especial de cuentas',
+	// 	sugerencias: 'Comisión especial de sugerencias y reclamaciones',
+	// 	capitabilidad: 'Comisión especial de capitalidad cultural',
+	// 	presupuestos: 'Comisión especial de presupuestos participativos',
+	// 	regeneracion: 'Comisión especial de regeneración democrática y calidad institucional',
+	// 	impulso: 'Comisión especial de impulso y seguimiento de las mesas sectoriales',
+	// 	deuda: 'Deuda',
+	// 	pmp: 'Periodo medio de pago a proveedores',
+	// 	impuestos: 'Impuestos',
+	// 	dipu2023: 'Subvenciones Diputación 2023',
+	// 	PFEA: 'Programa de Fomento del Empleo Agrario (PFEA)',
+	// 	distritoCentro: 'Distrito Centro',
+	// 	distritoNorte: 'Distrito Norte',
+	// 	distritoOeste: 'Distrito Oeste',
+	// 	distritoSur: 'Distrito Sur',
+	// 	distritoEste: 'Distrito Este',
+	// 	distritoNoreste: 'Distrito Noroeste',
+	// 	distritoRural: 'Distrito Rural',
+	// 	centroSanJose: 'FUNDACION CENTRO DE ACOGIDA SAN JOSÉ',
+	// 	empleadosNews: 'empleadosNews',
+	// 	comercio: 'Comercio',
+	// 	centroTecnologicoVino: 'Centro Tecnológico del Vino',
+	// 	deudaTotal: 'Deuda total',
+	// 	deudaViva: 'Deuda viva',
+	// 	fondoOrdenacion: 'Fondo de Ordenación',
+	// 	planAjuste20230918: 'Plan de ajuste revisión Pleno 18/09/2023',
+	// 	capitalidadCultura2031: 'Capitalidad Europea de la Cultura 2031',
+	// 	cineJerezano: 'Cine Jerezano',
+	// 	depositoSementales: 'Depósito de Sementales',
+	// 	mesaTurismo: 'Mesa de Turismo'
+	// };
 
 	ngOnInit() {
-		const { paramMap, routeConfig } = this._route.snapshot;
-		const pathFull = routeConfig?.path || '';
-		const pathSegments = pathFull.split('/');
+		console.log('this.path', this.path);
+		console.log('this.title', this.title);
 
-		let staticPath = pathSegments.slice(0, -1).join('/');
-		let param = '';
+		// const { paramMap, routeConfig } = this._route.snapshot;
+		// const pathFull = routeConfig?.path || '';
+		const pathSegments = this.path.split('/');
+		const staticPath = pathSegments[0];
+		// const tag = this.title.toLowerCase().trim();
+		const tag = this.title.charAt(0).toLowerCase() + this.title.slice(1).trim();
+
+		console.log('staticPath', staticPath);
+		console.log('tag', tag);
+
+		// let staticPath = pathSegments.slice(0, -1).join('/');
+		// let param = '';
 
 		// Si el último segmento de la ruta es dinámico, extrae el parámetro
-		if (pathFull.includes('/:') && pathSegments.length > 1) {
-			const dynamicSegment = pathSegments[pathSegments.length - 1];
-			param = dynamicSegment.split(':')[1];
-			this._option = paramMap.get(param);
-		} else {
-			// Si no es dinámico, utiliza el último segmento como parámetro, si existe
-			param = pathSegments.length > 1 ? pathSegments[pathSegments.length - 1] : pathSegments[0];
+		// if (pathFull.includes('/:') && pathSegments.length > 1) {
+		// 	const dynamicSegment = pathSegments[pathSegments.length - 1];
+		// 	param = dynamicSegment.split(':')[1];
+		// 	this._option = paramMap.get(param);
+		// } else {
+		// Si no es dinámico, utiliza el último segmento como parámetro, si existe
+		// param = pathSegments.length > 1 ? pathSegments[pathSegments.length - 1] : pathSegments[0];
 
-			switch (param) {
-				case 'deudaTotal':
-					this.isDeudaTotal = true;
-					// this.deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
-					break;
-				case 'deudaViva':
-					this.isDeudaViva = true;
-					break;
-				case 'fondoOrdenacion':
-					this.isFondoOrdenacion = true;
-					break;
-				case 'planAjuste20230918':
-					this.planAjuste20230918 = true;
-					break;
-				case 'pmp':
-					this.isPMP = true;
-					break;
-				case 'impuestos':
-					this.isImpuestos = true;
-					break;
-			}
-
-			this._option = param;
-			// console.log('this._option', this._option);
+		switch (tag) {
+			case 'deudaTotal':
+				this.isDeudaTotal = true;
+				// this.deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
+				break;
+			case 'deudaViva':
+				this.isDeudaViva = true;
+				break;
+			case 'fondoOrdenacion':
+				this.isFondoOrdenacion = true;
+				break;
+			case 'planAjuste20230918':
+				this.planAjuste20230918 = true;
+				break;
+			case 'pmp':
+				this.isPMP = true;
+				break;
+			case 'impuestos':
+				this.isImpuestos = true;
+				break;
 		}
 
-		this.title = this.titleMap[this._option] || 'FALTA AÑADIR Title en level-last.component.ts';
-		staticPath = staticPath ? `${staticPath}/` : '';
+		// this._option = param;
+		// console.log('this._option', this._option);
+		// }
+
+		// this.title = this.titleMap[this._option] || 'FALTA AÑADIR Title en level-last.component.ts';
+		// staticPath = staticPath ? `${staticPath}/` : '';
 
 		// Logs consolidados
 		// console.log('pathFull', pathFull);
@@ -256,11 +267,11 @@ export default class LevelLastComponent implements OnInit {
 		// console.log('param', param);
 		// console.log('this._option', this._option);
 
-		switch (staticPath) {
-			case 'licitaciones/':
+		switch (this.path) {
+			case 'licitaciones':
 				// console.log('staticPath', staticPath);
 				this.isLicitacion = true;
-				this.imgURL = environment.pathImgSupabase + this._option + '.jpg';
+				this.imgURL = environment.pathImgSupabase + tag + '.jpg';
 				// this.imgURL = `/assets/${staticPath}/${this._option}/${this._option}.jpg`;
 				break;
 			case 'edificioSingular/':
@@ -281,18 +292,18 @@ export default class LevelLastComponent implements OnInit {
 		}
 
 		// this.fetchData(staticPath, this._option);
-		this.fetchDataFromSupabase(staticPath, this._option);
+		this.fetchDataFromSupabase(tag);
 	}
 
-	async fetchDataFromSupabase(path: string, param: string) {
+	async fetchDataFromSupabase(tag: string) {
 		try {
-			this.steps = await this._supabaseService.fetchDataByTagOrder('steps', param, true);
+			this.steps = await this._supabaseService.fetchDataByTagOrder('steps', tag, true);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
 
 		try {
-			const data1 = await this._supabaseService.fetchDataByTag('licitaciones', param);
+			const data1 = await this._supabaseService.fetchDataByTag('licitaciones', tag);
 			// TODO: crear view en Supabase para hacerlo en ella
 			// Lo hago desde este código para evitar problemas con la asignación de nombres en la view con SQL.
 			// Ademas que hago la ordenación a la vez de los campos en el orden que quiero que aparezcan en la tabla
@@ -349,21 +360,24 @@ export default class LevelLastComponent implements OnInit {
 		}
 
 		try {
-			this.news = await this._supabaseService.fetchDataByTagOrder('news', param, false);
+			console.log('tag', tag);
+
+			this.news = await this._supabaseService.fetchDataByTagOrder('news', tag, false);
 			this.hasNews = this.news.length > 0;
+			console.log('this.news', this.news);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
 
 		try {
-			this.coms = await this._supabaseService.fetchDataByTagOrder('comments', param, false);
+			this.coms = await this._supabaseService.fetchDataByTagOrder('comments', tag, false);
 			this.hasComs = this.coms.length > 0;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
 
 		try {
-			this.docs = await this._supabaseService.fetchDataByTagOrder('documents', param, false);
+			this.docs = await this._supabaseService.fetchDataByTagOrder('documents', tag, false);
 			this.hasDocs = this.docs.length > 0;
 		} catch (error) {
 			console.error('Error fetching data:', error);

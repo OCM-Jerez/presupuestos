@@ -97,7 +97,8 @@ export default class LicitacionesComponent {
 			titulo,
 			rutaImagen: environment.pathImgSupabase + route + '.jpg',
 			// rutaImagen: `assets/licitaciones/${route}/${route}.jpg`,
-			funcion: () => this._router.navigateByUrl(`/licitaciones/${route}`),
+			// funcion: () => this._router.navigateByUrl(`//licitaciones/${route}`),
+			funcion: () => this._router.navigateByUrl(`levelLast/licitaciones/${route}`),
 			highlighted: false
 		};
 	}

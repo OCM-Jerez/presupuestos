@@ -1,7 +1,7 @@
 [
 	{
 		"title": "Aeropuerto",
-		"path": "temas/aeropuerto",
+		"path": "temas/",
 		"isLastLevel": true,
 		"rutaImagen": "aeropuerto.jpg"
 	},
