@@ -40,10 +40,6 @@ export default class OrganigramaPoliticoComponent implements AfterViewInit {
 	data: INodeInfo[] = [];
 
 	ngAfterViewInit() {
-		// d3.json('assets/organigrama/organigrama.json').then((data: INodeInfo[]) => {
-		// 	this.data = data;
-		// 	this.initChart();
-		// });
 		this.fetchData();
 	}
 
