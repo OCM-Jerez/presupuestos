@@ -19,13 +19,13 @@ interface INodeInfo {
 }
 
 @Component({
-	selector: 'app-d3',
+	selector: 'app-organigrama-politico',
 	standalone: true,
 	imports: [CommonModule],
 	templateUrl: './organigrama-politico.component.html',
 	styleUrls: ['./organigrama-politico.component.scss']
 })
-export default class D3Component implements AfterViewInit {
+export default class OrganigramaPoliticoComponent implements AfterViewInit {
 	@ViewChild('chartContainer') private chartContainer: ElementRef;
 	private _supabaseService = inject(SupabaseService);
 	public positionData: any[] = null;
