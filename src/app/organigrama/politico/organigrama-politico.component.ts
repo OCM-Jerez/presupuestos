@@ -22,8 +22,8 @@ interface INodeInfo {
 	selector: 'app-d3',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './d3.component.html',
-	styleUrls: ['./d3.component.scss']
+	templateUrl: './organigrama-politico.component.html',
+	styleUrls: ['./organigrama-politico.component.scss']
 })
 export default class D3Component implements AfterViewInit {
 	@ViewChild('chartContainer') private chartContainer: ElementRef;

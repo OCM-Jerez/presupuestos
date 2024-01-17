@@ -36,8 +36,8 @@ export default [
 			import('./art10/components/info-organizativa/components/empleados/components/rpt/rpt.component')
 	},
 	{
-		path: 'organigramaD3',
-		loadComponent: () => import('./organigrama/d3/d3.component')
+		path: 'organigramaPolitico',
+		loadComponent: () => import('./organigrama/politico/organigrama-politico.component')
 	},
 	{
 		path: 'organigramaD3Supabase',

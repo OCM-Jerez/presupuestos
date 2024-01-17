@@ -67,8 +67,8 @@ export default class Level2Component implements OnInit {
 			case 'rpt':
 				URL = 'rpt';
 				break;
-			case 'organigramaD3':
-				URL = 'organigramaD3';
+			case 'organigramaPolitico':
+				URL = 'organigramaPolitico';
 				break;
 			case 'organigramaD3Supabase':
 				URL = 'organigramaD3Supabase';
