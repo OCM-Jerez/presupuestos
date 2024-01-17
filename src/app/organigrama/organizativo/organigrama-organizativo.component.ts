@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import * as d3 from 'd3';
 import { OrgChart } from 'd3-org-chart';
 
-import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
+import { SupabaseService } from '@app/organigrama/ficha-empleado/supabase.service';
 
 interface INodeInfo {
 	id: number;

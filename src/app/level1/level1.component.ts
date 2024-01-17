@@ -8,7 +8,7 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
 
 import { INew } from '@interfaces/new.interface';
-import { SupabaseService } from '@app/organigrama/supabase/supabase.service';
+import { SupabaseService } from '@app/organigrama/ficha-empleado/supabase.service';
 
 interface IMenuItemHome {
 	title: string;

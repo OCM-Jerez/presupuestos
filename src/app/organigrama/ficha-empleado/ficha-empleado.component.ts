@@ -3,13 +3,13 @@ import { NgIf } from '@angular/common';
 import { SupabaseService } from './supabase.service';
 
 @Component({
-	selector: 'app-supabase',
+	selector: 'app-ficha-empleado',
 	standalone: true,
 	imports: [NgIf],
-	templateUrl: './supabase.component.html',
-	styleUrls: ['./supabase.component.scss']
+	templateUrl: './ficha-empleado.component.html',
+	styleUrls: ['./ficha-empleado.component.scss']
 })
-export default class SupabaseComponent implements OnInit {
+export default class FichaEmpleadoComponent implements OnInit {
 	@Input() id?: number;
 	//TODO: - Add types
 	public positionData: any[] = null;

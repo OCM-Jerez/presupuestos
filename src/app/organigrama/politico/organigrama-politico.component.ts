@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import * as d3 from 'd3';
 import { OrgChart } from 'd3-org-chart';
 
-import { SupabaseService } from '../supabase/supabase.service';
+import { SupabaseService } from '../ficha-empleado/supabase.service';
 
 interface INodeInfo {
 	id: number;
@@ -82,7 +82,7 @@ export default class OrganigramaPoliticoComponent implements AfterViewInit {
 				// console.log(d);
 				// window.location.href = `/#/employeeRecod/${d.data.id}`;
 				if (d.data.id === 1) {
-					window.location.href = `/#/supabase/${d.data.id}`;
+					window.location.href = `/#/fichaEmpleado/${d.data.id}`;
 				} else {
 					alert('No hay datos por el momento');
 				}

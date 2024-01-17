@@ -44,8 +44,8 @@ export default [
 		loadComponent: () => import('./organigrama/organizativo/organigrama-organizativo.component')
 	},
 	{
-		path: 'supabase/:id',
-		loadComponent: () => import('./organigrama/supabase/supabase.component')
+		path: 'fichaEmpleado/:id',
+		loadComponent: () => import('./organigrama/ficha-empleado/ficha-empleado.component')
 	},
 	// Art 15 ============================================================================================================================================
 	{
