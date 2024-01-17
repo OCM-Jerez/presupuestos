@@ -40,8 +40,8 @@ export default [
 		loadComponent: () => import('./organigrama/politico/organigrama-politico.component')
 	},
 	{
-		path: 'organigramaD3Supabase',
-		loadComponent: () => import('./organigrama/d3Supabase/d3-supabase.component')
+		path: 'organigramaOrganizativo',
+		loadComponent: () => import('./organigrama/organizativo/organigrama-organizativo.component')
 	},
 	{
 		path: 'supabase/:id',

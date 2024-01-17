@@ -25,8 +25,8 @@ interface INodeInfo {
 	selector: 'app-d3-supabase',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './d3-supabase.component.html',
-	styleUrls: ['./d3-supabase.component.scss']
+	templateUrl: './organigrama-organizativo.component.html',
+	styleUrls: ['./organigrama-organizativo.component.scss']
 })
 export default class D3SupabaseComponent implements AfterViewInit {
 	@ViewChild('chartContainer') private chartContainer: ElementRef;

@@ -70,8 +70,8 @@ export default class Level2Component implements OnInit {
 			case 'organigramaPolitico':
 				URL = 'organigramaPolitico';
 				break;
-			case 'organigramaD3Supabase':
-				URL = 'organigramaD3Supabase';
+			case 'organigramaOrganizativo':
+				URL = 'organigramaOrganizativo';
 				break;
 		}
 
