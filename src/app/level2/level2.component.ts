@@ -6,7 +6,7 @@ import { environment } from '@environments/environment';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
-import { SupabaseService } from '@app/organigrama/ficha-empleado/supabase.service';
+import { SupabaseService } from '@services/supabase.service';
 import { INew } from '@interfaces/new.interface';
 
 interface IMenuItemHome {

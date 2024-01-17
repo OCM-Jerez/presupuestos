@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { SupabaseService } from '@app/organigrama/ficha-empleado/supabase.service';
+import { SupabaseService } from '@services/supabase.service';
 
 @Component({
 	selector: 'app-docs-form',

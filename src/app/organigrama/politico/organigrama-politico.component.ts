@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import * as d3 from 'd3';
 import { OrgChart } from 'd3-org-chart';
 
-import { SupabaseService } from '../ficha-empleado/supabase.service';
+import { SupabaseService } from '../../services/supabase.service';
 
 interface INodeInfo {
 	id: number;

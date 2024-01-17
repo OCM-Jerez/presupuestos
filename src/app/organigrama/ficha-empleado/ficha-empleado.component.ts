@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { NgIf } from '@angular/common';
-import { SupabaseService } from './supabase.service';
+import { SupabaseService } from '../../services/supabase.service';
 
 @Component({
 	selector: 'app-ficha-empleado',

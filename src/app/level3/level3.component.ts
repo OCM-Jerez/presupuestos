@@ -18,7 +18,7 @@ import { INew } from '@interfaces/new.interface';
 import { environment } from '@environments/environment';
 
 import { IMenuItem } from '@interfaces/menu.interface';
-import { SupabaseService } from '@app/organigrama/ficha-empleado/supabase.service';
+import { SupabaseService } from '@services/supabase.service';
 
 interface IMenuItemHome {
 	title: string;

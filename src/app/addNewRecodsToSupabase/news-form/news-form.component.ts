@@ -3,7 +3,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ModalService } from '@app/layouts/modal/modal.service';
 
-import { SupabaseService } from '@app/organigrama/ficha-empleado/supabase.service';
+import { SupabaseService } from '@services/supabase.service';
 import { TagStoreService } from '@services/tagStore.service';
 
 @Component({

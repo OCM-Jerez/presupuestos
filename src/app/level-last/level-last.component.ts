@@ -10,7 +10,7 @@ import SeguimientoSubvencionComponent from '@commons/components/level/seguimient
 
 import { environment } from '@environments/environment';
 
-import { SupabaseService } from '@app/organigrama/ficha-empleado/supabase.service';
+import { SupabaseService } from '@services/supabase.service';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
