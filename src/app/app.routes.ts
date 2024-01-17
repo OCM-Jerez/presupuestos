@@ -132,15 +132,15 @@ export default [
 		loadComponent: () => import('./glosario/glosario.component')
 	},
 	{
-		path: 'addNew/:param',
+		path: 'addNew',
 		loadComponent: () => import('./addNewRecodsToSupabase/news-form/news-form.component')
 	},
 	{
-		path: 'addCom/:param',
+		path: 'addCom',
 		loadComponent: () => import('./addNewRecodsToSupabase/coms-form/coms-form.component')
 	},
 	{
-		path: 'addDoc/:param',
+		path: 'addDoc',
 		loadComponent: () => import('./addNewRecodsToSupabase/docs-form/docs-form.component')
 	},
 	{

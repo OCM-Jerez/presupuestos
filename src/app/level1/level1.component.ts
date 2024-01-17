@@ -9,6 +9,7 @@ import NoticiasComponent from '@app/commons/components/level/noticias/noticias.c
 
 import { INew } from '@interfaces/new.interface';
 import { SupabaseService } from '@services/supabase.service';
+import { TagStoreService } from '@services/tagStore.service';
 
 interface IMenuItemHome {
 	title: string;
@@ -29,12 +30,14 @@ export default class Level1Component implements OnInit {
 	@Input() path?: string;
 	@Input() title?: string;
 	private _supabaseService = inject(SupabaseService);
+	private _tagStoreService = inject(TagStoreService);
 
 	public menuOptions: IMenuItemHome[] = [];
 	private _router = inject(Router);
 	public news: INew[] = [];
 
 	ngOnInit() {
+		this._tagStoreService.setTag(this.path);
 		import(`../../assets/menuOptions/level1/${this.path}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItemHome) => {
 				const modifiedItem = {
@@ -42,7 +45,6 @@ export default class Level1Component implements OnInit {
 					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
 				};
 				this.fetchDataFromSupabase(this.path);
-
 				return this.createCardMenu(modifiedItem);
 			});
 		});
@@ -61,7 +63,6 @@ export default class Level1Component implements OnInit {
 			? `levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(item.tag)}`
 			: `level2/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
 
-		// console.log('item.path', item.path);
 		if (item.title === 'Licitaciones') {
 			URL = 'licitaciones';
 		}

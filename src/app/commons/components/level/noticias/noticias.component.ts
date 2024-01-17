@@ -27,8 +27,13 @@ export default class NoticiasComponent {
 
 	addNew(): void {
 		const paramMap = this._route.snapshot.paramMap;
-		this._tagStoreService.setTag(paramMap.get('tag'));
-		this._router.navigateByUrl(`/addNew/${this._param}`);
+		// En level1.component.ts se ha definido el parámetro tag
+		if (paramMap.get('tag')) {
+			this._param = paramMap.get('tag');
+			this._tagStoreService.setTag(paramMap.get('tag'));
+		}
+
+		this._router.navigateByUrl('addNew');
 		// this.useModal();
 	}
 
@@ -52,10 +57,10 @@ export default class NoticiasComponent {
 	}
 
 	addCom(): void {
-		this._router.navigateByUrl(`/addCom/${this._param}`);
+		this._router.navigateByUrl('addCom');
 	}
 
 	addDoc(): void {
-		this._router.navigateByUrl(`/addDoc/${this._param}`);
+		this._router.navigateByUrl('addDoc');
 	}
 }
