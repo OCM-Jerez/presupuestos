@@ -22,13 +22,13 @@ interface INodeInfo {
 }
 
 @Component({
-	selector: 'app-d3-supabase',
+	selector: 'app-organigrama-organizativo',
 	standalone: true,
 	imports: [CommonModule],
 	templateUrl: './organigrama-organizativo.component.html',
 	styleUrls: ['./organigrama-organizativo.component.scss']
 })
-export default class D3SupabaseComponent implements AfterViewInit {
+export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 	@ViewChild('chartContainer') private chartContainer: ElementRef;
 	private _supabaseService = inject(SupabaseService);
 
