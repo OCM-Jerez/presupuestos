@@ -87,7 +87,8 @@ export default class LicitacionesComponent {
 		this.createCard('Suministro de equipos de protección individual (EPIS)', 'epis2023'),
 		this.createCard('Montaje palcos Semana Santa', 'palcos2023'),
 		this.createCard('Renting vehiculos policía local', 'vehiculosPolicia2024'),
-		this.createCard('Servicios de vigilancia de seguridad y de auxiliares de control', 'vigilancia2024')
+		this.createCard('Servicios de vigilancia de seguridad y de auxiliares de control', 'vigilancia2024'),
+		this.createCard('Instalación aire acondicionado Teatro Villmarta', 'climatizacionVillamarta2024')
 	];
 
 	licitacionesSolares = [this.createCard('Calle Morla 1', 'subastaInmuebleMorla1')];
