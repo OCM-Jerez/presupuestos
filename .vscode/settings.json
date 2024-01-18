@@ -25,5 +25,6 @@
     "explorer.compactFolders": false,
     "github-actions.workflows.pinned.workflows": [
         ".github/workflows/main.yml"
-    ]
+    ],
+    "svg.preview.background": "custom"
 }
