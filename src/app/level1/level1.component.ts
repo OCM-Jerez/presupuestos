@@ -50,9 +50,9 @@ export default class Level1Component implements OnInit {
 		});
 	}
 
-	async fetchDataFromSupabase(param: string) {
+	async fetchDataFromSupabase(tag: string) {
 		try {
-			this.news = await this._supabaseService.fetchDataByTagOrder('news', param, false);
+			this.news = await this._supabaseService.fetchDataByTagOrder('news', tag, false);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
