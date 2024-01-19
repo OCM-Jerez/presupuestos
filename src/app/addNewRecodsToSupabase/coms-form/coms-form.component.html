@@ -1,6 +1,6 @@
 <div class="OCM-container">
 	<h2 class="heading">Añadir comentario en {{ tag }}</h2>
-	<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+	<form [formGroup]="userForm" (ngSubmit)="guardar()">
 		<div class="form-group">
 			<label for="date">Fecha</label>
 			<input type="date" class="form-date" id="date" formControlName="date" />
@@ -25,6 +25,6 @@
 			</div>
 		</div>
 
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">Guardar</button>
 	</form>
 </div>

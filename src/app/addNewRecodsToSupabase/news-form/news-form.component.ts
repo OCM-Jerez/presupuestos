@@ -1,10 +1,10 @@
 import { NgIf, Location } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ModalService } from '@app/layouts/modal/modal.service';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { SupabaseService } from '@services/supabase.service';
 import { TagStoreService } from '@services/tagStore.service';
+import { ModalService } from '@app/layouts/modal/modal.service';
 
 @Component({
 	selector: 'app-news-form',
@@ -14,8 +14,7 @@ import { TagStoreService } from '@services/tagStore.service';
 	styleUrls: ['./news-form.component.scss']
 })
 export default class NewsFormComponent implements OnInit {
-	// TODO: Typar
-	userForm: any;
+	userForm: FormGroup;
 	private _formBuilder = inject(FormBuilder);
 	private _supabaseService = inject(SupabaseService);
 	private _location = inject(Location);

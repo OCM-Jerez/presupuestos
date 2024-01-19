@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+
 import { SupabaseService } from '@services/supabase.service';
 
 @Component({
@@ -13,7 +14,6 @@ import { SupabaseService } from '@services/supabase.service';
 })
 export default class DocsFormComponent implements OnInit {
 	userForm: any;
-
 	private _formBuilder = inject(FormBuilder);
 	private _route = inject(ActivatedRoute);
 	private _supabaseService = inject(SupabaseService);
