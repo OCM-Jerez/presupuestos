@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+
 import { Router } from '@angular/router';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
@@ -33,16 +33,14 @@ interface IMenuItemHome {
 	selector: 'app-level3',
 	standalone: true,
 	imports: [
-		NgFor,
-		NgIf,
-		CardMenuComponent,
-		EstadoLicitacionComponent,
-		DataGeneralComponent,
-		SeguimientoSubvencionComponent,
-		DocumentosComponent,
-		ComentariosComponent,
-		NoticiasComponent
-	],
+    CardMenuComponent,
+    EstadoLicitacionComponent,
+    DataGeneralComponent,
+    SeguimientoSubvencionComponent,
+    DocumentosComponent,
+    ComentariosComponent,
+    NoticiasComponent
+],
 	templateUrl: './level3.component.html'
 })
 export default class Level3Component implements OnInit {

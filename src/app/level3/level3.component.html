@@ -1,31 +1,40 @@
 <main class="OCM-dark-teme">
 	<header class="OCM-subtitle-dark">{{ title }}</header>
 
-	<section *ngIf="!isComisiones" class="OCM-flex">
-		<div *ngFor="let menu of menuOptions">
+	@if (!isComisiones) {
+	<section class="OCM-flex">
+		@for (menu of menuOptions; track menu) {
+		<div>
 			<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 		</div>
+		}
 	</section>
-
-	<ng-container *ngIf="isComisiones">
-		<header class="OCM-title-dark">Permanentes</header>
-		<section class="OCM-flex">
-			<div *ngFor="let menu of menuOptions.slice(0, 5)">
-				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-			</div>
-		</section>
-
-		<header class="OCM-title-dark">Especiales</header>
-		<section class="OCM-flex">
-			<div *ngFor="let menu of menuOptions.slice(5, 11)">
-				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-			</div>
-		</section>
-	</ng-container>
+	} @if (isComisiones) {
+	<header class="OCM-title-dark">Permanentes</header>
+	<section class="OCM-flex">
+		@for (menu of menuOptions.slice(0, 5); track menu) {
+		<div>
+			<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+		</div>
+		}
+	</section>
+	<header class="OCM-title-dark">Especiales</header>
+	<section class="OCM-flex">
+		@for (menu of menuOptions.slice(5, 11); track menu) {
+		<div>
+			<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+		</div>
+		}
+	</section>
+	}
 
 	<!-- <app-data-general *ngIf="isLicitacion" [data]="data" />
-	<app-seguimiento-subvencion *ngIf="isSubvencion" [stepsSubvencion]="stepsSubvencion" /> -->
-	<app-documentos *ngIf="hasDocs" [docs]="docs" />
-	<app-noticias *ngIf="hasNews" [news]="news" />
-	<app-comentarios *ngIf="hasComs" [coms]="coms" />
+  <app-seguimiento-subvencion *ngIf="isSubvencion" [stepsSubvencion]="stepsSubvencion" /> -->
+	@if (hasDocs) {
+	<app-documentos [docs]="docs" />
+	} @if (hasNews) {
+	<app-noticias [news]="news" />
+	} @if (hasComs) {
+	<app-comentarios [coms]="coms" />
+	}
 </main>
