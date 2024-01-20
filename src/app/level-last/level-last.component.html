@@ -1,76 +1,59 @@
 <main class="OCM-dark-teme">
-  @if (isLicitacion) {
-    <header class="OCM-subtitle-dark">{{ descripcion }}</header>
-  }
-  @if (!isLicitacion) {
-    <header class="OCM-title-dark">{{ title }}</header>
-  }
-
-  @if (isLicitacion) {
-    <app-estado-licitacion [steps]="steps" [imgURL]="imgURL" [gauge]="gauge" />
-  }
-
-  @if (isDistrito || isEdificioSingular) {
-    <figure class="OCM-img">
-      <img
-        [class]="{ 'OCM-imgGraph': isDistrito, 'OCM-imgEdificio': isEdificioSingular }"
-        [src]="imgURL"
-        alt="Foto proyecto"
-        />
-    </figure>
-  }
-
-  @if (isPMP) {
-    <figure>
-      <img class="OCM-imgGraph" [src]="pmpURL" alt="Grafico pmp" />
-    </figure>
-  }
-
-  @if (isDeudaTotal) {
-    <figure>
-      <img class="OCM-imgGraph" [src]="deudaTotalImgURL" alt="Grafico pmp" />
-    </figure>
-  }
-
-  @if (isDeudaViva) {
-    <figure>
-      <img class="OCM-imgGraph" [src]="deudaVivaImgURL" alt="Grafico pmp" />
-    </figure>
-  }
-
-  @if (isDistrito) {
-    <section class="OCM-tableContainer">
-      <table class="OCM-tableDocumentos">
-        <thead>
-          <tr>
-            <th>Barrio</th>
-            <th>URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (barrio of barrios; track barrio) {
-            <tr>
-              <td>{{ barrio.value }}</td>
-              <!-- <td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td> -->
-            </tr>
-          }
-        </tbody>
-      </table>
-    </section>
-  }
-
-  @if (isLicitacion) {
-    <app-data-general [data]="data" />
-  }
-  @if (isSubvencion) {
-    <app-seguimiento-subvencion [stepsSubvencion]="stepsSubvencion" />
-  }
-  @if (hasDocs) {
-    <app-documentos [docs]="docs" />
-  }
-  <!-- <app-noticias *ngIf="hasNews" [news]="news" /> -->
-  <app-noticias [news]="news" />
-  @if (hasComs) {
-    <app-comentarios [coms]="coms" />
-  }
+	@if (isLicitacion) {
+	<header class="OCM-subtitle-dark">{{ descripcion }}</header>
+	} @if (!isLicitacion) {
+	<header class="OCM-title-dark">{{ title }}</header>
+	} @if (isLicitacion) {
+	<app-estado-licitacion [steps]="steps" [imgURL]="imgURL" [gauge]="gauge" />
+	} @if (isDistrito || isEdificioSingular) {
+	<figure class="OCM-img">
+		<img
+			[class]="{ 'OCM-imgGraph': isDistrito, 'OCM-imgEdificio': isEdificioSingular }"
+			[src]="imgURL"
+			alt="Foto proyecto"
+		/>
+	</figure>
+	} @if (isPMP) {
+	<figure>
+		<img class="OCM-imgGraph" [src]="pmpURL" alt="Grafico pmp" />
+	</figure>
+	} @if (isDeudaTotal) {
+	<figure>
+		<img class="OCM-imgGraph" [src]="deudaTotalImgURL" alt="Grafico pmp" />
+	</figure>
+	} @if (isDeudaViva) {
+	<figure>
+		<img class="OCM-imgGraph" [src]="deudaVivaImgURL" alt="Grafico pmp" />
+	</figure>
+	} @if (isDistrito) {
+	<section class="OCM-tableContainer">
+		<table class="OCM-tableDocumentos">
+			<thead>
+				<tr>
+					<th>Barrio</th>
+					<th>URL</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (barrio of barrios; track barrio) {
+				<tr>
+					<td>{{ barrio.value }}</td>
+					<!-- <td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td> -->
+				</tr>
+				}
+			</tbody>
+		</table>
+	</section>
+	} @if (isLicitacion) {
+	<app-data-general [data]="data" />
+	} @if (isSubvencion) {
+	<app-seguimiento-subvencion [stepsSubvencion]="stepsSubvencion" />
+	} @if (hasDocs) {
+	<app-documentos [docs]="docs" />
+	}
+	<!-- <app-noticias *ngIf="hasNews" [news]="news" /> -->
+	<app-noticias [news]="news" />
+	@if (hasComs) {
+	<app-comentarios [coms]="coms" />
+	}
 </main>

@@ -8,9 +8,9 @@ import EstadoLicitacionComponent from '@commons/components/level/estado-licitaci
 import NoticiasComponent from '@commons/components/level/noticias/noticias.component';
 import SeguimientoSubvencionComponent from '@commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
 
-import { environment } from '@environments/environment';
-
 import { SupabaseService } from '@services/supabase.service';
+
+import { environment } from '@environments/environment';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
