@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgIf } from '@angular/common';
+
 import { RouterOutlet } from '@angular/router';
 
 import { FooterComponent } from './layouts/footer/footer.component';
@@ -9,7 +9,7 @@ import 'ag-grid-enterprise';
 	selector: 'app-root',
 	templateUrl: './app.component.html',
 	standalone: true,
-	imports: [NavbarComponent, NgIf, RouterOutlet, FooterComponent]
+	imports: [NavbarComponent, RouterOutlet, FooterComponent]
 })
 export class AppComponent implements OnInit {
 	ngOnInit(): void {

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -10,7 +10,7 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 @Component({
 	selector: 'app-licitaciones',
 	standalone: true,
-	imports: [NgFor, NgIf, FormsModule, CardMenuComponent],
+	imports: [FormsModule, CardMenuComponent],
 	templateUrl: './licitaciones.component.html',
 	styleUrls: ['./licitaciones.component.scss']
 })

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
-import { AsyncPipe, Location, NgIf } from '@angular/common';
+import { AsyncPipe, Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -34,7 +34,7 @@ import { IDataGasto } from '@interfaces/dataGasto.interface';
 	templateUrl: './table-programa-details.component.html',
 	styleUrls: ['./table-programa-details.component.scss'],
 	standalone: true,
-	imports: [NgIf, AgGridModule, AsyncPipe]
+	imports: [AgGridModule, AsyncPipe]
 })
 export default class TableProgramaDetailsComponent implements OnInit, OnDestroy {
 	private _location = inject(Location);

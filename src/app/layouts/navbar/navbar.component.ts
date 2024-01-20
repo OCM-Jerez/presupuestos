@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { NgIf, Location } from '@angular/common';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 	templateUrl: './navbar.component.html',
 	styleUrls: ['./navbar.component.scss'],
 	standalone: true,
-	imports: [NgIf]
+	imports: []
 })
 export class NavbarComponent {
 	public router = inject(Router);

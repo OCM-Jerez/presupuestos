@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CurrencyPipe, NgIf } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { DataStoreService } from '@services/dataStore.service';
@@ -14,7 +14,7 @@ import { IDataTotalesPresupuesto } from '@interfaces/dataTotalesPresupuesto.inte
 	templateUrl: './table-presupuesto.component.html',
 	styleUrls: ['./table-presupuesto.component.scss'],
 	standalone: true,
-	imports: [NgIf, CurrencyPipe]
+	imports: [CurrencyPipe]
 })
 export class TablePresupuestoComponent implements OnInit {
 	private _avalaibleYearsService = inject(AvalaibleYearsService);

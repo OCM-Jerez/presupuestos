@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { NgFor } from '@angular/common';
+
 import { Router } from '@angular/router';
 
 import { environment } from '@environments/environment';
@@ -23,7 +23,7 @@ interface IMenuItemHome {
 @Component({
 	selector: 'app-level1',
 	standalone: true,
-	imports: [NgFor, CardMenuComponent, NoticiasComponent],
+	imports: [CardMenuComponent, NoticiasComponent],
 	templateUrl: './level1.component.html'
 })
 export default class Level1Component implements OnInit {

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, Input } from '@angular/core';
 
 interface IStepSubvencion {
@@ -11,7 +11,7 @@ interface IStepSubvencion {
 @Component({
 	selector: 'app-seguimiento-subvencion',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [],
 	templateUrl: './seguimiento-subvencion.component.html',
 	styleUrls: ['./seguimiento-subvencion.component.scss']
 })

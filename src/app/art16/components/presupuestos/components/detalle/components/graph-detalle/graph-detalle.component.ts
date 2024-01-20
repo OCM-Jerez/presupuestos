@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild, inject } from '@angular/core';
-import { Location, NgIf } from '@angular/common';
+import { Location } from '@angular/common';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 
@@ -23,7 +23,7 @@ import { IDataGasto } from '@interfaces/dataGasto.interface';
 	templateUrl: './graph-detalle.component.html',
 	styleUrls: ['./graph-detalle.component.scss'],
 	standalone: true,
-	imports: [NgIf, AgGridModule]
+	imports: [AgGridModule]
 })
 export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 	private _location = inject(Location);

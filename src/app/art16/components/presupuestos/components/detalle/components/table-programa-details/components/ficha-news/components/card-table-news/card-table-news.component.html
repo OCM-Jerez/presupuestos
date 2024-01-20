@@ -1,22 +1,24 @@
 <div class="cardTableHome">
-	<table class="paleBlueRows">
-		<thead>
-			<tr>
-				<th>Fecha</th>
-				<th>Medio</th>
-				<th>Título</th>
-				<th>URL</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let news of filteredNews">
-				<ng-container *ngIf="news.URL !== ''">
-					<td>{{ news.date }}</td>
-					<td>{{ news.medio }}</td>
-					<td>{{ news.title }}</td>
-					<td><a href="{{ news.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
-				</ng-container>
-			</tr>
-		</tbody>
-	</table>
+  <table class="paleBlueRows">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Medio</th>
+        <th>Título</th>
+        <th>URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (news of filteredNews; track news) {
+        <tr>
+          @if (news.URL !== '') {
+            <td>{{ news.date }}</td>
+            <td>{{ news.medio }}</td>
+            <td>{{ news.title }}</td>
+            <td><a href="{{ news.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
 </div>

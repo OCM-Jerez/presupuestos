@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+
 import { Component, Input, OnInit, inject } from '@angular/core';
 
 import ComentariosComponent from '@commons/components/level/comentarios/comentarios.component';
@@ -40,15 +40,13 @@ interface IBarrio {
 	selector: 'app-level-last',
 	standalone: true,
 	imports: [
-		NgFor,
-		NgIf,
-		EstadoLicitacionComponent,
-		DataGeneralComponent,
-		SeguimientoSubvencionComponent,
-		DocumentosComponent,
-		ComentariosComponent,
-		NoticiasComponent
-	],
+    EstadoLicitacionComponent,
+    DataGeneralComponent,
+    SeguimientoSubvencionComponent,
+    DocumentosComponent,
+    ComentariosComponent,
+    NoticiasComponent
+],
 	templateUrl: './level-last.component.html'
 })
 export default class LevelLastComponent implements OnInit {

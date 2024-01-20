@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
@@ -8,7 +8,7 @@ const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 @Component({
 	selector: 'app-info-organizativa',
 	standalone: true,
-	imports: [CommonModule, CardMenuComponent],
+	imports: [CardMenuComponent],
 	templateUrl: './info-organizativa.component.html',
 	styleUrls: ['./info-organizativa.component.scss']
 })

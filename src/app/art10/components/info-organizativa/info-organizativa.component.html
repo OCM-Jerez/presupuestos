@@ -1,8 +1,10 @@
 <h2 class="OCM-title-dark">Artículo 10. Información organizativa.</h2>
 
 <div class="flex">
-	<div class="flex__cardMenu" *ngFor="let menu of cardMenus" [style.background]="menu.background">
-		<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-	</div>
+  @for (menu of cardMenus; track menu) {
+    <div class="flex__cardMenu" [style.background]="menu.background">
+      <app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+    </div>
+  }
 </div>
 ```

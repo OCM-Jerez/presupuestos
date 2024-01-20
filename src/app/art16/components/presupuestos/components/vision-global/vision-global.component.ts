@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+
 import { CardIndiceComponent } from '@app/commons/components/card/card.component';
 import { CheckboxComponent } from '@app/commons/components/checkbox/checkbox.component';
 import { SankeyGraphsComponent } from './components/sankey-graphs/sankey-graphs.component';
@@ -10,7 +10,7 @@ import { TableDataPresupuestoComponent } from './components/table/table.componen
 	templateUrl: './vision-global.component.html',
 	styleUrls: ['./vision-global.component.scss'],
 	standalone: true,
-	imports: [NgFor, CardIndiceComponent, CheckboxComponent, TableDataPresupuestoComponent, SankeyGraphsComponent]
+	imports: [CardIndiceComponent, CheckboxComponent, TableDataPresupuestoComponent, SankeyGraphsComponent]
 })
 export default class IndiceComponent {
 	items = [

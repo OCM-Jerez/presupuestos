@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { NgFor } from '@angular/common';
+
 
 import { TableService } from '@services/table.service';
 
@@ -16,7 +16,7 @@ import { IDataGasto } from '@interfaces/dataGasto.interface';
 	templateUrl: './card-table-home.component.html',
 	styleUrls: ['./card-table-home.component.scss'],
 	standalone: true,
-	imports: [NgFor]
+	imports: []
 })
 export class CardTableHomeComponent implements OnInit {
 	private _tableService = inject(TableService);

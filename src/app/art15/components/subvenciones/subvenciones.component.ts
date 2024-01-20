@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { NgFor } from '@angular/common';
+
 import { Router } from '@angular/router';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
@@ -7,7 +7,7 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 @Component({
 	selector: 'app-subvenciones',
 	standalone: true,
-	imports: [NgFor, CardMenuComponent],
+	imports: [CardMenuComponent],
 	templateUrl: './subvenciones.component.html',
 	styleUrls: ['./subvenciones.component.scss']
 })

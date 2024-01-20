@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
-import { NgIf } from '@angular/common';
+
 
 import { Subject, takeUntil, tap } from 'rxjs';
 
@@ -35,7 +35,7 @@ import { ISubtabClasification } from '@interfaces/subtabClasification.interface'
 	templateUrl: './table.component.html',
 	styleUrls: ['./table.component.scss'],
 	standalone: true,
-	imports: [NgIf, AgGridModule]
+	imports: [AgGridModule]
 })
 export class TableComponent implements OnInit, OnDestroy {
 	private _avalaibleYearsService = inject(AvalaibleYearsService);

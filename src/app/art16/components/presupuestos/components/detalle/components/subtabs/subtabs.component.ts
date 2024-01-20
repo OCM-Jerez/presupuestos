@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { Subject, takeUntil } from 'rxjs';
@@ -19,7 +19,7 @@ import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 	templateUrl: './subtabs.component.html',
 	styleUrls: ['./subtabs.component.scss'],
 	standalone: true,
-	imports: [NgFor, NgClass, NgIf, AsyncPipe]
+	imports: [NgClass, AsyncPipe]
 })
 export class SubtabsComponent implements OnInit, OnDestroy {
 	private _router = inject(Router);

@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -23,7 +23,7 @@ interface ILicitacion {
 @Component({
 	selector: 'app-subvencion',
 	standalone: true,
-	imports: [NgIf, NgFor],
+	imports: [],
 	templateUrl: './subvencion.component.html',
 	styleUrls: ['./subvencion.component.scss']
 })

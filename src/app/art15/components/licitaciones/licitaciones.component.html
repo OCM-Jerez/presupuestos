@@ -1,71 +1,85 @@
 <main class="OCM-dark-teme">
-	<h2 class="OCM-title-dark">Licitaciones</h2>
+  <h2 class="OCM-title-dark">Licitaciones</h2>
 
-	<section class="OCM-subtitle-dark-left">
-		<div class="InputContainer">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				width="24"
-				height="24"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="#657789"
-				stroke-width="3"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				class="feather feather-search"
-			>
-				<circle cx="11" cy="11" r="8" />
-				<line x1="21" y1="21" x2="16.65" y2="16.65" />
-			</svg>
-			<input type="text" [(ngModel)]="searchText" (input)="filterData()" placeholder="Buscar licitaciones..." />
-		</div>
-		<button *ngIf="canAddRowSupabase" class="OCM-button" (click)="addNew()">Añadir licitación</button>
-	</section>
+  <section class="OCM-subtitle-dark-left">
+    <div class="InputContainer">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#657789"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="feather feather-search"
+        >
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+      <input type="text" [(ngModel)]="searchText" (input)="filterData()" placeholder="Buscar licitaciones..." />
+    </div>
+    @if (canAddRowSupabase) {
+      <button class="OCM-button" (click)="addNew()">Añadir licitación</button>
+    }
+  </section>
 
-	<section class="reveal-animation">
-		<header class="OCM-subtitle-dark-left">
-			Aplicación consulta de datos Plataforma Contratación del Sector Público
-		</header>
-		<section class="OCM-flex">
-			<section *ngFor="let menu of OCM">
-				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-			</section>
-		</section>
+  <section class="reveal-animation">
+    <header class="OCM-subtitle-dark-left">
+      Aplicación consulta de datos Plataforma Contratación del Sector Público
+    </header>
+    <section class="OCM-flex">
+      @for (menu of OCM; track menu) {
+        <section>
+          <app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+        </section>
+      }
+    </section>
 
-		<header class="OCM-subtitle-dark-left">Con subvención CEE</header>
-		<section class="OCM-flex">
-			<section *ngFor="let menu of licitacionesCEE" [class.highlight]="menu.highlighted">
-				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-			</section>
-		</section>
+    <header class="OCM-subtitle-dark-left">Con subvención CEE</header>
+    <section class="OCM-flex">
+      @for (menu of licitacionesCEE; track menu) {
+        <section [class.highlight]="menu.highlighted">
+          <app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+        </section>
+      }
+    </section>
 
-		<header class="OCM-subtitle-dark-left">Con subvención Gobierno de España</header>
-		<section class="OCM-flex">
-			<section *ngFor="let menu of licitacionesESP" [class.highlight]="menu.highlighted">
-				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-			</section>
-		</section>
+    <header class="OCM-subtitle-dark-left">Con subvención Gobierno de España</header>
+    <section class="OCM-flex">
+      @for (menu of licitacionesESP; track menu) {
+        <section [class.highlight]="menu.highlighted">
+          <app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+        </section>
+      }
+    </section>
 
-		<header class="OCM-subtitle-dark-left">Con subvención Diputación Provincial de Cádiz</header>
-		<section class="OCM-flex">
-			<section *ngFor="let menu of licitacionesDiputacion" [class.highlight]="menu.highlighted">
-				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-			</section>
-		</section>
+    <header class="OCM-subtitle-dark-left">Con subvención Diputación Provincial de Cádiz</header>
+    <section class="OCM-flex">
+      @for (menu of licitacionesDiputacion; track menu) {
+        <section [class.highlight]="menu.highlighted">
+          <app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+        </section>
+      }
+    </section>
 
-		<header class="OCM-subtitle-dark-left">Con fondos propios del Ayuntamiento</header>
-		<section class="OCM-flex">
-			<section *ngFor="let menu of licitacionesAyto" [class.highlight]="menu.highlighted">
-				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-			</section>
-		</section>
+    <header class="OCM-subtitle-dark-left">Con fondos propios del Ayuntamiento</header>
+    <section class="OCM-flex">
+      @for (menu of licitacionesAyto; track menu) {
+        <section [class.highlight]="menu.highlighted">
+          <app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+        </section>
+      }
+    </section>
 
-		<header class="OCM-subtitle-dark-left">Subastas Registro Municipal de Solares y Edificaciones Ruinosas</header>
-		<section class="OCM-flex">
-			<section *ngFor="let menu of licitacionesSolares" [class.highlight]="menu.highlighted">
-				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-			</section>
-		</section>
-	</section>
+    <header class="OCM-subtitle-dark-left">Subastas Registro Municipal de Solares y Edificaciones Ruinosas</header>
+    <section class="OCM-flex">
+      @for (menu of licitacionesSolares; track menu) {
+        <section [class.highlight]="menu.highlighted">
+          <app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+        </section>
+      }
+    </section>
+  </section>
 </main>

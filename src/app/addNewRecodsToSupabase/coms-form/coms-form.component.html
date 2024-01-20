@@ -1,30 +1,36 @@
 <div class="OCM-container">
-	<h2 class="heading">Añadir comentario en {{ tag }}</h2>
-	<form [formGroup]="userForm" (ngSubmit)="guardar()">
-		<div class="form-group">
-			<label for="date">Fecha</label>
-			<input type="date" class="form-date" id="date" formControlName="date" />
-			<div *ngIf="userForm?.get('date')?.invalid && userForm?.get('date')?.touched" class="text-danger">
-				Fecha es requerida.
-			</div>
-		</div>
+  <h2 class="heading">Añadir comentario en {{ tag }}</h2>
+  <form [formGroup]="userForm" (ngSubmit)="guardar()">
+    <div class="form-group">
+      <label for="date">Fecha</label>
+      <input type="date" class="form-date" id="date" formControlName="date" />
+      @if (userForm?.get('date')?.invalid && userForm?.get('date')?.touched) {
+        <div class="text-danger">
+          Fecha es requerida.
+        </div>
+      }
+    </div>
 
-		<div class="form-group">
-			<label for="sender">Emisor</label>
-			<input type="text" class="form-media" id="media" formControlName="sender" />
-			<div *ngIf="userForm?.get('sender')?.invalid && userForm?.get('sender')?.touched" class="text-danger">
-				Emisor es requerido.
-			</div>
-		</div>
+    <div class="form-group">
+      <label for="sender">Emisor</label>
+      <input type="text" class="form-media" id="media" formControlName="sender" />
+      @if (userForm?.get('sender')?.invalid && userForm?.get('sender')?.touched) {
+        <div class="text-danger">
+          Emisor es requerido.
+        </div>
+      }
+    </div>
 
-		<div class="form-group">
-			<label for="texto">Titulo</label>
-			<input type="text" class="form-control" id="text" formControlName="text" />
-			<div *ngIf="userForm?.get('text')?.invalid && userForm?.get('text')?.touched" class="text-danger">
-				titulo es requerido.
-			</div>
-		</div>
+    <div class="form-group">
+      <label for="texto">Titulo</label>
+      <input type="text" class="form-control" id="text" formControlName="text" />
+      @if (userForm?.get('text')?.invalid && userForm?.get('text')?.touched) {
+        <div class="text-danger">
+          titulo es requerido.
+        </div>
+      }
+    </div>
 
-		<button type="submit" class="btn btn-primary">Guardar</button>
-	</form>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
 </div>

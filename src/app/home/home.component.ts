@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { NgFor } from '@angular/common';
+
 import { Router } from '@angular/router';
 
 import { environment } from '@environments/environment';
@@ -13,7 +13,7 @@ import { IMenuItem } from '@interfaces/menu.interface';
 	templateUrl: './home.component.html',
 	styleUrls: ['./home.component.scss'],
 	standalone: true,
-	imports: [NgFor, CardMenuComponent]
+	imports: [CardMenuComponent]
 })
 export default class HomeComponent implements OnInit {
 	private _router = inject(Router);

@@ -1,5 +1,5 @@
 import { AfterContentInit, Component, ContentChildren, OnDestroy, QueryList, inject } from '@angular/core';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 import { Subject, takeUntil } from 'rxjs';
 
@@ -16,7 +16,7 @@ import { ITab } from '@interfaces/tab.interface';
 	templateUrl: './tabs.component.html',
 	styleUrls: ['./tabs.component.scss'],
 	standalone: true,
-	imports: [NgFor, NgIf, NgClass]
+	imports: [NgClass]
 })
 export class TabsComponent implements AfterContentInit, OnDestroy {
 	private _dataStoreSubtabService = inject(DataStoreSubtabService);

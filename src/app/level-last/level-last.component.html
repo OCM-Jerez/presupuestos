@@ -1,50 +1,76 @@
 <main class="OCM-dark-teme">
-	<header *ngIf="isLicitacion" class="OCM-subtitle-dark">{{ descripcion }}</header>
-	<header *ngIf="!isLicitacion" class="OCM-title-dark">{{ title }}</header>
+  @if (isLicitacion) {
+    <header class="OCM-subtitle-dark">{{ descripcion }}</header>
+  }
+  @if (!isLicitacion) {
+    <header class="OCM-title-dark">{{ title }}</header>
+  }
 
-	<app-estado-licitacion *ngIf="isLicitacion" [steps]="steps" [imgURL]="imgURL" [gauge]="gauge" />
+  @if (isLicitacion) {
+    <app-estado-licitacion [steps]="steps" [imgURL]="imgURL" [gauge]="gauge" />
+  }
 
-	<figure *ngIf="isDistrito || isEdificioSingular" class="OCM-img">
-		<img
-			[class]="{ 'OCM-imgGraph': isDistrito, 'OCM-imgEdificio': isEdificioSingular }"
-			[src]="imgURL"
-			alt="Foto proyecto"
-		/>
-	</figure>
+  @if (isDistrito || isEdificioSingular) {
+    <figure class="OCM-img">
+      <img
+        [class]="{ 'OCM-imgGraph': isDistrito, 'OCM-imgEdificio': isEdificioSingular }"
+        [src]="imgURL"
+        alt="Foto proyecto"
+        />
+    </figure>
+  }
 
-	<figure *ngIf="isPMP">
-		<img class="OCM-imgGraph" [src]="pmpURL" alt="Grafico pmp" />
-	</figure>
+  @if (isPMP) {
+    <figure>
+      <img class="OCM-imgGraph" [src]="pmpURL" alt="Grafico pmp" />
+    </figure>
+  }
 
-	<figure *ngIf="isDeudaTotal">
-		<img class="OCM-imgGraph" [src]="deudaTotalImgURL" alt="Grafico pmp" />
-	</figure>
+  @if (isDeudaTotal) {
+    <figure>
+      <img class="OCM-imgGraph" [src]="deudaTotalImgURL" alt="Grafico pmp" />
+    </figure>
+  }
 
-	<figure *ngIf="isDeudaViva">
-		<img class="OCM-imgGraph" [src]="deudaVivaImgURL" alt="Grafico pmp" />
-	</figure>
+  @if (isDeudaViva) {
+    <figure>
+      <img class="OCM-imgGraph" [src]="deudaVivaImgURL" alt="Grafico pmp" />
+    </figure>
+  }
 
-	<section *ngIf="isDistrito" class="OCM-tableContainer">
-		<table class="OCM-tableDocumentos">
-			<thead>
-				<tr>
-					<th>Barrio</th>
-					<th>URL</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let barrio of barrios">
-					<td>{{ barrio.value }}</td>
-					<!-- <td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td> -->
-				</tr>
-			</tbody>
-		</table>
-	</section>
+  @if (isDistrito) {
+    <section class="OCM-tableContainer">
+      <table class="OCM-tableDocumentos">
+        <thead>
+          <tr>
+            <th>Barrio</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (barrio of barrios; track barrio) {
+            <tr>
+              <td>{{ barrio.value }}</td>
+              <!-- <td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td> -->
+            </tr>
+          }
+        </tbody>
+      </table>
+    </section>
+  }
 
-	<app-data-general *ngIf="isLicitacion" [data]="data" />
-	<app-seguimiento-subvencion *ngIf="isSubvencion" [stepsSubvencion]="stepsSubvencion" />
-	<app-documentos *ngIf="hasDocs" [docs]="docs" />
-	<!-- <app-noticias *ngIf="hasNews" [news]="news" /> -->
-	<app-noticias [news]="news" />
-	<app-comentarios *ngIf="hasComs" [coms]="coms" />
+  @if (isLicitacion) {
+    <app-data-general [data]="data" />
+  }
+  @if (isSubvencion) {
+    <app-seguimiento-subvencion [stepsSubvencion]="stepsSubvencion" />
+  }
+  @if (hasDocs) {
+    <app-documentos [docs]="docs" />
+  }
+  <!-- <app-noticias *ngIf="hasNews" [news]="news" /> -->
+  <app-noticias [news]="news" />
+  @if (hasComs) {
+    <app-comentarios [coms]="coms" />
+  }
 </main>

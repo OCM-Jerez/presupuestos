@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -8,7 +8,7 @@ import { SupabaseService } from '@services/supabase.service';
 @Component({
 	selector: 'app-docs-form',
 	standalone: true,
-	imports: [CommonModule, FormsModule, ReactiveFormsModule],
+	imports: [FormsModule, ReactiveFormsModule],
 	templateUrl: './docs-form.component.html',
 	styleUrls: ['./docs-form.component.scss']
 })

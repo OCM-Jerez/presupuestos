@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ModalService } from './modal.service';
 import { Options } from './modal-options';
 import { Observable, fromEvent, zip } from 'rxjs';
@@ -8,7 +8,7 @@ import { Observable, fromEvent, zip } from 'rxjs';
 	selector: 'app-modal',
 	templateUrl: './modal.component.html',
 	styleUrls: ['./modal.component.css'],
-	imports: [CommonModule],
+	imports: [],
 	standalone: true
 })
 export class ModalComponent implements AfterViewInit {

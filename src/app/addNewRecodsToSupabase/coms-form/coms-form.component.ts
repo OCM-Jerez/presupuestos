@@ -1,4 +1,4 @@
-import { NgIf, Location } from '@angular/common';
+import { Location } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -9,7 +9,7 @@ import { ModalService } from '@app/layouts/modal/modal.service';
 @Component({
 	selector: 'app-coms-form',
 	standalone: true,
-	imports: [NgIf, FormsModule, ReactiveFormsModule],
+	imports: [FormsModule, ReactiveFormsModule],
 	templateUrl: './coms-form.component.html',
 	styleUrls: ['./coms-form.component.scss']
 })

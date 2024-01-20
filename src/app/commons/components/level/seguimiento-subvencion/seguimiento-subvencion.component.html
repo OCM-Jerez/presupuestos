@@ -1,21 +1,23 @@
 <!-- <ng-container *ngIf="isSubvencion"> -->
 <header class="OCM-subtitle-dark">Seguimiento subvenciones</header>
 <section class="OCM-tableContainer">
-	<table class="OCM-tableSeguimientoSubvenciones">
-		<thead>
-			<tr>
-				<th>Subvención</th>
-				<th>Observaciones</th>
-				<th>Cuantia</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let step of stepsSubvencion">
-				<td>{{ step.descripcion }}</td>
-				<td>{{ step.observaciones }}</td>
-				<td>{{ step.cuantia }}</td>
-			</tr>
-		</tbody>
-	</table>
+  <table class="OCM-tableSeguimientoSubvenciones">
+    <thead>
+      <tr>
+        <th>Subvención</th>
+        <th>Observaciones</th>
+        <th>Cuantia</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (step of stepsSubvencion; track step) {
+        <tr>
+          <td>{{ step.descripcion }}</td>
+          <td>{{ step.observaciones }}</td>
+          <td>{{ step.cuantia }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
 </section>
 <!-- </ng-container> -->

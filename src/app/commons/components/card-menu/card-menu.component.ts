@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 	templateUrl: './card-menu.component.html',
 	styleUrls: ['./card-menu.component.scss'],
 	standalone: true,
-	imports: [CommonModule]
+	imports: []
 })
 export class CardMenuComponent {
 	@Input() rutaImagen?: string;

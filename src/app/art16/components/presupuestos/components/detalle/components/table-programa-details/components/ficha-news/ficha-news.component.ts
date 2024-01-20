@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -11,7 +11,7 @@ import { IDataGasto } from '@interfaces/dataGasto.interface';
 @Component({
 	selector: 'app-ficha-news',
 	standalone: true,
-	imports: [CommonModule, CardTableNewsComponent],
+	imports: [CardTableNewsComponent],
 	templateUrl: './ficha-news.component.html',
 	styleUrls: ['./ficha-news.component.scss']
 })

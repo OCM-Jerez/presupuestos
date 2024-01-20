@@ -1,9 +1,11 @@
 <h2 class="OCM-title">Visión global</h2>
 
 <div class="flex-container-cards">
-	<div class="flex-items" *ngFor="let item of items">
-		<app-card [indice]="item.indice" [title]="item.title" [footer]="item.footer" [img]="item.img" />
-	</div>
+  @for (item of items; track item) {
+    <div class="flex-items">
+      <app-card [indice]="item.indice" [title]="item.title" [footer]="item.footer" [img]="item.img" />
+    </div>
+  }
 </div>
 
 <app-checkbox [multiYears]="false" />

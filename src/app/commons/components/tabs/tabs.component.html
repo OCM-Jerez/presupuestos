@@ -1,13 +1,18 @@
 <div class="tabs">
-	<div
-		*ngFor="let tab of tabs"
-		class="tab"
-		[ngClass]="{ 'tab--selected': tab.active === true }"
-		(click)="clickTab(tab)"
-	>
-		<span *ngIf="!tab.isFicha" class="tab__title">{{ tab.title }}</span>
-		<span *ngIf="tab.isFicha" class="tab__title" style="font-size: 12px">{{ tab.title }}</span>
-	</div>
+  @for (tab of tabs; track tab) {
+    <div
+      class="tab"
+      [ngClass]="{ 'tab--selected': tab.active === true }"
+      (click)="clickTab(tab)"
+      >
+      @if (!tab.isFicha) {
+        <span class="tab__title">{{ tab.title }}</span>
+      }
+      @if (tab.isFicha) {
+        <span class="tab__title" style="font-size: 12px">{{ tab.title }}</span>
+      }
+    </div>
+  }
 </div>
 
 <ng-content></ng-content>

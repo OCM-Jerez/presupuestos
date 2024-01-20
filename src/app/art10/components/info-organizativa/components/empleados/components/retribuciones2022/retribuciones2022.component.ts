@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { ColDef, ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
@@ -12,7 +12,7 @@ import RetribPersonal2022 from '@assets/data/RetribPersonal2022.json';
 @Component({
 	selector: 'app-retribuciones2022',
 	standalone: true,
-	imports: [CommonModule, AgGridModule],
+	imports: [AgGridModule],
 	templateUrl: './retribuciones2022.component.html',
 	styleUrls: ['./retribuciones2022.component.scss']
 })

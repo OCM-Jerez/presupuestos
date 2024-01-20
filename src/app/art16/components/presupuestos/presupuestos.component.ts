@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgFor } from '@angular/common';
+
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 import { CardInfoHomeComponent } from './components/card-info-home/card-info-home.component';
 import { CardTableHomeComponent } from './components/card-table-home/card-table-home.component';
@@ -12,7 +12,7 @@ const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 	templateUrl: './presupuestos.component.html',
 	styleUrls: ['./presupuestos.component.scss'],
 	standalone: true,
-	imports: [NgFor, CardMenuComponent, CardTableHomeComponent, CardInfoHomeComponent]
+	imports: [CardMenuComponent, CardTableHomeComponent, CardInfoHomeComponent]
 })
 export default class PresupuestosComponent {
 	private _router = inject(Router);

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf } from '@angular/common';
+
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { ReloadTableService } from '@services/reloadTable.service';
@@ -10,7 +10,7 @@ import { ReloadTableService } from '@services/reloadTable.service';
 	templateUrl: './checkbox.component.html',
 	styleUrls: ['./checkbox.component.scss'],
 	standalone: true,
-	imports: [NgFor, NgIf, FormsModule]
+	imports: [FormsModule]
 })
 export class CheckboxComponent implements OnInit {
 	@Input() multiYears: boolean;

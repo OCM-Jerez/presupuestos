@@ -1,39 +1,45 @@
 <div class="OCM-container">
-	<h2 class="heading">Añadir documento en {{ tag }}</h2>
-	<form [formGroup]="userForm" (ngSubmit)="submitForm()">
-		<div class="form-group">
-			<label for="date">Fecha</label>
-			<input type="date" class="form-date" id="date" formControlName="date" />
-			<div *ngIf="userForm?.get('date')?.invalid && userForm?.get('date')?.touched" class="text-danger">
-				Fecha es requerida.
-			</div>
-		</div>
+  <h2 class="heading">Añadir documento en {{ tag }}</h2>
+  <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label for="date">Fecha</label>
+      <input type="date" class="form-date" id="date" formControlName="date" />
+      @if (userForm?.get('date')?.invalid && userForm?.get('date')?.touched) {
+        <div class="text-danger">
+          Fecha es requerida.
+        </div>
+      }
+    </div>
 
-		<div class="form-group">
-			<label for="emisor">Emisor</label>
-			<input type="text" class="form-media" id="emisor" formControlName="emisor" />
-			<div *ngIf="userForm?.get('emisor')?.invalid && userForm?.get('emisor')?.touched" class="text-danger">
-				Medio es requerido.
-			</div>
-		</div>
+    <div class="form-group">
+      <label for="emisor">Emisor</label>
+      <input type="text" class="form-media" id="emisor" formControlName="emisor" />
+      @if (userForm?.get('emisor')?.invalid && userForm?.get('emisor')?.touched) {
+        <div class="text-danger">
+          Medio es requerido.
+        </div>
+      }
+    </div>
 
-		<div class="form-group">
-			<label for="title">Titulo</label>
-			<input type="text" class="form-control" id="title" formControlName="title" />
-			<div *ngIf="userForm?.get('title')?.invalid && userForm?.get('title')?.touched" class="text-danger">
-				titulo es requerido.
-			</div>
-		</div>
+    <div class="form-group">
+      <label for="title">Titulo</label>
+      <input type="text" class="form-control" id="title" formControlName="title" />
+      @if (userForm?.get('title')?.invalid && userForm?.get('title')?.touched) {
+        <div class="text-danger">
+          titulo es requerido.
+        </div>
+      }
+    </div>
 
-		<!-- <div class="form-group">
-			<label for="url_doc">URL</label>
-			<input type="text" class="form-control" id="url_doc" formControlName="url_doc" />
-			<div *ngIf="userForm?.get('url_doc')?.invalid && userForm?.get('url_doc')?.touched" class="text-danger">
-				URL es requerido.
-			</div>
-		</div> -->
-		<input class="form-media" type="file" (change)="addImg($event)" />
+    <!-- <div class="form-group">
+    <label for="url_doc">URL</label>
+    <input type="text" class="form-control" id="url_doc" formControlName="url_doc" />
+    <div *ngIf="userForm?.get('url_doc')?.invalid && userForm?.get('url_doc')?.touched" class="text-danger">
+      URL es requerido.
+    </div>
+  </div> -->
+  <input class="form-media" type="file" (change)="addImg($event)" />
 
-		<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </div>

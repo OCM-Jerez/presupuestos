@@ -1,25 +1,27 @@
 <!-- <ng-container *ngIf="hasDocs"> -->
 <header class="OCM-subtitle-dark">Documentos</header>
 <section class="OCM-tableContainer">
-	<table class="OCM-tableDocumentos">
-		<thead>
-			<tr>
-				<th>Fecha</th>
-				<th>Emisor</th>
-				<th>Título</th>
-				<th>URL</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let doc of docs">
-				<ng-container *ngIf="doc.url !== ''">
-					<td>{{ doc.date }}</td>
-					<td>{{ doc.emisor }}</td>
-					<td>{{ doc.title }}</td>
-					<td><a href="{{ doc.url }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
-				</ng-container>
-			</tr>
-		</tbody>
-	</table>
+  <table class="OCM-tableDocumentos">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Emisor</th>
+        <th>Título</th>
+        <th>URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (doc of docs; track doc) {
+        <tr>
+          @if (doc.url !== '') {
+            <td>{{ doc.date }}</td>
+            <td>{{ doc.emisor }}</td>
+            <td>{{ doc.title }}</td>
+            <td><a href="{{ doc.url }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
 </section>
 <!-- </ng-container> -->

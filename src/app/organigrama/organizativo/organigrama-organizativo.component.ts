@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 import * as d3 from 'd3';
 import { OrgChart } from 'd3-org-chart';
@@ -24,7 +24,7 @@ interface INodeInfo {
 @Component({
 	selector: 'app-organigrama-organizativo',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [],
 	templateUrl: './organigrama-organizativo.component.html',
 	styleUrls: ['./organigrama-organizativo.component.scss']
 })

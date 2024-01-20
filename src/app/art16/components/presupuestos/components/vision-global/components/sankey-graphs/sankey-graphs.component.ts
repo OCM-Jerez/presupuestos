@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 import { Subject, switchMap, takeUntil } from 'rxjs';
 
@@ -28,7 +28,7 @@ HighchartsSankey(Highcharts);
 @Component({
 	selector: 'app-sankey-graphs',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [],
 	templateUrl: './sankey-graphs.component.html',
 	styleUrls: ['./sankey-graphs.component.scss']
 })

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NgIf } from '@angular/common';
+
 
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 
@@ -7,7 +7,7 @@ import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 	selector: 'app-tab',
 	templateUrl: './tab.component.html',
 	standalone: true,
-	imports: [NgIf]
+	imports: []
 })
 export class TabComponent {
 	@Input() clasification: CLASIFICATION_TYPE;

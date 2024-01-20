@@ -1,157 +1,164 @@
-<body *ngIf="positionData" style="background-color: #15202b">
-	<section class="OCM-tableContainer">
-		<h2 class="OCM-subtitle">Caracteristicas del puesto</h2>
-		<table class="tableDataPersona">
-			<tr>
-				<th>Denominación</th>
-				<th>Tipo</th>
-				<th>RPT</th>
-				<th>Observaciones</th>
-			</tr>
-			<tr>
-				<td>{{ positionData[0].position }}</td>
-				<td>{{ positionData[0].type }}</td>
-				<td>
-					<a href="{{ positionData[0].url }}" target="_blank" rel="nofollow" aria-label="Ayto"> link </a>
-				</td>
-				<td>{{ positionData[0].obs }}</td>
-			</tr>
-		</table>
-	</section>
-
-	<section class="OCM-tableContainer">
-		<h2 class="OCM-subtitle">Persona que actualmente ocupa el puesto</h2>
-		<table class="tableDataPersona">
-			<tr>
-				<th>Foto</th>
-				<th>Nombre</th>
-				<th>Sueldo</th>
-				<th>WEB Ayto</th>
-				<th>CV</th>
-				<th>Declaración de bienes</th>
-				<th>Contacto publicado</th>
-				<th>LinKedIn</th>
-				<th>Wikipedia</th>
-			</tr>
-			<tr>
-				<td>
-					<img style="border-radius: 50%; width: 100px" src="{{ positionData[0].image }}" alt="foto" />
-				</td>
-
-				<td>{{ employeeName }}</td>
-				<td>
-					{{ positionData[0].salary }}
-				</td>
-				<td>
-					<a href="{{ positionData[0].ayto_url }}" target="_blank" rel="nofollow" aria-label="Ayto">link</a>
-				</td>
-				<td>{{ positionData[0].cv }}</td>
-				<td>{{ positionData[0].assets }}</td>
-				<td>{{ positionData[0].contact }}</td>
-				<td>
-					<a
-						*ngIf="positionData[0].linkedin_url"
-						href="{{ positionData[0].linkedin_url }}"
-						target="_blank"
-						rel="nofollow"
-						aria-label="Ayto"
-						>link</a
-					>
-				</td>
-				<td>
-					<a
-						*ngIf="positionData[0].wikipedia_url"
-						href="{{ positionData[0].wikipedia_url }}"
-						target="_blank"
-						rel="nofollow"
-						aria-label="Ayto"
-						>link</a
-					>
-				</td>
-			</tr>
-		</table>
-	</section>
-
-	<section *ngIf="positionData[0].position_ext" class="OCM-tableContainer">
-		<h2 class="OCM-subtitle">Cargos que compatibiliza la persona que ocupa el puesto</h2>
-		<table class="tableDataPersona">
-			<tr>
-				<th>Cargo</th>
-				<th>Información</th>
-				<th>Sueldo</th>
-				<th>Observaciones</th>
-			</tr>
-			<tr>
-				<td>{{ positionData[0].position_ext }}</td>
-				<td>
-					<a href="{{ positionData[0].position_ext_url }}" target="_blank" rel="nofollow" aria-label="External">Link</a>
-				</td>
-				<td>
-					{{ positionData[0].position_ext_salary }}
-				</td>
-				<td>
-					{{ positionData[0].position_ext_obs }}
-				</td>
-			</tr>
-			<tr *ngIf="positionData[1].position_ext">
-				<td>{{ positionData[1].position_ext }}</td>
-				<td>
-					<a href="{{ positionData[1].position_ext_url }}" target="_blank" rel="nofollow" aria-label="External">Link</a>
-				</td>
-				<td>
-					{{ positionData[1].position_ext_salary }}
-				</td>
-				<td>
-					{{ positionData[1].position_ext_obs }}
-				</td>
-			</tr>
-		</table>
-	</section>
-
-	<section *ngIf="positionData[0].record_name" class="OCM-tableContainer">
-		<h2 class="OCM-subtitle">Personas que han ocupado el puesto</h2>
-		<table class="tableDataPersona">
-			<tr>
-				<th>Foto</th>
-				<th>Persona</th>
-				<th>Periodo</th>
-				<th>Sueldo</th>
-				<th>Observaciones</th>
-				<th>LinKedIn</th>
-				<th>Wikipedia</th>
-			</tr>
-
-			<tr>
-				<td>
-					<img style="border-radius: 50%; width: 100px" src="{{ positionData[0].record_image }}" alt="foto" />
-				</td>
-				<td>
-					{{ positionData[0].record_name }} {{ positionData[0].record_firstname }} {{ positionData[0].record_lastname }}
-				</td>
-				<td>{{ positionData[0].date }}</td>
-				<td>{{ positionData[0].record_salary }}</td>
-				<td>{{ positionData[0].record_obs }}</td>
-				<td>
-					<a
-						*ngIf="positionData[0].record_linkedin_url"
-						href="{{ positionData[0].record_linkedin_url }}"
-						target="_blank"
-						rel="nofollow"
-						aria-label="Linkedin"
-						>Link</a
-					>
-				</td>
-				<td>
-					<a
-						*ngIf="positionData[0].record_wikipedia_url"
-						href="{{ positionData[0].record_wikipedia_url }}"
-						target="_blank"
-						rel="nofollow"
-						aria-label="Wikipedia"
-						>Link</a
-					>
-				</td>
-			</tr>
-		</table>
-	</section>
-</body>
+@if (positionData) {
+  <body style="background-color: #15202b">
+    <section class="OCM-tableContainer">
+      <h2 class="OCM-subtitle">Caracteristicas del puesto</h2>
+      <table class="tableDataPersona">
+        <tr>
+          <th>Denominación</th>
+          <th>Tipo</th>
+          <th>RPT</th>
+          <th>Observaciones</th>
+        </tr>
+        <tr>
+          <td>{{ positionData[0].position }}</td>
+          <td>{{ positionData[0].type }}</td>
+          <td>
+            <a href="{{ positionData[0].url }}" target="_blank" rel="nofollow" aria-label="Ayto"> link </a>
+          </td>
+          <td>{{ positionData[0].obs }}</td>
+        </tr>
+      </table>
+    </section>
+    <section class="OCM-tableContainer">
+      <h2 class="OCM-subtitle">Persona que actualmente ocupa el puesto</h2>
+      <table class="tableDataPersona">
+        <tr>
+          <th>Foto</th>
+          <th>Nombre</th>
+          <th>Sueldo</th>
+          <th>WEB Ayto</th>
+          <th>CV</th>
+          <th>Declaración de bienes</th>
+          <th>Contacto publicado</th>
+          <th>LinKedIn</th>
+          <th>Wikipedia</th>
+        </tr>
+        <tr>
+          <td>
+            <img style="border-radius: 50%; width: 100px" src="{{ positionData[0].image }}" alt="foto" />
+          </td>
+          <td>{{ employeeName }}</td>
+          <td>
+            {{ positionData[0].salary }}
+          </td>
+          <td>
+            <a href="{{ positionData[0].ayto_url }}" target="_blank" rel="nofollow" aria-label="Ayto">link</a>
+          </td>
+          <td>{{ positionData[0].cv }}</td>
+          <td>{{ positionData[0].assets }}</td>
+          <td>{{ positionData[0].contact }}</td>
+          <td>
+            @if (positionData[0].linkedin_url) {
+              <a
+                href="{{ positionData[0].linkedin_url }}"
+                target="_blank"
+                rel="nofollow"
+                aria-label="Ayto"
+                >link</a
+                >
+              }
+            </td>
+            <td>
+              @if (positionData[0].wikipedia_url) {
+                <a
+                  href="{{ positionData[0].wikipedia_url }}"
+                  target="_blank"
+                  rel="nofollow"
+                  aria-label="Ayto"
+                  >link</a
+                  >
+                }
+              </td>
+            </tr>
+          </table>
+        </section>
+        @if (positionData[0].position_ext) {
+          <section class="OCM-tableContainer">
+            <h2 class="OCM-subtitle">Cargos que compatibiliza la persona que ocupa el puesto</h2>
+            <table class="tableDataPersona">
+              <tr>
+                <th>Cargo</th>
+                <th>Información</th>
+                <th>Sueldo</th>
+                <th>Observaciones</th>
+              </tr>
+              <tr>
+                <td>{{ positionData[0].position_ext }}</td>
+                <td>
+                  <a href="{{ positionData[0].position_ext_url }}" target="_blank" rel="nofollow" aria-label="External">Link</a>
+                </td>
+                <td>
+                  {{ positionData[0].position_ext_salary }}
+                </td>
+                <td>
+                  {{ positionData[0].position_ext_obs }}
+                </td>
+              </tr>
+              @if (positionData[1].position_ext) {
+                <tr>
+                  <td>{{ positionData[1].position_ext }}</td>
+                  <td>
+                    <a href="{{ positionData[1].position_ext_url }}" target="_blank" rel="nofollow" aria-label="External">Link</a>
+                  </td>
+                  <td>
+                    {{ positionData[1].position_ext_salary }}
+                  </td>
+                  <td>
+                    {{ positionData[1].position_ext_obs }}
+                  </td>
+                </tr>
+              }
+            </table>
+          </section>
+        }
+        @if (positionData[0].record_name) {
+          <section class="OCM-tableContainer">
+            <h2 class="OCM-subtitle">Personas que han ocupado el puesto</h2>
+            <table class="tableDataPersona">
+              <tr>
+                <th>Foto</th>
+                <th>Persona</th>
+                <th>Periodo</th>
+                <th>Sueldo</th>
+                <th>Observaciones</th>
+                <th>LinKedIn</th>
+                <th>Wikipedia</th>
+              </tr>
+              <tr>
+                <td>
+                  <img style="border-radius: 50%; width: 100px" src="{{ positionData[0].record_image }}" alt="foto" />
+                </td>
+                <td>
+                  {{ positionData[0].record_name }} {{ positionData[0].record_firstname }} {{ positionData[0].record_lastname }}
+                </td>
+                <td>{{ positionData[0].date }}</td>
+                <td>{{ positionData[0].record_salary }}</td>
+                <td>{{ positionData[0].record_obs }}</td>
+                <td>
+                  @if (positionData[0].record_linkedin_url) {
+                    <a
+                      href="{{ positionData[0].record_linkedin_url }}"
+                      target="_blank"
+                      rel="nofollow"
+                      aria-label="Linkedin"
+                      >Link</a
+                      >
+                    }
+                  </td>
+                  <td>
+                    @if (positionData[0].record_wikipedia_url) {
+                      <a
+                        href="{{ positionData[0].record_wikipedia_url }}"
+                        target="_blank"
+                        rel="nofollow"
+                        aria-label="Wikipedia"
+                        >Link</a
+                        >
+                      }
+                    </td>
+                  </tr>
+                </table>
+              </section>
+            }
+          </body>
+        }

@@ -1,19 +1,21 @@
 <div class="cardTableHome">
-	<span class="cardTableHome__title">Algunos ejemplos presupuesto {{ currentYear }} (ejecución al {{ liqDate }})</span>
+  <span class="cardTableHome__title">Algunos ejemplos presupuesto {{ currentYear }} (ejecución al {{ liqDate }})</span>
 
-	<table class="paleBlueRows">
-		<thead>
-			<tr>
-				<th>{{ textoTabla }}</th>
-				<th>Cantidad (€)</th>
-			</tr>
-		</thead>
+  <table class="paleBlueRows">
+    <thead>
+      <tr>
+        <th>{{ textoTabla }}</th>
+        <th>Cantidad (€)</th>
+      </tr>
+    </thead>
 
-		<tbody>
-			<tr *ngFor="let example of examples">
-				<td>{{ example.name }}</td>
-				<td>{{ example.value }}</td>
-			</tr>
-		</tbody>
-	</table>
+    <tbody>
+      @for (example of examples; track example) {
+        <tr>
+          <td>{{ example.name }}</td>
+          <td>{{ example.value }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
 </div>

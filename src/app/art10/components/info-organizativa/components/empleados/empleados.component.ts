@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgFor, Location } from '@angular/common';
+import { Location } from '@angular/common';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
@@ -11,7 +11,7 @@ const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 	templateUrl: './empleados.component.html',
 	styleUrls: ['./empleados.component.scss'],
 	standalone: true,
-	imports: [NgFor, CardMenuComponent]
+	imports: [CardMenuComponent]
 })
 export default class EmpleadosComponent {
 	private _router = inject(Router);

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 // import '@ag-grid-enterprise';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
@@ -22,7 +22,7 @@ import puestos from '@assets/data/puestosLimpio.json';
 @Component({
 	selector: 'app-rpt',
 	standalone: true,
-	imports: [CommonModule, AgGridModule],
+	imports: [AgGridModule],
 	templateUrl: './rpt.component.html',
 	styleUrls: ['./rpt.component.scss']
 })

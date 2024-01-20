@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
@@ -8,7 +8,7 @@ HighchartsMore(Highcharts);
 @Component({
 	selector: 'app-ficha-personal',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [],
 	templateUrl: './ficha-personal.component.html',
 	styleUrls: ['./ficha-personal.component.scss']
 })
