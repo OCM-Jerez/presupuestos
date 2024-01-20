@@ -1,37 +1,36 @@
 <!-- <ng-container *ngIf="isLicitacion"> -->
 <section class="OCM-flexEstadoLicitacion">
-  <figure class="OCM-containerEstadoLicitacion">
-    <img src="{{ imgURL }}" alt="Foto proyecto" />
-  </figure>
+	<figure class="OCM-containerEstadoLicitacion">
+		<img src="{{ imgURL }}" alt="Foto proyecto" />
+	</figure>
 
-  <div class="OCM-containerEstadoLicitacion">
-    <table class="OCM-tableEstadoLicitacion">
-      <thead>
-        <tr>
-          <th>Fecha</th>
-          <th>Etapa</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (step of steps; track step) {
-          <tr>
-            <td>{{ step.date | date : 'd-MM-yyyy' }}</td>
-            <td>{{ step.step }}</td>
-          </tr>
-        }
-      </tbody>
-    </table>
-  </div>
+	<div class="OCM-containerEstadoLicitacion">
+		<table class="OCM-tableEstadoLicitacion">
+			<thead>
+				<tr>
+					<th>Fecha</th>
+					<th>Etapa</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (step of steps; track step) {
+				<tr>
+					<td>{{ step.date | date : 'd-MM-yyyy' }}</td>
+					<td>{{ step.step }}</td>
+				</tr>
+				}
+			</tbody>
+		</table>
+	</div>
 
-  <div class="OCM-containerEstadoLicitacion">
-    <img src="{{ gauge }}" alt="" />
-  </div>
+	<div class="OCM-containerEstadoLicitacion">
+		<img src="{{ gauge }}" alt="" />
+	</div>
 </section>
 
 @if (canAddRowSupabase) {
-  <button class="OCM-button" (click)="addStep()">Añadir step</button>
-}
-@if (canAddRowSupabase) {
-  <button class="OCM-button" (click)="updateLicitacion()">Editar licitación</button>
+<button class="OCM-button" (click)="addStep()">Añadir step</button>
+} @if (canAddRowSupabase) {
+<button class="OCM-button" (click)="updateLicitacion()">Editar licitación</button>
 }
 <!-- </ng-container> -->
