@@ -1,14 +1,15 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-
 import { Router } from '@angular/router';
 
-import { environment } from '@environments/environment';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
+
 import { SupabaseService } from '@services/supabase.service';
+
 import { INew } from '@interfaces/new.interface';
 
+import { environment } from '@environments/environment';
 interface IMenuItemHome {
 	title: string;
 	path: string;
