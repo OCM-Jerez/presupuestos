@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -7,7 +7,7 @@ import { SupabaseService } from '@services/supabase.service';
 @Component({
 	selector: 'app-licitacion-form',
 	standalone: true,
-	imports: [CommonModule, FormsModule, ReactiveFormsModule],
+	imports: [FormsModule, ReactiveFormsModule],
 	templateUrl: './licitacion-form.component.html',
 	styleUrls: ['./licitacion-form.component.scss']
 })

@@ -5,47 +5,41 @@
 			<div class="form-group">
 				<label for="tag">Tag</label>
 				<input type="text" class="form-control" id="tag" formControlName="tag" />
-				<div *ngIf="userForm?.get('tag')?.invalid && userForm?.get('tag')?.touched" class="text-danger">
-					Tag es requerida.
-				</div>
+				@if (userForm?.get('tag')?.invalid && userForm?.get('tag')?.touched) {
+				<div class="text-danger">Tag es requerida.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="date">expediente</label>
 				<input type="text" class="form-control" id="expediente" formControlName="expediente" />
-				<div *ngIf="userForm?.get('expediente')?.invalid && userForm?.get('expediente')?.touched" class="text-danger">
-					expediente es requerida.
-				</div>
+				@if (userForm?.get('expediente')?.invalid && userForm?.get('expediente')?.touched) {
+				<div class="text-danger">expediente es requerida.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="media">descripcion</label>
 				<input type="text" class="form-long" id="descripcion" formControlName="descripcion" />
-				<div *ngIf="userForm?.get('descripcion')?.invalid && userForm?.get('descripcion')?.touched" class="text-danger">
-					descripcion es requerido.
-				</div>
+				@if (userForm?.get('descripcion')?.invalid && userForm?.get('descripcion')?.touched) {
+				<div class="text-danger">descripcion es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="url_new">url_plataforma</label>
 				<input type="text" class="form-media" id="url_plataforma" formControlName="url_plataforma" />
-				<div
-					*ngIf="userForm?.get('url_plataforma')?.invalid && userForm?.get('url_plataforma')?.touched"
-					class="text-danger"
-				>
-					url_plataforma es requerido.
-				</div>
+				@if (userForm?.get('url_plataforma')?.invalid && userForm?.get('url_plataforma')?.touched) {
+				<div class="text-danger">url_plataforma es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">tipo_financiacion</label>
 				<input type="text" class="form-media" id="tipo_financiacion" formControlName="tipo_financiacion" />
-				<div
-					*ngIf="userForm?.get('tipo_financiacion')?.invalid && userForm?.get('tipo_financiacion')?.touched"
-					class="text-danger"
-				>
-					tipo_financiacion es requerido.
-				</div>
+				@if (userForm?.get('tipo_financiacion')?.invalid && userForm?.get('tipo_financiacion')?.touched) {
+				<div class="text-danger">tipo_financiacion es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
@@ -56,15 +50,10 @@
 					id="presupuesto_base_sin_impuestos"
 					formControlName="presupuesto_base_sin_impuestos"
 				/>
-				<div
-					*ngIf="
-						userForm?.get('presupuesto_base_sin_impuestos')?.invalid &&
-						userForm?.get('presupuesto_base_sin_impuestos')?.touched
-					"
-					class="text-danger"
-				>
-					presupuesto_base_sin_impuestos es requerido.
-				</div>
+				@if ( userForm?.get('presupuesto_base_sin_impuestos')?.invalid &&
+				userForm?.get('presupuesto_base_sin_impuestos')?.touched ) {
+				<div class="text-danger">presupuesto_base_sin_impuestos es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
@@ -75,15 +64,10 @@
 					id="presupuesto_base_licitación_con_impuestos"
 					formControlName="presupuesto_base_licitación_con_impuestos"
 				/>
-				<div
-					*ngIf="
-						userForm?.get('presupuesto_base_licitación_con_impuestos')?.invalid &&
-						userForm?.get('presupuesto_base_licitación_con_impuestos')?.touched
-					"
-					class="text-danger"
-				>
-					presupuesto_base_licitación_con_impuestos es requerido.
-				</div>
+				@if ( userForm?.get('presupuesto_base_licitación_con_impuestos')?.invalid &&
+				userForm?.get('presupuesto_base_licitación_con_impuestos')?.touched ) {
+				<div class="text-danger">presupuesto_base_licitación_con_impuestos es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
@@ -94,42 +78,33 @@
 					id="valor_estimado_contrato"
 					formControlName="valor_estimado_contrato"
 				/>
-				<div
-					*ngIf="userForm?.get('valor_estimado_contrato')?.invalid && userForm?.get('valor_estimado_contrato')?.touched"
-					class="text-danger"
-				>
-					valor_estimado_contrato es requerido.
-				</div>
+				@if (userForm?.get('valor_estimado_contrato')?.invalid && userForm?.get('valor_estimado_contrato')?.touched) {
+				<div class="text-danger">valor_estimado_contrato es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">tipo_contrato</label>
 				<input type="text" class="form-control" id="tipo_contrato" formControlName="tipo_contrato" />
-				<div
-					*ngIf="userForm?.get('tipo_contrato')?.invalid && userForm?.get('tipo_contrato')?.touched"
-					class="text-danger"
-				>
-					tipo_contrato es requerido.
-				</div>
+				@if (userForm?.get('tipo_contrato')?.invalid && userForm?.get('tipo_contrato')?.touched) {
+				<div class="text-danger">tipo_contrato es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">codigo_cpv</label>
 				<input type="text" class="form-control" id="codigo_cpv" formControlName="codigo_cpv" />
-				<div *ngIf="userForm?.get('codigo_cpv')?.invalid && userForm?.get('codigo_cpv')?.touched" class="text-danger">
-					codigo_cpv es requerido.
-				</div>
+				@if (userForm?.get('codigo_cpv')?.invalid && userForm?.get('codigo_cpv')?.touched) {
+				<div class="text-danger">codigo_cpv es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">Sistema de contratación</label>
 				<input type="text" class="form-control" id="sistema_contratacion" formControlName="sistema_contratacion" />
-				<div
-					*ngIf="userForm?.get('sistema_contratacion')?.invalid && userForm?.get('sistema_contratacion')?.touched"
-					class="text-danger"
-				>
-					procedimiento_contratacion es requerido.
-				</div>
+				@if (userForm?.get('sistema_contratacion')?.invalid && userForm?.get('sistema_contratacion')?.touched) {
+				<div class="text-danger">procedimiento_contratacion es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
@@ -140,25 +115,18 @@
 					id="procedimiento_contratacion"
 					formControlName="procedimiento_contratacion"
 				/>
-				<div
-					*ngIf="
-						userForm?.get('procedimiento_contratacion')?.invalid && userForm?.get('procedimiento_contratacion')?.touched
-					"
-					class="text-danger"
-				>
-					procedimiento_contratacion es requerido.
-				</div>
+				@if ( userForm?.get('procedimiento_contratacion')?.invalid &&
+				userForm?.get('procedimiento_contratacion')?.touched ) {
+				<div class="text-danger">procedimiento_contratacion es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">tipo_tramitación</label>
 				<input type="text" class="form-control" id="tipo_tramitación" formControlName="tipo_tramitación" />
-				<div
-					*ngIf="userForm?.get('tipo_tramitación')?.invalid && userForm?.get('tipo_tramitación')?.touched"
-					class="text-danger"
-				>
-					tipo_tramitación es requerido.
-				</div>
+				@if (userForm?.get('tipo_tramitación')?.invalid && userForm?.get('tipo_tramitación')?.touched) {
+				<div class="text-danger">tipo_tramitación es requerido.</div>
+				}
 			</div>
 		</div>
 
@@ -166,34 +134,25 @@
 			<div class="form-group">
 				<label for="title">adjudicatario</label>
 				<input type="text" class="form-control" id="adjudicatario" formControlName="adjudicatario" />
-				<div
-					*ngIf="userForm?.get('adjudicatario')?.invalid && userForm?.get('adjudicatario')?.touched"
-					class="text-danger"
-				>
-					adjudicatario es requerido.
-				</div>
+				@if (userForm?.get('adjudicatario')?.invalid && userForm?.get('adjudicatario')?.touched) {
+				<div class="text-danger">adjudicatario es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">cif_adjudicatario</label>
 				<input type="text" class="form-control" id="cif_adjudicatario" formControlName="cif_adjudicatario" />
-				<div
-					*ngIf="userForm?.get('cif_adjudicatario')?.invalid && userForm?.get('cif_adjudicatario')?.touched"
-					class="text-danger"
-				>
-					cif_adjudicatario es requerido.
-				</div>
+				@if (userForm?.get('cif_adjudicatario')?.invalid && userForm?.get('cif_adjudicatario')?.touched) {
+				<div class="text-danger">cif_adjudicatario es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">url_adjudicatario</label>
 				<input type="text" class="form-control" id="url_adjudicatario" formControlName="url_adjudicatario" />
-				<div
-					*ngIf="userForm?.get('url_adjudicatario')?.invalid && userForm?.get('url_adjudicatario')?.touched"
-					class="text-danger"
-				>
-					url_adjudicatario es requerido.
-				</div>
+				@if (userForm?.get('url_adjudicatario')?.invalid && userForm?.get('url_adjudicatario')?.touched) {
+				<div class="text-danger">url_adjudicatario es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
@@ -204,23 +163,17 @@
 					id="licitadores_presentados"
 					formControlName="licitadores_presentados"
 				/>
-				<div
-					*ngIf="userForm?.get('licitadores_presentados')?.invalid && userForm?.get('licitadores_presentados')?.touched"
-					class="text-danger"
-				>
-					licitadores_presentados es requerido.
-				</div>
+				@if (userForm?.get('licitadores_presentados')?.invalid && userForm?.get('licitadores_presentados')?.touched) {
+				<div class="text-danger">licitadores_presentados es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">plazo_ejecución</label>
 				<input type="text" class="form-control" id="plazo_ejecución" formControlName="plazo_ejecución" />
-				<div
-					*ngIf="userForm?.get('plazo_ejecución')?.invalid && userForm?.get('plazo_ejecución')?.touched"
-					class="text-danger"
-				>
-					plazo_ejecución es requerido.
-				</div>
+				@if (userForm?.get('plazo_ejecución')?.invalid && userForm?.get('plazo_ejecución')?.touched) {
+				<div class="text-danger">plazo_ejecución es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
@@ -231,15 +184,10 @@
 					id="importe_adjudicación_sin_impuestos"
 					formControlName="importe_adjudicación_sin_impuestos"
 				/>
-				<div
-					*ngIf="
-						userForm?.get('importe_adjudicación_sin_impuestos')?.invalid &&
-						userForm?.get('importe_adjudicación_sin_impuestos')?.touched
-					"
-					class="text-danger"
-				>
-					importe_adjudicación_sin_impuestos es requerido.
-				</div>
+				@if ( userForm?.get('importe_adjudicación_sin_impuestos')?.invalid &&
+				userForm?.get('importe_adjudicación_sin_impuestos')?.touched ) {
+				<div class="text-danger">importe_adjudicación_sin_impuestos es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
@@ -250,15 +198,10 @@
 					id="importe_adjudicación_con_impuestos"
 					formControlName="importe_adjudicación_con_impuestos"
 				/>
-				<div
-					*ngIf="
-						userForm?.get('importe_adjudicación_con_impuestos')?.invalid &&
-						userForm?.get('importe_adjudicación_con_impuestos')?.touched
-					"
-					class="text-danger"
-				>
-					importe_adjudicación_con_impuestos es requerido.
-				</div>
+				@if ( userForm?.get('importe_adjudicación_con_impuestos')?.invalid &&
+				userForm?.get('importe_adjudicación_con_impuestos')?.touched ) {
+				<div class="text-danger">importe_adjudicación_con_impuestos es requerido.</div>
+				}
 			</div>
 		</div>
 
@@ -266,77 +209,65 @@
 			<div class="form-group">
 				<label for="title">credito_ampara</label>
 				<input type="text" class="form-control" id="codigo_cpv" formControlName="credito_ampara" />
-				<div
-					*ngIf="userForm?.get('credito_ampara')?.invalid && userForm?.get('credito_ampara')?.touched"
-					class="text-danger"
-				>
-					credito_ampara es requerido.
-				</div>
+				@if (userForm?.get('credito_ampara')?.invalid && userForm?.get('credito_ampara')?.touched) {
+				<div class="text-danger">credito_ampara es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">organico</label>
 				<input type="text" class="form-control" id="codigo_cpv" formControlName="organico" />
-				<div *ngIf="userForm?.get('organico')?.invalid && userForm?.get('organico')?.touched" class="text-danger">
-					codigo_cpv es requerido.
-				</div>
+				@if (userForm?.get('organico')?.invalid && userForm?.get('organico')?.touched) {
+				<div class="text-danger">codigo_cpv es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">programa</label>
 				<input type="text" class="form-control" id="programa" formControlName="programa" />
-				<div *ngIf="userForm?.get('programa')?.invalid && userForm?.get('programa')?.touched" class="text-danger">
-					programa es requerido.
-				</div>
+				@if (userForm?.get('programa')?.invalid && userForm?.get('programa')?.touched) {
+				<div class="text-danger">programa es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">economico</label>
 				<input type="text" class="form-control" id="economico" formControlName="economico" />
-				<div *ngIf="userForm?.get('economico')?.invalid && userForm?.get('economico')?.touched" class="text-danger">
-					economico es requerido.
-				</div>
+				@if (userForm?.get('economico')?.invalid && userForm?.get('economico')?.touched) {
+				<div class="text-danger">economico es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">distrito</label>
 				<input type="text" class="form-control" id="distrito" formControlName="distrito" />
-				<div *ngIf="userForm?.get('distrito')?.invalid && userForm?.get('distrito')?.touched" class="text-danger">
-					distrito es requerido.
-				</div>
+				@if (userForm?.get('distrito')?.invalid && userForm?.get('distrito')?.touched) {
+				<div class="text-danger">distrito es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">url_geolocalización</label>
 				<input type="text" class="form-control" id="url_geolocalización" formControlName="url_geolocalización" />
-				<div
-					*ngIf="userForm?.get('url_geolocalización')?.invalid && userForm?.get('url_geolocalización')?.touched"
-					class="text-danger"
-				>
-					url_geolocalización es requerido.
-				</div>
+				@if (userForm?.get('url_geolocalización')?.invalid && userForm?.get('url_geolocalización')?.touched) {
+				<div class="text-danger">url_geolocalización es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">duración_contrato</label>
 				<input type="text" class="form-control" id="duración_contrato" formControlName="duración_contrato" />
-				<div
-					*ngIf="userForm?.get('duración_contrato')?.invalid && userForm?.get('duración_contrato')?.touched"
-					class="text-danger"
-				>
-					duración_contrato es requerido.
-				</div>
+				@if (userForm?.get('duración_contrato')?.invalid && userForm?.get('duración_contrato')?.touched) {
+				<div class="text-danger">duración_contrato es requerido.</div>
+				}
 			</div>
 
 			<div class="form-group">
 				<label for="title">canon_concesional</label>
 				<input type="text" class="form-control" id="canon_concesional" formControlName="canon_concesional" />
-				<div
-					*ngIf="userForm?.get('canon_concesional')?.invalid && userForm?.get('canon_concesional')?.touched"
-					class="text-danger"
-				>
-					canon_concesional es requerido.
-				</div>
+				@if (userForm?.get('canon_concesional')?.invalid && userForm?.get('canon_concesional')?.touched) {
+				<div class="text-danger">canon_concesional es requerido.</div>
+				}
 			</div>
 		</div>
 	</div>
