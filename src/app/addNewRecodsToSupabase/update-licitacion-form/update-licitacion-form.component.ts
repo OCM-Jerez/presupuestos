@@ -1,8 +1,9 @@
 
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+// import { ActivatedRoute } from '@angular/router';
 import { SupabaseService } from '@services/supabase.service';
+import { TagStoreService } from '@services/tagStore.service';
 
 @Component({
 	selector: 'app-update-licitacion-form',
@@ -12,17 +13,18 @@ import { SupabaseService } from '@services/supabase.service';
 	styleUrls: ['./update-licitacion-form.component.scss']
 })
 export default class UpdateLicitacionFormComponent implements OnInit {
-	userForm: any;
-
-	constructor(private formBuilder: FormBuilder) {}
-	private _route = inject(ActivatedRoute);
+	userForm: FormGroup;
+	// constructor(private formBuilder: FormBuilder) {}
+	private _formBuilder = inject(FormBuilder);
+	// private _route = inject(ActivatedRoute);
 	private _supabaseService = inject(SupabaseService);
-	public tag: string;
+	private _tagStoreService = inject(TagStoreService);
+
+	public tag=this._tagStoreService.getTag();
 	data: any[] = [];
 
 	ngOnInit(): void {
-		const { paramMap } = this._route.snapshot;
-		this.tag = paramMap['params'].param;
+		// this.tag =this._tagStoreService.getTag();
 		this.fecthLicitacion();
 	}
 
@@ -40,7 +42,7 @@ export default class UpdateLicitacionFormComponent implements OnInit {
 
 	async fillForm() {
 		if (this.data.length > 0) {
-			this.userForm = this.formBuilder.group({
+			this.userForm = this._formBuilder.group({
 				tag: [this.tag, Validators.required],
 				expediente: [this.data[0].expediente, Validators.required],
 				descripcion: [this.data[0].descripcion, Validators.required],

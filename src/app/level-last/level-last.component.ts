@@ -16,6 +16,7 @@ import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IStep } from '@interfaces/step.interface';
+import { TagStoreService } from '@services/tagStore.service';
 
 interface IOption {
 	data: string;
@@ -54,6 +55,8 @@ export default class LevelLastComponent implements OnInit {
 	@Input() title?: string;
 	@Input() tag?: string;
 	private _supabaseService = inject(SupabaseService);
+	private _tagStoreService = inject(TagStoreService);
+
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
@@ -63,10 +66,8 @@ export default class LevelLastComponent implements OnInit {
 	public steps: IStep[] = [];
 	public barrios: IBarrio[] = [];
 	public stepsSubvencion: IStepSubvencion[] = [];
-
 	public imgURL: string;
 	public descripcion: string;
-
 	public isPMP = false;
 	public isDeudaTotal = false;
 	public deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
@@ -86,6 +87,8 @@ export default class LevelLastComponent implements OnInit {
 	public pmpURL = environment.pathImgSupabase + '2023-11.jpg';
 
 	ngOnInit() {
+		this._tagStoreService.setTag(this.tag);
+
 		switch (this.path) {
 			case 'deudaTotal':
 				this.isDeudaTotal = true;

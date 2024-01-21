@@ -148,11 +148,11 @@ export default [
 		loadComponent: () => import('./addNewRecodsToSupabase/licitacion-form/licitacion-form.component')
 	},
 	{
-		path: 'updateLicitacion/:param',
+		path: 'updateLicitacion',
 		loadComponent: () => import('./addNewRecodsToSupabase/update-licitacion-form/update-licitacion-form.component')
 	},
 	{
-		path: 'addStep/:param',
+		path: 'addStep',
 		loadComponent: () => import('./addNewRecodsToSupabase/step-form/step-form.component')
 	},
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }
