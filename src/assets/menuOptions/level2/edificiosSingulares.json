@@ -1,5 +1,11 @@
 [
 	{
+		"title": "Alcazar",
+		"path": "edificiosSingulares",
+		"isLastLevel": true,
+		"tag": "alcazar"
+	},
+	{
 		"title": "Palacio Riquelme",
 		"path": "edificiosSingulares",
 		"isLastLevel": true,

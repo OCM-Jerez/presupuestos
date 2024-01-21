@@ -38,5 +38,10 @@
 		"title": "Mesa de turismo",
 		"path": "art10/infoInstitucional/mesas/mesaTurismo",
 		"tag": "mesaTurismo"
+	},
+	{
+		"title": "Consejo Local del Motor",
+		"path": "art10/infoInstitucional/mesas/consejoLocalMotor",
+		"tag": "consejoLocalMotor"
 	}
 ]

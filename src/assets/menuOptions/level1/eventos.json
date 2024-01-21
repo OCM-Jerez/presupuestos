@@ -10,6 +10,11 @@
 		"tag": "carnaval"
 	},
 	{
+		"title": "Vinoble",
+		"isLastLevel": true,
+		"tag": "vinoble"
+	},
+	{
 		"title": "Feria",
 		"isLastLevel": true,
 		"tag": "feria"

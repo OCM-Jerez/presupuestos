@@ -7,31 +7,31 @@
 	{
 		"title": "Guadalcacín",
 		"path": "art10/infoInstitucional/elas/guadalcacin",
-		"tag": ""
+		"tag": "guadalcacin"
 	},
 	{
 		"title": "La Barca de la Florida",
 		"path": "art10/infoInstitucional/elas/laBarca",
-		"tag": ""
+		"tag": "laBarca"
 	},
 	{
 		"title": "Estella del Marqués",
 		"path": "art10/infoInstitucional/elas/estella",
-		"tag": ""
+		"tag": "estella"
 	},
 	{
 		"title": "Nueva Jarilla",
 		"path": "art10/infoInstitucional/elas/nuevaJarilla",
-		"tag": ""
+		"tag": "nuevaJarilla"
 	},
 	{
 		"title": "San Isidro del Guadalete",
 		"path": "art10/infoInstitucional/elas/sanIsidro",
-		"tag": ""
+		"tag": "sanIsidro"
 	},
 	{
 		"title": "Torrecera",
 		"path": "art10/infoInstitucional/elas/torrecera",
-		"tag": ""
+		"tag": "torrecera"
 	}
 ]
