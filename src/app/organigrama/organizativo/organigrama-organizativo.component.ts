@@ -38,6 +38,25 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 		maximumFractionDigits: 0
 	});
 
+	 formatSalary(salarioTotal: string): string {
+		const num = parseFloat(salarioTotal);
+	  
+	if (isNaN(num)) {
+		  return "Sin dato salario";
+		}
+	  
+		const formatter = new Intl.NumberFormat('de-DE', {
+		  style: 'decimal',
+		  minimumFractionDigits: 0,
+		  maximumFractionDigits: 0
+		});
+	  
+		return formatter.format(num) + " €";
+	  }
+	  
+
+	  
+
 	chart: OrgChart;
 	data: INodeInfo[] = [];
 
@@ -83,6 +102,15 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 				window.location.href = `/#/supabase/${d.data.id}`;
 			})
 			.nodeContent((d) => {
+				// if (d.data.id === 294) {
+				// console.log(d.data);
+				// 	console.log( parseFloat(d.data.salario_total));
+				// console.log(this.formatter.format(parseFloat(d.data.salario_total)));
+				// }
+
+				// if (d.data.salario_total === null) {
+				// 	d.data.salario_total = 'Sin dato salario';
+				// }
 				return this.createNodeHtml(d);
 			})
 			.render();
@@ -100,6 +128,7 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 
 		// Estilos definidos como constantes
 		const nodeContainerStyle = `width:${d.width}px; height:${d.height}px; padding-top:${paddingSize}px; padding-left:1px; padding-right:1px`;
+		const salaryStyle = `font-size:18px; color: red; display:flex; justify-content:flex-end; margin-top:5px; margin-right:8px`;
 		const nodeStyle = `font-family: 'Inter', sans-serif; margin-left:-1px; border-radius:10px; background-color:#FFFFFF; width:${nodeWidth}px; height:${nodeHeight}px; border: ${borderStyle}`;
 		const idStyle = `font-size:15px; display:flex; justify-content:flex-end; margin-top:5px; margin-right:8px`;
 		const nameStyle = `font-size:16px; color:#08011E; margin-left:20px; margin-top:10px`;
@@ -111,6 +140,7 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 		d.data.rpt_id = d.data.rpt_id ? d.data.rpt_id : '';
 		d.data.nombre_puesto = d.data.nombre_puesto ? d.data.nombre_puesto : '';
 		d.data.situacion_puesto = d.data.situacion_puesto ? d.data.situacion_puesto : '';
+		!Number.isNaN(d.data.salario_total) ? d.data.salario_total : 'sin dato';
 
 		return `
 		<div style="${nodeContainerStyle}">
@@ -120,7 +150,7 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 			<div style="${idStyle}">${d.data.id_puesto}</div>
 			<div style="${nameStyle}">${d.data.rpt_id}</div>
 			<div style="${nameStyle}">${d.data.nombre_puesto}</div>
-			<div style="${nameStyle}">${d.data.salario_total}</div>
+			<div style="${salaryStyle}">${this.formatSalary(d.data.salario_total)}</div>
 			<div style="${nameStyle}">${d.data.situacion_puesto}</div>
 			</div>
 		</div>
