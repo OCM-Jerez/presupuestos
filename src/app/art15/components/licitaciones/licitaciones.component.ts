@@ -93,7 +93,8 @@ export default class LicitacionesComponent {
 
 	licitacionesSolares = [
 		this.createCard('Calle Morla 1', 'subastaInmuebleMorla1'),
-		this.createCard('Calle Porvenir 32', 'subastaInmueblePorvenir32')
+		this.createCard('Calle Porvenir 32', 'subastaInmueblePorvenir32'),
+		this.createCard('Calle Tirso de Molina 16', 'subastaInmuebleTirsoDeMolina16')
 	];
 
 	createCard(titulo: string, tag: string) {
