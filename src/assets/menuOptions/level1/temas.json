@@ -96,8 +96,12 @@
 	},
 	{
 		"title": "2031 Capitalidad Europea de la Cultura",
-		"path": "temas/1",
 		"isLastLevel": true,
 		"tag": "capitalidadCultura2031"
+	},
+	{
+		"title": "Bienestar animal",
+		"isLastLevel": true,
+		"tag": "bienestarAnimal"
 	}
 ]
