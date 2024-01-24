@@ -34,5 +34,11 @@
 		"path": "medioambiental/mercados",
 		"isLastLevel": true,
 		"tag": "mercados"
+	},
+	{
+		"title": "Patrimonio Histórico",
+		"path": "medioambiental/patrimonioHistorico",
+		"isLastLevel": true,
+		"tag": "patrimonioHistorico"
 	}
 ]

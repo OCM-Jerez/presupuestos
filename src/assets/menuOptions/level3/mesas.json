@@ -43,5 +43,10 @@
 		"title": "Consejo Local del Motor",
 		"path": "art10/infoInstitucional/mesas/consejoLocalMotor",
 		"tag": "consejoLocalMotor"
+	},
+	{
+		"title": "Consejo Social",
+		"path": "art10/infoInstitucional/mesas/consejoSocial",
+		"tag": "consejoSocial"
 	}
 ]
