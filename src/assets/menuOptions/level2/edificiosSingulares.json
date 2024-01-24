@@ -82,5 +82,11 @@
 		"path": "edificiosSingulares",
 		"isLastLevel": true,
 		"tag": "depositoSementales"
+	},
+		{
+		"title": "Solar antigua fabrica de botellas",
+		"path": "edificiosSingulares",
+		"isLastLevel": true,
+		"tag": "solarFabricaBotellas"
 	}
 ]
