@@ -10,6 +10,8 @@ import NoticiasComponent from '@app/commons/components/level/noticias/noticias.c
 import { INew } from '@interfaces/new.interface';
 import { SupabaseService } from '@services/supabase.service';
 import { TagStoreService } from '@services/tagStore.service';
+import { TitleStoreService } from '@services/titleStore.service';
+import { _ } from 'ag-grid-community';
 
 interface IMenuItemHome {
 	title: string;
@@ -27,24 +29,25 @@ interface IMenuItemHome {
 	templateUrl: './level1.component.html'
 })
 export default class Level1Component implements OnInit {
-	@Input() path?: string;
-	@Input() title?: string;
+	// @Input() path?: string;
+	// @Input() title?: string;
 	private _supabaseService = inject(SupabaseService);
 	private _tagStoreService = inject(TagStoreService);
-
+	private _titleStoreService = inject(TitleStoreService);
 	public menuOptions: IMenuItemHome[] = [];
 	private _router = inject(Router);
 	public news: INew[] = [];
+	public title = this._titleStoreService.getTitle();
 
 	ngOnInit() {
-		this._tagStoreService.setTag(this.path);
-		import(`../../assets/menuOptions/level1/${this.path}.json`).then((data) => {
+		 const tag = this._tagStoreService.getTag();
+		import(`../../assets/menuOptions/level1/${tag}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItemHome) => {
 				const modifiedItem = {
 					...item,
 					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
 				};
-				this.fetchDataFromSupabase(this.path);
+				this.fetchDataFromSupabase(tag);
 				return this.createCardMenu(modifiedItem);
 			});
 		});

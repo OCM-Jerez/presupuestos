@@ -1,35 +1,33 @@
 <header class="OCM-subtitle-dark">Noticias</header>
 @if (canAddRowSupabase) {
-  <button class="OCM-button" (click)="addNew()">Añadir noticia</button>
-}
-@if (canAddRowSupabase) {
-  <button class="OCM-button" (click)="addCom()">Añadir comentario</button>
-}
-@if (canAddRowSupabase) {
-  <button class="OCM-button" (click)="addDoc()">Añadir documento</button>
+<button class="OCM-button" (click)="addNew()">Añadir noticia</button>
+} @if (canAddRowSupabase) {
+<button class="OCM-button" (click)="addCom()">Añadir comentario</button>
+} @if (canAddRowSupabase) {
+<button class="OCM-button" (click)="addDoc()">Añadir documento</button>
 }
 
 <section class="OCM-tableContainer">
-  <table class="OCM-tableNoticias">
-    <thead>
-      <tr>
-        <th>Fecha</th>
-        <th>Medio</th>
-        <th>Título</th>
-        <th>URL</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (new of news; track new) {
-        <tr>
-          @if (new.URL !== '') {
-            <td>{{ new.date | date : 'd-MM-yyyy' }}</td>
-            <td>{{ new.media }}</td>
-            <td>{{ new.title }}</td>
-            <td><a href="{{ new.url_new }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
-          }
-        </tr>
-      }
-    </tbody>
-  </table>
+	<table class="OCM-tableNoticias">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Medio</th>
+				<th>Título</th>
+				<th>URL</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for (new of news; track new) {
+			<tr>
+				@if (new.URL !== '') {
+				<td>{{ new.date | date : 'd-MM-yyyy' }}</td>
+				<td>{{ new.media }}</td>
+				<td>{{ new.title }}</td>
+				<td><a href="{{ new.url_new }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+				}
+			</tr>
+			}
+		</tbody>
+	</table>
 </section>

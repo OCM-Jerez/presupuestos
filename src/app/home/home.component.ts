@@ -1,13 +1,14 @@
 import { Component, OnInit, inject } from '@angular/core';
-
 import { Router } from '@angular/router';
 
 import { environment } from '@environments/environment';
 
 import { CardMenuComponent } from '@commons/components/card-menu/card-menu.component';
 
-import { IMenuItem } from '@interfaces/menu.interface';
+import { TagStoreService } from '@services/tagStore.service';
+import { TitleStoreService } from '@services/titleStore.service';
 
+import { IMenuItem } from '@interfaces/menu.interface';
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
@@ -17,6 +18,8 @@ import { IMenuItem } from '@interfaces/menu.interface';
 })
 export default class HomeComponent implements OnInit {
 	private _router = inject(Router);
+	private _tagStoreService = inject(TagStoreService);
+	private _titleStoreService = inject(TitleStoreService);
 	public menuOptionsHome: IMenuItem[] = [];
 
 	ngOnInit() {
@@ -34,11 +37,12 @@ export default class HomeComponent implements OnInit {
 	createCardMenu(item: IMenuItem) {
 		return {
 			...item,
-			funcion: () =>
-				this._router.navigateByUrl(
-					`level1/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}
-					)}`
-				)
+			funcion: () => {
+				this._tagStoreService.setTag(item.path);
+				this._titleStoreService.setTitle(item.title);
+				this._router.navigateByUrl('level1')
+			}
+					// `level1/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`
 		};
 	}
 }

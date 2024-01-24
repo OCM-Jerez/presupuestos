@@ -34,6 +34,8 @@ export default class Level2Component implements OnInit {
 	public hasNews = false;
 
 	ngOnInit() {
+		console.log('this.path', this.path);
+		
 		import(`../../assets/menuOptions/level2/${this.path}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItemHome) => {
 				const modifiedItem = {

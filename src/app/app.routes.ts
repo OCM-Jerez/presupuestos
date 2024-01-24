@@ -6,7 +6,8 @@ export default [
 		loadComponent: () => import('./home/home.component')
 	},
 	{
-		path: 'level1/:path/:title',
+		// path: 'level1/:path/:title',
+		path: 'level1',
 		loadComponent: () => import('./level1/level1.component')
 	},
 	{
