@@ -222,4 +222,39 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 
 		this.chart.data(data).render().fit();
 	}
+
+	
+	searchRPT(e) {
+		const value = e.srcElement.value.toLowerCase();
+		let isMatch = false;  // Iniciar isMatch como false
+		if (!value) {
+			this.chart.clearHighlighting();
+			return;
+		}
+	
+		const data = this.chart.data();
+		data.forEach((d) => {
+			const content = d.rpt_id.toLowerCase();
+			if (content.includes(value)) {
+				isMatch = true;  // Actualizar isMatch si se encuentra una coincidencia
+				d._highlighted = true;
+				d._expanded = true;
+			} else {
+				d._highlighted = false;
+				d._expanded = false;
+			}
+		});
+	
+		if (!isMatch) {   
+			this.chart.clearHighlighting();
+			setTimeout(() => {
+				alert("No se ha encontrado el RPT: " + value);
+			}, 0); 
+		} else {
+			this.chart.data(data).render().fit();
+		}
+	
+		// this.chart.data(data).render().fit();
+	}
+	
 }
