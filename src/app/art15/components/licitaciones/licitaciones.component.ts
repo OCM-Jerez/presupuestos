@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
-
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { environment } from '@environments/environment';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
+
 import { PathStoreService } from '@services/pathStore.service';
 import { TagStoreService } from '@services/tagStore.service';
 import { TitleStoreService } from '@services/titleStore.service';
@@ -33,7 +33,6 @@ export default class LicitacionesComponent {
 	OCM = [
 		{
 			titulo: 'APP OCM',
-			// rutaImagen: 'assets/licitaciones/appConOCM.jpg',
 			rutaImagen: environment.pathImgSupabase + 'appConOCM.jpg',
 			funcion: () => window.open('https://con.ocmjerez.org/', '_blank')
 		}
@@ -107,9 +106,7 @@ export default class LicitacionesComponent {
 		return {
 			title,
 			rutaImagen: environment.pathImgSupabase + tag + '.jpg',
-			// rutaImagen: `assets/licitaciones/${route}/${route}.jpg`,
-			// funcion: () => this._router.navigateByUrl(`//licitaciones/${route}`),
-			funcion: () => {
+						funcion: () => {
 				this._pathStoreService.setPath('licitaciones');
 				this._tagStoreService.setTag(tag);
 				this._titleStoreService.setTitle(title);
@@ -137,12 +134,11 @@ export default class LicitacionesComponent {
 
 	applyFilter(filterValue: string) {
 		this.getAllLicitaciones().forEach((licitacion) => {
-			licitacion.highlighted = licitacion.titulo.toLowerCase().includes(filterValue);
+			licitacion.highlighted = licitacion.title.toLowerCase().includes(filterValue);
 		});
 	}
 
 	addNew(): void {
-		// console.log('news', this.news);
 		this._router.navigateByUrl('/addNewLicitacion');
 	}
 }
