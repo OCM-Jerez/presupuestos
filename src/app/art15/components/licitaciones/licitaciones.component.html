@@ -41,7 +41,7 @@
 		<section class="OCM-flex">
 			@for (menu of licitacionesCEE; track menu) {
 			<section [class.highlight]="menu.highlighted">
-				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 			</section>
 			}
 		</section>
@@ -59,7 +59,7 @@
 		<section class="OCM-flex">
 			@for (menu of licitacionesDiputacion; track menu) {
 			<section [class.highlight]="menu.highlighted">
-				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 			</section>
 			}
 		</section>
@@ -68,7 +68,7 @@
 		<section class="OCM-flex">
 			@for (menu of licitacionesAyto; track menu) {
 			<section [class.highlight]="menu.highlighted">
-				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 			</section>
 			}
 		</section>
@@ -77,7 +77,7 @@
 		<section class="OCM-flex">
 			@for (menu of licitacionesSolares; track menu) {
 			<section [class.highlight]="menu.highlighted">
-				<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 			</section>
 			}
 		</section>

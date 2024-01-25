@@ -1,57 +1,46 @@
 [
 	{
 		"title": "Artículo 10. Información institucional y organizativa.",
-		"path": "art10",
-		"rutaImagen": "ayto.webp"
+		"tag": "art10"
 	},
 	{
 		"title": "Artículo 11. Información sobre altos cargos y personas que ejerzan la máxima responsabilidad.",
-		"path": "art11",
-		"rutaImagen": "art11.jpg"
+		"tag": "art11"
 	},
 	{
 		"title": "Artículo 12. Información sobre planificación y evaluación.",
-		"path": "art12",
-		"rutaImagen": "art12.jpg"
+		"tag": "art12"
 	},
 	{
 		"title": "Artículo 13. Información de relevancia jurídica.",
-		"path": "art13",
-		"rutaImagen": "art13.jpg"
+		"tag": "art13"
 	},
 	{
 		"title": "Artículo 14. Información sobre procedimientos, cartas de servicio y participación ciudadana.",
-		"path": "art14",
-		"rutaImagen": "art14.jpg"
+		"tag": "art14"
 	},
 	{
 		"title": "Artículo 15. Información sobre contratos, convenios y subvenciones.",
-		"path": "art15",
-		"rutaImagen": "art15.jpg"
+		"tag": "art15"
 	},
 	{
 		"title": "Artículo 16. Información económica, financiera y presupuestaria.",
-		"path": "art16",
-		"rutaImagen": "art16.jpg"
+		"tag": "art16"
 	},
 	{
 		"title": "Medioambiental, urbanística y vivienda",
-		"path": "medioambiental",
-		"rutaImagen": "/medioambiental.jpg"
+		"tag": "medioambiental"
 	},
 	{
 		"title": "Eventos culturales",
-		"path": "eventos",
-		"rutaImagen": "feria.jpg"
+		"tag": "eventos"
 	},
 	{
 		"title": "Temas generales",
-		"path": "temas",
-		"rutaImagen": "ifeca.jpg"
+		"tag": "temas"
 	},
 	{
 		"title": "Distritos y barrios",
-		"path": "distritos",
-		"rutaImagen": "distritos.jpg"
+		"tag": "distritos"
 	}
 ]

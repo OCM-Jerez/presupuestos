@@ -1,14 +1,13 @@
 [
 	{
 		"title": "Licitaciones",
-		"path": "licitaciones",
-		"isLastLevel": true,
-		"tag": "licitaciones"
+		"tag": "licitaciones",
+		"isLastLevel": true
+		
 	},
 	{
 		"title": "Subvenciones",
-		"path": "subvenciones",
-		"isLastLevel": true,
-		"tag": "subvenciones"
+		"tag": "subvenciones",
+		"isLastLevel": true
 	}
 ]

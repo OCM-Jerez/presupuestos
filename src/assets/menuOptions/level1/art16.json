@@ -2,25 +2,25 @@
 	{
 		"title": "Presupuestos",
 		"path": "presupuestos",
-		"isLastLevel": true,
-		"tag": "presupuestos"
+		"tag": "presupuestos",
+		"isLastLevel": true
 	},
 	{
 		"title": "Deuda",
 		"path": "deuda",
-		"isLastLevel": false,
-		"tag": "deuda"
+		"tag": "deuda",
+		"isLastLevel": false
 	},
 	{
 		"title": "PMP",
 		"path": "pmp",
-		"isLastLevel": true,
-		"tag": "2023-10"
+		"tag": "pmp",
+		"isLastLevel": true
 	},
 	{
 		"title": "Impuestos",
 		"path": "impuestos",
-		"isLastLevel": true,
-		"tag": "impuestos"
+		"tag": "impuestos",
+		"isLastLevel": true
 	}
 ]

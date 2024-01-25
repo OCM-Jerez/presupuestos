@@ -1,44 +1,37 @@
 [
 	{
 		"title": "Edificios singulares",
-		"path": "edificiosSingulares",
-		"isLastLevel": false,
-		"tag": "palacioRiquelme"
+		"tag": "edificiosSingulares",
+		"isLastLevel": false
 	},
 	{
 		"title": "Apartamentos turísticos",
-		"path": "medioambiental/apartamentosTuristicos",
-		"isLastLevel": true,
-		"tag": "apartamentosTuristicos"
+		"tag": "apartamentosTuristicos",
+		"isLastLevel": true
 	},
 	{
 		"title": "Proyectos construcción de viviendas",
-		"path": "medioambiental/proyectosViviendas",
-		"isLastLevel": true,
-		"tag": "proyectosViviendas"
+		"tag": "proyectosViviendas",
+		"isLastLevel": true
 	},
 	{
 		"title": "Poligonos industriales",
-		"path": "medioambiental/poligonosIndustriales",
-		"isLastLevel": true,
-		"tag": "poligonosIndustriales"
+		"tag": "poligonosIndustriales",
+		"isLastLevel": true
 	},
 	{
 		"title": "Registro solares y edificaciones ruinosas",
-		"path": "medioambiental/registroSolares",
-		"isLastLevel": true,
-		"tag": "registroSolares"
+		"tag": "registroSolares",
+		"isLastLevel": true
 	},
 	{
 		"title": "Mercados",
-		"path": "medioambiental/mercados",
-		"isLastLevel": true,
-		"tag": "mercados"
+		"tag": "mercados",
+		"isLastLevel": true
 	},
 	{
 		"title": "Patrimonio Histórico",
-		"path": "medioambiental/patrimonioHistorico",
-		"isLastLevel": true,
-		"tag": "patrimonioHistorico"
+		"tag": "patrimonioHistorico",
+		"isLastLevel": true
 	}
 ]

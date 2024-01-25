@@ -1,14 +1,12 @@
 [
 	{
 		"title": "Información institucional",
-		"path": "infoInstitucional",
-		"isLastLevel": false,
-		"tag": "plenos"
+		"tag": "infoInstitucional",
+		"isLastLevel": false
 	},
 	{
 		"title": "Información organizativa",
-		"path": "infoOrganizativa",
-		"isLastLevel": false,
-		"tag": "infoOrganizativa"
+		"tag": "infoOrganizativa",
+		"isLastLevel": false
 	}
 ]

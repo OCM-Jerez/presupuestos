@@ -17,6 +17,8 @@ import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IStep } from '@interfaces/step.interface';
 import { TagStoreService } from '@services/tagStore.service';
+import { PathStoreService } from '@services/pathStore.service';
+import { TitleStoreService } from '@services/titleStore.service';
 
 interface IOption {
 	data: string;
@@ -51,11 +53,13 @@ interface IBarrio {
 	templateUrl: './level-last.component.html'
 })
 export default class LevelLastComponent implements OnInit {
-	@Input() path?: string;
-	@Input() title?: string;
-	@Input() tag?: string;
+	// @Input() path?: string;
+	// @Input() title?: string;
+	// @Input() tag?: string;
 	private _supabaseService = inject(SupabaseService);
 	private _tagStoreService = inject(TagStoreService);
+	private _titleStoreService = inject(TitleStoreService);
+	private _pathStoreService = inject(PathStoreService);
 
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
@@ -84,12 +88,20 @@ export default class LevelLastComponent implements OnInit {
 	public hasComs = false;
 	public hasNews = false;
 	public gauge = environment.pathImgSupabase + 'gauge.jpg';
-	public pmpURL = environment.pathImgSupabase + '2023-11.jpg';
+	public pmpURL = environment.pathImgSupabase + '2023-12.jpg';
+	public title = this._titleStoreService.getTitle();
+
 
 	ngOnInit() {
-		this._tagStoreService.setTag(this.tag);
+		const path = this._pathStoreService.getPath();
+		this._pathStoreService.setPath('');
+			const tag = this._tagStoreService.getTag();
+		console.log('path', path);
+				console.log('tag', tag);
+		
+		this._tagStoreService.setTag(tag);
 
-		switch (this.path) {
+		switch (path) {
 			case 'deudaTotal':
 				this.isDeudaTotal = true;
 				break;
@@ -110,7 +122,7 @@ export default class LevelLastComponent implements OnInit {
 			// 	break;
 			case 'licitaciones':
 				this.isLicitacion = true;
-				this.imgURL = environment.pathImgSupabase + this.tag + '.jpg';
+				this.imgURL = environment.pathImgSupabase + tag + '.jpg';
 				break;
 			case 'edificioSingular':
 				this.isEdificioSingular = true;
@@ -120,11 +132,11 @@ export default class LevelLastComponent implements OnInit {
 				break;
 			case 'distritos':
 				this.isDistrito = true;
-				this.imgURL = environment.pathImgSupabase + this.tag + '.jpg';
+				this.imgURL = environment.pathImgSupabase + tag + '.jpg';
 				break;
 		}
 
-		this.fetchDataFromSupabase(this.tag, this.path);
+		this.fetchDataFromSupabase(tag, path);
 	}
 
 	async fetchDataFromSupabase(tag: string, path: string) {

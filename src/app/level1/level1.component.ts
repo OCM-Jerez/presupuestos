@@ -12,10 +12,11 @@ import { SupabaseService } from '@services/supabase.service';
 import { TagStoreService } from '@services/tagStore.service';
 import { TitleStoreService } from '@services/titleStore.service';
 import { _ } from 'ag-grid-community';
+import { PathStoreService } from '@services/pathStore.service';
 
 interface IMenuItemHome {
 	title: string;
-	path: string;
+	path?: string;
 	tag: string;
 	funcion: () => void;
 	isLastLevel?: boolean;
@@ -32,6 +33,7 @@ export default class Level1Component implements OnInit {
 	// @Input() path?: string;
 	// @Input() title?: string;
 	private _supabaseService = inject(SupabaseService);
+	private _pathStoreService = inject(PathStoreService);
 	private _tagStoreService = inject(TagStoreService);
 	private _titleStoreService = inject(TitleStoreService);
 	public menuOptions: IMenuItemHome[] = [];
@@ -40,7 +42,7 @@ export default class Level1Component implements OnInit {
 	public title = this._titleStoreService.getTitle();
 
 	ngOnInit() {
-		 const tag = this._tagStoreService.getTag();
+		const tag = this._tagStoreService.getTag();
 		import(`../../assets/menuOptions/level1/${tag}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItemHome) => {
 				const modifiedItem = {
@@ -63,8 +65,10 @@ export default class Level1Component implements OnInit {
 
 	createCardMenu(item: IMenuItemHome) {
 		let URL = item.isLastLevel
-			? `levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(item.tag)}`
-			: `level2/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
+			// ? `levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(item.tag)}`
+			// : `level2/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
+			? 'levelLast'
+			: 'level2';
 
 		if (item.title === 'Licitaciones') {
 			URL = 'licitaciones';
@@ -74,7 +78,12 @@ export default class Level1Component implements OnInit {
 		}
 		return {
 			...item,
-			funcion: () => this._router.navigateByUrl(URL)
+			funcion: () => {
+				this._pathStoreService.setPath(item.path);
+				this._tagStoreService.setTag(item.tag);
+				this._titleStoreService.setTitle(item.title);
+				this._router.navigateByUrl(URL);
+			} 
 		};
 	}
 }

@@ -10,6 +10,9 @@ import { SupabaseService } from '@services/supabase.service';
 import { INew } from '@interfaces/new.interface';
 
 import { environment } from '@environments/environment';
+import { TagStoreService } from '@services/tagStore.service';
+import { TitleStoreService } from '@services/titleStore.service';
+import { PathStoreService } from '@services/pathStore.service';
 interface IMenuItemHome {
 	title: string;
 	path: string;
@@ -25,24 +28,32 @@ interface IMenuItemHome {
 	templateUrl: './level2.component.html'
 })
 export default class Level2Component implements OnInit {
-	@Input() path?: string;
-	@Input() title?: string;
+	// @Input() path?: string;
+	// @Input() title?: string;
 	private _supabaseService = inject(SupabaseService);
 	private _router = inject(Router);
+	private _tagStoreService = inject(TagStoreService);
+	private _titleStoreService = inject(TitleStoreService);
+	private _pathStoreService = inject(PathStoreService);
 	public menuOptions: IMenuItemHome[] = [];
 	public news: INew[] = [];
 	public hasNews = false;
+	public title = this._titleStoreService.getTitle();
+
 
 	ngOnInit() {
-		console.log('this.path', this.path);
+		// console.log('this.path', this.path);
+		const tag = this._tagStoreService.getTag();
+		console.log('tag', tag);
 		
-		import(`../../assets/menuOptions/level2/${this.path}.json`).then((data) => {
+		
+		import(`../../assets/menuOptions/level2/${tag}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItemHome) => {
 				const modifiedItem = {
 					...item,
 					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
 				};
-				this.fetchDataFromSupabase(this.path);
+				this.fetchDataFromSupabase(tag);
 				return this.createCardMenu(modifiedItem);
 			});
 		});
@@ -59,8 +70,10 @@ export default class Level2Component implements OnInit {
 
 	createCardMenu(item: IMenuItemHome) {
 		let URL = item.isLastLevel
-			? `levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(item.tag)}`
-			: `level3/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
+			// ? `levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(item.tag)}`
+			// : `level3/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`;
+			? 'levelLast'
+			: 'level3';
 
 		// console.log('item.title', item.title);
 		switch (item.path) {
@@ -80,7 +93,12 @@ export default class Level2Component implements OnInit {
 
 		return {
 			...item,
-			funcion: () => this._router.navigateByUrl(URL)
+			funcion: () => {
+				this._pathStoreService.setPath(item.path);
+				this._tagStoreService.setTag(item.tag);
+				this._titleStoreService.setTitle(item.title);
+				this._router.navigateByUrl(URL);
+			} 
 		};
 	}
 }

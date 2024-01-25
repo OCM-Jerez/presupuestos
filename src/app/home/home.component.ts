@@ -27,7 +27,7 @@ export default class HomeComponent implements OnInit {
 			this.menuOptionsHome = data.default.map((item: IMenuItem) => {
 				const modifiedItem = {
 					...item,
-					rutaImagen: environment.pathImgSupabase + item.rutaImagen
+					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
 				};
 				return this.createCardMenu(modifiedItem);
 			});
@@ -38,7 +38,7 @@ export default class HomeComponent implements OnInit {
 		return {
 			...item,
 			funcion: () => {
-				this._tagStoreService.setTag(item.path);
+				this._tagStoreService.setTag(item.tag);
 				this._titleStoreService.setTitle(item.title);
 				this._router.navigateByUrl('level1')
 			}

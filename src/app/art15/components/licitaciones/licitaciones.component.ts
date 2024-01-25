@@ -6,6 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { environment } from '@environments/environment';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
+import { PathStoreService } from '@services/pathStore.service';
+import { TagStoreService } from '@services/tagStore.service';
+import { TitleStoreService } from '@services/titleStore.service';
 
 @Component({
 	selector: 'app-licitaciones',
@@ -19,6 +22,9 @@ export default class LicitacionesComponent {
 	public searchText: string;
 
 	public canAddRowSupabase = environment.canAddRowSupabase;
+	private _tagStoreService = inject(TagStoreService);
+	private _titleStoreService = inject(TitleStoreService);
+	private _pathStoreService = inject(PathStoreService);
 
 	private getAllLicitaciones() {
 		return [...this.licitacionesCEE, ...this.licitacionesESP, ...this.licitacionesDiputacion, ...this.licitacionesAyto];
@@ -97,13 +103,18 @@ export default class LicitacionesComponent {
 		this.createCard('Calle Tirso de Molina 16', 'subastaInmuebleTirsoDeMolina16')
 	];
 
-	createCard(titulo: string, tag: string) {
+	createCard(title: string, tag: string) {
 		return {
-			titulo,
+			title,
 			rutaImagen: environment.pathImgSupabase + tag + '.jpg',
 			// rutaImagen: `assets/licitaciones/${route}/${route}.jpg`,
 			// funcion: () => this._router.navigateByUrl(`//licitaciones/${route}`),
-			funcion: () => this._router.navigateByUrl(`levelLast/licitaciones/${titulo}/${tag}`),
+			funcion: () => {
+				this._pathStoreService.setPath('licitaciones');
+				this._tagStoreService.setTag(tag);
+				this._titleStoreService.setTitle(title);
+				this._router.navigateByUrl('levelLast');
+			} ,
 			highlighted: false
 		};
 	}

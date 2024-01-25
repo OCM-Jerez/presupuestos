@@ -11,7 +11,8 @@ export default [
 		loadComponent: () => import('./level1/level1.component')
 	},
 	{
-		path: 'level2/:path/:title',
+		// path: 'level2/:path/:title',
+		path: 'level2',
 		loadComponent: () => import('./level2/level2.component')
 	},
 	{
@@ -21,6 +22,11 @@ export default [
 
 	{
 		path: 'levelLast/:path/:title/:tag',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+
+	{
+		path: 'levelLast',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
 	// Art 10 ============================================================================================================================================

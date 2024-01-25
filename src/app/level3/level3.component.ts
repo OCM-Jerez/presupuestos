@@ -19,6 +19,9 @@ import { environment } from '@environments/environment';
 
 import { IMenuItem } from '@interfaces/menu.interface';
 import { SupabaseService } from '@services/supabase.service';
+import { PathStoreService } from '@services/pathStore.service';
+import { TagStoreService } from '@services/tagStore.service';
+import { TitleStoreService } from '@services/titleStore.service';
 
 interface IMenuItemHome {
 	title: string;
@@ -44,9 +47,12 @@ interface IMenuItemHome {
 	templateUrl: './level3.component.html'
 })
 export default class Level3Component implements OnInit {
-	@Input() path?: string;
-	@Input() title?: string;
+	// @Input() path?: string;
+	// @Input() title?: string;
 	private _supabaseService = inject(SupabaseService);
+	private _tagStoreService = inject(TagStoreService);
+	private _titleStoreService = inject(TitleStoreService);
+	private _pathStoreService = inject(PathStoreService);
 
 	public menuOptions: IMenuItem[] = [];
 	private _router = inject(Router);
@@ -60,21 +66,24 @@ export default class Level3Component implements OnInit {
 	public hasNews = false;
 
 	public isComisiones = false;
+	public title = this._titleStoreService.getTitle();
+
 
 	ngOnInit() {
+		const tag = this._tagStoreService.getTag();
 		// console.log('path', this.path);
-		import(`../../assets/menuOptions/level3/${this.path}.json`).then((data) => {
+		import(`../../assets/menuOptions/level3/${tag}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItemHome) => {
-				if (this.path === 'comisiones') {
+				if (tag === 'comisiones') {
 					this.isComisiones = true;
-					this.fetchDataFromSupabase(this.path);
+					this.fetchDataFromSupabase(tag);
 					return this.createCardMenu(item);
 				} else {
 					const modifiedItem = {
 						...item,
 						rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
 					};
-					this.fetchDataFromSupabase(this.path);
+					this.fetchDataFromSupabase(tag);
 					return this.createCardMenu(modifiedItem);
 				}
 			});
@@ -93,10 +102,12 @@ export default class Level3Component implements OnInit {
 	createCardMenu(item: IMenuItemHome) {
 		return {
 			...item,
-			funcion: () =>
-				this._router.navigateByUrl(
-					`levelLast/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}/${encodeURIComponent(item.tag)}`
-				)
+			funcion: () => {
+				this._pathStoreService.setPath(item.path);
+				this._tagStoreService.setTag(item.tag);
+				this._titleStoreService.setTitle(item.title);
+				this._router.navigateByUrl('levelLast');
+			} 
 		};
 	}
 }
