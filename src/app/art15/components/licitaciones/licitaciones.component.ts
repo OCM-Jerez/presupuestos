@@ -106,12 +106,12 @@ export default class LicitacionesComponent {
 		return {
 			title,
 			rutaImagen: environment.pathImgSupabase + tag + '.jpg',
-						funcion: () => {
+			funcion: () => {
 				this._pathStoreService.setPath('licitaciones');
 				this._tagStoreService.setTag(tag);
 				this._titleStoreService.setTitle(title);
 				this._router.navigateByUrl('levelLast');
-			} ,
+			},
 			highlighted: false
 		};
 	}

@@ -40,9 +40,8 @@ export default class HomeComponent implements OnInit {
 			funcion: () => {
 				this._tagStoreService.setTag(item.tag);
 				this._titleStoreService.setTitle(item.title);
-				this._router.navigateByUrl('level1')
+				this._router.navigateByUrl('level1');
 			}
-					// `level1/${encodeURIComponent(item.path)}/${encodeURIComponent(item.title)}`
 		};
 	}
 }

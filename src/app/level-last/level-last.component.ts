@@ -1,5 +1,6 @@
+import { Component, OnInit, inject } from '@angular/core';
 
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { environment } from '@environments/environment';
 
 import ComentariosComponent from '@commons/components/level/comentarios/comentarios.component';
 import DataGeneralComponent from '@commons/components/level/data-general/data-general.component';
@@ -9,16 +10,14 @@ import NoticiasComponent from '@commons/components/level/noticias/noticias.compo
 import SeguimientoSubvencionComponent from '@commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
 
 import { SupabaseService } from '@services/supabase.service';
-
-import { environment } from '@environments/environment';
+import { TagStoreService } from '@services/tagStore.service';
+import { PathStoreService } from '@services/pathStore.service';
+import { TitleStoreService } from '@services/titleStore.service';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IStep } from '@interfaces/step.interface';
-import { TagStoreService } from '@services/tagStore.service';
-import { PathStoreService } from '@services/pathStore.service';
-import { TitleStoreService } from '@services/titleStore.service';
 
 interface IOption {
 	data: string;
@@ -43,24 +42,20 @@ interface IBarrio {
 	selector: 'app-level-last',
 	standalone: true,
 	imports: [
-    EstadoLicitacionComponent,
-    DataGeneralComponent,
-    SeguimientoSubvencionComponent,
-    DocumentosComponent,
-    ComentariosComponent,
-    NoticiasComponent
-],
+		EstadoLicitacionComponent,
+		DataGeneralComponent,
+		SeguimientoSubvencionComponent,
+		DocumentosComponent,
+		ComentariosComponent,
+		NoticiasComponent
+	],
 	templateUrl: './level-last.component.html'
 })
 export default class LevelLastComponent implements OnInit {
-	// @Input() path?: string;
-	// @Input() title?: string;
-	// @Input() tag?: string;
 	private _supabaseService = inject(SupabaseService);
 	private _tagStoreService = inject(TagStoreService);
 	private _titleStoreService = inject(TitleStoreService);
 	private _pathStoreService = inject(PathStoreService);
-
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
@@ -91,14 +86,13 @@ export default class LevelLastComponent implements OnInit {
 	public pmpURL = environment.pathImgSupabase + '2023-12.jpg';
 	public title = this._titleStoreService.getTitle();
 
-
 	ngOnInit() {
 		const path = this._pathStoreService.getPath();
 		this._pathStoreService.setPath('');
-			const tag = this._tagStoreService.getTag();
+		const tag = this._tagStoreService.getTag();
 		console.log('path', path);
-				console.log('tag', tag);
-		
+		console.log('tag', tag);
+
 		this._tagStoreService.setTag(tag);
 
 		switch (path) {

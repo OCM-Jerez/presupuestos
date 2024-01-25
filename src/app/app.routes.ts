@@ -6,25 +6,17 @@ export default [
 		loadComponent: () => import('./home/home.component')
 	},
 	{
-		// path: 'level1/:path/:title',
 		path: 'level1',
 		loadComponent: () => import('./level1/level1.component')
 	},
 	{
-		// path: 'level2/:path/:title',
 		path: 'level2',
 		loadComponent: () => import('./level2/level2.component')
 	},
 	{
-		path: 'level3/:path/:title',
+		path: 'level3',
 		loadComponent: () => import('./level3/level3.component')
 	},
-
-	{
-		path: 'levelLast/:path/:title/:tag',
-		loadComponent: () => import('./level-last/level-last.component')
-	},
-
 	{
 		path: 'levelLast',
 		loadComponent: () => import('./level-last/level-last.component')
@@ -164,135 +156,3 @@ export default [
 	},
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }
 ] as Routes;
-
-//  ============================================================================================================================================
-// {
-// 	path: 'barrios',
-// 	loadComponent: () => import('./distritos/components/distrito/components/barrio/barrio.component')
-// },
-
-// {
-// 	path: 'organigrama',
-// 	loadComponent: () => import('./organigrama/organigrama/organigrama.component')
-// },
-
-// {
-// 	path: 'employeeRecod/:id',
-// 	loadComponent: () => import('./organigrama/employeeRecod/employeeRecod.component')
-// },
-// {
-// 	path: 'empleadosNews',
-// 	loadComponent: () =>
-// 		import('./art10/components/info-organizativa/components/empleados/components/noticias/noticias.component')
-// },
-
-// level3  art10/infoInstitucional   ============================================================================================================================================
-// {
-// 	path: 'art10/infoInstitucional/plenos/:pleno',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'art10/infoInstitucional/entes/:ente',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'art10/infoInstitucional/comisiones/permanentes/:comision',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'art10/infoInstitucional/comisiones/especiales/:comision',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'art10/infoInstitucional/elas/:ela',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'art10/infoInstitucional/mesas/:mesa',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-//  ============================================================================================================================================
-
-// {
-// 	path: 'licitaciones/:licitacion',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'temas/:tema',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'distritos/:distrito',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'edificiosSingulares/:edificio',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-
-// medioambiental  ============================================================================================================================================
-// {
-// 	path: 'medioambiental/apartamentosTuristicos',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'medioambiental/proyectosViviendas',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'medioambiental/poligonosIndustriales',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'medioambiental/registroSolares',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'medioambiental/mercados',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'eventos/:evento',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'subvenciones/:subvencion',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-
-//Deuda ============================================================================================================================================
-// {
-// 	path: 'deuda',
-// 	loadComponent: () => import('./level2/level2.component')
-// },
-// {
-// 	path: 'deudaTotal',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'deudaViva',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'fondoOrdenacion',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'planAjuste/planAjuste',
-// 	loadComponent: () => import('./level3/level3.component')
-// },
-// {
-// 	path: 'planAjuste20230918',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// Deuda ===============================
-// {
-// 	path: 'art16/pmp',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-// {
-// 	path: 'art16/impuestos',
-// 	loadComponent: () => import('./level-last/level-last.component')
-// },
-
-// ============================================================================================================================================
