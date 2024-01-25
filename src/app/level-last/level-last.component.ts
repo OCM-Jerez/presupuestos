@@ -78,7 +78,7 @@ export default class LevelLastComponent implements OnInit {
 	public isSubvencion = false;
 	public isDistrito = false;
 	public isLicitacion = false;
-	public isEdificioSingular = false;
+	// public isEdificioSingular = false;
 	public hasDocs = false;
 	public hasComs = false;
 	public hasNews = false;
@@ -111,15 +111,9 @@ export default class LevelLastComponent implements OnInit {
 			case 'pmp':
 				this.isPMP = true;
 				break;
-			// case 'impuestos':
-			// 	this.isImpuestos = true;
-			// 	break;
 			case 'licitaciones':
 				this.isLicitacion = true;
 				this.imgURL = environment.pathImgSupabase + tag + '.jpg';
-				break;
-			case 'edificioSingular':
-				this.isEdificioSingular = true;
 				break;
 			case 'subvencion':
 				this.isSubvencion = true;
