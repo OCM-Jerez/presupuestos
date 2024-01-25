@@ -5,6 +5,7 @@ import { environment } from '@environments/environment';
 
 import { CardMenuComponent } from '@commons/components/card-menu/card-menu.component';
 
+import { PathStoreService } from '@services/pathStore.service';
 import { TagStoreService } from '@services/tagStore.service';
 import { TitleStoreService } from '@services/titleStore.service';
 
@@ -19,10 +20,15 @@ import { IMenuItem } from '@interfaces/menu.interface';
 export default class HomeComponent implements OnInit {
 	private _router = inject(Router);
 	private _tagStoreService = inject(TagStoreService);
+	private _pathStoreService = inject(PathStoreService);
 	private _titleStoreService = inject(TitleStoreService);
 	public menuOptionsHome: IMenuItem[] = [];
 
 	ngOnInit() {
+		this._pathStoreService.clearHistory();
+		this._tagStoreService.clearHistory();
+		this._titleStoreService.clearHistory();
+
 		import(`@assets/menuOptions/home.json`).then((data) => {
 			this.menuOptionsHome = data.default.map((item: IMenuItem) => {
 				const modifiedItem = {
@@ -38,6 +44,8 @@ export default class HomeComponent implements OnInit {
 		return {
 			...item,
 			funcion: () => {
+				console.log('item', item);
+
 				this._tagStoreService.setTag(item.tag);
 				this._titleStoreService.setTitle(item.title);
 				this._router.navigateByUrl('level1');

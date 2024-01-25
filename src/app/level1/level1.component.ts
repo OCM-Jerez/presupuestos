@@ -31,8 +31,12 @@ export default class Level1Component implements OnInit {
 
 	ngOnInit() {
 		const tag = this._tagStoreService.getTag();
+		console.log('tag', tag);
+
 		import(`../../assets/menuOptions/level1/${tag}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => {
+				console.log('item', item);
+
 				const modifiedItem = {
 					...item,
 					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
