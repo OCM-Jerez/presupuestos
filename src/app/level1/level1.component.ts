@@ -35,8 +35,6 @@ export default class Level1Component implements OnInit {
 
 		import(`../../assets/menuOptions/level1/${tag}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => {
-				console.log('item', item);
-
 				const modifiedItem = {
 					...item,
 					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
@@ -68,6 +66,8 @@ export default class Level1Component implements OnInit {
 			...item,
 			funcion: () => {
 				this._pathStoreService.setPath(item.path);
+				console.log('item.tag', item.tag);
+
 				this._tagStoreService.setTag(item.tag);
 				this._titleStoreService.setTitle(item.title);
 				this._router.navigateByUrl(URL);

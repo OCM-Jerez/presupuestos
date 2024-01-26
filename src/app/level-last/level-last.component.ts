@@ -61,7 +61,7 @@ export default class LevelLastComponent implements OnInit {
 	public news: INew[] = [];
 	public data: IOption[] = [];
 	// TODO: - Typar
-	public dataSupabase: any[] = [];
+	// public dataSupabase: any[] = [];
 	public steps: IStep[] = [];
 	public barrios: IBarrio[] = [];
 	public stepsSubvencion: IStepSubvencion[] = [];
@@ -69,9 +69,7 @@ export default class LevelLastComponent implements OnInit {
 	public descripcion: string;
 	public isPMP = false;
 	public isDeudaTotal = false;
-	public deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
 	public isDeudaViva = false;
-	public deudaVivaImgURL = `${environment.pathImgSupabase}/2023.06.29.jpg`;
 	public isFondoOrdenacion = false;
 	public planAjuste20230918 = false;
 	public isImpuestos = false;
@@ -82,9 +80,11 @@ export default class LevelLastComponent implements OnInit {
 	public hasDocs = false;
 	public hasComs = false;
 	public hasNews = false;
-	public gauge = environment.pathImgSupabase + 'gauge.jpg';
-	public pmpURL = environment.pathImgSupabase + '2023-12.jpg';
 	public title = this._titleStoreService.getTitle();
+	public gauge = environment.pathImgSupabase + 'gauge.jpg';
+	public deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
+	public deudaVivaImgURL = `${environment.pathImgSupabase}/2023.06.29.jpg`;
+	public pmpURL = environment.pathImgSupabase + '2023-12.jpg';
 
 	ngOnInit() {
 		const path = this._pathStoreService.getPath();
@@ -93,7 +93,7 @@ export default class LevelLastComponent implements OnInit {
 		console.log('path', path);
 		console.log('tag', tag);
 
-		this._tagStoreService.setTag(tag);
+		// this._tagStoreService.setTag(tag);
 
 		switch (path) {
 			case 'deudaTotal':

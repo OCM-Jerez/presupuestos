@@ -44,8 +44,6 @@ export default class HomeComponent implements OnInit {
 		return {
 			...item,
 			funcion: () => {
-				console.log('item', item);
-
 				this._tagStoreService.setTag(item.tag);
 				this._titleStoreService.setTitle(item.title);
 				this._router.navigateByUrl('level1');
