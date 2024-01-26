@@ -2,9 +2,9 @@
 
 <section class="OCM-flex">
 	@for (menu of menuOptions; track menu) {
-	<div>
-		<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-	</div>
+		<div>
+			<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+		</div>
 	}
 </section>
 

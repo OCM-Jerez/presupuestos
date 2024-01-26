@@ -1,4 +1,4 @@
-<div class="legal">
+<section class="legal">
 	<h1 class="OCM-subtitle-dark">
 		Se recoge la información requerida por la Ley 1/2014, de 24 de junio, de Transparencia Pública de Andalucía
 	</h1>
@@ -10,12 +10,12 @@
 		aria-label="Sitio WEB de OCM Jerez"
 		>enlace</a
 	>
-</div>
+</section>
 
-<div class="flex">
+<section class="flex">
 	@for (menu of menuOptionsHome; track menu) {
-	<div>
-		<app-card-menu [rutaImagen]="menu.rutaImagen" [titulo]="menu.title" (click)="menu.funcion()" />
-	</div>
+		<div>
+			<app-card-menu [rutaImagen]="menu.rutaImagen" [titulo]="menu.title" (click)="menu.funcion()" />
+		</div>
 	}
-</div>
+</section>

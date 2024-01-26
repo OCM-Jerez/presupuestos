@@ -53,7 +53,6 @@ export default class Level3Component implements OnInit {
 
 	ngOnInit() {
 		const tag = this._tagStoreService.getTag();
-		// console.log('path', this.path);
 		import(`../../assets/menuOptions/level3/${tag}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => {
 				if (tag === 'comisiones') {
@@ -65,10 +64,10 @@ export default class Level3Component implements OnInit {
 						...item,
 						rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
 					};
-					this.fetchDataFromSupabase(tag);
 					return this.createCardMenu(modifiedItem);
 				}
 			});
+			this.fetchDataFromSupabase(tag);
 		});
 	}
 

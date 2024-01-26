@@ -60,8 +60,6 @@ export default class LevelLastComponent implements OnInit {
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
 	public data: IOption[] = [];
-	// TODO: - Typar
-	// public dataSupabase: any[] = [];
 	public steps: IStep[] = [];
 	public barrios: IBarrio[] = [];
 	public stepsSubvencion: IStepSubvencion[] = [];
@@ -76,7 +74,6 @@ export default class LevelLastComponent implements OnInit {
 	public isSubvencion = false;
 	public isDistrito = false;
 	public isLicitacion = false;
-	// public isEdificioSingular = false;
 	public hasDocs = false;
 	public hasComs = false;
 	public hasNews = false;
@@ -88,12 +85,8 @@ export default class LevelLastComponent implements OnInit {
 
 	ngOnInit() {
 		const path = this._pathStoreService.getPath();
-		this._pathStoreService.setPath('');
+		// this._pathStoreService.setPath('');
 		const tag = this._tagStoreService.getTag();
-		console.log('path', path);
-		console.log('tag', tag);
-
-		// this._tagStoreService.setTag(tag);
 
 		switch (path) {
 			case 'deudaTotal':
@@ -195,6 +188,8 @@ export default class LevelLastComponent implements OnInit {
 
 		try {
 			this.news = await this._supabaseService.fetchDataByTagOrder('news', tag, false);
+			console.log(this.news);
+
 			this.hasNews = this.news.length > 0;
 		} catch (error) {
 			console.error('Error fetching data:', error);

@@ -10,6 +10,7 @@ import { TagStoreService } from '@services/tagStore.service';
 import { TitleStoreService } from '@services/titleStore.service';
 
 import { IMenuItem } from '@interfaces/menu.interface';
+
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',

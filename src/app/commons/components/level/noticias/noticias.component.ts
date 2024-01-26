@@ -5,22 +5,22 @@ import { Router } from '@angular/router';
 import { environment } from '@environments/environment';
 
 import NewsFormComponent from '@app/addNewRecodsToSupabase/news-form/news-form.component';
-import { ModalService } from '@app/layouts/modal/modal.service';
 
+import { ModalService } from '@app/layouts/modal/modal.service';
 import { TagStoreService } from '@services/tagStore.service';
 
 @Component({
 	selector: 'app-noticias',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './noticias.component.html',
-	styleUrls: ['./noticias.component.scss']
+	templateUrl: './noticias.component.html'
 })
 export default class NoticiasComponent {
 	@ViewChild('modal')
 	modal!: ElementRef<HTMLDivElement>;
 	@ViewChild('overlay') overlay!: ElementRef<HTMLDivElement>;
 	@Input() news: any[];
+
 	private _router = inject(Router);
 	private _modalService = inject(ModalService);
 	private _tagStoreService = inject(TagStoreService);

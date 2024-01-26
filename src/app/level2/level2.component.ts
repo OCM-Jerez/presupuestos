@@ -31,18 +31,16 @@ export default class Level2Component implements OnInit {
 	public title = this._titleStoreService.getTitle();
 
 	ngOnInit() {
-		// console.log('this.path', this.path);
 		const tag = this._tagStoreService.getTag();
-		console.log('tag', tag);
 		import(`../../assets/menuOptions/level2/${tag}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => {
 				const modifiedItem = {
 					...item,
 					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
 				};
-				this.fetchDataFromSupabase(tag);
 				return this.createCardMenu(modifiedItem);
 			});
+			this.fetchDataFromSupabase(tag);
 		});
 	}
 
@@ -57,7 +55,6 @@ export default class Level2Component implements OnInit {
 
 	createCardMenu(item: IMenuItem) {
 		let URL = item.isLastLevel ? 'levelLast' : 'level3';
-		// console.log('item.title', item.title);
 		switch (item.path) {
 			case 'retribuciones2022':
 				URL = 'retribuciones2022';
