@@ -8,9 +8,7 @@ export class TitleStoreService {
 	private _history: string[] = []; // Pila para almacenar el historial de títulos
 
 	setTitle(value: string): void {
-		if (this._title) {
-			this._history.push(this._title); // Añadir el valor actual a la pila antes de cambiarlo
-		}
+		this._history.push(this._title); // Añadir el valor actual a la pila antes de cambiarlo
 		this._title = value;
 	}
 

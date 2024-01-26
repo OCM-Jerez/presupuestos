@@ -8,9 +8,7 @@ export class PathStoreService {
 	private _history: string[] = []; // Pila para almacenar el historial de paths
 
 	setPath(value: string): void {
-		if (this._path) {
-			this._history.push(this._path); // Añadir el valor actual a la pila antes de cambiarlo
-		}
+		this._history.push(this._path); // Añadir el valor actual a la pila antes de cambiarlo
 		this._path = value;
 	}
 

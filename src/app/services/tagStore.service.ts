@@ -8,9 +8,7 @@ export class TagStoreService {
 	private _history: string[] = []; // Pila para almacenar el historial de tags
 
 	setTag(value: string): void {
-		if (this._tag) {
-			this._history.push(this._tag); // Añadir el valor actual a la pila antes de cambiarlo
-		}
+		this._history.push(value); // Añadir el valor actual a la pila antes de cambiarlo
 		this._tag = value;
 		console.log('this._history', this._history);
 	}
