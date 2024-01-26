@@ -188,8 +188,6 @@ export default class LevelLastComponent implements OnInit {
 
 		try {
 			this.news = await this._supabaseService.fetchDataByTagOrder('news', tag, false);
-			console.log(this.news);
-
 			this.hasNews = this.news.length > 0;
 		} catch (error) {
 			console.error('Error fetching data:', error);
