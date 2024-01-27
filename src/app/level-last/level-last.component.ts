@@ -85,7 +85,6 @@ export default class LevelLastComponent implements OnInit {
 
 	ngOnInit() {
 		const path = this._pathStoreService.getPath();
-		// this._pathStoreService.setPath('');
 		const tag = this._tagStoreService.getTag();
 
 		switch (path) {
