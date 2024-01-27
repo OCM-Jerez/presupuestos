@@ -1,6 +1,6 @@
 {
   "name": "presupuestos",
-  "version": "1.01.24",
+  "version": "1.01.27",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -15,7 +15,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "17.1.1",
+    "@angular/animations": "17.1.0",
     "@angular/common": "17.1.0",
     "@angular/compiler": "17.1.0",
     "@angular/core": "17.1.0",
