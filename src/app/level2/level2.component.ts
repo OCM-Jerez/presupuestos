@@ -27,7 +27,6 @@ export default class Level2Component implements OnInit {
 	private _pathStoreService = inject(PathStoreService);
 	public menuOptions: IMenuItem[] = [];
 	public news: INew[] = [];
-	public hasNews = false;
 	public title = this._titleStoreService.getTitle();
 
 	ngOnInit() {
@@ -47,7 +46,6 @@ export default class Level2Component implements OnInit {
 	async fetchDataFromSupabase(param: string) {
 		try {
 			this.news = await this._supabaseService.fetchDataByTagOrder('news', param, false);
-			this.hasNews = this.news.length > 0;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
@@ -55,6 +53,7 @@ export default class Level2Component implements OnInit {
 
 	createCardMenu(item: IMenuItem) {
 		let URL = item.isLastLevel ? 'levelLast' : 'level3';
+
 		switch (item.path) {
 			case 'retribuciones2022':
 				URL = 'retribuciones2022';
