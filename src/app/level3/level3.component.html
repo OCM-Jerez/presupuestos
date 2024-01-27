@@ -1,15 +1,6 @@
 <main class="OCM-dark-teme">
 	<header class="OCM-subtitle-dark">{{ title }}</header>
 
-	@if (!isComisiones) {
-		<section class="OCM-flex">
-			@for (menu of menuOptions; track menu) {
-				<div>
-					<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-				</div>
-			}
-		</section>
-	}
 	@if (isComisiones) {
 		<header class="OCM-title-dark">Permanentes</header>
 		<section class="OCM-flex">
@@ -22,6 +13,14 @@
 		<header class="OCM-title-dark">Especiales</header>
 		<section class="OCM-flex">
 			@for (menu of menuOptions.slice(5, 11); track menu) {
+				<div>
+					<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+				</div>
+			}
+		</section>
+	} @else {
+		<section class="OCM-flex">
+			@for (menu of menuOptions; track menu) {
 				<div>
 					<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 				</div>

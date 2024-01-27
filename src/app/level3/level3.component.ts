@@ -57,7 +57,7 @@ export default class Level3Component implements OnInit {
 			this.menuOptions = data.default.map((item: IMenuItem) => {
 				if (tag === 'comisiones') {
 					this.isComisiones = true;
-					this.fetchDataFromSupabase(tag);
+					// this.fetchDataFromSupabase(tag);
 					return this.createCardMenu(item);
 				} else {
 					const modifiedItem = {
@@ -71,10 +71,24 @@ export default class Level3Component implements OnInit {
 		});
 	}
 
-	async fetchDataFromSupabase(param: string) {
+	async fetchDataFromSupabase(tag: string) {
 		try {
-			this.news = await this._supabaseService.fetchDataByTagOrder('news', param, false);
+			this.news = await this._supabaseService.fetchDataByTagOrder('news', tag, false);
 			this.hasNews = this.news.length > 0;
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
+
+		try {
+			this.coms = await this._supabaseService.fetchDataByTagOrder('comments', tag, false);
+			this.hasComs = this.coms.length > 0;
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
+
+		try {
+			this.docs = await this._supabaseService.fetchDataByTagOrder('documents', tag, false);
+			this.hasDocs = this.docs.length > 0;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
