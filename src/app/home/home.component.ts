@@ -23,7 +23,7 @@ export default class HomeComponent implements OnInit {
 	private _tagStoreService = inject(TagStoreService);
 	private _pathStoreService = inject(PathStoreService);
 	private _titleStoreService = inject(TitleStoreService);
-	public menuOptionsHome: IMenuItem[] = [];
+	public menuOptions: IMenuItem[] = [];
 
 	ngOnInit() {
 		this._pathStoreService.clearHistory();
@@ -31,7 +31,7 @@ export default class HomeComponent implements OnInit {
 		this._titleStoreService.clearHistory();
 
 		import(`@assets/menuOptions/home.json`).then((data) => {
-			this.menuOptionsHome = data.default.map((item: IMenuItem) => {
+			this.menuOptions = data.default.map((item: IMenuItem) => {
 				const modifiedItem = {
 					...item,
 					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'

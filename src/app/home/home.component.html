@@ -13,7 +13,7 @@
 </section>
 
 <section class="flex">
-	@for (menu of menuOptionsHome; track menu) {
+	@for (menu of menuOptions; track menu) {
 		<div>
 			<app-card-menu [rutaImagen]="menu.rutaImagen" [titulo]="menu.title" (click)="menu.funcion()" />
 		</div>
