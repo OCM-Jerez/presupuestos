@@ -32,17 +32,17 @@
 
 		.logoWWW {
 			@include OCM-logo;
-			background: url('#{$assets-img-path}/www.svg') no-repeat center center;
+			background: url('#{$imgPath}/www.svg') no-repeat center center;
 		}
 
 		.logoFacebook {
 			@include OCM-logo;
-			background: url('#{$assets-img-path}/facebook.svg') no-repeat center center;
+			background: url('#{$imgPath}/facebook.svg') no-repeat center center;
 		}
 
 		.logoTwitter {
 			@include OCM-logo;
-			background: url('#{$assets-img-path}/twitter.svg') no-repeat center center;
+			background: url('#{$imgPath}/twitter.svg') no-repeat center center;
 		}
 	}
 
