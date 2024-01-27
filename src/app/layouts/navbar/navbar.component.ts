@@ -20,32 +20,14 @@ export class NavbarComponent {
 	private _titleStoreService = inject(TitleStoreService);
 	public router = inject(Router);
 
-	public collapsed = false;
-
-	navigateTo(route: string) {
-		this.router.navigateByUrl(route);
-		this.toggleCollapse(true);
-	}
-
-	toggleCollapse(state: boolean) {
-		this.collapsed = state;
-		if (state) {
-			setTimeout(() => {
-				this.collapsed = false;
-			}, 0);
-		}
+	navigateTo() {
+		this.router.navigateByUrl('/');
 	}
 
 	volver() {
 		this._pathStoreService.setPath(this._pathStoreService.popPreviousPath());
-		// console.log('this._pathStoreService.getPath()', this._pathStoreService.getPath());
-
 		this._tagStoreService.setTag(this._tagStoreService.popPreviousTag());
-		console.log('this._tagStoreService.getTag()', this._tagStoreService.getTag());
-
 		this._titleStoreService.setTitle(this._titleStoreService.popPreviousTitle());
-		// console.log('this._titleStoreService.getTitle()', this._titleStoreService.getTitle());
-
 		this._location.back();
 	}
 }

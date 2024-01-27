@@ -1,56 +1,13 @@
 <nav class="navbar">
-  <div class="navbar--1row">
-    <div class="navbar--1row--logo"></div>
-    <div class="navbar--1row--title">Datos Ayuntamiento Jerez</div>
+	<div class="navbar__logo"></div>
+	<div class="navbar__title">Datos Ayuntamiento Jerez</div>
 
-    @if (router.url === '/home') {
-      <div class="homeEmpty"></div>
-    }
-    @if (router.url !== '/home') {
-      <div class="home">
-        <!-- <a routerLink="/" class="logoHome"></a> -->
-        <a class="logoVolver" (click)="volver()"></a>
-        <a class="logoHome" (click)="navigateTo('/')"></a>
-      </div>
-    }
-  </div>
-
-  <!-- <div class="navMenu">
-  <header class="header">
-    <input *ngIf="!collapsed" class="menu-btn" type="checkbox" id="menu-btn" />
-    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-    <ul *ngIf="!collapsed" class="menu"> -->
-      <!-- <li class="nav-item">
-      <a class="nav-link" (click)="navigateTo('/')">Inicio</a>
-    </li> -->
-    <!-- <li class="nav-item">
-    <a class="nav-link" (click)="navigateTo('/presupuestos')">Presupuestos</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" (click)="navigateTo('/licitaciones')">Licitaciones</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" (click)="navigateTo('/entesDependientes')">Entes</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" (click)="navigateTo('/temas')">Temas</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" (click)="navigateTo('/empleados')">Empleados</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" (click)="navigateTo('/explicamos')">Explicamos</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" (click)="navigateTo('/glosario')">Glosario</a>
-  </li> -->
-<!-- </ul>
-</header>
-</div> -->
-
-<!-- <div class="barraBuscar">
-<span class="barraBuscar--text">¿Buscas algo en concreto? </span>
-<input type="text" id="searchText" name="searchText" placeholder="Escribe aquí tu termino de busqueda">
-<button type="button" (click)="glosario()" class="buttonBuscar">Buscar </button>
-</div> -->
+	@if (router.url === '/home') {
+		<div></div>
+	} @else {
+		<div class="navbar__home">
+			<a class="navbar__logoVolver" (click)="volver()"></a>
+			<a class="navbar__logoHome" (click)="navigateTo()"></a>
+		</div>
+	}
 </nav>
