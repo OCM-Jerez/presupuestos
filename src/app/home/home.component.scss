@@ -6,7 +6,7 @@
 @import '/src/app/scss/typography';
 @import '/src/app/scss/utilities';
 
-@media screen and (max-width: 3399.98px) {
+@media screen and (max-width: 4200px) {
 	.legal {
 		display: flex;
 		justify-content: center;
@@ -15,33 +15,29 @@
 		background-color: #15202b;
 	}
 
-	.flex {
+	.gridMenu {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
-		grid-template-rows: 20% 20% 20%;
+		grid-template-rows: 31% 31% 31%;
 		gap: 20px 20px;
 		padding: 20px;
 		background-color: #15202b;
 	}
 }
 
-@media screen and (max-width: 1199.98px) {
-	.flex {
+@media screen and (max-width: 1060px) {
+	.gridMenu {
 		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 20% 20% 20% 20%;
 	}
 }
 
-@media screen and (max-width: 991.98px) {
-	.flex {
+@media screen and (max-width: 700px) {
+	.gridMenu {
 		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 15% 15% 15% 15% 15% 15%;
 	}
 }
 
-@media screen and (max-width: 767.98px) {
-}
-
-@media screen and (max-width: 575.98px) {
-	.flex {
-		grid-template-columns: 1fr;
-	}
+@media screen and (max-width: 570x) {
 }

@@ -12,10 +12,8 @@
 	>
 </section>
 
-<section class="flex">
+<section class="gridMenu">
 	@for (menu of menuOptions; track menu) {
-		<div>
-			<app-card-menu [rutaImagen]="menu.rutaImagen" [titulo]="menu.title" (click)="menu.funcion()" />
-		</div>
+		<app-card-menu [rutaImagen]="menu.rutaImagen" [titulo]="menu.title" (click)="menu.funcion()" />
 	}
 </section>

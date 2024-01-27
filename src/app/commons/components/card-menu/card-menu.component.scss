@@ -1,39 +1,65 @@
-.cardMenu {
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 50% 30% 20%;
-	justify-items: center;
-	gap: 2px 2px;
-	height: 100%;
-	border: 1px solid rgb(211, 214, 194);
-	border-radius: 10px;
-	background-color: #4d4e50;
+@import '/src/app/scss/base';
+@import '/src/app/scss/variables';
+@import '/src/app/scss/functions';
+@import '/src/app/scss/animations';
+@import '/src/app/scss/mixins';
+@import '/src/app/scss/typography';
+@import '/src/app/scss/utilities';
 
-	&:hover {
-		box-shadow: 0 16px 32px 0 rgba(151, 4, 4, 0.82);
-		cursor: pointer;
-	}
-	&__image {
-		padding: 10px;
+@media screen and (max-width: 4200px) {
+	.cardMenu {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 50% 30% 20%;
+		justify-items: center;
+		gap: 2px 2px;
 		height: 100%;
-		border-radius: 20px;
-		width: 98%;
-		background-size: cover;
+		border: 1px solid rgb(211, 214, 194);
+		border-radius: 10px;
+		background-color: #4d4e50;
+		max-width: 280px;
+		max-height: 100%;
+		&:hover {
+			box-shadow: 0 16px 32px 0 rgba(151, 4, 4, 0.82);
+			cursor: pointer;
+		}
+		&__image {
+			padding: 10px;
+			width: 98%;
+			height: 100%;
+			border-radius: 20px;
+			background-size: cover;
+		}
+		&__title {
+			color: rgba(237, 235, 240, 0.913);
+			font-weight: 600;
+			font-family: var(--fuente-principal);
+			font-size: clamp(12px, 2vw, 14px);
+			margin-top: 6px;
+			padding: 0px 20px 0px 20px;
+			height: 100%;
+		}
+		&__subtitle {
+			font-weight: 300;
+			font-family: var(--fuente-principal);
+			color: white;
+			font-size: 1.2rem;
+			padding: 0px 20px 0px 20px;
+		}
 	}
-	&__title {
-		color: rgba(237, 235, 240, 0.913);
-		font-weight: 600;
-		font-family: var(--fuente-principal);
-		font-size: 1.6rem;
-		margin-top: 6px;
-		padding: 0px 20px 0px 20px;
-		height: 100%;
-	}
-	&__subtitle {
-		font-weight: 300;
-		font-family: var(--fuente-principal);
-		color: white;
-		font-size: 1.2rem;
-		padding: 0px 20px 0px 20px;
+}
+
+@media screen and (max-width: 570x) {
+	.cardMenu {
+		&__image {
+			padding: 2px;
+			width: 50%;
+			height: 20%;
+			border-radius: 20px;
+			background-size: cover;
+		}
+		&__title {
+			font-size: 8px;
+		}
 	}
 }
