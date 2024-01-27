@@ -103,5 +103,10 @@
 		"title": "Bienestar animal",
 		"isLastLevel": true,
 		"tag": "bienestarAnimal"
+	},
+	{
+		"title": "Planta  Reciclaje Las Calandrias",
+		"isLastLevel": true,
+		"tag": "lasCalandrias"
 	}
 ]
