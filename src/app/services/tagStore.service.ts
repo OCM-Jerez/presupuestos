@@ -10,7 +10,7 @@ export class TagStoreService {
 	setTag(value: string): void {
 		this._history.push(value); // Añadir el valor actual a la pila antes de cambiarlo
 		this._tag = value;
-		console.log('this._history', this._history);
+		// console.log('this._history', this._history);
 	}
 
 	getTag(): string {
