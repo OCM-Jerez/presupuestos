@@ -8,24 +8,16 @@
 	}
 
 	@if (isDistrito) {
-		<figure class="OCM-img">
-			<img [class]="{ 'OCM-imgGraph': isDistrito }" [src]="imgURL" alt="Foto proyecto" />
-		</figure>
+		<img [class]="{ 'OCM-imgGraph': isDistrito }" [src]="imgURL" alt="Foto proyecto" />
 	}
 	@if (isPMP) {
-		<figure>
-			<img class="OCM-imgGraph" [src]="pmpURL" alt="Grafico pmp" />
-		</figure>
+		<img class="OCM-imgGraph" [src]="pmpURL" alt="Grafico pmp" />
 	}
 	@if (isDeudaTotal) {
-		<figure>
-			<img class="OCM-imgGraph" [src]="deudaTotalImgURL" alt="Grafico pmp" />
-		</figure>
+		<img class="OCM-imgGraph" [src]="deudaTotalImgURL" alt="Grafico pmp" />
 	}
 	@if (isDeudaViva) {
-		<figure>
-			<img class="OCM-imgGraph" [src]="deudaVivaImgURL" alt="Grafico pmp" />
-		</figure>
+		<img class="OCM-imgGraph" [src]="deudaVivaImgURL" alt="Grafico pmp" />
 	}
 	@if (isDistrito) {
 		<section class="OCM-tableContainer">
