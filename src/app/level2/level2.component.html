@@ -1,10 +1,8 @@
-<h2 class="OCM-subtitle-dark">{{ title }}</h2>
+<header class="OCM-subtitle-dark">{{ title }}</header>
 
-<section class="OCM-flex">
+<section class="OCM-gridMenuLevel">
 	@for (menu of menuOptions; track menu) {
-		<div>
-			<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-		</div>
+		<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 	}
 </section>
 
