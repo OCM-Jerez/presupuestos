@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 import { ReloadTableService } from '@services/reloadTable.service';
 
