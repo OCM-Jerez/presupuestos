@@ -190,7 +190,7 @@
 		margin: 10px;
 		tbody {
 			td {
-				font-size: 1.2rem;
+				font-size: clamp(0.8rem, 1vw + 1rem, 1.4rem);
 				padding: 6px;
 
 				&:nth-child(1) {

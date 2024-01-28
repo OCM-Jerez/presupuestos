@@ -1,41 +1,19 @@
 <section class="OCM-tableContainer">
-  <table class="OCM-tableData">
-    <tbody>
-      @for (data of data; track data) {
-        <tr>
-          <ng-container>
-            <td>{{ data.data }}</td>
-            @if (!data.data.startsWith('url')) {
-              <td>{{ data.value }}</td>
-            }
-            @if (data.data.startsWith('url') && data.value !== '') {
-              <td><a href="{{ data.value }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
-            }
-          </ng-container>
-        </tr>
-      }
-    </tbody>
-  </table>
+	<table class="OCM-tableData">
+		<tbody>
+			@for (data of data; track data) {
+				<tr>
+					<ng-container>
+						<td>{{ data.data }}</td>
+						@if (!data.data.startsWith('url')) {
+							<td>{{ data.value }}</td>
+						}
+						@if (data.data.startsWith('url') && data.value !== '') {
+							<td><a href="{{ data.value }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+						}
+					</ng-container>
+				</tr>
+			}
+		</tbody>
+	</table>
 </section>
-
-<!-- <section class="OCM-tableContainer">
-<table class="OCM-tableData">
-  <tbody>
-    <tr *ngFor="let data of data">
-      <ng-container
-					*ngIf="
-						data.value !== '' &&
-						data.data !== 'Descripción' &&
-						(!hasKey(data, 'URL') || (hasKey(data, 'URL') && data.URL !== ''))
-					"
-        >
-        <td>{{ data.data }}</td>
-        <td>{{ data.value }}</td>
-        <ng-container *ngIf="hasKey(data, 'URL') && data.URL !== ''">
-          <td><a href="{{ data.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
-        </ng-container>
-      </ng-container>
-    </tr>
-  </tbody>
-</table>
-</section> -->
