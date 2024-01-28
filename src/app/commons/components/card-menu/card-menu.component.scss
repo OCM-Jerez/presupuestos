@@ -10,15 +10,11 @@
 	.cardMenu {
 		display: grid;
 		grid-template-columns: 1fr;
-		grid-template-rows: 40% 60%;
-		justify-items: center;
-		gap: 2px 2px;
+		grid-template-rows: 50% 50%;
 		height: 100%;
 		border: 1px solid rgb(211, 214, 194);
 		border-radius: 10px;
 		background-color: #4d4e50;
-		max-width: 280px;
-		max-height: 100%;
 		&:hover {
 			box-shadow: 0 16px 32px 0 rgba(151, 4, 4, 0.82);
 			cursor: pointer;
@@ -28,34 +24,25 @@
 			width: 98%;
 			height: 100%;
 			border-radius: 20px;
-			background-size: cover;
 		}
 		&__title {
-			margin-top: 0px;
 			color: rgba(237, 235, 240, 0.913);
-			font-weight: 500;
-			font-family: var(--fuente-principal);
 			// https://modern-fluid-typography.vercel.app?rootFontSize=12&minSize=8&fluidSize=1&relativeSize=0.5&maxSize=20
 			font-size: clamp(0.1rem, 2vw + 0.5rem, 1.667rem);
-			margin-top: 6px;
-			padding: 20px;
+			padding: 10px;
 		}
-		// &__subtitle {
-		// 	font-weight: 300;
-		// 	font-family: var(--fuente-principal);
-		// 	color: white;
-		// 	font-size: 1.2rem;
-		// 	padding: 20px 20px 20px 20px;
-		// }
 	}
 }
 
 @media screen and (max-width: 570px) {
 	.cardMenu {
+		grid-template-rows: 40% 60%;
+		&__image {
+			border-radius: 10px;
+			padding: 4px;
+		}
 		&__title {
-			margin-top: 0px;
-			// padding: 0px 2px 0px 4px;
-			height: auto;
+			padding: 4px;
 		}
 	}
 }
