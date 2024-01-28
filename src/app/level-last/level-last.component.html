@@ -7,47 +7,46 @@
 		<header class="OCM-title-dark">{{ title }}</header>
 	}
 
-	@if (isDistrito) {
-		<img [class]="{ 'OCM-imgGraph': isDistrito }" [src]="imgURL" alt="Foto proyecto" />
-	}
-	@if (isPMP) {
-		<img class="OCM-imgGraph" [src]="pmpURL" alt="Grafico pmp" />
-	}
-	@if (isDeudaTotal) {
-		<img class="OCM-imgGraph" [src]="deudaTotalImgURL" alt="Grafico pmp" />
-	}
-	@if (isDeudaViva) {
-		<img class="OCM-imgGraph" [src]="deudaVivaImgURL" alt="Grafico pmp" />
-	}
-	@if (isDistrito) {
-		<section class="OCM-tableContainer">
-			<table class="OCM-tableDocumentos">
-				<thead>
-					<tr>
-						<th>Barrio</th>
-						<th>URL</th>
-					</tr>
-				</thead>
-				<tbody>
-					@for (barrio of barrios; track barrio) {
+	@switch (path) {
+		@case ('deudaTotal') {
+			<img class="OCM-imgGraph" [src]="deudaTotalImgURL" alt="Grafico deuda total" />
+		}
+		@case ('deudaViva') {
+			<img class="OCM-imgGraph" [src]="deudaVivaImgURL" alt="Grafico deuda viva" />
+		}
+		@case ('pmp') {
+			<img class="OCM-imgGraph" [src]="deudaVivaImgURL" alt="Grafico pmp" />
+		}
+		@case ('distritos') {
+			<img class="OCM-imgGraph" [src]="imgURL" alt="Distrito" />
+			<section class="OCM-tableContainer">
+				<table class="OCM-tableDocumentos">
+					<thead>
 						<tr>
-							<td>{{ barrio.value }}</td>
-							<!-- <td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td> -->
+							<th>Barrio</th>
+							<th>URL</th>
 						</tr>
-					}
-				</tbody>
-			</table>
-		</section>
+					</thead>
+					<tbody>
+						@for (barrio of barrios; track barrio) {
+							<tr>
+								<td>{{ barrio.value }}</td>
+								<!-- <td><a href="{{ doc.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td> -->
+							</tr>
+						}
+					</tbody>
+				</table>
+			</section>
+		}
+		@case ('subvenciones') {
+			<app-seguimiento-subvencion [stepsSubvencion]="stepsSubvencion" />
+		}
 	}
 
-	@if (isSubvencion) {
-		<app-seguimiento-subvencion [stepsSubvencion]="stepsSubvencion" />
-	}
+	<app-noticias [news]="news" />
 	@if (hasDocs) {
 		<app-documentos [docs]="docs" />
 	}
-	<!-- <app-noticias *ngIf="hasNews" [news]="news" /> -->
-	<app-noticias [news]="news" />
 	@if (hasComs) {
 		<app-comentarios [coms]="coms" />
 	}

@@ -65,14 +65,6 @@ export default class LevelLastComponent implements OnInit {
 	public stepsSubvencion: IStepSubvencion[] = [];
 	public imgURL: string;
 	public descripcion: string;
-	public isPMP = false;
-	public isDeudaTotal = false;
-	public isDeudaViva = false;
-	public isFondoOrdenacion = false;
-	public planAjuste20230918 = false;
-	public isImpuestos = false;
-	public isSubvencion = false;
-	public isDistrito = false;
 	public isLicitacion = false;
 	public hasDocs = false;
 	public hasComs = false;
@@ -82,41 +74,16 @@ export default class LevelLastComponent implements OnInit {
 	public deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
 	public deudaVivaImgURL = `${environment.pathImgSupabase}/2023.06.29.jpg`;
 	public pmpURL = environment.pathImgSupabase + '2023-12.jpg';
+	public path = this._pathStoreService.getPath();
 
 	ngOnInit() {
-		const path = this._pathStoreService.getPath();
 		const tag = this._tagStoreService.getTag();
-
-		switch (path) {
-			case 'deudaTotal':
-				this.isDeudaTotal = true;
-				break;
-			case 'deudaViva':
-				this.isDeudaViva = true;
-				break;
-			// case 'fondoOrdenacion':
-			// 	this.isFondoOrdenacion = true;
-			// 	break;
-			// case 'planAjuste20230918':
-			// 	this.planAjuste20230918 = true;
-			// 	break;
-			case 'pmp':
-				this.isPMP = true;
-				break;
-			case 'licitaciones':
-				this.isLicitacion = true;
-				this.imgURL = environment.pathImgSupabase + tag + '.jpg';
-				break;
-			case 'subvencion':
-				this.isSubvencion = true;
-				break;
-			case 'distritos':
-				this.isDistrito = true;
-				this.imgURL = environment.pathImgSupabase + tag + '.jpg';
-				break;
+		if (this.path === 'licitaciones') {
+			this.isLicitacion = true;
+			this.imgURL = environment.pathImgSupabase + tag + '.jpg';
 		}
 
-		this.fetchDataFromSupabase(tag, path);
+		this.fetchDataFromSupabase(tag, this.path);
 	}
 
 	async fetchDataFromSupabase(tag: string, path: string) {
@@ -175,6 +142,7 @@ export default class LevelLastComponent implements OnInit {
 						}))
 				);
 				this.data = dataO;
+				console.log('dataO', dataO);
 
 				const descripcionObj = this.data.find((obj) => obj.data === 'Descripción');
 				if (descripcionObj) {
