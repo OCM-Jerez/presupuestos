@@ -9,7 +9,6 @@
 @media screen and (max-width: 4200px) {
 	.legal {
 		display: flex;
-		justify-content: center;
 		align-items: center;
 		gap: 20px;
 		background-color: #15202b;
@@ -39,5 +38,8 @@
 	}
 }
 
-@media screen and (max-width: 570x) {
+@media screen and (max-width: 570px) {
+	.legal {
+		display: none;
+	}
 }
