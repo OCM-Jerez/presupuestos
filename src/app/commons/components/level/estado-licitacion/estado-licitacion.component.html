@@ -1,6 +1,5 @@
-<!-- <ng-container *ngIf="isLicitacion"> -->
 <section class="OCM-flexEstadoLicitacion">
-	<figure class="OCM-containerEstadoLicitacion">
+	<figure class="OCM-containerEstadoLicitacion OCM-containerEstadoLicitacion--figure">
 		<img src="{{ imgURL }}" alt="Foto proyecto" />
 	</figure>
 
@@ -14,22 +13,21 @@
 			</thead>
 			<tbody>
 				@for (step of steps; track step) {
-				<tr>
-					<td>{{ step.date | date : 'd-MM-yyyy' }}</td>
-					<td>{{ step.step }}</td>
-				</tr>
+					<tr>
+						<td>{{ step.date | date: 'd-MM-yyyy' }}</td>
+						<td>{{ step.step }}</td>
+					</tr>
 				}
 			</tbody>
 		</table>
 	</div>
 
-	<div class="OCM-containerEstadoLicitacion">
+	<div class="OCM-containerEstadoLicitacion OCM-containerEstadoLicitacion--figure">
 		<img src="{{ gauge }}" alt="" />
 	</div>
 </section>
 
 @if (canAddRowSupabase) {
-<button class="OCM-button" (click)="addStep()">Añadir step</button>
-<button class="OCM-button" (click)="updateLicitacion()">Editar licitación</button>
+	<button class="OCM-button" (click)="addStep()">Añadir step</button>
+	<button class="OCM-button" (click)="updateLicitacion()">Editar licitación</button>
 }
-<!-- </ng-container> -->
