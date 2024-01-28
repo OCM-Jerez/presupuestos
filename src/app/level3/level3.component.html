@@ -5,38 +5,30 @@
 		<header class="OCM-title-dark">Permanentes</header>
 		<section class="OCM-gridMenuLevel">
 			@for (menu of menuOptions.slice(0, 5); track menu) {
-				<div>
-					<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-				</div>
+				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 			}
 		</section>
 		<header class="OCM-title-dark">Especiales</header>
 		<section class="OCM-gridMenuLevel">
 			@for (menu of menuOptions.slice(5, 11); track menu) {
-				<div>
-					<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-				</div>
+				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 			}
 		</section>
 	} @else {
 		<section class="OCM-gridMenuLevel">
 			@for (menu of menuOptions; track menu) {
-				<div>
-					<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-				</div>
+				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 			}
 		</section>
 	}
 
-	<!-- <app-data-general *ngIf="isLicitacion" [data]="data" />
-  <app-seguimiento-subvencion *ngIf="isSubvencion" [stepsSubvencion]="stepsSubvencion" /> -->
-	@if (hasDocs) {
+	@if ([docs]) {
 		<app-documentos [docs]="docs" />
 	}
-	@if (hasNews) {
+	@if ([news]) {
 		<app-noticias [news]="news" />
 	}
-	@if (hasComs) {
+	@if ([coms]) {
 		<app-comentarios [coms]="coms" />
 	}
 </main>

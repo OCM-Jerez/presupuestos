@@ -45,27 +45,22 @@ export default class Level3Component implements OnInit {
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
-	public hasDocs = false;
-	public hasComs = false;
-	public hasNews = false;
 	public isComisiones = false;
 	public title = this._titleStoreService.getTitle();
 
 	ngOnInit() {
 		const tag = this._tagStoreService.getTag();
+		const path = this._pathStoreService.getPath();
+		path === 'comisiones' ? (this.isComisiones = true) : (this.isComisiones = false);
+
 		import(`../../assets/menuOptions/level3/${tag}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => {
-				if (tag === 'comisiones') {
-					this.isComisiones = true;
-					// this.fetchDataFromSupabase(tag);
-					return this.createCardMenu(item);
-				} else {
-					const modifiedItem = {
-						...item,
-						rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
-					};
-					return this.createCardMenu(modifiedItem);
-				}
+				const modifiedItem = {
+					...item,
+					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
+				};
+				return this.createCardMenu(modifiedItem);
+				// }
 			});
 			this.fetchDataFromSupabase(tag);
 		});
@@ -74,21 +69,18 @@ export default class Level3Component implements OnInit {
 	async fetchDataFromSupabase(tag: string) {
 		try {
 			this.news = await this._supabaseService.fetchDataByTagOrder('news', tag, false);
-			this.hasNews = this.news.length > 0;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
 
 		try {
 			this.coms = await this._supabaseService.fetchDataByTagOrder('comments', tag, false);
-			this.hasComs = this.coms.length > 0;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
 
 		try {
 			this.docs = await this._supabaseService.fetchDataByTagOrder('documents', tag, false);
-			this.hasDocs = this.docs.length > 0;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
