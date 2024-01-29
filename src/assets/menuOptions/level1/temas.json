@@ -105,8 +105,13 @@
 		"tag": "bienestarAnimal"
 	},
 	{
-		"title": "Planta  Reciclaje Las Calandrias",
+		"title": "Planta Reciclaje Las Calandrias",
 		"isLastLevel": true,
 		"tag": "lasCalandrias"
+	},
+	{
+		"title": "Obras eje del Arroyo",
+		"isLastLevel": true,
+		"tag": "obrasEjeArroyo"
 	}
 ]
