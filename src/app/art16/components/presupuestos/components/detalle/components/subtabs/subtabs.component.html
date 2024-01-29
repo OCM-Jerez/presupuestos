@@ -1,45 +1,34 @@
 <div class="OCM-bar-container">
-  <div class="OCM-button-container">
-    @for (subtab of subtabs; track subtab) {
-      <button
-        type="button"
-        class="OCM-button"
-        [ngClass]="{ 'OCM-selected': subtab.selected }"
-        (click)="clickSubtab(subtab)"
-        >
-        {{ subtab.name }}
-      </button>
-    }
-  </div>
+	<div class="OCM-button-container">
+		@for (subtab of subtabs; track subtab) {
+			<button
+				type="button"
+				class="OCM-button"
+				[ngClass]="{ 'OCM-selected': subtab.selected }"
+				(click)="clickSubtab(subtab)"
+			>
+				{{ subtab.name }}
+			</button>
+		}
+	</div>
 
-  @if (hasRowClicked$ | async) {
-    <div class="OCM-button-container">
-      @for (subtabAdditional of subtabsAdditional; track subtabAdditional) {
-        <button
-          type="button"
-          class="OCM-button"
-          (click)="clickSubtabAditional(subtabAdditional)"
-          >
-          {{ subtabAdditional.name }}
-        </button>
-      }
-    </div>
-  }
+	@if (hasRowClicked$ | async) {
+		<div class="OCM-button-container">
+			@for (subtabAdditional of subtabsAdditional; track subtabAdditional) {
+				<button type="button" class="OCM-button" (click)="clickSubtabAditional(subtabAdditional)">
+					{{ subtabAdditional.name }}
+				</button>
+			}
+		</div>
+	}
 
-  @if ((hasRowClicked$ | async) === null) {
-    <div
-      class="OCM-button-container"
-      [ngClass]="{ 'OCM-disabled': isDisabled }"
-      >
-      @for (subtabAdditional of subtabsAdditional; track subtabAdditional) {
-        <button
-          type="button"
-          class="OCM-button"
-          (click)="clickSubtabAditional(subtabAdditional)"
-          >
-          {{ 'Al seleccionar fila se activa opción' }}
-        </button>
-      }
-    </div>
-  }
+	@if ((hasRowClicked$ | async) === null) {
+		<div class="OCM-button-container" [ngClass]="{ 'OCM-disabled': isDisabled }">
+			@for (subtabAdditional of subtabsAdditional; track subtabAdditional) {
+				<button type="button" class="OCM-button" (click)="clickSubtabAditional(subtabAdditional)">
+					{{ 'Al seleccionar fila se activa opción' }}
+				</button>
+			}
+		</div>
+	}
 </div>

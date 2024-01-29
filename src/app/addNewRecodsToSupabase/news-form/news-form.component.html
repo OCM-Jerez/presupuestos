@@ -1,48 +1,40 @@
 <div class="OCM-dark-teme OCM-center {">
-  <form [formGroup]="userForm" (ngSubmit)="guardar()">
-    <fieldset>
-      <header class="OCM-subtitle-dark">Añadir noticia en {{ tag }}</header>
-      <div class="form-group">
-        <label for="date">Fecha</label>
-        <input type="date" class="form-date" id="date" formControlName="date" />
-        @if (userForm?.get('date')?.invalid && userForm?.get('date')?.touched) {
-          <div class="text-danger">
-            Fecha es requerida.
-          </div>
-        }
-      </div>
+	<form [formGroup]="userForm" (ngSubmit)="guardar()">
+		<fieldset>
+			<header class="OCM-subtitle-dark">Añadir noticia en {{ tag }}</header>
+			<div class="form-group">
+				<label for="date">Fecha</label>
+				<input type="date" class="form-date" id="date" formControlName="date" />
+				@if (userForm?.get('date')?.invalid && userForm?.get('date')?.touched) {
+					<div class="text-danger">Fecha es requerida.</div>
+				}
+			</div>
 
-      <div class="form-group">
-        <label for="media">Medio</label>
-        <input type="text" class="form-media" id="media" formControlName="media" />
-        @if (userForm?.get('media')?.invalid && userForm?.get('media')?.touched) {
-          <div class="text-danger">
-            Medio es requerido.
-          </div>
-        }
-      </div>
+			<div class="form-group">
+				<label for="media">Medio</label>
+				<input type="text" class="form-media" id="media" formControlName="media" />
+				@if (userForm?.get('media')?.invalid && userForm?.get('media')?.touched) {
+					<div class="text-danger">Medio es requerido.</div>
+				}
+			</div>
 
-      <div class="form-group">
-        <label for="title">Titulo</label>
-        <input type="text" class="form-long" id="title" formControlName="title" />
-        @if (userForm?.get('title')?.invalid && userForm?.get('title')?.touched) {
-          <div class="text-danger">
-            titulo es requerido.
-          </div>
-        }
-      </div>
+			<div class="form-group">
+				<label for="title">Titulo</label>
+				<input type="text" class="form-long" id="title" formControlName="title" />
+				@if (userForm?.get('title')?.invalid && userForm?.get('title')?.touched) {
+					<div class="text-danger">titulo es requerido.</div>
+				}
+			</div>
 
-      <div class="form-group">
-        <label for="url_new">URL</label>
-        <input type="text" class="form-long" id="url_new" formControlName="url_new" />
-        @if (userForm?.get('url_new')?.invalid && userForm?.get('url_new')?.touched) {
-          <div class="text-danger">
-            URL es requerido.
-          </div>
-        }
-      </div>
+			<div class="form-group">
+				<label for="url_new">URL</label>
+				<input type="text" class="form-long" id="url_new" formControlName="url_new" />
+				@if (userForm?.get('url_new')?.invalid && userForm?.get('url_new')?.touched) {
+					<div class="text-danger">URL es requerido.</div>
+				}
+			</div>
 
-      <button type="submit" class="OCM-button">Guardar</button>
-    </fieldset>
-  </form>
+			<button type="submit" class="OCM-button">Guardar</button>
+		</fieldset>
+	</form>
 </div>
