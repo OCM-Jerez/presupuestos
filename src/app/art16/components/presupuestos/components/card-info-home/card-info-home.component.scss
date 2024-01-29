@@ -1,10 +1,4 @@
-@import '/src/app/scss/base';
-@import '/src/app/scss/variables';
-@import '/src/app/scss/functions';
-@import '/src/app/scss/animations';
-@import '/src/app/scss/mixins';
-@import '/src/app/scss/typography';
-@import '/src/app/scss/utilities';
+@use '/src/styles/typography';
 
 @media screen and (max-width: 3399.98px) {
 	.cardInfoHome {
@@ -20,7 +14,6 @@
 			color: rgba(1, 0, 3, 0.913);
 			font-weight: 600;
 			font-family: var(--fuente-principal);
-			// font-size: clamp(1.8rem, 3rem, 3.6rem);
 			font-size: 2rem;
 			margin-top: 10px;
 			margin-left: 20px;

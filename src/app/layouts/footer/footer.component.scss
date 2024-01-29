@@ -1,10 +1,5 @@
-@import '/src/app/scss/animations';
-@import '/src/app/scss/base';
-@import '/src/app/scss/functions';
-@import '/src/app/scss/mixins';
-@import '/src/app/scss/typography';
-@import '/src/app/scss/utilities';
-@import '/src/app/scss/variables';
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
 
 // https://javascript.plainenglish.io/5-steps-to-adding-a-sticky-footer-to-your-angular-11-application-6c185c2ed99f
 .footer {

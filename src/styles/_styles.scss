@@ -1,14 +1,14 @@
 // https://www.udemy.com/course/advanced-css-and-scss/learn/lecture/8274478#overview
-@import '/src/app/scss/animations';
-@import '/src/app/scss/base';
-@import '/src/app/scss/functions';
-@import '/src/app/scss/mixins';
-@import '/src/app/scss/typography';
-@import '/src/app/scss/utilities';
-@import '/src/app/scss/variables';
+@import '/src/styles/animations';
+@import '/src/styles/base';
+@import '/src/styles/functions';
+@import '/src/styles/mixins';
+@import '/src/styles/typography';
+@import '/src/styles/utilities';
+@import '/src/styles/variables';
 
-@import '../node_modules/ag-grid-community/styles/ag-grid.css';
-@import '../node_modules/ag-grid-community/styles/ag-theme-balham.css';
+@import '../../node_modules/ag-grid-community/styles/ag-grid.css';
+@import '../../node_modules/ag-grid-community/styles/ag-theme-balham.css';
 
 // #region OCM
 // #region @media screen
@@ -1017,16 +1017,16 @@
 			margin-bottom: 2px;
 		}
 
-		&__svg {
-			// align-items: left;
-			// justify-content: left;
-			// color: rgba(41, 24, 199, 0.87);
-			// font-weight: 700;
-			// font-family: var(--fuente-principal);
-			// font-size: 1rem;
-			// margin-top: 10px;
-			// margin-bottom: 40px;
-		}
+		// &__svg {
+		// align-items: left;
+		// justify-content: left;
+		// color: rgba(41, 24, 199, 0.87);
+		// font-weight: 700;
+		// font-family: var(--fuente-principal);
+		// font-size: 1rem;
+		// margin-top: 10px;
+		// margin-bottom: 40px;
+		// }
 
 		&__title {
 			margin-bottom: 1px;
