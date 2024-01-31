@@ -28,5 +28,11 @@
 		"path": "mesas",
 		"isLastLevel": false,
 		"tag": "mesas"
+	},
+	{
+		"title": "Ordenanzas",
+		"path": "ordenanzas",
+		"isLastLevel": false,
+		"tag": "ordenanzas"
 	}
 ]

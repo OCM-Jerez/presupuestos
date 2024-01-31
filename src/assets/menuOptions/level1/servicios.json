@@ -4,5 +4,11 @@
 		"path": "servicios",
 		"tag": "ambulancias",
 		"isLastLevel": true
+	},
+	{
+		"title": "Autobuses",
+		"path": "servicios",
+		"tag": "autobuses",
+		"isLastLevel": true
 	}
 ]

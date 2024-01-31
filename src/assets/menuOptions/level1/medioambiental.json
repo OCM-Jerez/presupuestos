@@ -33,5 +33,10 @@
 		"title": "Patrimonio Histórico",
 		"tag": "patrimonioHistorico",
 		"isLastLevel": true
+	},
+	{
+		"title": "Aparcamientos",
+		"tag": "aparcamientos",
+		"isLastLevel": true
 	}
 ]

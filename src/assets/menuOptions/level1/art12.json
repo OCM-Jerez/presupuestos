@@ -1,0 +1,22 @@
+[
+	{
+		"title": "Planificación y evaluación general",
+		"tag": "planificacionEvaluacionGeneral",
+		"isLastLevel": false
+	},
+	{
+		"title": "Planificación y evaluación medioambiental, urbanística y de vivienda",
+		"tag": "planificacionEvaluacionMedio",
+		"isLastLevel": false
+	},
+	{
+		"title": "Planificación y evaluación económico-financiera",
+		"tag": "planificacionEvaluacionEconomica",
+		"isLastLevel": false
+	},
+	{
+		"title": "Plan Estratégico de Subvenciones",
+		"tag": "planificacionEvaluacionSubvenciones",
+		"isLastLevel": false
+	}
+]
