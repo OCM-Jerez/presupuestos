@@ -5,18 +5,23 @@ import { environment } from '@environments/environment';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
+import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
+import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
 
 import { SupabaseService } from '@services/supabase.service';
 import { TagStoreService } from '@services/tagStore.service';
 import { TitleStoreService } from '@services/titleStore.service';
 import { PathStoreService } from '@services/pathStore.service';
 
-import { INew } from '@interfaces/new.interface';
 import { IMenuItem } from '@interfaces/menu.interface';
+import { ICom } from '@interfaces/com.interface';
+import { IDoc } from '@interfaces/doc.interface';
+import { INew } from '@interfaces/new.interface';
+
 @Component({
 	selector: 'app-level1',
 	standalone: true,
-	imports: [CardMenuComponent, NoticiasComponent],
+	imports: [CardMenuComponent, NoticiasComponent, DocumentosComponent, ComentariosComponent],
 	templateUrl: './level1.component.html'
 })
 export default class Level1Component implements OnInit {
@@ -26,6 +31,8 @@ export default class Level1Component implements OnInit {
 	private _titleStoreService = inject(TitleStoreService);
 	private _router = inject(Router);
 	public menuOptions: IMenuItem[] = [];
+	public coms: ICom[] = [];
+	public docs: IDoc[] = [];
 	public news: INew[] = [];
 	public title = this._titleStoreService.getTitle();
 
@@ -44,8 +51,23 @@ export default class Level1Component implements OnInit {
 	}
 
 	async fetchDataFromSupabase(tag: string) {
+		console.log('tag', tag);
+
 		try {
 			this.news = await this._supabaseService.fetchDataByTagOrder('news', tag, false);
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
+
+		try {
+			this.coms = await this._supabaseService.fetchDataByTagOrder('comments', tag, false);
+			console.log('this.coms', this.coms);
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
+
+		try {
+			this.docs = await this._supabaseService.fetchDataByTagOrder('documents', tag, false);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}

@@ -11,4 +11,9 @@ export class CardMenuComponent {
 	@Input() rutaImagen?: string;
 	@Input() titulo: string;
 	@Input() subtitulo?: string;
+	public errorCargaImagen = false;
+
+	manejarErrorImagen() {
+		this.errorCargaImagen = true;
+	}
 }

@@ -6,4 +6,13 @@
 	}
 </section>
 
-<app-noticias [news]="news" />
+@if (docs.length > 0) {
+	<app-documentos [docs]="docs" />
+}
+@if ([news]) {
+	<app-noticias [news]="news" />
+}
+
+@if (coms.length > 0) {
+	<app-comentarios [coms]="coms" />
+}
