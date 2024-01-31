@@ -118,11 +118,6 @@
 		margin-top: 20px;
 	}
 
-	.OCM-disabled {
-		pointer-events: none;
-		opacity: 0.2;
-	}
-
 	.OCM-button {
 		color: #090909;
 		padding: 0.7em 1.7em;
@@ -135,6 +130,11 @@
 		font-family: var(--fuente-principal);
 		font-weight: 700;
 		cursor: pointer;
+	}
+
+	.OCM-disabled {
+		pointer-events: none;
+		opacity: 0.2;
 	}
 
 	.OCM-tableContainer {
@@ -514,6 +514,17 @@
 		&--left {
 			justify-content: left;
 		}
+	}
+
+	.OCM-label-dark {
+		display: flex;
+		justify-content: left;
+		width: 100 hw;
+		color: rgb(248, 248, 248);
+		background-color: #15202b;
+		font-family: var(--fuente-principal);
+		font-size: clamp(0.778rem, 1vw + 0.5rem, 1.222rem);
+		padding-left: 10px;
 	}
 
 	.OCM-alert {

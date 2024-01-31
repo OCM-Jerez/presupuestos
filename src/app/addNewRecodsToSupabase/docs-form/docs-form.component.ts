@@ -1,9 +1,10 @@
-
+import { Location } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { SupabaseService } from '@services/supabase.service';
+import { TagStoreService } from '@services/tagStore.service';
 
 @Component({
 	selector: 'app-docs-form',
@@ -17,14 +18,11 @@ export default class DocsFormComponent implements OnInit {
 	private _formBuilder = inject(FormBuilder);
 	private _route = inject(ActivatedRoute);
 	private _supabaseService = inject(SupabaseService);
-	public tag: string;
+	private _location = inject(Location);
+	private _tagStoreService = inject(TagStoreService);
+	public tag = this._tagStoreService.getTag();
 
 	ngOnInit(): void {
-		const { paramMap } = this._route.snapshot;
-		this.tag = paramMap['params'].param;
-
-		console.log('param', this.tag);
-
 		this.userForm = this._formBuilder.group({
 			date: ['', Validators.required],
 			emisor: ['', Validators.required],
@@ -33,7 +31,7 @@ export default class DocsFormComponent implements OnInit {
 		});
 	}
 
-	async submitForm(): Promise<void> {
+	async guardar(): Promise<void> {
 		console.log('submitForm');
 
 		if (this.userForm?.valid) {
@@ -47,15 +45,16 @@ export default class DocsFormComponent implements OnInit {
 			try {
 				const insertedData = await this._supabaseService.insertRow('documents', formData);
 				console.log('Datos insertados:', insertedData);
+				this._location.back();
 			} catch (error) {
 				console.error('Error al insertar datos:', error);
 			}
 		}
 	}
 
-	addImg(event): void {
+	addDoc(event): void {
 		const file = event.target.files[0];
-		// console.log(file);
+		console.log(file);
 		// this._supabaseService.uploadFile(file);
 		// this._supabaseService.uploadFileFromJSON();
 	}
