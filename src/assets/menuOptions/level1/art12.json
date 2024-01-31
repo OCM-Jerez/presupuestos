@@ -6,7 +6,8 @@
 	},
 	{
 		"title": "Planificación y evaluación medioambiental, urbanística y de vivienda",
-		"tag": "planificacionEvaluacionMedio",
+		"path": "planificacionEvaluacionMedioambiente",
+		"tag": "planificacionEvaluacionMedioambiente",
 		"isLastLevel": false
 	},
 	{
