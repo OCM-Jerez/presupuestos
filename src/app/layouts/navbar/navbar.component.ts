@@ -1,10 +1,15 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+
+import NewsFormComponent from '@app/addNewRecodsToSupabase/news-form/news-form.component';
+
+import { environment } from '@environments/environment';
 
 import { TagStoreService } from '@services/tagStore.service';
 import { PathStoreService } from '@services/pathStore.service';
 import { TitleStoreService } from '@services/titleStore.service';
+import { ModalService } from '../modal/modal.service';
 
 @Component({
 	selector: 'app-navbar',
@@ -14,11 +19,31 @@ import { TitleStoreService } from '@services/titleStore.service';
 	imports: []
 })
 export class NavbarComponent {
+	@ViewChild('modal')
+	modal!: ElementRef<HTMLDivElement>;
+	@ViewChild('overlay') overlay!: ElementRef<HTMLDivElement>;
 	private _location = inject(Location);
 	private _tagStoreService = inject(TagStoreService);
 	private _pathStoreService = inject(PathStoreService);
 	private _titleStoreService = inject(TitleStoreService);
+	private _modalService = inject(ModalService);
 	public router = inject(Router);
+
+	public canAddRowSupabase = environment.canAddRowSupabase;
+
+	addNew(): void {
+		this._tagStoreService.getTag();
+		this.router.navigateByUrl('addNew');
+		// this.useModal();
+	}
+
+	addCom(): void {
+		this.router.navigateByUrl('addCom');
+	}
+
+	addDoc(): void {
+		this.router.navigateByUrl('addDoc');
+	}
 
 	navigateTo() {
 		this.router.navigateByUrl('/');
@@ -29,5 +54,24 @@ export class NavbarComponent {
 		this._tagStoreService.setTag(this._tagStoreService.popPreviousTag());
 		this._titleStoreService.setTitle(this._titleStoreService.popPreviousTitle());
 		this._location.back();
+	}
+
+	useModal() {
+		this._modalService.open(NewsFormComponent, {
+			animations: {
+				modal: {
+					enter: 'enter-scaling 0.3s ease-out',
+					leave: 'fade-out 0.1s forwards'
+				},
+				overlay: {
+					enter: 'fade-in 1s',
+					leave: 'fade-out 0.3s forwards'
+				}
+			},
+			size: {
+				width: '40rem',
+				minWidth: '850px'
+			}
+		});
 	}
 }

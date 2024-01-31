@@ -61,7 +61,6 @@ export default class Level1Component implements OnInit {
 
 		try {
 			this.coms = await this._supabaseService.fetchDataByTagOrder('comments', tag, false);
-			console.log('this.coms', this.coms);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}

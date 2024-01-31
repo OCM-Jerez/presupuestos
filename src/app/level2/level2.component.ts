@@ -5,6 +5,8 @@ import { environment } from '@environments/environment';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
+import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
+import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
 
 import { SupabaseService } from '@services/supabase.service';
 import { TagStoreService } from '@services/tagStore.service';
@@ -13,10 +15,12 @@ import { PathStoreService } from '@services/pathStore.service';
 
 import { IMenuItem } from '@interfaces/menu.interface';
 import { INew } from '@interfaces/new.interface';
+import { ICom } from '@interfaces/com.interface';
+import { IDoc } from '@interfaces/doc.interface';
 @Component({
 	selector: 'app-level2',
 	standalone: true,
-	imports: [CardMenuComponent, NoticiasComponent],
+	imports: [CardMenuComponent, NoticiasComponent, DocumentosComponent, ComentariosComponent],
 	templateUrl: './level2.component.html'
 })
 export default class Level2Component implements OnInit {
@@ -26,11 +30,15 @@ export default class Level2Component implements OnInit {
 	private _titleStoreService = inject(TitleStoreService);
 	private _pathStoreService = inject(PathStoreService);
 	public menuOptions: IMenuItem[] = [];
+	public coms: ICom[] = [];
+	public docs: IDoc[] = [];
 	public news: INew[] = [];
 	public title = this._titleStoreService.getTitle();
 
 	ngOnInit() {
 		const tag = this._tagStoreService.getTag();
+		console.log('tag', tag);
+
 		import(`../../assets/menuOptions/level2/${tag}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => {
 				const modifiedItem = {
@@ -43,9 +51,21 @@ export default class Level2Component implements OnInit {
 		});
 	}
 
-	async fetchDataFromSupabase(param: string) {
+	async fetchDataFromSupabase(tag: string) {
 		try {
-			this.news = await this._supabaseService.fetchDataByTagOrder('news', param, false);
+			this.news = await this._supabaseService.fetchDataByTagOrder('news', tag, false);
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
+
+		try {
+			this.coms = await this._supabaseService.fetchDataByTagOrder('comments', tag, false);
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
+
+		try {
+			this.docs = await this._supabaseService.fetchDataByTagOrder('documents', tag, false);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
