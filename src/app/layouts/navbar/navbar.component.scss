@@ -38,17 +38,6 @@
 	}
 }
 
-button {
-	color: #090909;
-	border-radius: 0.5em;
-	padding: 0.7em;
-	font-size: 12px;
-	background: #e8e8e8;
-	border: 1px solid #110101;
-	font-family: var(--fuente-principal);
-	cursor: pointer;
-}
-
 @media screen and (max-width: 570px) {
 	.navbar {
 		&__logo {

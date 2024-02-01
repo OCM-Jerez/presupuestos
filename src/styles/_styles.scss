@@ -111,15 +111,13 @@
 
 	.OCM-button {
 		color: #090909;
-		padding: 0.7em 1.7em;
-		font-size: 14px;
-		border-radius: 0.5em;
-		background: #e8e8e8;
-		border: 1px solid #e8e8e8;
-		transition: all 0.3s;
-		margin-left: 5px;
 		font-family: var(--fuente-principal);
 		font-weight: 700;
+		font-size: clamp(0.7rem, 1vw + 0.2rem, 1rem);
+		padding: 4px;
+		border-radius: 0.5em;
+		background: #e8e8e8;
+		margin-left: 4px;
 		cursor: pointer;
 	}
 
@@ -281,7 +279,6 @@
 		color: aliceblue;
 		background-color: green;
 		cursor: pointer;
-
 		&:hover {
 			transform: translateY(-13px);
 			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -295,7 +292,6 @@
 		font-weight: bold;
 		color: aliceblue;
 		background-color: rgb(201, 72, 72);
-
 		&:hover {
 			transform: translateY(-3px);
 			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -496,11 +492,6 @@
 	.OCM-textoLogo {
 		margin-left: 2px;
 		font-size: 6px;
-	}
-
-	.OCM-button {
-		padding: 0.2em 0.5em;
-		font-size: 8px;
 	}
 
 	.OCM-title-dark {

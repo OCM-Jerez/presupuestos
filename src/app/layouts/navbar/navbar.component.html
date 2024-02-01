@@ -7,9 +7,9 @@
 	} @else {
 		<div class="navbar__home">
 			@if (canAddRowSupabase) {
-				<button (click)="addNew()">Añadir noticia</button>
-				<button (click)="addCom()">Añadir comentario</button>
-				<button (click)="addDoc()">Añadir documento</button>
+				<button class="OCM-button" (click)="addNew()">+ noticia</button>
+				<button class="OCM-button" (click)="addCom()">+ comentario</button>
+				<button class="OCM-button" (click)="addDoc()">+ documento</button>
 			}
 			<a class="navbar__logoVolver" (click)="volver()"></a>
 			<a class="navbar__logoHome" (click)="navigateTo()"></a>
