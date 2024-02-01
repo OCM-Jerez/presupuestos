@@ -1,6 +1,11 @@
 <div class="cardMenu">
-	@if (rutaImagen && !errorCargaImagen) {
-		<img src="{{ rutaImagen }}" alt="global" class="cardMenu__image" (error)="manejarErrorImagen()" />
+	@if (rutaImagen) {
+		<img src="{{ rutaImagen }}" alt="global" class="cardMenu__image" />
 	}
 	<span class="cardMenu__title">{{ titulo }}</span>
+	@if (subtitulo) {
+		<span class="cardMenu__subtitle">
+			{{ subtitulo }}
+		</span>
+	}
 </div>

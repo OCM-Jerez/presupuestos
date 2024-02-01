@@ -1,24 +1,24 @@
 <h2 class="OCM-title-dark">Presupuestos</h2>
 
 <div class="flex1">
-  <div class="flex__cardInfo">
-    <app-card-info-home />
-  </div>
+	<div class="flex__cardInfo">
+		<app-card-info-home />
+	</div>
 
-  <div class="flex__cardTable">
-    <app-card-table-home />
-  </div>
+	<div class="flex__cardTable">
+		<app-card-table-home />
+	</div>
 </div>
 
 <div class="flex2">
-  @for (menu of cardMenus; track menu) {
-    <div class="flex__cardMenu" [style.background]="menu.background">
-      <app-card-menu
-        [rutaImagen]="menu.rutaImagen"
-        [titulo]="menu.titulo"
-        [subtitulo]="menu.subtitulo"
-        (click)="menu.funcion()"
-        />
-      </div>
-    }
-  </div>
+	@for (menu of cardMenus; track menu) {
+		<div class="flex__cardMenu" [style.background]="menu.background">
+			<app-card-menu
+				[rutaImagen]="menu.rutaImagen"
+				[titulo]="menu.titulo"
+				[subtitulo]="menu.subtitulo"
+				(click)="menu.funcion()"
+			/>
+		</div>
+	}
+</div>

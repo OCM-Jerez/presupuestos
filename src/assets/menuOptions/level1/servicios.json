@@ -10,5 +10,11 @@
 		"path": "servicios",
 		"tag": "autobuses",
 		"isLastLevel": true
+	},
+	{
+		"title": "Bibliotecas",
+		"path": "servicios",
+		"tag": "bibliotecas",
+		"isLastLevel": true
 	}
 ]

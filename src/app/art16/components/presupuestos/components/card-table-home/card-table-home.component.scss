@@ -1,55 +1,78 @@
-.cardTableHome {
-	display: flex;
-	flex-direction: column;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	border-radius: 10px;
-	background: #f5f5f5;
-	&__title {
+@media screen and (max-width: 3399.98px) {
+	.cardTableHome {
 		display: flex;
-		justify-content: center;
-		color: rgba(1, 0, 3, 0.913);
-		font-weight: 600;
-		font-family: var(--fuente-principal);
-		font-size: 2rem;
-		margin-bottom: 10px;
+		flex-direction: column;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		border-radius: 10px;
+		background: #f5f5f5;
+		&__title {
+			display: flex;
+			justify-content: center;
+			color: rgba(1, 0, 3, 0.913);
+			font-weight: 600;
+			font-family: var(--fuente-principal);
+			font-size: 2rem;
+			margin-bottom: 10px;
+			margin-left: 20px;
+			line-height: 1.2;
+		}
+	}
+
+	table.paleBlueRows {
+		width: 95%;
+		height: 100%;
+		text-align: center;
+		border-collapse: collapse;
 		margin-left: 20px;
-		line-height: 1.2;
+		thead {
+			background: #003df6;
+			height: 20px;
+			th {
+				font-size: 1.5rem;
+				font-weight: bold;
+				color: #ffffff;
+				text-align: center;
+				width: 50px;
+				border-left: 2px solid #ffffff;
+			}
+		}
+		tbody {
+			td {
+				font-size: 1.8rem;
+				text-align: right;
+			}
+			tr:nth-child(even) {
+				background: #84c4c8;
+			}
+			td:first-child {
+				text-align: left;
+			}
+		}
 	}
 }
 
-/* #region  Table           */
-table.paleBlueRows {
-	width: 95%;
-	height: 100%;
-	text-align: center;
-	border-collapse: collapse;
-	margin-left: 20px;
-}
+@media screen and (max-width: 575.98px) {
+	.cardTableHome {
+		&__title {
+			font-size: 10px;
+			margin: 2px;
+			line-height: 0.9;
+		}
+	}
 
-table.paleBlueRows thead {
-	background: #003df6;
-	height: 20px;
+	table.paleBlueRows {
+		margin-left: 2px;
+		thead {
+			height: 10px;
+			th {
+				font-size: 0.8rem;
+				width: 25px;
+			}
+		}
+		tbody {
+			td {
+				font-size: 0.8rem;
+			}
+		}
+	}
 }
-
-table.paleBlueRows thead th {
-	font-size: 1.5rem;
-	font-weight: bold;
-	color: #ffffff;
-	text-align: center;
-	width: 50px;
-	border-left: 2px solid #ffffff;
-}
-
-table.paleBlueRows tbody td {
-	font-size: 1.8rem;
-	text-align: right;
-}
-
-table.paleBlueRows tr:nth-child(even) {
-	background: #84c4c8;
-}
-
-table.paleBlueRows tbody td:first-child {
-	text-align: left;
-}
-/* #endregion */
