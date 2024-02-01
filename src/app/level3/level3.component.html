@@ -3,19 +3,19 @@
 
 	@if (isComisiones) {
 		<header class="OCM-title-dark">Permanentes</header>
-		<section class="OCM-gridMenuLevel">
+		<section class="OCM-gridMenu">
 			@for (menu of menuOptions.slice(0, 5); track menu) {
 				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 			}
 		</section>
 		<header class="OCM-title-dark">Especiales</header>
-		<section class="OCM-gridMenuLevel">
+		<section class="OCM-gridMenu">
 			@for (menu of menuOptions.slice(5, 11); track menu) {
 				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 			}
 		</section>
 	} @else {
-		<section class="OCM-gridMenuLevel">
+		<section class="OCM-gridMenu">
 			@for (menu of menuOptions; track menu) {
 				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 			}

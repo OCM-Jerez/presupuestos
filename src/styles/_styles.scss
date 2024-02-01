@@ -12,11 +12,11 @@
 
 // #region OCM
 // #region @media screen
-@media screen and (max-width: 6000px) {
-	.OCM-gridMenuLevel {
+@media screen and (max-width: 4200px) {
+	.OCM-gridMenu {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
-		// grid-template-rows: 20%, 48%;
+		height: auto;
 		gap: 20px 20px;
 		padding: 20px;
 		background-color: #15202b;
@@ -465,7 +465,7 @@
 }
 
 @media screen and (max-width: 576px) {
-	.OCM-gridMenuLevel {
+	.OCM-gridMenu {
 		grid-template-columns: 1fr 1fr;
 	}
 
