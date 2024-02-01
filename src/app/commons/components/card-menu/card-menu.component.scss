@@ -12,17 +12,17 @@
 			cursor: pointer;
 		}
 		&__image {
-			padding: 10px;
-			width: 98%;
+			width: 100%;
 			height: 100%;
-			border-radius: 20px;
-			// : fill;
+			padding: clamp(4px, 1vw, 10px);
+			border-radius: clamp(10px, 2vw, 20px);
 		}
 		&__title {
 			color: rgba(237, 235, 240, 0.913);
 			// https://modern-fluid-typography.vercel.app?rootFontSize=12&minSize=8&fluidSize=1&relativeSize=0.5&maxSize=20
 			font-size: clamp(0.1rem, 2vw + 0.5rem, 1.667rem);
-			padding: 10px;
+			padding: clamp(4px, 1vw, 10px);
+			text-align: center;
 		}
 	}
 }
@@ -30,12 +30,5 @@
 @media screen and (max-width: 570px) {
 	.cardMenu {
 		grid-template-rows: 40% 60%;
-		&__image {
-			border-radius: 10px;
-			padding: 4px;
-		}
-		&__title {
-			padding: 4px;
-		}
 	}
 }
