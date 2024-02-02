@@ -1,4 +1,4 @@
-<h2 class="OCM-title-dark">Presupuestos</h2>
+<header class="OCM-title-dark">Presupuestos</header>
 <main class="gridMain">
 	<section class="gridInfo">
 		<app-card-info-home />
@@ -7,9 +7,7 @@
 
 	<section class="flexMenu">
 		@for (menu of cardMenus; track menu) {
-			<div class="flex__cardMenu" [style.background]="menu.background">
-				<app-card-menu [rutaImagen]="menu.rutaImagen" [titulo]="menu.titulo" (click)="menu.funcion()" />
-			</div>
+			<app-card-menu [rutaImagen]="menu.rutaImagen" [titulo]="menu.titulo" (click)="menu.funcion()" />
 		}
 	</section>
 </main>

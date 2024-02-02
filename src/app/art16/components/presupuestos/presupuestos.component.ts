@@ -32,6 +32,7 @@ export default class PresupuestosComponent {
 		)
 	];
 
+	// subtitulo no se utiliza
 	createCardMenu(titulo: string, ruta: string, rutaImagen: string, subtitulo: string) {
 		return {
 			rutaImagen,
