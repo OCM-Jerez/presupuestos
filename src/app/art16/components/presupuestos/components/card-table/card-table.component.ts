@@ -1,6 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
 
-
 import { TableService } from '@services/table.service';
 
 import { environment } from '@environments/environment';
@@ -13,8 +12,8 @@ import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 @Component({
 	selector: 'app-card-table-home',
-	templateUrl: './card-table-home.component.html',
-	styleUrls: ['./card-table-home.component.scss'],
+	templateUrl: './card-table.component.html',
+	styleUrls: ['./card-table.component.scss'],
 	standalone: true,
 	imports: []
 })

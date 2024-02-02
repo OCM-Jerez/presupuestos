@@ -2,8 +2,8 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
-import { CardInfoHomeComponent } from './components/card-info-home/card-info-home.component';
-import { CardTableHomeComponent } from './components/card-table-home/card-table-home.component';
+import { CardInfoHomeComponent } from './components/card-info/card-info.component';
+import { CardTableHomeComponent } from './components/card-table/card-table.component';
 
 const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
 
