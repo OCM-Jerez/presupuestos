@@ -15,6 +15,11 @@
 		"isLastLevel": true
 	},
 	{
+		"title": "Semana Santa",
+		"tag": "semanaSanta",
+		"isLastLevel": true
+	},
+	{
 		"title": "Feria",
 		"tag": "feria",
 		"isLastLevel": true
