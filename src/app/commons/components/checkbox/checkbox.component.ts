@@ -28,7 +28,6 @@ export class CheckboxComponent implements OnInit {
 	];
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
 	private _reloadTableService = inject(ReloadTableService);
-
 	public textButton = 'Todos';
 
 	ngOnInit(): void {

@@ -39,7 +39,6 @@
 		position: absolute;
 		white-space: nowrap;
 		width: 1px;
-
 		&:checked + .checkbox-tile {
 			border-color: #2260ff;
 			box-shadow: 0 5px 10px rgba(#000, 0.1);
@@ -50,15 +49,15 @@
 				background-color: #2260ff;
 				border-color: #2260ff;
 			}
-
 			.checkbox-label {
 				color: #f40e0e;
 			}
 		}
-
 		&:focus + .checkbox-tile {
 			border-color: #2260ff;
-			box-shadow: 0 5px 10px rgba(#000, 0.1), 0 0 0 4px #b5c9fc;
+			box-shadow:
+				0 5px 10px rgba(#000, 0.1),
+				0 0 0 4px #b5c9fc;
 			&:before {
 				transform: scale(1);
 				opacity: 1;
@@ -70,19 +69,14 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
-		width: 6rem;
-		height: 5rem;
+		justify-content: flex-end;
 		min-height: 4rem;
 		border-radius: 0.5rem;
 		border: 2px solid #b5bfd9;
 		background-color: #fff;
-		box-shadow: 0 5px 10px rgba(#000, 0.1);
-		transition: 0.15s ease;
 		cursor: pointer;
 		position: relative;
 		margin-right: 10px;
-
 		&:before {
 			content: '';
 			position: absolute;
@@ -102,7 +96,6 @@
 			background-repeat: no-repeat;
 			background-position: 50% 50%;
 		}
-
 		&:hover {
 			border-color: #2260ff;
 			&:before {
@@ -116,36 +109,23 @@
 		color: #707070;
 		transition: 0.375s ease;
 		text-align: center;
-		font-size: 2.5rem;
+		font-size: 1.5rem;
 		font-weight: bold;
 	}
 }
 
 @media screen and (max-width: 575.98px) {
-	.checkbox-group {
-		width: 90%;
-		margin-left: 0px;
-		margin-right: 0pxauto;
-		border-style: none;
-		max-width: 80%vh;
-	}
 	.checkbox-group-legend {
-		font-size: 1.2rem;
+		font-size: 0.7rem;
 		margin-bottom: 0.7rem;
 		margin-top: 0.7rem;
 	}
 
 	.checkbox-tile {
-		width: 3.6rem;
-		height: 3rem;
-
-		&:before {
-			top: 0.25rem;
-			left: 0.25rem;
-		}
+		margin-right: 4px;
 	}
 
 	.checkbox-label {
-		font-size: 1.5rem;
+		font-size: 1rem;
 	}
 }
