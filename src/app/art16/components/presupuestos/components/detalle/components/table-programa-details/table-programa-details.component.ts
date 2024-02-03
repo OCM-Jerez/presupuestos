@@ -74,30 +74,31 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	screenSizeSubscription: Subscription;
 	private _screenWidth: number;
 	private _columnWidth: number;
+	public autoGroupColumnDef: ColDef; // Define la propiedad sin asignarle un valor inicial
 
-	public autoGroupColumnDef: ColDef = {
-		headerName: 'Capítulo-Económico',
-		field: 'DesEco',
-		width: 625,
-		pinned: 'left',
-		cellRenderer: CellRendererOCMtext,
-		valueGetter: (params) => {
-			if (params?.data) {
-				if (this._screenWidth < 600) {
-					return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: ${this._fontSize}; margin-left: 0px"">${
-						'  ' + params.data.CodEco + ' - ' + params.data.DesEco
-					}</span>`;
-				} else {
-					return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: ${this._fontSize}; margin-left: 0px"">${
-						'       ' + params.data.CodEco + ' - ' + params.data.DesEco
-					}</span>`;
-				}
-			} else {
-				return `<span style="white-space: pre;color: red; font-size: ${this._fontSize}; font-family:var(--fuente-principal);font-weight: bold;text-align: right;padding-left: 425px;">TOTAL PROGRAMA
-				</span>`;
-			}
-		}
-	};
+	// public autoGroupColumnDef: ColDef = {
+	// 	headerName: 'Capítulo-Económico',
+	// 	field: 'DesEco',
+	// 	width: 625,
+	// 	pinned: 'left',
+	// 	cellRenderer: CellRendererOCMtext,
+	// 	valueGetter: (params) => {
+	// 		if (params?.data) {
+	// 			if (this._screenWidth < 600) {
+	// 				return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: ${this._fontSize}; margin-left: 0px"">${
+	// 					'  ' + params.data.CodEco + ' - ' + params.data.DesEco
+	// 				}</span>`;
+	// 			} else {
+	// 				return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: ${this._fontSize}; margin-left: 0px"">${
+	// 					'       ' + params.data.CodEco + ' - ' + params.data.DesEco
+	// 				}</span>`;
+	// 			}
+	// 		} else {
+	// 			return `<span style="white-space: pre;color: red; font-size: ${this._fontSize}; font-family:var(--fuente-principal);font-weight: bold;text-align: right;padding-left: 425px;">TOTAL PROGRAMA
+	// 			</span>`;
+	// 		}
+	// 	}
+	// };
 
 	public groupDisplayType: RowGroupingDisplayType = 'singleColumn';
 	private _screenSizeService = inject(ScreenSizeService);
@@ -113,9 +114,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			this._screenWidth = width;
 			console.log('Width: ', width);
 			this._fontSize = width < 600 ? '8px' : '14px';
-			this._columnWidth = width < 600 ? 100 : 625;
-
-			// Aquí puedes realizar acciones basadas en el ancho de pantalla
+			this.adjustAutoGroupColumnDef(width);
 		});
 		this._dataTable = this._dataStoreService.dataTable;
 		this._clasificationType = this._dataTable.clasificationType;
@@ -176,6 +175,43 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 				this._setGridOptions();
 				this.showButtomExpanded = false;
 				break;
+		}
+	}
+
+	adjustAutoGroupColumnDef(width: number): void {
+		this._columnWidth = width < 600 ? 185 : 625; // Ajusta el valor de _columnWidth basado en el tamaño de pantalla
+
+		// Asigna un nuevo valor a autoGroupColumnDef
+		this.autoGroupColumnDef = {
+			headerName: 'Capítulo-Económico',
+			field: 'DesEco',
+			width: this._columnWidth, // Usa _columnWidth actualizado
+			pinned: 'left',
+			cellRenderer: CellRendererOCMtext,
+			valueGetter: (params) => {
+				if (params?.data) {
+					if (this._screenWidth < 600) {
+						return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: ${this._fontSize}; margin-left: 0px"">${
+							'  ' + params.data.CodEco + ' - ' + params.data.DesEco
+						}</span>`;
+					} else {
+						return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: ${this._fontSize}; margin-left: 0px"">${
+							'       ' + params.data.CodEco + ' - ' + params.data.DesEco
+						}</span>`;
+					}
+				} else {
+					return `<span style="white-space: pre;color: red; font-size: ${this._fontSize}; font-family:var(--fuente-principal);font-weight: bold;text-align: right;padding-left: 425px;">TOTAL PROGRAMA
+					</span>`;
+				}
+			}
+		};
+
+		// Si el grid ya está inicializado, actualiza la configuración del grid para aplicar el cambio
+		if (this.agGrid?.api) {
+			this.agGrid.api.setColumnDefs([
+				...this.agGrid.columnApi.getAllColumns().map((col) => col.getColDef()),
+				this.autoGroupColumnDef
+			]);
 		}
 	}
 
