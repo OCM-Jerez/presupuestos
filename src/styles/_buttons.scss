@@ -1,0 +1,56 @@
+@media screen and (max-width: 4200px) {
+	.OCM-button-container {
+		display: flex;
+		justify-content: left;
+		margin-top: 20px;
+	}
+
+	.OCM-button {
+		color: #090909;
+		font-family: var(--fuente-principal);
+		font-weight: 700;
+		font-size: clamp(0.7rem, 1vw + 0.2rem, 1rem);
+		padding: 4px;
+		border-radius: 0.5em;
+		background: #e8e8e8;
+		margin-left: 4px;
+		cursor: pointer;
+	}
+
+	.OCM-btnExpand {
+		margin-left: 20px;
+		margin-bottom: 5px;
+		font-size: 10px;
+		font-weight: bold;
+		color: aliceblue;
+		background-color: green;
+		cursor: pointer;
+		&:hover {
+			transform: translateY(-13px);
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+		}
+	}
+
+	.OCM-btnCollapse {
+		margin-left: 20px;
+		margin-bottom: 5px;
+		font-size: 10px;
+		font-weight: bold;
+		color: aliceblue;
+		background-color: rgb(201, 72, 72);
+		&:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+		}
+	}
+
+	button:active {
+		color: rgb(249, 26, 26);
+		box-shadow:
+			inset 4px 4px 12px #c5c5c5,
+			inset -4px -4px 12px #ffffff;
+	}
+}
+
+@media screen and (max-width: 576px) {
+}

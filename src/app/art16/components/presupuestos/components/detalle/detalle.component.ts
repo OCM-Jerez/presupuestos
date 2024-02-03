@@ -1,6 +1,5 @@
 import { Component, OnInit, inject, OnDestroy } from '@angular/core';
 
-
 import { Subscription } from 'rxjs';
 
 import { AvalaibleYearsService } from '@services/avalaibleYears.service';
@@ -20,14 +19,14 @@ import { TreemapComponent } from './components/treemap/treemap.component';
 	styleUrls: ['./detalle.component.scss'],
 	standalone: true,
 	imports: [
-    CheckboxComponent,
-    SubtabsComponent,
-    TabComponent,
-    TableComponent,
-    TablePresupuestoComponent,
-    TabsComponent,
-    TreemapComponent
-]
+		CheckboxComponent,
+		SubtabsComponent,
+		TabComponent,
+		TableComponent,
+		TablePresupuestoComponent,
+		TabsComponent,
+		TreemapComponent
+	]
 })
 export default class DetalleComponent implements OnInit, OnDestroy {
 	public multiYears = true;

@@ -8,6 +8,21 @@
 @import '/src/styles/variables';
 
 @media screen and (max-width: 4200px) {
+	.OCM-center {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.OCM-flex1 {
+		display: flex;
+		width: 90%;
+		margin: 10px;
+		&--right {
+			justify-content: flex-end;
+		}
+	}
+
 	.OCM-gridMenu {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -98,34 +113,9 @@
 		padding: 0 20px;
 	}
 
-	.OCM-button-container {
-		display: flex;
-		justify-content: left;
-		margin-top: 20px;
-	}
-
-	.OCM-button {
-		color: #090909;
-		font-family: var(--fuente-principal);
-		font-weight: 700;
-		font-size: clamp(0.7rem, 1vw + 0.2rem, 1rem);
-		padding: 4px;
-		border-radius: 0.5em;
-		background: #e8e8e8;
-		margin-left: 4px;
-		cursor: pointer;
-	}
-
 	.OCM-disabled {
 		pointer-events: none;
 		opacity: 0.2;
-	}
-
-	button:active {
-		color: rgb(249, 26, 26);
-		box-shadow:
-			inset 4px 4px 12px #c5c5c5,
-			inset -4px -4px 12px #ffffff;
 	}
 
 	.OCM-selected {
@@ -266,39 +256,6 @@
 		}
 	}
 
-	.OCM-btnExpand {
-		margin-left: 20px;
-		margin-bottom: 5px;
-		font-size: 10px;
-		font-weight: bold;
-		color: aliceblue;
-		background-color: green;
-		cursor: pointer;
-		&:hover {
-			transform: translateY(-13px);
-			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-		}
-	}
-
-	.OCM-btnCollapse {
-		margin-left: 20px;
-		margin-bottom: 5px;
-		font-size: 10px;
-		font-weight: bold;
-		color: aliceblue;
-		background-color: rgb(201, 72, 72);
-		&:hover {
-			transform: translateY(-3px);
-			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-		}
-	}
-
-	.OCM-center {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
 	#home {
 		font-size: 16px;
 	}
@@ -367,9 +324,9 @@
 		font-size: 10px;
 	}
 
-	.ag-cell-value {
-		font-size: 12px;
-	}
+	// .ag-cell-value {
+	// 	font-size: 12px;
+	// }
 
 	#home {
 		font-size: 14px;
@@ -394,13 +351,13 @@
 
 @media screen and (max-width: 992px) {
 	// MD Samsung Note apaisado
-	.ag-header-cell-text {
-		font-size: 12px;
-	}
+	// .ag-header-cell-text {
+	// 	font-size: 12px;
+	// }
 
-	.ag-cell-value {
-		font-size: 10px;
-	}
+	// .ag-cell-value {
+	// 	font-size: 10px;
+	// }
 
 	#home {
 		font-size: 12px;
@@ -424,13 +381,13 @@
 }
 
 @media screen and (max-width: 750px) {
-	.ag-header-cell-text {
-		font-size: 9px;
-	}
+	// .ag-header-cell-text {
+	// 	font-size: 9px;
+	// }
 
-	.ag-cell-value {
-		font-size: 8px;
-	}
+	// .ag-cell-value {
+	// 	font-size: 8px;
+	// }
 
 	#home {
 		font-size: 10px;

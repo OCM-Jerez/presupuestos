@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
-import { AsyncPipe, Location } from '@angular/common';
+import { AsyncPipe, Location, LocationStrategy } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -25,6 +25,7 @@ import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.
 import { DataStoreService } from '@services/dataStore.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 import { PrepareDataGastosService } from '@services/prepareDataGastos.service';
+import { ScreenSizeService } from '@services/screenSize.service';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
 import { IDataGasto } from '@interfaces/dataGasto.interface';
@@ -32,34 +33,21 @@ import { IDataGasto } from '@interfaces/dataGasto.interface';
 @Component({
 	selector: 'app-table-programa-details',
 	templateUrl: './table-programa-details.component.html',
-	styleUrls: ['./table-programa-details.component.scss'],
 	standalone: true,
 	imports: [AgGridModule, AsyncPipe]
 })
 export default class TableProgramaDetailsComponent implements OnInit, OnDestroy {
+	@ViewChild('agGrid') agGrid: AgGridAngular;
 	private _location = inject(Location);
 	private _route = inject(ActivatedRoute);
 	private _router = inject(Router);
-
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
 	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
 	private _dataStoreService = inject(DataStoreService);
 	private _hasRowClicked = inject(HasRowClicked);
 	private _prepareDataGastosService = inject(PrepareDataGastosService);
-
-	@ViewChild('agGrid') agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
 	private _path: string;
-	public title: string;
-	public buttonExpandirColapsar = true;
-	public isExpanded = true;
-	public titleButtom = '';
-	public showButtomExpanded = true;
-	public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
-	public hasAppPresupuestaria = false;
-	public isDisabled = true;
-	public buttonVisible = true;
-
 	private _columnApi: ColumnApi;
 	private _columnDefs: (ColDef | ColGroupDef)[];
 	private _dataTable: IDataTable;
@@ -72,6 +60,20 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private levelDetails = 0;
 	private _clasificationType: string;
 	private _CodFilter: string;
+	public title: string;
+	public buttonExpandirColapsar = true;
+	public isExpanded = true;
+	public titleButtom = '';
+	public showButtomExpanded = true;
+	public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
+	public hasAppPresupuestaria = false;
+	public isDisabled = true;
+	public buttonVisible = true;
+	private _fontSize = '14px';
+
+	screenSizeSubscription: Subscription;
+	private _screenWidth: number;
+	private _columnWidth: number;
 
 	public autoGroupColumnDef: ColDef = {
 		headerName: 'Capítulo-Económico',
@@ -81,17 +83,24 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		cellRenderer: CellRendererOCMtext,
 		valueGetter: (params) => {
 			if (params?.data) {
-				return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: 14px; margin-left: 0px"">${
-					'       ' + params.data.CodEco + ' - ' + params.data.DesEco
-				}</span>`;
+				if (this._screenWidth < 600) {
+					return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: ${this._fontSize}; margin-left: 0px"">${
+						'  ' + params.data.CodEco + ' - ' + params.data.DesEco
+					}</span>`;
+				} else {
+					return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: ${this._fontSize}; margin-left: 0px"">${
+						'       ' + params.data.CodEco + ' - ' + params.data.DesEco
+					}</span>`;
+				}
 			} else {
-				return `<span style="white-space: pre;color: red; font-size: 18px; font-family:var(--fuente-principal);font-weight: bold;text-align: right;padding-left: 425px;">TOTAL PROGRAMA
+				return `<span style="white-space: pre;color: red; font-size: ${this._fontSize}; font-family:var(--fuente-principal);font-weight: bold;text-align: right;padding-left: 425px;">TOTAL PROGRAMA
 				</span>`;
 			}
 		}
 	};
 
 	public groupDisplayType: RowGroupingDisplayType = 'singleColumn';
+	private _screenSizeService = inject(ScreenSizeService);
 
 	constructor() {
 		this.sub = this._route.params.subscribe((params) => {
@@ -100,6 +109,14 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	async ngOnInit(): Promise<void> {
+		this.screenSizeSubscription = this._screenSizeService.getScreenSize().subscribe((width) => {
+			this._screenWidth = width;
+			console.log('Width: ', width);
+			this._fontSize = width < 600 ? '8px' : '14px';
+			this._columnWidth = width < 600 ? 100 : 625;
+
+			// Aquí puedes realizar acciones basadas en el ancho de pantalla
+		});
 		this._dataTable = this._dataStoreService.dataTable;
 		this._clasificationType = this._dataTable.clasificationType;
 

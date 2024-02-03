@@ -1,25 +1,23 @@
-<div style="margin-top: 30px">
-  <!-- <h2 class="OCM-text--subtitulo" style="margin-bottom: 20px" [innerHTML]="title + '. ' + messageYears"></h2> -->
-  <h2 class="OCM-text--subtitulo" style="margin-bottom: 20px" [innerHTML]="title + '.'"></h2>
+<!-- <h2 class="OCM-text--subtitulo" [innerHTML]="title + '.'"></h2> -->
+<h2 class="OCM-text--subtitulo">{{ title }}</h2>
 
-  <div class="volver">
-    <button type="button" class="OCM-button" (click)="ficha()">Ficha</button>
-    <button type="button" class="OCM-button" (click)="volver()">Volver</button>
-  </div>
+<section class="OCM-flex1 OCM-flex1--right">
+	<button type="button" class="OCM-button" (click)="ficha()">Ficha</button>
+	<button type="button" class="OCM-button" (click)="volver()">Volver</button>
+</section>
 
-  <div class="agGrid">
-    @if (gridOptions) {
-      <ag-grid-angular
-        #agGrid
-        id="agGrid"
-        style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"
-        class="ag-theme-balham"
-        [autoGroupColumnDef]="autoGroupColumnDef"
-        [groupDisplayType]="groupDisplayType"
-        [gridOptions]="gridOptions"
-        (gridReady)="onGridReady($event)"
-        >
-      </ag-grid-angular>
-    }
-  </div>
+<div class="agGrid">
+	@if (gridOptions) {
+		<ag-grid-angular
+			#agGrid
+			id="agGrid"
+			style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"
+			class="ag-theme-balham"
+			[autoGroupColumnDef]="autoGroupColumnDef"
+			[groupDisplayType]="groupDisplayType"
+			[gridOptions]="gridOptions"
+			(gridReady)="onGridReady($event)"
+		>
+		</ag-grid-angular>
+	}
 </div>
