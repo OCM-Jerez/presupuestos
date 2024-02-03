@@ -4,10 +4,9 @@
 	<app-checkbox [multiYears]="true" />
 
 	<app-table-presupuesto />
+
 	@if (multiYears) {
-		<div>
-			<app-treemap />
-		</div>
+		<app-treemap />
 	}
 
 	<app-tabs>
@@ -17,5 +16,6 @@
 			</app-tab>
 		}
 	</app-tabs>
+
 	<app-table />
 </div>
