@@ -7,11 +7,6 @@
 @import '/src/styles/utilities';
 @import '/src/styles/variables';
 
-@import '../../node_modules/ag-grid-community/styles/ag-grid.css';
-@import '../../node_modules/ag-grid-community/styles/ag-theme-balham.css';
-
-// #region OCM
-// #region @media screen
 @media screen and (max-width: 4200px) {
 	.OCM-gridMenu {
 		display: grid;
@@ -303,12 +298,6 @@
 		align-items: center;
 		justify-content: center;
 	}
-	// #endregion
-	/******** END  OCM *****************/
-
-	.ag-cell-value {
-		font-size: 12px;
-	}
 
 	#home {
 		font-size: 16px;
@@ -508,61 +497,3 @@
 		font-size: 16px;
 	}
 }
-
-// #endregion
-/******** END  @media screen *****************/
-
-// #endregion
-/******** END Mis cosas *****************/
-
-// #region AG-Grid
-// .ag-header-group-cell {
-//   font-size: 14px;
-//   color: green;
-// }
-// .ag-header-row {
-//   font-size: 14px;
-//   color: rgb(215, 20, 20);
-// }
-
-.ag-header-group-text {
-	font-size: 14px;
-	color: green;
-}
-
-.ag-cell-label-container {
-	/*Necessary to allow for text to grow vertically*/
-	height: 100%;
-}
-
-.ag-header-cell {
-	font-size: 12px;
-	width: 20px;
-	color: #d31f1f;
-	// transform: rotate(90deg);
-	// margin-top: 10px;
-	/*Since we are rotating a span*/
-	display: inline-block;
-}
-
-.ag-header-cell-label .ag-header-cell-text {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	color: rgb(189, 12, 12);
-	// font-family: Arial;
-	font-weight: bold;
-	font-size: 10px;
-	/*Necessary to allow for text to grow vertically*/
-	height: 100%;
-	padding: 0 !important;
-}
-
-.ag-cell-value {
-	font-size: 10px;
-	text-overflow: ellipsis;
-	color: black;
-}
-
-// #endregion
-/******** END ag-grid *****************/

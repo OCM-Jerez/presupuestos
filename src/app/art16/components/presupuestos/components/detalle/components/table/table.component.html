@@ -1,14 +1,14 @@
 <div class="agGrid">
-  @if (gridOptions) {
-    <ag-grid-angular
-      #agGrid
-      id="agGrid"
-      class="ag-theme-balham"
-      [animateRows]="true"
-      [gridOptions]="gridOptions"
-      (gridReady)="onGridReady($event)"
-      [modules]="modules"
-      >
-    </ag-grid-angular>
-  }
+	@if (gridOptions) {
+		<ag-grid-angular
+			#agGrid
+			id="agGrid"
+			class="ag-theme-balham"
+			[animateRows]="true"
+			[gridOptions]="gridOptions"
+			(gridReady)="onGridReady($event)"
+			[modules]="modules"
+		>
+		</ag-grid-angular>
+	}
 </div>

@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 
-
 import { Subject, takeUntil, tap } from 'rxjs';
 
 import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
@@ -130,7 +129,8 @@ export class TableComponent implements OnInit, OnDestroy {
 						field: this._fields.codigo,
 						sort: 'asc',
 						// width: this._dataTable.dataPropertyTable.width,
-						width: 750,
+						width: 480,
+						pinned: 'left',
 						rowGroup: true,
 						showRowGroup: this._dataTable.dataPropertyTable.codField,
 						cellRenderer: CellRendererOCMtext,
@@ -170,7 +170,7 @@ export class TableComponent implements OnInit, OnDestroy {
 		const myRowData = this._isIngresos ? this._dataTable.rowDataIngresos : this._dataTable.rowDataGastos;
 		this.gridOptions = {
 			defaultColDef: {
-				width: 130,
+				width: 110,
 				sortable: true,
 				resizable: true,
 				filter: true,
@@ -197,7 +197,7 @@ export class TableComponent implements OnInit, OnDestroy {
 			groupIncludeTotalFooter: true,
 			groupIncludeFooter: true,
 			groupHeaderHeight: 25,
-			headerHeight: 54,
+			headerHeight: 35,
 			suppressAggFuncInHeader: true,
 			rowSelection: 'single',
 			localeText: localeTextESPes,
@@ -249,7 +249,12 @@ export class TableComponent implements OnInit, OnDestroy {
 		return {
 			headerName: 'Créditos',
 			children: [
-				{ headerName: 'Previsiones Iniciales', field: `Iniciales${year}`, columnGroupShow: 'open' },
+				{
+					headerName: 'Previsiones Iniciales',
+					field: `Iniciales${year}`,
+					columnGroupShow: 'open'
+					// cellStyle: { 'font-size': '24px', 'background-color': 'green' }
+				},
 				{ headerName: 'Total Modificaciones', field: `Modificaciones${year}`, width: 140, columnGroupShow: 'open' },
 				{
 					headerName: 'Creditos definitivos',

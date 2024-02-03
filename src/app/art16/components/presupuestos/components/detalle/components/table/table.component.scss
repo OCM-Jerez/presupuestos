@@ -1,25 +1,26 @@
 @media screen and (max-width: 3399.98px) {
-	// .agGrid {
-	//     background-color: rgb(200, 13, 13);
-	//     height: 30vh;
-	// }
-
 	#agGrid {
 		width: 100%;
-		height: 40vh;
+		height: 44vh;
 		padding-right: 20px;
 		margin-left: 10px;
 	}
 }
 
-@media screen and (max-width: 575.98px) {
-	.agGrid {
-		height: 40vh;
-		max-width: 380px;
+@media screen and (max-width: 750px) {
+	#agGrid {
+		height: 60vh;
 	}
+}
+
+@media screen and (max-width: 575.98px) {
+	// .agGrid {
+	// 	height: 40vh;
+	// 	max-width: 380px;
+	// }
 
 	#agGrid {
-		height: 40vh;
+		height: 60vh;
 		padding-right: 4px;
 		margin-left: 4px;
 	}
