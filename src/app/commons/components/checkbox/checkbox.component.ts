@@ -23,8 +23,8 @@ export class CheckboxComponent implements OnInit {
 		{ year: 2020, checked: false },
 		{ year: 2021, checked: false },
 		{ year: 2022, checked: false },
-		{ year: 2023, checked: true },
-		{ year: 2024, checked: false }
+		{ year: 2023, checked: true }
+		// { year: 2024, checked: false }
 	];
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
 	private _reloadTableService = inject(ReloadTableService);

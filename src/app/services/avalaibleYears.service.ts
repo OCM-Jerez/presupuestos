@@ -18,8 +18,8 @@ export class AvalaibleYearsService {
 	getYearsSelected(): number[] {
 		if (this.yearsSelected.length === 0) {
 			// Mientras no existan datos del año actual resto 1 al año actual
-			// this.yearsSelected.push((new Date().getFullYear()) - 1);
-			this.yearsSelected.push(new Date().getFullYear());
+			this.yearsSelected.push(new Date().getFullYear() - 1);
+			// this.yearsSelected.push(new Date().getFullYear());
 		}
 
 		return this.yearsSelected;

@@ -1,6 +1,6 @@
 <!-- https://codepen.io/havardob/pen/BapJYMg -->
 <fieldset class="checkbox-group">
-	<legend class="checkbox-group-legend">Selecciona año a mostrar</legend>
+	<legend class="checkbox-group-legend">Selecciona año a mostrar (Sin datos del año 2024 hasta la fecha)</legend>
 	<div class="checkbox">
 		@for (item of years; track item) {
 			<label>
@@ -11,7 +11,7 @@
 			</label>
 		}
 		@if (multiYears) {
-			<button type="button" class="OCM-button" style="font-size: 19px" (click)="toggle()">
+			<button type="button" class="OCM-button" (click)="toggle()">
 				{{ textButton }}
 			</button>
 		}

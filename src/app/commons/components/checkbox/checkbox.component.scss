@@ -22,12 +22,12 @@
 	}
 
 	.checkbox-group-legend {
-		font-size: 2rem;
+		font-size: 1.4rem;
 		font-weight: 700;
 		color: #500808;
 		text-align: center;
-		line-height: 1.125;
-		margin-bottom: 1.25rem;
+		// line-height: 0.8;
+		// margin-bottom: 1.2rem;
 	}
 
 	.checkbox-input {
@@ -116,7 +116,7 @@
 
 @media screen and (max-width: 575.98px) {
 	.checkbox-group-legend {
-		font-size: 0.7rem;
+		font-size: 1rem;
 		margin-bottom: 0.7rem;
 		margin-top: 0.7rem;
 	}
