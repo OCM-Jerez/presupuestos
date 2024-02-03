@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 
 import { SupabaseService } from '@services/supabase.service';
 import { TagStoreService } from '@services/tagStore.service';
-import { ModalService } from '@app/layouts/modal/modal.service';
 
 @Component({
 	selector: 'app-news-form',
@@ -19,7 +18,6 @@ export default class NewsFormComponent implements OnInit {
 	private _supabaseService = inject(SupabaseService);
 	private _location = inject(Location);
 	private _tagStoreService = inject(TagStoreService);
-	private _modalService = inject(ModalService);
 	public tag = this._tagStoreService.getTag();
 
 	ngOnInit(): void {
@@ -40,7 +38,6 @@ export default class NewsFormComponent implements OnInit {
 
 			try {
 				await this._supabaseService.insertRow('news', formData);
-				// this._modalService.close(); // NO FUNCIONA
 				this._location.back();
 			} catch (error) {
 				console.error('Error al insertar datos:', error);

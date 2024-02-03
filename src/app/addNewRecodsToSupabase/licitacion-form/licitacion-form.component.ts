@@ -1,6 +1,5 @@
-
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { SupabaseService } from '@services/supabase.service';
 
@@ -12,7 +11,7 @@ import { SupabaseService } from '@services/supabase.service';
 	styleUrls: ['./licitacion-form.component.scss']
 })
 export default class LicitacionFormComponent implements OnInit {
-	userForm: any;
+	userForm: FormGroup;
 
 	constructor(private formBuilder: FormBuilder) {}
 	private _route = inject(ActivatedRoute);

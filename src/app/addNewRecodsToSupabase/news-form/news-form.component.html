@@ -2,6 +2,7 @@
 	<form [formGroup]="userForm" (ngSubmit)="guardar()">
 		<fieldset>
 			<header class="OCM-subtitle-dark">Añadir noticia en {{ tag }}</header>
+
 			<label for="date" class="OCM-label-dark">Fecha</label>
 			<input type="date" class="form-date" id="date" formControlName="date" />
 			@if (userForm?.get('date')?.invalid && userForm?.get('date')?.touched) {
@@ -17,7 +18,7 @@
 			<label for="title" class="OCM-label-dark">Titulo</label>
 			<input type="text" class="form-long" id="title" formControlName="title" />
 			@if (userForm?.get('title')?.invalid && userForm?.get('title')?.touched) {
-				<div class="text-danger">titulo es requerido.</div>
+				<div class="text-danger">Titulo es requerido.</div>
 			}
 
 			<label for="url_new" class="OCM-label-dark">URL</label>
@@ -26,7 +27,7 @@
 				<div class="text-danger">URL es requerido.</div>
 			}
 
-			<button type="submit" class="OCM-button">Guardar</button>
+			<button type="submit" class="OCM-button-container OCM-button">Grabar</button>
 		</fieldset>
 	</form>
 </div>

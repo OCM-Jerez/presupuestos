@@ -12,13 +12,13 @@
 			<label for="emisor" class="OCM-label-dark">Emisor</label>
 			<input type="text" class="form-media" id="emisor" formControlName="emisor" />
 			@if (userForm?.get('emisor')?.invalid && userForm?.get('emisor')?.touched) {
-				<div class="text-danger">Medio es requerido.</div>
+				<div class="text-danger">Emisor es requerido.</div>
 			}
 
 			<label for="title" class="OCM-label-dark">Titulo</label>
 			<input type="text" class="form-long" id="title" formControlName="title" />
 			@if (userForm?.get('title')?.invalid && userForm?.get('title')?.touched) {
-				<div class="text-danger">titulo es requerido.</div>
+				<div class="text-danger">Titulo es requerido.</div>
 			}
 
 			<label for="url_doc" class="OCM-label-dark">URL</label>
@@ -26,10 +26,8 @@
 			@if (userForm?.get('url_doc')?.invalid && userForm?.get('url_doc')?.touched) {
 				<div class="text-danger">URL es requerido.</div>
 			}
-			<button class="OCM-button-container OCM-button" type="submit">Grabar</button>
 
-			<!-- <h1 class="OCM-subtitle-dark">C:\Users\Usuario\OneDrive</h1>
-			<input class="form-media" type="file" (change)="addDoc($event)" /> -->
+			<button class="OCM-button-container OCM-button" type="submit">Grabar</button>
 		</fieldset>
 	</form>
 </div>
