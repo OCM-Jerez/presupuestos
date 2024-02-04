@@ -42,7 +42,7 @@ export class SupabaseService {
 	}
 
 	async fetchDataByIdString(tableName: string, id: string) {
-		console.log('id', id);
+		// console.log('id', id);
 
 		const { data, error } = await this._supabase.from(tableName).select('*').eq('id', +id);
 		if (+id === 284) {
@@ -123,7 +123,7 @@ export class SupabaseService {
 				throw error;
 			}
 
-			console.log('Archivo subido con éxito:', data);
+			// console.log('Archivo subido con éxito:', data);
 		} catch (error) {
 			console.error('Error en la subida del archivo:', error);
 		}
@@ -139,7 +139,7 @@ export class SupabaseService {
 				throw error;
 			}
 
-			console.log('Archivo subido con éxito:', data);
+			// console.log('Archivo subido con éxito:', data);
 		} catch (error) {
 			console.error('Error en la subida del archivo:', error);
 		}

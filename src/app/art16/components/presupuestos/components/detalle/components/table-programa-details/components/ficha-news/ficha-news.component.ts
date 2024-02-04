@@ -29,7 +29,7 @@ export default class FichaNewsComponent implements OnInit {
 	async ngOnInit(): Promise<void> {
 		const codigo = this._route.snapshot.paramMap.get('codigo');
 		this.filteredNews = await this.filterNewsByCode(+codigo);
-		console.log(this.filteredNews);
+		// console.log(this.filteredNews);
 	}
 
 	async filterNewsByCode(codigo: number) {

@@ -37,7 +37,7 @@ export default class Level2Component implements OnInit {
 
 	ngOnInit() {
 		const tag = this._tagStoreService.getTag();
-		console.log('tag', tag);
+		// console.log('tag', tag);
 
 		import(`../../assets/menuOptions/level2/${tag}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => {

@@ -142,7 +142,7 @@ export default class LevelLastComponent implements OnInit {
 						}))
 				);
 				this.data = dataO;
-				console.log('dataO', dataO);
+				// console.log('dataO', dataO);
 
 				const descripcionObj = this.data.find((obj) => obj.data === 'Descripción');
 				if (descripcionObj) {

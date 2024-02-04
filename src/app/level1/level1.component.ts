@@ -51,7 +51,7 @@ export default class Level1Component implements OnInit {
 	}
 
 	async fetchDataFromSupabase(tag: string) {
-		console.log('tag', tag);
+		// console.log('tag', tag);
 
 		try {
 			this.news = await this._supabaseService.fetchDataByTagOrder('news', tag, false);

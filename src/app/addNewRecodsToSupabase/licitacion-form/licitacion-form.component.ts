@@ -52,12 +52,12 @@ export default class LicitacionFormComponent implements OnInit {
 	}
 
 	async submitForm(): Promise<void> {
-		console.log('submitForm');
+		// console.log('submitForm');
 
 		if (this.userForm?.valid) {
 			try {
 				await this._supabaseService.insertRow('licitaciones', this.userForm.value);
-				console.log('Datos insertados:', this.userForm.value);
+				// console.log('Datos insertados:', this.userForm.value);
 			} catch (error) {
 				console.error('Error al insertar datos:', error);
 			}

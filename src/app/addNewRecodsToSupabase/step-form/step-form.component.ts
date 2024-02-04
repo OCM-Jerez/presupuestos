@@ -1,4 +1,3 @@
-
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 // import { ActivatedRoute } from '@angular/router';
@@ -19,14 +18,14 @@ export default class StepFormComponent implements OnInit {
 	// private _route = inject(ActivatedRoute);
 	private _supabaseService = inject(SupabaseService);
 	private _tagStoreService = inject(TagStoreService);
-	public tag =this._tagStoreService.getTag();
+	public tag = this._tagStoreService.getTag();
 
 	ngOnInit(): void {
 		// const { paramMap } = this._route.snapshot;
 		// this.tag = paramMap['params'].param;
 		// this.tag =this._tagStoreService.getTag();
 
-		console.log('param', this.tag);
+		// console.log('param', this.tag);
 
 		this.userForm = this._formBuilder.group({
 			date: ['', Validators.required],
@@ -35,7 +34,7 @@ export default class StepFormComponent implements OnInit {
 	}
 
 	async submitForm(): Promise<void> {
-		console.log('submitForm');
+		// console.log('submitForm');
 
 		if (this.userForm?.valid) {
 			const formData = {
@@ -43,11 +42,11 @@ export default class StepFormComponent implements OnInit {
 				tag: this.tag
 			};
 
-			console.log('Form data with param:', formData);
+			// console.log('Form data with param:', formData);
 
 			try {
 				const insertedData = await this._supabaseService.insertRow('steps', formData);
-				console.log('Datos insertados:', insertedData);
+				// console.log('Datos insertados:', insertedData);
 			} catch (error) {
 				console.error('Error al insertar datos:', error);
 			}

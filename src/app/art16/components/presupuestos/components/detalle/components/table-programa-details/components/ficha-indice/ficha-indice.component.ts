@@ -91,7 +91,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 		this.filteredNews = (await this.filterNewsByCode(+this.codigo)) as unknown[];
 		this._newsLength = this.filteredNews.length - 1;
 		this._newsText = this._newsLength <= 0 ? 'Sin entradas' : this._newsLength.toString() + ' entradas';
-		console.log(this.filteredNews);
+		// console.log(this.filteredNews);
 
 		this.DataTotalesPresupuesto = this._dataStoreService.dataTotalesPresupuesto;
 		this.totalPresupuestadoTotal = this.DataTotalesPresupuesto.totalPresupuestoGastos;
@@ -246,7 +246,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 	}
 
 	cartaServicios(URL) {
-		console.log(URL);
+		// console.log(URL);
 
 		if (URL != '') {
 			window.open(URL, '_blank');
@@ -256,7 +256,7 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 	}
 
 	indicadores(URL) {
-		console.log(URL);
+		// console.log(URL);
 
 		if (URL != '') {
 			window.open(URL, '_blank');

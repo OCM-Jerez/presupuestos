@@ -74,7 +74,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	}
 
 	calcCapitulos() {
-		console.log(this._datos);
+		// console.log(this._datos);
 		this.capitulos = this._datos.map((item) => ({
 			codigo: item.CodCap,
 			descripcion: item.DesCap,
@@ -98,12 +98,12 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	}
 
 	graphCapituloGastos() {
-		console.log(this.capitulos);
+		// console.log(this.capitulos);
 
 		const data = this.capitulos.map((item) => {
 			return [item.name, item.value];
 		});
-		console.log(data);
+		// console.log(data);
 
 		Highcharts.setOptions({
 			lang: {

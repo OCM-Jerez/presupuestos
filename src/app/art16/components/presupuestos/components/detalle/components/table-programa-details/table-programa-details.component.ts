@@ -87,7 +87,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	async ngOnInit(): Promise<void> {
 		this.screenSizeSubscription = this._screenSizeService.getScreenSize().subscribe((width) => {
 			this._screenWidth = width;
-			console.log('Width: ', width);
+			// console.log('Width: ', width);
 			this._fontSize = width < 600 ? '10px' : '10px';
 			this.adjustAutoGroupColumnDef(width);
 		});

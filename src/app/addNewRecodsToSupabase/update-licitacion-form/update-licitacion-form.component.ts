@@ -1,4 +1,3 @@
-
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 // import { ActivatedRoute } from '@angular/router';
@@ -20,7 +19,7 @@ export default class UpdateLicitacionFormComponent implements OnInit {
 	private _supabaseService = inject(SupabaseService);
 	private _tagStoreService = inject(TagStoreService);
 
-	public tag=this._tagStoreService.getTag();
+	public tag = this._tagStoreService.getTag();
 	data: any[] = [];
 
 	ngOnInit(): void {
@@ -31,7 +30,7 @@ export default class UpdateLicitacionFormComponent implements OnInit {
 	async fecthLicitacion() {
 		try {
 			this.data = await this._supabaseService.fetchDataByTag('licitaciones', this.tag);
-			console.log('data', this.data);
+			// console.log('data', this.data);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
@@ -75,7 +74,7 @@ export default class UpdateLicitacionFormComponent implements OnInit {
 	}
 
 	async submitForm(): Promise<void> {
-		console.log('submitForm');
+		// console.log('submitForm');
 
 		if (this.userForm?.valid) {
 			try {

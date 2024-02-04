@@ -9,12 +9,15 @@ export class ModalService {
 	newModalComponent!: ComponentRef<ModalComponent>;
 	options!: Options | undefined;
 
-	constructor(private appRef: ApplicationRef, private injector: EnvironmentInjector) {}
+	constructor(
+		private appRef: ApplicationRef,
+		private injector: EnvironmentInjector
+	) {}
 
 	open<C>(vcrOrComponent: Type<C>, param2?: Options, options?: Options) {
-		console.log('vcrOrComponent', vcrOrComponent);
-		console.log('param2', param2);
-		console.log('options', options);
+		// console.log('vcrOrComponent', vcrOrComponent);
+		// console.log('param2', param2);
+		// console.log('options', options);
 		this.openWithComponent(vcrOrComponent);
 		this.options = param2 as Options | undefined;
 	}
