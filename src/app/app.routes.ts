@@ -79,12 +79,16 @@ export default [
 	{
 		path: 'fichaPresupuesto',
 		loadComponent: () =>
-			'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-presupuesto/ficha-presupuesto.component'
+			import(
+				'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-presupuesto/ficha-presupuesto.component'
+			)
 	},
 	{
 		path: 'fichaGastos',
 		loadComponent: () =>
-			'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-gastos/ficha-gastos.component'
+			import(
+				'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-gastos/ficha-gastos.component'
+			)
 	},
 	{
 		path: 'fichaRemanentes',
@@ -96,12 +100,16 @@ export default [
 	{
 		path: 'fichaNews',
 		loadComponent: () =>
-			'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-news/ficha-news.component'
+			import(
+				'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-news/ficha-news.component'
+			)
 	},
 	{
 		path: 'fichaNews/:codigo',
 		loadComponent: () =>
-			'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-news/ficha-news.component'
+			import(
+				'./art16/components/presupuestos/components/detalle/components/table-programa-details/components/ficha-news/ficha-news.component'
+			)
 	},
 	{
 		path: 'tableProgramaDetails/:origen',
