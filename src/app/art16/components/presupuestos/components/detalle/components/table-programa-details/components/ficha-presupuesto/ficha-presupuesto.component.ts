@@ -11,7 +11,7 @@ import * as Highcharts from 'highcharts';
 import Highcharts3D from 'highcharts/highcharts-3d';
 import HighchartsMore from 'highcharts/highcharts-more';
 HighchartsMore(Highcharts);
-Highcharts3D(Highcharts); // Import and enable the Highcharts 3D module
+Highcharts3D(Highcharts);
 
 Highcharts.setOptions({
 	chart: {
@@ -74,12 +74,13 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	}
 
 	calcCapitulos() {
+		console.log(this._datos);
 		this.capitulos = this._datos.map((item) => ({
 			codigo: item.CodCap,
 			descripcion: item.DesCap,
 			name: `${item.CodCap}-${item.DesCap}`,
-			value: item.Definitivas,
-			recaudado: item.Pagos
+			value: item.Definitivas1,
+			recaudado: item.Pagos1
 		}));
 
 		this.capitulos = this.capitulos.reduce((acc, curr) => {
@@ -97,9 +98,12 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	}
 
 	graphCapituloGastos() {
+		console.log(this.capitulos);
+
 		const data = this.capitulos.map((item) => {
 			return [item.name, item.value];
 		});
+		console.log(data);
 
 		Highcharts.setOptions({
 			lang: {

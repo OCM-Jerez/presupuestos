@@ -19,11 +19,13 @@ export interface IDataGasto {
 	DesPol?: string;
 	DesPro?: string;
 	Definitivas?: number;
+	Definitivas1?: number;
 	GastosComprometidos?: number;
 	Iniciales?: number;
 	Modificaciones?: number;
 	ObligacionesPendientePago?: number;
 	ObligacionesReconocidasNetas?: number;
 	Pagos?: number;
+	Pagos1?: number;
 	RemanenteCredito?: number;
 }
