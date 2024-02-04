@@ -270,11 +270,8 @@ export default class FichaIndiceComponent implements OnInit, OnDestroy {
 		this._newsLength = this.filteredNews.length;
 		this._newsLength = this.filteredNews.length - 1;
 		this._newsText = this._newsLength <= 0 ? 'Sin entradas' : this._newsLength.toString() + ' entradas';
-
-		console.log(this._location);
-
+		// console.log(this._location);
 		this._location.go('/art16');
-		// this._router.navigateByUrl(`/fichaNews`);
 		this._router.navigateByUrl(`/fichaNews/${codigo}`);
 	}
 

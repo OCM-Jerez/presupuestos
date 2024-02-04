@@ -91,7 +91,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 						name: curr.name,
 						value: curr.value,
 						recaudado: curr.recaudado
-				  });
+					});
 			return acc;
 		}, []);
 	}

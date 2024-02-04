@@ -1,27 +1,28 @@
-<div class="page">
-  <div class="volver">
-    <button type="button" class="OCM-button" (click)="volver()">Volver</button>
-  </div>
+<main class="OCM-dark-teme">
+	<div class="OCM-flex1 OCM-flex1--right">
+		<button type="button" class="OCM-button" (click)="volver()">Volver</button>
+	</div>
 
-  <span class="OCM-title-dark">{{ programa }}</span>
-  <span class="OCM-subtitle-dark">Datos ejecución presupuestaria al {{ liqDate }}</span>
+	<span class="OCM-title-dark">{{ programa }}</span>
+	<span class="OCM-subtitle-dark">Datos ejecución presupuestaria al {{ liqDate }}</span>
 
-  <div class="flex">
-    @for (cardInfo of cardsInfo; track cardInfo) {
-      <div
-        [ngClass]="{ flex__cardInfo: true, 'flex__cardInfo-hover': cardInfo.hover }"
-        [style.background]="cardInfo.background"
-        >
-        <app-card-info
-          style="width: 100%"
-          [titulo]="cardInfo.titulo"
-          [subtitulo]="cardInfo.subtitulo"
-          (click)="cardInfo.funcion()"
-          [textButton]="cardInfo.textButton"
-          [textButton1]="cardInfo.textButton1"
-          [textButton2]="cardInfo.textButton2"
-          />
-        </div>
-      }
-    </div>
-  </div>
+	<div class="OCM-gridMenu">
+		<!-- <div class="flex"> -->
+		@for (cardInfo of cardsInfo; track cardInfo) {
+			<!-- <div
+					[ngClass]="{ flex__cardInfo: true, 'flex__cardInfo-hover': cardInfo.hover }"
+					[style.background]="cardInfo.background"
+				> -->
+			<app-card-info
+				[titulo]="cardInfo.titulo"
+				[subtitulo]="cardInfo.subtitulo"
+				(click)="cardInfo.funcion()"
+				[textButton]="cardInfo.textButton"
+				[textButton1]="cardInfo.textButton1"
+				[textButton2]="cardInfo.textButton2"
+			/>
+			<!-- </div> -->
+		}
+	</div>
+	<!-- </div> -->
+</main>
