@@ -75,31 +75,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private _screenWidth: number;
 	private _columnWidth: number;
 	public autoGroupColumnDef: ColDef; // Define la propiedad sin asignarle un valor inicial
-
-	// public autoGroupColumnDef: ColDef = {
-	// 	headerName: 'Capítulo-Económico',
-	// 	field: 'DesEco',
-	// 	width: 625,
-	// 	pinned: 'left',
-	// 	cellRenderer: CellRendererOCMtext,
-	// 	valueGetter: (params) => {
-	// 		if (params?.data) {
-	// 			if (this._screenWidth < 600) {
-	// 				return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: ${this._fontSize}; margin-left: 0px"">${
-	// 					'  ' + params.data.CodEco + ' - ' + params.data.DesEco
-	// 				}</span>`;
-	// 			} else {
-	// 				return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: ${this._fontSize}; margin-left: 0px"">${
-	// 					'       ' + params.data.CodEco + ' - ' + params.data.DesEco
-	// 				}</span>`;
-	// 			}
-	// 		} else {
-	// 			return `<span style="white-space: pre;color: red; font-size: ${this._fontSize}; font-family:var(--fuente-principal);font-weight: bold;text-align: right;padding-left: 425px;">TOTAL PROGRAMA
-	// 			</span>`;
-	// 		}
-	// 	}
-	// };
-
 	public groupDisplayType: RowGroupingDisplayType = 'singleColumn';
 	private _screenSizeService = inject(ScreenSizeService);
 
@@ -113,7 +88,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this.screenSizeSubscription = this._screenSizeService.getScreenSize().subscribe((width) => {
 			this._screenWidth = width;
 			console.log('Width: ', width);
-			this._fontSize = width < 600 ? '8px' : '14px';
+			this._fontSize = width < 600 ? '10px' : '10px';
 			this.adjustAutoGroupColumnDef(width);
 		});
 		this._dataTable = this._dataStoreService.dataTable;
@@ -179,28 +154,20 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	adjustAutoGroupColumnDef(width: number): void {
-		this._columnWidth = width < 600 ? 185 : 625; // Ajusta el valor de _columnWidth basado en el tamaño de pantalla
-
-		// Asigna un nuevo valor a autoGroupColumnDef
+		this._columnWidth = width < 600 ? 289 : 500; // Ajusta el valor de _columnWidth basado en el tamaño de pantalla
 		this.autoGroupColumnDef = {
 			headerName: 'Capítulo-Económico',
 			field: 'DesEco',
-			width: this._columnWidth, // Usa _columnWidth actualizado
+			width: this._columnWidth,
 			pinned: 'left',
 			cellRenderer: CellRendererOCMtext,
 			valueGetter: (params) => {
 				if (params?.data) {
-					if (this._screenWidth < 600) {
-						return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: ${this._fontSize}; margin-left: 0px"">${
-							'  ' + params.data.CodEco + ' - ' + params.data.DesEco
-						}</span>`;
-					} else {
-						return `<span style="white-space: pre; color: black; font-family:var(--fuente-principal);font-size: ${this._fontSize}; margin-left: 0px"">${
-							'       ' + params.data.CodEco + ' - ' + params.data.DesEco
-						}</span>`;
-					}
+					return `<span style="color: black; font-family:var(--fuente-principal);font-size: ${this._fontSize};padding-left: 5px;">${
+						params.data.CodEco + '-' + params.data.DesEco
+					}</span>`;
 				} else {
-					return `<span style="white-space: pre;color: red; font-size: ${this._fontSize}; font-family:var(--fuente-principal);font-weight: bold;text-align: right;padding-left: 425px;">TOTAL PROGRAMA
+					return `<span style="white-space: pre;color: red; font-size: ${this._fontSize}; font-family:var(--fuente-principal);font-weight: bold;text-align: right;padding-left: 175px;">TOTAL PROGRAMA
 					</span>`;
 				}
 			}
@@ -222,7 +189,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	async _CalcDataDetails(CodFilter: string) {
 		this._subHeaderName = this._dataTable.dataPropertyTable.subHeaderName;
 		const codigoSearch = this._dataStoreService.selectedCodeRowFirstLevel.split(' ')[0].toString();
-
 		this._rowData = (await this._prepareDataGastosService.getDataAllYear()).filter(
 			(x) => x[CodFilter].toString() === codigoSearch
 		);
@@ -371,12 +337,13 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			groupSuppressBlankHeader: true,
 			groupIncludeFooter: false,
 			groupIncludeTotalFooter: true,
-			groupHeaderHeight: 25,
-			headerHeight: 54,
+			groupHeaderHeight: 15,
+			headerHeight: 24,
 			suppressAggFuncInHeader: true,
 			rowSelection: 'single',
+			rowHeight: 14,
 			localeText: localeTextESPes,
-			pagination: true,
+			pagination: false,
 			paginationPageSize: 26,
 			onRowClicked: () => {
 				this.levelDetails += 1;

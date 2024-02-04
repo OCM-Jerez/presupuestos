@@ -37,7 +37,7 @@ export function CellRendererOCMtext(params: ICellRendererParams) {
 				: '';
 		case 1:
 			return params.value
-				? `<p style="font-size: 28px; font-family:var(--fuente-principal); text-align: left; margin: 0;">${params.value}</p>`
+				? `<p style="font-size: 12px; font-family:var(--fuente-principal); text-align: left; margin: 0;">${params.value}</p>`
 				: '';
 		case 2:
 			return params.value
@@ -55,13 +55,13 @@ export function CellRendererOCMDetails(params: ICellRendererParams) {
 		const valorFormateado: number = params.value.toLocaleString('de-DE');
 		switch (params.node.level) {
 			case -1: // TOTAL GENERAL
-				return `<p style="color: red; font-size: 22px; font-family:var(--fuente-principal); font-weight: bold; text-align: right; margin: 0px">${valorFormateado}
+				return `<p style="color: red; font-size: 14px; font-family:var(--fuente-principal); font-weight: bold; text-align: right; margin: 0px">${valorFormateado}
 								</p>`;
 			case 0: // TOTAL CAPITULO
-				return `<p style="color: red; font-size: 18px; font-family:var(--fuente-principal);font-weight: bold;text-align: right; margin: 0px">${valorFormateado}
+				return `<p style="color: red; font-size: 12px; font-family:var(--fuente-principal);font-weight: bold;text-align: right; margin: 0px">${valorFormateado}
 								</p>`;
 			case 1: // Económico
-				return `<p style="font-size: 14px; color: black; font-family:var(--fuente-principal);text-align: right; margin: 0px;">${valorFormateado}</p>`;
+				return `<p style="font-size: 10px; color: black; font-family:var(--fuente-principal);text-align: right; margin: 0px;">${valorFormateado}</p>`;
 			default:
 				return `<p style="color: blue; font-size: 14px; font-weight: bold; text-align: right; margin: 0px">SIN FORMATO
 								</p>`;

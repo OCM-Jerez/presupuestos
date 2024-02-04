@@ -17,7 +17,7 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 						{
 							headerName: 'Programa',
 							field: 'DesCap',
-							width: 450,
+							width: 550,
 							pinned: 'left',
 							rowGroup: true,
 							hide: true,
@@ -25,7 +25,7 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 							cellRenderer: 'agGroupCellRenderer',
 							valueGetter: (params) => {
 								if (params?.data) {
-									return `<span style="color: red; font-size: 18px;font-family:var(--fuente-principal); font-weight: bold;margin-left: 0px;">${
+									return `<span style="color: red; font-size: 12px;font-family:var(--fuente-principal); font-weight: bold;margin-left: 0px;">${
 										params.data.CodCap + ' - ' + params.data.DesCap
 									}</span>`;
 								} else {
@@ -136,66 +136,68 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 
 function createColumnsChildren(year: number, cellRenderer) {
 	return [
+		// {
+		// headerName: 'Créditos',
+		// children: [
 		{
-			headerName: 'Créditos',
-			children: [
-				{
-					headerName: 'Previsiones Iniciales',
-					field: `Iniciales${year}`,
-					hide: true,
-					cellRenderer: cellRenderer
-				},
-				{
-					headerName: 'Total Modificaciones',
-					field: `Modificaciones${year}`,
-					width: 120,
-					hide: true,
-					cellRenderer: cellRenderer
-				},
-				{
-					headerName: 'Creditos definitivos',
-					field: `Definitivas${year}`,
-					width: 150,
-					hide: false,
-					cellRenderer: cellRenderer
-				}
-			]
+			headerName: 'Previsiones Iniciales',
+			field: `Iniciales${year}`,
+			hide: true,
+			cellRenderer: cellRenderer
 		},
 		{
-			headerName: 'Gastos',
-			children: [
-				{
-					headerName: 'Gastos Comprometidos',
-					field: `GastosComprometidos${year}`,
-					width: 120,
-					hide: true,
-					cellRenderer: cellRenderer
-				},
-				{
-					headerName: 'Obligaciones reconocidas netas',
-					field: `ObligacionesReconocidasNetas${year}`,
-					width: 135,
-					hide: true,
-					cellRenderer: cellRenderer
-				},
-				{
-					headerName: 'Pagos',
-					field: `Pagos${year}`,
-					hide: false,
-					cellRenderer: cellRenderer
-				},
-				{
-					headerName: 'Obligaciones pendientes de pago al final periodo',
-					field: `ObligacionesPendientePago${year}`,
-					width: 120,
-					hide: true,
-					cellRenderer: cellRenderer
-				}
-			]
+			headerName: 'Total Modificaciones',
+			field: `Modificaciones${year}`,
+			width: 120,
+			hide: true,
+			cellRenderer: cellRenderer
 		},
+		{
+			headerName: 'CredDefinitivos',
+			field: `Definitivas${year}`,
+			width: 96,
+			hide: false,
+			cellRenderer: cellRenderer
+		},
+		// ]
+		// },
+		// {
+		// 	headerName: 'Gastos',
+		// 	children: [
+		{
+			headerName: 'Gastos Comprometidos',
+			field: `GastosComprometidos${year}`,
+			width: 120,
+			hide: true,
+			cellRenderer: cellRenderer
+		},
+		{
+			headerName: 'Obligaciones reconocidas netas',
+			field: `ObligacionesReconocidasNetas${year}`,
+			width: 135,
+			hide: true,
+			cellRenderer: cellRenderer
+		},
+		{
+			headerName: 'Pagos',
+			field: `Pagos${year}`,
+			width: 96,
+			hide: false,
+			cellRenderer: cellRenderer
+		},
+		{
+			headerName: 'Obligaciones pendientes de pago al final periodo',
+			field: `ObligacionesPendientePago${year}`,
+			width: 120,
+			hide: true,
+			cellRenderer: cellRenderer
+		},
+		// 	]
+		// },
 		{
 			headerName: 'Remanente Credito',
 			field: `RemanenteCredito${year}`,
+			width: 96,
 			hide: false,
 			cellRenderer: cellRenderer
 		}

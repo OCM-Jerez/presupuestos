@@ -200,9 +200,10 @@ export class TableComponent implements OnInit, OnDestroy {
 			headerHeight: 35,
 			suppressAggFuncInHeader: true,
 			rowSelection: 'single',
+			rowHeight: 14,
 			localeText: localeTextESPes,
 			pagination: true,
-			paginationPageSize: 26,
+			paginationPageSize: 50,
 			onRowClicked: () => {
 				const selectedRows = this.agGrid.api.getSelectedNodes();
 				this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
