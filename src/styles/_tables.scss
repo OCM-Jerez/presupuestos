@@ -1,9 +1,16 @@
 @media screen and (max-width: 6000px) {
-	.OCM-tableContainer {
+	.OCM-containerTable {
 		display: flex;
+		flex-direction: column;
 		border-radius: 10px;
 		background: #f5f5f5;
 		margin: 10px;
+		&__title {
+			color: rgba(1, 0, 3, 0.913);
+			font-family: var(--fuente-principal);
+			font-size: 1.4rem;
+			margin: 10px;
+		}
 	}
 
 	.OCM-containerEstadoLicitacion {
@@ -220,6 +227,19 @@
 }
 
 @media screen and (max-width: 576px) {
+	.OCM-containerTable {
+		&__title {
+			font-size: 10px;
+			margin: 2px;
+		}
+	}
+
+	.OCM-containerEstadoLicitacion {
+		&:nth-child(2) {
+			width: 100%;
+		}
+	}
+
 	.OCM-table {
 		margin: 4px;
 		td {
@@ -229,12 +249,6 @@
 			&:nth-child(3) {
 				width: 59%;
 			}
-		}
-	}
-
-	.OCM-containerEstadoLicitacion {
-		&:nth-child(2) {
-			width: 100%;
 		}
 	}
 }

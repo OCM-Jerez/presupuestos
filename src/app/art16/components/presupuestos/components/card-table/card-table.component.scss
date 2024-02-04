@@ -1,45 +1,21 @@
 @media screen and (max-width: 3399.98px) {
-	.cardTable {
-		display: flex;
-		flex-direction: column;
-		width: 95%;
-		border-radius: 10px;
-		background: #f5f5f5;
+	.table {
 		margin: 10px;
-		&__title {
-			color: rgba(1, 0, 3, 0.913);
-			font-weight: 600;
-			font-family: var(--fuente-principal);
-			font-size: 1.4rem;
-			margin-bottom: 10px;
-			margin-left: 20px;
-			line-height: 1.2;
-		}
-	}
-
-	table.paleBlueRows {
-		width: 95%;
-		height: 100%;
-		text-align: center;
-		border-collapse: collapse;
-		margin-left: 20px;
 		thead {
+			text-align: center;
+			font-size: 1.5rem;
+			font-weight: bold;
+			color: #ffffff;
 			background: #003df6;
-			height: 20px;
-			th {
-				font-size: 1.5rem;
-				font-weight: bold;
-				color: #ffffff;
-				text-align: center;
-				width: 50px;
-				border-left: 2px solid #ffffff;
+			border-collapse: collapse;
+			th:first-child {
+				border-right: 2px solid #ffffff;
+				width: 80%;
 			}
 		}
 		tbody {
-			td {
-				font-size: 1.8rem;
-				text-align: right;
-			}
+			font-size: 1.4rem;
+			text-align: right;
 			tr:nth-child(even) {
 				background: #84c4c8;
 			}
@@ -51,29 +27,13 @@
 }
 
 @media screen and (max-width: 575.98px) {
-	.cardTable {
-		&__title {
-			font-size: 10px;
-			margin: 2px;
-			line-height: 0.9;
-		}
-	}
-
-	table.paleBlueRows {
-		margin-left: 2px;
-		width: 330px;
+	.table {
+		margin: 4px;
 		thead {
-			height: 10px;
-			th {
-				font-size: 0.8rem;
-				width: 10px;
-			}
+			font-size: 1rem;
 		}
 		tbody {
-			tr {
-				height: 6px;
-				// font-sçize: 0.4rem;
-			}
+			font-size: 1rem;
 		}
 	}
 }
