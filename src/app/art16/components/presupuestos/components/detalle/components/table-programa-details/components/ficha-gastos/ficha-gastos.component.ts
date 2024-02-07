@@ -25,15 +25,14 @@ Highcharts.setOptions({
 	selector: 'app-ficha-gastos',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './ficha-gastos.component.html',
-	styleUrls: ['./ficha-gastos.component.scss']
+	templateUrl: './ficha-gastos.component.html'
 })
 export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDestroy {
 	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
 	private _location = inject(Location);
 	private _subscription: Subscription;
 	private _datos: IDataGasto[] = [];
-	private cap = [];
+	private _cap = [];
 	public programa: string;
 	public currentGraph = 1;
 	public capitulos = [];
@@ -46,7 +45,7 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 
 		this.programa = this._datos[0].DesPro;
 		this.calcCapitulos();
-		this.cap = this._datos.filter((item) => +item.CodCap === 1);
+		this._cap = this._datos.filter((item) => +item.CodCap === 1);
 	}
 
 	ngOnDestroy() {
@@ -65,7 +64,7 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 		this.currentGraph = capitulo;
 
 		if (capitulo >= 1 && capitulo <= 9) {
-			this.cap = this._datos.filter((item) => +item.CodCap === capitulo);
+			this._cap = this._datos.filter((item) => +item.CodCap === capitulo);
 		}
 
 		setTimeout(() => {
@@ -78,8 +77,8 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 			codigo: item.CodCap,
 			descripcion: item.DesCap,
 			name: `${item.CodCap}-${item.DesCap}`,
-			value: item.Definitivas,
-			recaudado: item.Pagos
+			value: item.Definitivas1,
+			recaudado: item.Pagos1
 		}));
 
 		this.capitulos = this.capitulos.reduce((acc, curr) => {
@@ -91,7 +90,7 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 						name: curr.name,
 						value: curr.value,
 						recaudado: curr.recaudado
-				  });
+					});
 			return acc;
 		}, []);
 	}
@@ -116,11 +115,7 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 				}
 			},
 			title: {
-				text: 'Gastado a la fecha por capitulo de gastos',
-				align: 'center',
-				style: {
-					fontSize: '3.5rem'
-				}
+				text: ''
 			},
 			subtitle: {
 				text: '',
@@ -128,7 +123,7 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 			},
 			plotOptions: {
 				pie: {
-					innerSize: 100,
+					innerSize: '50%',
 					depth: 45
 				}
 			},
@@ -138,13 +133,13 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 			series: [
 				{
 					type: 'pie',
-					name: 'Medals',
+					name: 'gatos',
 					data: data,
 					dataLabels: {
 						enabled: true,
 						format: '{point.name}<br>{point.y:,.0f} euros<br><span style="color: red">{point.percentage:.1f}%</span>',
 						style: {
-							fontSize: '16px'
+							fontSize: '10px'
 						}
 					}
 				}
@@ -171,7 +166,7 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 			},
 			plotOptions: {
 				pie: {
-					innerSize: 100,
+					innerSize: '50%',
 					depth: 45
 				}
 			},
@@ -181,13 +176,13 @@ export default class FichaGastosComponent implements OnInit, AfterViewInit, OnDe
 			series: [
 				{
 					type: 'pie',
-					name: 'Medals',
-					data: this.cap.map((item) => [item.DesEco, item.Pagos1]),
+					name: 'gastos',
+					data: this._cap.map((item) => [item.DesEco, item.Pagos1]),
 					dataLabels: {
 						enabled: true,
 						format: '{point.name}<br>{point.y:,.0f} euros<br><span style="color: red">{point.percentage:.1f}%</span>',
 						style: {
-							fontSize: '12px',
+							fontSize: '10px',
 							fontWeight: 'normal'
 						}
 					}
