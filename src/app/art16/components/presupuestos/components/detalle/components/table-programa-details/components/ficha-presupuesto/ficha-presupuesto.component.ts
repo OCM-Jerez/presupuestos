@@ -25,8 +25,7 @@ Highcharts.setOptions({
 	selector: 'app-ficha-presupuesto',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './ficha-presupuesto.component.html',
-	styleUrls: ['./ficha-presupuesto.component.scss']
+	templateUrl: './ficha-presupuesto.component.html'
 })
 export default class FichaPresupuestoComponent implements OnInit, AfterViewInit, OnDestroy {
 	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
@@ -63,6 +62,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	changeGraph(capitulo: number) {
 		this.activeButton = capitulo;
 		this.currentGraph = capitulo;
+		console.log(capitulo);
 
 		if (capitulo >= 1 && capitulo <= 9) {
 			this.cap = this._datos.filter((item) => +item.CodCap === capitulo);
@@ -120,11 +120,12 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 				}
 			},
 			title: {
-				text: 'Presupuestado por capitulo de gastos',
-				align: 'center',
-				style: {
-					fontSize: '3.5rem'
-				}
+				text: ''
+				// text: 'Presupuestado por capitulo de gastos',
+				// align: 'center',
+				// style: {
+				// 	fontSize: '3.5rem'
+				// }
 			},
 			subtitle: {
 				text: '',
@@ -141,13 +142,13 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 			},
 			series: [
 				{
-					name: 'Medals',
+					name: 'Capitulos',
 					data: data,
 					dataLabels: {
 						enabled: true,
 						format: '{point.name}<br>{point.y:,.0f} euros<br><span style="color: red">{point.percentage:.1f}%</span>',
 						style: {
-							fontSize: '16px'
+							fontSize: '12px'
 						}
 					}
 				}

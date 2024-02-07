@@ -5,6 +5,13 @@
 		margin-top: 20px;
 	}
 
+	.OCM-button-group {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 20px;
+	}
+
 	.OCM-button {
 		color: #090909;
 		font-family: var(--fuente-principal);
@@ -44,11 +51,16 @@
 		}
 	}
 
-	button:active {
+	.OCM-button:active {
 		color: rgb(249, 26, 26);
 		box-shadow:
 			inset 4px 4px 12px #c5c5c5,
 			inset -4px -4px 12px #ffffff;
+	}
+
+	.OCM-button.active {
+		background-color: #007bff;
+		color: white;
 	}
 }
 
