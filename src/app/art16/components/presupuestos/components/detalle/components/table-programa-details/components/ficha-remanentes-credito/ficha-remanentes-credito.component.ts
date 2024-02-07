@@ -25,14 +25,13 @@ Highcharts.setOptions({
 	selector: 'app-ficha-remanentes-credito',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './ficha-remanentes-credito.component.html',
-	styleUrls: ['./ficha-remanentes-credito.component.scss']
+	templateUrl: './ficha-remanentes-credito.component.html'
 })
 export default class FichaRemanentesCreditoComponent implements OnInit, AfterViewInit, OnDestroy {
 	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
 	private _location = inject(Location);
 	private _subscription: Subscription;
-	private cap = [];
+	private _cap = [];
 	private _datos: IDataGasto[] = [];
 	public programa: string;
 	public currentGraph = 1;
@@ -46,7 +45,7 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 
 		this.programa = this._datos[0].DesPro;
 		this.calcCapitulos();
-		this.cap = this._datos.filter((item) => +item.CodCap === 1);
+		this._cap = this._datos.filter((item) => +item.CodCap === 1);
 	}
 
 	ngOnDestroy() {
@@ -65,7 +64,7 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 		this.currentGraph = capitulo;
 
 		if (capitulo >= 1 && capitulo <= 9) {
-			this.cap = this._datos.filter((item) => +item.CodCap === capitulo);
+			this._cap = this._datos.filter((item) => +item.CodCap === capitulo);
 		}
 
 		setTimeout(() => {
@@ -78,8 +77,8 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 			codigo: item.CodCap,
 			descripcion: item.DesCap,
 			name: `${item.CodCap}-${item.DesCap}`,
-			value: item.Definitivas,
-			recaudado: item.Pagos
+			value: item.Definitivas1,
+			recaudado: item.Pagos1
 		}));
 
 		this.capitulos = this.capitulos.reduce((acc, curr) => {
@@ -91,7 +90,7 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 						name: curr.name,
 						value: curr.value,
 						recaudado: curr.recaudado
-				  });
+					});
 			return acc;
 		}, []);
 	}
@@ -116,11 +115,7 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 				}
 			},
 			title: {
-				text: 'Remanentes credito por capitulo de gastos',
-				align: 'center',
-				style: {
-					fontSize: '3.5rem'
-				}
+				text: ''
 			},
 			subtitle: {
 				text: '',
@@ -128,7 +123,7 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 			},
 			plotOptions: {
 				pie: {
-					innerSize: 100,
+					innerSize: '50%',
 					depth: 45
 				}
 			},
@@ -138,13 +133,13 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 			series: [
 				{
 					type: 'pie',
-					name: 'Medals',
+					name: 'capitulos',
 					data: data,
 					dataLabels: {
 						enabled: true,
 						format: '{point.name}<br>{point.y:,.0f} euros<br><span style="color: red">{point.percentage:.1f}%</span>',
 						style: {
-							fontSize: '16px'
+							fontSize: '10px'
 						}
 					}
 				}
@@ -171,7 +166,7 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 			},
 			plotOptions: {
 				pie: {
-					innerSize: 100,
+					innerSize: '50%',
 					depth: 45
 				}
 			},
@@ -181,13 +176,13 @@ export default class FichaRemanentesCreditoComponent implements OnInit, AfterVie
 			series: [
 				{
 					type: 'pie',
-					name: 'Medals',
-					data: this.cap.map((item) => [item.DesEco, item.Definitivas1 - item.Pagos1]),
+					name: 'presupuesto',
+					data: this._cap.map((item) => [item.DesEco, item.Definitivas1 - item.Pagos1]),
 					dataLabels: {
 						enabled: true,
 						format: '{point.name}<br>{point.y:,.0f} euros<br><span style="color: red">{point.percentage:.1f}%</span>',
 						style: {
-							fontSize: '12px',
+							fontSize: '10px',
 							fontWeight: 'normal'
 						}
 					}
