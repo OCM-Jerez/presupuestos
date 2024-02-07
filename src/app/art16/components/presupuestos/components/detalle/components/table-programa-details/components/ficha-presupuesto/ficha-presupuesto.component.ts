@@ -32,7 +32,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	private _location = inject(Location);
 	private _subscription: Subscription;
 	private _datos: IDataGasto[] = [];
-	private cap = [];
+	private _cap = [];
 	public programa: string;
 	public currentGraph = 1;
 	public capitulos = [];
@@ -45,7 +45,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 
 		this.programa = this._datos[0].DesPro;
 		this.calcCapitulos();
-		this.cap = this._datos.filter((item) => +item.CodCap === 1);
+		this._cap = this._datos.filter((item) => +item.CodCap === 1);
 	}
 
 	ngOnDestroy() {
@@ -62,10 +62,9 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	changeGraph(capitulo: number) {
 		this.activeButton = capitulo;
 		this.currentGraph = capitulo;
-		console.log(capitulo);
 
 		if (capitulo >= 1 && capitulo <= 9) {
-			this.cap = this._datos.filter((item) => +item.CodCap === capitulo);
+			this._cap = this._datos.filter((item) => +item.CodCap === capitulo);
 		}
 
 		setTimeout(() => {
@@ -74,7 +73,6 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	}
 
 	calcCapitulos() {
-		// console.log(this._datos);
 		this.capitulos = this._datos.map((item) => ({
 			codigo: item.CodCap,
 			descripcion: item.DesCap,
@@ -98,12 +96,9 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 	}
 
 	graphCapituloGastos() {
-		// console.log(this.capitulos);
-
 		const data = this.capitulos.map((item) => {
 			return [item.name, item.value];
 		});
-		// console.log(data);
 
 		Highcharts.setOptions({
 			lang: {
@@ -133,7 +128,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 			},
 			plotOptions: {
 				pie: {
-					innerSize: 100,
+					innerSize: '50%',
 					depth: 45
 				}
 			},
@@ -148,7 +143,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 						enabled: true,
 						format: '{point.name}<br>{point.y:,.0f} euros<br><span style="color: red">{point.percentage:.1f}%</span>',
 						style: {
-							fontSize: '12px'
+							fontSize: '10px'
 						}
 					}
 				}
@@ -175,7 +170,7 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 			},
 			plotOptions: {
 				pie: {
-					innerSize: 100,
+					innerSize: '50%',
 					depth: 45
 				}
 			},
@@ -186,12 +181,12 @@ export default class FichaPresupuestoComponent implements OnInit, AfterViewInit,
 				{
 					type: 'pie',
 					name: 'presupuesto',
-					data: this.cap.map((item) => [item.DesEco, item.Definitivas1]),
+					data: this._cap.map((item) => [item.DesEco, item.Definitivas1]),
 					dataLabels: {
 						enabled: true,
 						format: '{point.name}<br>{point.y:,.0f} euros<br><span style="color: red">{point.percentage:.1f}%</span>',
 						style: {
-							fontSize: '12px',
+							fontSize: '10px',
 							fontWeight: 'normal'
 						}
 					}
