@@ -113,5 +113,20 @@
 		"title": "Obras eje del Arroyo",
 		"isLastLevel": true,
 		"tag": "obrasEjeArroyo"
+	},
+	{
+		"title": "Contratos publicidad",
+		"isLastLevel": true,
+		"tag": "contratosPublicidad"
+	},
+	{
+		"title": "Zoológico",
+		"isLastLevel": true,
+		"tag": "zoologico"
+	},
+	{
+		"title": "Banderas",
+		"isLastLevel": true,
+		"tag": "banderas"
 	}
 ]

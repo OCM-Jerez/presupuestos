@@ -1,5 +1,11 @@
 [
 	{
+		"title": "Sanidad",
+		"path": "servicios",
+		"tag": "sanidad",
+		"isLastLevel": true
+	},
+	{
 		"title": "Ambulancias",
 		"path": "servicios",
 		"tag": "ambulancias",

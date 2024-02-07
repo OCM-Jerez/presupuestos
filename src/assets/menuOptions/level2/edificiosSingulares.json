@@ -88,5 +88,11 @@
 		"path": "edificiosSingulares",
 		"isLastLevel": true,
 		"tag": "solarFabricaBotellas"
+	},
+	{
+		"title": "Muese arqueológico",
+		"path": "edificiosSingulares",
+		"isLastLevel": true,
+		"tag": "museoArqueologico"
 	}
 ]
