@@ -70,8 +70,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	public isDisabled = true;
 	public buttonVisible = true;
 	private _fontSize = '14px';
-
-	screenSizeSubscription: Subscription;
+	private _screenSizeSubscription: Subscription;
 	private _screenWidth: number;
 	private _columnWidth: number;
 	public autoGroupColumnDef: ColDef; // Define la propiedad sin asignarle un valor inicial
@@ -85,7 +84,7 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	}
 
 	async ngOnInit(): Promise<void> {
-		this.screenSizeSubscription = this._screenSizeService.getScreenSize().subscribe((width) => {
+		this._screenSizeSubscription = this._screenSizeService.getScreenSize().subscribe((width) => {
 			this._screenWidth = width;
 			// console.log('Width: ', width);
 			this._fontSize = width < 600 ? '10px' : '10px';
