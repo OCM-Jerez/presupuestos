@@ -310,8 +310,10 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 		this.gridOptions = {
 			defaultColDef: {
 				width: 130,
+				suppressMovable: true,
+				lockPosition: 'left',
 				sortable: true,
-				resizable: true,
+				resizable: false,
 				filter: true,
 				aggFunc: 'sum',
 				cellRenderer: CellRendererOCM,

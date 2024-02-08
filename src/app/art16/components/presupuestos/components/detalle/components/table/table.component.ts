@@ -143,6 +143,10 @@ export class TableComponent implements OnInit, OnDestroy {
 						sort: 'asc',
 						// width: this._dataTable.dataPropertyTable.width,
 						width: this._columnWidth,
+						suppressMovable: true,
+						lockPosition: 'left',
+						sortable: true,
+						resizable: false,
 						pinned: 'left',
 						rowGroup: true,
 						showRowGroup: this._dataTable.dataPropertyTable.codField,
@@ -185,8 +189,10 @@ export class TableComponent implements OnInit, OnDestroy {
 		this.gridOptions = {
 			defaultColDef: {
 				width: 110,
+				suppressMovable: true,
+				lockPosition: 'left',
 				sortable: true,
-				resizable: true,
+				resizable: false,
 				filter: true,
 				aggFunc: 'sum',
 				cellRenderer: CellRendererOCM,

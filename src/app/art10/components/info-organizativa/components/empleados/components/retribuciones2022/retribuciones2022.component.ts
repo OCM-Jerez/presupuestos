@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { ColDef, ColumnApi, ColumnState, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community/main';
 
@@ -72,8 +71,10 @@ export default class Retribuciones2022Component implements OnInit {
 		this.gridOptions = {
 			defaultColDef: {
 				width: 130,
+				suppressMovable: true,
+				lockPosition: 'left',
 				sortable: true,
-				resizable: true,
+				resizable: false,
 				filter: true,
 				headerComponentParams: {
 					template:

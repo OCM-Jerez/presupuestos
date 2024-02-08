@@ -89,8 +89,10 @@ export default class RptComponent implements OnInit {
 		this.gridOptions = {
 			defaultColDef: {
 				width: 130,
+				suppressMovable: true,
+				lockPosition: 'left',
 				sortable: true,
-				resizable: true,
+				resizable: false,
 				filter: true,
 				headerComponentParams: {
 					template:

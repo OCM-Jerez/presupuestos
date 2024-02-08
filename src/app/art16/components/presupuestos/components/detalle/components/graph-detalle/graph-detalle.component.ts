@@ -251,8 +251,10 @@ export default class GraphDetalleComponent implements OnInit, AfterViewInit {
 		];
 
 		this.defaultColDef = {
+			suppressMovable: true,
+			lockPosition: 'left',
 			sortable: true,
-			resizable: true,
+			resizable: false,
 			filter: false
 		};
 	}
