@@ -154,10 +154,8 @@ export class TableComponent implements OnInit, OnDestroy {
 									params.data[this._fields.codigo] < 10 && this._fields.codigo === 'CodOrg'
 										? '0' + params.data[this._fields.codigo]
 										: params.data[this._fields.codigo];
-								// return `${myCode} - ${params.data[this._fields.descripcion]}`;
-								return `<span style="color: black; font-family:var(--fuente-principal);font-size:
-								${this._fontSize};padding-left: 5px;">${myCode} - ${params.data[this._fields.descripcion]}
-								</span>`;
+								return `${myCode} - ${params.data[this._fields.descripcion]}`;
+								// return `<span style="color: black; font-family:var(--fuente-principal);font-size:${this._fontSize};padding-left: 5px;">${myCode} - ${params.data[this._fields.descripcion]}</span>`;
 							}
 							return null;
 						}
