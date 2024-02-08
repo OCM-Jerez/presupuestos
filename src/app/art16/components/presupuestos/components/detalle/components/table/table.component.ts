@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 
-import { Subject, takeUntil, tap } from 'rxjs';
+import { Subject, Subscription, takeUntil, tap } from 'rxjs';
 
 import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
@@ -24,6 +24,7 @@ import { DataStoreTabService } from '@services/dataStoreTab.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 import { ReloadTableService } from '@services/reloadTable.service';
 import { TableService } from '@services/table.service';
+import { ScreenSizeService } from '@services/screenSize.service';
 
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 import { IDataTable } from '@interfaces/dataTable.interface';
@@ -44,6 +45,7 @@ export class TableComponent implements OnInit, OnDestroy {
 	private _hasRowClicked = inject(HasRowClicked);
 	private _reloadTableService = inject(ReloadTableService);
 	private _tableService = inject(TableService);
+	private _screenSizeService = inject(ScreenSizeService);
 
 	@ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
 	public modules = [RowGroupingModule];
@@ -61,8 +63,18 @@ export class TableComponent implements OnInit, OnDestroy {
 	private _tabSelected: { clasificationType: string };
 	private _unsubscribe$ = new Subject<void>();
 	private _myYear: number;
+	private _screenSizeSubscription: Subscription;
+	private _screenWidth: number;
+	private _fontSize = '14px';
+	private _columnWidth: number;
 
 	async ngOnInit(): Promise<void> {
+		this._screenSizeSubscription = this._screenSizeService.getScreenSize().subscribe((width) => {
+			this._screenWidth = width;
+			// console.log('Width: ', width);
+			this._fontSize = width < 600 ? '10px' : '10px';
+			this._columnWidth = width < 600 ? 289 : 500; // Ajusta el valor de _columnWidth basado en el tamaño de pantalla
+		});
 		this._hasRowClicked.change(null);
 		this._dataStoreTabService
 			.getTab()
@@ -83,6 +95,7 @@ export class TableComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		this._unsubscribe$.next();
 		this._unsubscribe$.complete();
+		this._screenSizeSubscription.unsubscribe();
 	}
 
 	private async _loadTable() {
@@ -129,7 +142,7 @@ export class TableComponent implements OnInit, OnDestroy {
 						field: this._fields.codigo,
 						sort: 'asc',
 						// width: this._dataTable.dataPropertyTable.width,
-						width: 480,
+						width: this._columnWidth,
 						pinned: 'left',
 						rowGroup: true,
 						showRowGroup: this._dataTable.dataPropertyTable.codField,
@@ -141,7 +154,10 @@ export class TableComponent implements OnInit, OnDestroy {
 									params.data[this._fields.codigo] < 10 && this._fields.codigo === 'CodOrg'
 										? '0' + params.data[this._fields.codigo]
 										: params.data[this._fields.codigo];
-								return `${myCode} - ${params.data[this._fields.descripcion]}`;
+								// return `${myCode} - ${params.data[this._fields.descripcion]}`;
+								return `<span style="color: black; font-family:var(--fuente-principal);font-size:
+								${this._fontSize};padding-left: 5px;">${myCode} - ${params.data[this._fields.descripcion]}
+								</span>`;
 							}
 							return null;
 						}
