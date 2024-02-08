@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
 
+import { environment } from '@environments/environment';
 
 import * as d3 from 'd3';
 import { OrgChart } from 'd3-org-chart';
@@ -31,6 +32,7 @@ interface INodeInfo {
 export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 	@ViewChild('chartContainer') private chartContainer: ElementRef;
 	private _supabaseService = inject(SupabaseService);
+	private _canViewDatos = environment.canAddRowSupabase;
 
 	formatter = new Intl.NumberFormat('de-DE', {
 		style: 'decimal',
@@ -38,24 +40,21 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 		maximumFractionDigits: 0
 	});
 
-	 formatSalary(salarioTotal: string): string {
+	formatSalary(salarioTotal: string): string {
 		const num = parseFloat(salarioTotal);
-	  
-	if (isNaN(num)) {
-		  return "Sin dato salario";
-		}
-	  
-		const formatter = new Intl.NumberFormat('de-DE', {
-		  style: 'decimal',
-		  minimumFractionDigits: 0,
-		  maximumFractionDigits: 0
-		});
-	  
-		return formatter.format(num) + " €";
-	  }
-	  
 
-	  
+		if (isNaN(num)) {
+			return 'Sin dato salario';
+		}
+
+		const formatter = new Intl.NumberFormat('de-DE', {
+			style: 'decimal',
+			minimumFractionDigits: 0,
+			maximumFractionDigits: 0
+		});
+
+		return formatter.format(num) + ' €';
+	}
 
 	chart: OrgChart;
 	data: INodeInfo[] = [];
@@ -99,7 +98,10 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 			.svgHeight(750)
 			.svgWidth(600)
 			.onNodeClick((d) => {
-				window.location.href = `/#/supabase/${d.data.id}`;
+				// alert(`/#/datos/${d.data.id}`);
+				if (this._canViewDatos) {
+					window.location.href = `/#/datos/${d.data.id}`;
+				}
 			})
 			.nodeContent((d) => {
 				// if (d.data.id === 294) {
@@ -223,20 +225,19 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 		this.chart.data(data).render().fit();
 	}
 
-	
 	searchRPT(e) {
 		const value = e.srcElement.value.toLowerCase();
-		let isMatch = false;  // Iniciar isMatch como false
+		let isMatch = false; // Iniciar isMatch como false
 		if (!value) {
 			this.chart.clearHighlighting();
 			return;
 		}
-	
+
 		const data = this.chart.data();
 		data.forEach((d) => {
 			const content = d.rpt_id.toLowerCase();
 			if (content.includes(value)) {
-				isMatch = true;  // Actualizar isMatch si se encuentra una coincidencia
+				isMatch = true; // Actualizar isMatch si se encuentra una coincidencia
 				d._highlighted = true;
 				d._expanded = true;
 			} else {
@@ -244,17 +245,16 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 				d._expanded = false;
 			}
 		});
-	
-		if (!isMatch) {   
+
+		if (!isMatch) {
 			this.chart.clearHighlighting();
 			setTimeout(() => {
-				alert("No se ha encontrado el RPT: " + value);
-			}, 0); 
+				alert('No se ha encontrado el RPT: ' + value);
+			}, 0);
 		} else {
 			this.chart.data(data).render().fit();
 		}
-	
+
 		// this.chart.data(data).render().fit();
 	}
-	
 }

@@ -1,7 +1,5 @@
 // Basado en https://stackblitz.com/edit/js-pr15gr?file=index.html
-
 import { Component, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
-
 
 import * as d3 from 'd3';
 import { OrgChart } from 'd3-org-chart';

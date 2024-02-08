@@ -46,6 +46,10 @@ export default [
 		path: 'fichaEmpleado/:id',
 		loadComponent: () => import('./organigrama/ficha-empleado/ficha-empleado.component')
 	},
+	{
+		path: 'datos/:id',
+		loadComponent: () => import('./organigrama/datos/datos.component')
+	},
 	// Art 15 ============================================================================================================================================
 	{
 		path: 'licitaciones',
