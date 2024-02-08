@@ -6,6 +6,12 @@
 		"isLastLevel": true
 	},
 	{
+		"title": "Educación",
+		"path": "servicios",
+		"tag": "educacion",
+		"isLastLevel": true
+	},
+	{
 		"title": "Ambulancias",
 		"path": "servicios",
 		"tag": "ambulancias",
