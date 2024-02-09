@@ -19,7 +19,6 @@ HighchartsTreemap(Highcharts);
 @Component({
 	selector: 'app-treemap',
 	templateUrl: './treemap.component.html',
-	styleUrls: ['./treemap.component.scss'],
 	standalone: true
 })
 export class TreemapComponent implements OnInit, OnDestroy {
@@ -28,7 +27,6 @@ export class TreemapComponent implements OnInit, OnDestroy {
 	private _prepareDataTreemapService = inject(PrepareDataTreemapService);
 	private _reloadTableService = inject(ReloadTableService);
 	private _tableService = inject(TableService);
-
 	private _clasification: CLASIFICATION_TYPE;
 	private _data: ISubtabClasification;
 	private _dataTreeMap: IDataTreemap;
@@ -128,7 +126,8 @@ export class TreemapComponent implements OnInit, OnDestroy {
 				pointFormat: `<span class="mb-2">{point.key}</span>`,
 				useHTML: true,
 				style: {
-					fontSize: '18px'
+					fontSize: '10px',
+					fontFamily: 'Roboto'
 				}
 			},
 			series: [
@@ -137,7 +136,8 @@ export class TreemapComponent implements OnInit, OnDestroy {
 					data: data,
 					dataLabels: {
 						style: {
-							fontSize: '14px'
+							fontSize: '10px',
+							fontFamily: 'Roboto'
 						}
 					}
 				}
