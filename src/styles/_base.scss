@@ -2,7 +2,7 @@ html {
 	box-sizing: border-box; //https://www.udemy.com/course/css-grid-y-flexbox-la-guia-definitiva-crea-10-proyectos/learn/lecture/28229796#announcements
 	font-size: 62.5%; /* 62.5% of 16px base font size is 10px */
 	max-height: 950px;
-	max-width: 1200px;
+	// max-width: 3200px;
 	min-width: 360px;
 	// width: 100vw;
 }
@@ -21,6 +21,8 @@ body {
 	display: flex;
 	flex-direction: column;
 	line-height: 2rem;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 // @media screen and (max-width: 1199.98px) {
