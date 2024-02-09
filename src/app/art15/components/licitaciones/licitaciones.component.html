@@ -29,7 +29,7 @@
 		<header class="OCM-subtitle-dark OCM-subtitle-dark--left">
 			Aplicación consulta de datos Plataforma Contratación del Sector Público
 		</header>
-		<section class="OCM-flex">
+		<section class="OCM-grid">
 			@for (menu of OCM; track menu) {
 				<section>
 					<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />

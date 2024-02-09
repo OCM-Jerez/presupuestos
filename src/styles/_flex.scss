@@ -1,0 +1,81 @@
+@media screen and (max-width: 4200px) {
+	.OCM-flex {
+		display: flex;
+		width: 90%;
+		margin: 10px;
+		&--right {
+			justify-content: flex-end;
+		}
+		&--center {
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	.OCM-flexEstadoLicitacion {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		height: 270px;
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+
+	.OCM-bar-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		height: 50px;
+		color: #f4ecec;
+		font-family: var(--fuente-principal);
+		font-weight: 700;
+		font-size: 1.5rem;
+		padding: 0 20px;
+	}
+
+	.flex-items {
+		width: 250px;
+		height: 250px;
+		margin-top: 10px;
+	}
+
+	.OCM-imgGraph {
+		display: flex;
+		width: 96%;
+		margin: 20px;
+	}
+
+	.OCM-imgEdificio {
+		display: flex;
+		justify-content: center;
+		width: 24%;
+		margin: 20px;
+	}
+
+	.OCM-graph {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		width: 100%;
+		height: 100vh;
+		margin-top: 40px;
+	}
+
+	.OCM-menu {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.OCM-imgGraph {
+		margin: 4px;
+	}
+}

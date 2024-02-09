@@ -1,6 +1,6 @@
 <h2 class="OCM-title-dark">Subvenciones, planes, fondos</h2>
 
-<div class="OCM-flex">
+<div class="OCM-grid">
 	@for (menu of cardMenus; track menu) {
 		<div>
 			<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
