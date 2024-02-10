@@ -10,7 +10,6 @@ import { Component, Input } from '@angular/core';
 export class CardMenuComponent {
 	@Input() rutaImagen?: string;
 	@Input() titulo: string;
-	@Input() subtitulo?: string;
 	public errorCargaImagen = false;
 
 	manejarErrorImagen() {
