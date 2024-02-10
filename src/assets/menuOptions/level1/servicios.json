@@ -12,6 +12,12 @@
 		"isLastLevel": true
 	},
 	{
+		"title": "Seguridad",
+		"path": "servicios",
+		"tag": "seguridad",
+		"isLastLevel": true
+	},
+	{
 		"title": "Ambulancias",
 		"path": "servicios",
 		"tag": "ambulancias",
