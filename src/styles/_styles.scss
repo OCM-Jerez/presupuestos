@@ -1,11 +1,11 @@
 // https://www.udemy.com/course/advanced-css-and-scss/learn/lecture/8274478#overview
-@import '/src/styles/animations';
-@import '/src/styles/base';
-@import '/src/styles/functions';
-@import '/src/styles/mixins';
-@import '/src/styles/typography';
-@import '/src/styles/utilities';
-@import '/src/styles/variables';
+// @use '/src/styles/animations';
+// @use '/src/styles/base';
+// @use '/src/styles/functions';
+// @use '/src/styles/mixins';
+// @use '/src/styles/typography';
+// @use '/src/styles/utilities';
+@use '/src/styles/variables' as vars;
 
 @media screen and (max-width: 4200px) {
 	.OCM-gridMenu {
@@ -183,17 +183,17 @@
 			font-size: clamp(1rem, -0.875rem + 8.333vw, 1.5rem);
 		}
 		&--años {
-			color: map-get($OCM-colors, claro);
+			color: map-get(vars.$OCM-colors, claro);
 			margin-bottom: 0.2rem;
 		}
 		&--ingresos {
-			color: map-get($OCM-colors, claro);
+			color: map-get(vars.$OCM-colors, claro);
 		}
 		&--gastos {
-			color: map-get($OCM-colors, claro);
+			color: map-get(vars.$OCM-colors, claro);
 		}
 		&--comparativas {
-			color: map-get($OCM-colors, claro);
+			color: map-get(vars.$OCM-colors, claro);
 		}
 	}
 

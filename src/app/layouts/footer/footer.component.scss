@@ -1,5 +1,5 @@
-@import '/src/styles/variables';
-@import '/src/styles/mixins';
+@use '/src/styles/variables' as vars;
+@use '/src/styles/mixins' as m;
 
 // https://javascript.plainenglish.io/5-steps-to-adding-a-sticky-footer-to-your-angular-11-application-6c185c2ed99f
 .footer {
@@ -13,9 +13,9 @@
 	flex-flow: row wrap;
 	width: 100%;
 	height: 50px;
-	background-color: map-get($OCM-colors, navBarBackground);
+	background-color: map-get(vars.$OCM-colors, navBarBackground);
 	&--text {
-		@include OCM-text;
+		@include m.OCM-text;
 		font-size: 18px;
 		margin-left: 10px;
 	}
@@ -26,23 +26,23 @@
 		align-items: center;
 
 		.logoWWW {
-			@include OCM-logo;
-			background: url('#{$imgPath}/www.svg') no-repeat center center;
+			@include m.OCM-logo;
+			background: url('#{vars.$imgPath}/www.svg') no-repeat center center;
 		}
 
 		.logoFacebook {
-			@include OCM-logo;
-			background: url('#{$imgPath}/facebook.svg') no-repeat center center;
+			@include m.OCM-logo;
+			background: url('#{vars.$imgPath}/facebook.svg') no-repeat center center;
 		}
 
 		.logoTwitter {
-			@include OCM-logo;
-			background: url('#{$imgPath}/twitter.svg') no-repeat center center;
+			@include m.OCM-logo;
+			background: url('#{vars.$imgPath}/twitter.svg') no-repeat center center;
 		}
 	}
 
 	&--mail {
-		@include OCM-text;
+		@include m.OCM-text;
 		text-decoration-style: none;
 		margin-right: 20px;
 		font-size: 18px;

@@ -1,23 +1,23 @@
-@import '/src/styles/mixins';
-@import '/src/styles/variables';
+@use '/src/styles/variables' as vars;
+@use '/src/styles/mixins' as m;
 
 @media screen and (max-width: 4200px) {
 	.navbar {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background-color: map-get($OCM-colors, navBarBackground);
+		background-color: map-get(vars.$OCM-colors, navBarBackground);
 		height: 50px;
 		caret-color: transparent;
 		&__logo {
-			background: url('#{$imgPath}/logoOCM.png');
+			background: url('#{vars.$imgPath}/logoOCM.png');
 			height: 40px;
 			width: 184px;
 			margin-left: 20px;
 			background-size: cover;
 		}
 		&__title {
-			@include OCM-text;
+			@include m.OCM-text;
 			font-size: clamp(0.667rem, 2vw + 0.25rem, 2.583rem);
 		}
 		&__home {
@@ -27,13 +27,13 @@
 			cursor: pointer;
 		}
 		&__logoHome {
-			@include OCM-logo;
-			background: url('#{$imgPath}/home.svg') no-repeat center center;
+			@include m.OCM-logo;
+			background: url('#{vars.$imgPath}/home.svg') no-repeat center center;
 			margin-right: 20px;
 		}
 		&__logoVolver {
-			@include OCM-logo;
-			background: url('#{$imgPath}/back.svg') no-repeat center center;
+			@include m.OCM-logo;
+			background: url('#{vars.$imgPath}/back.svg') no-repeat center center;
 		}
 	}
 }
