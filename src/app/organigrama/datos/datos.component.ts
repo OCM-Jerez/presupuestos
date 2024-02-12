@@ -40,13 +40,19 @@ export default class DatosComponent implements OnInit {
 
 		console.log(this.id);
 
-		if (this.id == 10) {
-			this.image_URL = environment.pathImgFichas + 'delegacionParticipacion.jpg';
-			console.log(this.image_URL);
-		}
+		switch (this.id.toString()) {
+			case '10':
+				this.image_URL = environment.pathImgFichas + 'delegacionParticipacion.jpg';
+				break;
+			case '293':
+				this.image_URL = environment.pathImgFichas + 'servicioParticipacion.jpg';
+				break;
+			case '157':
+				this.image_URL = environment.pathImgFichas + '157.jpg';
+				break;
 
-		if (this.id == 293) {
-			this.image_URL = environment.pathImgFichas + 'servicioParticipacion.jpg';
+			default:
+				break;
 		}
 	}
 }
