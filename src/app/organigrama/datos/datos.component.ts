@@ -3,6 +3,8 @@ import { Component, Input, OnInit, inject } from '@angular/core';
 
 import { SupabaseService } from '@services/supabase.service';
 
+import { environment } from '@environments/environment';
+
 @Component({
 	selector: 'app-datos',
 	standalone: true,
@@ -16,6 +18,7 @@ export default class DatosComponent implements OnInit {
 	public positionData: any[] = [];
 	private _supabaseService = inject(SupabaseService);
 	public descripcion: string;
+	public image_URL: string;
 
 	ngOnInit(): void {
 		this.fetchData();
@@ -33,6 +36,17 @@ export default class DatosComponent implements OnInit {
 			}
 		} catch (error) {
 			console.error('Error fetching data:', error);
+		}
+
+		console.log(this.id);
+
+		if (this.id == 10) {
+			this.image_URL = environment.pathImgFichas + 'delegacionParticipacion.jpg';
+			console.log(this.image_URL);
+		}
+
+		if (this.id == 293) {
+			this.image_URL = environment.pathImgFichas + 'servicioParticipacion.jpg';
 		}
 	}
 }
