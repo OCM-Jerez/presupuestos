@@ -1,8 +1,81 @@
-<!-- <div *ngFor="let item of positionData">
-	<div *ngFor="let detalle of item | keyvalue">
-		<strong>{{ detalle.key }}:</strong> {{ detalle.value }}
-	</div>
-</div> -->
+@if (entidad_organizativa) {
+	<header class="OCM-subtitle-dark">{{ entidad_organizativa }}</header>
+}
 
-<!-- <div [innerHTML]="descripcion"></div> -->
+<table>
+	<tr>
+		<th>Dirección</th>
+	</tr>
+	<tr *ngFor="let detalle of eoDirecciones">
+		<td>{{ detalle.calle }}</td>
+		<td>{{ detalle.numero }}</td>
+		<td>{{ detalle.piso }}</td>
+		<td>{{ detalle.cp }}</td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<th>Teléfono</th>
+		<th>Observaciones</th>
+	</tr>
+	<tr *ngFor="let detalle of eoTelefonos">
+		<td>{{ detalle.telefono }}</td>
+		<td>{{ detalle.observaciones }}</td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<th>eMail</th>
+		<th>Observaciones</th>
+	</tr>
+	<tr *ngFor="let item of eoMails">
+		<td>{{ item.email }}</td>
+		<td>{{ item.observaciones }}</td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<th>Movil</th>
+		<th>Observaciones</th>
+	</tr>
+	<tr *ngFor="let item of eoMoviles">
+		<td>{{ item.movil }}</td>
+		<td>{{ item.observaciones }}</td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<th>Puesto</th>
+		<th>Empleado/a</th>
+	</tr>
+	<tr *ngFor="let item of eoEmpleados">
+		<td>{{ item.id_puesto }}</td>
+	</tr>
+	<tr *ngFor="let item of puestos">
+		<td>{{ item.nombre }}</td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<th>Nombre</th>
+		<th>1er apellido</th>
+		<th>2º apellido</th>
+	</tr>
+	<tr *ngFor="let item of empleados">
+		<td>{{ item.nombre }}</td>
+		<td>{{ item.apellido_1 }}</td>
+		<td>{{ item.apellido_2 }}</td>
+	</tr>
+	<tr *ngFor="let item of empleados1">
+		<td>{{ item.nombre }}</td>
+		<td>{{ item.apellido_1 }}</td>
+		<td>{{ item.apellido_2 }}</td>
+	</tr>
+</table>
+<div [innerHTML]="descripcion"></div>
 <img style="height: 700px; width: 1200px" [src]="image_URL" />
