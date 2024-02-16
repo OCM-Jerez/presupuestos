@@ -2,7 +2,7 @@
 	<header class="OCM-subtitle-dark">{{ entidad_organizativa }}</header>
 }
 
-<table>
+<table class="tabla">
 	<tr>
 		<th>Dirección</th>
 	</tr>
@@ -14,48 +14,48 @@
 	</tr>
 </table>
 
-<table>
-	<tr>
-		<th>Teléfono</th>
-		<th>Observaciones</th>
-	</tr>
-	<tr *ngFor="let detalle of eoTelefonos">
-		<td>{{ detalle.telefono }}</td>
-		<td>{{ detalle.observaciones }}</td>
-	</tr>
-</table>
+<div class="tablas-contenedor">
+	<table class="tabla">
+		<tr>
+			<th>Teléfono</th>
+			<th>Observaciones</th>
+		</tr>
+		<tr *ngFor="let detalle of eoTelefonos">
+			<td>{{ detalle.telefono }}</td>
+			<td>{{ detalle.observaciones }}</td>
+		</tr>
+	</table>
 
-<table>
-	<tr>
-		<th>eMail</th>
-		<th>Observaciones</th>
-	</tr>
-	<tr *ngFor="let item of eoMails">
-		<td>{{ item.email }}</td>
-		<td>{{ item.observaciones }}</td>
-	</tr>
-</table>
+	<table class="tabla">
+		<tr>
+			<th>eMail</th>
+			<th>Observaciones</th>
+		</tr>
+		<tr *ngFor="let item of eoMails">
+			<td>{{ item.email }}</td>
+			<td>{{ item.observaciones }}</td>
+		</tr>
+	</table>
 
-<table>
-	<tr>
-		<th>Movil</th>
-		<th>Observaciones</th>
-	</tr>
-	<tr *ngFor="let item of eoMoviles">
-		<td>{{ item.movil }}</td>
-		<td>{{ item.observaciones }}</td>
-	</tr>
-</table>
+	<table class="tabla">
+		<tr>
+			<th>Movil</th>
+			<th>Observaciones</th>
+		</tr>
+		<tr *ngFor="let item of eoMoviles">
+			<td>{{ item.movil }}</td>
+			<td>{{ item.observaciones }}</td>
+		</tr>
+	</table>
+</div>
 
-<table>
+<!-- <table>
 	<tr>
 		<th>Puesto</th>
 		<th>Empleado/a</th>
 	</tr>
-	<tr *ngFor="let item of eoEmpleados">
-		<td>{{ item.id_puesto }}</td>
-	</tr>
 	<tr *ngFor="let item of puestos">
+		<td>{{ item.id_puesto }}</td>
 		<td>{{ item.nombre }}</td>
 	</tr>
 </table>
@@ -66,15 +66,31 @@
 		<th>1er apellido</th>
 		<th>2º apellido</th>
 	</tr>
-	<tr *ngFor="let item of empleados">
+	<tr *ngFor="let item of detallesCompletosDeEmpleados">
+		<td>{{ item.id }}</td>
 		<td>{{ item.nombre }}</td>
 		<td>{{ item.apellido_1 }}</td>
 		<td>{{ item.apellido_2 }}</td>
 	</tr>
-	<tr *ngFor="let item of empleados1">
-		<td>{{ item.nombre }}</td>
-		<td>{{ item.apellido_1 }}</td>
-		<td>{{ item.apellido_2 }}</td>
+</table> -->
+
+<table class="tabla">
+	<tr>
+		<th>Puesto</th>
+		<th>Empleado/a</th>
+		<th>Nombre</th>
+		<th>1er apellido</th>
+		<th>2º apellido</th>
+		<th>Observaciones</th>
+	</tr>
+	<tr *ngFor="let item of datosCombinados">
+		<td>{{ item.id_puesto }}</td>
+		<td>{{ item.nombre_puesto }}</td>
+		<td>{{ item.id_empleado }}</td>
+		<td>{{ item.nombre_empleado }}</td>
+		<td>{{ item.apellido1_empleado }}</td>
+		<td>{{ item.apellido2_empleado }}</td>
+		<td>{{ item.obs_empleado }}</td>
 	</tr>
 </table>
 <div [innerHTML]="descripcion"></div>

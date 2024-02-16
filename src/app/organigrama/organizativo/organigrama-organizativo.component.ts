@@ -65,7 +65,7 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 
 	async fetchData() {
 		try {
-			this.data = await this._supabaseService.fetchData('datos_organigrama1');
+			this.data = await this._supabaseService.fetchData('datos_organigrama3');
 			// Asumiendo que 'data' es un array de tipo INodeInfo[]
 			if (this.data && Array.isArray(this.data)) {
 				await this.initChart();

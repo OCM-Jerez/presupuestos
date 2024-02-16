@@ -1,0 +1,13 @@
+/* Estilos para el contenedor principal */
+.tablas-contenedor {
+	display: flex; /* Activa Flexbox */
+	justify-content: space-around; /* Distribuye espacio alrededor de las columnas */
+	align-items: flex-start; /* Alinea los items al inicio de la columna */
+}
+
+/* Estilos para los contenedores de cada tabla */
+.tabla {
+	flex: 1; /* Permite que cada contenedor de tabla ocupe un espacio igual dentro del contenedor principal */
+	border-style: double;
+	margin-bottom: 10px;
+}
