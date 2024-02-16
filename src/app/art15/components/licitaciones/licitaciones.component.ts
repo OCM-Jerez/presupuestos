@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { environment } from '@environments/environment';
 
@@ -93,7 +93,8 @@ export default class LicitacionesComponent {
 		this.createCard('Montaje palcos Semana Santa', 'palcos2023'),
 		this.createCard('Renting vehiculos policía local', 'vehiculosPolicia2024'),
 		this.createCard('Servicios de vigilancia de seguridad y de auxiliares de control', 'vigilancia2024'),
-		this.createCard('Instalación aire acondicionado Teatro Villmarta', 'climatizacionVillamarta2024')
+		this.createCard('Instalación aire acondicionado Teatro Villmarta', 'climatizacionVillamarta2024'),
+		this.createCard('Suministro de alimentos con destino Parque Zoológico ', 'alimentosZoo2024')
 	];
 
 	licitacionesSolares = [
