@@ -23,8 +23,8 @@ export class CheckboxComponent implements OnInit {
 		{ year: 2020, checked: false },
 		{ year: 2021, checked: false },
 		{ year: 2022, checked: false },
-		{ year: 2023, checked: true }
-		// { year: 2024, checked: false }
+		{ year: 2023, checked: false },
+		{ year: 2024, checked: true }
 	];
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
 	private _reloadTableService = inject(ReloadTableService);
@@ -53,7 +53,7 @@ export class CheckboxComponent implements OnInit {
 		if (!this.multiYears && storedSelectedYears.length > 1) {
 			// Solo se puede seleccionar un año
 			this.years.forEach((year) => (year.checked = false));
-			this.years[this.years.length - 1].checked = true; // por defecto selecciona último año disponible
+			this.years[this.years.length].checked = true; // por defecto selecciona último año disponible
 		}
 	}
 

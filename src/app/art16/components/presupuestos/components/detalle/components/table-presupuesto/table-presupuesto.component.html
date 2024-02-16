@@ -1,26 +1,26 @@
 @if (showTablePresupuesto) {
-  <div>
-    <table class="paleBlueRows">
-      <thead>
-        <tr>
-          <th style="width: 300px">{{ currentYear }} (ejecución al {{ liqDate }})</th>
-          <th>PRESUPUESTO INGRESOS</th>
-          <th>RECAUDADO</th>
-          <th>PRESUPUESTO GASTOS</th>
-          <th>GASTADO</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>TOTAL</td>
-          <td>
-            {{ DataTotalesPresupuesto.totalPresupuestoIngresos | currency : 'EUR' : '' : '1.0-0' }}
-          </td>
-          <td>{{ DataTotalesPresupuesto.totalEjecutadoIngresos | currency : 'EUR' : '' : '1.0-0' }}</td>
-          <td>{{ DataTotalesPresupuesto.totalPresupuestoGastos | currency : 'EUR' : '' : '1.0-0' }}</td>
-          <td>{{ DataTotalesPresupuesto.totalEjecutadoGastos | currency : 'EUR' : '' : '1.0-0' }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+	<div>
+		<table class="paleBlueRows">
+			<thead>
+				<tr>
+					<th style="width: 300px">{{ currentYear }} (ejecución al {{ liqDate }})</th>
+					<th>PRESUPUESTO INGRESOS</th>
+					<th>RECAUDADO</th>
+					<th>PRESUPUESTO GASTOS</th>
+					<th>GASTADO</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>TOTAL</td>
+					<td>
+						{{ DataTotalesPresupuesto.totalPresupuestoIngresos | currency: 'EUR' : '' : '1.0-0' }}
+					</td>
+					<td>{{ DataTotalesPresupuesto.totalEjecutadoIngresos | currency: 'EUR' : '' : '1.0-0' }}</td>
+					<td>{{ DataTotalesPresupuesto.totalPresupuestoGastos | currency: 'EUR' : '' : '1.0-0' }}</td>
+					<td>{{ DataTotalesPresupuesto.totalEjecutadoGastos | currency: 'EUR' : '' : '1.0-0' }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 }

@@ -22,7 +22,7 @@ export class TablePresupuestoComponent implements OnInit {
 	private _prepareDataTotalesPresupuestoService = inject(PrepareDataTotalesPresupuestoService);
 
 	public showTablePresupuesto = true;
-	public liqDate = environment.liqDate2023;
+	public liqDate = environment.liqDate2024;
 	currentYear = environment.currentYear;
 	public DataTotalesPresupuesto: IDataTotalesPresupuesto = {};
 
