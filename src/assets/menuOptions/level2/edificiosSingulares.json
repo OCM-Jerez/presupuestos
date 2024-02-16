@@ -83,16 +83,22 @@
 		"isLastLevel": true,
 		"tag": "depositoSementales"
 	},
-		{
+	{
 		"title": "Solar antigua fabrica de botellas",
 		"path": "edificiosSingulares",
 		"isLastLevel": true,
 		"tag": "solarFabricaBotellas"
 	},
 	{
-		"title": "Muese arqueológico",
+		"title": "Museo arqueológico",
 		"path": "edificiosSingulares",
 		"isLastLevel": true,
 		"tag": "museoArqueologico"
+	},
+	{
+		"title": "Restaurantee El Bosque",
+		"path": "edificiosSingulares",
+		"isLastLevel": true,
+		"tag": "restauranteElBosque"
 	}
 ]

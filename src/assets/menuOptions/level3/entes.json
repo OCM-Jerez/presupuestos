@@ -23,5 +23,15 @@
 		"title": "Fundación Centro de Acogida San José",
 		"path": "art10/infoInstitucional/entes/centroSanJose",
 		"tag": "centroSanJose"
+	},
+	{
+		"title": "MERCAJEREZ - Mercados Centrales de Abastecimiento de Jerez S.A.",
+		"path": "art10/infoInstitucional/entes/mercajerez",
+		"tag": "mercajerez"
+	},
+	{
+		"title": "Fundación Municipal de Formación y Empleo",
+		"path": "art10/infoInstitucional/entes/fmfe",
+		"tag": "fmfe"
 	}
 ]
