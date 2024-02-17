@@ -3,8 +3,6 @@ import { Component, Input, OnInit, inject } from '@angular/core';
 
 import { SupabaseService } from '@services/supabase.service';
 
-import { environment } from '@environments/environment';
-
 @Component({
 	selector: 'app-datos',
 	standalone: true,
@@ -14,82 +12,38 @@ import { environment } from '@environments/environment';
 })
 export default class DatosComponent implements OnInit {
 	@Input() id?: number;
+	private _supabaseService = inject(SupabaseService);
+
 	//TODO: - Add type
 	public entidad_organizativa: string;
 	public puestos: any[] = [];
-	public puestos1: any[] = [];
-	public empleados: any[] = [];
-	public empleados1: any[] = [];
 	public puestosConEmpleados: any[] = [];
 	public datosCombinados: any[] = [];
 	public detallesCompletosDeEmpleados = [];
-	public puesto: string;
-	public empleado: string;
-	public empleado1: string;
 	public eoTelefonos: any[] = [];
 	public eoDirecciones: any[] = [];
 	public eoMails: any[] = [];
+	public eoWebs: any[] = [];
 	public eoMoviles: any[] = [];
 	public eoEmpleados: any[] = [];
 	public eoPuestos: any[] = [];
-	private _supabaseService = inject(SupabaseService);
-	public descripcion: string;
-	public image_URL: string;
+	public puestosDirectos: number;
 
 	ngOnInit(): void {
 		this.fetchData();
 	}
 
 	async fetchData() {
-		// await this._supabaseService.fetchData1();
-
-		// try {
-		// 	this.eoTelefonos = await this._supabaseService.fetchData('view_entidades_organizativas_telefonos');
-		// 	console.log(this.eoTelefonos);
-		// } catch (error) {
-		// 	console.error('Error fetching data:', error);
-		// }
-
 		try {
-			console.log('id', this.id);
 			this.eoDirecciones = await this._supabaseService.fetchDataByIdeo('eo_direcciones', this.id);
-			console.log(this.eoDirecciones);
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
-
-		try {
 			const eo = await this._supabaseService.fetchDataById('entidades_organizativas', this.id);
 			this.entidad_organizativa = eo[0].nombre;
-			console.log(this.eoTelefonos);
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
-
-		try {
 			this.eoTelefonos = await this._supabaseService.fetchDataByIdeo('eo_telefonos', this.id);
-			console.log(this.eoTelefonos);
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
-
-		try {
 			this.eoMails = await this._supabaseService.fetchDataByIdeo('eo_emails', this.id);
-			console.log(this.eoMails);
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
-
-		try {
 			this.eoMoviles = await this._supabaseService.fetchDataByIdeo('eo_moviles', this.id);
-			console.log(this.eoMoviles);
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
-
-		try {
+			this.eoWebs = await this._supabaseService.fetchDataByIdeo('eo_webs', this.id);
 			this.eoPuestos = await this._supabaseService.fetchDataByIduo('puesto-eo', this.id);
-			console.log(this.eoPuestos);
+			console.log('eoPuestos:', this.eoPuestos);
 
 			// Creamos un array de promesas usando map() para iterar sobre eoPuestos
 			const promesas = this.eoPuestos.map((eoPuesto) =>
@@ -103,14 +57,15 @@ export default class DatosComponent implements OnInit {
 			this.puestos = resultados.flat();
 
 			// Ahora this.puestos contiene todos los items de eoPuestos
-			console.log(this.puestos);
 		} catch (error) {
-			console.error('Error al cargar los puestos:', error);
+			console.error('Error al recuperar datos:', error);
 		}
 
 		try {
 			// Aseguramos que this.puestos está lleno
-			if (this.puestos.length === 0) {
+			this.puestosDirectos = this.puestos.length;
+
+			if (this.puestos.length == 0) {
 				console.log('No hay puestos para procesar.');
 				return;
 			}
@@ -132,8 +87,6 @@ export default class DatosComponent implements OnInit {
 					this.detallesCompletosDeEmpleados = this.detallesCompletosDeEmpleados.concat(detallesEmpleados.flat());
 				}
 			}
-
-			console.log(this.detallesCompletosDeEmpleados);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
@@ -144,45 +97,27 @@ export default class DatosComponent implements OnInit {
 			// Combina los datos renombrando las propiedades para evitar sobreescrituras
 			return {
 				id_puesto: puesto.id,
-				nombre_puesto: puesto.nombre,
+				nombre_puesto: puesto.nombre.toLowerCase(),
 				url_puesto: puesto.url,
 				obs_puesto: puesto.obs,
 				rpt_id_puesto: puesto.rpt_id,
-				departamento_puesto: puesto.departamento,
-				situacion_puesto: puesto.situacion,
-				salario_total_puesto: puesto.salario_total,
+				// departamento_puesto: puesto.departamento,
+				// situacion_puesto: puesto.situacion,
+				// salario_total_puesto: puesto.salario_total,
 				id_empleado: empleado.id,
 				nombre_empleado: empleado.nombre,
 				apellido1_empleado: empleado.apellido_1,
 				apellido2_empleado: empleado.apellido_2,
 				imagen_empleado: empleado.imagen,
-				salario_empleado: empleado.salario,
-				ayto_url_empleado: empleado.ayto_url,
-				cv_empleado: empleado.cv,
-				patrimonio_empleado: empleado.patrimonio,
-				linkedin_url_empleado: empleado.linkedin_url,
-				wikipedia_url_empleado: empleado.wikipedia_url,
-				contacto_empleado: empleado.contacto,
+				// salario_empleado: empleado.salario,
+				// ayto_url_empleado: empleado.ayto_url,
+				// cv_empleado: empleado.cv,
+				// patrimonio_empleado: empleado.patrimonio,
+				// linkedin_url_empleado: empleado.linkedin_url,
+				// wikipedia_url_empleado: empleado.wikipedia_url,
+				// contacto_empleado: empleado.contacto,
 				obs_empleado: empleado.obs
 			};
 		});
-
-		console.log(this.datosCombinados);
-
-		console.log(this.id);
-		switch (this.id.toString()) {
-			case '10':
-				this.image_URL = environment.pathImgFichas + 'delegacionParticipacion.jpg';
-				break;
-			case '293':
-				this.image_URL = environment.pathImgFichas + 'servicioParticipacion.jpg';
-				break;
-			case '157':
-				this.image_URL = environment.pathImgFichas + '157.jpg';
-				break;
-
-			default:
-				break;
-		}
 	}
 }

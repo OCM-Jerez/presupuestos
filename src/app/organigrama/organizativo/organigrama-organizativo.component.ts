@@ -101,8 +101,8 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 			.initialExpandLevel(6)
 			.initialZoom(0.6)
 			.neighbourMargin((a, b) => 100)
-			.nodeHeight(() => 300 + 25)
-			.nodeWidth(() => 260 + 2)
+			.nodeHeight(() => 150 + 25)
+			.nodeWidth(() => 200 + 2)
 			.nodeButtonWidth(() => 40)
 			.nodeButtonHeight(() => 40)
 			.nodeButtonX(() => -20)
@@ -156,17 +156,26 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 		d.data.situacion_puesto = d.data.situacion_puesto ? d.data.situacion_puesto : '';
 		!Number.isNaN(d.data.salario_total) ? d.data.salario_total : 'sin dato';
 
+		// 	return `
+		// 	<div style="${nodeContainerStyle}">
+		// 	  <div style="${nodeStyle}">
+		// 		<div style="${idStyle}">${this.formatter.format(d.data.id)}</div>
+		// 		<div style="${nameStyle}">${d.data.nombre_entidad}</div>
+		// 		<div style="${idStyle}">${d.data.id_puesto}</div>
+		// 		<div style="${nameStyle}">${d.data.rpt_id}</div>
+		// 		<div style="${nameStyle}">${d.data.nombre_puesto}</div>
+		// 		<div style="${salaryStyle}">${this.formatSalary(d.data.salario_total)}</div>
+		// 		<div style="${nameStyle}">${d.data.situacion_puesto}</div>
+		// 		</div>
+		// 	</div>
+		//   `;
+
 		return `
 		<div style="${nodeContainerStyle}">
 		  <div style="${nodeStyle}">
 			<div style="${idStyle}">${this.formatter.format(d.data.id)}</div>
 			<div style="${nameStyle}">${d.data.nombre_entidad}</div>
-			<div style="${idStyle}">${d.data.id_puesto}</div>
-			<div style="${nameStyle}">${d.data.rpt_id}</div>
-			<div style="${nameStyle}">${d.data.nombre_puesto}</div>
-			<div style="${salaryStyle}">${this.formatSalary(d.data.salario_total)}</div>
-			<div style="${nameStyle}">${d.data.situacion_puesto}</div>
-			</div>
+						</div>
 		</div>
 	  `;
 	}

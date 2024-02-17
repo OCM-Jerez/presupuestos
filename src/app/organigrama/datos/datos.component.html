@@ -1,97 +1,153 @@
-@if (entidad_organizativa) {
-	<header class="OCM-subtitle-dark">{{ entidad_organizativa }}</header>
-}
+<main class="OCM-dark-teme">
+	@if (entidad_organizativa) {
+		<header class="OCM-subtitle-dark">{{ entidad_organizativa }}</header>
+	}
 
-<table class="tabla">
-	<tr>
-		<th>Dirección</th>
-	</tr>
-	<tr *ngFor="let detalle of eoDirecciones">
-		<td>{{ detalle.calle }}</td>
-		<td>{{ detalle.numero }}</td>
-		<td>{{ detalle.piso }}</td>
-		<td>{{ detalle.cp }}</td>
-	</tr>
-</table>
+	<section class="tablaContainer">
+		<table class="tablaDireccion">
+			<thead>
+				<tr>
+					<th>Calle</th>
+					<th>Número</th>
+					<th>Piso</th>
+					<th>CP</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let detalle of eoDirecciones">
+					<td>{{ detalle.calle }}</td>
+					<td>{{ detalle.numero }}</td>
+					<td>{{ detalle.piso }}</td>
+					<td>{{ detalle.cp }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
 
-<div class="tablas-contenedor">
-	<table class="tabla">
-		<tr>
-			<th>Teléfono</th>
-			<th>Observaciones</th>
-		</tr>
-		<tr *ngFor="let detalle of eoTelefonos">
-			<td>{{ detalle.telefono }}</td>
-			<td>{{ detalle.observaciones }}</td>
-		</tr>
-	</table>
+	<section class="tablaContainer">
+		<table class="tablaTelefono">
+			<thead>
+				<tr>
+					<th>Teléfono</th>
+					<th>Observaciones</th>
+				</tr>
+			</thead>
 
-	<table class="tabla">
-		<tr>
-			<th>eMail</th>
-			<th>Observaciones</th>
-		</tr>
-		<tr *ngFor="let item of eoMails">
-			<td>{{ item.email }}</td>
-			<td>{{ item.observaciones }}</td>
-		</tr>
-	</table>
+			<tbody>
+				<tr *ngFor="let detalle of eoTelefonos">
+					<td>{{ detalle.telefono }}</td>
+					<td>{{ detalle.observaciones }}</td>
+				</tr>
+			</tbody>
+		</table>
 
-	<table class="tabla">
-		<tr>
-			<th>Movil</th>
-			<th>Observaciones</th>
-		</tr>
-		<tr *ngFor="let item of eoMoviles">
-			<td>{{ item.movil }}</td>
-			<td>{{ item.observaciones }}</td>
-		</tr>
-	</table>
-</div>
+		<table class="tablaTelefono">
+			<thead>
+				<tr>
+					<th>Movil</th>
+					<th>Observaciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of eoMoviles">
+					<td>{{ item.movil }}</td>
+					<td>{{ item.observaciones }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
 
-<!-- <table>
-	<tr>
-		<th>Puesto</th>
-		<th>Empleado/a</th>
-	</tr>
-	<tr *ngFor="let item of puestos">
-		<td>{{ item.id_puesto }}</td>
-		<td>{{ item.nombre }}</td>
-	</tr>
-</table>
+	<section class="tablaContainer">
+		<table class="tablaMail">
+			<thead>
+				<tr>
+					<th>eMail</th>
+					<th>Observaciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of eoMails">
+					<td>{{ item.email }}</td>
+					<td>{{ item.observaciones }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
 
-<table>
-	<tr>
-		<th>Nombre</th>
-		<th>1er apellido</th>
-		<th>2º apellido</th>
-	</tr>
-	<tr *ngFor="let item of detallesCompletosDeEmpleados">
-		<td>{{ item.id }}</td>
-		<td>{{ item.nombre }}</td>
-		<td>{{ item.apellido_1 }}</td>
-		<td>{{ item.apellido_2 }}</td>
-	</tr>
-</table> -->
+	<section class="tablaContainer">
+		<table class="tablaMail">
+			<thead>
+				<tr>
+					<th>WEB</th>
+					<th>Observaciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of eoWebs">
+					<td>
+						<a href="{{ item.web }}" target="_blank" rel="noopener noreferrer">{{ item.web }}</a>
+					</td>
+					<td>{{ item.observaciones }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
 
-<table class="tabla">
-	<tr>
-		<th>Puesto</th>
-		<th>Empleado/a</th>
-		<th>Nombre</th>
-		<th>1er apellido</th>
-		<th>2º apellido</th>
-		<th>Observaciones</th>
-	</tr>
-	<tr *ngFor="let item of datosCombinados">
-		<td>{{ item.id_puesto }}</td>
-		<td>{{ item.nombre_puesto }}</td>
-		<td>{{ item.id_empleado }}</td>
-		<td>{{ item.nombre_empleado }}</td>
-		<td>{{ item.apellido1_empleado }}</td>
-		<td>{{ item.apellido2_empleado }}</td>
-		<td>{{ item.obs_empleado }}</td>
-	</tr>
-</table>
-<div [innerHTML]="descripcion"></div>
-<img style="height: 700px; width: 1200px" [src]="image_URL" />
+	<section class="tablaContainer">
+		<table class="tablaPuestoEmpleado">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>RPT</th>
+					<th>Puesto</th>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>1er apellido</th>
+					<th>2º apellido</th>
+					<th>Observaciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of datosCombinados">
+					<td>{{ item.id_puesto }}</td>
+					<td>{{ item.rpt_id_puesto }}</td>
+					<td>{{ item.nombre_puesto }}</td>
+					<td>{{ item.id_empleado }}</td>
+					<td>{{ item.nombre_empleado }}</td>
+					<td>{{ item.apellido1_empleado }}</td>
+					<td>{{ item.apellido2_empleado }}</td>
+					<td>{{ item.obs_empleado }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
+	<section class="tablaContainer">
+		<table class="tablaResumen">
+			<thead>
+				<tr>
+					<th>Dato</th>
+					<th>Número</th>
+					<th>Total sueldos</th>
+					<th>Observaciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Personas que trabajan directamente en la entidad organizativa</td>
+					<td>{{ puestosDirectos }}</td>
+					<td>100.000</td>
+					<td>Dato ficticio. Solo para probar</td>
+				</tr>
+				<tr>
+					<td>Personas que trabajan directamente más las que dependen de la entidad organizativa</td>
+					<td>6</td>
+					<td>250.000</td>
+					<td>Dato ficticio</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+	<!-- <div [innerHTML]="descripcion"></div>
+<img style="height: 700px; width: 1200px" [src]="image_URL" /> -->
+</main>
