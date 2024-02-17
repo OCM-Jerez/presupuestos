@@ -1,5 +1,5 @@
-@use '/src/styles/variables' as vars;
-@use '/src/styles/mixins' as m;
+@use 'variables' as vars;
+@use 'mixins' as m;
 
 // https://javascript.plainenglish.io/5-steps-to-adding-a-sticky-footer-to-your-angular-11-application-6c185c2ed99f
 .footer {
