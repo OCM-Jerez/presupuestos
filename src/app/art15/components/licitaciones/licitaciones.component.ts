@@ -80,6 +80,7 @@ export default class LicitacionesComponent {
 	];
 
 	licitacionesAyto = [
+		this.createCard('Recogida residuos + limpieza viaria', 'recogidaResiduos2019'),
 		this.createCard('Parque Salud Pérez Leytón', 'parqueSaludPerezLeyton2022'),
 		this.createCard('Las Calandrias', 'lasCalandrias2023'),
 		this.createCard('Mantenimiento señalización', 'manSenal2020'),
