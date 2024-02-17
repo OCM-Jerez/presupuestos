@@ -51,16 +51,17 @@ export default class DatosComponent implements OnInit {
 		// }
 
 		try {
-			const eo = await this._supabaseService.fetchDataById('entidades_organizativas', this.id);
-			this.entidad_organizativa = eo[0].nombre;
-			console.log(this.eoTelefonos);
+			console.log('id', this.id);
+			this.eoDirecciones = await this._supabaseService.fetchDataByIdeo('eo_direcciones', this.id);
+			console.log(this.eoDirecciones);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
 
 		try {
-			this.eoDirecciones = await this._supabaseService.fetchData('view_entidades_organizativas_direcciones');
-			console.log(this.eoDirecciones);
+			const eo = await this._supabaseService.fetchDataById('entidades_organizativas', this.id);
+			this.entidad_organizativa = eo[0].nombre;
+			console.log(this.eoTelefonos);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
