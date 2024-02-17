@@ -6,6 +6,8 @@ import * as d3 from 'd3';
 import { OrgChart } from 'd3-org-chart';
 
 import { SupabaseService } from '@services/supabase.service';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 interface INodeInfo {
 	id: number;
@@ -25,7 +27,7 @@ interface INodeInfo {
 @Component({
 	selector: 'app-organigrama-organizativo',
 	standalone: true,
-	imports: [],
+	imports: [FormsModule, ReactiveFormsModule],
 	templateUrl: './organigrama-organizativo.component.html',
 	styleUrls: ['./organigrama-organizativo.component.scss']
 })
@@ -33,6 +35,7 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 	@ViewChild('chartContainer') private chartContainer: ElementRef;
 	private _supabaseService = inject(SupabaseService);
 	private _canViewDatos = environment.canAddRowSupabase;
+	public searchControl = new FormControl();
 
 	formatter = new Intl.NumberFormat('de-DE', {
 		style: 'decimal',
@@ -60,6 +63,15 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 	data: INodeInfo[] = [];
 
 	ngAfterViewInit() {
+		this.searchControl.valueChanges // Escucha los cambios en el valor
+			.pipe(
+				debounceTime(500), // Espera 500ms después de la última pulsación de tecla
+				distinctUntilChanged() // Emite solo si el valor actual es diferente al último
+			)
+			.subscribe((value) => {
+				this.searchId(value); // Llama a tu método de búsqueda con el valor actual
+			});
+
 		this.fetchData();
 	}
 
@@ -237,6 +249,42 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 		data.forEach((d) => {
 			const content = d.rpt_id.toLowerCase();
 			if (content.includes(value)) {
+				isMatch = true; // Actualizar isMatch si se encuentra una coincidencia
+				d._highlighted = true;
+				d._expanded = true;
+			} else {
+				d._highlighted = false;
+				d._expanded = false;
+			}
+		});
+
+		if (!isMatch) {
+			this.chart.clearHighlighting();
+			setTimeout(() => {
+				alert('No se ha encontrado el RPT: ' + value);
+			}, 0);
+		} else {
+			this.chart.data(data).render().fit();
+		}
+
+		// this.chart.data(data).render().fit();
+	}
+
+	searchId(e) {
+		console.log('searchId', e);
+		// console.log('searchId', e.srcElement.value);
+
+		const value = e;
+		let isMatch = false; // Iniciar isMatch como false
+		if (!value) {
+			this.chart.clearHighlighting();
+			return;
+		}
+
+		const data = this.chart.data();
+		data.forEach((d) => {
+			const content = d.id;
+			if (d.id === +value) {
 				isMatch = true; // Actualizar isMatch si se encuentra una coincidencia
 				d._highlighted = true;
 				d._expanded = true;

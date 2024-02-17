@@ -2,7 +2,10 @@
 	<nav class="navbar">
 		<div class="navbar--1row">
 			<input type="search" id="searchName" placeholder="Introduce nombre a buscar" (input)="searchNode($event)" />
-			<input type="search" id="searchRPT" placeholder="Introduce ID RPT" (input)="searchRPT($event)" />
+			<!-- <input type="search" id="searchRPT" placeholder="Introduce ID RPT" (input)="searchRPT($event)" /> -->
+			<!-- <input type="search" id="searchRPT" placeholder="Introduce ID " (input)="searchId($event)" /> -->
+
+			<input type="search" id="searchRPT" placeholder="Introduce ID " [formControl]="searchControl" />
 
 			<button (click)="zoomIn()">+</button>
 			<button (click)="zoomOut()">-</button>
