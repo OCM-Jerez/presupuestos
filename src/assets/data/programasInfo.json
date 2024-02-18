@@ -352,6 +352,12 @@
 		"descripcion": "Abastecimiento domicializado agua",
 		"news": [
 			{
+				"date": "17 febrero 2024",
+				"medio": "Diario de Jerez",
+				"title": "Subida inminente de tasa de agua en Jerez: ¿cuál es la situación en la zona?",
+				"URL": "https://www.diariodejerez.es/jerez/Consorcio-advierte-subida-inminente-tasa-agua-Jerez_0_1876312986.html"
+			},
+			{
 				"date": "23 diciembre 2023",
 				"medio": "Diario de Jerez",
 				"title": "Primer paso para que Jerez cuente con una ordenanza para reducir el consumo de agua contra la sequía",
