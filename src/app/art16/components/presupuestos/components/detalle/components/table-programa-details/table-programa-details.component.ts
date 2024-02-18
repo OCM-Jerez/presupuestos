@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
-import { AsyncPipe, Location, LocationStrategy } from '@angular/common';
+import { AsyncPipe, Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -60,6 +60,10 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	private levelDetails = 0;
 	private _clasificationType: string;
 	private _CodFilter: string;
+	private _fontSize = '14px';
+	private _screenSizeSubscription: Subscription;
+	private _screenWidth: number;
+	private _columnWidth: number;
 	public title: string;
 	public buttonExpandirColapsar = true;
 	public isExpanded = true;
@@ -69,10 +73,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	public hasAppPresupuestaria = false;
 	public isDisabled = true;
 	public buttonVisible = true;
-	private _fontSize = '14px';
-	private _screenSizeSubscription: Subscription;
-	private _screenWidth: number;
-	private _columnWidth: number;
 	public autoGroupColumnDef: ColDef; // Define la propiedad sin asignarle un valor inicial
 	public groupDisplayType: RowGroupingDisplayType = 'singleColumn';
 	private _screenSizeService = inject(ScreenSizeService);
@@ -86,7 +86,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 	async ngOnInit(): Promise<void> {
 		this._screenSizeSubscription = this._screenSizeService.getScreenSize().subscribe((width) => {
 			this._screenWidth = width;
-			// console.log('Width: ', width);
 			this._fontSize = width < 600 ? '10px' : '10px';
 			this.adjustAutoGroupColumnDef(width);
 		});
@@ -337,7 +336,6 @@ export default class TableProgramaDetailsComponent implements OnInit, OnDestroy 
 			groupDisplayType: 'custom',
 			groupSuppressBlankHeader: true,
 			groupIncludeFooter: false,
-			groupIncludeTotalFooter: true,
 			groupHeaderHeight: 15,
 			headerHeight: 24,
 			suppressAggFuncInHeader: true,
