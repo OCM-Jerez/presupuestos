@@ -56,10 +56,9 @@ export function getColumnDefsDetails(avalaibleYearsService: AvalaibleYearsServic
 							headerName: 'Programa',
 							field: 'DesPro',
 							filter: true,
-							width: 700,
+							width: 550,
 							pinned: 'left',
 							showRowGroup: 'DesPro',
-							columnGroupShow: 'closed',
 							cellRenderer: CellRendererOCMtext,
 							valueGetter: (params) => {
 								if (params.data) {
