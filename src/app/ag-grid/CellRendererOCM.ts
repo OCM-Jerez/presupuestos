@@ -77,13 +77,13 @@ export function CellRendererOCM2Levels(params: ICellRendererParams) {
 
 		switch (params.node.level) {
 			case -1: // TOTAL GENERAL
-				return `<p style="color: red; font-size: 22px; font-family:var(--fuente-principal); font-weight: bold; text-align: right; margin: 0px">${valorFormateado}
+				return `<p style="color: red; font-size: 14px; font-family:var(--fuente-principal); font-weight: bold; text-align: right; margin: 0px">${valorFormateado}
 								</p>`;
 			case 0: // Total row
-				return `<p style="color: black; font-size: 18px; font-family:var(--fuente-principal);text-align: right; margin: 0px">${valorFormateado}
+				return `<p style="color: black; font-size: 12px; font-family:var(--fuente-principal);text-align: right; margin: 0px">${valorFormateado}
 								</p>`;
 			default:
-				return `<p style="color: blue; font-size: 14px; font-weight: bold; text-align: right; margin: 0px">SIN FORMATO
+				return `<p style="color: blue; font-size: 10px; font-weight: bold; text-align: right; margin: 0px">SIN FORMATO
 								</p>`;
 		}
 	} else {
