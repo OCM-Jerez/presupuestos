@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 
 import { FooterComponent } from './layouts/footer/footer.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
-import 'ag-grid-enterprise';
+// import 'ag-grid-enterprise';
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',

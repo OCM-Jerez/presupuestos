@@ -14,7 +14,6 @@ import { IMenuItem } from '@interfaces/menu.interface';
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
-	styleUrls: ['./home.component.scss'],
 	standalone: true,
 	imports: [CardMenuComponent]
 })
@@ -26,10 +25,6 @@ export default class HomeComponent implements OnInit {
 	public menuOptions: IMenuItem[] = [];
 
 	ngOnInit() {
-		this._pathStoreService.clearHistory();
-		this._tagStoreService.clearHistory();
-		this._titleStoreService.clearHistory();
-
 		import(`@assets/menuOptions/home.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => {
 				const modifiedItem = {
@@ -39,6 +34,10 @@ export default class HomeComponent implements OnInit {
 				return this.createCardMenu(modifiedItem);
 			});
 		});
+
+		this._pathStoreService.clearHistory();
+		this._tagStoreService.clearHistory();
+		this._titleStoreService.clearHistory();
 	}
 
 	createCardMenu(item: IMenuItem) {

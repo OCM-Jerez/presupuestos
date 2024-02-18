@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 
 import { Subject, Subscription, takeUntil, tap } from 'rxjs';
 
+import 'ag-grid-enterprise';
 import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import {

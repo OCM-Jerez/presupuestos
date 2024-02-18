@@ -1,17 +1,5 @@
-<!-- <section class="legal">
-	<h1 class="OCM-subtitle-dark">Información requerida por la Ley 1/2014 de Transparencia Pública de Andalucía</h1>
-
-	<a
-		href="https://www.boe.es/buscar/pdf/2014/BOE-A-2014-7534-consolidado.pdf"
-		target="_blank"
-		rel="nofollow"
-		aria-label="Sitio WEB de OCM Jerez"
-		>enlace</a
-	>
-</section> -->
-
-<section class="OCM-gridMenu">
+<main class="OCM-gridMenu">
 	@for (menu of menuOptions; track menu) {
 		<app-card-menu [rutaImagen]="menu.rutaImagen" [titulo]="menu.title" (click)="menu.funcion()" />
 	}
-</section>
+</main>
