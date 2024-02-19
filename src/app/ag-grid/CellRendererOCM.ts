@@ -13,9 +13,9 @@ export function CellRendererOCM(params: ICellRendererParams) {
 				case 1: // Total segundo nivel.
 					return `<p style="text-align: right; color: red; font-size: 12px; font-family:var(--fuente-principal);margin: 0px;font-weight: bold">${valorFormateado}</p>`;
 				case 0: // Total primer nivel.
-					return `<p style="text-align: right; color: red; font-size: 16px; font-family:var(--fuente-principal);margin: 0px;font-weight: bold">${valorFormateado}</p>`;
+					return `<p style="text-align: right; color: red; font-size: 14px; font-family:var(--fuente-principal);margin: 0px;font-weight: bold">${valorFormateado}</p>`;
 				case -1: // Total general.
-					return `<p style="text-align: right; color: red; font-size: 16px; font-family:var(--fuente-principal);font-family:var(--fuente-principal);margin: 0px;font-weight: bold">${valorFormateado}</p>`;
+					return `<p style="text-align: right; color: red; font-size: 14px; font-family:var(--fuente-principal);font-family:var(--fuente-principal);margin: 0px;font-weight: bold">${valorFormateado}</p>`;
 				default:
 					return 'SIN FORMATO';
 			}
