@@ -48,5 +48,10 @@
 		"title": "Consejo Social",
 		"path": "art10/infoInstitucional/mesas/consejoSocial",
 		"tag": "consejoSocial"
+	},
+	{
+		"title": "Consejo Local de las Personas Mayores",
+		"path": "art10/infoInstitucional/mesas/consejoPersonasMayores",
+		"tag": "consejoPersonasMayores"
 	}
 ]
