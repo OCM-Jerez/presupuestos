@@ -112,7 +112,7 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 			.onNodeClick((d) => {
 				// alert(`/#/datos/${d.data.id}`);
 				if (this._canViewDatos) {
-					window.location.href = `/#/datos/${d.data.id}`;
+					window.location.href = `/#/ficha-entidad-organizativa/${d.data.id}`;
 				}
 			})
 			.nodeContent((d) => {

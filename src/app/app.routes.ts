@@ -51,8 +51,8 @@ export default [
 		loadComponent: () => import('./organigrama/ficha-empleado/ficha-empleado.component')
 	},
 	{
-		path: 'datos/:id',
-		loadComponent: () => import('./organigrama/datos/datos.component')
+		path: 'ficha-entidad-organizativa/:id',
+		loadComponent: () => import('./organigrama/ficha-entidad-organizativa/ficha-entidad-organizativa.component')
 	},
 	// Art 15 ============================================================================================================================================
 	{

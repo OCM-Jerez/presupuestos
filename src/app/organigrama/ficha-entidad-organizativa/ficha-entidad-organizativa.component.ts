@@ -8,10 +8,10 @@ import { SupabaseService } from '@services/supabase.service';
 	selector: 'app-datos',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './datos.component.html',
-	styleUrl: './datos.component.scss'
+	templateUrl: './ficha-entidad-organizativa.component.html',
+	styleUrl: './ficha-entidad-organizativa.component.scss'
 })
-export default class DatosComponent implements OnInit {
+export default class FichaEntidadOrganizativaComponent implements OnInit {
 	@Input() id?: number;
 	private _supabaseService = inject(SupabaseService);
 	private _router = inject(Router);
