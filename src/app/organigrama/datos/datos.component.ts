@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { SupabaseService } from '@services/supabase.service';
 
@@ -13,6 +14,7 @@ import { SupabaseService } from '@services/supabase.service';
 export default class DatosComponent implements OnInit {
 	@Input() id?: number;
 	private _supabaseService = inject(SupabaseService);
+	private _router = inject(Router);
 
 	//TODO: - Add type
 	public entidad_organizativa: string;
@@ -219,5 +221,9 @@ export default class DatosComponent implements OnInit {
 		} catch (error) {
 			console.error('Error al recuperar datos:', error);
 		}
+	}
+
+	fichaEmpleado(id: number) {
+		this._router.navigateByUrl('fichaEmpleado/' + id);
 	}
 }

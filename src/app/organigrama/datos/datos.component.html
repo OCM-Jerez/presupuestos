@@ -105,6 +105,7 @@
 					<th>1er apellido</th>
 					<th>2º apellido</th>
 					<th>Observaciones</th>
+					<th>Detalle</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -117,6 +118,7 @@
 					<td>{{ item.apellido1_empleado }}</td>
 					<td>{{ item.apellido2_empleado }}</td>
 					<td>{{ item.obs_empleado }}</td>
+					<td><button class="OCM-button" (click)="fichaEmpleado(item.id_empleado)">Detalle</button></td>
 				</tr>
 			</tbody>
 		</table>

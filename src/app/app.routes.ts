@@ -39,6 +39,10 @@ export default [
 		loadComponent: () => import('./organigrama/politico/organigrama-politico.component')
 	},
 	{
+		path: 'fichaPolitico/:id',
+		loadComponent: () => import('./organigrama/ficha-politico/ficha-politico.component')
+	},
+	{
 		path: 'organigramaOrganizativo',
 		loadComponent: () => import('./organigrama/organizativo/organigrama-organizativo.component')
 	},

@@ -76,7 +76,7 @@ export default class OrganigramaPoliticoComponent implements AfterViewInit {
 				// console.log(d);
 				// window.location.href = `/#/employeeRecod/${d.data.id}`;
 				if (d.data.id === 1) {
-					window.location.href = `/#/fichaEmpleado/${d.data.id}`;
+					window.location.href = `/#/fichaPolitico/${d.data.id}`;
 				} else {
 					alert('No hay datos por el momento');
 				}

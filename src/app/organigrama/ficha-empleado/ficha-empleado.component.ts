@@ -1,44 +1,55 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { SupabaseService } from '../../services/supabase.service';
 
 @Component({
 	selector: 'app-ficha-empleado',
 	standalone: true,
-	imports: [],
+	imports: [CommonModule],
 	templateUrl: './ficha-empleado.component.html',
 	styleUrls: ['./ficha-empleado.component.scss']
 })
 export default class FichaEmpleadoComponent implements OnInit {
 	@Input() id?: number;
 	//TODO: - Add types
-	public positionData: any[] = null;
-	public licitacion: any[] = null;
-	public employeeName: string = null;
-
 	private _supabaseService = inject(SupabaseService);
+	public dataBasic: any[] = null;
+	public dataTelefonos: any[] = null;
+	public dataMoviles: any[] = null;
+	public dataEmails: any[] = null;
 
 	ngOnInit(): void {
-		this.fetchDataFromView();
+		this.fetchData();
 	}
 
-	async fetchDataFromView() {
+	async fetchData() {
 		try {
-			this.positionData = await this._supabaseService.fetchDataFromView('employee_details', this.id);
-			// TODO:  Nombre completo en el server
-			this.employeeName = `${this.positionData[0].name} ${this.positionData[0].firstname} ${this.positionData[0].lastname}`;
+			this.dataBasic = await this._supabaseService.fetchDataById('empleados', this.id);
+			console.log('dataBasic:', this.dataBasic);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
 
-		// try {
-		// 	this.licitacion = await this._supabaseService.fetchDataFromView(
-		// 		'licitacion_news',
-		// 		'6482b989-9afa-4551-85b4-52f157d8624d'
-		// 	);
-		// 	console.log(this.licitacion);
-		// } catch (error) {
-		// 	console.error('Error fetching data:', error);
-		// }
+		try {
+			this.dataTelefonos = await this._supabaseService.fetchDataByIdEmpleado('empleado_telefono', this.id);
+			console.log('dataTelefonos:', this.dataTelefonos);
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
+
+		try {
+			this.dataMoviles = await this._supabaseService.fetchDataByIdEmpleado('empleado_movil', this.id);
+			console.log('dataMoviles:', this.dataMoviles);
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
+
+		try {
+			this.dataEmails = await this._supabaseService.fetchDataByIdEmpleado('empleado_email', this.id);
+			console.log('dataEmails:', this.dataEmails);
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
 	}
 }
