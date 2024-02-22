@@ -72,7 +72,7 @@ export default class LevelLastComponent implements OnInit {
 	public title = this._titleStoreService.getTitle();
 	public gauge = environment.pathImgSupabase + 'gauge.jpg';
 	public deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
-	public deudaVivaImgURL = `${environment.pathImgSupabase}/2023.06.29.jpg`;
+	public deudaVivaImgURL = `${environment.pathImgSupabase}/deudaVivaActual.jpg`;
 	public pmpURL = environment.pathImgSupabase + '2023-12.jpg';
 	public path = this._pathStoreService.getPath();
 
