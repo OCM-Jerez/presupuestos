@@ -113,11 +113,11 @@ export class SupabaseService {
 		return data;
 	}
 
-	async insertRow(tableName: string, data: any): Promise<any> {
-		const { data: insertedData, error } = await this._supabase.from(tableName).insert([data]);
+	async insertRow(tableName: string, dataForm: any): Promise<any> {
+		const { data, error } = await this._supabase.from(tableName).insert([dataForm]).select();
 
 		if (error) throw error;
-		return insertedData;
+		return data;
 	}
 
 	async updateRow(tableName: string, newValues, tag: string) {

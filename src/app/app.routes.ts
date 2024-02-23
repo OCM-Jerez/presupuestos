@@ -170,5 +170,9 @@ export default [
 		path: 'addStep',
 		loadComponent: () => import('./addNewRecodsToSupabase/step-form/step-form.component')
 	},
+	{
+		path: 'addEmpleado',
+		loadComponent: () => import('./addNewRecodsToSupabase/empleado/empleado.component')
+	},
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }
 ] as Routes;

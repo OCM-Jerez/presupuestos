@@ -1,7 +1,13 @@
 <main class="OCM-dark-teme">
 	@if (entidad_organizativa) {
-		<header class="OCM-subtitle-dark">{{ entidad_organizativa }}</header>
+		<header class="OCM-subtitle-dark">{{ id }} {{ entidad_organizativa }}</header>
 	}
+
+	<div class="OCM-flex OCM-flex--right">
+		@if (canAddRowSupabase) {
+			<button class="OCM-button" (click)="addEmpleado(id)">+ empleado</button>
+		}
+	</div>
 
 	<section class="tablaContainer">
 		<table class="tablaDireccion">

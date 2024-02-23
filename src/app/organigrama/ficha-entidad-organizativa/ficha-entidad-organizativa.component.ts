@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { environment } from '@environments/environment';
+
 import { SupabaseService } from '@services/supabase.service';
 
 @Component({
@@ -30,6 +32,7 @@ export default class FichaEntidadOrganizativaComponent implements OnInit {
 	public eoEmpleados: any[] = [];
 	public eoPuestos: any[] = [];
 	public puestosDirectos: number;
+	public canAddRowSupabase = environment.canAddRowSupabase;
 
 	ngOnInit(): void {
 		this.fetchData();
@@ -221,6 +224,10 @@ export default class FichaEntidadOrganizativaComponent implements OnInit {
 		} catch (error) {
 			console.error('Error al recuperar datos:', error);
 		}
+	}
+
+	addEmpleado(id: number): void {
+		this._router.navigateByUrl('addEmpleado');
 	}
 
 	fichaEmpleado(id: number) {

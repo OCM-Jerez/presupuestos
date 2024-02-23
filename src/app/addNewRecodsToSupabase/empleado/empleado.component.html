@@ -1,0 +1,36 @@
+<div class="OCM-dark-teme OCM-flex OCM-flex--center">
+	<form [formGroup]="userForm" (ngSubmit)="guardar()">
+		<fieldset>
+			<header class="OCM-subtitle-dark">Añadir empleado en {{ tag }}</header>
+
+			<label for="npmbre" class="OCM-label-dark">Nombre</label>
+			<input type="text" class="form-media" id="nombre" formControlName="nombre" />
+			@if (userForm?.get('nombre')?.invalid && userForm?.get('nombre')?.touched) {
+				<div class="text-danger">Nombre es requerido.</div>
+			}
+
+			<label for="apellido_1" class="OCM-label-dark">Primer apellido</label>
+			<input type="text" class="form-media" id="apellido_1" formControlName="apellido_1" />
+			@if (userForm?.get('apellido_1')?.invalid && userForm?.get('apellido_1')?.touched) {
+				<div class="text-danger">Primer apellido es requerido.</div>
+			}
+
+			<label for="apellido_2" class="OCM-label-dark">Segundo apellido</label>
+			<input type="text" class="form-long" id="apellido_2" formControlName="apellido_2" />
+			<!-- @if (userForm?.get('apellido_2 ')?.invalid && userForm?.get('apellido_2 ')?.touched) {
+				<div class="text-danger">Titulo es requerido.</div>
+			} -->
+
+			<label for="obs" class="OCM-label-dark">Observaciones</label>
+			<input type="text" class="form-long" id="obs" formControlName="obs" />
+			<!-- @if (userForm?.get('obs')?.invalid && userForm?.get('obs')?.touched) {
+				<div class="text-danger">URL es requerido.</div>
+			} -->
+
+			<label for="id_puesto" class="OCM-label-dark">id_puesto</label>
+			<input type="number" class="form-long" id="id_puesto" formControlName="id_puesto" />
+
+			<button type="submit" class="OCM-button-container OCM-button">Grabar</button>
+		</fieldset>
+	</form>
+</div>
