@@ -1,4 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { environment } from '@environments/environment';
 
@@ -18,6 +19,7 @@ import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IStep } from '@interfaces/step.interface';
+import { first } from 'rxjs';
 
 interface IOption {
 	data: string;
@@ -56,6 +58,9 @@ export default class LevelLastComponent implements OnInit {
 	private _tagStoreService = inject(TagStoreService);
 	private _titleStoreService = inject(TitleStoreService);
 	private _pathStoreService = inject(PathStoreService);
+	private _activatedRoute = inject(ActivatedRoute);
+	private _router = inject(Router);
+
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
@@ -77,16 +82,20 @@ export default class LevelLastComponent implements OnInit {
 	public path = this._pathStoreService.getPath();
 
 	ngOnInit() {
-		const tag = this._tagStoreService.getTag();
-		if (this.path === 'licitaciones') {
-			this.isLicitacion = true;
-			this.imgURL = environment.pathImgSupabase + tag + '.jpg';
-		}
-
-		this.fetchDataFromSupabase(tag, this.path);
+		this._activatedRoute.params.pipe(first()).subscribe(({ tag }) => {
+			const urlSegments = this._router.url.split('/');
+			this.path = urlSegments[1];
+			this.isLicitacion = this.path === 'licitaciones';
+			if (this.isLicitacion) {
+				this.imgURL = `${environment.pathImgSupabase}${tag}.jpg`;
+			}
+			this.fetchDataFromSupabase(tag, this.path);
+		});
 	}
-
 	async fetchDataFromSupabase(tag: string, path: string) {
+		// console.log('tag', tag);
+		// console.log('path', path);
+
 		if (path === 'licitaciones') {
 			try {
 				this.steps = await this._supabaseService.fetchDataByTagOrder('steps', tag, true);

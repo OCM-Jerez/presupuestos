@@ -60,6 +60,10 @@ export default [
 		loadComponent: () => import('./art15/components/licitaciones/licitaciones.component')
 	},
 	{
+		path: 'licitaciones/:tag',
+		loadComponent: () => import('./level-last/level-last.component')
+	},
+	{
 		path: 'subvenciones',
 		loadComponent: () => import('./art15/components/subvenciones/subvenciones.component')
 	},
