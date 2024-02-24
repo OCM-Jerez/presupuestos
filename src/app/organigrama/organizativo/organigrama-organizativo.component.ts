@@ -98,7 +98,7 @@ export default class OrganigramaOrganizativoComponent implements AfterViewInit {
 			.compactMarginPair(() => 30)
 			.container(this.chartContainer.nativeElement)
 			.data(this.data)
-			.initialExpandLevel(6)
+			.initialExpandLevel(3)
 			.initialZoom(0.6)
 			.neighbourMargin((a, b) => 100)
 			.nodeHeight(() => 150 + 25)

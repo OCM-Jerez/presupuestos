@@ -226,7 +226,7 @@ export default class FichaEntidadOrganizativaComponent implements OnInit {
 		}
 	}
 
-	addEmpleado(id: number): void {
+	addEmpleado(): void {
 		this._router.navigateByUrl('addEmpleado');
 	}
 

@@ -1,17 +1,12 @@
 <section style="width: 100%; height: 850px">
 	<nav class="navbar">
 		<div class="navbar--1row">
-			<input type="search" id="searchName" placeholder="Introduce nombre a buscar" (input)="searchNode($event)" />
-			<!-- <input type="search" id="searchRPT" placeholder="Introduce ID RPT" (input)="searchRPT($event)" /> -->
-			<!-- <input type="search" id="searchRPT" placeholder="Introduce ID " (input)="searchId($event)" /> -->
-
-			<input type="search" id="searchRPT" placeholder="Introduce ID " [formControl]="searchControl" />
-
+			<input type="search" id="searchName" placeholder="Nombre entidad organizativa" (input)="searchNode($event)" />
+			<input type="search" id="searchRPT" placeholder="ID entidad organizativa" [formControl]="searchControl" />
 			<button (click)="zoomIn()">+</button>
 			<button (click)="zoomOut()">-</button>
 		</div>
 	</nav>
 
 	<div #chartContainer style="width: 2200px; max-height: 800px"></div>
-	<!-- <div #chartContainer style="width: 4200px; max-height: 800px"></div> -->
 </section>
