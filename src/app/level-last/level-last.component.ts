@@ -80,22 +80,26 @@ export default class LevelLastComponent implements OnInit {
 	public deudaVivaImgURL = `${environment.pathImgSupabase}/deudaVivaActual.jpg`;
 	public pmpURL = environment.pathImgSupabase + '2023-12.jpg';
 	public path = this._pathStoreService.getPath();
+	public tag = this._tagStoreService.getTag();
 
 	ngOnInit() {
 		this._activatedRoute.params.pipe(first()).subscribe(({ tag }) => {
 			const urlSegments = this._router.url.split('/');
-			this.path = urlSegments[1];
+			// Es ruta con parametro? Por ejemplo: path: 'licitaciones/:tag',
+			if (urlSegments.length > 2) {
+				this.path = urlSegments[1];
+				this.tag = tag;
+			}
+
 			this.isLicitacion = this.path === 'licitaciones';
 			if (this.isLicitacion) {
 				this.imgURL = `${environment.pathImgSupabase}${tag}.jpg`;
 			}
-			this.fetchDataFromSupabase(tag, this.path);
 		});
+
+		this.fetchDataFromSupabase(this.tag, this.path);
 	}
 	async fetchDataFromSupabase(tag: string, path: string) {
-		// console.log('tag', tag);
-		// console.log('path', path);
-
 		if (path === 'licitaciones') {
 			try {
 				this.steps = await this._supabaseService.fetchDataByTagOrder('steps', tag, true);
