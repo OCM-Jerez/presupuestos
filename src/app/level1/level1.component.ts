@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { environment } from '@environments/environment';
@@ -17,6 +17,7 @@ import { IMenuItem } from '@interfaces/menu.interface';
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
+import { __importDefault } from 'tslib';
 
 @Component({
 	selector: 'app-level1',
@@ -25,6 +26,7 @@ import { INew } from '@interfaces/new.interface';
 	templateUrl: './level1.component.html'
 })
 export default class Level1Component implements OnInit {
+	@Input() tag: string;
 	private _supabaseService = inject(SupabaseService);
 	private _pathStoreService = inject(PathStoreService);
 	private _tagStoreService = inject(TagStoreService);
@@ -37,8 +39,9 @@ export default class Level1Component implements OnInit {
 	public title = this._titleStoreService.getTitle();
 
 	ngOnInit() {
-		const tag = this._tagStoreService.getTag();
-		import(`../../assets/menuOptions/level1/${tag}.json`).then((data) => {
+		// const tag = this._tagStoreService.getTag();
+
+		import(`../../assets/menuOptions/level1/${this.tag}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => {
 				const modifiedItem = {
 					...item,
@@ -46,7 +49,7 @@ export default class Level1Component implements OnInit {
 				};
 				return this.createCardMenu(modifiedItem);
 			});
-			this.fetchDataFromSupabase(tag);
+			this.fetchDataFromSupabase(this.tag);
 		});
 	}
 
@@ -63,7 +66,7 @@ export default class Level1Component implements OnInit {
 	}
 
 	createCardMenu(item: IMenuItem) {
-		let URL = item.isLastLevel ? 'levelLast' : 'level2';
+		let URL = item.isLastLevel ? 'levelLast/' + item.tag : 'level2/' + item.tag;
 
 		if (item.path === 'licitaciones') {
 			URL = 'licitaciones';

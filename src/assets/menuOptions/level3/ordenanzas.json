@@ -2,6 +2,7 @@
 	{
 		"title": "Ordenanza del ruido",
 		"path": "ordenanzas",
+		"isLastLevel": true,
 		"tag": "ordenanzaRuido"
 	}
 ]

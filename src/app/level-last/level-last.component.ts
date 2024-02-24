@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { environment } from '@environments/environment';
@@ -54,6 +54,7 @@ interface IBarrio {
 	templateUrl: './level-last.component.html'
 })
 export default class LevelLastComponent implements OnInit {
+	@Input() tag: string;
 	private _supabaseService = inject(SupabaseService);
 	private _tagStoreService = inject(TagStoreService);
 	private _titleStoreService = inject(TitleStoreService);
@@ -80,22 +81,17 @@ export default class LevelLastComponent implements OnInit {
 	public deudaVivaImgURL = `${environment.pathImgSupabase}/deudaVivaActual.jpg`;
 	public pmpURL = environment.pathImgSupabase + '2023-12.jpg';
 	public path = this._pathStoreService.getPath();
-	public tag = this._tagStoreService.getTag();
+	// public tag = this._tagStoreService.getTag();
 
 	ngOnInit1() {
-		this._activatedRoute.params.pipe(first()).subscribe(({ tag }) => {
-			const urlSegments = this._router.url.split('/');
-			// Es ruta con parametro? Por ejemplo: path: 'licitaciones/:tag',
-			if (urlSegments.length > 2) {
-				this.path = urlSegments[1];
-				this.tag = tag;
-			}
+		// const urlSegments = this._router.url.split('/');
+		this.path = this._router.url.split('/')[1];
+		this.tag = this._router.url.split('/')[2];
 
-			this.isLicitacion = this.path === 'licitaciones';
-			if (this.isLicitacion) {
-				this.imgURL = `${environment.pathImgSupabase}${tag}.jpg`;
-			}
-		});
+		this.isLicitacion = this.path === 'licitaciones';
+		if (this.isLicitacion) {
+			this.imgURL = `${environment.pathImgSupabase}${this.tag}.jpg`;
+		}
 
 		this.fetchDataFromSupabase(this.tag, this.path);
 	}

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { environment } from '@environments/environment';
@@ -24,6 +24,7 @@ import { IDoc } from '@interfaces/doc.interface';
 	templateUrl: './level2.component.html'
 })
 export default class Level2Component implements OnInit {
+	@Input() tag: string;
 	private _supabaseService = inject(SupabaseService);
 	private _router = inject(Router);
 	private _tagStoreService = inject(TagStoreService);
@@ -36,8 +37,8 @@ export default class Level2Component implements OnInit {
 	public title = this._titleStoreService.getTitle();
 
 	ngOnInit() {
-		const tag = this._tagStoreService.getTag();
-		import(`../../assets/menuOptions/level2/${tag}.json`).then((data) => {
+		// const tag = this._tagStoreService.getTag();
+		import(`../../assets/menuOptions/level2/${this.tag}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => {
 				const modifiedItem = {
 					...item,
@@ -45,7 +46,7 @@ export default class Level2Component implements OnInit {
 				};
 				return this.createCardMenu(modifiedItem);
 			});
-			this.fetchDataFromSupabase(tag);
+			this.fetchDataFromSupabase(this.tag);
 		});
 	}
 
@@ -62,7 +63,7 @@ export default class Level2Component implements OnInit {
 	}
 
 	createCardMenu(item: IMenuItem) {
-		let URL = item.isLastLevel ? 'levelLast' : 'level3';
+		let URL = item.isLastLevel ? 'levelLast/' + item.tag : 'level3/' + item.tag;
 
 		switch (item.path) {
 			case 'retribuciones2022':

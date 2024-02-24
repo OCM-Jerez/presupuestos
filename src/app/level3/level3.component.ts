@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { environment } from '@environments/environment';
@@ -36,6 +36,7 @@ import { IMenuItem } from '@interfaces/menu.interface';
 	templateUrl: './level3.component.html'
 })
 export default class Level3Component implements OnInit {
+	@Input() tag: string;
 	private _supabaseService = inject(SupabaseService);
 	private _tagStoreService = inject(TagStoreService);
 	private _titleStoreService = inject(TitleStoreService);
@@ -49,11 +50,11 @@ export default class Level3Component implements OnInit {
 	public title = this._titleStoreService.getTitle();
 
 	ngOnInit() {
-		const tag = this._tagStoreService.getTag();
+		// const tag = this._tagStoreService.getTag();
 		const path = this._pathStoreService.getPath();
 		path === 'comisiones' ? (this.isComisiones = true) : (this.isComisiones = false);
 
-		import(`../../assets/menuOptions/level3/${tag}.json`).then((data) => {
+		import(`../../assets/menuOptions/level3/${this.tag}.json`).then((data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => {
 				const modifiedItem = {
 					...item,
@@ -62,7 +63,7 @@ export default class Level3Component implements OnInit {
 				return this.createCardMenu(modifiedItem);
 				// }
 			});
-			this.fetchDataFromSupabase(tag);
+			this.fetchDataFromSupabase(this.tag);
 		});
 	}
 
@@ -79,13 +80,14 @@ export default class Level3Component implements OnInit {
 	}
 
 	createCardMenu(item: IMenuItem) {
+		const URL = item.isLastLevel ? 'levelLast/' + item.tag : 'level2/' + item.tag;
 		return {
 			...item,
 			funcion: () => {
 				this._pathStoreService.setPath(item.path);
 				this._tagStoreService.setTag(item.tag);
 				this._titleStoreService.setTitle(item.title);
-				this._router.navigateByUrl('levelLast');
+				this._router.navigateByUrl(URL);
 			}
 		};
 	}
