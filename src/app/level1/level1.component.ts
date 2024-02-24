@@ -36,6 +36,8 @@ export default class Level1Component implements OnInit {
 	public news: INew[] = [];
 	public title = this._titleStoreService.getTitle();
 
+	// Add missing import statements here
+
 	ngOnInit() {
 		const tag = this._tagStoreService.getTag();
 		import(`../../assets/menuOptions/level1/${tag}.json`).then((data) => {
@@ -51,25 +53,15 @@ export default class Level1Component implements OnInit {
 	}
 
 	async fetchDataFromSupabase(tag: string) {
-		// console.log('tag', tag);
+		const dataTypes = ['news', 'comments', 'documents'];
 
-		try {
-			this.news = await this._supabaseService.fetchDataByTagOrder('news', tag, false);
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
-
-		try {
-			this.coms = await this._supabaseService.fetchDataByTagOrder('comments', tag, false);
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
-
-		try {
-			this.docs = await this._supabaseService.fetchDataByTagOrder('documents', tag, false);
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
+		[this.news, this.coms, this.docs] = await Promise.all(
+			dataTypes.map((type) =>
+				this._supabaseService.fetchDataByTagOrder(type, tag, false).catch((error) => {
+					console.error(`Error fetching ${type}:`, error);
+				})
+			)
+		);
 	}
 
 	createCardMenu(item: IMenuItem) {
