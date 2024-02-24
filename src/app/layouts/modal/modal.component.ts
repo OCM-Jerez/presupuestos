@@ -22,8 +22,10 @@ export class ModalComponent implements AfterViewInit {
 	modalLeaveTiming!: number;
 	overlayLeaveTiming!: number;
 
-	constructor(private modalService: ModalService, private element: ElementRef) {}
-
+	constructor(
+		private modalService: ModalService,
+		private element: ElementRef
+	) {}
 	// @HostListener('document:keydown.escape')
 	// onEscape() {
 	// 	this.modalService.close();
