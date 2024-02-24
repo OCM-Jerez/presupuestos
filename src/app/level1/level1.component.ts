@@ -36,8 +36,6 @@ export default class Level1Component implements OnInit {
 	public news: INew[] = [];
 	public title = this._titleStoreService.getTitle();
 
-	// Add missing import statements here
-
 	ngOnInit() {
 		const tag = this._tagStoreService.getTag();
 		import(`../../assets/menuOptions/level1/${tag}.json`).then((data) => {
