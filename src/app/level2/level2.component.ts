@@ -63,7 +63,6 @@ export default class Level2Component implements OnInit {
 
 	createCardMenu(item: IMenuItem) {
 		let URL = item.isLastLevel ? 'levelLast' : 'level3';
-		console.log('item', item);
 
 		switch (item.path) {
 			case 'retribuciones2022':
