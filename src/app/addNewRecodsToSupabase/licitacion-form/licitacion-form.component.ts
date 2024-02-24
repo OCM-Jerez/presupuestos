@@ -1,6 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { SupabaseService } from '@services/supabase.service';
 
 @Component({
@@ -12,14 +11,12 @@ import { SupabaseService } from '@services/supabase.service';
 })
 export default class LicitacionFormComponent implements OnInit {
 	userForm: FormGroup;
-
-	constructor(private formBuilder: FormBuilder) {}
-	private _route = inject(ActivatedRoute);
+	private _formBuilder = inject(FormBuilder);
 	private _supabaseService = inject(SupabaseService);
 	public tag: string;
 
 	ngOnInit(): void {
-		this.userForm = this.formBuilder.group({
+		this.userForm = this._formBuilder.group({
 			tag: ['', Validators.required],
 			expediente: ['', Validators.required],
 			descripcion: ['', Validators.required],
@@ -52,12 +49,9 @@ export default class LicitacionFormComponent implements OnInit {
 	}
 
 	async submitForm(): Promise<void> {
-		// console.log('submitForm');
-
 		if (this.userForm?.valid) {
 			try {
 				await this._supabaseService.insertRow('licitaciones', this.userForm.value);
-				// console.log('Datos insertados:', this.userForm.value);
 			} catch (error) {
 				console.error('Error al insertar datos:', error);
 			}
