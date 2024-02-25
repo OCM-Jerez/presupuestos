@@ -2,26 +2,23 @@ import { AfterViewInit, Component, OnInit, ViewChild, inject } from '@angular/co
 import { Location } from '@angular/common';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
+import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 
 import * as Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 HighchartsMore(Highcharts);
-
-import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 
 import { DataStoreService } from '@services/dataStore.service';
 
 import { environment } from '@environments/environment';
 
 import { IDataTable } from '@interfaces/dataTable.interface';
-
-import { accumulate } from '@utils/util';
 import { IDataIngreso } from '@interfaces/dataIngreso.interface';
 import { IDataGasto } from '@interfaces/dataGasto.interface';
+import { accumulate } from '@utils/util';
 @Component({
 	selector: 'app-graph-detalle',
 	templateUrl: './graph-detalle.component.html',
-	styleUrls: ['./graph-detalle.component.scss'],
 	standalone: true,
 	imports: [AgGridModule]
 })
