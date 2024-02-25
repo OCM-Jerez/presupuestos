@@ -5,27 +5,27 @@
 		"news": [
 			{
 				"date": "",
-				"medio": "",
+				"media": "",
 				"title": "",
-				"URL": ""
+				"url_new": ""
 			},
 			{
-				"date": "27 septiembre 2023",
-				"medio": "WEB Ayuntamiento de Jerez",
+				"date": "2023/09/27",
+				"media": "WEB Ayuntamiento de Jerez",
 				"title": "La alcaldesa descarta la subida de impuestos para afrontar la deuda municipal",
-				"URL": "https://www.jerez.es/webs-municipales/sala-de-prensa/nota-de-prensa/la-alcaldesa-descarta-la-subida-de-impuestos-para-afrontar-la-deuda-municipal"
+				"url_new": "https://www.jerez.es/webs-municipales/sala-de-prensa/nota-de-prensa/la-alcaldesa-descarta-la-subida-de-impuestos-para-afrontar-la-deuda-municipal"
 			},
 			{
-				"date": "26 septiembre 2023",
-				"medio": "La Voz del Sur",
+				"date": "2023/09/26",
+				"media": "La Voz del Sur",
 				"title": "El Ayuntamiento de Jerez busca la fórmula para pagar 30 millones a Hacienda antes del 31 de diciembre",
-				"URL": "https://www.lavozdelsur.es/ediciones/jerez/ayuntamiento-jerez-busca-pagar-30-millones-hacienda-antes-31-diciembre-2023_302664_102.html"
+				"url_new": "https://www.lavozdelsur.es/ediciones/jerez/ayuntamiento-jerez-busca-pagar-30-millones-hacienda-antes-31-diciembre-2023_302664_102.html"
 			},
 			{
-				"date": "27 septiembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/09/27",
+				"media": "Diario de Jerez",
 				"title": "El gobierno de Jerez pide un -margen de confianza- a Hacienda para refinanciar la deuda municipal",
-				"URL": "https://www.diariodejerez.es/jerez/gobierno-jerez-margen-confianza-refinanciar-deuda_0_1833717187.html"
+				"url_new": "https://www.diariodejerez.es/jerez/gobierno-jerez-margen-confianza-refinanciar-deuda_0_1833717187.html"
 			}
 		]
 	},
@@ -35,15 +35,15 @@
 		"news": [
 			{
 				"date": "",
-				"medio": "",
+				"media": "",
 				"title": "",
-				"URL": ""
+				"url_new": ""
 			},
 			{
-				"date": "27 diciembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/12/27",
+				"media": "Diario de Jerez",
 				"title": "La Agrupación Local de Voluntarios de Protección Civil de Jerez recibe nuevos medios técnicos y materiales que reforzarán el servicio",
-				"URL": "https://www.diariodejerez.es/jerez/Agrupacion-Local-Voluntarios-Proteccion-Civil-Jerez-nuevos-medios_0_1861014181.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Agrupacion-Local-Voluntarios-Proteccion-Civil-Jerez-nuevos-medios_0_1861014181.html"
 			}
 		],
 		"cartaServicios": [
@@ -145,58 +145,58 @@
 		],
 		"news": [
 			{
-				"date": "3 enero 2024",
-				"medio": "Diario de Jerez",
+				"date": "2024/01/3",
+				"media": "Diario de Jerez",
 				"title": "La Policía Local de Jerez contará con dos nuevos coches y una furgoneta para atestados",
-				"URL": "https://www.diariodejerez.es/jerez/Policia-Local-Jerez-nuevos-coches-furgoneta_0_1863114094.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Policia-Local-Jerez-nuevos-coches-furgoneta_0_1863114094.html"
 			},
 			{
-				"date": "12 diciembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/12/12",
+				"media": "Diario de Jerez",
 				"title": "Jerez acapara el 40% de las denuncias que se presentan en la provincia de Cádiz",
-				"URL": "https://www.diariodejerez.es/jerez/Jerez-denuncias-presentan-provincia-Cadiz-seguridad_0_1856514967.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Jerez-denuncias-presentan-provincia-Cadiz-seguridad_0_1856514967.html"
 			},
 			{
-				"date": "5 diciembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/12/5",
+				"media": "Diario de Jerez",
 				"title": "El Ayuntamiento de Jerez dotará a la Policía Local de un moderno sistema de digitalización",
-				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-dotara-Policia-Local-sistema-digitalizacion_0_1854115680.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-dotara-Policia-Local-sistema-digitalizacion_0_1854115680.html"
 			},
 			{
-				"date": "5 diciembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/12/5",
+				"media": "Diario de Jerez",
 				"title": "La nueva Jefatura de la Policía Local, en La Asunción, ya está en funcionamiento",
-				"URL": "https://www.diariodejerez.es/jerez/Abre-nueva-jefatura-policia-local-jerez_0_1854116371.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Abre-nueva-jefatura-policia-local-jerez_0_1854116371.html"
 			},
 			{
-				"date": "4 diciembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/12/4",
+				"media": "Diario de Jerez",
 				"title": "La nueva jefatura de Policía Local de Jerez estará en servicio desde este lunes 4 de diciembre",
-				"URL": "https://www.diariodejerez.es/jerez/nueva-Jefatura-Policia-Local-Jerez-servicio-diciembre-2023_0_1853815009.html"
+				"url_new": "https://www.diariodejerez.es/jerez/nueva-Jefatura-Policia-Local-Jerez-servicio-diciembre-2023_0_1853815009.html"
 			},
 			{
-				"date": "1 diciembre 2023",
-				"medio": "La Voz del Sur",
+				"date": "2023/12/1",
+				"media": "La Voz del Sur",
 				"title": "Denuncian fallas de seguridad en Jerez ante la ola de incendios: Les insistía en que vinieran y me decían que ese teléfono no era",
-				"URL": "https://www.lavozdelsur.es/ediciones/jerez/fallas-seguridad-jerez-incendios-insistia-vinieran-telefono-no-era_306192_102.html"
+				"url_new": "https://www.lavozdelsur.es/ediciones/jerez/fallas-seguridad-jerez-incendios-insistia-vinieran-telefono-no-era_306192_102.html"
 			},
 			{
-				"date": " 17 noviembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/11/17",
+				"media": "Diario de Jerez",
 				"title": "Interior solo amplía en tres puestos el catálogo de la Comisaría de la Policía Nacional de Jerez",
-				"URL": "https://www.diariodejerez.es/jerez/catalogo-policias-comisaria-policia-nacional-jerez_0_1848716906.html"
+				"url_new": "https://www.diariodejerez.es/jerez/catalogo-policias-comisaria-policia-nacional-jerez_0_1848716906.html"
 			},
 			{
-				"date": " 17 noviembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/10/17",
+				"media": "Diario de Jerez",
 				"title": "Exigen un aumento de policías nacionales en Jerez tras los graves hechos en calle Nueva",
-				"URL": "https://www.diariodejerez.es/jerez/Exigen-policias-nacionales-Jerez-Nueva_0_1848715865.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Exigen-policias-nacionales-Jerez-Nueva_0_1848715865.html"
 			},
 			{
-				"date": "6 octubre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/10/6",
+				"media": "Diario de Jerez",
 				"title": "La Policía Local de Jerez interpone más de 200 sanciones por botellones ilegales desde julio",
-				"URL": "https://www.diariodejerez.es/jerez/Policia-Local-Jerez-interpone-botellones_0_1836417431.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Policia-Local-Jerez-interpone-botellones_0_1836417431.html"
 			}
 		]
 	},
@@ -245,21 +245,21 @@
 		"news": [
 			{
 				"date": "",
-				"medio": "",
+				"media": "",
 				"title": "",
-				"URL": ""
+				"url_new": ""
 			},
 			{
 				"date": "28/08/2023",
 				"title": "El gobierno apuesta por recuperar para Jerez la Escuela de Policía Local",
-				"medio": "Diario de Jerez",
-				"URL": "https://www.diariodejerez.es/jerez/recuperar-Jerez-Escuela-Policia-Local_0_1824719003.html"
+				"media": "Diario de Jerez",
+				"url_new": "https://www.diariodejerez.es/jerez/recuperar-Jerez-Escuela-Policia-Local_0_1824719003.html"
 			},
 			{
 				"date": "24/06/2023",
-				"medio": "La Voz del Sur",
+				"media": "La Voz del Sur",
 				"title": "Jerez volverá a contar con una Escuela de Policía Local como las grandes ciudades de Andalucía",
-				"URL": "https://www.lavozdelsur.es/ediciones/jerez/jerez-volvera-contar-con-escuela-policia-local-como-grandes-ciudades-andalucia_297653_102.html"
+				"url_new": "https://www.lavozdelsur.es/ediciones/jerez/jerez-volvera-contar-con-escuela-policia-local-como-grandes-ciudades-andalucia_297653_102.html"
 			}
 		]
 	},
@@ -277,21 +277,21 @@
 		"news": [
 			{
 				"date": "",
-				"medio": "",
+				"media": "",
 				"title": "",
-				"URL": ""
+				"url_new": ""
 			},
 			{
-				"date": "19 septiembre 2023",
-				"medio": "Viva Jerez",
+				"date": "2023/09/19",
+				"media": "Viva Jerez",
 				"title": "Jerez renovará toda su flota con autobuses eléctricos",
-				"URL": "https://vivajerez.es/jerez/1359456/jerez-renovara-toda-su-flota-con-autobuses-electricos/"
+				"url_new": "https://vivajerez.es/jerez/1359456/jerez-renovara-toda-su-flota-con-autobuses-electricos/"
 			},
 			{
-				"date": "29 Agosto 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/08/29",
+				"media": "Diario de Jerez",
 				"title": "El Ayuntamiento se queda sin autobuses de gas por un problema del repostaje",
-				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-queda-autobuses-problema-repostaje-gas-comujesa_0_1825018889.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Ayuntamiento-queda-autobuses-problema-repostaje-gas-comujesa_0_1825018889.html"
 			}
 		]
 	},
@@ -352,118 +352,118 @@
 		"descripcion": "Abastecimiento domicializado agua",
 		"news": [
 			{
-				"date": "25 febrero 2024",
-				"medio": "La Voz del Sur",
+				"date": "2024/02/25",
+				"media": "La Voz del Sur",
 				"title": "Aquajerez reclama 9 millones al Ayuntamiento de Jerez: subirá el recibo del agua, pero lo mínimo",
-				"URL": "https://www.lavozdelsur.es/ediciones/jerez/aquajerez-reclama-9-millones-ayuntamiento-jerez-subira-agua-minimo_310463_102.html"
+				"url_new": "https://www.lavozdelsur.es/ediciones/jerez/aquajerez-reclama-9-millones-ayuntamiento-jerez-subira-agua-minimo_310463_102.html"
 			},
 			{
-				"date": "19 febrero 2024",
-				"medio": "Diario de Jerez",
+				"date": "2024/02/19",
+				"media": "Diario de Jerez",
 				"title": "El Ayuntamiento de Jerez adeuda 4,7 millones a Aquajerez por el incremento del IPC en 2023",
-				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-repinta-semaforos_0_1877813514.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-repinta-semaforos_0_1877813514.html"
 			},
 			{
-				"date": "19 febrero 2024",
-				"medio": "Diario de Jerez",
+				"date": "2024/02/19",
+				"media": "Diario de Jerez",
 				"title": "¿Cómo afectará la subida del recibo del agua en Jerez?",
-				"URL": "https://www.diariodejerez.es/jerez/subida-recibo-agua-Jerez_0_1877213612.html"
+				"url_new": "https://www.diariodejerez.es/jerez/subida-recibo-agua-Jerez_0_1877213612.html"
 			},
 			{
-				"date": "17 febrero 2024",
-				"medio": "Diario de Jerez",
+				"date": "2024/02/17",
+				"media": "Diario de Jerez",
 				"title": "Subida inminente de tasa de agua en Jerez: ¿cuál es la situación en la zona?",
-				"URL": "https://www.diariodejerez.es/jerez/Consorcio-advierte-subida-inminente-tasa-agua-Jerez_0_1876312986.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Consorcio-advierte-subida-inminente-tasa-agua-Jerez_0_1876312986.html"
 			},
 			{
-				"date": "23 diciembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/12/23",
+				"media": "Diario de Jerez",
 				"title": "Primer paso para que Jerez cuente con una ordenanza para reducir el consumo de agua contra la sequía",
-				"URL": "https://www.diariodejerez.es/jerez/Aprobacion-inicial-ordenanza-sequia-jerez_0_1859214342.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Aprobacion-inicial-ordenanza-sequia-jerez_0_1859214342.html"
 			},
 			{
-				"date": "18 diciembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/12/18",
+				"media": "Diario de Jerez",
 				"title": "La depuradora de El Portal obtendrá hidrógeno verde tras regenerar agua y energía solar",
-				"URL": "https://www.diariodejerez.es/jerez/hidrogeno-verde_0_1858014674.html"
+				"url_new": "https://www.diariodejerez.es/jerez/hidrogeno-verde_0_1858014674.html"
 			},
 			{
-				"date": "18 diciembre 2023",
-				"medio": "La Voz del Sur",
+				"date": "2023/12/18",
+				"media": "La Voz del Sur",
 				"title": "24 horas con los 'cazadores' de fugas de agua en plena sequía",
-				"URL": "https://www.lavozdelsur.es/la-voz-seleccion/reportajes/24-horas-con-cazadores-fugas-agua-en-plena-sequia_306960_102.html"
+				"url_new": "https://www.lavozdelsur.es/la-voz-seleccion/reportajes/24-horas-con-cazadores-fugas-agua-en-plena-sequia_306960_102.html"
 			},
 			{
-				"date": "12 diciembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/12/12",
+				"media": "Diario de Jerez",
 				"title": "El Ayuntamiento de Jerez acuerda la aprobación del proyecto de Ordenanza de Sequía",
-				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-aprobacion-Ordenanza-Sequia_0_1856515564.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-aprobacion-Ordenanza-Sequia_0_1856515564.html"
 			},
 			{
-				"date": "9 noviembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/11/9",
+				"media": "Diario de Jerez",
 				"title": "El Ayuntamiento de Jerez dicta un bando para minimizar los efectos de la sequía",
-				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-bando-minimizar-efectos-sequia_0_1846616276.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-bando-minimizar-efectos-sequia_0_1846616276.html"
 			},
 			{
-				"date": "30 octubre 2023",
-				"medio": "Viva Jerez",
+				"date": "2023/11/30",
+				"media": "Viva Jerez",
 				"title": "El Consorcio modera la subida inicial prevista en el precio del agua",
-				"URL": "https://vivajerez.es/jerez-local/1399134/el-consorcio-modera-la-subida-inicial-prevista-en-el-precio-del-agua/"
+				"url_new": "https://vivajerez.es/jerez-local/1399134/el-consorcio-modera-la-subida-inicial-prevista-en-el-precio-del-agua/"
 			},
 			{
-				"date": "30 octubre 2023",
-				"medio": "La Voz del Sur",
+				"date": "2023/11/30",
+				"media": "La Voz del Sur",
 				"title": "El gobierno de Jerez actuará contra la sequía, pero es tajante: 'No se va a cortar el agua a los jerezanos'",
-				"URL": "https://www.lavozdelsur.es/ediciones/jerez/gobierno-jerez-planea-medidas-contra-sequia-pero-es-tajante-no-se-va-cortar-agua-jerezanos_304421_102.html"
+				"url_new": "https://www.lavozdelsur.es/ediciones/jerez/gobierno-jerez-planea-medidas-contra-sequia-pero-es-tajante-no-se-va-cortar-agua-jerezanos_304421_102.html"
 			},
 			{
-				"date": "27 octubre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/10/27",
+				"media": "Diario de Jerez",
 				"title": "Este sábado entran en vigor las restricciones en el uso del agua por la sequía en Jerez",
-				"URL": "https://www.diariodejerez.es/jerez/entran-vigor-restricciones-sequia-Jerez-octubre-2023_0_1842716516.html"
+				"url_new": "https://www.diariodejerez.es/jerez/entran-vigor-restricciones-sequia-Jerez-octubre-2023_0_1842716516.html"
 			},
 			{
-				"date": "19 octubre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/10/19",
+				"media": "Diario de Jerez",
 				"title": "El Consorcio anuncia la bajada inminente de un 20% de la presión del agua en Jerez",
-				"URL": "https://www.diariodejerez.es/jerez/Consorcio-anuncia-bajada-presion-agua-Jerez-provincia-Cadiz-video_0_1840316751.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Consorcio-anuncia-bajada-presion-agua-Jerez-provincia-Cadiz-video_0_1840316751.html"
 			},
 			{
-				"date": "19 octubre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/10/19",
+				"media": "Diario de Jerez",
 				"title": "El presidente del Consorcio sobre la subida de la tasa del agua en la provincia: -quí no valen juegos políticos, hay que ser responsable-",
-				"URL": "https://www.diariodejerez.es/jerez/presidente-Consorcio-provincia-subida-agua-responsable_0_1840316986.html"
+				"url_new": "https://www.diariodejerez.es/jerez/presidente-Consorcio-provincia-subida-agua-responsable_0_1840316986.html"
 			},
 			{
-				"date": "11 octubre 2023",
-				"medio": "Viva Jerez",
+				"date": "2023/10/11",
+				"media": "Viva Jerez",
 				"title": "Jerez se enfrenta al desafío hídrico: Necesita reducir un 20% su consumo de agua",
-				"URL": "https://vivajerez.es/jerez-local/1381206/jerez-se-enfrenta-al-desafio-hidrico-necesita-reducir-un-20-su-consumo-de-agua/"
+				"url_new": "https://vivajerez.es/jerez-local/1381206/jerez-se-enfrenta-al-desafio-hidrico-necesita-reducir-un-20-su-consumo-de-agua/"
 			},
 			{
-				"date": "13 octubre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/10/13",
+				"media": "Diario de Jerez",
 				"title": "El PSOE asegura que habrá -una doble- subida del recibo del agua en Jerez",
-				"URL": "https://www.diariodejerez.es/jerez/psoe-asegura-doble-subida-agua-jerez_0_1838217270.html"
+				"url_new": "https://www.diariodejerez.es/jerez/psoe-asegura-doble-subida-agua-jerez_0_1838217270.html"
 			},
 			{
-				"date": "13 octubre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/10/13",
+				"media": "Diario de Jerez",
 				"title": "El Consorcio plantea una subida de la tarifa del agua a los ayuntamientos, entre ellos el de Jerez",
-				"URL": "https://www.diariodejerez.es/jerez/subida-tarifa-agua-consorcio-aguas-jerez_0_1838217198.html"
+				"url_new": "https://www.diariodejerez.es/jerez/subida-tarifa-agua-consorcio-aguas-jerez_0_1838217198.html"
 			},
 			{
-				"date": "10 octubre 2023",
-				"medio": "Viva Jerez",
+				"date": "2023/10/10",
+				"media": "Viva Jerez",
 				"title": "García-Pelayo ve “precipitado” hablar de una posible subida del precio del agua",
-				"URL": "https://vivajerez.es/jerez-local/1379244/garcia-pelayo-ve-precipitado-hablar-de-una-posible-subida-del-precio-del-agua/"
+				"url_new": "https://vivajerez.es/jerez-local/1379244/garcia-pelayo-ve-precipitado-hablar-de-una-posible-subida-del-precio-del-agua/"
 			},
 			{
-				"date": "10 octubre 2023",
-				"medio": "Viva Jerez",
+				"date": "2023/10/10",
+				"media": "Viva Jerez",
 				"title": "El presidente del Consorcio justifica la subida de la tasa al encarecerse el servicio",
-				"URL": "https://vivajerez.es/jerez-local/1378832/el-presidente-del-consorcio-justifica-la-subida-de-la-tasa-al-encarecerse-el-servicio/"
+				"url_new": "https://vivajerez.es/jerez-local/1378832/el-presidente-del-consorcio-justifica-la-subida-de-la-tasa-al-encarecerse-el-servicio/"
 			}
 		]
 	},
@@ -477,21 +477,21 @@
 		"news": [
 			{
 				"date": "12 de enero de 2024",
-				"medio": "La Voz del Sur",
+				"media": "La Voz del Sur",
 				"title": "El 'contenedor marrón' poblará por fases las calles de Jerez: así tendrás que tirar la basura desde esta fecha",
-				"URL": "https://www.lavozdelsur.es/ediciones/jerez/contenedor-marron-poblara-por-fases-calles-jerez-tirar-basura-esta-fecha_308216_102.html"
+				"url_new": "https://www.lavozdelsur.es/ediciones/jerez/contenedor-marron-poblara-por-fases-calles-jerez-tirar-basura-esta-fecha_308216_102.html"
 			},
 			{
 				"date": "9 de enero de 2024",
-				"medio": "Diario de Jerez",
+				"media": "Diario de Jerez",
 				"title": "El Ayuntamiento de Jerez renovará y ampliará los contenedores de vidrio",
-				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-renovara-ampliara-contenedores_0_1864914167.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-renovara-ampliara-contenedores_0_1864914167.html"
 			},
 			{
 				"date": "20 diciembre 2023",
-				"medio": "Diario de Jerez",
+				"media": "Diario de Jerez",
 				"title": "Detectan un aumento del depósito de basuras en la calle fuera del horario permitido en el centro de Jerez",
-				"URL": "https://www.diariodejerez.es/jerez/basuras-centro-jerez-aumento-apartamentos-turisticos_0_1858616130.html"
+				"url_new": "https://www.diariodejerez.es/jerez/basuras-centro-jerez-aumento-apartamentos-turisticos_0_1858616130.html"
 			}
 		]
 	},
@@ -504,46 +504,46 @@
 		"descripcion": "Limpieza viaria",
 		"news": [
 			{
-				"date": "27 noviembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/11/27",
+				"media": "Diario de Jerez",
 				"title": "El Ayuntamiento de Jerez amplía el servicio de limpieza en las barriadas rurales",
-				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-ampliacion-servicio-barriadas-rurales_0_1852016394.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-ampliacion-servicio-barriadas-rurales_0_1852016394.html"
 			},
 			{
-				"date": "9 noviembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/11/9",
+				"media": "Diario de Jerez",
 				"title": "Quejas de vecinos de la zona sur de Jerez por la acumulación de basuras en la calle",
-				"URL": "https://www.diariodejerez.es/jerez/Quejas-vecinos-zona-sur-Jerez-basuras_0_1846315780.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Quejas-vecinos-zona-sur-Jerez-basuras_0_1846315780.html"
 			},
 			{
-				"date": "3 noviembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/11/3",
+				"media": "Diario de Jerez",
 				"title": "El PSOE denuncia 'la suciedad' existente en muchas zonas de la ciudad tras el tempora",
-				"URL": "https://www.diariodejerez.es/jerez/PSOE-denuncia-Jerez-suciedad-existente-temporal-bernard_0_1844816134.html"
+				"url_new": "https://www.diariodejerez.es/jerez/PSOE-denuncia-Jerez-suciedad-existente-temporal-bernard_0_1844816134.html"
 			},
 			{
-				"date": "1 noviembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/11/1",
+				"media": "Diario de Jerez",
 				"title": "El Ayuntamiento de Jerez aprueba la ampliación del contrato de limpieza en las barriadas rurales y pedanía",
-				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-ampliacion-contrato-limpieza-barriadas-rurales-pedania_0_1844216084.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-ampliacion-contrato-limpieza-barriadas-rurales-pedania_0_1844216084.html"
 			},
 			{
-				"date": "13 octubre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/10/13",
+				"media": "Diario de Jerez",
 				"title": "Jerez tendrá un centenar de contenedores nuevos para aumentar el reciclado de vidrio",
-				"URL": "https://www.diariodejerez.es/jerez/Jerez-centenar-contenedores-nuevos-aumentar-reciclado-vidrio_0_1838517495.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Jerez-centenar-contenedores-nuevos-aumentar-reciclado-vidrio_0_1838517495.html"
 			},
 			{
-				"date": "6 ",
-				"medio": "La Voz del Sur",
+				"date": "2023/10/6",
+				"media": "La Voz del Sur",
 				"title": "Acoje critica que desde hace prácticamente un mes aparecen bolsas de residuos orgánicos en varios puntos del centro. Denuncian que hay vecinos que tiran las bolsas de basura a la calle en el centro de Jerez",
-				"URL": "https://www.diariodejerez.es/jerez/Denuncian-vecinos-tiran-bolsas-basura-calle-centro-Jerez_0_1836416532.html"
+				"url_new": "https://www.diariodejerez.es/jerez/Denuncian-vecinos-tiran-bolsas-basura-calle-centro-Jerez_0_1836416532.html"
 			},
 			{
-				"date": "18 septiembre 2023",
-				"medio": "La Voz del Sur",
+				"date": "2023/09/18",
+				"media": "La Voz del Sur",
 				"title": "El Ayuntamiento de Jerez negociará con la concesionaria de limpieza para tener más personal y maquinaria",
-				"URL": "https://www.lavozdelsur.es/ediciones/jerez/ayuntamiento-jerez-negociara-con-concesionaria-limpieza-tener-mas-personal-maquinaria_302202_102.html"
+				"url_new": "https://www.lavozdelsur.es/ediciones/jerez/ayuntamiento-jerez-negociara-con-concesionaria-limpieza-tener-mas-personal-maquinaria_302202_102.html"
 			}
 		]
 	},
@@ -676,10 +676,10 @@
 		"descripcion": "Plan promocion empleo",
 		"news": [
 			{
-				"date": "6 diciembre 2023",
-				"medio": "Diario de Jerez",
+				"date": "2023/12/6",
+				"media": "Diario de Jerez",
 				"title": "El Ayuntamiento de Jerez recibe una subvención de 400.000 euros para un proyecto de Empleo y Formación",
-				"URL": "https://www.diariodejerez.es/jerez/ayuntamiento-jerez-subvencion-proyecto-empleo-formacion_0_1854416522.html"
+				"url_new": "https://www.diariodejerez.es/jerez/ayuntamiento-jerez-subvencion-proyecto-empleo-formacion_0_1854416522.html"
 			}
 		]
 	},

@@ -152,6 +152,11 @@ export default [
 			import('./art16/components/presupuestos/components/detalle/components/graph-detalle/graph-detalle.component')
 	},
 	{
+		path: 'infoPrograma',
+		loadComponent: () =>
+			import('./art16/components/presupuestos/components/detalle/components/info-programa/info-programa.component')
+	},
+	{
 		path: 'fichaEmpleados',
 		loadComponent: () =>
 			import(
