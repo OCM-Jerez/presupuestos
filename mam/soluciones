@@ -1,8 +1,13 @@
+Para evitar mensajes en consola de AG-Grid añadir -* en el input de console en herramientas de desarrollo.
+
+
+
 Para colapsar codigo entre dos lineas.
 // #region Etiqueta
 // #endregion
 
-- Al cambiar de get a import JSON hay que quitar | Async en el HTML
+- Al cambiar de get a import { Grid } from "ag-grid-community"
+import JSON hay que quitar | Async en el HTML
 
     - Si uninstall '@ng-select/ng-select da problemas al compilar.
 
