@@ -79,7 +79,7 @@ export class SubtabsComponent implements OnInit, OnDestroy {
 
 	clickSubtabAditional(event: ISubtabAdicional) {
 		this._avalaibleYearsService.yearsSubject$.pipe(first()).subscribe((years) => (this.multiYears = years.length > 1));
-		if (this.multiYears) {
+		if (this.multiYears || event.name !== 'Gráfico detallado') {
 			const path = event.param ? event.path + '/' + event.param : event.path;
 			this._router.navigateByUrl(path);
 		} else {
