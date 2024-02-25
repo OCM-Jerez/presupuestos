@@ -2,12 +2,13 @@ import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { AsyncPipe, NgClass } from '@angular/common';
 import { Router } from '@angular/router';
 
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, first, takeUntil } from 'rxjs';
 
 import { DataStoreSubtabService } from '@services/dataStoreSubtab.service';
 import { DataStoreTabService } from '@services/dataStoreTab.service';
 import { HasRowClicked } from '@services/hasRowClicked.service';
 import { ReloadTableService } from '@services/reloadTable.service';
+import { AvalaibleYearsService } from '@services/avalaibleYears.service';
 
 import { getClasificacion } from '@app/data-table';
 
@@ -17,7 +18,6 @@ import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 @Component({
 	selector: 'app-subtabs',
 	templateUrl: './subtabs.component.html',
-	styleUrls: ['./subtabs.component.scss'],
 	standalone: true,
 	imports: [NgClass, AsyncPipe]
 })
@@ -27,14 +27,16 @@ export class SubtabsComponent implements OnInit, OnDestroy {
 	private _dataStoreTabService = inject(DataStoreTabService);
 	private _hasRowClicked = inject(HasRowClicked);
 	private _reloadTableService = inject(ReloadTableService);
+	private _avalaibleYearsService = inject(AvalaibleYearsService);
 
+	private _selectedSubtab: ISubtabClasification;
+	private _tabSelected: string;
+	private _unsubscribe$ = new Subject<void>();
 	public hasRowClicked$ = this._hasRowClicked.currentHasRowClicked;
 	public isDisabled = true;
 	public subtabs: ISubtabClasification[] = [];
 	public subtabsAdditional: ISubtabAdicional[] = [];
-	private _selectedSubtab: ISubtabClasification;
-	private _tabSelected: string;
-	private _unsubscribe$ = new Subject<void>();
+	public multiYears = false;
 
 	async ngOnInit(): Promise<void> {
 		const clasification = getClasificacion('ingresosEconomicaEconomicos');
@@ -49,7 +51,6 @@ export class SubtabsComponent implements OnInit, OnDestroy {
 	}
 
 	async clickSubtab(event: ISubtabClasification): Promise<void> {
-		// const subtabName = event.name;
 		this.subtabs.forEach((b) => (b.selected = false));
 
 		if (this._selectedSubtab) {
@@ -77,8 +78,13 @@ export class SubtabsComponent implements OnInit, OnDestroy {
 	}
 
 	clickSubtabAditional(event: ISubtabAdicional) {
-		const path = event.param ? event.path + '/' + event.param : event.path;
-		this._router.navigateByUrl(path);
+		this._avalaibleYearsService.yearsSubject$.pipe(first()).subscribe((years) => (this.multiYears = years.length > 1));
+		if (this.multiYears) {
+			const path = event.param ? event.path + '/' + event.param : event.path;
+			this._router.navigateByUrl(path);
+		} else {
+			alert('Por favor, selecciona más de una año para mostrar el grafico');
+		}
 	}
 
 	subscribeToServices(): void {
