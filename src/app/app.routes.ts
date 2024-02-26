@@ -5,33 +5,17 @@ export default [
 		path: 'home',
 		loadComponent: () => import('./home/home.component')
 	},
-	// {
-	// 	path: 'level1',
-	// 	loadComponent: () => import('./level1/level1.component')
-	// },
 	{
 		path: 'level1/:tag',
 		loadComponent: () => import('./level1/level1.component')
 	},
-	// {
-	// 	path: 'level2',
-	// 	loadComponent: () => import('./level2/level2.component')
-	// },
 	{
 		path: 'level2/:tag',
 		loadComponent: () => import('./level2/level2.component')
 	},
-	// {
-	// 	path: 'level3',
-	// 	loadComponent: () => import('./level3/level3.component')
-	// },
 	{
 		path: 'level3/:tag',
 		loadComponent: () => import('./level3/level3.component')
-	},
-	{
-		path: 'levelLast',
-		loadComponent: () => import('./level-last/level-last.component')
 	},
 	{
 		path: 'levelLast/:tag',
