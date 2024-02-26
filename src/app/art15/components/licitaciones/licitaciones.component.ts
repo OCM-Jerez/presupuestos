@@ -112,7 +112,6 @@ export default class LicitacionesComponent {
 				this._pathStoreService.setPath('licitaciones');
 				this._tagStoreService.setTag(tag);
 				this._titleStoreService.setTitle(title);
-				// this._router.navigateByUrl('levelLast');
 				this._router.navigateByUrl('licitaciones/' + tag);
 			},
 			highlighted: false
