@@ -4,35 +4,48 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 
-import { CardTableNewsComponent } from './components/card-table-news/card-table-news.component';
+import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
+
 import { DataStoreFichaProgramaService } from '@services/dataStoreFichaPrograma.service';
+import { DataStoreService } from '@services/dataStore.service';
+
 import { IDataGasto } from '@interfaces/dataGasto.interface';
 
 @Component({
 	selector: 'app-ficha-news',
 	standalone: true,
-	imports: [CardTableNewsComponent],
+	imports: [NoticiasComponent],
 	templateUrl: './ficha-news.component.html',
 	styleUrls: ['./ficha-news.component.scss']
 })
 export default class FichaNewsComponent implements OnInit {
 	private _route = inject(ActivatedRoute);
 	private _location = inject(Location);
+	private _dataStoreService = inject(DataStoreService);
 	private _dataStoreFichaProgramaService = inject(DataStoreFichaProgramaService);
-
 	private _subscription: Subscription;
 	private _datos: IDataGasto[] = [];
-
 	public filteredNews = [];
 	public programa: string;
+	public title = this._dataStoreService.selectedCodeRowFirstLevel;
 
 	async ngOnInit(): Promise<void> {
 		const codigo = this._route.snapshot.paramMap.get('codigo');
 		this.filteredNews = await this.filterNewsByCode(+codigo);
-		// console.log(this.filteredNews);
 	}
 
 	async filterNewsByCode(codigo: number) {
+		const data = await import('src/assets/data/programasInfo.json');
+		const programas = data.default; // Asume que los datos están bajo la propiedad default
+		const programaEspecifico = programas.find((programa) => programa.codigo === codigo);
+
+		if (programaEspecifico && programaEspecifico.news) {
+			return programaEspecifico.news;
+		}
+		return [];
+	}
+
+	async filterNewsByCode1(codigo: number) {
 		this._subscription = this._dataStoreFichaProgramaService.getFichaProgramaData().subscribe((data: IDataGasto[]) => {
 			this._datos = data;
 		});
