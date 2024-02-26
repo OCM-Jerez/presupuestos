@@ -1,5 +1,3 @@
-@use 'typography';
-
 @media screen and (max-width: 3399.98px) {
 	.gridMain {
 		display: grid;
@@ -11,13 +9,6 @@
 	.gridInfo {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-	}
-
-	.flexMenu {
-		display: flex;
-		justify-content: center;
-		gap: 40px;
-		margin: 20px;
 	}
 }
 

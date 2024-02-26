@@ -5,8 +5,6 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 import { CardInfoHomeComponent } from './components/card-info/card-info.component';
 import { CardTableHomeComponent } from './components/card-table/card-table.component';
 
-const defaultBackground = 'linear-gradient(to bottom, #1C1F26 , #4D4E50)';
-
 @Component({
 	selector: 'app-presupuestos',
 	templateUrl: './presupuestos.component.html',
@@ -39,7 +37,7 @@ export default class PresupuestosComponent {
 			titulo,
 			subtitulo,
 			textButton: titulo,
-			background: defaultBackground,
+			background: 'linear-gradient(to bottom, #1C1F26 , #4D4E50)',
 			funcion: () => this.navigate(ruta)
 		};
 	}

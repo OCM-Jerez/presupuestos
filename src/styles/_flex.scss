@@ -9,6 +9,7 @@
 			justify-content: flex-end;
 		}
 		&--center {
+			gap: 20px;
 			justify-content: center;
 			align-items: center;
 		}
@@ -39,7 +40,7 @@
 		padding: 0 20px;
 	}
 
-	.flex-items {
+	.OCM-flex-items {
 		width: 250px;
 		height: 250px;
 		margin-top: 10px;

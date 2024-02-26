@@ -5,7 +5,7 @@
 		<app-card-table-home />
 	</section>
 
-	<section class="flexMenu">
+	<section class="OCM-flex OCM-flex--center">
 		@for (menu of cardMenus; track menu) {
 			<app-card-menu [rutaImagen]="menu.rutaImagen" [titulo]="menu.titulo" (click)="menu.funcion()" />
 		}
