@@ -1,10 +1,10 @@
 // @media screen and (max-width: 4200px) {
 ::view-transition-old(root) {
-	animation: exit 2s ease 0s 1 normal forwards;
+	animation: exit 1s ease 0s 1 normal forwards;
 }
 
 ::view-transition-new(root) {
-	animation: enter 2s ease 0s 1 normal forwards;
+	animation: enter 1s ease 0s 1 normal forwards;
 }
 
 // https://webcode.tools/css-generator/keyframe-animation
