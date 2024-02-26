@@ -15,8 +15,7 @@ import { IDataGasto } from '@interfaces/dataGasto.interface';
 	selector: 'app-ficha-news',
 	standalone: true,
 	imports: [NoticiasComponent],
-	templateUrl: './ficha-news.component.html',
-	styleUrls: ['./ficha-news.component.scss']
+	templateUrl: './ficha-news.component.html'
 })
 export default class FichaNewsComponent implements OnInit {
 	private _route = inject(ActivatedRoute);

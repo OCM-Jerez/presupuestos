@@ -73,6 +73,10 @@
 		flex-direction: row;
 		justify-content: flex-end;
 		width: 50%;
+		&--right {
+			margin-top: 20px;
+			width: 95%;
+		}
 	}
 }
 
