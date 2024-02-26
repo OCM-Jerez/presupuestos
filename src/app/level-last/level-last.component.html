@@ -44,10 +44,10 @@
 	}
 
 	<app-noticias [news]="news" />
-	@if (hasDocs) {
+	@if (docs.length > 0) {
 		<app-documentos [docs]="docs" />
 	}
-	@if (hasComs) {
+	@if (coms.length > 0) {
 		<app-comentarios [coms]="coms" />
 	}
 </main>

@@ -8,10 +8,10 @@ import NoticiasComponent from '@app/commons/components/level/noticias/noticias.c
 import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
 
-import { SupabaseService } from '@services/supabase.service';
 import { TagStoreService } from '@services/tagStore.service';
 import { TitleStoreService } from '@services/titleStore.service';
 import { PathStoreService } from '@services/pathStore.service';
+import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { IMenuItem } from '@interfaces/menu.interface';
 import { INew } from '@interfaces/new.interface';
@@ -25,11 +25,11 @@ import { IDoc } from '@interfaces/doc.interface';
 })
 export default class Level2Component implements OnInit {
 	@Input() tag: string;
-	private _supabaseService = inject(SupabaseService);
 	private _router = inject(Router);
 	private _tagStoreService = inject(TagStoreService);
 	private _titleStoreService = inject(TitleStoreService);
 	private _pathStoreService = inject(PathStoreService);
+	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	public menuOptions: IMenuItem[] = [];
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
@@ -38,7 +38,7 @@ export default class Level2Component implements OnInit {
 
 	ngOnInit() {
 		// const tag = this._tagStoreService.getTag();
-		import(`../../assets/menuOptions/level2/${this.tag}.json`).then((data) => {
+		import(`../../assets/menuOptions/level2/${this.tag}.json`).then(async (data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => {
 				const modifiedItem = {
 					...item,
@@ -46,20 +46,9 @@ export default class Level2Component implements OnInit {
 				};
 				return this.createCardMenu(modifiedItem);
 			});
-			this.fetchDataFromSupabase(this.tag);
+
+			[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 		});
-	}
-
-	async fetchDataFromSupabase(tag: string) {
-		const dataTypes = ['news', 'comments', 'documents'];
-
-		[this.news, this.coms, this.docs] = await Promise.all(
-			dataTypes.map((type) =>
-				this._supabaseService.fetchDataByTagOrder(type, tag, false).catch((error) => {
-					console.error(`Error fetching ${type}:`, error);
-				})
-			)
-		);
 	}
 
 	createCardMenu(item: IMenuItem) {

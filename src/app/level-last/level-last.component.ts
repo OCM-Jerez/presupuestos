@@ -20,6 +20,7 @@ import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IStep } from '@interfaces/step.interface';
 import { first } from 'rxjs';
+import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 interface IOption {
 	data: string;
@@ -61,7 +62,7 @@ export default class LevelLastComponent implements OnInit {
 	private _pathStoreService = inject(PathStoreService);
 	private _activatedRoute = inject(ActivatedRoute);
 	private _router = inject(Router);
-
+	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
@@ -72,9 +73,6 @@ export default class LevelLastComponent implements OnInit {
 	public imgURL: string;
 	public descripcion: string;
 	public isLicitacion = false;
-	public hasDocs = false;
-	public hasComs = false;
-	public hasNews = false;
 	public title = this._titleStoreService.getTitle();
 	public gauge = environment.pathImgSupabase + 'gauge.jpg';
 	public deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
@@ -82,19 +80,6 @@ export default class LevelLastComponent implements OnInit {
 	public pmpURL = environment.pathImgSupabase + '2023-12.jpg';
 	public path = this._pathStoreService.getPath();
 	// public tag = this._tagStoreService.getTag();
-
-	ngOnInit1() {
-		// const urlSegments = this._router.url.split('/');
-		this.path = this._router.url.split('/')[1];
-		this.tag = this._router.url.split('/')[2];
-
-		this.isLicitacion = this.path === 'licitaciones';
-		if (this.isLicitacion) {
-			this.imgURL = `${environment.pathImgSupabase}${this.tag}.jpg`;
-		}
-
-		this.fetchDataFromSupabase(this.tag, this.path);
-	}
 
 	ngOnInit() {
 		const urlSegments = this._router.url.split('/');
@@ -168,8 +153,6 @@ export default class LevelLastComponent implements OnInit {
 						}))
 				);
 				this.data = dataO;
-				// console.log('dataO', dataO);
-
 				const descripcionObj = this.data.find((obj) => obj.data === 'Descripción');
 				if (descripcionObj) {
 					this.descripcion = descripcionObj.value;
@@ -179,25 +162,6 @@ export default class LevelLastComponent implements OnInit {
 			}
 		}
 
-		try {
-			this.news = await this._supabaseService.fetchDataByTagOrder('news', tag, false);
-			this.hasNews = this.news.length > 0;
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
-
-		try {
-			this.coms = await this._supabaseService.fetchDataByTagOrder('comments', tag, false);
-			this.hasComs = this.coms.length > 0;
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
-
-		try {
-			this.docs = await this._supabaseService.fetchDataByTagOrder('documents', tag, false);
-			this.hasDocs = this.docs.length > 0;
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
+		[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 	}
 }

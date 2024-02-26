@@ -11,10 +11,10 @@ import EstadoLicitacionComponent from '@commons/components/level/estado-licitaci
 import NoticiasComponent from '@commons/components/level/noticias/noticias.component';
 import SeguimientoSubvencionComponent from '@commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
 
-import { SupabaseService } from '@services/supabase.service';
 import { PathStoreService } from '@services/pathStore.service';
 import { TagStoreService } from '@services/tagStore.service';
 import { TitleStoreService } from '@services/titleStore.service';
+import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
@@ -37,11 +37,11 @@ import { IMenuItem } from '@interfaces/menu.interface';
 })
 export default class Level3Component implements OnInit {
 	@Input() tag: string;
-	private _supabaseService = inject(SupabaseService);
 	private _tagStoreService = inject(TagStoreService);
 	private _titleStoreService = inject(TitleStoreService);
 	private _pathStoreService = inject(PathStoreService);
 	private _router = inject(Router);
+	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	public menuOptions: IMenuItem[] = [];
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
@@ -54,7 +54,7 @@ export default class Level3Component implements OnInit {
 		const path = this._pathStoreService.getPath();
 		path === 'comisiones' ? (this.isComisiones = true) : (this.isComisiones = false);
 
-		import(`../../assets/menuOptions/level3/${this.tag}.json`).then((data) => {
+		import(`../../assets/menuOptions/level3/${this.tag}.json`).then(async (data) => {
 			this.menuOptions = data.default.map((item: IMenuItem) => {
 				const modifiedItem = {
 					...item,
@@ -63,20 +63,9 @@ export default class Level3Component implements OnInit {
 				return this.createCardMenu(modifiedItem);
 				// }
 			});
-			this.fetchDataFromSupabase(this.tag);
+
+			[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 		});
-	}
-
-	async fetchDataFromSupabase(tag: string) {
-		const dataTypes = ['news', 'comments', 'documents'];
-
-		[this.news, this.coms, this.docs] = await Promise.all(
-			dataTypes.map((type) =>
-				this._supabaseService.fetchDataByTagOrder(type, tag, false).catch((error) => {
-					console.error(`Error fetching ${type}:`, error);
-				})
-			)
-		);
 	}
 
 	createCardMenu(item: IMenuItem) {
