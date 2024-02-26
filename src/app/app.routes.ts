@@ -136,7 +136,7 @@ export default [
 			import('./art16/components/presupuestos/components/detalle/components/graph-detalle/graph-detalle.component')
 	},
 	{
-		path: 'infoPrograma',
+		path: 'infoPrograma/:tag',
 		loadComponent: () =>
 			import('./art16/components/presupuestos/components/detalle/components/info-programa/info-programa.component')
 	},
