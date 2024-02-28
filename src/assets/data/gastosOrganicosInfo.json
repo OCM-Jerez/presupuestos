@@ -85,7 +85,15 @@
 	},
 	{
 		"codigo": 16,
-		"descripcion": "Bienestar social y del mayor"
+		"descripcion": "Bienestar social y del mayor",
+		"news": [
+			{
+				"date": "27/02/2024",
+				"medio": "La Voz del Sur",
+				"title": "Menos trámites y más rápidos: el plan del Ayuntamiento de Jerez para las ayudas sociales",
+				"URL": "https://www.lavozdelsur.es/ediciones/jerez/menos-tramites-mas-rapidos-plan-ayuntamiento-jerez-ayudas-sociales_310644_102.html"
+			}
+				]
 	},
 	{
 		"codigo": 17,
@@ -114,13 +122,13 @@
 				"URL": ""
 			},
 			{
-				"date": "15 septiembre 2023",
+				"date": "2023/09/15",
 				"medio": "La Voz del Sur",
 				"title": "Jerez, por ahora, en dirección prohibida hacia la Agenda 2030. El gobierno municipal favorece el aparcamiento en el centro –y, en consecuencia, el acceso en vehículo privado– cuando debería pensar ya qué área va a ocupar la obligatoria, por ley, Zona de Bajas Emisiones",
 				"URL": "https://www.lavozdelsur.es/opinion/editorial-lavozdelsur/jerez-por-ahora-en-sentido-contrario-agenda-2030_302003_102.html?fbclid=IwAR25vGhpSEhupic_PUeoP6LNapIc55bNdJjfJfjPvpU3clfob6PfOBzAiT0"
 			},
 			{
-				"date": "14 septiembre 2023",
+				"date": "2023/09/14",
 				"medio": "La Voz del Sur",
 				"title": "El Ayuntamiento firma un acuerdo que permite aparcar 12 horas en el centro de Jerez por un euro y medio. Además, repartirán 4.000 vales gratuitos de media hora para que los padres y madres de colegios como Beaterio y Miguel de Cervantes puedan recoger en coche a sus hijos",
 				"URL": "https://www.lavozdelsur.es/ediciones/jerez/ayuntamiento-firma-acuerdo-permite-aparcar-12-horas-en-centro-jerez-por-euro-medio_301999_102.html"
