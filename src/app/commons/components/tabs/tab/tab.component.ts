@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 
-
 import { CLASIFICATION_TYPE } from '@appTypes/clasification.type';
 
 @Component({
