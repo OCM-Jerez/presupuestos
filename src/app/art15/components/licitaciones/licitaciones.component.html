@@ -19,7 +19,7 @@
 		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('diputacion')">
 			Diputación Provincial de Cádiz
 		</button>
-		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('subasta')">
+		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('solares')">
 			Subastas Solares y Edificaciones Ruinosas
 		</button>
 	</section>
@@ -64,9 +64,13 @@
 		@if (isAyuntamiento) {
 			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">Con fondos propios del Ayuntamiento</header>
 
-			<!-- <section class="OCM-flex OCM-flex--center">
-				<button class="OCM-button-container OCM-button" type="button" (click)="appOCM()">App OCM</button>
-			</section> -->
+			<section class="OCM-flex OCM-flex--center">
+				<button class="OCM-button-container OCM-button" type="button" (click)="todas('ayto')">Todas</button>
+				<button class="OCM-button-container OCM-button" type="button" (click)="pendientes('ayto')">Pendientes</button>
+				<button class="OCM-button-container OCM-button" type="button" (click)="licitadas('ayto')">Licitadas</button>
+				<button class="OCM-button-container OCM-button" type="button" (click)="adjudicadas('ayto')">Adjudicadas</button>
+				<button class="OCM-button-container OCM-button" type="button" (click)="terminadas('ayto')">Terminadas</button>
+			</section>
 
 			<section class="gridMenu">
 				@for (menu of licitacionesAyto; track menu) {
@@ -79,6 +83,14 @@
 
 		@if (isCEE) {
 			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">Con subvención CEE</header>
+			<section class="OCM-flex OCM-flex--center">
+				<button class="OCM-button-container OCM-button" type="button" (click)="todas('cee')">Todas</button>
+				<button class="OCM-button-container OCM-button" type="button" (click)="pendientes('cee')">Pendientes</button>
+				<button class="OCM-button-container OCM-button" type="button" (click)="licitadas('cee')">Licitadas</button>
+				<button class="OCM-button-container OCM-button" type="button" (click)="adjudicadas('cee')">Adjudicadas</button>
+				<button class="OCM-button-container OCM-button" type="button" (click)="terminadas('cee')">Terminadas</button>
+			</section>
+
 			<section class="gridMenu">
 				@for (menu of licitacionesCEE; track menu) {
 					<section [class.highlight]="menu.highlighted">
@@ -90,6 +102,21 @@
 
 		@if (isDiputacion) {
 			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">Con subvención Diputación Provincial de Cádiz</header>
+			<section class="OCM-flex OCM-flex--center">
+				<button class="OCM-button-container OCM-button" type="button" (click)="todas('diputacion')">Todas</button>
+				<button class="OCM-button-container OCM-button" type="button" (click)="pendientes('diputacion')">
+					Pendientes
+				</button>
+				<button class="OCM-button-container OCM-button" type="button" (click)="licitadas('diputacion')">
+					Licitadas
+				</button>
+				<button class="OCM-button-container OCM-button" type="button" (click)="adjudicadas('diputacion')">
+					Adjudicadas
+				</button>
+				<button class="OCM-button-container OCM-button" type="button" (click)="terminadas('diputacion')">
+					Terminadas
+				</button>
+			</section>
 			<section class="gridMenu">
 				@for (menu of licitacionesDiputacion; track menu) {
 					<section [class.highlight]="menu.highlighted">
@@ -125,10 +152,16 @@
 			</section>
 		}
 
-		@if (isSubasta) {
+		@if (isSolares) {
 			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">
 				Subastas Registro Municipal de Solares y Edificaciones Ruinosas
 			</header>
+			<section class="OCM-flex OCM-flex--center">
+				<button class="OCM-button-container OCM-button" type="button" (click)="todas('solares')">Todas</button>
+				<button class="OCM-button-container OCM-button" type="button" (click)="terminadas('solares')">
+					Terminadas
+				</button>
+			</section>
 			<section class="gridMenu">
 				@for (menu of licitacionesSolares; track menu) {
 					<section [class.highlight]="menu.highlighted">
