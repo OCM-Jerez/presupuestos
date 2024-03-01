@@ -128,5 +128,10 @@
 		"title": "Banderas",
 		"isLastLevel": true,
 		"tag": "banderas"
+	},
+	{
+		"title": "Futura Ciudad de la Justicia",
+		"isLastLevel": true,
+		"tag": "ciudadJusticia"
 	}
 ]

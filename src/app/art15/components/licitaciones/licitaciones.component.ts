@@ -95,7 +95,9 @@ export default class LicitacionesComponent {
 		this.createCard('Renting vehiculos policía local', 'vehiculosPolicia2024'),
 		this.createCard('Servicios de vigilancia de seguridad y de auxiliares de control', 'vigilancia2024'),
 		this.createCard('Instalación aire acondicionado Teatro Villmarta', 'climatizacionVillamarta2024'),
-		this.createCard('Suministro de alimentos con destino Parque Zoológico ', 'alimentosZoo2024')
+		this.createCard('Suministro de alimentos con destino Parque Zoológico', 'alimentosZoo2024'),
+		this.createCard('Renovación de Licencias Cytomic. Ciberseguridad', 'ciberseguridad2024'),
+		this.createCard('Servicio y suministro para el control del consumo de drogas', 'controlConsumoDrogas2024')
 	];
 
 	licitacionesSolares = [
