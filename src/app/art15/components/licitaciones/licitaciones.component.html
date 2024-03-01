@@ -1,6 +1,30 @@
 <main class="OCM-dark-teme">
 	<h2 class="OCM-title-dark">Licitaciones</h2>
 
+	<section class="OCM-flex OCM-flex--center">
+		<button class="OCM-button-container OCM-button" type="button" (click)="appOCM()">App OCM</button>
+		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('todas')">Todas</button>
+		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('ayuntamiento')">
+			Fondos propios del Ayuntamiento
+		</button>
+		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('cee')">
+			Con subvención CEE
+		</button>
+		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('gobierno')">
+			Gobierno de España
+		</button>
+		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('junta')">
+			Junta de Andalucía
+		</button>
+		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('diputacion')">
+			Diputación Provincial de Cádiz
+		</button>
+		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('subasta')">
+			Subastas Solares y Edificaciones Ruinosas
+		</button>
+	</section>
+	(click)="volver()"
+
 	<section>
 		<div class="InputContainer">
 			<svg
@@ -20,13 +44,14 @@
 			</svg>
 			<input type="text" [(ngModel)]="searchText" (input)="filterData()" placeholder="Buscar licitaciones..." />
 		</div>
+
 		@if (canAddRowSupabase) {
 			<button class="OCM-button" (click)="addNew()">Añadir licitación</button>
 		}
 	</section>
 
 	<section class="reveal-animation">
-		<header class="OCM-subtitle-dark OCM-subtitle-dark--left">
+		<!-- <header class="OCM-subtitle-dark OCM-subtitle-dark--left">
 			Aplicación consulta de datos Plataforma Contratación del Sector Público
 		</header>
 		<section class="OCM-grid">
@@ -35,53 +60,82 @@
 					<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 				</section>
 			}
-		</section>
+		</section> -->
+		@if (isAyuntamiento) {
+			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">Con fondos propios del Ayuntamiento</header>
 
-		<header class="OCM-subtitle-dark OCM-subtitle-dark--left">Con subvención CEE</header>
-		<section class="gridMenu">
-			@for (menu of licitacionesCEE; track menu) {
-				<section [class.highlight]="menu.highlighted">
-					<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-				</section>
-			}
-		</section>
+			<!-- <section class="OCM-flex OCM-flex--center">
+				<button class="OCM-button-container OCM-button" type="button" (click)="appOCM()">App OCM</button>
+			</section> -->
 
-		<header class="OCM-subtitle-dark OCM-subtitle-dark--left">Con subvención Diputación Provincial de Cádiz</header>
-		<section class="gridMenu">
-			@for (menu of licitacionesDiputacion; track menu) {
-				<section [class.highlight]="menu.highlighted">
-					<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-				</section>
-			}
-		</section>
+			<section class="gridMenu">
+				@for (menu of licitacionesAyto; track menu) {
+					<section [class.highlight]="menu.highlighted">
+						<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+					</section>
+				}
+			</section>
+		}
 
-		<header class="OCM-subtitle-dark OCM-subtitle-dark--left">Con fondos propios del Ayuntamiento</header>
-		<section class="gridMenu">
-			@for (menu of licitacionesAyto; track menu) {
-				<section [class.highlight]="menu.highlighted">
-					<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-				</section>
-			}
-		</section>
+		@if (isCEE) {
+			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">Con subvención CEE</header>
+			<section class="gridMenu">
+				@for (menu of licitacionesCEE; track menu) {
+					<section [class.highlight]="menu.highlighted">
+						<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+					</section>
+				}
+			</section>
+		}
 
-		<header class="OCM-subtitle-dark OCM-subtitle-dark--left">
-			Subastas Registro Municipal de Solares y Edificaciones Ruinosas
-		</header>
-		<section class="gridMenu">
-			@for (menu of licitacionesSolares; track menu) {
-				<section [class.highlight]="menu.highlighted">
-					<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-				</section>
-			}
-		</section>
+		@if (isDiputacion) {
+			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">Con subvención Diputación Provincial de Cádiz</header>
+			<section class="gridMenu">
+				@for (menu of licitacionesDiputacion; track menu) {
+					<section [class.highlight]="menu.highlighted">
+						<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+					</section>
+				}
+			</section>
+		}
 
-		<header class="OCM-subtitle-dark OCM-subtitle-dark--left">Con subvención Gobierno de España</header>
-		<section class="gridMenu">
-			@for (menu of licitacionesESP; track menu) {
-				<section [class.highlight]="menu.highlighted">
-					<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-				</section>
-			}
-		</section>
+		@if (isGobierno) {
+			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">Con subvención Gobierno de España</header>
+			<section class="gridMenu">
+				@for (menu of licitacionesESP; track menu) {
+					<section [class.highlight]="menu.highlighted">
+						<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+					</section>
+				} @empty {
+					<p class="OCM-subtitle-dark s">No hay licitaciones con subvención del Gobierno de España</p>
+				}
+			</section>
+		}
+
+		@if (isJunta) {
+			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">Con subvención Junta de Andalucía</header>
+			<section class="gridMenu">
+				@for (menu of licitacionesESP; track menu) {
+					<section [class.highlight]="menu.highlighted">
+						<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+					</section>
+				} @empty {
+					<p class="OCM-subtitle-dark s">No hay licitaciones con subvención de la Junta de Andalucía</p>
+				}
+			</section>
+		}
+
+		@if (isSubasta) {
+			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">
+				Subastas Registro Municipal de Solares y Edificaciones Ruinosas
+			</header>
+			<section class="gridMenu">
+				@for (menu of licitacionesSolares; track menu) {
+					<section [class.highlight]="menu.highlighted">
+						<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+					</section>
+				}
+			</section>
+		}
 	</section>
 </main>

@@ -19,24 +19,29 @@ import { TitleStoreService } from '@services/titleStore.service';
 })
 export default class LicitacionesComponent {
 	private _router = inject(Router);
-	public searchText: string;
 
-	public canAddRowSupabase = environment.canAddRowSupabase;
 	private _tagStoreService = inject(TagStoreService);
 	private _titleStoreService = inject(TitleStoreService);
 	private _pathStoreService = inject(PathStoreService);
-
 	private getAllLicitaciones() {
 		return [...this.licitacionesCEE, ...this.licitacionesESP, ...this.licitacionesDiputacion, ...this.licitacionesAyto];
 	}
+	public searchText: string;
+	public canAddRowSupabase = environment.canAddRowSupabase;
+	public isAyuntamiento = true;
+	public isDiputacion = false;
+	public isJunta = false;
+	public isGobierno = false;
+	public isCEE = false;
+	public isSubasta = false;
 
-	OCM = [
-		{
-			titulo: 'APP OCM',
-			rutaImagen: environment.pathImgSupabase + 'appConOCM.jpg',
-			funcion: () => window.open('https://con.ocmjerez.org/', '_blank')
-		}
-	];
+	// OCM = [
+	// 	{
+	// 		titulo: 'APP OCM',
+	// 		rutaImagen: environment.pathImgSupabase + 'appConOCM.jpg',
+	// 		funcion: () => window.open('https://con.ocmjerez.org/', '_blank')
+	// 	}
+	// ];
 
 	licitacionesCEE = [
 		this.createCard('Reordenación Puerta Sevilla-Puerta Santiago 1ª fase', 'puertaSevilla2023'),
@@ -144,5 +149,73 @@ export default class LicitacionesComponent {
 
 	addNew(): void {
 		this._router.navigateByUrl('/addNewLicitacion');
+	}
+
+	appOCM() {
+		window.open('https://con.ocmjerez.org/', '_blank');
+	}
+
+	private estados = {
+		todas: { isCEE: true, isDiputacion: true, isAyuntamiento: true, isGobierno: true, isJunta: true, isSubasta: true },
+		cee: {
+			isCEE: true,
+			isDiputacion: false,
+			isAyuntamiento: false,
+			isGobierno: false,
+			isJunta: false,
+			isSubasta: false
+		},
+		diputacion: {
+			isCEE: false,
+			isDiputacion: true,
+			isAyuntamiento: false,
+			isGobierno: false,
+			isJunta: false,
+			isSubasta: false
+		},
+		ayuntamiento: {
+			isCEE: false,
+			isDiputacion: false,
+			isAyuntamiento: true,
+			isGobierno: false,
+			isJunta: false,
+			isSubasta: false
+		},
+		gobierno: {
+			isCEE: false,
+			isDiputacion: false,
+			isAyuntamiento: false,
+			isGobierno: true,
+			isJunta: false,
+			isSubasta: false
+		},
+		junta: {
+			isCEE: false,
+			isDiputacion: false,
+			isAyuntamiento: false,
+			isGobierno: false,
+			isJunta: true,
+			isSubasta: false
+		},
+		subasta: {
+			isCEE: false,
+			isDiputacion: false,
+			isAyuntamiento: false,
+			isGobierno: false,
+			isJunta: false,
+			isSubasta: true
+		}
+	};
+
+	cambiarEstado(tipo: string) {
+		// Establece todos los estados a falso inicialmente
+		Object.keys(this.estados[tipo]).forEach((key) => {
+			this[key] = false;
+		});
+
+		// Establece el estado especificado a verdadero
+		Object.keys(this.estados[tipo]).forEach((key) => {
+			this[key] = this.estados[tipo][key];
+		});
 	}
 }
