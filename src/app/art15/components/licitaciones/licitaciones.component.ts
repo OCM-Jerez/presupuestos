@@ -1,4 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { NgClass } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -13,7 +15,7 @@ import { TitleStoreService } from '@services/titleStore.service';
 @Component({
 	selector: 'app-licitaciones',
 	standalone: true,
-	imports: [FormsModule, CardMenuComponent],
+	imports: [FormsModule, CardMenuComponent, NgClass],
 	templateUrl: './licitaciones.component.html',
 	styleUrls: ['./licitaciones.component.scss']
 })
@@ -37,6 +39,12 @@ export default class LicitacionesComponent implements OnInit {
 	public isGobierno = false;
 	public isCEE = false;
 	public isSolares = false;
+
+	public isTodasAyto = true;
+	public isPendientesAyto = false;
+	public isLicitacionesAyto = false;
+	public isAdjudicadasAyto = false;
+	public isTerminadasAyto = false;
 
 	// OCM = [
 	// 	{
@@ -249,6 +257,11 @@ export default class LicitacionesComponent implements OnInit {
 		switch (tipo) {
 			case 'ayto':
 				this.licitacionesAyto = this.licitacionesAytoAll;
+				this.isTodasAyto = true;
+				this.isLicitacionesAyto = false;
+				this.isTerminadasAyto = false;
+				this.isAdjudicadasAyto = false;
+				this.isPendientesAyto = false;
 				break;
 			case 'cee':
 				this.licitacionesCEE = this.licitacionesCEEAll;
@@ -265,7 +278,13 @@ export default class LicitacionesComponent implements OnInit {
 	pendientes(tipo: string) {
 		switch (tipo) {
 			case 'ayto':
+				this.isTodasAyto = false;
 				this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.etapa === 'pendiente');
+				this.isLicitacionesAyto = false;
+				this.isTerminadasAyto = false;
+				this.isAdjudicadasAyto = false;
+				this.isPendientesAyto = true;
+
 				break;
 			case 'cee':
 				this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.etapa === 'pendiente');
@@ -282,6 +301,11 @@ export default class LicitacionesComponent implements OnInit {
 		switch (tipo) {
 			case 'ayto':
 				this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.etapa === 'licitada');
+				this.isTodasAyto = false;
+				this.isLicitacionesAyto = true;
+				this.isTerminadasAyto = false;
+				this.isAdjudicadasAyto = false;
+				this.isPendientesAyto = false;
 				break;
 			case 'cee':
 				this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.etapa === 'licitada');
@@ -300,6 +324,11 @@ export default class LicitacionesComponent implements OnInit {
 		switch (tipo) {
 			case 'ayto':
 				this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.etapa === 'adjudicada');
+				this.isTodasAyto = false;
+				this.isLicitacionesAyto = false;
+				this.isTerminadasAyto = false;
+				this.isAdjudicadasAyto = true;
+				this.isPendientesAyto = false;
 				break;
 			case 'cee':
 				this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.etapa === 'adjudicada');
@@ -316,6 +345,11 @@ export default class LicitacionesComponent implements OnInit {
 		switch (tipo) {
 			case 'ayto':
 				this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.etapa === 'terminada');
+				this.isTodasAyto = false;
+				this.isLicitacionesAyto = false;
+				this.isTerminadasAyto = true;
+				this.isAdjudicadasAyto = false;
+				this.isPendientesAyto = false;
 				break;
 			case 'cee':
 				this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.etapa === 'terminada');

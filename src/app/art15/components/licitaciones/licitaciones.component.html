@@ -4,22 +4,52 @@
 	<section class="OCM-flex OCM-flex--center">
 		<button class="OCM-button-container OCM-button" type="button" (click)="appOCM()">App OCM</button>
 		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('todas')">Todas</button>
-		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('ayuntamiento')">
+		<button
+			class="OCM-button-container OCM-button"
+			[ngClass]="isAyuntamiento ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
+			type="button"
+			(click)="cambiarEstado('ayuntamiento')"
+		>
 			Fondos propios del Ayuntamiento
 		</button>
-		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('cee')">
+		<button
+			class="OCM-button-container OCM-button"
+			type="button"
+			[ngClass]="isCEE ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
+			(click)="cambiarEstado('cee')"
+		>
 			Con subvención CEE
 		</button>
-		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('gobierno')">
+		<button
+			class="OCM-button-container OCM-button"
+			[ngClass]="isGobierno ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
+			type="button"
+			(click)="cambiarEstado('gobierno')"
+		>
 			Gobierno de España
 		</button>
-		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('junta')">
+		<button
+			class="OCM-button-container OCM-button"
+			[ngClass]="isJunta ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
+			type="button"
+			(click)="cambiarEstado('junta')"
+		>
 			Junta de Andalucía
 		</button>
-		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('diputacion')">
+		<button
+			class="OCM-button-container OCM-button"
+			[ngClass]="isDiputacion ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
+			type="button"
+			(click)="cambiarEstado('diputacion')"
+		>
 			Diputación Provincial de Cádiz
 		</button>
-		<button class="OCM-button-container OCM-button" type="button" (click)="cambiarEstado('solares')">
+		<button
+			class="OCM-button-container OCM-button"
+			[ngClass]="isSolares ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
+			type="button"
+			(click)="cambiarEstado('solares')"
+		>
 			Subastas Solares y Edificaciones Ruinosas
 		</button>
 	</section>
@@ -51,25 +81,50 @@
 	</section>
 
 	<section class="reveal-animation">
-		<!-- <header class="OCM-subtitle-dark OCM-subtitle-dark--left">
-			Aplicación consulta de datos Plataforma Contratación del Sector Público
-		</header>
-		<section class="OCM-grid">
-			@for (menu of OCM; track menu) {
-				<section>
-					<app-card-menu [titulo]="menu.titulo" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
-				</section>
-			}
-		</section> -->
 		@if (isAyuntamiento) {
 			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">Con fondos propios del Ayuntamiento</header>
 
 			<section class="OCM-flex OCM-flex--center">
-				<button class="OCM-button-container OCM-button" type="button" (click)="todas('ayto')">Todas</button>
-				<button class="OCM-button-container OCM-button" type="button" (click)="pendientes('ayto')">Pendientes</button>
-				<button class="OCM-button-container OCM-button" type="button" (click)="licitadas('ayto')">Licitadas</button>
-				<button class="OCM-button-container OCM-button" type="button" (click)="adjudicadas('ayto')">Adjudicadas</button>
-				<button class="OCM-button-container OCM-button" type="button" (click)="terminadas('ayto')">Terminadas</button>
+				<button
+					class="OCM-button-container OCM-button"
+					[ngClass]="isTodasAyto ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
+					type="button"
+					(click)="todas('ayto')"
+				>
+					Todas
+				</button>
+				<button
+					class="OCM-button-container OCM-button"
+					[ngClass]="isPendientesAyto ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
+					type="button"
+					(click)="pendientes('ayto')"
+				>
+					Pendientes
+				</button>
+				<button
+					class="OCM-button-container OCM-button"
+					[ngClass]="isLicitacionesAyto ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
+					type="button"
+					(click)="licitadas('ayto')"
+				>
+					Licitadas
+				</button>
+				<button
+					class="OCM-button-container OCM-button"
+					[ngClass]="isAdjudicadasAyto ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
+					type="button"
+					(click)="adjudicadas('ayto')"
+				>
+					Adjudicadas
+				</button>
+				<button
+					class="OCM-button-container OCM-button"
+					[ngClass]="isTerminadasAyto ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
+					type="button"
+					(click)="terminadas('ayto')"
+				>
+					Terminadas
+				</button>
 			</section>
 
 			<section class="gridMenu">

@@ -24,6 +24,18 @@
 		cursor: pointer;
 	}
 
+	.OCM-button-selected {
+		color: #e9e4e4;
+		font-family: var(--fuente-principal);
+		font-weight: 700;
+		font-size: clamp(0.7rem, 1vw + 0.2rem, 1rem);
+		padding: 4px;
+		border-radius: 0.5em;
+		background: #610f0f;
+		margin-left: 4px;
+		cursor: pointer;
+	}
+
 	.OCM-btnExpand {
 		margin-left: 20px;
 		margin-bottom: 5px;
@@ -53,6 +65,7 @@
 
 	.OCM-button:active {
 		color: rgb(249, 26, 26);
+		transform: scale(1.5);
 		box-shadow:
 			inset 4px 4px 12px #c5c5c5,
 			inset -4px -4px 12px #ffffff;
