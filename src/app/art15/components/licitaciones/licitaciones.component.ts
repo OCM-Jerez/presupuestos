@@ -52,7 +52,7 @@ export default class LicitacionesComponent implements OnInit {
 		this.createCard('Servicios de vigilancia de seguridad y de auxiliares de control', 'vigilancia2024', 'licitada'),
 		this.createCard('Instalación aire acondicionado Teatro Villmarta', 'climatizacionVillamarta2024', 'licitada'),
 		this.createCard('Suministro de alimentos con destino Parque Zoológico', 'alimentosZoo2024', 'licitada'),
-		this.createCard('Renovación de Licencias Cytomic. Ciberseguridad', 'ciberseguridad2024', 'licitada'),
+		this.createCard('Renovación de Licencias Cytomic. Ciberseguridad', 'ciberseguridad2024', 'terminada'),
 		this.createCard(
 			'Servicio y suministro para el control del consumo de drogas',
 			'controlConsumoDrogas2024',
