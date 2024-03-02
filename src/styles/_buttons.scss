@@ -78,4 +78,12 @@
 }
 
 @media screen and (max-width: 576px) {
+	.OCM-button-container {
+		margin-top: 2px;
+	}
+
+	.OCM-button {
+		padding: 1px;
+		margin-left: 1px;
+	}
 }

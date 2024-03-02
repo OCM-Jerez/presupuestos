@@ -85,4 +85,10 @@
 	.OCM-imgGraph {
 		margin: 4px;
 	}
+
+	.OCM-flex {
+		&--center {
+			gap: 1px;
+		}
+	}
 }
