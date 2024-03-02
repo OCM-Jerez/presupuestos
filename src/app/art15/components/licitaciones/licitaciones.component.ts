@@ -24,35 +24,18 @@ export default class LicitacionesComponent implements OnInit {
 	private _tagStoreService = inject(TagStoreService);
 	private _titleStoreService = inject(TitleStoreService);
 	private _pathStoreService = inject(PathStoreService);
-	private getAllLicitaciones() {
+	public getAllLicitaciones() {
 		return [...this.licitacionesCEE, ...this.licitacionesESP, ...this.licitacionesDiputacion, ...this.licitacionesAyto];
 	}
+	public licitacionesAll = [];
 	public licitacionesAyto = [];
 	public licitacionesCEE = [];
 	public licitacionesDiputacion = [];
 	public licitacionesSolares = [];
 	public searchText: string;
 	public canAddRowSupabase = environment.canAddRowSupabase;
-	public isAyuntamiento = true;
-	public isDiputacion = false;
-	public isJunta = false;
-	public isGobierno = false;
-	public isCEE = false;
-	public isSolares = false;
-
-	public isTodasAyto = true;
-	public isPendientesAyto = false;
-	public isLicitacionesAyto = false;
-	public isAdjudicadasAyto = false;
-	public isTerminadasAyto = false;
-
-	// OCM = [
-	// 	{
-	// 		titulo: 'APP OCM',
-	// 		rutaImagen: environment.pathImgSupabase + 'appConOCM.jpg',
-	// 		funcion: () => window.open('https://con.ocmjerez.org/', '_blank')
-	// 	}
-	// ];
+	public selectedButton = 'ayuntamiento';
+	public selectedButtonClasification = 'ayuntamientoTodas';
 
 	licitacionesAytoAll = [
 		this.createCard('Recogida residuos + limpieza viaria', 'recogidaResiduos2019', 'adjudicada'),
@@ -105,7 +88,7 @@ export default class LicitacionesComponent implements OnInit {
 		this.createCard('Suministro de software BIM (Building Information Modeling) ', 'softwareBIM2023', 'adjudicada'),
 		this.createCard('Suministro de un autobús eléctrico 7,50 metros', 'microbusElectrico2023', 'adjudicada'),
 		this.createCard('Suministro de equipos de topografía', 'equiposTopografia2023', 'adjudicada'),
-		this.createCard('Espacios de sombra en Plaza Belén', 'plazaBelen2023', 'adjudicada'),
+		this.createCard('Espacios de sombra en Plaza Belén', 'plazaBelen2023', 'pendiente'),
 		this.createCard('Reparación cubierta sala Pescaderia Vieja', 'salaPescaderia2023', 'adjudicada')
 	];
 
@@ -142,6 +125,7 @@ export default class LicitacionesComponent implements OnInit {
 		this.licitacionesCEE = this.licitacionesCEEAll;
 		this.licitacionesDiputacion = this.licitacionesDiputacionAll;
 		this.licitacionesSolares = this.licitacionesSolaresAll;
+		this.licitacionesAll = this.getAllLicitaciones();
 	}
 
 	createCard(title: string, tag: string, etapa?: string) {
@@ -242,6 +226,7 @@ export default class LicitacionesComponent implements OnInit {
 	};
 
 	cambiarEstado(tipo: string) {
+		this.selectedButton = tipo;
 		// Establece todos los estados a falso inicialmente
 		Object.keys(this.estados[tipo]).forEach((key) => {
 			this[key] = false;
@@ -254,14 +239,13 @@ export default class LicitacionesComponent implements OnInit {
 	}
 
 	todas(tipo: string) {
+		this.selectedButtonClasification = tipo + 'Todas';
 		switch (tipo) {
-			case 'ayto':
+			case 'todas':
+				this.licitacionesAll = this.getAllLicitaciones();
+				break;
+			case 'ayuntamiento':
 				this.licitacionesAyto = this.licitacionesAytoAll;
-				this.isTodasAyto = true;
-				this.isLicitacionesAyto = false;
-				this.isTerminadasAyto = false;
-				this.isAdjudicadasAyto = false;
-				this.isPendientesAyto = false;
 				break;
 			case 'cee':
 				this.licitacionesCEE = this.licitacionesCEEAll;
@@ -276,15 +260,14 @@ export default class LicitacionesComponent implements OnInit {
 	}
 
 	pendientes(tipo: string) {
+		this.selectedButtonClasification = tipo + 'Pendientes';
 		switch (tipo) {
-			case 'ayto':
-				this.isTodasAyto = false;
+			case 'todas':
+				this.licitacionesAll = this.getAllLicitaciones();
+				this.licitacionesAll = this.licitacionesAll.filter((licitacion) => licitacion.etapa === 'pendiente');
+				break;
+			case 'ayuntamiento':
 				this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.etapa === 'pendiente');
-				this.isLicitacionesAyto = false;
-				this.isTerminadasAyto = false;
-				this.isAdjudicadasAyto = false;
-				this.isPendientesAyto = true;
-
 				break;
 			case 'cee':
 				this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.etapa === 'pendiente');
@@ -298,14 +281,14 @@ export default class LicitacionesComponent implements OnInit {
 	}
 
 	licitadas(tipo: string) {
+		this.selectedButtonClasification = tipo + 'Licitadas';
 		switch (tipo) {
-			case 'ayto':
+			case 'todas':
+				this.licitacionesAll = this.getAllLicitaciones();
+				this.licitacionesAll = this.licitacionesAll.filter((licitacion) => licitacion.etapa === 'licitada');
+				break;
+			case 'ayuntamiento':
 				this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.etapa === 'licitada');
-				this.isTodasAyto = false;
-				this.isLicitacionesAyto = true;
-				this.isTerminadasAyto = false;
-				this.isAdjudicadasAyto = false;
-				this.isPendientesAyto = false;
 				break;
 			case 'cee':
 				this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.etapa === 'licitada');
@@ -321,14 +304,14 @@ export default class LicitacionesComponent implements OnInit {
 		}
 	}
 	adjudicadas(tipo: string) {
+		this.selectedButtonClasification = tipo + 'Adjudicadas';
 		switch (tipo) {
-			case 'ayto':
+			case 'todas':
+				this.licitacionesAll = this.getAllLicitaciones();
+				this.licitacionesAll = this.licitacionesAll.filter((licitacion) => licitacion.etapa === 'adjudicada');
+				break;
+			case 'ayuntamiento':
 				this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.etapa === 'adjudicada');
-				this.isTodasAyto = false;
-				this.isLicitacionesAyto = false;
-				this.isTerminadasAyto = false;
-				this.isAdjudicadasAyto = true;
-				this.isPendientesAyto = false;
 				break;
 			case 'cee':
 				this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.etapa === 'adjudicada');
@@ -342,14 +325,14 @@ export default class LicitacionesComponent implements OnInit {
 	}
 
 	terminadas(tipo: string) {
+		this.selectedButtonClasification = tipo + 'Terminadas';
 		switch (tipo) {
-			case 'ayto':
+			case 'todas':
+				this.licitacionesAll = this.getAllLicitaciones();
+				this.licitacionesAll = this.licitacionesAll.filter((licitacion) => licitacion.etapa === 'terminada');
+				break;
+			case 'ayuntamiento':
 				this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.etapa === 'terminada');
-				this.isTodasAyto = false;
-				this.isLicitacionesAyto = false;
-				this.isTerminadasAyto = true;
-				this.isAdjudicadasAyto = false;
-				this.isPendientesAyto = false;
 				break;
 			case 'cee':
 				this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.etapa === 'terminada');
