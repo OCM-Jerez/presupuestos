@@ -239,7 +239,6 @@ export default class LicitacionesComponent implements OnInit {
 	}
 
 	todas(tipo: string) {
-		this.selectedButtonClasification = tipo + 'Todas';
 		switch (tipo) {
 			case 'todas':
 				this.licitacionesAll = this.getAllLicitaciones();
@@ -259,91 +258,23 @@ export default class LicitacionesComponent implements OnInit {
 		}
 	}
 
-	pendientes(tipo: string) {
-		this.selectedButtonClasification = tipo + 'Pendientes';
+	filterByTipoEstado(tipo: string, estado?: string) {
+		this.selectedButtonClasification = tipo + estado;
 		switch (tipo) {
 			case 'todas':
 				this.licitacionesAll = this.getAllLicitaciones();
-				this.licitacionesAll = this.licitacionesAll.filter((licitacion) => licitacion.etapa === 'pendiente');
+				this.licitacionesAll = this.licitacionesAll.filter((licitacion) => licitacion.etapa === estado);
 				break;
 			case 'ayuntamiento':
-				this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.etapa === 'pendiente');
+				this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.etapa === estado);
 				break;
 			case 'cee':
-				this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.etapa === 'pendiente');
+				this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.etapa === estado);
 				break;
 			case 'diputacion':
 				this.licitacionesDiputacion = this.licitacionesDiputacionAll.filter(
-					(licitacion) => licitacion.etapa === 'pendiente'
+					(licitacion) => licitacion.etapa === estado
 				);
-				break;
-		}
-	}
-
-	licitadas(tipo: string) {
-		this.selectedButtonClasification = tipo + 'Licitadas';
-		switch (tipo) {
-			case 'todas':
-				this.licitacionesAll = this.getAllLicitaciones();
-				this.licitacionesAll = this.licitacionesAll.filter((licitacion) => licitacion.etapa === 'licitada');
-				break;
-			case 'ayuntamiento':
-				this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.etapa === 'licitada');
-				break;
-			case 'cee':
-				this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.etapa === 'licitada');
-				break;
-			case 'diputacion':
-				this.licitacionesDiputacion = this.licitacionesDiputacionAll.filter(
-					(licitacion) => licitacion.etapa === 'licitada'
-				);
-				break;
-			case 'solares':
-				this.licitacionesSolares = this.licitacionesSolaresAll.filter((licitacion) => licitacion.etapa === 'licitada');
-				break;
-		}
-	}
-	adjudicadas(tipo: string) {
-		this.selectedButtonClasification = tipo + 'Adjudicadas';
-		switch (tipo) {
-			case 'todas':
-				this.licitacionesAll = this.getAllLicitaciones();
-				this.licitacionesAll = this.licitacionesAll.filter((licitacion) => licitacion.etapa === 'adjudicada');
-				break;
-			case 'ayuntamiento':
-				this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.etapa === 'adjudicada');
-				break;
-			case 'cee':
-				this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.etapa === 'adjudicada');
-				break;
-			case 'diputacion':
-				this.licitacionesDiputacion = this.licitacionesDiputacionAll.filter(
-					(licitacion) => licitacion.etapa === 'adjudicada'
-				);
-				break;
-		}
-	}
-
-	terminadas(tipo: string) {
-		this.selectedButtonClasification = tipo + 'Terminadas';
-		switch (tipo) {
-			case 'todas':
-				this.licitacionesAll = this.getAllLicitaciones();
-				this.licitacionesAll = this.licitacionesAll.filter((licitacion) => licitacion.etapa === 'terminada');
-				break;
-			case 'ayuntamiento':
-				this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.etapa === 'terminada');
-				break;
-			case 'cee':
-				this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.etapa === 'terminada');
-				break;
-			case 'diputacion':
-				this.licitacionesDiputacion = this.licitacionesDiputacionAll.filter(
-					(licitacion) => licitacion.etapa === 'terminada'
-				);
-				break;
-			case 'solares':
-				this.licitacionesSolares = this.licitacionesSolaresAll.filter((licitacion) => licitacion.etapa === 'terminada');
 				break;
 		}
 	}
