@@ -3,62 +3,17 @@
 
 	<section class="OCM-flex OCM-flex--center">
 		<button class="OCM-button-container OCM-button" type="button" (click)="appOCM()">App OCM</button>
-		<button
-			class="OCM-button-container OCM-button"
-			[ngClass]="selectedButton === 'todas' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
-			type="button"
-			(click)="cambiarEstado('todas')"
-		>
-			Todas
-		</button>
-		<button
-			class="OCM-button-container OCM-button"
-			[ngClass]="selectedButton === 'ayuntamiento' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
-			type="button"
-			(click)="cambiarEstado('ayuntamiento')"
-		>
-			Ayuntamiento
-		</button>
-		<button
-			class="OCM-button-container OCM-button"
-			type="button"
-			[ngClass]="selectedButton === 'cee' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
-			(click)="cambiarEstado('cee')"
-		>
-			CEE
-		</button>
-		<button
-			class="OCM-button-container OCM-button"
-			[ngClass]="selectedButton === 'gobierno' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
-			type="button"
-			(click)="cambiarEstado('gobierno')"
-		>
-			Gobierno de España
-		</button>
-		<button
-			class="OCM-button-container OCM-button"
-			[ngClass]="selectedButton === 'junta' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
-			type="button"
-			(click)="cambiarEstado('junta')"
-		>
-			Junta Andalucía
-		</button>
-		<button
-			class="OCM-button-container OCM-button"
-			[ngClass]="selectedButton === 'diputacion' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
-			type="button"
-			(click)="cambiarEstado('diputacion')"
-		>
-			Diputación
-		</button>
-		<button
-			class="OCM-button-container OCM-button"
-			[ngClass]="selectedButton === 'solares' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
-			type="button"
-			(click)="cambiarEstado('solares')"
-		>
-			Subastas Solares
-		</button>
+		<ng-container>
+			@for (btn of botonesTipos; track btn) {
+				<button
+					class="OCM-button-container OCM-button"
+					[ngClass]="selectedButton === btn.tipo ? 'OCM-button-selected' : 'OCM-button-container OCM-button'"
+					(click)="cambiarEstado(btn.tipo)"
+				>
+					{{ btn.label }}
+				</button>
+			}
+		</ng-container>
 	</section>
 
 	<section>
@@ -91,62 +46,21 @@
 			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">Todas</header>
 
 			<section class="OCM-flex OCM-flex--center">
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'todasTodas' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="todas('todas')"
-				>
-					Todas
-				</button>
-
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'todaspendiente' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('todas', 'pendiente')"
-				>
-					Pendientes
-				</button>
-
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'todaslicitada' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('todas', 'licitada')"
-				>
-					Licitadas
-				</button>
-
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'todasadjudicada'
-							? 'OCM-button-selected'
-							: 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('todas', 'adjudicada')"
-				>
-					Adjudicadas
-				</button>
-
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'todasterminada' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('todas', 'terminada')"
-				>
-					Terminadas
-				</button>
+				<ng-container>
+					@for (btn of botonesTodas; track btn) {
+						<button
+							class="OCM-button-container OCM-button"
+							[ngClass]="
+								selectedButtonClasification === btn.tipo + btn.estado
+									? 'OCM-button-selected'
+									: 'OCM-button-container OCM-button'
+							"
+							(click)="filterByTipoEstado(btn.tipo, btn.estado)"
+						>
+							{{ btn.label }}
+						</button>
+					}
+				</ng-container>
 			</section>
 
 			<section class="gridMenu">
@@ -162,66 +76,21 @@
 			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">Con fondos propios del Ayuntamiento</header>
 
 			<section class="OCM-flex OCM-flex--center">
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'ayuntamientoTodas'
-							? 'OCM-button-selected'
-							: 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="todas('ayuntamiento')"
-				>
-					Todas
-				</button>
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'ayuntamientopendiente'
-							? 'OCM-button-selected'
-							: 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('ayuntamiento', 'pendiente')"
-				>
-					Pendientes
-				</button>
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'ayuntamientolicitada'
-							? 'OCM-button-selected'
-							: 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('ayuntamiento', 'licitada')"
-				>
-					Licitadas
-				</button>
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'ayuntamientoadjudicada'
-							? 'OCM-button-selected'
-							: 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('ayuntamiento', 'adjudicada')"
-				>
-					Adjudicadas
-				</button>
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'ayuntamientoterminada'
-							? 'OCM-button-selected'
-							: 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('ayuntamiento', 'terminada')"
-				>
-					Terminadas
-				</button>
+				<ng-container>
+					@for (btn of botonesAyuntamiento; track btn) {
+						<button
+							class="OCM-button-container OCM-button"
+							[ngClass]="
+								selectedButtonClasification === btn.tipo + btn.estado
+									? 'OCM-button-selected'
+									: 'OCM-button-container OCM-button'
+							"
+							(click)="filterByTipoEstado(btn.tipo, btn.estado)"
+						>
+							{{ btn.label }}
+						</button>
+					}
+				</ng-container>
 			</section>
 
 			<section class="gridMenu">
@@ -236,56 +105,21 @@
 		@if (selectedButton === 'cee') {
 			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">Con subvención CEE</header>
 			<section class="OCM-flex OCM-flex--center">
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'ceeTodas' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="todas('cee')"
-				>
-					Todas
-				</button>
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'ceependiente' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('cee', 'pendiente')"
-				>
-					Pendientes
-				</button>
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'ceelicitada' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('cee', 'licitada')"
-				>
-					Licitadas
-				</button>
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'ceeajudicada' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('cee', 'adjudicada')"
-				>
-					Adjudicadas
-				</button>
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'ceeterminada' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('cee', 'terminada')"
-				>
-					Terminadas
-				</button>
+				<ng-container>
+					@for (btn of botonesCEE; track btn) {
+						<button
+							class="OCM-button-container OCM-button"
+							[ngClass]="
+								selectedButtonClasification === btn.tipo + btn.estado
+									? 'OCM-button-selected'
+									: 'OCM-button-container OCM-button'
+							"
+							(click)="filterByTipoEstado(btn.tipo, btn.estado)"
+						>
+							{{ btn.label }}
+						</button>
+					}
+				</ng-container>
 			</section>
 
 			<section class="gridMenu">
@@ -300,66 +134,21 @@
 		@if (selectedButton === 'diputacion') {
 			<header class="OCM-subtitle-dark OCM-subtitle-dark--center">Con subvención Diputación Provincial de Cádiz</header>
 			<section class="OCM-flex OCM-flex--center">
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'diputacionTodas'
-							? 'OCM-button-selected'
-							: 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="todas('diputacion')"
-				>
-					Todas
-				</button>
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'diputacionpendiente'
-							? 'OCM-button-selected'
-							: 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('diputacion', 'pendiente')"
-				>
-					Pendientes
-				</button>
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'diputacionlicitada'
-							? 'OCM-button-selected'
-							: 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('diputacion', 'licitada')"
-				>
-					Licitadas
-				</button>
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'diputacionadjudicada'
-							? 'OCM-button-selected'
-							: 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('diputacion', 'adjudicada')"
-				>
-					Adjudicadas
-				</button>
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'diputacionterminada'
-							? 'OCM-button-selected'
-							: 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('diputacion', 'terminada')"
-				>
-					Terminadas
-				</button>
+				<ng-container>
+					@for (btn of botonesDiputacion; track btn) {
+						<button
+							class="OCM-button-container OCM-button"
+							[ngClass]="
+								selectedButtonClasification === btn.tipo + btn.estado
+									? 'OCM-button-selected'
+									: 'OCM-button-container OCM-button'
+							"
+							(click)="filterByTipoEstado(btn.tipo, btn.estado)"
+						>
+							{{ btn.label }}
+						</button>
+					}
+				</ng-container>
 			</section>
 			<section class="gridMenu">
 				@for (menu of licitacionesDiputacion; track menu) {
@@ -401,28 +190,21 @@
 				Subastas Registro Municipal de Solares y Edificaciones Ruinosas
 			</header>
 			<section class="OCM-flex OCM-flex--center">
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'solaresTodas' ? 'OCM-button-selected' : 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="todas('solares')"
-				>
-					Todas
-				</button>
-				<button
-					class="OCM-button-container OCM-button"
-					[ngClass]="
-						selectedButtonClasification === 'solaresterminada'
-							? 'OCM-button-selected'
-							: 'OCM-button-container OCM-button'
-					"
-					type="button"
-					(click)="filterByTipoEstado('solares', 'terminada')"
-				>
-					Terminadas
-				</button>
+				<ng-container>
+					@for (btn of botonesSolares; track btn) {
+						<button
+							class="OCM-button-container OCM-button"
+							[ngClass]="
+								selectedButtonClasification === btn.tipo + btn.estado
+									? 'OCM-button-selected'
+									: 'OCM-button-container OCM-button'
+							"
+							(click)="filterByTipoEstado(btn.tipo, btn.estado)"
+						>
+							{{ btn.label }}
+						</button>
+					}
+				</ng-container>
 			</section>
 			<section class="gridMenu">
 				@for (menu of licitacionesSolares; track menu) {

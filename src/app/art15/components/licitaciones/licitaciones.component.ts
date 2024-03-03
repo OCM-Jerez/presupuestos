@@ -35,7 +35,54 @@ export default class LicitacionesComponent implements OnInit {
 	public searchText: string;
 	public canAddRowSupabase = environment.canAddRowSupabase;
 	public selectedButton = 'ayuntamiento';
-	public selectedButtonClasification = 'ayuntamientoTodas';
+	public selectedButtonClasification = 'ayuntamientotodas';
+
+	botonesTipos = [
+		{ label: 'Todas', tipo: 'todas' },
+		{ label: 'Ayuntamiento', tipo: 'ayuntamiento' },
+		{ label: 'CEE', tipo: 'cee' },
+		{ label: 'Gobierno de España', tipo: 'gobierno' },
+		{ label: 'Junta Andalucía', tipo: 'junta' },
+		{ label: 'Diputación', tipo: 'diputacion' },
+		{ label: 'subasta solares', tipo: 'solares' }
+	];
+
+	botonesTodas = [
+		{ label: 'Todas', tipo: 'todas', estado: 'todas' },
+		{ label: 'Pendientes', tipo: 'todas', estado: 'pendiente' },
+		{ label: 'Adjudicadas', tipo: 'todas', estado: 'adjudicada' },
+		{ label: 'Licitadas', tipo: 'todas', estado: 'licitada' },
+		{ label: 'Terminadas', tipo: 'todas', estado: 'terminada' }
+	];
+
+	botonesAyuntamiento = [
+		{ label: 'Todas', tipo: 'ayuntamiento', estado: 'todas' },
+		{ label: 'Pendientes', tipo: 'ayuntamiento', estado: 'pendiente' },
+		{ label: 'Adjudicadas', tipo: 'ayuntamiento', estado: 'adjudicada' },
+		{ label: 'Licitadas', tipo: 'ayuntamiento', estado: 'licitada' },
+		{ label: 'Terminadas', tipo: 'ayuntamiento', estado: 'terminada' }
+	];
+
+	botonesCEE = [
+		{ label: 'Todas', tipo: 'cee', estado: 'todas' },
+		{ label: 'Pendientes', tipo: 'cee', estado: 'pendiente' },
+		{ label: 'Adjudicadas', tipo: 'cee', estado: 'adjudicada' },
+		{ label: 'Licitadas', tipo: 'cee', estado: 'licitada' },
+		{ label: 'Terminadas', tipo: 'cee', estado: 'terminada' }
+	];
+
+	botonesDiputacion = [
+		{ label: 'Todas', tipo: 'diputacion', estado: 'todas' },
+		{ label: 'Pendientes', tipo: 'diputacion', estado: 'pendiente' },
+		{ label: 'Adjudicadas', tipo: 'diputacion', estado: 'adjudicada' },
+		{ label: 'Licitadas', tipo: 'diputacion', estado: 'licitada' },
+		{ label: 'Terminadas', tipo: 'diputacion', estado: 'terminada' }
+	];
+
+	botonesSolares = [
+		{ label: 'Todas', tipo: 'solares', estado: 'todas' },
+		{ label: 'Terminadas', tipo: 'solares', estado: 'terminada' }
+	];
 
 	licitacionesAytoAll = [
 		this.createCard('Recogida residuos + limpieza viaria', 'recogidaResiduos2019', 'adjudicada'),
@@ -128,7 +175,7 @@ export default class LicitacionesComponent implements OnInit {
 		this.licitacionesAll = this.getAllLicitaciones();
 	}
 
-	createCard(title: string, tag: string, etapa?: string) {
+	createCard(title: string, tag: string, estado?: string) {
 		return {
 			title,
 			rutaImagen: environment.pathImgSupabase + tag + '.jpg',
@@ -139,7 +186,7 @@ export default class LicitacionesComponent implements OnInit {
 				this._router.navigateByUrl('licitaciones/' + tag);
 			},
 			highlighted: false,
-			etapa: etapa // Incluye 'etapa' en el objeto retornado
+			estado: estado // Incluye 'estado' en el objeto retornado
 		};
 	}
 
@@ -238,44 +285,47 @@ export default class LicitacionesComponent implements OnInit {
 		});
 	}
 
-	todas(tipo: string) {
-		switch (tipo) {
-			case 'todas':
-				this.licitacionesAll = this.getAllLicitaciones();
-				break;
-			case 'ayuntamiento':
-				this.licitacionesAyto = this.licitacionesAytoAll;
-				break;
-			case 'cee':
-				this.licitacionesCEE = this.licitacionesCEEAll;
-				break;
-			case 'diputacion':
-				this.licitacionesDiputacion = this.licitacionesDiputacionAll;
-				break;
-			case 'solares':
-				this.licitacionesSolares = this.licitacionesSolaresAll;
-				break;
-		}
-	}
-
 	filterByTipoEstado(tipo: string, estado?: string) {
-		this.selectedButtonClasification = tipo + estado;
-		switch (tipo) {
-			case 'todas':
-				this.licitacionesAll = this.getAllLicitaciones();
-				this.licitacionesAll = this.licitacionesAll.filter((licitacion) => licitacion.etapa === estado);
-				break;
-			case 'ayuntamiento':
-				this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.etapa === estado);
-				break;
-			case 'cee':
-				this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.etapa === estado);
-				break;
-			case 'diputacion':
-				this.licitacionesDiputacion = this.licitacionesDiputacionAll.filter(
-					(licitacion) => licitacion.etapa === estado
-				);
-				break;
+		if (estado !== 'todas') {
+			this.selectedButtonClasification = tipo + estado;
+			switch (tipo) {
+				case 'todas':
+					this.licitacionesAll = this.getAllLicitaciones();
+					this.licitacionesAll = this.licitacionesAll.filter((licitacion) => licitacion.estado === estado);
+					break;
+				case 'ayuntamiento':
+					this.licitacionesAyto = this.licitacionesAytoAll.filter((licitacion) => licitacion.estado === estado);
+					break;
+				case 'cee':
+					this.licitacionesCEE = this.licitacionesCEEAll.filter((licitacion) => licitacion.estado === estado);
+					break;
+				case 'diputacion':
+					this.licitacionesDiputacion = this.licitacionesDiputacionAll.filter(
+						(licitacion) => licitacion.estado === estado
+					);
+					break;
+			}
+		} else {
+			this.selectedButtonClasification = tipo + estado;
+			switch (tipo) {
+				case 'todas':
+					// this.selectedButtonClasification === 'todasTodas';
+					this.licitacionesAll = this.getAllLicitaciones();
+					break;
+				case 'ayuntamiento':
+					// this.selectedButtonClasification === 'ayuntamientotodas';
+					this.licitacionesAyto = this.licitacionesAytoAll;
+					break;
+				case 'cee':
+					this.licitacionesCEE = this.licitacionesCEEAll;
+					break;
+				case 'diputacion':
+					this.licitacionesDiputacion = this.licitacionesDiputacionAll;
+					break;
+				case 'solares':
+					this.licitacionesSolares = this.licitacionesSolaresAll;
+					break;
+			}
 		}
 	}
 }
