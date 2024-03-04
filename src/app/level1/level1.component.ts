@@ -8,6 +8,7 @@ import NoticiasComponent from '@app/commons/components/level/noticias/noticias.c
 import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
 
+import { EnsureTitleService } from '@services/ensureTitle.service';
 import { TagStoreService } from '@services/tagStore.service';
 import { TitleStoreService } from '@services/titleStore.service';
 import { PathStoreService } from '@services/pathStore.service';
@@ -26,6 +27,7 @@ import { INew } from '@interfaces/new.interface';
 })
 export default class Level1Component implements OnInit {
 	@Input() tag: string;
+	private _ensureTitleService = inject(EnsureTitleService);
 	private _pathStoreService = inject(PathStoreService);
 	private _tagStoreService = inject(TagStoreService);
 	private _titleStoreService = inject(TitleStoreService);
@@ -45,8 +47,11 @@ export default class Level1Component implements OnInit {
 					...item,
 					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
 				};
+
 				return this.createCardMenu(modifiedItem);
 			});
+
+			await this.ensureTitle();
 
 			[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 		});
@@ -70,5 +75,11 @@ export default class Level1Component implements OnInit {
 				this._router.navigateByUrl(URL);
 			}
 		};
+	}
+
+	async ensureTitle() {
+		if (!this.title) {
+			this.title = await this._ensureTitleService.ensureTitle(this.tag);
+		}
 	}
 }

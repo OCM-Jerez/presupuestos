@@ -11,16 +11,17 @@ import NoticiasComponent from '@commons/components/level/noticias/noticias.compo
 import SeguimientoSubvencionComponent from '@commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
 
 import { SupabaseService } from '@services/supabase.service';
+import { EnsureTitleService } from '@services/ensureTitle.service';
 import { TagStoreService } from '@services/tagStore.service';
 import { PathStoreService } from '@services/pathStore.service';
 import { TitleStoreService } from '@services/titleStore.service';
+import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IStep } from '@interfaces/step.interface';
 import { first } from 'rxjs';
-import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 interface IOption {
 	data: string;
@@ -56,6 +57,7 @@ interface IBarrio {
 })
 export default class LevelLastComponent implements OnInit {
 	@Input() tag: string;
+	private _ensureTitleService = inject(EnsureTitleService);
 	private _supabaseService = inject(SupabaseService);
 	private _tagStoreService = inject(TagStoreService);
 	private _titleStoreService = inject(TitleStoreService);
@@ -83,9 +85,9 @@ export default class LevelLastComponent implements OnInit {
 
 	ngOnInit() {
 		const urlSegments = this._router.url.split('/');
-		// Es ruta con parametro? Por ejemplo: path: 'licitaciones/:tag',
+		// ¿Es ruta con parametro? Por ejemplo: path: 'licitaciones/:tag',
 		if (urlSegments.length > 2) {
-			this._activatedRoute.params.pipe(first()).subscribe(({ tag }) => {
+			this._activatedRoute.params.pipe(first()).subscribe(async ({ tag }) => {
 				this.path = urlSegments[1];
 				this.tag = tag;
 				this.isLicitacion = this.path === 'licitaciones';
@@ -98,6 +100,10 @@ export default class LevelLastComponent implements OnInit {
 	}
 
 	async fetchDataFromSupabase(tag: string, path: string) {
+		if (!this.title) {
+			this.title = await this._ensureTitleService.ensureTitle(this.tag);
+		}
+
 		if (path === 'licitaciones') {
 			try {
 				this.steps = await this._supabaseService.fetchDataByTagOrder('steps', tag, true);

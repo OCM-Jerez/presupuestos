@@ -11,6 +11,7 @@ import EstadoLicitacionComponent from '@commons/components/level/estado-licitaci
 import NoticiasComponent from '@commons/components/level/noticias/noticias.component';
 import SeguimientoSubvencionComponent from '@commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
 
+import { EnsureTitleService } from '@services/ensureTitle.service';
 import { PathStoreService } from '@services/pathStore.service';
 import { TagStoreService } from '@services/tagStore.service';
 import { TitleStoreService } from '@services/titleStore.service';
@@ -37,6 +38,7 @@ import { IMenuItem } from '@interfaces/menu.interface';
 })
 export default class Level3Component implements OnInit {
 	@Input() tag: string;
+	private _ensureTitleService = inject(EnsureTitleService);
 	private _tagStoreService = inject(TagStoreService);
 	private _titleStoreService = inject(TitleStoreService);
 	private _pathStoreService = inject(PathStoreService);
@@ -61,8 +63,9 @@ export default class Level3Component implements OnInit {
 					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
 				};
 				return this.createCardMenu(modifiedItem);
-				// }
 			});
+
+			await this.ensureTitle();
 
 			[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 		});
@@ -79,5 +82,11 @@ export default class Level3Component implements OnInit {
 				this._router.navigateByUrl(URL);
 			}
 		};
+	}
+
+	async ensureTitle() {
+		if (!this.title) {
+			this.title = await this._ensureTitleService.ensureTitle(this.tag);
+		}
 	}
 }
