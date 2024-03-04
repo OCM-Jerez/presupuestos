@@ -500,19 +500,25 @@
 		"descripcion": "Recogida de residuos",
 		"news": [
 			{
-				"date": "12 de enero de 2024",
+				"date": "2024/03/03",
+				"media": "Viva Jerez",
+				"title": "La plantilla de la limpieza y recogida de basuras también pedirá mejoras salariales",
+				"url_new": "https://vivajerez.es/jerez/1578341/la-plantilla-de-la-limpieza-y-recogida-de-basuras-tambien-pedira-mejoras-salariales/"
+			},
+			{
+				"date": "2024/01/12",
 				"media": "La Voz del Sur",
 				"title": "El 'contenedor marrón' poblará por fases las calles de Jerez: así tendrás que tirar la basura desde esta fecha",
 				"url_new": "https://www.lavozdelsur.es/ediciones/jerez/contenedor-marron-poblara-por-fases-calles-jerez-tirar-basura-esta-fecha_308216_102.html"
 			},
 			{
-				"date": "9 de enero de 2024",
+				"date": "2024/01/09",
 				"media": "Diario de Jerez",
 				"title": "El Ayuntamiento de Jerez renovará y ampliará los contenedores de vidrio",
 				"url_new": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-renovara-ampliara-contenedores_0_1864914167.html"
 			},
 			{
-				"date": "20 diciembre 2023",
+				"date": "2023/12/20",
 				"media": "Diario de Jerez",
 				"title": "Detectan un aumento del depósito de basuras en la calle fuera del horario permitido en el centro de Jerez",
 				"url_new": "https://www.diariodejerez.es/jerez/basuras-centro-jerez-aumento-apartamentos-turisticos_0_1858616130.html"
