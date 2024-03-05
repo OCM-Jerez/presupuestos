@@ -15,12 +15,12 @@
 		"title": "Organigrama estructura política",
 		"path": "organigramaPolitico",
 		"isLastLevel": true,
-		"tag": "organigrama"
+		"tag": "organigramaPolitico"
 	},
 	{
 		"title": "Organigrama estructura funcional. Servicios-departamentos-unidades",
 		"path": "organigramaOrganizativo",
 		"isLastLevel": true,
-		"tag": "organigrama"
+		"tag": "organigramaOrganizativo"
 	}
 ]
