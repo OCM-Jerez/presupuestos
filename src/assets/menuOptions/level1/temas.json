@@ -133,5 +133,10 @@
 		"title": "Futura Ciudad de la Justicia",
 		"isLastLevel": true,
 		"tag": "ciudadJusticia"
+	},
+	{
+		"title": "Hub Aeronáutico Net Zero de Jerez",
+		"isLastLevel": true,
+		"tag": "hubAeronautico"
 	}
 ]
