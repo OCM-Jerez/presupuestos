@@ -12,15 +12,13 @@ import NoticiasComponent from '@commons/components/level/noticias/noticias.compo
 import SeguimientoSubvencionComponent from '@commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
 
 import { EnsureTitleService } from '@services/ensureTitle.service';
-import { PathStoreService } from '@services/pathStore.service';
-import { TagStoreService } from '@services/tagStore.service';
-import { TitleStoreService } from '@services/titleStore.service';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IMenuItem } from '@interfaces/menu.interface';
+import { SupabaseService } from '@services/supabase.service';
 
 @Component({
 	selector: 'app-level3',
@@ -38,10 +36,8 @@ import { IMenuItem } from '@interfaces/menu.interface';
 })
 export default class Level3Component implements OnInit {
 	@Input() tag: string;
+	private _supabaseService = inject(SupabaseService);
 	private _ensureTitleService = inject(EnsureTitleService);
-	private _tagStoreService = inject(TagStoreService);
-	private _titleStoreService = inject(TitleStoreService);
-	private _pathStoreService = inject(PathStoreService);
 	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	public menuOptions: IMenuItem[] = [];
@@ -49,26 +45,25 @@ export default class Level3Component implements OnInit {
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
 	public isComisiones = false;
-	public title = this._titleStoreService.getTitle();
+	public title: string;
 
-	ngOnInit() {
+	async ngOnInit() {
 		// const tag = this._tagStoreService.getTag();
-		const path = this._pathStoreService.getPath();
-		path === 'comisiones' ? (this.isComisiones = true) : (this.isComisiones = false);
+		// const path = this._pathStoreService.getPath();
+		this.tag === 'comisiones' ? (this.isComisiones = true) : (this.isComisiones = false);
+		const data = await this._supabaseService.fetchDataByLevel('level3', this.tag);
 
-		import(`../../assets/menuOptions/level3/${this.tag}.json`).then(async (data) => {
-			this.menuOptions = data.default.map((item: IMenuItem) => {
-				const modifiedItem = {
-					...item,
-					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
-				};
-				return this.createCardMenu(modifiedItem);
-			});
-
-			await this.ensureTitle();
-
-			[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
+		this.menuOptions = data.map((item: IMenuItem) => {
+			const modifiedItem = {
+				...item,
+				rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
+			};
+			return this.createCardMenu(modifiedItem);
 		});
+
+		await this.ensureTitle();
+
+		[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 	}
 
 	createCardMenu(item: IMenuItem) {
@@ -76,9 +71,6 @@ export default class Level3Component implements OnInit {
 		return {
 			...item,
 			funcion: () => {
-				this._pathStoreService.setPath(item.path);
-				this._tagStoreService.setTag(item.tag);
-				this._titleStoreService.setTitle(item.title);
 				this._router.navigateByUrl(URL);
 			}
 		};
