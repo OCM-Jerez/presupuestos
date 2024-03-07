@@ -101,7 +101,7 @@ export class SupabaseService {
 		const dataFiltered = tag ? data.filter((item) => item['level-up'] === tag) : data;
 
 		if (error) throw error;
-		return dataFiltered.sort((a, b) => a.id - b.id);
+		return dataFiltered.sort((a, b) => a.order - b.order);
 	}
 
 	async fetchDataByTagOrder(tableName: string, tag: string, order: boolean): Promise<any> {
