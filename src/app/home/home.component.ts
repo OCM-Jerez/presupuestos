@@ -5,9 +5,7 @@ import { environment } from '@environments/environment';
 
 import { CardMenuComponent } from '@commons/components/card-menu/card-menu.component';
 
-import { PathStoreService } from '@services/pathStore.service';
-import { TagStoreService } from '@services/tagStore.service';
-import { TitleStoreService } from '@services/titleStore.service';
+import { SupabaseService } from '@services/supabase.service';
 
 import { IMenuItem } from '@interfaces/menu.interface';
 
@@ -18,36 +16,25 @@ import { IMenuItem } from '@interfaces/menu.interface';
 	imports: [CardMenuComponent]
 })
 export default class HomeComponent implements OnInit {
+	private _supabaseService = inject(SupabaseService);
 	private _router = inject(Router);
-	private _tagStoreService = inject(TagStoreService);
-	private _pathStoreService = inject(PathStoreService);
-	private _titleStoreService = inject(TitleStoreService);
 	public menuOptions: IMenuItem[] = [];
 
 	ngOnInit() {
-		import(`@assets/menuOptions/home.json`).then((data) => {
-			this.menuOptions = data.default.map((item: IMenuItem) => {
-				const modifiedItem = {
-					...item,
-					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
-				};
-				return this.createCardMenu(modifiedItem);
-			});
-		});
-
-		this._pathStoreService.clearHistory();
-		this._tagStoreService.clearHistory();
-		this._titleStoreService.clearHistory();
+		this.createCardMenu();
 	}
 
-	createCardMenu(item: IMenuItem) {
-		return {
-			...item,
-			funcion: () => {
-				this._tagStoreService.setTag(item.tag);
-				this._titleStoreService.setTitle(item.title);
-				this._router.navigateByUrl('level1/' + item.tag);
-			}
-		};
+	async createCardMenu() {
+		try {
+			const data = await this._supabaseService.fetchDataByLevel('home');
+			this.menuOptions = data.map(({ tag, ...item }: IMenuItem) => ({
+				...item,
+				tag,
+				rutaImagen: `${environment.pathImgSupabase}${tag}.jpg`,
+				funcion: () => this._router.navigateByUrl(`level1/${tag}`)
+			}));
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
 	}
 }
