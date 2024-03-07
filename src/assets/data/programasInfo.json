@@ -370,6 +370,24 @@
 		"descripcion": "Abastecimiento domicializado agua",
 		"news": [
 			{
+				"date": "2024/03/07",
+				"media": "Diario de Jerez",
+				"title": "Estos son los municipios de Cádiz donde sube el precio del agua",
+				"url_new": "https://www.diariodejerez.es/noticias-provincia-cadiz/Los-municipios-Cadiz-sube-precio-agua_0_1882013428.html"
+			},
+			{
+				"date": "2024/03/06",
+				"media": "Diario de Jerez",
+				"title": "La tasa del agua subirá en Jerez y en otros 19 municipios de la provincia",
+				"url_new": "https://www.diariodejerez.es/jerez/Consorcio-Aguas-Zona-Gaditana-Jerez-subida-tasa-agua_0_1882012597.html#comments"
+			},
+			{
+				"date": "2024/03/05",
+				"media": "Viva Jerez",
+				"title": "Jerez vota a favor de la subida del precio del agua en alta",
+				"url_new": "https://vivajerez.es/jerez/1581680/jerez-vota-a-favor-de-la-subida-del-precio-del-agua-en-alta/"
+			},
+			{
 				"date": "2024/02/29",
 				"media": "Viva Jerez",
 				"title": "El Consorcio de Aguas: La decisión sobre las tasas se tomará en la próxima asamblea",

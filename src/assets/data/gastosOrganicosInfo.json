@@ -9,7 +9,21 @@
 	},
 	{
 		"codigo": 2,
-		"descripcion": "Empleo"
+		"descripcion": "Empleo",
+		"news": [
+			{
+				"date": "2024/03/05",
+				"medio": "Diario de Jerez",
+				"title": "El Ayuntamiento de Jerez solicita a la Junta nuevas acreditaciones de espacios para cursos de FPE",
+				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-Junta-acreditaciones-FPE_0_1881713735.html"
+			},
+			{
+				"date": "2024/03/05",
+				"medio": "Viva Jerez",
+				"title": "Jerez pide una subvención de 2,3 millones para un plan de inserción laboral",
+				"URL": "https://vivajerez.es/jerez/1581539/jerez-pide-una-subvencion-de-23-millones-para-un-plan-de-insercion-laboral/"
+			}
+		]
 	},
 	{
 		"codigo": 3,
@@ -99,7 +113,7 @@
 				"title": "Menos trámites y más rápidos: el plan del Ayuntamiento de Jerez para las ayudas sociales",
 				"URL": "https://www.lavozdelsur.es/ediciones/jerez/menos-tramites-mas-rapidos-plan-ayuntamiento-jerez-ayudas-sociales_310644_102.html"
 			}
-				]
+		]
 	},
 	{
 		"codigo": 17,
