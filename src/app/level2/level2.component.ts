@@ -9,9 +9,7 @@ import ComentariosComponent from '@app/commons/components/level/comentarios/come
 import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
 
 import { EnsureTitleService } from '@services/ensureTitle.service';
-import { TagStoreService } from '@services/tagStore.service';
-import { TitleStoreService } from '@services/titleStore.service';
-import { PathStoreService } from '@services/pathStore.service';
+import { SupabaseService } from '@services/supabase.service';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { IMenuItem } from '@interfaces/menu.interface';
@@ -26,39 +24,35 @@ import { IDoc } from '@interfaces/doc.interface';
 })
 export default class Level2Component implements OnInit {
 	@Input() tag: string;
+	private _supabaseService = inject(SupabaseService);
 	private _ensureTitleService = inject(EnsureTitleService);
 	private _router = inject(Router);
-	private _tagStoreService = inject(TagStoreService);
-	private _titleStoreService = inject(TitleStoreService);
-	private _pathStoreService = inject(PathStoreService);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	public menuOptions: IMenuItem[] = [];
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
-	public title = this._titleStoreService.getTitle();
+	public title: string;
 
-	ngOnInit() {
-		// const tag = this._tagStoreService.getTag();
-		import(`../../assets/menuOptions/level2/${this.tag}.json`).then(async (data) => {
-			this.menuOptions = data.default.map((item: IMenuItem) => {
-				const modifiedItem = {
-					...item,
-					rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
-				};
-				return this.createCardMenu(modifiedItem);
-			});
-
-			await this.ensureTitle();
-
-			[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
+	async ngOnInit() {
+		const data = await this._supabaseService.fetchDataByLevel('level2', this.tag);
+		this.menuOptions = data.map((item: IMenuItem) => {
+			const modifiedItem = {
+				...item,
+				rutaImagen: environment.pathImgSupabase + item.tag + '.jpg'
+			};
+			return this.createCardMenu(modifiedItem);
 		});
+
+		await this.ensureTitle();
+
+		[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 	}
 
 	createCardMenu(item: IMenuItem) {
 		let URL = item.isLastLevel ? 'levelLast/' + item.tag : 'level3/' + item.tag;
 
-		switch (item.path) {
+		switch (item.tag) {
 			case 'retribuciones2022':
 				URL = 'retribuciones2022';
 				break;
@@ -76,9 +70,6 @@ export default class Level2Component implements OnInit {
 		return {
 			...item,
 			funcion: () => {
-				this._pathStoreService.setPath(item.path);
-				this._tagStoreService.setTag(item.tag);
-				this._titleStoreService.setTitle(item.title);
 				this._router.navigateByUrl(URL);
 			}
 		};
