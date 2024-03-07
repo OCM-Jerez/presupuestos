@@ -12,9 +12,6 @@ import SeguimientoSubvencionComponent from '@commons/components/level/seguimient
 
 import { SupabaseService } from '@services/supabase.service';
 import { EnsureTitleService } from '@services/ensureTitle.service';
-import { TagStoreService } from '@services/tagStore.service';
-import { PathStoreService } from '@services/pathStore.service';
-import { TitleStoreService } from '@services/titleStore.service';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
@@ -59,9 +56,7 @@ export default class LevelLastComponent implements OnInit {
 	@Input() tag: string;
 	private _ensureTitleService = inject(EnsureTitleService);
 	private _supabaseService = inject(SupabaseService);
-	private _tagStoreService = inject(TagStoreService);
-	private _titleStoreService = inject(TitleStoreService);
-	private _pathStoreService = inject(PathStoreService);
+
 	private _activatedRoute = inject(ActivatedRoute);
 	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
@@ -75,12 +70,14 @@ export default class LevelLastComponent implements OnInit {
 	public imgURL: string;
 	public descripcion: string;
 	public isLicitacion = false;
-	public title = this._titleStoreService.getTitle();
+	public title: string;
 	public gauge = environment.pathImgSupabase + 'gauge.jpg';
 	public deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
 	public deudaVivaImgURL = `${environment.pathImgSupabase}/deudaVivaActual.jpg`;
 	public pmpURL = environment.pathImgSupabase + '2023-12.jpg';
-	public path = this._pathStoreService.getPath();
+	// public path = this._pathStoreService.getPath();
+	public path: string;
+
 	// public tag = this._tagStoreService.getTag();
 
 	ngOnInit() {
