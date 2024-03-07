@@ -96,6 +96,13 @@ export class SupabaseService {
 		return data;
 	}
 
+	async fetchDataByLevel(level: string): Promise<any> {
+		const { data, error } = await this._supabase.from('tag_title').select('*').eq('level', level);
+
+		if (error) throw error;
+		return data.sort((a, b) => a.id - b.id);
+	}
+
 	async fetchDataByTagOrder(tableName: string, tag: string, order: boolean): Promise<any> {
 		const { data, error } = await this._supabase
 			.from(tableName)
