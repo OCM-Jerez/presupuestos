@@ -7,6 +7,7 @@ import { environment } from '@environments/environment';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
+import { SupabaseService } from '@services/supabase.service';
 import { PathStoreService } from '@services/pathStore.service';
 import { TagStoreService } from '@services/tagStore.service';
 import { TitleStoreService } from '@services/titleStore.service';
@@ -19,6 +20,7 @@ import { TitleStoreService } from '@services/titleStore.service';
 	styleUrls: ['./licitaciones.component.scss']
 })
 export default class LicitacionesComponent implements OnInit {
+	private _supabaseService = inject(SupabaseService);
 	private _router = inject(Router);
 	private _tagStoreService = inject(TagStoreService);
 	private _titleStoreService = inject(TitleStoreService);
@@ -28,9 +30,15 @@ export default class LicitacionesComponent implements OnInit {
 	}
 	public licitacionesAll = [];
 	public licitacionesAyto = [];
+	public licitacionesAytoAll = [];
 	public licitacionesCEE = [];
+	public licitacionesCEEAll = [];
+	public licitacionesESP = [];
+	public licitacionesESPAll = [];
 	public licitacionesDiputacion = [];
+	public licitacionesDiputacionAll = [];
 	public licitacionesSolares = [];
+	public licitacionesSolaresAll = [];
 	public searchText: string;
 	public canAddRowSupabase = environment.canAddRowSupabase;
 	public selectedButton = 'ayuntamiento';
@@ -83,98 +91,99 @@ export default class LicitacionesComponent implements OnInit {
 		{ label: 'Terminadas', tipo: 'solares', estado: 'terminada' }
 	];
 
-	licitacionesAytoAll = [
-		this.createCard('Parque La Canaleja', 'laCanaleja2023', 'adjudicada'),
-		this.createCard('Planta tratamiento residuos solidos "Las Calandrias" ', 'lasCalandrias2023', 'adjudicada'),
-		this.createCard(
-			'materiales audiovisuales promocionales del destino turístico Jerez',
-			'materialesPromocionalesTurismo2023',
-			'adjudicada'
-		),
-		this.createCard('Obras en San Benito', 'sanBenito2023', 'adjudicada'),
-		this.createCard('Recogida residuos + limpieza viaria', 'recogidaResiduos2019', 'adjudicada'),
-		this.createCard('Parque Salud Pérez Leytón', 'parqueSaludPerezLeyton2022', 'adjudicada'),
-		this.createCard('Mantenimiento señalización', 'manSenal2020', 'adjudicada'),
-		this.createCard('Ordenación de equipamiento público en Villas del Este', 'villasDelEste2023', 'terminada'),
-		this.createCard('Plaza Venus', 'plazaVenus2023', 'adjudicada'),
-		this.createCard('Reforma integral de Plaza Madrid', 'plazaMadrid2023', 'pendiente'),
-		this.createCard('Reforma cubiertas Palacio Villapanés', 'palacioVillapanes2023', 'pendiente'),
-		this.createCard('Recogida animales perdidos', 'animalesPerdidos2023', 'adjudicada'),
-		this.createCard('Suministro de equipos de protección individual (EPIS)', 'epis2023', 'adjudicada'),
-		this.createCard('Montaje palcos Semana Santa', 'palcos2023', 'adjudicada'),
-		this.createCard('Renting vehiculos policía local', 'vehiculosPolicia2024', 'adjudicada'),
-		this.createCard('Servicios de vigilancia de seguridad y de auxiliares de control', 'vigilancia2024', 'licitada'),
-		this.createCard('Instalación aire acondicionado Teatro Villmarta', 'climatizacionVillamarta2024', 'licitada'),
-		this.createCard('Suministro de alimentos con destino Parque Zoológico', 'alimentosZoo2024', 'licitada'),
-		this.createCard('Renovación de Licencias Cytomic. Ciberseguridad', 'licenciasCytomic2024', 'terminada'),
-		this.createCard(
-			'Servicio y suministro para el control del consumo de drogas',
-			'controlConsumoDrogas2024',
-			'licitada'
-		)
-	];
+	// licitacionesAytoAll = [
+	// 	this.createCard('Parque La Canaleja', 'laCanaleja2023', 'adjudicada'),
+	// 	this.createCard('Planta tratamiento residuos solidos "Las Calandrias" ', 'lasCalandrias2023', 'adjudicada'),
+	// 	this.createCard(
+	// 		'materiales audiovisuales promocionales del destino turístico Jerez',
+	// 		'materialesPromocionalesTurismo2023',
+	// 		'adjudicada'
+	// 	),
+	// 	this.createCard('Obras en San Benito', 'sanBenito2023', 'adjudicada'),
+	// 	this.createCard('Recogida residuos + limpieza viaria', 'recogidaResiduos2019', 'adjudicada'),
+	// 	this.createCard('Parque Salud Pérez Leytón', 'parqueSaludPerezLeyton2022', 'adjudicada'),
+	// 	this.createCard('Mantenimiento señalización', 'manSenal2020', 'adjudicada'),
+	// 	this.createCard('Ordenación de equipamiento público en Villas del Este', 'villasDelEste2023', 'terminada'),
+	// 	this.createCard('Plaza Venus', 'plazaVenus2023', 'adjudicada'),
+	// 	this.createCard('Reforma integral de Plaza Madrid', 'plazaMadrid2023', 'pendiente'),
+	// 	this.createCard('Reforma cubiertas Palacio Villapanés', 'palacioVillapanes2023', 'pendiente'),
+	// 	this.createCard('Recogida animales perdidos', 'animalesPerdidos2023', 'adjudicada'),
+	// 	this.createCard('Suministro de equipos de protección individual (EPIS)', 'epis2023', 'adjudicada'),
+	// 	this.createCard('Montaje palcos Semana Santa', 'palcos2023', 'adjudicada'),
+	// 	this.createCard('Renting vehiculos policía local', 'vehiculosPolicia2024', 'adjudicada'),
+	// 	this.createCard('Servicios de vigilancia de seguridad y de auxiliares de control', 'vigilancia2024', 'licitada'),
+	// 	this.createCard('Instalación aire acondicionado Teatro Villmarta', 'climatizacionVillamarta2024', 'licitada'),
+	// 	this.createCard('Suministro de alimentos con destino Parque Zoológico', 'alimentosZoo2024', 'licitada'),
+	// 	this.createCard('Renovación de Licencias Cytomic. Ciberseguridad', 'licenciasCytomic2024', 'terminada'),
+	// 	this.createCard(
+	// 		'Servicio y suministro para el control del consumo de drogas',
+	// 		'controlConsumoDrogas2024',
+	// 		'licitada'
+	// 	)
+	// ];
 
-	licitacionesCEEAll = [
-		this.createCard('Reordenación Puerta Sevilla-Puerta Santiago 1ª fase', 'puertaSevilla2023', 'adjudicada'),
-		this.createCard('Contenedores orgánica', 'contenedoresOrganica2023', 'adjudicada'),
-		this.createCard('Rehabilitacion CEIP Nebrija', 'rehabilitacionCEIPNebrija2023', 'adjudicada'),
-		this.createCard('Remodelación plaza del Mercado', 'plazaMercado2023', 'adjudicada'),
-		this.createCard('Centro cultural Lola Flores', 'centroCulturalLolaFlores2023'),
-		this.createCard('Mejora parque Scout', 'parqueScout2023', 'adjudicada'),
-		this.createCard('Adaptación Parque Williams ', 'parqueWilliams2023', 'adjudicada'),
-		this.createCard('Proyecto Smart City Jerez (fase 1 y fase 2)', 'smartCity2023', 'adjudicada'),
-		this.createCard(
-			'Obras reforma y mejora de la eficiencia energética del CEIP Tartessos',
-			'rehabilitacionCEIPTartessos2023',
-			'adjudicada'
-		),
-		this.createCard('Sistema información para la Policia Local', 'sistemaInformacionPoliciaLocal2023', 'adjudicada'),
-		this.createCard(
-			'Suministro equipos audio, vídeo y fotografía (Plataforma Smart City)',
-			'audioVideoSmartCity2023',
-			'adjudicada'
-		),
-		this.createCard(
-			'Suministro de equipamiento informático (hardware y software).',
-			'equiposInformaticos2023',
-			'adjudicada'
-		),
-		this.createCard('Suministro de software BIM (Building Information Modeling) ', 'softwareBIM2023', 'adjudicada'),
-		this.createCard('Suministro de un autobús eléctrico 7,50 metros', 'microbusElectrico2023', 'adjudicada'),
-		this.createCard('Suministro de equipos de topografía', 'equiposTopografia2023', 'adjudicada'),
-		this.createCard('Espacios de sombra en Plaza Belén', 'plazaBelen2023', 'pendiente'),
-		this.createCard('Reparación cubierta sala Pescaderia Vieja', 'salaPescaderia2023', 'adjudicada')
-	];
+	// licitacionesCEEAll = [
+	// 	this.createCard('Reordenación Puerta Sevilla-Puerta Santiago 1ª fase', 'puertaSevilla2023', 'adjudicada'),
+	// 	this.createCard('Contenedores orgánica', 'contenedoresOrganica2023', 'adjudicada'),
+	// 	this.createCard('Rehabilitacion CEIP Nebrija', 'rehabilitacionCEIPNebrija2023', 'adjudicada'),
+	// 	this.createCard('Remodelación plaza del Mercado', 'plazaMercado2023', 'adjudicada'),
+	// 	this.createCard('Centro cultural Lola Flores', 'centroCulturalLolaFlores2023'),
+	// 	this.createCard('Mejora parque Scout', 'parqueScout2023', 'adjudicada'),
+	// 	this.createCard('Adaptación Parque Williams ', 'parqueWilliams2023', 'adjudicada'),
+	// 	this.createCard('Proyecto Smart City Jerez (fase 1 y fase 2)', 'smartCity2023', 'adjudicada'),
+	// 	this.createCard(
+	// 		'Obras reforma y mejora de la eficiencia energética del CEIP Tartessos',
+	// 		'rehabilitacionCEIPTartessos2023',
+	// 		'adjudicada'
+	// 	),
+	// 	this.createCard('Sistema información para la Policia Local', 'sistemaInformacionPoliciaLocal2023', 'adjudicada'),
+	// 	this.createCard(
+	// 		'Suministro equipos audio, vídeo y fotografía (Plataforma Smart City)',
+	// 		'audioVideoSmartCity2023',
+	// 		'adjudicada'
+	// 	),
+	// 	this.createCard(
+	// 		'Suministro de equipamiento informático (hardware y software).',
+	// 		'equiposInformaticos2023',
+	// 		'adjudicada'
+	// 	),
+	// 	this.createCard('Suministro de software BIM (Building Information Modeling) ', 'softwareBIM2023', 'adjudicada'),
+	// 	this.createCard('Suministro de un autobús eléctrico 7,50 metros', 'microbusElectrico2023', 'adjudicada'),
+	// 	this.createCard('Suministro de equipos de topografía', 'equiposTopografia2023', 'adjudicada'),
+	// 	this.createCard('Espacios de sombra en Plaza Belén', 'plazaBelen2023', 'pendiente'),
+	// 	this.createCard('Reparación cubierta sala Pescaderia Vieja', 'salaPescaderia2023', 'adjudicada')
+	// ];
 
-	licitacionesESP = [];
+	// licitacionesESP = [];
 
-	licitacionesDiputacionAll = [
-		this.createCard('Mejoras instalaciones Complejo “Pedro Garrido”', 'pedroGarrido2023', 'adjudicada'),
-		this.createCard('Conservación preventiva Palacio Riquelme', 'palacioRiquelme2023', 'adjudicada'),
-		this.createCard('Reparación y conservación en la Torre de la Atalaya', 'torreAtalaya2023', 'adjudicada'),
-		this.createCard('Mejoras Complejo Deportivo “Manuel Mestre”', 'piscinaManuelMestre2023', 'adjudicada'),
-		this.createCard('Parque San Telmo', 'parqueSanTelmo2023', 'adjudicada'),
-		this.createCard('Reordenación Puerta Sevilla-Puerta Santiago 2ª fase', 'puertaSevilla22023', 'adjudicada'),
-		this.createCard('Reordenación calles Barranco y Doctor Lillo', 'callesBarrancoyDoctorLillo', 'adjudicada'),
-		this.createCard(
-			'Dotación de pasillo cubierto en el CEIP Las Granjas.',
-			'pasilloCubiertoCEIPLasGranjas2023',
-			'adjudicada'
-		),
-		this.createCard('Bulevar entre las calles Oro y Almargen', 'bulevarOroAlmargen', 'adjudicada'),
-		this.createCard('Adecuación de parcela en Avda de las Acacias', 'acacias2023', 'adjudicada'),
-		this.createCard('Perimetro del Complejo Deportivo y Estadio Chapín', 'perimetroChapin2022', 'adjudicada'),
-		this.createCard('Restauración del templete municipal de la Alameda Vieja', 'templeteAlamedaVieja2023', 'pendiente'),
-		this.createCard('Proyecto para albergue para mujeres solas o con responsabilidades', 'albergue2023', 'adjudicada')
-	];
+	// licitacionesDiputacionAll = [
+	// 	this.createCard('Mejoras instalaciones Complejo “Pedro Garrido”', 'pedroGarrido2023', 'adjudicada'),
+	// 	this.createCard('Conservación preventiva Palacio Riquelme', 'palacioRiquelme2023', 'adjudicada'),
+	// 	this.createCard('Reparación y conservación en la Torre de la Atalaya', 'torreAtalaya2023', 'adjudicada'),
+	// 	this.createCard('Mejoras Complejo Deportivo “Manuel Mestre”', 'piscinaManuelMestre2023', 'adjudicada'),
+	// 	this.createCard('Parque San Telmo', 'parqueSanTelmo2023', 'adjudicada'),
+	// 	this.createCard('Reordenación Puerta Sevilla-Puerta Santiago 2ª fase', 'puertaSevilla22023', 'adjudicada'),
+	// 	this.createCard('Reordenación calles Barranco y Doctor Lillo', 'callesBarrancoyDoctorLillo', 'adjudicada'),
+	// 	this.createCard(
+	// 		'Dotación de pasillo cubierto en el CEIP Las Granjas.',
+	// 		'pasilloCubiertoCEIPLasGranjas2023',
+	// 		'adjudicada'
+	// 	),
+	// 	this.createCard('Bulevar entre las calles Oro y Almargen', 'bulevarOroAlmargen', 'adjudicada'),
+	// 	this.createCard('Adecuación de parcela en Avda de las Acacias', 'acacias2023', 'adjudicada'),
+	// 	this.createCard('Perimetro del Complejo Deportivo y Estadio Chapín', 'perimetroChapin2022', 'adjudicada'),
+	// 	this.createCard('Restauración del templete municipal de la Alameda Vieja', 'templeteAlamedaVieja2023', 'pendiente'),
+	// 	this.createCard('Proyecto para albergue para mujeres solas o con responsabilidades', 'albergue2023', 'adjudicada')
+	// ];
 
-	licitacionesSolaresAll = [
-		this.createCard('Calle Morla 1', 'subastaInmuebleMorla1', 'licitada'),
-		this.createCard('Calle Porvenir 32', 'subastaInmueblePorvenir32', 'licitada'),
-		this.createCard('Calle Tirso de Molina 16', 'subastaInmuebleTirsoDeMolina16', 'licitada')
-	];
+	// licitacionesSolaresAll = [
+	// 	this.createCard('Calle Morla 1', 'subastaInmuebleMorla1', 'licitada'),
+	// 	this.createCard('Calle Porvenir 32', 'subastaInmueblePorvenir32', 'licitada'),
+	// 	this.createCard('Calle Tirso de Molina 16', 'subastaInmuebleTirsoDeMolina16', 'licitada')
+	// ];
 
-	ngOnInit(): void {
+	async ngOnInit() {
+		await this.getFromSupabase();
 		this.licitacionesAyto = this.licitacionesAytoAll;
 		this.licitacionesCEE = this.licitacionesCEEAll;
 		this.licitacionesDiputacion = this.licitacionesDiputacionAll;
@@ -182,9 +191,33 @@ export default class LicitacionesComponent implements OnInit {
 		this.licitacionesAll = this.getAllLicitaciones();
 	}
 
+	async getFromSupabase() {
+		this.licitacionesAytoAll = await this._supabaseService.fetchDataByFinanciacion('ayuntamiento');
+		console.log('licitacionesAytoAll', this.licitacionesAytoAll);
+		this.licitacionesAytoAll = this.licitacionesAytoAll.map((item) => {
+			return this.createCard(item.title, item.tag, item.estado);
+		});
+
+		this.licitacionesCEEAll = await this._supabaseService.fetchDataByFinanciacion('CEE');
+		this.licitacionesCEEAll = this.licitacionesCEEAll.map((item) => {
+			return this.createCard(item.title, item.tag, item.estado);
+		});
+
+		this.licitacionesDiputacionAll = await this._supabaseService.fetchDataByFinanciacion('diputacion');
+		this.licitacionesDiputacionAll = this.licitacionesDiputacionAll.map((item) => {
+			return this.createCard(item.title, item.tag, item.estado);
+		});
+
+		this.licitacionesSolaresAll = await this._supabaseService.fetchDataByFinanciacion('subastaSolares');
+		this.licitacionesSolaresAll = this.licitacionesSolaresAll.map((item) => {
+			return this.createCard(item.title, item.tag, item.estado);
+		});
+	}
+
 	createCard(title: string, tag: string, estado?: string) {
 		return {
 			title,
+			tag,
 			rutaImagen: environment.pathImgSupabase + tag + '.jpg',
 			funcion: () => {
 				this._pathStoreService.setPath('licitaciones');
