@@ -25,9 +25,6 @@ export default class LicitacionesComponent implements OnInit {
 	private _tagStoreService = inject(TagStoreService);
 	private _titleStoreService = inject(TitleStoreService);
 	private _pathStoreService = inject(PathStoreService);
-	public getAllLicitaciones() {
-		return [...this.licitacionesCEE, ...this.licitacionesESP, ...this.licitacionesDiputacion, ...this.licitacionesAyto];
-	}
 	public licitacionesAll = [];
 	public licitacionesAyto = [];
 	public licitacionesAytoAll = [];
@@ -191,6 +188,10 @@ export default class LicitacionesComponent implements OnInit {
 		this.licitacionesAll = this.getAllLicitaciones();
 	}
 
+	getAllLicitaciones() {
+		return [...this.licitacionesCEE, ...this.licitacionesESP, ...this.licitacionesDiputacion, ...this.licitacionesAyto];
+	}
+
 	async getFromSupabase() {
 		this.licitacionesAytoAll = await this._supabaseService.fetchDataByFinanciacion('ayuntamiento');
 		console.log('licitacionesAytoAll', this.licitacionesAytoAll);
@@ -226,7 +227,7 @@ export default class LicitacionesComponent implements OnInit {
 				this._router.navigateByUrl('licitaciones/' + tag);
 			},
 			highlighted: false,
-			estado: estado // Incluye 'estado' en el objeto retornado
+			estado: estado
 		};
 	}
 
