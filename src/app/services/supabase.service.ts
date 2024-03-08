@@ -104,6 +104,16 @@ export class SupabaseService {
 		return dataFiltered.sort((a, b) => a.order - b.order);
 	}
 
+	async fetchDataByFinanciacion(financiacion: string): Promise<any> {
+		const { data, error } = await this._supabase
+			.from('licitaciones-cards')
+			.select('*')
+			.eq('financiacion', financiacion);
+
+		if (error) throw error;
+		return data.sort((a, b) => a.order - b.order);
+	}
+
 	async fetchDataByTagOrder(tableName: string, tag: string, order: boolean): Promise<any> {
 		const { data, error } = await this._supabase
 			.from(tableName)
