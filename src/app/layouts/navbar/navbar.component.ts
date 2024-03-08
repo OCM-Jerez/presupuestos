@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import NewsFormComponent from '@app/addNewRecodsToSupabase/news-form/news-form.component';
 
@@ -10,6 +10,7 @@ import { TagStoreService } from '@services/tagStore.service';
 import { PathStoreService } from '@services/pathStore.service';
 import { TitleStoreService } from '@services/titleStore.service';
 import { ModalService } from '../modal/modal.service';
+import { first } from 'rxjs';
 
 @Component({
 	selector: 'app-navbar',
@@ -22,27 +23,38 @@ export class NavbarComponent {
 	@ViewChild('modal')
 	modal!: ElementRef<HTMLDivElement>;
 	@ViewChild('overlay') overlay!: ElementRef<HTMLDivElement>;
+	private _router = inject(Router);
+	private _activatedRoute = inject(ActivatedRoute);
 	private _location = inject(Location);
 	private _tagStoreService = inject(TagStoreService);
 	private _pathStoreService = inject(PathStoreService);
 	private _titleStoreService = inject(TitleStoreService);
 	private _modalService = inject(ModalService);
 	public router = inject(Router);
-
+	public path: string;
+	public tag: string;
 	public canAddRowSupabase = environment.canAddRowSupabase;
 
+	getTag() {
+		const urlSegments = this._router.url.split('/');
+		this.tag = urlSegments[urlSegments.length - 1];
+	}
+
 	addNew(): void {
-		this._tagStoreService.getTag();
-		this.router.navigateByUrl('addNew');
+		// this._tagStoreService.getTag();
+		this.getTag();
+		this.router.navigateByUrl('addNew/' + this.tag);
 		// this.useModal();
 	}
 
 	addCom(): void {
-		this.router.navigateByUrl('addCom');
+		this.getTag();
+		this.router.navigateByUrl('addCom/' + this.tag);
 	}
 
 	addDoc(): void {
-		this.router.navigateByUrl('addDoc');
+		this.getTag();
+		this.router.navigateByUrl('addDoc/' + this.tag);
 	}
 
 	navigateTo() {

@@ -1,9 +1,9 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 // import { ActivatedRoute } from '@angular/router';
 
 import { SupabaseService } from '@services/supabase.service';
-import { TagStoreService } from '@services/tagStore.service';
+// import { TagStoreService } from '@services/tagStore.service';
 
 @Component({
 	selector: 'app-step-form',
@@ -13,12 +13,13 @@ import { TagStoreService } from '@services/tagStore.service';
 	styleUrls: ['./step-form.component.scss']
 })
 export default class StepFormComponent implements OnInit {
+	@Input() tag: string;
 	userForm: FormGroup;
 	private _formBuilder = inject(FormBuilder);
 	// private _route = inject(ActivatedRoute);
 	private _supabaseService = inject(SupabaseService);
-	private _tagStoreService = inject(TagStoreService);
-	public tag = this._tagStoreService.getTag();
+	// private _tagStoreService = inject(TagStoreService);
+	// public tag = this._tagStoreService.getTag();
 
 	ngOnInit(): void {
 		// const { paramMap } = this._route.snapshot;

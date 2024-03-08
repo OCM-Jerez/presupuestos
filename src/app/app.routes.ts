@@ -156,15 +156,15 @@ export default [
 		loadComponent: () => import('./glosario/glosario.component')
 	},
 	{
-		path: 'addNew',
+		path: 'addNew/:tag',
 		loadComponent: () => import('./addNewRecodsToSupabase/news-form/news-form.component')
 	},
 	{
-		path: 'addCom',
+		path: 'addCom/:tag',
 		loadComponent: () => import('./addNewRecodsToSupabase/coms-form/coms-form.component')
 	},
 	{
-		path: 'addDoc',
+		path: 'addDoc/:tag',
 		loadComponent: () => import('./addNewRecodsToSupabase/docs-form/docs-form.component')
 	},
 	{
@@ -176,7 +176,7 @@ export default [
 		loadComponent: () => import('./addNewRecodsToSupabase/update-licitacion-form/update-licitacion-form.component')
 	},
 	{
-		path: 'addStep',
+		path: 'addStep/:tag',
 		loadComponent: () => import('./addNewRecodsToSupabase/step-form/step-form.component')
 	},
 	{

@@ -1,9 +1,9 @@
 import { Location } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { SupabaseService } from '@services/supabase.service';
-import { TagStoreService } from '@services/tagStore.service';
+// import { TagStoreService } from '@services/tagStore.service';
 
 @Component({
 	selector: 'app-docs-form',
@@ -13,12 +13,13 @@ import { TagStoreService } from '@services/tagStore.service';
 	styleUrls: ['./docs-form.component.scss']
 })
 export default class DocsFormComponent implements OnInit {
+	@Input() tag: string;
 	userForm: FormGroup;
 	private _formBuilder = inject(FormBuilder);
 	private _supabaseService = inject(SupabaseService);
 	private _location = inject(Location);
-	private _tagStoreService = inject(TagStoreService);
-	public tag = this._tagStoreService.getTag();
+	// private _tagStoreService = inject(TagStoreService);
+	// public tag = this._tagStoreService.getTag();
 
 	ngOnInit(): void {
 		this.userForm = this._formBuilder.group({
