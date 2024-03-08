@@ -84,6 +84,14 @@ export default class LicitacionesComponent implements OnInit {
 	];
 
 	licitacionesAytoAll = [
+		this.createCard('Parque La Canaleja', 'laCanaleja2023', 'adjudicada'),
+		this.createCard('Planta tratamiento residuos solidos "Las Calandrias" ', 'lasCalandrias2023', 'adjudicada'),
+		this.createCard(
+			'materiales audiovisuales promocionales del destino turístico Jerez',
+			'materialesPromocionalesTurismo2023',
+			'adjudicada'
+		),
+		this.createCard('Obras en San Benito', 'sanBenito2023', 'adjudicada'),
 		this.createCard('Recogida residuos + limpieza viaria', 'recogidaResiduos2019', 'adjudicada'),
 		this.createCard('Parque Salud Pérez Leytón', 'parqueSaludPerezLeyton2022', 'adjudicada'),
 		this.createCard('Mantenimiento señalización', 'manSenal2020', 'adjudicada'),
@@ -98,7 +106,7 @@ export default class LicitacionesComponent implements OnInit {
 		this.createCard('Servicios de vigilancia de seguridad y de auxiliares de control', 'vigilancia2024', 'licitada'),
 		this.createCard('Instalación aire acondicionado Teatro Villmarta', 'climatizacionVillamarta2024', 'licitada'),
 		this.createCard('Suministro de alimentos con destino Parque Zoológico', 'alimentosZoo2024', 'licitada'),
-		this.createCard('Renovación de Licencias Cytomic. Ciberseguridad', 'ciberseguridad2024', 'terminada'),
+		this.createCard('Renovación de Licencias Cytomic. Ciberseguridad', 'licenciasCytomic2024', 'terminada'),
 		this.createCard(
 			'Servicio y suministro para el control del consumo de drogas',
 			'controlConsumoDrogas2024',
