@@ -73,7 +73,8 @@ const subtabsIngresos = (clasificationType: CLASIFICATION_TYPE) =>
 
 const subtabsAdditionalIngresos = [
 	{ name: 'Gráfico detallado', path: '/graphDetalle' },
-	{ name: 'Informaciones', path: '/infoPrograma/economicosIngresos' }
+	{ name: 'Informaciones', path: '/infoPrograma/economicosIngresos' },
+	{ name: 'Documentos', path: '/documentos/economicosGastos' }
 ];
 
 const subtabsGastosProgramas = (clasificationType: CLASIFICATION_TYPE) =>
@@ -93,7 +94,8 @@ const subtabsGastosProgramas = (clasificationType: CLASIFICATION_TYPE) =>
 const subtabsAdditionalGastosProgramas = [
 	{ name: 'Gráfico detallado', path: '/graphDetalle' },
 	{ name: 'Detalle del programa seleccionado', path: '/tableProgramaDetails', param: 'details' },
-	{ name: 'Informaciones', path: '/infoPrograma/programa' }
+	{ name: 'Informaciones', path: '/infoPrograma/programa' },
+	{ name: 'Documentos', path: '/documentos/economicosGastos' }
 ];
 
 const subtabsGastosEconomica = (clasificationType: CLASIFICATION_TYPE) =>
