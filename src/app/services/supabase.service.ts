@@ -96,6 +96,15 @@ export class SupabaseService {
 		return data;
 	}
 
+	async fetchDataByCodigo(tableName: string, codigo: string): Promise<any> {
+		console.log('codigo', codigo);
+
+		const { data, error } = await this._supabase.from(tableName).select('*').eq('codigo', codigo);
+
+		if (error) throw error;
+		return data;
+	}
+
 	async fetchDataByLevel(level: string, tag?: string): Promise<any> {
 		const { data, error } = await this._supabase.from('tag_title').select('*').eq('level', level);
 		const dataFiltered = tag ? data.filter((item) => item['level-up'] === tag) : data;

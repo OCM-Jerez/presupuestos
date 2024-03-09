@@ -1,3 +1,7 @@
 <header class="OCM-subtitle-dark">Informaciones sobre {{ title }}</header>
 
+<section class="OCM-flex OCM-flex--right">
+	<button class="OCM-button" (click)="addNew()">+ noticia</button>
+</section>
+
 <app-noticias [news]="news" />

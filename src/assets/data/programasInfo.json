@@ -143,80 +143,7 @@
 				"URL": ""
 			}
 		],
-		"news": [
-			{
-				"date": "2024/03/04",
-				"media": "Diario de Jerez",
-				"title": "Jerez cuenta con 16 nuevos agentes de la Policía Local",
-				"url_new": "https://www.diariodejerez.es/jerez/Jerez-cuenta-agentes-Policia-Local_0_1881413259.html"
-			},
-			{
-				"date": "2024/02/27",
-				"media": "Diario de Jerez",
-				"title": "El coche 'ponemultas' de la Policía Local 'vigila' el centro de Jerez",
-				"url_new": "https://www.diariodejerez.es/jerez/coche-ponemultas-Policia-Local-vigila-Jerez_0_1879612639.html"
-			},
-			{
-				"date": "2024/02/27",
-				"media": "Diario de Jerez",
-				"title": "Aprueban la convocatoria de 47 plazas de Policía Local en Jerez y otras seis para cubrir plazas vacantes en comisión de servicio",
-				"url_new": "https://www.diariodejerez.es/jerez/Aprueban-47-plazas-Policia-Local-Jerez_0_1879613022.html"
-			},
-			{
-				"date": "2024/01/3",
-				"media": "Diario de Jerez",
-				"title": "La Policía Local de Jerez contará con dos nuevos coches y una furgoneta para atestados",
-				"url_new": "https://www.diariodejerez.es/jerez/Policia-Local-Jerez-nuevos-coches-furgoneta_0_1863114094.html"
-			},
-			{
-				"date": "2023/12/12",
-				"media": "Diario de Jerez",
-				"title": "Jerez acapara el 40% de las denuncias que se presentan en la provincia de Cádiz",
-				"url_new": "https://www.diariodejerez.es/jerez/Jerez-denuncias-presentan-provincia-Cadiz-seguridad_0_1856514967.html"
-			},
-			{
-				"date": "2023/12/5",
-				"media": "Diario de Jerez",
-				"title": "El Ayuntamiento de Jerez dotará a la Policía Local de un moderno sistema de digitalización",
-				"url_new": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-dotara-Policia-Local-sistema-digitalizacion_0_1854115680.html"
-			},
-			{
-				"date": "2023/12/5",
-				"media": "Diario de Jerez",
-				"title": "La nueva Jefatura de la Policía Local, en La Asunción, ya está en funcionamiento",
-				"url_new": "https://www.diariodejerez.es/jerez/Abre-nueva-jefatura-policia-local-jerez_0_1854116371.html"
-			},
-			{
-				"date": "2023/12/4",
-				"media": "Diario de Jerez",
-				"title": "La nueva jefatura de Policía Local de Jerez estará en servicio desde este lunes 4 de diciembre",
-				"url_new": "https://www.diariodejerez.es/jerez/nueva-Jefatura-Policia-Local-Jerez-servicio-diciembre-2023_0_1853815009.html"
-			},
-			{
-				"date": "2023/12/1",
-				"media": "La Voz del Sur",
-				"title": "Denuncian fallas de seguridad en Jerez ante la ola de incendios: Les insistía en que vinieran y me decían que ese teléfono no era",
-				"url_new": "https://www.lavozdelsur.es/ediciones/jerez/fallas-seguridad-jerez-incendios-insistia-vinieran-telefono-no-era_306192_102.html"
-			},
-			{
-				"date": "2023/11/17",
-				"media": "Diario de Jerez",
-				"title": "Interior solo amplía en tres puestos el catálogo de la Comisaría de la Policía Nacional de Jerez",
-				"url_new": "https://www.diariodejerez.es/jerez/catalogo-policias-comisaria-policia-nacional-jerez_0_1848716906.html"
-			},
-			{
-				"date": "2023/10/17",
-				"media": "Diario de Jerez",
-				"title": "Exigen un aumento de policías nacionales en Jerez tras los graves hechos en calle Nueva",
-				"url_new": "https://www.diariodejerez.es/jerez/Exigen-policias-nacionales-Jerez-Nueva_0_1848715865.html"
-			},
-			{
-				"date": "2023/10/6",
-				"media": "Diario de Jerez",
-				"title": "La Policía Local de Jerez interpone más de 200 sanciones por botellones ilegales desde julio",
-				"url_new": "https://www.diariodejerez.es/jerez/Policia-Local-Jerez-interpone-botellones_0_1836417431.html"
-			}
-		]
+		"news": []
 	},
 	{
 		"codigo": 13220,
@@ -260,26 +187,7 @@
 				"URL": ""
 			}
 		],
-		"news": [
-			{
-				"date": "",
-				"media": "",
-				"title": "",
-				"url_new": ""
-			},
-			{
-				"date": "28/08/2023",
-				"title": "El gobierno apuesta por recuperar para Jerez la Escuela de Policía Local",
-				"media": "Diario de Jerez",
-				"url_new": "https://www.diariodejerez.es/jerez/recuperar-Jerez-Escuela-Policia-Local_0_1824719003.html"
-			},
-			{
-				"date": "24/06/2023",
-				"media": "La Voz del Sur",
-				"title": "Jerez volverá a contar con una Escuela de Policía Local como las grandes ciudades de Andalucía",
-				"url_new": "https://www.lavozdelsur.es/ediciones/jerez/jerez-volvera-contar-con-escuela-policia-local-como-grandes-ciudades-andalucia_297653_102.html"
-			}
-		]
+		"news": []
 	},
 	{
 		"codigo": 13310,

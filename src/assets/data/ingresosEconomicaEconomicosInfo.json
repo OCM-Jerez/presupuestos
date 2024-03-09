@@ -28,20 +28,7 @@
 		"codigo": 11600,
 		"descripcion": "Impuesto sobre Incremento del Valor de los Terrenos de Naturaleza Urbana",
 		"Observaciones": "",
-		"news": [
-			{
-				"date": "11 septiembre 2023",
-				"medio": "Diario de Jerez",
-				"title": "El Ayuntamiento de Jerez compensa la caída de la plusvalía con la mejora de la actividad urbanística",
-				"URL": "https://www.diariodejerez.es/jerez/caida-recaudacion-plusvalia-ayuntamiento-jerez_0_1825917741.html"
-			},
-			{
-				"date": "31 octubre 2021",
-				"medio": "Diario de Jerez",
-				"title": "No habrá justicia si no se resarce todo el daño hecho a las familias por la plusvalía",
-				"URL": "https://www.diariodejerez.es/jerez/abogado-jose-cepero-sentencia-plusvalia_0_1624638566.html"
-			}
-		]
+		"news": []
 	},
 	{
 		"codigo": 13000,
@@ -92,14 +79,7 @@
 		"codigo": 29000,
 		"descripcion": "Impuestos sobre construcciones, instalaciones y obras (ICIO)",
 		"Observaciones": "",
-		"news": [
-			{
-				"date": "11 septiembre 2023",
-				"medio": "Diario de Jerez",
-				"title": "El Ayuntamiento de Jerez obtiene más ingresos por la actividad urbanística que antes del covid",
-				"URL": "El Ayuntamiento de Jerez obtiene más ingresos por la actividad urbanística que antes del covid"
-			}
-		]
+		"news": []
 	},
 	{
 		"codigo": 29100,
