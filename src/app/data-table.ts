@@ -182,7 +182,9 @@ const CLASIFICATION: IClasificationObject = {
 				name: 'Programas que componen orgánico seleccionado',
 				path: '/tableProgramaDetails',
 				param: 'organico'
-			}
+			},
+			{ name: 'Informaciones', path: '/infoPrograma/economicosGastos' },
+			{ name: 'Documentos', path: '/documentos/economicosGastos' }
 		]
 	},
 	gastosProgramaAreas: {
