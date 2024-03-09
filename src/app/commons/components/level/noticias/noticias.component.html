@@ -22,7 +22,9 @@
 						<td>{{ new.date | date: 'd-MM-yyyy' }}</td>
 						<td>{{ new.media }}</td>
 						<td>{{ new.title }}</td>
-						<td><a href="{{ new.url_new }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+						@if (new.url_new !== null) {
+							<td new.url_new><a href="{{ new.url_new }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+						}
 					}
 				</tr>
 			}
