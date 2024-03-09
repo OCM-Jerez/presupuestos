@@ -28,7 +28,6 @@ export class SubtabsComponent implements OnInit, OnDestroy {
 	private _hasRowClicked = inject(HasRowClicked);
 	private _reloadTableService = inject(ReloadTableService);
 	private _avalaibleYearsService = inject(AvalaibleYearsService);
-
 	private _selectedSubtab: ISubtabClasification;
 	private _tabSelected: string;
 	private _unsubscribe$ = new Subject<void>();

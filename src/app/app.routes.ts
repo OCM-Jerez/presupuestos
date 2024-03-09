@@ -141,6 +141,11 @@ export default [
 			import('./art16/components/presupuestos/components/detalle/components/info-programa/info-programa.component')
 	},
 	{
+		path: 'documentos/:tag',
+		loadComponent: () =>
+			import('./art16/components/presupuestos/components/detalle/components/documentos/documentos.component')
+	},
+	{
 		path: 'fichaEmpleados',
 		loadComponent: () =>
 			import(

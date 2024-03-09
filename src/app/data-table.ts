@@ -117,7 +117,9 @@ const subtabsAdditionalGastosEconomica = [
 		// path: '/tableGrupoProgramaDetails',
 		path: '/tableProgramaDetails',
 		param: 'gastan'
-	}
+	},
+	{ name: 'Informaciones', path: '/infoPrograma/economicosGastos' },
+	{ name: 'Documentos', path: '/documentos/economicosGastos' }
 ];
 
 const CLASIFICATION: IClasificationObject = {
