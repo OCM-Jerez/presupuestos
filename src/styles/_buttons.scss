@@ -71,6 +71,13 @@
 			inset -4px -4px 12px #ffffff;
 	}
 
+	.OCM-button:disabled {
+		background-color: #ccc; /* Color de fondo más claro para indicar desactivación */
+		color: #666; /* Color de texto más claro */
+		opacity: 0.3;
+		cursor: not-allowed; /* Cambiar el cursor para indicar que el botón está deshabilitado */
+	}
+
 	.OCM-button.active {
 		background-color: #007bff;
 		color: white;

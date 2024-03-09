@@ -154,17 +154,13 @@
 
 	.OCM-alert {
 		background-color: #d31f1f;
-		border-color: #1b0408;
 		color: #f4ecec;
-		margin-bottom: 20px;
+		margin-top: 0.3rem;
+		margin-bottom: 1rem;
 		padding: 0px 15px 0px 15px;
 		border: 1px solid #1b0408;
 		border-radius: 4px;
-		z-index: 2;
-		position: fixed;
-		max-width: 500px;
-		top: 185px;
-		left: 150px;
+		max-width: 200px;
 	}
 
 	.OCM-text {

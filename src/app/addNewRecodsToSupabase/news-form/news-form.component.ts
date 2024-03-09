@@ -16,12 +16,12 @@ import { SupabaseService } from '@services/supabase.service';
 })
 export default class NewsFormComponent implements OnInit {
 	@Input() tag: string;
-	userForm: FormGroup;
 	// private _router = inject(Router);
 	// private _activatedRoute = inject(ActivatedRoute);
 	private _formBuilder = inject(FormBuilder);
 	private _supabaseService = inject(SupabaseService);
 	private _location = inject(Location);
+	public userForm: FormGroup;
 	// private _tagStoreService = inject(TagStoreService);
 	// public path: string;
 	// public tag: string;
@@ -33,7 +33,7 @@ export default class NewsFormComponent implements OnInit {
 			date: ['', Validators.required],
 			media: ['', Validators.required],
 			title: ['', Validators.required],
-			url_new: ['', Validators.required]
+			url_new: ['']
 		});
 	}
 
