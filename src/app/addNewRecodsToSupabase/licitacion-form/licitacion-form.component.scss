@@ -17,16 +17,139 @@
 }
 
 .form-control {
-	margin: 0 0 20px 0;
-	max-width: 300px;
+	// margin-top: 0px;
+	// margin-bottom: 10px;
+	// max-width: 200px;
 }
 
 .form-media {
-	margin: 0 0 20px 0;
+	margin: 2px;
 	max-width: 600px;
 }
 
 .form-long {
-	margin: 0 0 20px 0;
+	margin-top: 0px;
+	margin-bottom: 10px;
 	max-width: 900px;
+}
+
+aa {
+	margin: 0;
+}
+
+.container1 {
+	display: grid;
+	grid-template-columns: 220px 220px 220px;
+	grid-template-rows: 62px;
+	grid-auto-columns: 1fr;
+	gap: 5px 2px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		'tag tag .'
+		'expediente . .'
+		'descripcion descripcion descripcion'
+		'url url url'
+		'financiacion financiacion financiacion'
+		'prebase prebasei valor'
+		'tipo cpv sistema'
+		'procedimiento tipoContratacion tipoContratacion'
+		'adjudicatario adjudicatario adjudicatario'
+		'URLadjudicatario URLadjudicatario URLadjudicatario'
+		'CIFadjudicatario presentados .';
+
+	width: 660px;
+	margin: 0 auto;
+	caret-color: white;
+}
+
+label {
+	font-size: 1.2rem;
+	color: #ccc;
+}
+
+.tag {
+	grid-area: tag;
+	// background-color: red;
+	// width: 20rem;
+}
+
+.expediente {
+	grid-area: expediente;
+	// background-color: red;
+}
+.descripcion {
+	grid-area: descripcion;
+}
+
+.url {
+	grid-area: url;
+	// background-color: red;
+}
+
+.financiacion {
+	grid-area: financiacion;
+	// background-color: rgb(204, 207, 19);
+}
+
+.prebase {
+	grid-area: prebase;
+	width: 20rem;
+}
+
+.prebasei {
+	grid-area: prebasei;
+	height: 3rem;
+	width: 20rem;
+}
+
+.valor {
+	grid-area: valor;
+	align-items: center;
+	height: 3rem;
+	width: 20rem;
+}
+
+.tipo {
+	grid-area: tipo;
+	// heigsht: 3rem;
+	width: 20rem;
+}
+
+.cpv {
+	grid-area: cpv;
+	height: 3rem;
+	width: 20rem;
+}
+
+.sistema {
+	grid-area: sistema;
+	height: 3rem;
+	width: 20rem;
+}
+
+.procedimiento {
+	grid-area: procedimiento;
+	width: 20rem;
+}
+
+.tipoContratacion {
+	grid-area: tipoContratacion;
+	height: 3rem;
+	width: 20rem;
+}
+
+.adjudicatario {
+	grid-area: adjudicatario;
+}
+
+.URLadjudicatario {
+	grid-area: URLadjudicatario;
+}
+
+.CIFadjudicatario {
+	grid-area: CIFadjudicatario;
+}
+
+.presentados {
+	grid-area: presentados;
 }

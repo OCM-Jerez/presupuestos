@@ -1,5 +1,7 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Location } from '@angular/common';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+
 import { SupabaseService } from '@services/supabase.service';
 
 @Component({
@@ -9,10 +11,13 @@ import { SupabaseService } from '@services/supabase.service';
 	templateUrl: './licitacion-form.component.html',
 	styleUrls: ['./licitacion-form.component.scss']
 })
-export default class LicitacionFormComponent implements OnInit {
+export default class LicitacionFormComponent implements OnInit, AfterViewInit {
+	@ViewChild('tagElem') tagElem: ElementRef;
 	userForm: FormGroup;
 	private _formBuilder = inject(FormBuilder);
 	private _supabaseService = inject(SupabaseService);
+	private _location = inject(Location);
+
 	public tag: string;
 
 	ngOnInit(): void {
@@ -20,15 +25,15 @@ export default class LicitacionFormComponent implements OnInit {
 			tag: ['', Validators.required],
 			expediente: ['', Validators.required],
 			descripcion: ['', Validators.required],
-			codigo_cpv: [''],
-			url_plataforma: [''],
-			tipo_financiacion: [''],
-			tipo_contrato: [''],
-			sistema_contratacion: [''],
-			procedimiento_contratacion: [''],
-			tipo_tramitación: [''],
-			presupuesto_base_sin_impuestos: [''],
-			valor_estimado_contrato: [null],
+			cpv: ['', Validators.required],
+			url_plataforma: ['', Validators.required],
+			tipo_financiacion: ['', Validators.required],
+			tipo_contrato: ['', Validators.required],
+			sistema_contratacion: ['', Validators.required],
+			procedimiento_contratacion: ['Abierto', Validators.required],
+			tipo_tramitación: ['Ordinaria', Validators.required],
+			presupuesto_base_sin_impuestos: ['', Validators.required],
+			valor_estimado_contrato: [null, Validators.required],
 			presupuesto_base_licitación_con_impuestos: [null],
 			plazo_ejecución: [''],
 			licitadores_presentados: [null],
@@ -48,10 +53,16 @@ export default class LicitacionFormComponent implements OnInit {
 		});
 	}
 
+	ngAfterViewInit() {
+		// Aplica el foco al elemento input después de que la vista se haya inicializado
+		this.tagElem.nativeElement.focus();
+	}
+
 	async submitForm(): Promise<void> {
 		if (this.userForm?.valid) {
 			try {
 				await this._supabaseService.insertRow('licitaciones', this.userForm.value);
+				this._location.back();
 			} catch (error) {
 				console.error('Error al insertar datos:', error);
 			}

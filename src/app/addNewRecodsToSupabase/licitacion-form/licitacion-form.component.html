@@ -1,49 +1,56 @@
-<h2 class="heading">Añadir licitación</h2>
-<form [formGroup]="userForm" (ngSubmit)="submitForm()">
-	<div class="container">
-		<div class="column first-column">
-			<div class="form-group">
+<main class="OCM-dark-teme">
+	<header class="OCM-title-dark">Añadir licitación</header>
+	<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+		<div class="container1">
+			<!-- <div class="OCM-flex OCM-flex--left"> -->
+			<div class="tag">
 				<label for="tag">Tag</label>
-				<input type="text" class="form-control" id="tag" formControlName="tag" />
+				<input #tagElem type="text" class="form-control" id="tag" formControlName="tag" />
 				@if (userForm?.get('tag')?.invalid && userForm?.get('tag')?.touched) {
-					<div class="text-danger">Tag es requerida.</div>
+					<div class="OCM-alert">Tag es requerida.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="date">expediente</label>
+			<div class="tag"></div>
+
+			<div class="expediente">
+				<label for="date">Expediente</label>
 				<input type="text" class="form-control" id="expediente" formControlName="expediente" />
 				@if (userForm?.get('expediente')?.invalid && userForm?.get('expediente')?.touched) {
-					<div class="text-danger">expediente es requerida.</div>
+					<div class="OCM-alert">expediente es requerida.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="media">descripcion</label>
+			<div></div>
+
+			<div></div>
+
+			<div class="descripcion">
+				<label for="media">Descripcion</label>
 				<input type="text" class="form-long" id="descripcion" formControlName="descripcion" />
 				@if (userForm?.get('descripcion')?.invalid && userForm?.get('descripcion')?.touched) {
-					<div class="text-danger">descripcion es requerido.</div>
+					<div class="OCM-alert">descripcion es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="url_new">url_plataforma</label>
-				<input type="text" class="form-media" id="url_plataforma" formControlName="url_plataforma" />
+			<div class="url">
+				<label for="url_new">URL plataforma</label>
+				<input type="text" class="form-long" id="url_plataforma" formControlName="url_plataforma" />
 				@if (userForm?.get('url_plataforma')?.invalid && userForm?.get('url_plataforma')?.touched) {
-					<div class="text-danger">url_plataforma es requerido.</div>
+					<div class="OCM-alert">url_plataforma es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">tipo_financiacion</label>
+			<div class="financiacion">
+				<label for="title">Tipo financiacion</label>
 				<input type="text" class="form-media" id="tipo_financiacion" formControlName="tipo_financiacion" />
 				@if (userForm?.get('tipo_financiacion')?.invalid && userForm?.get('tipo_financiacion')?.touched) {
-					<div class="text-danger">tipo_financiacion es requerido.</div>
+					<div class="OCM-alert">tipo_financiacion es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">presupuesto_base_sin_impuestos</label>
+			<div class="prebase">
+				<label for="title">Presupuesto sin impuestos</label>
 				<input
 					type="text"
 					class="form-control"
@@ -54,12 +61,12 @@
 					userForm?.get('presupuesto_base_sin_impuestos')?.invalid &&
 					userForm?.get('presupuesto_base_sin_impuestos')?.touched
 				) {
-					<div class="text-danger">presupuesto_base_sin_impuestos es requerido.</div>
+					<div class="OCM-alert">presupuesto_base_sin_impuestos es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">presupuesto_base_licitación_con_impuestos</label>
+			<div class="prebasei">
+				<label for="title">Presupuesto con impuestos</label>
 				<input
 					type="text"
 					class="form-control"
@@ -70,12 +77,12 @@
 					userForm?.get('presupuesto_base_licitación_con_impuestos')?.invalid &&
 					userForm?.get('presupuesto_base_licitación_con_impuestos')?.touched
 				) {
-					<div class="text-danger">presupuesto_base_licitación_con_impuestos es requerido.</div>
+					<div class="OCM-alert">presupuesto_base_licitación_con_impuestos es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">valor_estimado_contrato</label>
+			<div class="valor">
+				<label for="title">Valor estimado del contrato</label>
 				<input
 					type="text"
 					class="form-control"
@@ -83,36 +90,36 @@
 					formControlName="valor_estimado_contrato"
 				/>
 				@if (userForm?.get('valor_estimado_contrato')?.invalid && userForm?.get('valor_estimado_contrato')?.touched) {
-					<div class="text-danger">valor_estimado_contrato es requerido.</div>
+					<div class="OCM-alert">valor_estimado_contrato es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">tipo_contrato</label>
+			<div class="tipo">
+				<label for="title">Tipo contrato</label>
 				<input type="text" class="form-control" id="tipo_contrato" formControlName="tipo_contrato" />
 				@if (userForm?.get('tipo_contrato')?.invalid && userForm?.get('tipo_contrato')?.touched) {
-					<div class="text-danger">tipo_contrato es requerido.</div>
+					<div class="OCM-alert">tipo_contrato es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">codigo_cpv</label>
-				<input type="text" class="form-control" id="codigo_cpv" formControlName="codigo_cpv" />
-				@if (userForm?.get('codigo_cpv')?.invalid && userForm?.get('codigo_cpv')?.touched) {
-					<div class="text-danger">codigo_cpv es requerido.</div>
+			<div class="cpv">
+				<label for="title">CPV</label>
+				<input type="text" class="form-control" id="cpv" formControlName="cpv" />
+				@if (userForm?.get('cpv')?.invalid && userForm?.get('cpv')?.touched) {
+					<div class="OCM-alert">CPV es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
+			<div class="sistema">
 				<label for="title">Sistema de contratación</label>
 				<input type="text" class="form-control" id="sistema_contratacion" formControlName="sistema_contratacion" />
 				@if (userForm?.get('sistema_contratacion')?.invalid && userForm?.get('sistema_contratacion')?.touched) {
-					<div class="text-danger">procedimiento_contratacion es requerido.</div>
+					<div class="OCM-alert">Procedimiento contratacion es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">procedimiento_contratacion</label>
+			<div class="procedimiento">
+				<label for="title">Procedimiento contratacion</label>
 				<input
 					type="text"
 					class="form-control"
@@ -122,46 +129,48 @@
 				@if (
 					userForm?.get('procedimiento_contratacion')?.invalid && userForm?.get('procedimiento_contratacion')?.touched
 				) {
-					<div class="text-danger">procedimiento_contratacion es requerido.</div>
+					<div class="OCM-alert">procedimiento_contratacion es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">tipo_tramitación</label>
+			<div class="tipoContratacion">
+				<label for="title">Tipo tramitación</label>
 				<input type="text" class="form-control" id="tipo_tramitación" formControlName="tipo_tramitación" />
 				@if (userForm?.get('tipo_tramitación')?.invalid && userForm?.get('tipo_tramitación')?.touched) {
-					<div class="text-danger">tipo_tramitación es requerido.</div>
+					<div class="OCM-alert">tipo_tramitación es requerido.</div>
 				}
 			</div>
-		</div>
 
-		<div class="column">
-			<div class="form-group">
-				<label for="title">adjudicatario</label>
+			<div class="tipoContratacion"></div>
+
+			<div class="adjudicatario">
+				<label for="title">Adjudicatario</label>
 				<input type="text" class="form-control" id="adjudicatario" formControlName="adjudicatario" />
 				@if (userForm?.get('adjudicatario')?.invalid && userForm?.get('adjudicatario')?.touched) {
-					<div class="text-danger">adjudicatario es requerido.</div>
+					<div class="OCM-alert">adjudicatario es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">cif_adjudicatario</label>
-				<input type="text" class="form-control" id="cif_adjudicatario" formControlName="cif_adjudicatario" />
-				@if (userForm?.get('cif_adjudicatario')?.invalid && userForm?.get('cif_adjudicatario')?.touched) {
-					<div class="text-danger">cif_adjudicatario es requerido.</div>
-				}
-			</div>
+			<div></div>
 
-			<div class="form-group">
-				<label for="title">url_adjudicatario</label>
+			<div class="URLadjudicatario">
+				<label for="title">URL adjudicatario</label>
 				<input type="text" class="form-control" id="url_adjudicatario" formControlName="url_adjudicatario" />
 				@if (userForm?.get('url_adjudicatario')?.invalid && userForm?.get('url_adjudicatario')?.touched) {
-					<div class="text-danger">url_adjudicatario es requerido.</div>
+					<div class="OCM-alert">url_adjudicatario es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">licitadores_presentados</label>
+			<div class="CIFadjudicatario">
+				<label for="title">CIF adjudicatario</label>
+				<input type="text" class="form-control" id="cif_adjudicatario" formControlName="cif_adjudicatario" />
+				@if (userForm?.get('cif_adjudicatario')?.invalid && userForm?.get('cif_adjudicatario')?.touched) {
+					<div class="OCM-alert">cif_adjudicatario es requerido.</div>
+				}
+			</div>
+
+			<div class="presentados">
+				<label for="title">Licitadores presentados</label>
 				<input
 					type="text"
 					class="form-control"
@@ -169,20 +178,28 @@
 					formControlName="licitadores_presentados"
 				/>
 				@if (userForm?.get('licitadores_presentados')?.invalid && userForm?.get('licitadores_presentados')?.touched) {
-					<div class="text-danger">licitadores_presentados es requerido.</div>
+					<div class="OCM-alert">licitadores_presentados es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">plazo_ejecución</label>
+			<div>
+				<label for="title">Plazo ejecución</label>
 				<input type="text" class="form-control" id="plazo_ejecución" formControlName="plazo_ejecución" />
 				@if (userForm?.get('plazo_ejecución')?.invalid && userForm?.get('plazo_ejecución')?.touched) {
-					<div class="text-danger">plazo_ejecución es requerido.</div>
+					<div class="OCM-alert">plazo_ejecución es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">importe_adjudicación_sin_impuestos</label>
+			<div>
+				<label for="title">Duración contrato</label>
+				<input type="text" class="form-control" id="duración_contrato" formControlName="duración_contrato" />
+				@if (userForm?.get('duración_contrato')?.invalid && userForm?.get('duración_contrato')?.touched) {
+					<div class="OCM-alert">duración_contrato es requerido.</div>
+				}
+			</div>
+
+			<div>
+				<label for="title">Importe adjudicación sin impuestos</label>
 				<input
 					type="text"
 					class="form-control"
@@ -193,12 +210,12 @@
 					userForm?.get('importe_adjudicación_sin_impuestos')?.invalid &&
 					userForm?.get('importe_adjudicación_sin_impuestos')?.touched
 				) {
-					<div class="text-danger">importe_adjudicación_sin_impuestos es requerido.</div>
+					<div class="OCM-alert">importe_adjudicación_sin_impuestos es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">importe_adjudicación_con_impuestos</label>
+			<div>
+				<label for="title">Importe adjudicación con impuestos</label>
 				<input
 					type="text"
 					class="form-control"
@@ -209,76 +226,66 @@
 					userForm?.get('importe_adjudicación_con_impuestos')?.invalid &&
 					userForm?.get('importe_adjudicación_con_impuestos')?.touched
 				) {
-					<div class="text-danger">importe_adjudicación_con_impuestos es requerido.</div>
+					<div class="OCM-alert">importe_adjudicación_con_impuestos es requerido.</div>
 				}
 			</div>
-		</div>
 
-		<div class="column">
-			<div class="form-group">
-				<label for="title">credito_ampara</label>
+			<div>
+				<label for="title">Credito que ampara</label>
 				<input type="text" class="form-control" id="codigo_cpv" formControlName="credito_ampara" />
 				@if (userForm?.get('credito_ampara')?.invalid && userForm?.get('credito_ampara')?.touched) {
-					<div class="text-danger">credito_ampara es requerido.</div>
+					<div class="OCM-alert">credito_ampara es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">organico</label>
+			<div>
+				<label for="title">Organico</label>
 				<input type="text" class="form-control" id="codigo_cpv" formControlName="organico" />
 				@if (userForm?.get('organico')?.invalid && userForm?.get('organico')?.touched) {
-					<div class="text-danger">codigo_cpv es requerido.</div>
+					<div class="OCM-alert">codigo_cpv es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">programa</label>
+			<div>
+				<label for="title">Programa</label>
 				<input type="text" class="form-control" id="programa" formControlName="programa" />
 				@if (userForm?.get('programa')?.invalid && userForm?.get('programa')?.touched) {
-					<div class="text-danger">programa es requerido.</div>
+					<div class="OCM-alert">programa es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">economico</label>
+			<div>
+				<label for="title">Económico</label>
 				<input type="text" class="form-control" id="economico" formControlName="economico" />
 				@if (userForm?.get('economico')?.invalid && userForm?.get('economico')?.touched) {
-					<div class="text-danger">economico es requerido.</div>
+					<div class="OCM-alert">economico es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">distrito</label>
+			<div>
+				<label for="title">Distrito</label>
 				<input type="text" class="form-control" id="distrito" formControlName="distrito" />
 				@if (userForm?.get('distrito')?.invalid && userForm?.get('distrito')?.touched) {
-					<div class="text-danger">distrito es requerido.</div>
+					<div class="OCM-alert">distrito es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">url_geolocalización</label>
+			<div>
+				<label for="title">URL geolocalización</label>
 				<input type="text" class="form-control" id="url_geolocalización" formControlName="url_geolocalización" />
 				@if (userForm?.get('url_geolocalización')?.invalid && userForm?.get('url_geolocalización')?.touched) {
-					<div class="text-danger">url_geolocalización es requerido.</div>
+					<div class="OCM-alert">url_geolocalización es requerido.</div>
 				}
 			</div>
 
-			<div class="form-group">
-				<label for="title">duración_contrato</label>
-				<input type="text" class="form-control" id="duración_contrato" formControlName="duración_contrato" />
-				@if (userForm?.get('duración_contrato')?.invalid && userForm?.get('duración_contrato')?.touched) {
-					<div class="text-danger">duración_contrato es requerido.</div>
-				}
-			</div>
-
-			<div class="form-group">
-				<label for="title">canon_concesional</label>
+			<div>
+				<label for="title">Canon concesional</label>
 				<input type="text" class="form-control" id="canon_concesional" formControlName="canon_concesional" />
 				@if (userForm?.get('canon_concesional')?.invalid && userForm?.get('canon_concesional')?.touched) {
-					<div class="text-danger">canon_concesional es requerido.</div>
+					<div class="OCM-alert">canon_concesional es requerido.</div>
 				}
 			</div>
 		</div>
-	</div>
-	<button type="submit" class="btn btn-primary">Submit</button>
-</form>
+		<button type="submit" [disabled]="!userForm.valid" class="OCM-button-container OCM-button">Grabar</button>
+	</form>
+</main>
