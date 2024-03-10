@@ -103,7 +103,6 @@ export default class LicitacionesComponent implements OnInit {
 
 	async getFromSupabase() {
 		this.licitacionesAytoAll = await this._supabaseService.fetchDataByFinanciacion('ayuntamiento');
-		console.log('licitacionesAytoAll', this.licitacionesAytoAll);
 		this.licitacionesAytoAll = this.licitacionesAytoAll.map((item) => {
 			return this.createCard(item.title, item.tag, item.estado);
 		});
