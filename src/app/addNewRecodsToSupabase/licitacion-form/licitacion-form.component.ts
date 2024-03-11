@@ -25,7 +25,7 @@ export default class LicitacionFormComponent implements OnInit, AfterViewInit {
 			tag: ['', Validators.required],
 			expediente: ['', Validators.required],
 			descripcion: ['', Validators.required],
-			cpv: ['', Validators.required],
+			codigo_cpv: ['', Validators.required],
 			url_plataforma: ['', Validators.required],
 			tipo_financiacion: ['', Validators.required],
 			tipo_contrato: ['', Validators.required],
@@ -60,6 +60,8 @@ export default class LicitacionFormComponent implements OnInit, AfterViewInit {
 
 	async submitForm(): Promise<void> {
 		if (this.userForm?.valid) {
+			console.log('this.userForm.value:', this.userForm.value);
+
 			try {
 				await this._supabaseService.insertRow('licitaciones', this.userForm.value);
 				this._location.back();

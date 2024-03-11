@@ -104,8 +104,8 @@
 
 			<div class="cpv">
 				<label for="title">CPV</label>
-				<input type="text" class="form-control" id="cpv" formControlName="cpv" />
-				@if (userForm?.get('cpv')?.invalid && userForm?.get('cpv')?.touched) {
+				<input type="text" class="form-control" id="codigo_cpv" formControlName="codigo_cpv" />
+				@if (userForm?.get('codigo_cpv')?.invalid && userForm?.get('codigo_cpv')?.touched) {
 					<div class="OCM-alert">CPV es requerido.</div>
 				}
 			</div>
