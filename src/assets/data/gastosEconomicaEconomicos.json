@@ -398,20 +398,7 @@
 	{
 		"CodEco": 22625,
 		"DesEco": "Actividades de juventud",
-		"news": [
-			{
-				"date": "",
-				"medio": "",
-				"title": "",
-				"URL": ""
-			},
-			{
-				"date": "17 aeptiembre 2023",
-				"medio": "Facebook OCM",
-				"title": "La entrada será gratuita, pero el concierto nos cuesta 12.464 euros (10.300 + IVA)",
-				"URL": "https://www.facebook.com/OcmJerez/posts/pfbid02QZmSWRBAZgZZnt81bihDJfAfBGyXWDpvTmkMhe9fysz43XC6kX5Yz42txnuwZGNvl"
-			}
-		]
+		"news": []
 	},
 	{
 		"CodEco": 22626,

@@ -10,20 +10,7 @@
 	{
 		"codigo": 2,
 		"descripcion": "Empleo",
-		"news": [
-			{
-				"date": "2024/03/05",
-				"medio": "Diario de Jerez",
-				"title": "El Ayuntamiento de Jerez solicita a la Junta nuevas acreditaciones de espacios para cursos de FPE",
-				"URL": "https://www.diariodejerez.es/jerez/Ayuntamiento-Jerez-Junta-acreditaciones-FPE_0_1881713735.html"
-			},
-			{
-				"date": "2024/03/05",
-				"medio": "Viva Jerez",
-				"title": "Jerez pide una subvención de 2,3 millones para un plan de inserción laboral",
-				"URL": "https://vivajerez.es/jerez/1581539/jerez-pide-una-subvencion-de-23-millones-para-un-plan-de-insercion-laboral/"
-			}
-		]
+		"news": []
 	},
 	{
 		"codigo": 3,
@@ -56,26 +43,7 @@
 	{
 		"codigo": 10,
 		"descripcion": "Urbanismo",
-		"news": [
-			{
-				"date": "",
-				"medio": "",
-				"title": "",
-				"URL": ""
-			},
-			{
-				"date": "26 septiembre 2023",
-				"medio": "Diario de Jerez",
-				"title": "El PSOE tras el visto bueno a ampliar Bodegas Williams: -La Junta está paralizando este proyecto desde 2021-",
-				"URL": "https://www.diariodejerez.es/jerez/psoe-ampliacion-bodegas-williams-jerez_0_1833417408.html"
-			},
-			{
-				"date": "26 septiembre 2023",
-				"medio": "Diario de Jerez",
-				"title": "La Junta de Andalucía aprueba ahora la ampliación de Bodegas Williams",
-				"URL": "https://www.diariodejerez.es/jerez/Aprobada-modificacion-pgou-ampliacion-bodegas-williams_0_1833417361.html"
-			}
-		]
+		"news": []
 	},
 	{
 		"codigo": 11,
@@ -100,20 +68,7 @@
 	{
 		"codigo": 16,
 		"descripcion": "Bienestar social y del mayor",
-		"news": [
-			{
-				"date": "29/02/2024",
-				"medio": "La Voz del Sur",
-				"title": "La Junta destina más de 22 millones de euros a políticas de inclusión social en Jerez",
-				"URL": "https://vivajerez.es/jerez-local/1576384/la-junta-destina-mas-de-22-millones-de-euros-a-politicas-de-inclusion-social-en-jerez/"
-			},
-			{
-				"date": "27/02/2024",
-				"medio": "La Voz del Sur",
-				"title": "Menos trámites y más rápidos: el plan del Ayuntamiento de Jerez para las ayudas sociales",
-				"URL": "https://www.lavozdelsur.es/ediciones/jerez/menos-tramites-mas-rapidos-plan-ayuntamiento-jerez-ayudas-sociales_310644_102.html"
-			}
-		]
+		"news": []
 	},
 	{
 		"codigo": 17,
@@ -134,26 +89,7 @@
 	{
 		"codigo": 21,
 		"descripcion": "Movilidad",
-		"news": [
-			{
-				"date": "",
-				"medio": "",
-				"title": "",
-				"URL": ""
-			},
-			{
-				"date": "2023/09/15",
-				"medio": "La Voz del Sur",
-				"title": "Jerez, por ahora, en dirección prohibida hacia la Agenda 2030. El gobierno municipal favorece el aparcamiento en el centro –y, en consecuencia, el acceso en vehículo privado– cuando debería pensar ya qué área va a ocupar la obligatoria, por ley, Zona de Bajas Emisiones",
-				"URL": "https://www.lavozdelsur.es/opinion/editorial-lavozdelsur/jerez-por-ahora-en-sentido-contrario-agenda-2030_302003_102.html?fbclid=IwAR25vGhpSEhupic_PUeoP6LNapIc55bNdJjfJfjPvpU3clfob6PfOBzAiT0"
-			},
-			{
-				"date": "2023/09/14",
-				"medio": "La Voz del Sur",
-				"title": "El Ayuntamiento firma un acuerdo que permite aparcar 12 horas en el centro de Jerez por un euro y medio. Además, repartirán 4.000 vales gratuitos de media hora para que los padres y madres de colegios como Beaterio y Miguel de Cervantes puedan recoger en coche a sus hijos",
-				"URL": "https://www.lavozdelsur.es/ediciones/jerez/ayuntamiento-firma-acuerdo-permite-aparcar-12-horas-en-centro-jerez-por-euro-medio_301999_102.html"
-			}
-		]
+		"news": []
 	},
 	{
 		"codigo": 22,
@@ -170,55 +106,6 @@
 	{
 		"codigo": 25,
 		"descripcion": "Promoción y gestión vivienda",
-		"news": [
-			{
-				"date": "",
-				"medio": "",
-				"title": "",
-				"URL": ""
-			},
-			{
-				"date": "9 octubre 2023",
-				"medio": "Diario de Jerez",
-				"title": "Baja la venta de viviendas en Jerez con un euríbor disparado",
-				"URL": "https://www.diariodejerez.es/jerez/Venta-viviendas-jerez-primer-semestre-2023_0_1836417191.html"
-			},
-			{
-				"date": "6 octubre 2023",
-				"medio": "Diario de Jerez",
-				"title": "Una casa palacio en la Cruz Vieja aún espera a sus inquilinos",
-				"URL": "https://www.diariodejerez.es/jerez/casa-palacio-rehabilitada-cruz-vieja_0_1836117516.html"
-			},
-			{
-				"date": "27 septiembre 2023",
-				"medio": "Diario de Jerez",
-				"title": "La Confluencia exige a la Junta que reactive el proyecto de construcción de viviendas de alquiler social en Jerez",
-				"URL": "https://www.diariodejerez.es/jerez/Confluencia-Junta-construccion-viviendas-alquiler-social-Jerez_0_1833716846.html"
-			},
-			{
-				"date": "13 septiembre 2023",
-				"medio": "Diario de Jerez",
-				"title": "Más de 2.600 personas están en lista de espera para comprar una vivienda de promoción pública en Jerez",
-				"URL": "https://www.diariodejerez.es/jerez/Jerez-lista-espera-comprar-vivienda-publica_0_1829518327.html"
-			},
-			{
-				"date": "13 septiembre 2023",
-				"medio": "Portal de Cádiz",
-				"title": "La Junta de Andalucía planea construir 222 viviendas sociales en Jerez pese a licitación desierta",
-				"URL": "https://www.portaldecadiz.com/provinciacadiz/87715-la-junta-de-andalucia-planea-construir-222-viviendas-sociales-en-jerez-pese-a-licitacion-desierta"
-			},
-			{
-				"date": "11 septiembre 2023",
-				"medio": "Andalucía información",
-				"title": "El desarrollo en Jerez de 222 viviendas de alquiler se queda en el aire",
-				"URL": "https://andaluciainformacion.es/provincia-de-cadiz/1352156/el-desarrollo-en-jerez-de-222-viviendas-de-alquiler-se-queda-en-el-aire/"
-			},
-			{
-				"date": "9 febrero 2023",
-				"medio": "La Voz del Sur",
-				"title": "Estas serán las zonas de Jerez que tendrán 222 nuevas ecoviviendas públicas de alquiler social y asequibles",
-				"URL": "https://www.lavozdelsur.es/ediciones/jerez/estas-seran-zonas-jerez-222-nuevas-ecoviviendas-alquiler-social-asequibles_290523_102.html"
-			}
-		]
+		"news": []
 	}
 ]
