@@ -74,7 +74,7 @@ export default class LevelLastComponent implements OnInit {
 	public gauge = environment.pathImgSupabase + 'gauge.jpg';
 	public deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
 	public deudaVivaImgURL = `${environment.pathImgSupabase}/deudaVivaActual.jpg`;
-	public pmpURL = environment.pathImgSupabase + '2023-12.jpg';
+	public pmpURL = environment.pathImgSupabase + 'pmpActual.jpg';
 	// public path = this._pathStoreService.getPath();
 	public path: string;
 
@@ -86,7 +86,11 @@ export default class LevelLastComponent implements OnInit {
 		if (urlSegments.length > 2) {
 			this._activatedRoute.params.pipe(first()).subscribe(async ({ tag }) => {
 				this.path = urlSegments[1];
+				console.log(this.path);
+
 				this.tag = tag;
+				console.log(this.tag);
+
 				this.isLicitacion = this.path === 'licitaciones';
 				if (this.isLicitacion) {
 					this.imgURL = `${environment.pathImgSupabase}${this.tag}.jpg`;

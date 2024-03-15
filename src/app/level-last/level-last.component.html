@@ -7,7 +7,7 @@
 		<header class="OCM-title-dark">{{ title }}</header>
 	}
 
-	@switch (path) {
+	@switch (tag) {
 		@case ('deudaTotal') {
 			<img class="OCM-imgGraph" [src]="deudaTotalImgURL" alt="Grafico deuda total" />
 		}
@@ -15,7 +15,7 @@
 			<img class="OCM-imgGraph" [src]="deudaVivaImgURL" alt="Grafico deuda viva" />
 		}
 		@case ('pmp') {
-			<img class="OCM-imgGraph" [src]="deudaVivaImgURL" alt="Grafico pmp" />
+			<img class="OCM-imgGraph" [src]="pmpURL" alt="Grafico pmp" />
 		}
 		@case ('distritos') {
 			<img class="OCM-imgGraph" [src]="imgURL" alt="Distrito" />
