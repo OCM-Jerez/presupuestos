@@ -10,8 +10,7 @@ import { IStep } from '@interfaces/step.interface';
 	selector: 'app-estado-licitacion',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './estado-licitacion.component.html',
-	styleUrls: ['./estado-licitacion.component.scss']
+	templateUrl: './estado-licitacion.component.html'
 })
 export default class EstadoLicitacionComponent {
 	@Input() steps: IStep[];
@@ -21,10 +20,10 @@ export default class EstadoLicitacionComponent {
 	public canAddRowSupabase = environment.canAddRowSupabase;
 
 	addStep(): void {
-		this._router.navigateByUrl(`/addStep`);
+		this._router.navigateByUrl(`/addStep/${this.steps[0].tag}`);
 	}
 
 	updateLicitacion(): void {
-		this._router.navigateByUrl(`/updateLicitacion`);
+		this._router.navigateByUrl(`/updateLicitacion/${this.steps[0].tag}`);
 	}
 }
