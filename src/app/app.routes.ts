@@ -182,7 +182,7 @@ export default [
 		loadComponent: () => import('./addNewRecodsToSupabase/licitacion-form/licitacion-form.component')
 	},
 	{
-		path: 'updateLicitacion',
+		path: 'updateLicitacion/:tag',
 		loadComponent: () => import('./addNewRecodsToSupabase/update-licitacion-form/update-licitacion-form.component')
 	},
 	{
