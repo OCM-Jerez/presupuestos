@@ -1,11 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-// import { ActivatedRoute, Router } from '@angular/router';
 
 import { SupabaseService } from '@services/supabase.service';
-// import { TagStoreService } from '@services/tagStore.service';
-// import { first } from 'rxjs';
 
 @Component({
 	selector: 'app-news-form',
@@ -16,39 +13,63 @@ import { SupabaseService } from '@services/supabase.service';
 })
 export default class NewsFormComponent implements OnInit {
 	@Input() tag: string;
-	// private _router = inject(Router);
-	// private _activatedRoute = inject(ActivatedRoute);
 	private _formBuilder = inject(FormBuilder);
 	private _supabaseService = inject(SupabaseService);
 	private _location = inject(Location);
 	public userForm: FormGroup;
-	// private _tagStoreService = inject(TagStoreService);
-	// public path: string;
-	// public tag: string;
 
 	ngOnInit(): void {
-		// this.getTag();
-
 		this.userForm = this._formBuilder.group({
 			date: ['', Validators.required],
 			media: ['', Validators.required],
 			title: ['', Validators.required],
 			url_new: ['']
 		});
+
+		this.readClipboard();
 	}
 
-	// getTag() {
-	// 	const urlSegments = this._router.url.split('/');
-	// 	console.log('urlSegments:', urlSegments);
+	async readClipboard1() {
+		try {
+			const clipboardContents = await navigator.clipboard.read();
+			console.log('clipboardContents:', clipboardContents);
 
-	// 	// ¿Es ruta con parametro? Por ejemplo: path: 'licitaciones/:tag',
-	// 	if (urlSegments.length > 2) {
-	// 		this._activatedRoute.params.pipe(first()).subscribe(async ({ tag }) => {
-	// 			this.path = urlSegments[1];
-	// 			this.tag = tag;
-	// 		});
-	// 	}
-	// }
+			for (const item of clipboardContents) {
+				console.log('item:', item.types);
+
+				if (item.types.includes('text/html')) {
+					const text = await item.getType('text/html');
+					console.log('text:', text);
+					navigator.clipboard.readText().then((clipText) => {
+						console.log('clipText:', clipText);
+
+						this.userForm.patchValue({ url_new: clipText });
+					});
+				}
+
+				if (item.types.includes('text/plain')) {
+					const text = await item.getType('text/plain');
+					console.log('text:', text);
+					navigator.clipboard.readText().then((clipText) => {
+						console.log('clipText:', clipText);
+						this.userForm.patchValue({ title: clipText });
+					});
+				}
+			}
+		} catch (error) {
+			console.log('error:', error);
+		}
+	}
+
+	async readClipboard() {
+		try {
+			navigator.clipboard.readText().then((clipText) => {
+				this.userForm.patchValue({ url_new: clipText });
+			});
+		} catch (error) {
+			console.error('error:', error);
+		}
+	}
 
 	async guardar(): Promise<void> {
 		if (this.userForm?.valid) {
