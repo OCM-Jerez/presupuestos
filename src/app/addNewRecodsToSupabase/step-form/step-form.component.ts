@@ -7,8 +7,7 @@ import { SupabaseService } from '@services/supabase.service';
 	selector: 'app-step-form',
 	standalone: true,
 	imports: [FormsModule, ReactiveFormsModule],
-	templateUrl: './step-form.component.html',
-	styleUrls: ['./step-form.component.scss']
+	templateUrl: './step-form.component.html'
 })
 export default class StepFormComponent implements OnInit {
 	@Input() tag: string;
@@ -23,7 +22,7 @@ export default class StepFormComponent implements OnInit {
 		});
 	}
 
-	async submitForm(): Promise<void> {
+	async guardar(): Promise<void> {
 		if (this.userForm?.valid) {
 			const formData = {
 				...this.userForm.value,
