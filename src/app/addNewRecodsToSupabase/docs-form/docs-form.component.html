@@ -1,33 +1,33 @@
 <div class="OCM-dark-teme OCM-flex OCM-flex--center">
 	<form [formGroup]="userForm" (ngSubmit)="guardar()">
-		<fieldset>
+		<fieldset class="OCMFieldset">
 			<header class="OCM-subtitle-dark">Añadir documento en {{ tag }}</header>
 
 			<label for="date" class="OCM-label-dark">Fecha</label>
-			<input type="date" class="form-date" id="date" formControlName="date" />
+			<input type="date" class="OCMInputDate" id="date" formControlName="date" />
 			@if (userForm?.get('date')?.invalid && userForm?.get('date')?.touched) {
-				<div class="text-danger">Fecha es requerida.</div>
+				<div class="OCM-alert">Fecha es requerida.</div>
 			}
 
 			<label for="emisor" class="OCM-label-dark">Emisor</label>
-			<input type="text" class="form-media" id="emisor" formControlName="emisor" />
+			<input type="text" class="OCMInputMedia" id="emisor" formControlName="emisor" />
 			@if (userForm?.get('emisor')?.invalid && userForm?.get('emisor')?.touched) {
-				<div class="text-danger">Emisor es requerido.</div>
+				<div class="OCM-alert">Emisor es requerido.</div>
 			}
 
 			<label for="title" class="OCM-label-dark">Titulo</label>
-			<input type="text" class="form-long" id="title" formControlName="title" />
+			<input type="text" class="OCMInputLong" id="title" formControlName="title" />
 			@if (userForm?.get('title')?.invalid && userForm?.get('title')?.touched) {
-				<div class="text-danger">Titulo es requerido.</div>
+				<div class="OCM-alert">Titulo es requerido.</div>
 			}
 
 			<label for="url_doc" class="OCM-label-dark">URL</label>
-			<input type="text" class="form-long" id="url_doc" formControlName="url_doc" />
+			<input type="text" class="OCMInputLong" id="url_doc" formControlName="url_doc" />
 			@if (userForm?.get('url_doc')?.invalid && userForm?.get('url_doc')?.touched) {
-				<div class="text-danger">URL es requerido.</div>
+				<div class="OCM-alert">URL es requerido.</div>
 			}
 
-			<button class="OCM-button-container OCM-button" type="submit">Grabar</button>
+			<button type="submit" [disabled]="!userForm.valid" class="OCM-button-container OCM-button">Grabar</button>
 		</fieldset>
 	</form>
 </div>
