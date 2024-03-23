@@ -8,8 +8,7 @@ import { SupabaseService } from '@services/supabase.service';
 	selector: 'app-news-form',
 	standalone: true,
 	imports: [FormsModule, ReactiveFormsModule],
-	templateUrl: './news-form.component.html',
-	styleUrls: ['./news-form.component.scss']
+	templateUrl: './news-form.component.html'
 })
 export default class NewsFormComponent implements OnInit {
 	@Input() tag: string;

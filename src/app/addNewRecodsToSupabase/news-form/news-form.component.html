@@ -1,28 +1,28 @@
 <div class="OCM-dark-teme OCM-flex OCM-flex--center">
 	<form [formGroup]="userForm" (ngSubmit)="guardar()">
-		<fieldset>
+		<fieldset class="OCMFieldset">
 			<header class="OCM-subtitle-dark">Añadir noticia en {{ tag }}</header>
 
 			<label for="date" class="OCM-label-dark">Fecha</label>
-			<input type="date" class="form-date" id="date" formControlName="date" />
+			<input type="date" class="OCMInputDate" id="date" formControlName="date" />
 			@if (userForm?.get('date')?.invalid && userForm?.get('date')?.touched) {
 				<div class="OCM-alert">Fecha es requerida.</div>
 			}
 
 			<label for="media" class="OCM-label-dark">Medio</label>
-			<input type="text" class="form-media" id="media" formControlName="media" />
+			<input type="text" class="OCMInputMedia" id="media" formControlName="media" />
 			@if (userForm?.get('media')?.invalid && userForm?.get('media')?.touched) {
 				<div class="OCM-alert">Medio es requerido.</div>
 			}
 
 			<label for="title" class="OCM-label-dark">Titulo</label>
-			<input type="text" class="form-long" id="title" formControlName="title" />
+			<input type="text" class="OCMInputLong" id="title" formControlName="title" />
 			@if (userForm?.get('title')?.invalid && userForm?.get('title')?.touched) {
 				<div class="OCM-alert">Titulo es requerido.</div>
 			}
 
 			<label for="url_new" class="OCM-label-dark">URL</label>
-			<input type="text" class="form-long" id="url_new" formControlName="url_new" />
+			<input type="text" class="OCMInputLong" id="url_new" formControlName="url_new" />
 			@if (userForm?.get('url_new')?.invalid && userForm?.get('url_new')?.touched) {
 				<div class="OCM-alerts">URL es requerido.</div>
 			}
