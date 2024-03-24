@@ -10,7 +10,14 @@
 			}
 
 			<label for="media" class="OCM-label-dark">Medio</label>
-			<input type="text" class="OCMInputMedia" id="media" formControlName="media" />
+			<input type="text" class="OCMInputMedia" id="media" formControlName="media" list="medios" />
+			<datalist id="medios">
+				<option value="Diario de Jerez"></option>
+				<option value="La Voz del Sur"></option>
+				<option value="Viva Jerez"></option>
+				<option value="Mira Jerez"></option>
+				<!-- <option value="Mira Jerez">Stop being a troll</option> -->
+			</datalist>
 			@if (userForm?.get('media')?.invalid && userForm?.get('media')?.touched) {
 				<div class="OCM-alert">Medio es requerido.</div>
 			}
