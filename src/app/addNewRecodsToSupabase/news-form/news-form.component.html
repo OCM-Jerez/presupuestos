@@ -6,7 +6,7 @@
 			<label for="date" class="OCM-label-dark">Fecha</label>
 			<input type="date" class="OCMInputDate" id="date" formControlName="date" />
 			@if (userForm?.get('date')?.invalid && userForm?.get('date')?.touched) {
-				<div class="OCM-alert">Fecha es requerida.</div>
+				<span class="OCM-alert">Fecha es requerida.</span>
 			}
 
 			<label for="media" class="OCM-label-dark">Medio</label>
@@ -19,19 +19,19 @@
 				<!-- <option value="Mira Jerez">Stop being a troll</option> -->
 			</datalist>
 			@if (userForm?.get('media')?.invalid && userForm?.get('media')?.touched) {
-				<div class="OCM-alert">Medio es requerido.</div>
+				<span class="OCM-alert">Medio es requerido.</span>
 			}
 
 			<label for="title" class="OCM-label-dark">Titulo</label>
 			<input type="text" class="OCMInputLong" id="title" formControlName="title" />
 			@if (userForm?.get('title')?.invalid && userForm?.get('title')?.touched) {
-				<div class="OCM-alert">Titulo es requerido.</div>
+				<span class="OCM-alert">Titulo es requerido.</span>
 			}
 
 			<label for="url_new" class="OCM-label-dark">URL</label>
 			<input type="text" class="OCMInputLong" id="url_new" formControlName="url_new" />
 			@if (userForm?.get('url_new')?.invalid && userForm?.get('url_new')?.touched) {
-				<div class="OCM-alerts">URL es requerido.</div>
+				<span class="OCM-alerts">URL es requerido.</span>
 			}
 
 			<button type="submit" [disabled]="!userForm.valid" class="OCM-button-container OCM-button">Grabar</button>
