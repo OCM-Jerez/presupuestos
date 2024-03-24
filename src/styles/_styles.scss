@@ -139,6 +139,9 @@
 		&--left {
 			justify-content: left;
 		}
+		&--center {
+			justify-content: center;
+		}
 	}
 
 	.OCM-label-dark {
@@ -150,6 +153,9 @@
 		font-family: var(--fuente-principal);
 		font-size: clamp(0.778rem, 1vw + 0.5rem, 1.222rem);
 		padding-left: 10px;
+		&--marginTop {
+			margin-top: 1rem;
+		}
 	}
 
 	.OCM-alert {

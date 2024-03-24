@@ -3,13 +3,13 @@
 		<fieldset class="OCMFieldset">
 			<header class="OCM-subtitle-dark">Añadir noticia en {{ tag }}</header>
 
-			<label for="date" class="OCM-label-dark">Fecha</label>
+			<label for="date" class="OCM-label-dark OCM-label-dark--marginTop">Fecha</label>
 			<input type="date" class="OCMInputDate" id="date" formControlName="date" />
 			@if (userForm?.get('date')?.invalid && userForm?.get('date')?.touched) {
 				<span class="OCM-alert">Fecha es requerida.</span>
 			}
 
-			<label for="media" class="OCM-label-dark">Medio</label>
+			<label for="media" class="OCM-label-dark OCM-label-dark--marginTop">Medio</label>
 			<input type="text" class="OCMInputMedia" id="media" formControlName="media" list="medios" />
 			<datalist id="medios">
 				<option value="Diario de Jerez"></option>
@@ -22,13 +22,13 @@
 				<span class="OCM-alert">Medio es requerido.</span>
 			}
 
-			<label for="title" class="OCM-label-dark">Titulo</label>
+			<label for="title" class="OCM-label-dark OCM-label-dark--marginTop">Titulo</label>
 			<input type="text" class="OCMInputLong" id="title" formControlName="title" />
 			@if (userForm?.get('title')?.invalid && userForm?.get('title')?.touched) {
 				<span class="OCM-alert">Titulo es requerido.</span>
 			}
 
-			<label for="url_new" class="OCM-label-dark">URL</label>
+			<label for="url_new" class="OCM-label-dark OCM-label-dark--marginTop">URL</label>
 			<input type="text" class="OCMInputLong" id="url_new" formControlName="url_new" />
 			@if (userForm?.get('url_new')?.invalid && userForm?.get('url_new')?.touched) {
 				<span class="OCM-alerts">URL es requerido.</span>
