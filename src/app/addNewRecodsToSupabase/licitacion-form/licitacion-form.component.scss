@@ -31,7 +31,7 @@ aa {
 	margin: 0;
 }
 
-.container {
+.containerLicitacion {
 	display: grid;
 	grid-template-columns: 220px 220px 220px;
 	grid-template-rows: 62px;
@@ -47,9 +47,13 @@ aa {
 		'prebase prebasei valor'
 		'tipo cpv sistema'
 		'procedimiento tipoContratacion tipoContratacion'
-		'adjudicatario adjudicatario adjudicatario'
+		'credito credito credito'
+		'organico programa economico'
+		'distrito urlGeo urlGeo'
+		'adjudicatario adjudicatario CIFadjudicatario'
 		'URLadjudicatario URLadjudicatario URLadjudicatario'
-		'CIFadjudicatario presentados .';
+		'presentados plazoEjecucion duracionContrato'
+		'importeAdjudicacionSinImpuestos importeAdjudicacionConImpuestos canonConcesional';
 
 	width: 660px;
 	margin: 0 auto;
@@ -132,6 +136,30 @@ label {
 	width: 20rem;
 }
 
+.credito {
+	grid-area: credito;
+}
+
+.organico {
+	grid-area: organico;
+}
+
+.programa {
+	grid-area: programa;
+}
+
+.economico {
+	grid-area: economico;
+}
+
+.distrito {
+	grid-area: distrito;
+}
+
+.urlGeo {
+	grid-area: urlGeo;
+}
+
 .adjudicatario {
 	grid-area: adjudicatario;
 }
@@ -146,4 +174,24 @@ label {
 
 .presentados {
 	grid-area: presentados;
+}
+
+.plazoEjecucion {
+	grid-area: plazoEjecucion;
+}
+
+.duracionContrato {
+	grid-area: duracionContrato;
+}
+
+.importeAdjudicacionSinImpuestos {
+	grid-area: importeAdjudicacionSinImpuestos;
+}
+
+.importeAdjudicacionConImpuestos {
+	grid-area: importeAdjudicacionConImpuestos;
+}
+
+.canonConcesional {
+	grid-area: canonConcesional;
 }
