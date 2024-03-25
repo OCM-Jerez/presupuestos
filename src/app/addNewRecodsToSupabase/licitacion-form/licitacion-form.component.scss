@@ -1,9 +1,3 @@
-.container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-
 .column {
 	flex: 1; /* Las columnas crecen igualmente para ocupar el espacio */
 	background-color: #cbd89b; /* Solo para visualización, se puede cambiar */
@@ -37,7 +31,7 @@ aa {
 	margin: 0;
 }
 
-.container1 {
+.container {
 	display: grid;
 	grid-template-columns: 220px 220px 220px;
 	grid-template-rows: 62px;
