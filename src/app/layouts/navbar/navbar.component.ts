@@ -57,6 +57,11 @@ export class NavbarComponent {
 		this.router.navigateByUrl('addDoc/' + this.tag);
 	}
 
+	addCard(): void {
+		this.getTag();
+		this.router.navigateByUrl('addCard/' + this.tag);
+	}
+
 	navigateTo() {
 		this.router.navigateByUrl('/');
 	}

@@ -178,6 +178,10 @@ export default [
 		loadComponent: () => import('./addNewRecodsToSupabase/docs-form/docs-form.component')
 	},
 	{
+		path: 'addCard/:tag',
+		loadComponent: () => import('./addNewRecodsToSupabase/add-card/add-card.component')
+	},
+	{
 		path: 'addNewLicitacion',
 		loadComponent: () => import('./addNewRecodsToSupabase/licitacion-form/licitacion-form.component')
 	},

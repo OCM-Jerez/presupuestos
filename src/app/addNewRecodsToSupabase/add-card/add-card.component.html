@@ -1,0 +1,52 @@
+<div class="OCM-dark-teme OCM-flex OCM-flex--center">
+	<form [formGroup]="cardForm" (ngSubmit)="guardar()">
+		<fieldset class="OCM-Fieldset">
+			<header class="OCM-subtitle-dark">Añadir card en {{ tag }}</header>
+
+			<label for="title" class="OCM-label-dark OCM-label-dark--marginTop">Titulo</label>
+			<input type="text" class="OCMInputLong" id="title" formControlName="title" />
+			@if (cardForm?.get('title')?.invalid && cardForm?.get('title')?.touched) {
+				<span class="OCM-alert">Titulo es requerido.</span>
+			}
+
+			<label for="tag" class="OCM-label-dark OCM-label-dark--marginTop">Tag</label>
+			<input type="text" class="OCMInputMedia" id="tag" formControlName="tag" />
+			@if (cardForm?.get('tag')?.invalid && cardForm?.get('tag')?.touched) {
+				<span class="OCM-alert">Tag es requerido.</span>
+			}
+
+			<label for="level" class="OCM-label-dark OCM-label-dark--marginTop"
+				>Nivel. Level de la pagina donde se va a incluir la card</label
+			>
+			<input type="text" class="OCMInputMedia" id="level" formControlName="level" list="levels" />
+			<datalist id="levels">
+				<option value="level1"></option>
+				<option value="level2"></option>
+				<option value="level3"></option>
+			</datalist>
+			@if (cardForm?.get('level')?.invalid && cardForm?.get('level')?.touched) {
+				<span class="OCM-alerts">Nivel es requerido.</span>
+			}
+
+			<label for="isLastLevel" class="OCM-label-dark OCM-label-dark--marginTop">¿Es último nivel?</label>
+			<input
+				type="checkbox"
+				style="width: auto"
+				class="OCM-flex OCM-flex--left"
+				id="isLastLevel"
+				formControlName="isLastLevel"
+			/>
+			@if (cardForm?.get('isLastLevel')?.invalid && cardForm?.get('isLastLevel')?.touched) {
+				<span class="OCM-alert">¿Es último nivel? es requerido.</span>
+			}
+
+			<label for="order" class="OCM-label-dark OCM-label-dark--marginTop">Orden</label>
+			<input type="number" style="width: 12rem" id="order" formControlName="order" />
+			@if (cardForm?.get('order')?.invalid && cardForm?.get('order')?.touched) {
+				<span class="OCM-alert">Orden es requerido.</span>
+			}
+
+			<button type="submit" [disabled]="!cardForm.valid" class="OCM-button-container OCM-button">Grabar</button>
+		</fieldset>
+	</form>
+</div>
