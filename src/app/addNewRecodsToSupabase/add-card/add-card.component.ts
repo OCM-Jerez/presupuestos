@@ -36,9 +36,7 @@ export default class AddCardComponent implements OnInit {
 			};
 
 			try {
-				console.log('formData:', formData);
-
-				// await this._supabaseService.insertRow('tag_title', formData);
+				await this._supabaseService.insertRow('tag_title', formData);
 				this._location.back();
 			} catch (error) {
 				console.error('Error al insertar datos:', error);
