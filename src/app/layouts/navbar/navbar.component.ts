@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import NewsFormComponent from '@app/addNewRecodsToSupabase/news-form/news-form.component';
 
@@ -10,7 +10,6 @@ import { TagStoreService } from '@services/tagStore.service';
 import { PathStoreService } from '@services/pathStore.service';
 import { TitleStoreService } from '@services/titleStore.service';
 import { ModalService } from '../modal/modal.service';
-import { first } from 'rxjs';
 
 @Component({
 	selector: 'app-navbar',
@@ -23,8 +22,6 @@ export class NavbarComponent {
 	@ViewChild('modal')
 	modal!: ElementRef<HTMLDivElement>;
 	@ViewChild('overlay') overlay!: ElementRef<HTMLDivElement>;
-	private _router = inject(Router);
-	private _activatedRoute = inject(ActivatedRoute);
 	private _location = inject(Location);
 	private _tagStoreService = inject(TagStoreService);
 	private _pathStoreService = inject(PathStoreService);
@@ -36,7 +33,7 @@ export class NavbarComponent {
 	public canAddRowSupabase = environment.canAddRowSupabase;
 
 	getTag() {
-		const urlSegments = this._router.url.split('/');
+		const urlSegments = this.router.url.split('/');
 		this.tag = urlSegments[urlSegments.length - 1];
 	}
 
