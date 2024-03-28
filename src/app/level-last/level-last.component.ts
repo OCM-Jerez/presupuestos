@@ -75,6 +75,7 @@ export default class LevelLastComponent implements OnInit {
 	public deudaTotalImgURL = `${environment.pathImgSupabase}/2023.07.28.jpg`;
 	public deudaVivaImgURL = `${environment.pathImgSupabase}/deudaVivaActual.jpg`;
 	public pmpURL = environment.pathImgSupabase + 'pmpActual.jpg';
+	public opaURL = environment.pathImgSupabase + 'opaActual.jpg';
 	// public path = this._pathStoreService.getPath();
 	public path: string;
 
